@@ -15,7 +15,7 @@ import { SectionContacto } from './components/SectionContacto';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
-const App: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <LanguageProvider>
       <div className="font-sans antialiased selection:bg-brand selection:text-white">
@@ -39,5 +39,4 @@ const App: React.FC = () => {
     </LanguageProvider>
   );
 };
-
-export default App;
+export default Main;
