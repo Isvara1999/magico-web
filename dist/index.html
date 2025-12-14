@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Eco‑Refugio & Glamping — Mágico Ensueño</title>
+  <meta name="description" content="Ecocentro en Sierras Grandes (Córdoba, AR): retiros, co‑living, glamping en domos y yurta, cocina de autor y naturaleza." />
+  
+  <link id="dynamic-favicon" rel="icon" href="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg" />
+
+  <!-- PRECONEXIONES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin> 
+  
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- IDENTITY WIDGET PARA CMS (Necesario para que funcione el login actual) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #F9F8F4; color: #1A1A1A; margin: 0; padding: 0; }
+    #loader-container {
+      height: 100vh; width: 100%; background-color: #F9F8F4; 
+      display: flex; justify-content: center; align-items: center;
+      position: fixed; top: 0; left: 0; z-index: 9999;
+    }
+  </style>
+
+  <script>
+    const ICON_LIGHT = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"; 
+    function updateFavicon() {
+      // Lógica simple para futuro soporte dark mode si es necesario
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-6alkD_ft.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Dyg_TpN6.css">
+</head>
+<body>
+  
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="whatsapp" />
+    <textarea name="message"></textarea>
+    <input type="hidden" name="form-name" value="contact" />
+  </form>
+
+  <div id="root">
+    <div id="loader-container">
+      <img 
+        src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg" 
+        style="height: 80px; width: auto; animation: pulse 2.5s infinite ease-in-out;" 
+        alt="Cargando..." 
+      />
+    </div>
+  </div>
+
+  <!-- Entry Point para Vite -->
+  
+  <!-- Redirección del CMS Authentication -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

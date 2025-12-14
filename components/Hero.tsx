@@ -9,9 +9,10 @@ export const Hero: React.FC = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
+          src={t.hero.bgImage}
           alt="Paisaje Mágico Ensueño"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/30 to-transparent mix-blend-multiply"></div>

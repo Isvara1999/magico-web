@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -16,9 +17,10 @@ export const SectionNosotros: React.FC = () => {
             <div className="md:col-span-5 relative order-last md:order-first">
               <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://tawaapukuntur.com/wp-content/uploads/2025/10/494815924_1424799465353456_392615711940557767_n.webp"
+                  src={t.about.image}
                   alt="Vista Mágico Ensueño"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

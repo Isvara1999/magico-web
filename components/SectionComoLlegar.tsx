@@ -10,9 +10,10 @@ export const SectionComoLlegar: React.FC = () => {
         <div className="order-2 md:order-1">
           <div className="rounded-xl overflow-hidden shadow-lg h-80 md:h-[500px]">
             <img
-              src="https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src={t.location.image}
               alt="Camino a la montaña"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>

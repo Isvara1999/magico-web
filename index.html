@@ -16,7 +16,7 @@
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- IDENTITY WIDGET PARA CMS -->
+  <!-- IDENTITY WIDGET PARA CMS (Necesario para que funcione el login actual) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
@@ -32,24 +32,9 @@
   <script>
     const ICON_LIGHT = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"; 
     function updateFavicon() {
-      const favicon = document.getElementById('dynamic-favicon');
-      const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Lógica simple para futuro soporte dark mode si es necesario
     }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
-    updateFavicon();
   </script>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "vite": "https://esm.sh/vite@^7.2.7",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
 </head>
 <body>
   
@@ -58,6 +43,7 @@
     <input type="email" name="email" />
     <input type="tel" name="whatsapp" />
     <textarea name="message"></textarea>
+    <input type="hidden" name="form-name" value="contact" />
   </form>
 
   <div id="root">

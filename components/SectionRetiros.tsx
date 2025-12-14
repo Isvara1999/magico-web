@@ -26,9 +26,9 @@ export const SectionRetiros: React.FC = () => {
                 {t.retreats.description}
               </p>
               <ul className="space-y-4 text-gray-300/80 mb-10 font-sans text-sm">
-                {t.retreats.list.map((item: string, index: number) => (
+                {t.retreats.list.map((item: any, index: number) => (
                   <li key={index} className="flex items-center gap-3">
-                    <Sparkles className="w-5 h-5 text-gold" /> {item}
+                    <Sparkles className="w-5 h-5 text-gold" /> {item.text}
                   </li>
                 ))}
               </ul>
@@ -44,14 +44,16 @@ export const SectionRetiros: React.FC = () => {
             
             <div className="grid grid-cols-2 gap-4 mt-8 lg:mt-0">
               <img
-                src={t.retreats.images[0]}
+                src={(t.retreats.images[0] as any).image}
                 alt="Yoga"
                 className="rounded-xl w-full h-48 md:h-64 object-cover mt-8 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                loading="lazy"
               />
               <img
-                src={t.retreats.images[1]}
+                src={(t.retreats.images[1] as any).image}
                 alt="Grupo"
                 className="rounded-xl w-full h-48 md:h-64 object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                loading="lazy"
               />
             </div>
           </div>

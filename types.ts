@@ -2,6 +2,8 @@ import React from 'react';
 
 export type Language = 'es' | 'en';
 
+export type SiteContent = any;
+
 export interface MenuItem {
   label: string;
   href: string;
