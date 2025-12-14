@@ -1,0 +1,72 @@
+{
+  "es": {
+    "hero": {
+      "title": "Te invita a Ser",
+      "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
+      "btnBook": "Reserva Reconexión",
+      "btnRetreat": "Organizar Retiro",
+      "stats_years": "+20 Años",
+      "stats_trees": "+8mil Árboles reforestados",
+      "stats_sus": "Sustentable"
+    },
+    "about": {
+      "tag": "Nuestra Esencia",
+      "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
+      "p1": "Mágico Ensueño no es solo un lugar; es un estado de consciencia. Ubicado en el corazón de las Sierras Grandes, hemos cultivado este espacio durante más de 20 años como un refugio para el alma.",
+      "p2": "Combinamos la autogestión y el bienestar con un enfoque regenerativo. Cada árbol plantado y cada plato servido cuentan una historia de respeto por la tierra.",
+      "link": "Descubrir nuestros pilares"
+    },
+    "retreats": {
+      "tag": "Experiencias Grupales",
+      "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
+      "description": "Co-creamos junto a facilitadores, escuelas y empresas. Ofrecemos nuestra infraestructura y energía para retiros y jornadas outdoor.",
+      "btn": "Organizar Retiro"
+    },
+    "volunteer": {
+      "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
+      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de aprendizaje y servicio a la tierra.",
+      "btn": "Postularme"
+    },
+    "location": {
+      "title": "El viaje es parte <br />de la experiencia.",
+      "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
+      "btnMap": "Ver en Mapa",
+      "btnTransfer": "Coordinar Traslado"
+    }
+  },
+  "en": {
+    "hero": {
+      "title": "Invites you to Be",
+      "subtitle": "A space to live transformative experiences that invite you to reconnect with yourself, enjoy and rest.",
+      "btnBook": "Book Reconnection",
+      "btnRetreat": "Organize Retreat",
+      "stats_years": "+20 Years",
+      "stats_trees": "+8k Reforested Trees",
+      "stats_sus": "Sustainable"
+    },
+    "about": {
+      "tag": "Our Essence",
+      "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
+      "p1": "Mágico Ensueño is not just a place; it is a state of consciousness. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for the soul.",
+      "p2": "We combine self-management and wellness with a regenerative approach. Every tree planted and every dish served tells a story of respect for the land.",
+      "link": "Discover our pillars"
+    },
+    "retreats": {
+      "tag": "Group Experiences",
+      "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
+      "description": "We co-create with facilitators, schools and companies. We offer our infrastructure and energy for retreats and outdoor journeys.",
+      "btn": "Organize Retreat"
+    },
+    "volunteer": {
+      "title": "An exchange that <span class='italic text-gold'>expands</span>",
+      "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
+      "btn": "Apply"
+    },
+    "location": {
+      "title": "The journey is part <br />of the experience.",
+      "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. Es accesible for any vehicle.",
+      "btnMap": "View on Map",
+      "btnTransfer": "Coordinate Transfer"
+    }
+  }
+}

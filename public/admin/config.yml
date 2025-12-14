@@ -1,0 +1,109 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "content"
+    label: "Contenido del Sitio"
+    files:
+      - name: "data"
+        label: "Textos Generales (ES/EN)"
+        file: "data.json"
+        fields:
+          - name: "es"
+            label: "Español"
+            widget: "object"
+            fields:
+              - name: "hero"
+                label: "Hero (Inicio)"
+                widget: "object"
+                fields:
+                  - {label: "Título", name: "title", widget: "string"}
+                  - {label: "Subtítulo", name: "subtitle", widget: "text"}
+                  - {label: "Botón Reserva", name: "btnBook", widget: "string"}
+                  - {label: "Botón Retiro", name: "btnRetreat", widget: "string"}
+                  - {label: "Años", name: "stats_years", widget: "string"}
+                  - {label: "Árboles", name: "stats_trees", widget: "string"}
+                  - {label: "Sustentable", name: "stats_sus", widget: "string"}
+              - name: "about"
+                label: "Sobre Nosotros"
+                widget: "object"
+                fields:
+                  - {label: "Etiqueta", name: "tag", widget: "string"}
+                  - {label: "Título (Soporta HTML)", name: "title", widget: "string"}
+                  - {label: "Párrafo 1", name: "p1", widget: "text"}
+                  - {label: "Párrafo 2", name: "p2", widget: "text"}
+                  - {label: "Texto Link", name: "link", widget: "string"}
+              - name: "retreats"
+                label: "Retiros"
+                widget: "object"
+                fields:
+                  - {label: "Etiqueta", name: "tag", widget: "string"}
+                  - {label: "Título (Soporta HTML)", name: "title", widget: "string"}
+                  - {label: "Descripción", name: "description", widget: "text"}
+                  - {label: "Botón", name: "btn", widget: "string"}
+              - name: "volunteer"
+                label: "Voluntariado"
+                widget: "object"
+                fields:
+                   - {label: "Título (Soporta HTML)", name: "title", widget: "string"}
+                   - {label: "Descripción", name: "description", widget: "text"}
+                   - {label: "Botón", name: "btn", widget: "string"}
+              - name: "location"
+                label: "Ubicación"
+                widget: "object"
+                fields:
+                   - {label: "Título (Soporta HTML)", name: "title", widget: "string"}
+                   - {label: "Descripción", name: "description", widget: "text"}
+                   - {label: "Botón Mapa", name: "btnMap", widget: "string"}
+                   - {label: "Botón Traslado", name: "btnTransfer", widget: "string"}
+          - name: "en"
+            label: "Inglés"
+            widget: "object"
+            fields:
+              - name: "hero"
+                label: "Hero (Home)"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Subtitle", name: "subtitle", widget: "text"}
+                  - {label: "Button Book", name: "btnBook", widget: "string"}
+                  - {label: "Button Retreat", name: "btnRetreat", widget: "string"}
+                  - {label: "Years", name: "stats_years", widget: "string"}
+                  - {label: "Trees", name: "stats_trees", widget: "string"}
+                  - {label: "Sustainable", name: "stats_sus", widget: "string"}
+              - name: "about"
+                label: "About Us"
+                widget: "object"
+                fields:
+                  - {label: "Tag", name: "tag", widget: "string"}
+                  - {label: "Title (Supports HTML)", name: "title", widget: "string"}
+                  - {label: "Paragraph 1", name: "p1", widget: "text"}
+                  - {label: "Paragraph 2", name: "p2", widget: "text"}
+                  - {label: "Link Text", name: "link", widget: "string"}
+              - name: "retreats"
+                label: "Retreats"
+                widget: "object"
+                fields:
+                  - {label: "Tag", name: "tag", widget: "string"}
+                  - {label: "Title (Supports HTML)", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Button", name: "btn", widget: "string"}
+              - name: "volunteer"
+                label: "Volunteering"
+                widget: "object"
+                fields:
+                   - {label: "Title (Supports HTML)", name: "title", widget: "string"}
+                   - {label: "Description", name: "description", widget: "text"}
+                   - {label: "Button", name: "btn", widget: "string"}
+              - name: "location"
+                label: "Location"
+                widget: "object"
+                fields:
+                   - {label: "Title (Supports HTML)", name: "title", widget: "string"}
+                   - {label: "Description", name: "description", widget: "text"}
+                   - {label: "Button Map", name: "btnMap", widget: "string"}
+                   - {label: "Button Transfer", name: "btnTransfer", widget: "string"}
