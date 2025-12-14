@@ -7,31 +7,135 @@
       "btnRetreat": "Organizar Retiro",
       "stats_years": "+20 Años",
       "stats_trees": "+8mil Árboles reforestados",
-      "stats_sus": "Sustentable"
+      "stats_sus": "Sustentable",
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
     },
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
       "p1": "Mágico Ensueño no es solo un lugar; es un estado de consciencia. Ubicado en el corazón de las Sierras Grandes, hemos cultivado este espacio durante más de 20 años como un refugio para el alma.",
       "p2": "Combinamos la autogestión y el bienestar con un enfoque regenerativo. Cada árbol plantado y cada plato servido cuentan una historia de respeto por la tierra.",
-      "link": "Descubrir nuestros pilares"
+      "link": "Descubrir nuestros pilares",
+      "image": "https://tawaapukuntur.com/wp-content/uploads/2025/10/494815924_1424799465353456_392615711940557767_n.webp"
+    },
+    "video": {
+      "title": "La atmósfera de la montaña",
+      "videoUrl": "https://cdn.pixabay.com/video/2020/03/03/33179-396529572_large.mp4",
+      "poster": "https://images.pexels.com/photos/673020/pexels-photo-673020.jpeg"
+    },
+    "experiences": {
+      "tag": "Experiencia Mágico",
+      "title": "Diseñá tu estadía",
+      "subtitle": "En el corazón de la montaña, donde la calma y la belleza simple te invitan a reencontrarte.",
+      "btn": "Reservar mi lugar",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Bienestar & Balance",
+          "description": "Ceremonias ancestrales, yoga, consciencia corporal y temazcal.",
+          "ctaText": "Consultar Terapias",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg"
+        },
+        {
+          "id": 2,
+          "title": "Glamping & Refugio",
+          "description": "Desde Domos Geodésicos y Yurtas, hasta habitaciones históricas.",
+          "ctaText": "Ver Opciones",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg"
+        },
+        {
+          "id": 3,
+          "title": "Cocina Consciente",
+          "description": "Nutrición para el cuerpo y el alma. Productos locales y orgánicos.",
+          "ctaText": "Ver Propuesta",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+        }
+      ]
     },
     "retreats": {
       "tag": "Experiencias Grupales",
       "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
       "description": "Co-creamos junto a facilitadores, escuelas y empresas. Ofrecemos nuestra infraestructura y energía para retiros y jornadas outdoor.",
-      "btn": "Organizar Retiro"
+      "btn": "Organizar Retiro",
+      "list": [
+        "Salón panorámico.",
+        "Alimentación regenerativa.",
+        "Producción integral."
+      ],
+      "images": [
+        "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg",
+        "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+      ]
     },
     "volunteer": {
       "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
       "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de aprendizaje y servicio a la tierra.",
-      "btn": "Postularme"
+      "btn": "Postularme",
+      "image": "https://images.pexels.com/photos/5638732/pexels-photo-5638732.jpeg"
+    },
+    "testimonials": {
+      "title": "Historias de la Montaña",
+      "items": [
+        {
+          "id": 1,
+          "name": "Julieta Castoldi",
+          "role": "Facilitadora",
+          "text": "\"Lo más importante: El amor, la entrega de todo el equipo y la capacidad de sentirte uno con la naturaleza.\"",
+          "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "Sofía R.",
+          "role": "Viajera",
+          "text": "\"Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.\"",
+          "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+        },
+        {
+          "id": 3,
+          "name": "Marcos D.",
+          "role": "Huésped",
+          "text": "\"Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.\"",
+          "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+      ]
+    },
+    "events": {
+      "tag": "Calendario",
+      "title": "Próximos Encuentros",
+      "link": "Ver agenda completa",
+      "cards": [
+        {
+          "date": "3 – 5 OCT",
+          "title": "Alquimia — Retiro",
+          "desc": "Transformación interior a través de la naturaleza y la presencia.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg"
+        },
+        {
+          "date": "24 – 26 OCT",
+          "title": "Honra — Celebración",
+          "desc": "Un espacio para honrar los procesos de cambio y gratitud.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg"
+        },
+        {
+          "date": "14 – 16 NOV",
+          "title": "Calma en la Montaña",
+          "desc": "Yoga, meditación, trekking y alimentación consciente.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg"
+        }
+      ]
     },
     "location": {
       "title": "El viaje es parte <br />de la experiencia.",
       "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
       "btnMap": "Ver en Mapa",
-      "btnTransfer": "Coordinar Traslado"
+      "btnTransfer": "Coordinar Traslado",
+      "image": "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   },
   "en": {
@@ -42,31 +146,135 @@
       "btnRetreat": "Organize Retreat",
       "stats_years": "+20 Years",
       "stats_trees": "+8k Reforested Trees",
-      "stats_sus": "Sustainable"
+      "stats_sus": "Sustainable",
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
     },
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
       "p1": "Mágico Ensueño is not just a place; it is a state of consciousness. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for the soul.",
       "p2": "We combine self-management and wellness with a regenerative approach. Every tree planted and every dish served tells a story of respect for the land.",
-      "link": "Discover our pillars"
+      "link": "Discover our pillars",
+      "image": "https://tawaapukuntur.com/wp-content/uploads/2025/10/494815924_1424799465353456_392615711940557767_n.webp"
+    },
+    "video": {
+      "title": "The mountain atmosphere",
+      "videoUrl": "https://cdn.pixabay.com/video/2020/03/03/33179-396529572_large.mp4",
+      "poster": "https://images.pexels.com/photos/673020/pexels-photo-673020.jpeg"
+    },
+    "experiences": {
+      "tag": "Mágico Experience",
+      "title": "Design your stay",
+      "subtitle": "In the heart of the mountain, where calm and simple beauty invite you to reconnect.",
+      "btn": "Book my spot",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Wellness & Balance",
+          "description": "Ancestral ceremonies, yoga, body awareness and temazcal.",
+          "ctaText": "Consult Therapies",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg"
+        },
+        {
+          "id": 2,
+          "title": "Glamping & Shelter",
+          "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
+          "ctaText": "View Options",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg"
+        },
+        {
+          "id": 3,
+          "title": "Conscious Kitchen",
+          "description": "Nutrition for body and soul. Local and organic products.",
+          "ctaText": "View Proposal",
+          "ctaLink": "#contacto",
+          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+        }
+      ]
     },
     "retreats": {
       "tag": "Group Experiences",
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
       "description": "We co-create with facilitators, schools and companies. We offer our infrastructure and energy for retreats and outdoor journeys.",
-      "btn": "Organize Retreat"
+      "btn": "Organize Retreat",
+      "list": [
+        "Panoramic hall.",
+        "Regenerative food.",
+        "Integral production."
+      ],
+      "images": [
+        "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg",
+        "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+      ]
     },
     "volunteer": {
       "title": "An exchange that <span class='italic text-gold'>expands</span>",
       "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
-      "btn": "Apply"
+      "btn": "Apply",
+      "image": "https://images.pexels.com/photos/5638732/pexels-photo-5638732.jpeg"
+    },
+    "testimonials": {
+      "title": "Mountain Stories",
+      "items": [
+        {
+          "id": 1,
+          "name": "Julieta Castoldi",
+          "role": "Facilitator",
+          "text": "\"The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.\"",
+          "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "Sofía R.",
+          "role": "Traveler",
+          "text": "\"I felt part of the mountain life, like at home. A unique refuge of peace.\"",
+          "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+        },
+        {
+          "id": 3,
+          "name": "Marcos D.",
+          "role": "Guest",
+          "text": "\"A transformative experience. The conscious food and spaces are out of this world.\"",
+          "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+      ]
+    },
+    "events": {
+      "tag": "Calendar",
+      "title": "Upcoming Gatherings",
+      "link": "View full agenda",
+      "cards": [
+        {
+          "date": "OCT 3 – 5",
+          "title": "Alchemy — Retreat",
+          "desc": "Inner transformation through nature and presence.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg"
+        },
+        {
+          "date": "OCT 24 – 26",
+          "title": "Honor — Celebration",
+          "desc": "A space to honor processes of change and gratitude.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg"
+        },
+        {
+          "date": "NOV 14 – 16",
+          "title": "Calm in the Mountain",
+          "desc": "Yoga, meditation, trekking and conscious eating.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg"
+        }
+      ]
     },
     "location": {
       "title": "The journey is part <br />of the experience.",
       "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. Es accesible for any vehicle.",
       "btnMap": "View on Map",
-      "btnTransfer": "Coordinate Transfer"
+      "btnTransfer": "Coordinate Transfer",
+      "image": "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   }
 }
