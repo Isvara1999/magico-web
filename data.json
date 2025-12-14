@@ -20,7 +20,7 @@
     },
     "video": {
       "title": "La atmósfera de la montaña",
-      "videoUrl": "https://cdn.pixabay.com/video/2020/03/03/33179-396529572_large.mp4",
+      "videoUrl": "https://www.youtube.com/embed/t5zQb4tZuyo",
       "poster": "https://images.pexels.com/photos/673020/pexels-photo-673020.jpeg"
     },
     "experiences": {
@@ -61,13 +61,13 @@
       "description": "Co-creamos junto a facilitadores, escuelas y empresas. Ofrecemos nuestra infraestructura y energía para retiros y jornadas outdoor.",
       "btn": "Organizar Retiro",
       "list": [
-        "Salón panorámico.",
-        "Alimentación regenerativa.",
-        "Producción integral."
+        { "text": "Salón panorámico." },
+        { "text": "Alimentación regenerativa." },
+        { "text": "Producción integral." }
       ],
       "images": [
-        "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg",
-        "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+        { "image": "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg" },
+        { "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" }
       ]
     },
     "volunteer": {
@@ -200,13 +200,13 @@
       "description": "We co-create with facilitators, schools and companies. We offer our infrastructure and energy for retreats and outdoor journeys.",
       "btn": "Organize Retreat",
       "list": [
-        "Panoramic hall.",
-        "Regenerative food.",
-        "Integral production."
+        { "text": "Panoramic hall." },
+        { "text": "Regenerative food." },
+        { "text": "Integral production." }
       ],
       "images": [
-        "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg",
-        "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+        { "image": "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg" },
+        { "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" }
       ]
     },
     "volunteer": {
@@ -262,7 +262,7 @@
         },
         {
           "date": "NOV 14 – 16",
-          "title": "Calm in the Mountain",
+          "title": "Calma in the Mountain",
           "desc": "Yoga, meditation, trekking and conscious eating.",
           "btn": "Book Spot",
           "image": "https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg"

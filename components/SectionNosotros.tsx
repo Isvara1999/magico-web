@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { marked } from 'marked';
 
 export const SectionNosotros: React.FC = () => {
   const { t } = useLanguage();
@@ -32,7 +33,7 @@ export const SectionNosotros: React.FC = () => {
               </span>
               <h2 
                 className="text-3xl md:text-5xl text-brand mb-6 md:mb-8 leading-tight font-serif"
-                dangerouslySetInnerHTML={{ __html: t.about.title as string }}
+                dangerouslySetInnerHTML={{ __html: marked(t.about.title as string) }}
               />
               <div className="prose prose-lg text-dark/80 text-justify font-light leading-relaxed">
                 <p>{t.about.p1}</p>

@@ -1,13 +1,16 @@
 // public/admin/custom-widgets.js
 // Assuming React and Cropper are available. Cropper needs to be loaded.
 
-const ImageEditorWidget = ({ value, onChange, ...props }) => {
-  const [cropper, setCropper] = React.useState(null);
-  const imgRef = React.useRef(null);
+const ImageEditorWidget = class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { cropper: null };
+    this.imgRef = React.createRef();
+  }
 
-  React.useEffect(() => {
-    if (imgRef.current && value && !cropper) {
-      const newCropper = new Cropper(imgRef.current, {
+  componentDidMount() {
+    if (this.imgRef.current && this.props.value && !this.state.cropper) {
+      const newCropper = new Cropper(this.imgRef.current, {
         aspectRatio: 16 / 9,
         viewMode: 1,
         responsive: true,
@@ -32,37 +35,40 @@ const ImageEditorWidget = ({ value, onChange, ...props }) => {
         cropBoxResizable: true,
         toggleDragModeOnDblclick: true,
       });
-      setCropper(newCropper);
+      this.setState({ cropper: newCropper });
     }
-    return () => {
-      if (cropper) cropper.destroy();
-    };
-  }, [value, cropper]);
+  }
 
-  const handleCrop = () => {
-    if (cropper) {
-      const canvas = cropper.getCroppedCanvas();
+  componentWillUnmount() {
+    if (this.state.cropper) this.state.cropper.destroy();
+  }
+
+  handleCrop = () => {
+    if (this.state.cropper) {
+      const canvas = this.state.cropper.getCroppedCanvas();
       canvas.toBlob((blob) => {
         const file = new File([blob], 'cropped-image.png', { type: 'image/png' });
-        onChange(file);
+        this.props.onChange(file);
       });
     }
   };
 
-  const handleFileChange = (e) => {
+  handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      onChange(file);
+      this.props.onChange(file);
     }
   };
 
-  return React.createElement('div', null,
-    React.createElement('input', { type: 'file', accept: 'image/*', onChange: handleFileChange, ...props }),
-    value && React.createElement('div', null,
-      React.createElement('img', { ref: imgRef, src: typeof value === 'string' ? value : URL.createObjectURL(value), alt: 'Edit' }),
-      React.createElement('button', { type: 'button', onClick: handleCrop }, 'Crop & Save')
-    )
-  );
+  render() {
+    return React.createElement('div', null,
+      React.createElement('input', { type: 'file', accept: 'image/*', onChange: this.handleFileChange, ...this.props }),
+      this.props.value && React.createElement('div', null,
+        React.createElement('img', { ref: this.imgRef, src: typeof this.props.value === 'string' ? this.props.value : URL.createObjectURL(this.props.value), alt: 'Edit' }),
+        React.createElement('button', { type: 'button', onClick: this.handleCrop }, 'Crop & Save')
+      )
+    );
+  }
 };
 
 CMS.registerWidget('image-editor', ImageEditorWidget);

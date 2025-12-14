@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { marked } from 'marked';
 
 export const SectionRetiros: React.FC = () => {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export const SectionRetiros: React.FC = () => {
               </p>
               <h2 
                 className="text-3xl md:text-6xl text-white mb-6 leading-tight font-serif"
-                dangerouslySetInnerHTML={{ __html: t.retreats.title as string }}
+                dangerouslySetInnerHTML={{ __html: marked(t.retreats.title as string) }}
               />
               <p className="text-gray-300 text-base mb-8 leading-relaxed font-light">
                 {t.retreats.description}

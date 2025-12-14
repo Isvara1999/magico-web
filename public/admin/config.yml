@@ -44,7 +44,7 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "Etiqueta", name: "tag", widget: "string"}
-                  - {label: "Título (HTML)", name: "title", widget: "string"}
+                  - {label: "Título (Markdown)", name: "title", widget: "markdown"}
                   - {label: "Párrafo 1", name: "p1", widget: "text"}
                   - {label: "Párrafo 2", name: "p2", widget: "text"}
                   - {label: "Texto Link", name: "link", widget: "string"}
@@ -79,7 +79,7 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "Etiqueta", name: "tag", widget: "string"}
-                  - {label: "Título (HTML)", name: "title", widget: "string"}
+                  - {label: "Título (Markdown)", name: "title", widget: "markdown"}
                   - {label: "Descripción", name: "description", widget: "text"}
                   - {label: "Botón", name: "btn", widget: "string"}
                   - label: "Lista de Características"
@@ -163,7 +163,7 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "Tag", name: "tag", widget: "string"}
-                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Title (Markdown)", name: "title", widget: "markdown"}
                   - {label: "Paragraph 1", name: "p1", widget: "text"}
                   - {label: "Paragraph 2", name: "p2", widget: "text"}
                   - {label: "Link Text", name: "link", widget: "string"}
@@ -198,7 +198,7 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "Tag", name: "tag", widget: "string"}
-                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Title (Markdown)", name: "title", widget: "markdown"}
                   - {label: "Description", name: "description", widget: "text"}
                   - {label: "Button", name: "btn", widget: "string"}
                   - label: "Features List"
