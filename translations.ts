@@ -1,8 +1,4 @@
-import React from 'react';
 import siteContent from './data.json';
-
-// Tipo helper para el contenido importado
-type ContentData = typeof siteContent.es;
 
 export const translations = {
   es: {
@@ -178,7 +174,7 @@ export const translations = {
       madeBy: 'Hecho con respeto a la montaña'
     }
   },
-  en: {
+  "en": {
     ...siteContent.en,
     menu: {
       items: [
