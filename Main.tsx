@@ -40,4 +40,8 @@ const Main: React.FC = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Main;
+=======
+export default Main;
+>>>>>>> 5b7c328695b142987c374028a9fdd258210efe5a

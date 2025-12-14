@@ -1,4 +1,3 @@
-import React from 'react';
 import { MenuItem, Testimonial, Experience, Pillar } from './types';
 import { Leaf, Users, Heart, Coffee } from 'lucide-react';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Importamos explícitamente la extensión .tsx para evitar que cargue 'app.js' por error
-import App from './App.tsx';
+import Main from './Main'; // Cambiamos la importación a Main para evitar conflictos de casing
 import './index.css';
 
 const rootElement = document.getElementById('root');
@@ -12,6 +11,6 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <Main />
   </React.StrictMode>
 );
