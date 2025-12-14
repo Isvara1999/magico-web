@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Importamos explícitamente la extensión .tsx para evitar que cargue 'app.js' por error
-import App from './App.tsx';
+import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root');
