@@ -21,7 +21,7 @@ export const SectionRetiros: React.FC = () => {
               </p>
               <h2 
                 className="text-3xl md:text-6xl text-white mb-6 leading-tight font-serif"
-                dangerouslySetInnerHTML={{ __html: marked(t.retreats.title as string) }}
+                dangerouslySetInnerHTML={{ __html: marked.parse(t.retreats.title as string) as string }}
               />
               <p className="text-gray-300 text-base mb-8 leading-relaxed font-light">
                 {t.retreats.description}
@@ -47,14 +47,16 @@ export const SectionRetiros: React.FC = () => {
               <img
                 src={(t.retreats.images[0] as any).image}
                 alt="Yoga"
-                className="rounded-xl w-full h-48 md:h-64 object-cover mt-8 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                className="rounded-xl w-full h-48 md:h-64 object-cover mt-8 shadow-2xl transition-all duration-500"
                 loading="lazy"
+                decoding="async"
               />
               <img
                 src={(t.retreats.images[1] as any).image}
                 alt="Grupo"
-                className="rounded-xl w-full h-48 md:h-64 object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                className="rounded-xl w-full h-48 md:h-64 object-cover shadow-2xl transition-all duration-500"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
