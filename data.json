@@ -1,49 +1,26 @@
 {
   "es": {
-    "hero": {
-      "title": "Te invita a Ser",
-      "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
-      "btnBook": "Reserva Reconexión",
-      "btnRetreat": "Organizar Retiro",
-      "stats_years": "+20 Años",
-      "stats_trees": "+8mil Árboles reforestados",
-      "stats_sus": "Sustentable",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
-    },
-    "about": {
-      "tag": "Nuestra Esencia",
-      "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
-      "p1": "Mágico Ensueño no es solo un lugar; es un estado de consciencia. Ubicado en el corazón de las Sierras Grandes, hemos cultivado este espacio durante más de 20 años como un refugio para el alma.",
-      "p2": "Combinamos la autogestión y el bienestar con un enfoque regenerativo. Cada árbol plantado y cada plato servido cuentan una historia de respeto por la tierra.",
-      "link": "Descubrir nuestros pilares",
-      "image": "https://tawaapukuntur.com/wp-content/uploads/2025/10/494815924_1424799465353456_392615711940557767_n.webp"
-    },
-    "video": {
-      "title": "La atmósfera de la montaña",
-      "videoUrl": "https://www.youtube.com/embed/t5zQb4tZuyo",
-      "poster": "https://images.pexels.com/photos/673020/pexels-photo-673020.jpeg"
-    },
     "experiences": {
       "tag": "Experiencia Mágico",
       "title": "Diseñá tu estadía",
-      "subtitle": "En el corazón de la montaña, donde la calma y la belleza simple te invitan a reencontrarte.",
+      "subtitle": "En el corazón de la montaña, donde la calma y la belleza simple te invitan a reencontrarte con tu potencial, tenemos difrentes propuestas para vos.",
       "btn": "Reservar mi lugar",
       "cards": [
         {
           "id": 1,
           "title": "Bienestar & Balance",
-          "description": "Ceremonias ancestrales, yoga, consciencia corporal y temazcal.",
-          "ctaText": "Consultar Terapias",
+          "description": "Ceremonias ancestrales, yoga, consciencia corporal, temazcal, cabalgatas y mucho más.",
+          "ctaText": "Consultar experiencias",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg"
+          "image": "/uploads/bienestar-balance.webp"
         },
         {
           "id": 2,
           "title": "Glamping & Refugio",
-          "description": "Desde Domos Geodésicos y Yurtas, hasta habitaciones históricas.",
+          "description": "Desde Domos Geodésicos y camping, hasta habitaciones históricas restauradas compartidas listos para tu reset vital, descansar, disfrutar, manifestar la vida que queres conectando con vos asi como otras personas en la mismas búsqueda.",
           "ctaText": "Ver Opciones",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg"
+          "image": "/uploads/domos.webp"
         },
         {
           "id": 3,
@@ -51,9 +28,15 @@
           "description": "Nutrición para el cuerpo y el alma. Productos locales y orgánicos.",
           "ctaText": "Ver Propuesta",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+          "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
         }
       ]
+    },
+    "volunteer": {
+      "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
+      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de aprendizaje y servicio a la tierra en difrentes formatos.",
+      "btn": "Postularme",
+      "image": "/uploads/wbcvfuidcdqehravnpxt.webp"
     },
     "retreats": {
       "tag": "Experiencias Grupales",
@@ -61,20 +44,32 @@
       "description": "Co-creamos junto a facilitadores, escuelas y empresas. Ofrecemos nuestra infraestructura y energía para retiros y jornadas outdoor.",
       "btn": "Organizar Retiro",
       "list": [
-        { "text": "Salón panorámico." },
-        { "text": "Alimentación regenerativa." },
-        { "text": "Producción integral." }
+        {
+          "text": "Salón panorámico."
+        },
+        {
+          "text": "Alimentación regenerativa."
+        },
+        {
+          "text": "Producción integral."
+        }
       ],
       "images": [
-        { "image": "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg" },
-        { "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" }
+        {
+          "image": "/uploads/469280911_444096748740233_2818770490495002077_n.webp"
+        },
+        {
+          "image": "/uploads/469742031_941240881439467_8316347989568757415_n.webp"
+        }
       ]
     },
-    "volunteer": {
-      "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
-      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de aprendizaje y servicio a la tierra.",
-      "btn": "Postularme",
-      "image": "/uploads/wbcvfuidcdqehravnpxt.webp"
+    "about": {
+      "tag": "Nuestra Esencia",
+      "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
+      "p1": "Mágico Ensueño no es solo un Eco-Refugio premium para desconectar para reconectar con vos, descansar, disfrutar y manifestar. Ubicado en el corazón de las Sierras Grandes, hemos nutrido este espacio durante más de 20 años como un refugio para el alma.",
+      "p2": "Combinamos la autogestión y el bienestar con un enfoque regenerativo restaurando la biodiversidad del entorno de nutras +200 hectáreas. Cada árbol plantado y cada plato servido cuentan una historia de respeto por la tierra.",
+      "link": "Descubrir nuestros pilares",
+      "image": "/uploads/campoentero.webp"
     },
     "testimonials": {
       "title": "Historias de la Montaña",
@@ -101,6 +96,13 @@
           "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
       ]
+    },
+    "location": {
+      "title": "El viaje es parte <br />de la experiencia.",
+      "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
+      "btnMap": "Ver en Mapa",
+      "btnTransfer": "Coordinar Traslado",
+      "image": "/uploads/img_6948.webp"
     },
     "events": {
       "tag": "Calendario",
@@ -130,38 +132,23 @@
         }
       ]
     },
-    "location": {
-      "title": "El viaje es parte <br />de la experiencia.",
-      "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
-      "btnMap": "Ver en Mapa",
-      "btnTransfer": "Coordinar Traslado",
-      "image": "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "hero": {
+      "title": "Te invita a Ser",
+      "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
+      "btnBook": "Reserva Reconexión",
+      "btnRetreat": "Organizar Retiro",
+      "stats_years": "+20 Años",
+      "stats_trees": "+8mil Árboles reforestados",
+      "stats_sus": "Sustentable",
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
+    },
+    "video": {
+      "title": "La atmósfera de la montaña",
+      "videoUrl": "https://youtube.com/shorts/t5zQb4tZuyo?si=mxmDheJ87M9fDyD1",
+      "poster": "/uploads/img_3027-1-1-.webp"
     }
   },
   "en": {
-    "hero": {
-      "title": "Invites you to Be",
-      "subtitle": "A space to live transformative experiences that invite you to reconnect with yourself, enjoy and rest.",
-      "btnBook": "Book Reconnection",
-      "btnRetreat": "Organize Retreat",
-      "stats_years": "+20 Years",
-      "stats_trees": "+8k Reforested Trees",
-      "stats_sus": "Sustainable",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
-    },
-    "about": {
-      "tag": "Our Essence",
-      "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Mágico Ensueño is not just a place; it is a state of consciousness. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for the soul.",
-      "p2": "We combine self-management and wellness with a regenerative approach. Every tree planted and every dish served tells a story of respect for the land.",
-      "link": "Discover our pillars",
-      "image": "https://tawaapukuntur.com/wp-content/uploads/2025/10/494815924_1424799465353456_392615711940557767_n.webp"
-    },
-    "video": {
-      "title": "The mountain atmosphere",
-      "videoUrl": "https://cdn.pixabay.com/video/2020/03/03/33179-396529572_large.mp4",
-      "poster": "https://images.pexels.com/photos/673020/pexels-photo-673020.jpeg"
-    },
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
@@ -174,7 +161,7 @@
           "description": "Ancestral ceremonies, yoga, body awareness and temazcal.",
           "ctaText": "Consult Therapies",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg"
+          "image": "/uploads/bienestar-balance.webp"
         },
         {
           "id": 2,
@@ -182,7 +169,7 @@
           "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
           "ctaText": "View Options",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg"
+          "image": "/uploads/domos.webp"
         },
         {
           "id": 3,
@@ -194,26 +181,44 @@
         }
       ]
     },
+    "volunteer": {
+      "title": "An exchange that <span class='italic text-gold'>expands</span>",
+      "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
+      "btn": "Apply",
+      "image": "/uploads/wbcvfuidcdqehravnpxt.webp"
+    },
     "retreats": {
       "tag": "Group Experiences",
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
       "description": "We co-create with facilitators, schools and companies. We offer our infrastructure and energy for retreats and outdoor journeys.",
       "btn": "Organize Retreat",
       "list": [
-        { "text": "Panoramic hall." },
-        { "text": "Regenerative food." },
-        { "text": "Integral production." }
+        {
+          "text": "Panoramic hall."
+        },
+        {
+          "text": "Regenerative food."
+        },
+        {
+          "text": "Integral production."
+        }
       ],
       "images": [
-        { "image": "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg" },
-        { "image": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" }
+        {
+          "image": "/uploads/469280911_444096748740233_2818770490495002077_n.webp"
+        },
+        {
+          "image": "/uploads/469742031_941240881439467_8316347989568757415_n.webp"
+        }
       ]
     },
-    "volunteer": {
-      "title": "An exchange that <span class='italic text-gold'>expands</span>",
-      "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
-      "btn": "Apply",
-      "image": "https://images.pexels.com/photos/5638732/pexels-photo-5638732.jpeg"
+    "about": {
+      "tag": "Our Essence",
+      "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
+      "p1": "Mágico Ensueño is not just a place; it is a state of consciousness. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for the soul.",
+      "p2": "We combine self-management and wellness with a regenerative approach. Every tree planted and every dish served tells a story of respect for the land.",
+      "link": "Discover our pillars",
+      "image": "/uploads/campoentero.webp"
     },
     "testimonials": {
       "title": "Mountain Stories",
@@ -240,6 +245,13 @@
           "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
       ]
+    },
+    "location": {
+      "title": "The journey is part <br />of the experience.",
+      "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. Es accesible for any vehicle.",
+      "btnMap": "View on Map",
+      "btnTransfer": "Coordinate Transfer",
+      "image": "/uploads/img_6948.webp"
     },
     "events": {
       "tag": "Calendar",
@@ -269,12 +281,20 @@
         }
       ]
     },
-    "location": {
-      "title": "The journey is part <br />of the experience.",
-      "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. Es accesible for any vehicle.",
-      "btnMap": "View on Map",
-      "btnTransfer": "Coordinate Transfer",
-      "image": "https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "hero": {
+      "title": "Invites you to Be",
+      "subtitle": "A space to live transformative experiences that invite you to reconnect with yourself, enjoy and rest.",
+      "btnBook": "Book Reconnection",
+      "btnRetreat": "Organize Retreat",
+      "stats_years": "+20 Years",
+      "stats_trees": "+8k Reforested Trees",
+      "stats_sus": "Sustainable",
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
+    },
+    "video": {
+      "title": "The mountain atmosphere",
+      "videoUrl": "https://youtube.com/shorts/t5zQb4tZuyo?si=mxmDheJ87M9fDyD1",
+      "poster": "/uploads/img_3027-1-1-.webp"
     }
   }
 }
