@@ -2,56 +2,56 @@
   "es": {
     "experiences": {
       "tag": "Experiencia Mágico",
-      "title": "Diseñá tu estadía",
-      "subtitle": "En el corazón de la montaña, donde la calma y la belleza simple te invitan a reencontrarte con tu potencial, tenemos difrentes propuestas para vos.",
-      "btn": "Reservar mi lugar",
+      "title": "Diseñá tu Experiencia",
+      "subtitle": "En el corazón de la montaña, donde la calma y la simpleza te invitan a reencontrarte con lo esencial. Ropa blanca, bio-cosmética y acuerdos de convivencia para una buena estadía.",
+      "btn": "RESERVAR MI LUGAR",
       "cards": [
         {
           "id": 1,
-          "title": "Bienestar & Balance",
-          "description": "Ceremonias ancestrales, yoga, consciencia corporal, temazcal, cabalgatas y mucho más.",
-          "ctaText": "Consultar experiencias",
+          "title": "Bienestar & Presencia",
+          "description": "Prácticas para habitar el cuerpo, aquietar la mente y volver al equilibrio. Ceremonias ancestrales, yoga, conciencia corporal, terapias, temazcal y más.",
+          "ctaText": "CONSULTAR TERAPIAS",
           "ctaLink": "#contacto",
           "image": "/uploads/bienestar-balance.webp"
         },
         {
           "id": 2,
-          "title": "Glamping & Refugio",
-          "description": "Desde Domos Geodésicos y camping, hasta habitaciones históricas restauradas compartidas listos para tu reset vital, descansar, disfrutar, manifestar la vida que queres conectando con vos asi como otras personas en la mismas búsqueda.",
-          "ctaText": "Ver Opciones",
+          "title": "Eco-Refugio & Glamping",
+          "description": "Dormir en la montaña como elijas: Domos geodésicos y Eco-Refugio o camping. Confort simple y naturaleza pura.",
+          "ctaText": "VER OPCIONES",
           "ctaLink": "#contacto",
-          "image": "/uploads/domos.webp"
+          "image": "/uploads/refu.webp"
         },
         {
           "id": 3,
-          "title": "Cocina Consciente",
+          "title": "Alimentación Natural & Regenerativa",
           "description": "Nutrición para el cuerpo y el alma. Productos locales y orgánicos.",
-          "ctaText": "Ver Propuesta",
+          "ctaText": "VER PROPUESTA",
           "ctaLink": "#contacto",
           "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
         }
       ]
     },
     "volunteer": {
-      "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
-      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de aprendizaje y servicio a la tierra en difrentes formatos.",
-      "btn": "Postularme",
-      "image": "/uploads/wbcvfuidcdqehravnpxt.webp"
+      "title": "Un intercambio que expande",
+      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de colaboración, aprendizaje y servicio a la Tierra. Una propuesta simple y profunda, para explorar la vida en comunidad, el trabajo en equipo y la filosofía del buen vivir.",
+      "btn": "POSTULARME",
+      "image": "/uploads/voluntarios.webp"
     },
     "retreats": {
       "tag": "Experiencias Grupales",
-      "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
-      "description": "Co-creamos junto a facilitadores, escuelas y empresas. Ofrecemos nuestra infraestructura y energía para retiros y jornadas outdoor.",
-      "btn": "Organizar Retiro",
+      "title": "Crear espacio para lo trascendente.",
+      "description": "Abrimos el espacio, el equipo y la energía de Mágico Ensueño para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
+      "btn": "ORGANIZAR RETIRO",
       "list": [
         {
           "text": "Salón panorámico."
         },
         {
-          "text": "Alimentación regenerativa."
+          "text": "Alimentación regenerativa y casera."
         },
         {
-          "text": "Producción integral."
+          "text": "Acompañamiento y Producción integral"
         }
       ],
       "images": [
@@ -66,9 +66,9 @@
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
-      "p1": "Mágico Ensueño no es solo un Eco-Refugio premium para desconectar para reconectar con vos, descansar, disfrutar y manifestar. Ubicado en el corazón de las Sierras Grandes, hemos nutrido este espacio durante más de 20 años como un refugio para el alma.",
-      "p2": "Combinamos la autogestión y el bienestar con un enfoque regenerativo restaurando la biodiversidad del entorno de nutras +200 hectáreas. Cada árbol plantado y cada plato servido cuentan una historia de respeto por la tierra.",
-      "link": "Descubrir nuestros pilares",
+      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, cultivamos este espacio desde hace más de 20 años como un refugio para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
+      "p2": "Combinamos colaboración genuina, bienestar y un enfoque regenerativo en cada acción que realizamos. Cada árbol plantado y cada plato servido cuentan una historia de amor, cuidado y respeto por la Tierra y el ecosistema que nos sostiene.",
+      "link": "Nuestra manera de Ser y Hacer",
       "image": "/uploads/campoentero.webp"
     },
     "testimonials": {
@@ -107,7 +107,7 @@
     "events": {
       "tag": "Calendario",
       "title": "Próximos Encuentros",
-      "link": "Ver agenda completa",
+      "link": "",
       "cards": [
         {
           "date": "3 – 5 OCT",
@@ -135,17 +135,79 @@
     "hero": {
       "title": "Te invita a Ser",
       "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
-      "btnBook": "Reserva Reconexión",
-      "btnRetreat": "Organizar Retiro",
+      "btnBook": "RESERVA RECONEXIÓN",
+      "btnRetreat": "ORGANIZAR RETIRO",
       "stats_years": "+20 Años",
-      "stats_trees": "+8mil Árboles reforestados",
-      "stats_sus": "Sustentable",
+      "stats_trees": "+8mil Árboles Plantados",
+      "stats_sus": "Regeneración & Sustentabilidad",
       "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
     },
     "video": {
-      "title": "La atmósfera de la montaña",
-      "videoUrl": "https://youtube.com/shorts/t5zQb4tZuyo?si=mxmDheJ87M9fDyD1",
+      "title": "Viví nuestra experiencia de montaña",
+      "videoUrl": "https://www.youtube.com/embed/hxE7Ksy7IsY",
       "poster": "/uploads/img_3027-1-1-.webp"
+    },
+    "menu": {
+      "items": [
+        {
+          "label": "Nosotros",
+          "href": "#nosotros",
+          "submenu": [
+            { "label": "Filosofía", "href": "#nosotros" },
+            { "label": "Nuestros Pilares", "href": "#pilares" },
+            { "label": "Voluntariados", "href": "#voluntariados" }
+          ]
+        },
+        {
+          "label": "Experiencias",
+          "href": "#experiencias",
+          "submenu": [
+            { "label": "Estadías & Glamping", "href": "#experiencias" },
+            { "label": "Retiros Grupales", "href": "#retiros" }
+          ]
+        },
+        { "label": "Testimonios", "href": "#testimonios" },
+        { "label": "Agenda", "href": "#eventos" },
+        { "label": "Ubicación", "href": "#como-llegar" }
+      ],
+      "book": "RESERVAR",
+      "lang": "ENGLISH"
+    },
+    "pillars": [
+      { "id": 1, "title": "Regeneración", "subtitle": "Más de 8.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles." },
+      { "id": 2, "title": "Comunidad", "subtitle": "Vínculos reales con personas, productores y vecinos. Co-creamos en red, desde la colaboración y el encuentro." },
+      { "id": 3, "title": "Buen Vivir", "subtitle": "Una forma simple y consciente de habitar el tiempo, el trabajo y los vínculos, en equilibrio con la naturaleza." },
+      { "id": 4, "title": "Consciencia", "subtitle": "Todo lo que sucede aquí tiene intención y mucho corazón. Prácticas, decisiones y experiencias alineadas con el cuidado, el sentido y la coherencia interna." }
+    ],
+    "contact": {
+      "title": "Empezar el viaje",
+      "subtitle": "Escribinos para diseñar tu estadía o retiro.",
+      "placeholders": {
+        "name": "Nombre Completo",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "message": "¿Cómo te gustaría vivir la experiencia?"
+      },
+      "btn": "Enviar Mensaje",
+      "labels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "social": "Social"
+      }
+    },
+    "footer": {
+      "description": "Un refugio de montaña diseñado para inspirar vidas más simples, conscientes y conectadas con la naturaleza.",
+      "titles": {
+        "explore": "Explorar",
+        "legal": "Legal"
+      },
+      "links": {
+        "terms": "Términos y Condiciones",
+        "privacy": "Políticas de Privacidad",
+        "faq": "Preguntas Frecuentes"
+      },
+      "copyright": "Mágico Ensueño. Todos los derechos reservados.",
+      "madeBy": "Hecho con respeto a la montaña"
     }
   },
   "en": {
@@ -169,7 +231,7 @@
           "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
           "ctaText": "View Options",
           "ctaLink": "#contacto",
-          "image": "/uploads/domos.webp"
+          "image": "/uploads/refu.webp"
         },
         {
           "id": 3,
@@ -177,7 +239,7 @@
           "description": "Nutrition for body and soul. Local and organic products.",
           "ctaText": "View Proposal",
           "ctaLink": "#contacto",
-          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+          "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
         }
       ]
     },
@@ -185,7 +247,7 @@
       "title": "An exchange that <span class='italic text-gold'>expands</span>",
       "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
       "btn": "Apply",
-      "image": "/uploads/wbcvfuidcdqehravnpxt.webp"
+      "image": "/uploads/voluntarios.webp"
     },
     "retreats": {
       "tag": "Group Experiences",
@@ -256,7 +318,7 @@
     "events": {
       "tag": "Calendar",
       "title": "Upcoming Gatherings",
-      "link": "View full agenda",
+      "link": "",
       "cards": [
         {
           "date": "OCT 3 – 5",
@@ -293,8 +355,70 @@
     },
     "video": {
       "title": "The mountain atmosphere",
-      "videoUrl": "https://youtube.com/shorts/t5zQb4tZuyo?si=mxmDheJ87M9fDyD1",
+      "videoUrl": "https://www.youtube.com/embed/hxE7Ksy7IsY",
       "poster": "/uploads/img_3027-1-1-.webp"
+    },
+    "menu": {
+      "items": [
+        {
+          "label": "About Us",
+          "href": "#nosotros",
+          "submenu": [
+            { "label": "Philosophy", "href": "#nosotros" },
+            { "label": "Our Pillars", "href": "#pilares" },
+            { "label": "Volunteering", "href": "#voluntariados" }
+          ]
+        },
+        {
+          "label": "Experiencias",
+          "href": "#experiencias",
+          "submenu": [
+            { "label": "Stays & Glamping", "href": "#experiencias" },
+            { "label": "Group Retreats", "href": "#retiros" }
+          ]
+        },
+        { "label": "Testimonials", "href": "#testimonios" },
+        { "label": "Agenda", "href": "#eventos" },
+        { "label": "Location", "href": "#como-llegar" }
+      ],
+      "book": "BOOK NOW",
+      "lang": "ESPAÑOL"
+    },
+    "pillars": [
+      { "id": 1, "title": "Regeneration", "subtitle": "+8k Trees." },
+      { "id": 2, "title": "Community", "subtitle": "Local bonds." },
+      { "id": 3, "title": "Consciousness", "subtitle": "With purpose." },
+      { "id": 4, "title": "Food", "subtitle": "Real food." }
+    ],
+    "contact": {
+      "title": "Start the journey",
+      "subtitle": "Write to us to design your stay or retreat.",
+      "placeholders": {
+        "name": "Full Name",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "message": "How would you like to live the experience?"
+      },
+      "btn": "Send Message",
+      "labels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "social": "Social"
+      }
+    },
+    "footer": {
+      "description": "A mountain refuge designed to inspire simpler, conscious lives connected with nature.",
+      "titles": {
+        "explore": "Explore",
+        "legal": "Legal"
+      },
+      "links": {
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy",
+        "faq": "FAQ"
+      },
+      "copyright": "Mágico Ensueño. All rights reserved.",
+      "madeBy": "Made with respect for the mountain"
     }
   }
 }

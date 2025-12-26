@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
 
         {/* Glass Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4 mb-16 md:mb-20">
-          <a href="#contacto" className="group relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/50 to-[#D4AF37]/20 backdrop-blur-md border border-white/40 text-white uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.15)] hover:bg-[#D4AF37]/70 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
+          <a href="#experiencias" className="group relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/50 to-[#D4AF37]/20 backdrop-blur-md border border-white/40 text-white uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.15)] hover:bg-[#D4AF37]/70 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
              <span className="relative z-10">{t.hero.btnBook}</span>
              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"></div>
           </a>
@@ -53,11 +53,11 @@ export const Hero: React.FC = () => {
 
         {/* Stats */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-white/60 text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium px-4">
-          <span>{t.hero.stats.years}</span>
+          <span>{t.hero.stats_years}</span>
           <span className="hidden sm:inline opacity-30">|</span>
-          <span>{t.hero.stats.trees}</span>
+          <span>{t.hero.stats_trees}</span>
           <span className="hidden sm:inline opacity-30">|</span>
-          <span>{t.hero.stats.sustainable}</span>
+          <span>{t.hero.stats_sus}</span>
         </div>
       </div>
     </section>

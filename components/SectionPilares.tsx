@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Leaf, Users, Heart, Coffee } from 'lucide-react';
+import { Leaf, Users, Heart, Sparkles } from 'lucide-react';
 
 export const SectionPilares: React.FC = () => {
   const { t } = useLanguage();
@@ -10,7 +10,7 @@ export const SectionPilares: React.FC = () => {
       case 1: return <Leaf className="w-6 h-6 md:w-7 md:h-7" />;
       case 2: return <Users className="w-6 h-6 md:w-7 md:h-7" />;
       case 3: return <Heart className="w-6 h-6 md:w-7 md:h-7" />;
-      case 4: return <Coffee className="w-6 h-6 md:w-7 md:h-7" />;
+      case 4: return <Sparkles className="w-6 h-6 md:w-7 md:h-7" />;
       default: return <Leaf className="w-6 h-6 md:w-7 md:h-7" />;
     }
   };

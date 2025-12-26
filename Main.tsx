@@ -26,10 +26,10 @@ const Main: React.FC = () => {
           <SectionPilares />
           <SectionVideo />
           <SectionExperiencias />
+          <SectionEventos />
           <SectionRetiros />
           <SectionVoluntariados />
           <SectionTestimonios />
-          <SectionEventos />
           <SectionComoLlegar />
           <SectionContacto />
         </main>

@@ -6,6 +6,25 @@ export const SectionVideo: React.FC = () => {
 
   const isYouTube = t.video.videoUrl.includes('youtube.com') || t.video.videoUrl.includes('youtu.be');
 
+  // Función para convertir URLs de YouTube (Shorts, Watch, Share) a Embed
+  const getEmbedUrl = (url: string) => {
+    try {
+      let videoId = '';
+      if (url.includes('/shorts/')) {
+        videoId = url.split('/shorts/')[1].split('?')[0];
+      } else if (url.includes('v=')) {
+        videoId = url.split('v=')[1].split('&')[0];
+      } else if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1].split('?')[0];
+      } else {
+        return url;
+      }
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
+    } catch (e) {
+      return url;
+    }
+  };
+
   return (
     <section className="py-24 bg-bone">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -14,7 +33,7 @@ export const SectionVideo: React.FC = () => {
           {isYouTube ? (
             <iframe
               className="w-full h-full"
-              src={t.video.videoUrl}
+              src={getEmbedUrl(t.video.videoUrl)}
               title="Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
