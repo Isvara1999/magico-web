@@ -25,7 +25,7 @@ const App = () => {
 
       // URLs de los logos
       const iconLight = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg";
-      const iconDark = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-blanco-magico.svg"; // Asegúrate de que esta URL sea correcta
+      const iconDark = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-blanco-magico.svg";
 
       link.href = isDark ? iconDark : iconLight;
     };

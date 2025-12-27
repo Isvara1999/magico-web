@@ -217,13 +217,13 @@
     "hero": {
       "title": "Te invita a Ser",
       "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
-      "btnBook": "RESERVA RECONEXIÓN",
+      "btnBook": "Experiencias",
       "btnRetreat": "ORGANIZAR RETIRO",
       "stats_years": "+20 Años",
       "stats_trees": "+8mil Árboles Plantados",
       "stats_sus": "Regeneración & Sustentabilidad",
       "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
-      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+      "bookLink": "#experiencias",
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
     },
     "video": {
