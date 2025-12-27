@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const WhatsAppButton: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <a
-      href="https://wa.me/5493513709899"
+      href={t.contact.labels.whatsappLink}
       target="_blank"
       rel="noreferrer"
       className="fixed right-4 bottom-4 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"

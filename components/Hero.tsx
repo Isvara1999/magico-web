@@ -41,11 +41,11 @@ export const Hero: React.FC = () => {
 
         {/* Glass Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4 mb-16 md:mb-20">
-          <a href="#experiencias" className="group relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/50 to-[#D4AF37]/20 backdrop-blur-md border border-white/40 text-white uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.15)] hover:bg-[#D4AF37]/70 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
+          <a href={t.hero.bookLink} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/50 to-[#D4AF37]/20 backdrop-blur-md border border-white/40 text-white uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.15)] hover:bg-[#D4AF37]/70 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
              <span className="relative z-10">{t.hero.btnBook}</span>
              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"></div>
           </a>
-          <a href="#retiros" className="group relative overflow-hidden bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 text-white/95 uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.1)] hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
+          <a href={t.hero.retreatLink} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 text-white/95 uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.1)] hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
             <span className="relative z-10">{t.hero.btnRetreat}</span>
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"></div>
           </a>

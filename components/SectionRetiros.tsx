@@ -35,7 +35,9 @@ export const SectionRetiros: React.FC = () => {
               </ul>
               <div className="flex gap-4">
                 <a
-                  href="#contacto"
+                  href={t.retreats.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-3 bg-gold text-white rounded-full hover:bg-white hover:text-brand transition-all duration-300 text-xs tracking-widest uppercase font-bold"
                 >
                   {t.retreats.btn}

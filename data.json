@@ -3,15 +3,16 @@
     "experiences": {
       "tag": "Experiencia Mágico",
       "title": "Diseñá tu Experiencia",
-      "subtitle": "En el corazón de la montaña, donde la calma y la simpleza te invitan a reencontrarte con lo esencial. Ropa blanca, bio-cosmética y acuerdos de convivencia para una buena estadía.",
+      "subtitle": "En Mágico Ensueño, lo básico es extraordinario. Tu estadía siempre incluye **Alojamiento, Pensión Completa y la experiencia Reset Vital**. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia experiencia a medida. ¡Escribinos para cualquier consulta!",
       "btn": "RESERVAR MI LUGAR",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
           "id": 1,
           "title": "Bienestar & Presencia",
           "description": "Prácticas para habitar el cuerpo, aquietar la mente y volver al equilibrio. Ceremonias ancestrales, yoga, conciencia corporal, terapias, temazcal y más.",
           "ctaText": "CONSULTAR TERAPIAS",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20las%20terapias%20de%20Bienestar%20%26%20Presencia.%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F",
           "image": "/uploads/bienestar-balance.webp"
         },
         {
@@ -19,7 +20,7 @@
           "title": "Eco-Refugio & Glamping",
           "description": "Dormir en la montaña como elijas: Domos geodésicos y Eco-Refugio o camping. Confort simple y naturaleza pura.",
           "ctaText": "VER OPCIONES",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
           "image": "/uploads/refu.webp"
         },
         {
@@ -27,22 +28,66 @@
           "title": "Alimentación Natural & Regenerativa",
           "description": "Nutrición para el cuerpo y el alma. Productos locales y orgánicos.",
           "ctaText": "VER PROPUESTA",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20la%20propuesta%20de%20Alimentaci%C3%B3n%20Natural.%20%F0%9F%A5%97",
           "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
         }
-      ]
+      ],
+      "resetVital": {
+        "title": "¿Qué es RESET VITAL?",
+        "subtitle": "TU RETIRO AUTOGUIADO (INCLUIDO)",
+        "description": "Es el corazón de nuestra propuesta. Entendemos que a veces necesitás desconectar del mundo para reconectar con vos, pero sin la estructura rígida de un retiro grupal. Reset Vital es una **Bitácora de Viaje Interior (PDF)** que te entregamos al llegar, diseñada para ser tu brújula en la montaña.",
+        "image": "/uploads/campoentero.webp",
+        "items": [
+          {
+            "title": "LIBERTAD & RITMO PROPIO",
+            "desc": "Viví los beneficios de un retiro pero a tu manera. Sin horarios impuestos, vos decidís cuándo descansar y cuándo activar."
+          },
+          {
+            "title": "CONTENIDO QUE TRANSFORMA",
+            "desc": "La guía incluye meditaciones, ejercicios de escritura (journaling), caminatas conscientes y rituales simples para conectar con la naturaleza."
+          },
+          {
+            "title": "INTEGRACIÓN",
+            "desc": "No es solo relax momentáneo; te llevás herramientas concretas para sostener la calma y la claridad al volver a tu rutina."
+          }
+        ]
+      }
     },
     "volunteer": {
       "title": "Un intercambio que expande",
-      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de colaboración, aprendizaje y servicio a la Tierra. Una propuesta simple y profunda, para explorar la vida en comunidad, el trabajo en equipo y la filosofía del buen vivir.",
+      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de **colaboración, aprendizaje y servicio a la Tierra**. Una propuesta simple y profunda, para explorar la **vida en comunidad**, el **trabajo en equipo** y la filosofía del **buen vivir**.",
       "btn": "POSTULARME",
-      "image": "/uploads/voluntarios.webp"
+      "image": "/uploads/voluntarios.webp",
+      "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
+      "testimonials": [
+        {
+          "name": "Ainhoa",
+          "text": "No es el típico voluntariado, es un estilo de vida. Rápidamente te sientes acogido y en familia. Si buscas conectar con la naturaleza y contigo mismo, este es tu lugar.",
+          "image": "/uploads/Ainhoa.webp"
+        },
+        {
+          "name": "Ronen",
+          "text": "Llegué con la intención de quedarme 2 semanas y terminé quedándome 2 meses y medio. Un lugar maravilloso para conectar con la tierra y ofrece una libertad única.",
+          "image": "/uploads/Ronen.webp"
+        },
+        {
+          "name": "Anna-Lea",
+          "text": "Un oasis verde en medio de la nada. El ritmo de trabajo es muy orgánico y la gente es increíblemente abierta de corazón. Me voy recargada e inspirada.",
+          "image": "/uploads/Anna-Lea.webp"
+        },
+        {
+          "name": "Kylan",
+          "text": "Un paraíso. Hay un sentimiento de comunidad encantador. El lugar está en medio de la nada, lo cual es hermoso, y no hay límites para dónde puedes caminar.",
+          "image": "/uploads/Kylan.webp"
+        }
+      ]
     },
     "retreats": {
       "tag": "Experiencias Grupales",
       "title": "Crear espacio para lo trascendente.",
       "description": "Abrimos el espacio, el equipo y la energía de Mágico Ensueño para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
       "btn": "ORGANIZAR RETIRO",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
         {
           "text": "Salón panorámico."
@@ -102,7 +147,9 @@
       "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
       "btnMap": "Ver en Mapa",
       "btnTransfer": "Coordinar Traslado",
-      "image": "/uploads/img_6948.webp"
+      "image": "/uploads/img_6948.webp",
+      "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
+      "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
     },
     "events": {
       "tag": "Calendario",
@@ -110,25 +157,60 @@
       "link": "",
       "cards": [
         {
-          "date": "3 – 5 OCT",
-          "title": "Alquimia — Retiro",
-          "desc": "Transformación interior a través de la naturaleza y la presencia.",
+          "date": "9 – 11 ENE",
+          "title": "Regreso a las Leyes Naturales",
+          "desc": "Chamanismo, Temazcal, Hielo.",
           "btn": "Reservar Cupo",
-          "image": "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg"
+          "image": "https://images.pexels.com/photos/1040499/pexels-photo-1040499.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         },
         {
-          "date": "24 – 26 OCT",
-          "title": "Honra — Celebración",
-          "desc": "Un espacio para honrar los procesos de cambio y gratitud.",
+          "date": "16 – 18 ENE",
+          "title": "Gondor Bows",
+          "desc": "Arquería Intuitiva.",
           "btn": "Reservar Cupo",
-          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg"
+          "image": "https://images.pexels.com/photos/5543385/pexels-photo-5543385.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         },
         {
-          "date": "14 – 16 NOV",
-          "title": "Calma en la Montaña",
-          "desc": "Yoga, meditación, trekking y alimentación consciente.",
+          "date": "23 – 25 ENE",
+          "title": "Manifestación 2026",
+          "desc": "Diseño de año, Rituales.",
           "btn": "Reservar Cupo",
-          "image": "https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg"
+          "image": "https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "28 ENE – 1 FEB",
+          "title": "Residencia de Danza",
+          "desc": "Movimiento Constante. Opción Híbrida con Relax.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/5154336/pexels-photo-5154336.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "20 – 23 FEB",
+          "title": "Botica Serrana",
+          "desc": "Plantas Medicinales - Carnaval.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "4 – 8 MAR",
+          "title": "Campamento Constante",
+          "desc": "Investigación de Movimiento.",
+          "btn": "Reservar Cupo",
+          "image": "https://images.pexels.com/photos/2422265/pexels-photo-2422265.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "RECURRENTE",
+          "title": "Temazcal",
+          "desc": "Fines de semana (Consultar fechas específicas).",
+          "btn": "Consultar",
+          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         }
       ]
     },
@@ -140,7 +222,9 @@
       "stats_years": "+20 Años",
       "stats_trees": "+8mil Árboles Plantados",
       "stats_sus": "Regeneración & Sustentabilidad",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
     },
     "video": {
       "title": "Viví nuestra experiencia de montaña",
@@ -171,7 +255,8 @@
         { "label": "Ubicación", "href": "#como-llegar" }
       ],
       "book": "RESERVAR",
-      "lang": "ENGLISH"
+      "lang": "ENGLISH",
+      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
     },
     "pillars": [
       { "id": 1, "title": "Regeneración", "subtitle": "Más de 8.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles." },
@@ -192,7 +277,9 @@
       "labels": {
         "email": "Email",
         "whatsapp": "WhatsApp",
-        "social": "Social"
+        "social": "Social",
+        "phone": "5493516765820",
+        "whatsappLink": "https://wa.me/5493516765820?text=Hola!%20Estoy%20viendo%20la%20web%20de%20M%C3%A1gico%20Ensue%C3%B1o%20y%20tengo%20una%20consulta.%20%F0%9F%8C%BF"
       }
     },
     "footer": {
@@ -208,21 +295,27 @@
       },
       "copyright": "Mágico Ensueño. Todos los derechos reservados.",
       "madeBy": "Hecho con respeto a la montaña"
+    },
+    "donations": {
+      "text": "Acá puedes realizar donaciones para seguir expandiendo este proyecto.",
+      "btn": "REALIZAR DONACIÓN",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20realizar%20una%20donaci%C3%B3n%20para%20seguir%20expandiendo%20el%20proyecto.%20%F0%9F%99%8F"
     }
   },
   "en": {
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
-      "subtitle": "In the heart of the mountain, where calm and simple beauty invite you to reconnect.",
+      "subtitle": "At Mágico Ensueño, the basics are extraordinary. Your stay always includes **Accommodation, Full Board, and the Reset Vital experience**. From this solid foundation, you can customize your trip by adding therapies or choosing dates from our Agenda for group retreats.",
       "btn": "Book my spot",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
           "id": 1,
           "title": "Wellness & Balance",
           "description": "Ancestral ceremonies, yoga, body awareness and temazcal.",
           "ctaText": "Consult Therapies",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20las%20terapias%20de%20Bienestar%20%26%20Presencia.%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F",
           "image": "/uploads/bienestar-balance.webp"
         },
         {
@@ -230,7 +323,7 @@
           "title": "Glamping & Shelter",
           "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
           "ctaText": "View Options",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
           "image": "/uploads/refu.webp"
         },
         {
@@ -238,22 +331,66 @@
           "title": "Conscious Kitchen",
           "description": "Nutrition for body and soul. Local and organic products.",
           "ctaText": "View Proposal",
-          "ctaLink": "#contacto",
+          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20la%20propuesta%20de%20Alimentaci%C3%B3n%20Natural.%20%F0%9F%A5%97",
           "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
         }
-      ]
+      ],
+      "resetVital": {
+        "title": "What is RESET VITAL?",
+        "subtitle": "YOUR SELF-GUIDED RETREAT (INCLUDED)",
+        "description": "It is the heart of our proposal. We understand that sometimes you need to disconnect from the world to reconnect with yourself, but without the rigid structure of a group retreat. Reset Vital is an **Inner Journey Logbook (PDF)** that we give you upon arrival.",
+        "image": "/uploads/campoentero.webp",
+        "items": [
+          {
+            "title": "FREEDOM & OWN PACE",
+            "desc": "Experience the benefits of a retreat but in your own way. Without imposed schedules, you decide when to rest and when to activate."
+          },
+          {
+            "title": "TRANSFORMATIVE CONTENT",
+            "desc": "The guide includes meditations, journaling exercises, conscious walks, and simple rituals to connect with nature."
+          },
+          {
+            "title": "INTEGRATION",
+            "desc": "It's not just momentary relaxation; you take home concrete tools to sustain calm and clarity when you return to your routine."
+          }
+        ]
+      }
     },
     "volunteer": {
       "title": "An exchange that <span class='italic text-gold'>expands</span>",
-      "description": "We receive travelers from all over the world to live an experience of learning and service to the earth.",
+      "description": "We receive travelers from all over the world to live an experience of **learning and service to the earth**. A simple and deep proposal to explore **community life**, **teamwork** and the philosophy of **good living**.",
       "btn": "Apply",
-      "image": "/uploads/voluntarios.webp"
+      "image": "/uploads/voluntarios.webp",
+      "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
+      "testimonials": [
+        {
+          "name": "Ainhoa",
+          "text": "Not your typical volunteering, it's a lifestyle. You quickly feel welcomed and like family. If you are looking to connect with nature and yourself, this is your place.",
+          "image": "/uploads/Ainhoa.webp"
+        },
+        {
+          "name": "Ronen",
+          "text": "I arrived intending to stay 2 weeks and ended up staying 2.5 months. A wonderful place to connect with the earth, offering a freedom that feels unique.",
+          "image": "/uploads/Ronen.webp"
+        },
+        {
+          "name": "Anna-Lea",
+          "text": "A green oasis in the middle of nowhere. The work rhythm is very organic and people are incredibly open-hearted. I leave recharged and inspired.",
+          "image": "/uploads/Anna-Lea.webp"
+        },
+        {
+          "name": "Kylan",
+          "text": "Paradise. Such a lovely community feeling. The place is in the middle of nowhere, which is beautiful, and there are no bounds to where you can walk.",
+          "image": "/uploads/Kylan.webp"
+        }
+      ]
     },
     "retreats": {
       "tag": "Group Experiences",
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
       "description": "We co-create with facilitators, schools and companies. We offer our infrastructure and energy for retreats and outdoor journeys.",
       "btn": "Organize Retreat",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
         {
           "text": "Panoramic hall."
@@ -280,7 +417,7 @@
       "p1": "Mágico Ensueño is not just a place; it is a state of consciousness. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for the soul.",
       "p2": "We combine self-management and wellness with a regenerative approach. Every tree planted and every dish served tells a story of respect for the land.",
       "link": "Discover our pillars",
-      "image": "/uploads/campoentero.webp"
+      "image": "/uploads/dji_0074.webp"
     },
     "testimonials": {
       "title": "Mountain Stories",
@@ -313,7 +450,9 @@
       "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. Es accesible for any vehicle.",
       "btnMap": "View on Map",
       "btnTransfer": "Coordinate Transfer",
-      "image": "/uploads/img_6948.webp"
+      "image": "/uploads/img_6948.webp",
+      "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
+      "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
     },
     "events": {
       "tag": "Calendar",
@@ -321,25 +460,60 @@
       "link": "",
       "cards": [
         {
-          "date": "OCT 3 – 5",
-          "title": "Alchemy — Retreat",
-          "desc": "Inner transformation through nature and presence.",
+          "date": "JAN 9 – 11",
+          "title": "Return to Natural Laws",
+          "desc": "Shamanism, Temazcal, Ice.",
           "btn": "Book Spot",
-          "image": "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg"
+          "image": "https://images.pexels.com/photos/1040499/pexels-photo-1040499.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         },
         {
-          "date": "OCT 24 – 26",
-          "title": "Honor — Celebration",
-          "desc": "A space to honor processes of change and gratitude.",
+          "date": "JAN 16 – 18",
+          "title": "Gondor Bows",
+          "desc": "Intuitive Archery.",
           "btn": "Book Spot",
-          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg"
+          "image": "https://images.pexels.com/photos/5543385/pexels-photo-5543385.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         },
         {
-          "date": "NOV 14 – 16",
-          "title": "Calma in the Mountain",
-          "desc": "Yoga, meditation, trekking and conscious eating.",
+          "date": "JAN 23 – 25",
+          "title": "Manifestation 2026",
+          "desc": "Year design, Rituals.",
           "btn": "Book Spot",
-          "image": "https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg"
+          "image": "https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "JAN 28 – FEB 1",
+          "title": "Dance Residency",
+          "desc": "Constant Movement. Hybrid Option with Relax.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/5154336/pexels-photo-5154336.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "FEB 20 – 23",
+          "title": "Botica Serrana",
+          "desc": "Medicinal Plants - Carnival.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "MAR 4 – 8",
+          "title": "Constant Camp",
+          "desc": "Movement Research.",
+          "btn": "Book Spot",
+          "image": "https://images.pexels.com/photos/2422265/pexels-photo-2422265.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "RECURRING",
+          "title": "Temazcal",
+          "desc": "Weekends (Ask for specific dates).",
+          "btn": "Inquire",
+          "image": "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
         }
       ]
     },
@@ -351,7 +525,9 @@
       "stats_years": "+20 Years",
       "stats_trees": "+8k Reforested Trees",
       "stats_sus": "Sustainable",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp"
+      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
     },
     "video": {
       "title": "The mountain atmosphere",
@@ -382,7 +558,8 @@
         { "label": "Location", "href": "#como-llegar" }
       ],
       "book": "BOOK NOW",
-      "lang": "ESPAÑOL"
+      "lang": "ESPAÑOL",
+      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
     },
     "pillars": [
       { "id": 1, "title": "Regeneration", "subtitle": "+8k Trees." },
@@ -403,7 +580,9 @@
       "labels": {
         "email": "Email",
         "whatsapp": "WhatsApp",
-        "social": "Social"
+        "social": "Social",
+        "phone": "5493516765820",
+        "whatsappLink": "https://wa.me/5493516765820?text=Hola!%20Estoy%20viendo%20la%20web%20de%20M%C3%A1gico%20Ensue%C3%B1o%20y%20tengo%20una%20consulta.%20%F0%9F%8C%BF"
       }
     },
     "footer": {
@@ -419,6 +598,11 @@
       },
       "copyright": "Mágico Ensueño. All rights reserved.",
       "madeBy": "Made with respect for the mountain"
+    },
+    "donations": {
+      "text": "Here you can make donations to continue expanding this project.",
+      "btn": "MAKE A DONATION",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20realizar%20una%20donaci%C3%B3n%20para%20seguir%20expandiendo%20el%20proyecto.%20%F0%9F%99%8F"
     }
   }
 }

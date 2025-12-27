@@ -29,6 +29,21 @@ export const SectionPilares: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Donations Section */}
+        <div className="mt-20 text-center">
+          <p className="text-brand/80 font-serif text-lg mb-8 max-w-2xl mx-auto">
+            {t.donations.text}
+          </p>
+          <a 
+            href={t.donations.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-white rounded-full transition-all duration-300 text-xs font-bold uppercase tracking-widest"
+          >
+            {t.donations.btn}
+          </a>
+        </div>
       </div>
     </section>
   );

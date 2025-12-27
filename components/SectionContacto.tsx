@@ -152,8 +152,8 @@ export const SectionContacto = () => {
           </div>
           <div>
             <p className="font-bold text-brand mb-1 font-serif text-base">{t.contact.labels.whatsapp}</p>
-            <a href="tel:+5493513709899" className="hover:text-gold transition-colors font-light">
-              +54 9 351 370 9899
+            <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors font-light">
+              +54 9 351 676 5820
             </a>
           </div>
           <div>

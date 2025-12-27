@@ -27,7 +27,7 @@ export const SectionComoLlegar: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://maps.google.com"
+              href={t.location.mapLink}
               target="_blank"
               rel="noreferrer"
               className="px-8 py-4 bg-brand text-white text-center rounded-full hover:bg-gold transition-all duration-300 text-sm font-bold uppercase tracking-widest"
@@ -35,7 +35,9 @@ export const SectionComoLlegar: React.FC = () => {
               {t.location.btnMap}
             </a>
             <a
-              href="#contacto"
+              href={t.location.transferLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border border-brand text-brand text-center rounded-full hover:bg-brand hover:text-white transition-all duration-300 text-sm font-bold uppercase tracking-widest"
             >
               {t.location.btnTransfer}

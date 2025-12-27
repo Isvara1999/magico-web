@@ -6,8 +6,10 @@ export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('');
   const { language, toggleLanguage, t } = useLanguage();
 
+  // Scroll effect for header styling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -17,18 +19,74 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Intersection Observer for Active Section Highlighting
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px', // Active when section is near top/center
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Collect all IDs to observe
+    const idsToObserve = new Set<string>();
+    t.menu.items.forEach(item => {
+      if (item.href.startsWith('#')) idsToObserve.add(item.href.substring(1));
+      item.submenu?.forEach(sub => {
+        if (sub.href.startsWith('#')) idsToObserve.add(sub.href.substring(1));
+      });
+    });
+    idsToObserve.add('contacto'); // Button link
+
+    idsToObserve.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [t.menu.items]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    if (!isMobileMenuOpen) {
-      // Locking body scroll could be implemented here if desired
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, hasSubmenu: boolean, index: number) => {
+    // Mobile: Toggle submenu if it exists
+    if (window.innerWidth < 1024 && hasSubmenu) {
+      e.preventDefault();
+      setActiveSubmenu(activeSubmenu === index ? null : index);
+      return;
+    }
+
+    // Navigation logic
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        setIsMobileMenuOpen(false);
+        // Smooth scroll
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash manually to keep history clean
+        window.history.pushState(null, '', href);
+      }
     }
   };
 
-  const toggleSubmenu = (index: number, e: React.MouseEvent) => {
-    if (window.innerWidth < 1024) {
-      e.preventDefault();
-      setActiveSubmenu(activeSubmenu === index ? null : index);
-    }
+  // Helper to check if link is active
+  const isLinkActive = (href: string) => {
+    if (!href.startsWith('#')) return false;
+    return activeSection === href.substring(1);
   };
 
   // Dynamic Classes
@@ -51,7 +109,7 @@ export const Header: React.FC = () => {
   return (
     <header className={pillClasses}>
       <div className="flex justify-between items-center w-full lg:px-0 px-2">
-        <a href="#" className="relative z-[1200]">
+        <a href="#" className="relative z-[1200]" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }}>
           <img
             src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
             alt="Mágico Ensueño"
@@ -86,14 +144,16 @@ export const Header: React.FC = () => {
               <li key={index} className="relative group w-full lg:w-auto text-center lg:text-left">
                 <a
                   href={item.href}
-                  onClick={(e) => item.submenu && toggleSubmenu(index, e)}
+                  onClick={(e) => handleNavClick(e, item.href, !!item.submenu, index)}
                   className={`
                     flex items-center justify-center lg:justify-start gap-1.5 py-3.5 lg:py-2.5 
                     text-[16px] lg:text-[13px] font-serif lg:font-sans font-normal lg:font-medium
                     border-b border-black/5 lg:border-none w-full lg:w-auto
                     transition-colors duration-300
-                    ${isScrolled || isMobileMenuOpen ? 'text-dark hover:text-brand' : 'text-white hover:text-gold'}
-                    ${window.innerWidth < 1024 ? 'text-[#444]' : ''}
+                    ${isScrolled || isMobileMenuOpen 
+                      ? (isLinkActive(item.href) ? 'text-gold font-bold' : 'text-dark hover:text-brand') 
+                      : (isLinkActive(item.href) ? 'text-gold' : 'text-white hover:text-gold')}
+                    ${window.innerWidth < 1024 && !isLinkActive(item.href) ? 'text-[#444]' : ''}
                   `}
                 >
                   {item.label}
@@ -120,8 +180,11 @@ export const Header: React.FC = () => {
                       <li key={subIndex}>
                         <a
                           href={sub.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-2.5 px-5 text-[14px] lg:text-[12px] text-[#777] lg:text-[#666] hover:text-brand hover:bg-[#F9F9F9] lg:hover:pl-6 transition-all text-center lg:text-left"
+                          onClick={(e) => handleNavClick(e, sub.href, false, index)}
+                          className={`
+                            block py-2.5 px-5 text-[14px] lg:text-[12px] transition-all text-center lg:text-left
+                            ${isLinkActive(sub.href) ? 'text-gold font-bold bg-[#F9F9F9]' : 'text-[#777] lg:text-[#666] hover:text-brand hover:bg-[#F9F9F9] lg:hover:pl-6'}
+                          `}
                         >
                           {sub.label}
                         </a>
@@ -134,7 +197,13 @@ export const Header: React.FC = () => {
             
             {/* Desktop Reservar Button */}
             <li className="hidden lg:block pl-4 border-l border-white/20">
-               <a href="#contacto" className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${isScrolled ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}>
+               <a 
+                 href={t.menu.bookLink} 
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 onClick={(e) => handleNavClick(e, t.menu.bookLink, false, -1)}
+                 className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${isScrolled ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}
+               >
                   {t.menu.book}
                </a>
             </li>
