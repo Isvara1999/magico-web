@@ -1,11 +1,16 @@
 /// <reference types="react" />
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { marked } from 'marked';
 
 export const SectionNosotros: React.FC = () => {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = (t.about as any).images || [t.about.image];
+  const next = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
     <>
@@ -27,14 +32,34 @@ export const SectionNosotros: React.FC = () => {
           <div className="grid md:grid-cols-12 gap-8 items-center">
             
             {/* Image Container */}
-            <div className="md:col-span-6 relative order-last md:order-first">
-              <div className="rounded-xl overflow-hidden shadow-md">
+            <div className="md:col-span-6 relative order-last md:order-first group">
+              <div className="rounded-xl overflow-hidden shadow-md relative aspect-[4/3]">
                 <img
-                  src={t.about.image}
+                  src={images[currentIndex]}
                   alt="Vista Mágico Ensueño"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover transition-all duration-500"
                   loading="lazy"
                 />
+                
+                {/* Flechas de Navegación (Solo visibles en hover) */}
+                {images.length > 1 && (
+                  <>
+                    <button 
+                      onClick={prev}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full text-brand shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white hover:scale-110"
+                      aria-label="Anterior"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={next}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full text-brand shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white hover:scale-110"
+                      aria-label="Siguiente"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
               </div>
             </div>
 

@@ -6,7 +6,7 @@ type Language = 'es' | 'en';
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
-  t: typeof translations.es;
+  t: any;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

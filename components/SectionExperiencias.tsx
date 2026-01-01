@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { BookOpen, Check } from 'lucide-react';
+import { BookOpen, Check, FileText } from 'lucide-react';
 import { marked } from 'marked';
 
 export const SectionExperiencias: React.FC = () => {
@@ -20,6 +20,21 @@ export const SectionExperiencias: React.FC = () => {
             className="text-dark/70 text-lg max-w-5xl mx-auto leading-relaxed [&_strong]:text-gold [&_strong]:font-medium"
             dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.subtitle as string) as string }}
           />
+
+          {/* Brochure Button */}
+          {(t.experiences as any).brochureLink && (
+            <div className="mt-8 flex justify-center">
+              <a 
+                href={(t.experiences as any).brochureLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-brand text-white border border-brand px-6 py-3 rounded-full hover:bg-gold hover:border-gold transition-all duration-300 text-xs tracking-widest uppercase font-bold shadow-md"
+              >
+                <FileText className="w-4 h-4" />
+                {(t.experiences as any).btnBrochure || "MÁS INFO Y PRECIOS"}
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Reset Vital Section */}

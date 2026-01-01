@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, ArrowRight } from 'lucide-react';
 
 export const SectionEventos: React.FC = () => {
   const { t } = useLanguage();
@@ -53,29 +53,57 @@ export const SectionEventos: React.FC = () => {
           {t.events.cards.map((card: any, index: number) => (
             <div
               key={index}
-              className="min-w-[85vw] md:min-w-0 snap-center bg-bone rounded-xl p-6 md:p-8 shadow-sm border border-brand/5 hover:shadow-md transition-all duration-300 flex flex-col h-full group"
+              className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-brand/5 flex flex-col h-full group"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-gold shrink-0">
-                  <Calendar className="w-5 h-5" />
+              {/* Imagen con Overlay de Fecha */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                <img 
+                  src={card.image || "https://images.pexels.com/photos/3077882/pexels-photo-3077882.jpeg"} 
+                  alt={card.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg flex items-center gap-2 z-10">
+                  <Calendar className="w-3 h-3 text-gold" />
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-brand uppercase">{card.date}</span>
                 </div>
-                <p className="text-gold font-bold text-xs md:text-sm tracking-widest uppercase">{card.date}</p>
               </div>
               
-              <h3 className="text-xl md:text-2xl font-serif text-brand mb-3 group-hover:text-gold transition-colors">
-                {card.title}
-              </h3>
-              
-              <p className="text-dark/70 mb-6 text-sm leading-relaxed flex-grow">{card.desc}</p>
-              
-              <a 
-                href={card.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-brand font-bold text-xs uppercase tracking-widest border-b border-brand/20 pb-1 hover:text-gold hover:border-gold transition-colors self-start mt-auto"
-              >
-                {card.btn}
-              </a>
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <h3 className="text-xl md:text-2xl font-serif text-brand mb-3 leading-tight group-hover:text-gold transition-colors">
+                  {card.title}
+                </h3>
+                
+                <p className="text-dark/70 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                  {card.desc}
+                </p>
+                
+                <div className="flex flex-wrap items-center justify-start pt-4 border-t border-brand/5 mt-auto gap-3">
+                <a 
+                  href={card.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                    className="px-4 py-2 bg-brand text-white text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gold transition-colors shadow-sm whitespace-nowrap flex-grow text-center sm:flex-grow-0"
+                >
+                  {card.btn}
+                </a>
+                {card.pdfLink && (
+                  <a 
+                    href={card.pdfLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 text-brand/60 hover:text-brand font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors group/pdf whitespace-nowrap flex-grow sm:flex-grow-0"
+                  >
+                      <span className="border-b border-transparent group-hover/pdf:border-brand transition-all">
+                    {(t.events as any).btnPdf || "+ Info"}
+                      </span>
+                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                  </a>
+                )}
+                </div>
+              </div>
             </div>
           ))}
           </div>

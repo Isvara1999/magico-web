@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, FileText } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { marked } from 'marked';
 
@@ -42,6 +42,17 @@ export const SectionRetiros: React.FC = () => {
                 >
                   {t.retreats.btn}
                 </a>
+                {(t.retreats as any).brochureLink && (
+                  <a
+                    href={(t.retreats as any).brochureLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-white/30 text-white rounded-full hover:bg-white hover:text-brand transition-all duration-300 text-xs tracking-widest uppercase font-bold"
+                  >
+                    <FileText className="w-4 h-4" />
+                    {(t.retreats as any).btnBrochure || "Ver Brochure"}
+                  </a>
+                )}
               </div>
             </div>
             

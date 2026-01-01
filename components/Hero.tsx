@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Usamos las imágenes del array si existen, si no, usamos la imagen única como fallback
+  const images = (t.hero as any).bgImages || [t.hero.bgImage];
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // Cambia cada 3 segundos
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section id="heroSec" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={t.hero.bgImage}
-          alt="Paisaje Mágico Ensueño"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+        {images.map((img: string, index: number) => (
+          <img
+            key={index}
+            src={img}
+            alt={t.hero.title}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+            loading={index === 0 ? "eager" : "lazy"} 
+          />
+        ))}
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/30 to-transparent mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-bl from-gold/20 via-transparent to-transparent mix-blend-soft-light"></div>
