@@ -42,21 +42,10 @@ export const SectionRetiros: React.FC = () => {
                 >
                   {t.retreats.btn}
                 </a>
-                {(t.retreats as any).brochureLink && (
-                  <a
-                    href={(t.retreats as any).brochureLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-white/30 text-white rounded-full hover:bg-white hover:text-brand transition-all duration-300 text-xs tracking-widest uppercase font-bold"
-                  >
-                    <FileText className="w-4 h-4" />
-                    {(t.retreats as any).btnBrochure || "Ver Brochure"}
-                  </a>
-                )}
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4 mt-8 lg:mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 lg:mt-0">
               <img
                 src={(t.retreats.images[0] as any).image}
                 alt="Yoga"

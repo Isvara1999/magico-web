@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { marked } from 'marked';
 
 export const SectionTestimonios: React.FC = () => {
   const { t } = useLanguage();
@@ -21,9 +22,10 @@ export const SectionTestimonios: React.FC = () => {
     <section id="testimonios" className="py-24 bg-bone">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl text-brand font-serif">
-            {t.testimonials.title}
-          </h2>
+          <h2 
+            className="text-3xl md:text-5xl text-brand font-serif"
+            dangerouslySetInnerHTML={{ __html: marked.parse(t.testimonials.title as string) as string }}
+          />
         </div>
         <div className="relative">
           <button 

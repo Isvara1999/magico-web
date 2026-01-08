@@ -1,12 +1,10 @@
 {
   "es": {
     "experiences": {
-      "tag": "Experiencia Mágico",
-      "title": "Diseñá tu Experiencia",
+      "tag": "En Mágico",
+      "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
       "subtitle": "En Mágico Ensueño, lo básico es extraordinario. Tu estadía siempre incluye **Alojamiento, Pensión Completa y la experiencia Reset Vital**. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia experiencia a medida. ¡Escribinos para cualquier consulta!",
       "btn": "RESERVAR MI LUGAR",
-      "btnBrochure": "MÁS INFO Y PRECIOS",
-      "brochureLink": "https://drive.google.com/file/d/10Jo1f0KTXbzXuAXRWsvQS7iD1m4n_KNl/view",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
@@ -56,7 +54,7 @@
       }
     },
     "volunteer": {
-      "title": "Un intercambio que <span class='italic text-gold'>expande</span>",
+      "title": "Un intercambio que <span class='italic text-green'>expande</span>",
       "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de **colaboración, aprendizaje y servicio a la Tierra**. Una propuesta simple y profunda, para explorar la **vida en comunidad**, el **trabajo en equipo** y la filosofía del **buen vivir**.",
       "btn": "POSTULARME",
       "image": "/uploads/voluntarios.webp",
@@ -89,8 +87,6 @@
       "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
       "description": "Abrimos el espacio, el equipo y la energía de Mágico Ensueño para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
       "btn": "ORGANIZAR RETIRO",
-      "btnBrochure": "VER BROCHURE",
-      "brochureLink": "https://drive.google.com/file/d/1aFst-x-UtCRvK31oKP0LXUdoshKJrrVR/view",
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
         {
@@ -126,7 +122,7 @@
       ]
     },
     "testimonials": {
-      "title": "Historias de la Montaña",
+      "title": "Historias de la <span class='text-gold italic'>Montaña</span>",
       "items": [
         {
           "id": 1,
@@ -152,7 +148,7 @@
       ]
     },
     "location": {
-      "title": "El viaje es parte <br />de la experiencia.",
+      "title": "El viaje es parte <br />de la <span class='text-gold italic'>experiencia.</span>",
       "description": "A solo 100 km de Córdoba Capital, el camino se transforma mientras te acercás al macizo Los Gigantes. Es accesible para cualquier vehículo.",
       "btnMap": "Ver en Mapa",
       "btnTransfer": "Coordinar Traslado",
@@ -248,7 +244,8 @@
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
     },
     "video": {
-      "title": "Viví nuestra experiencia de montaña",
+      "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
+      "subtitle": "",
       "videoUrl": "https://www.youtube.com/embed/hxE7Ksy7IsY",
       "poster": "/uploads/img_3027-1-1-.webp"
     },
@@ -286,7 +283,7 @@
       { "id": 4, "title": "Consciencia", "subtitle": "Todo lo que sucede aquí tiene intención y mucho corazón. Prácticas, decisiones y experiencias alineadas con el cuidado, el sentido y la coherencia interna." }
     ],
     "contact": {
-      "title": "Empezar el viaje",
+      "title": "Empezar el <span class='italic text-green'>viaje</span>",
       "subtitle": "Escribinos para diseñar tu estadía o retiro.",
       "placeholders": {
         "name": "Nombre Completo",
@@ -329,8 +326,6 @@
       "title": "Design your stay",
       "subtitle": "At Mágico Ensueño, the basics are extraordinary. Your stay always includes **Accommodation, Full Board, and the Reset Vital experience**. This is the base version we offer to enhance the experience and its benefits, but you can also build your own custom experience. Write to us for any inquiry!",
       "btn": "Book my spot",
-      "btnBrochure": "MORE INFO & PRICES",
-      "brochureLink": "https://drive.google.com/file/d/10Jo1f0KTXbzXuAXRWsvQS7iD1m4n_KNl/view",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
@@ -380,7 +375,7 @@
       }
     },
     "volunteer": {
-      "title": "An exchange that <span class='italic text-gold'>expands</span>",
+      "title": "An exchange that <span class='italic text-green'>expands</span>",
       "description": "We receive travelers from all over the world to live an experience of **collaboration, learning and service to the Earth**. A simple and deep proposal to explore **community life**, **teamwork** and the philosophy of **good living**.",
       "btn": "Apply",
       "image": "/uploads/voluntarios.webp",
@@ -413,8 +408,6 @@
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
       "description": "We open the space, the team and the energy of Mágico Ensueño to Co-create retreats, gatherings and days in deep contact with nature.",
       "btn": "Organize Retreat",
-      "btnBrochure": "VIEW BROCHURE",
-      "brochureLink": "https://drive.google.com/file/d/1aFst-x-UtCRvK31oKP0LXUdoshKJrrVR/view",
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
         {
@@ -476,7 +469,7 @@
       ]
     },
     "location": {
-      "title": "The journey is part <br />of the experience.",
+      "title": "The journey is part <br />of the <span class='text-gold italic'>experience.</span>",
       "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. It is accessible for any vehicle.",
       "btnMap": "View on Map",
       "btnTransfer": "Coordinate Transfer",
@@ -572,7 +565,8 @@
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
     },
     "video": {
-      "title": "Live our mountain experience",
+      "title": "Live our mountain <span class='italic text-gold'>experience</span>",
+      "subtitle": "",
       "videoUrl": "https://www.youtube.com/embed/hxE7Ksy7IsY",
       "poster": "/uploads/img_3027-1-1-.webp"
     },
@@ -610,7 +604,7 @@
       { "id": 4, "title": "Consciousness", "subtitle": "Everything that happens here has intention and heart. Practices, decisions, and experiences aligned with care and internal coherence." }
     ],
     "contact": {
-      "title": "Start the journey",
+      "title": "Start the <span class='italic text-green'>journey</span>",
       "subtitle": "Write to us to design your stay or retreat.",
       "placeholders": {
         "name": "Full Name",

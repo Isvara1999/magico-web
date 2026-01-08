@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { marked } from 'marked';
 
 export const SectionContacto = () => {
   const { t } = useLanguage();
@@ -53,7 +54,10 @@ export const SectionContacto = () => {
     <section id="contacto" className="py-24 bg-bone relative">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl text-brand mb-4 font-serif">{t.contact.title}</h2>
+          <h2 
+            className="text-4xl md:text-5xl text-brand mb-4 font-serif"
+            dangerouslySetInnerHTML={{ __html: marked.parse(t.contact.title as string) as string }}
+          />
           <p className="text-dark/70 font-light text-lg">{t.contact.subtitle}</p>
         </div>
 
