@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reset-vital-v4';
+const CACHE_NAME = 'reset-vital-v5';
 
 // Archivos críticos para cachear inmediatamente
 const PRECACHE_URLS = [
@@ -34,26 +34,49 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-// Fetch: Estrategia "Network First + Dynamic Caching"
+// Fetch: Estrategia Híbrida
 self.addEventListener('fetch', (event) => {
   // Solo interceptamos peticiones GET
   if (event.request.method !== 'GET') return;
 
+  const url = new URL(event.request.url);
+  
+  // ESTRATEGIA 1: Network First (Para documentos HTML y navegación)
+  // Intenta internet para tener lo último, si falla usa caché.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .catch(() => {
+          return caches.match(event.request)
+            .then((response) => response || caches.match('/index.html'));
+        })
+    );
+    return;
+  }
+
+  // ESTRATEGIA 2: Stale-While-Revalidate / Cache First (Para CSS, JS, Imágenes)
+  // Busca en caché primero. Si no está, va a la red y guarda la copia.
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        // Si la respuesta es válida, la guardamos en caché (CSS, JS, etc.)
-        if (response && response.status === 200) {
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+    caches.match(event.request).then((cachedResponse) => {
+      // Si está en caché, lo devolvemos (Rápido y Offline-ready)
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      // Si no, vamos a la red
+      return fetch(event.request).then((networkResponse) => {
+        // Guardamos en caché para la próxima
+        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+          return networkResponse;
         }
-        return response;
-      })
-      .catch(() => {
-        // Si falla internet, buscamos en caché
-        return caches.match(event.request);
-      })
+        
+        const responseToCache = networkResponse.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+
+        return networkResponse;
+      });
+    })
   );
 });
