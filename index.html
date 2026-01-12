@@ -15,6 +15,11 @@
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- PWA CONFIG (Manifest & Theme) -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#005333">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
   <!-- IDENTITY WIDGET PARA CMS (Necesario para que funcione el login actual) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -67,6 +72,15 @@
             document.location.href = "/admin/";
           });
         }
+      });
+    }
+
+    // Registrar Service Worker para soporte Offline y PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registrado', reg))
+          .catch(err => console.log('SW error', err));
       });
     }
   </script>

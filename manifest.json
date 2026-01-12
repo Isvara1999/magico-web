@@ -1,0 +1,17 @@
+{
+  "name": "Mágico Ensueño - Reset Vital",
+  "short_name": "Reset Vital",
+  "start_url": "/reset-vital-5-d",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#005333",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
