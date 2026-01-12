@@ -18,12 +18,11 @@ export const SectionExperiencias: React.FC = () => {
             dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.title as string) as string }}
           />
           <div className="text-dark/70 text-lg max-w-5xl mx-auto leading-relaxed space-y-6">
-            <p>
-              En Mágico Ensueño, <strong className="text-brand font-medium">lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong className="text-gold font-medium">Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia <strong className="text-brand font-medium">experiencia a medida</strong>. ¡Escribinos para cualquier consulta!
-            </p>
-            <p className="font-light">
-              También puedes optar <strong className="text-brand font-medium">solo por el alojamiento</strong> si lo deseas, pero recomendamos la experiencia completa de alojamiento, comida y guía: el <strong className="text-gold font-medium">Reset Vital</strong>.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p1 }} />
+            <p 
+              className="font-light"
+              dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p2 }} 
+            />
           </div>
         </div>
 
@@ -73,7 +72,7 @@ export const SectionExperiencias: React.FC = () => {
             <div key={card.id} className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold relative">
               {isEcoRefugio && (
                 <div className="absolute top-4 right-4 z-20 bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  Alojamiento
+                  {(t.experiences as any).badge_accommodation}
                 </div>
               )}
               <div className="h-48 overflow-hidden">
@@ -83,7 +82,7 @@ export const SectionExperiencias: React.FC = () => {
                 <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
                 <p className="text-dark/70 mb-4 text-sm leading-relaxed">
                   {card.description}
-                  {isEcoRefugio && " También podés solo alojarte si querés."}
+                  {isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}
                 </p>
                 <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-gold font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
                   {card.ctaText}

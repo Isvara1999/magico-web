@@ -3,7 +3,10 @@
     "experiences": {
       "tag": "En Mágico",
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
-      "subtitle": "En Mágico Ensueño, lo básico es extraordinario. Tu estadía siempre incluye **Alojamiento, Pensión Completa y la experiencia Reset Vital**. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia experiencia a medida. ¡Escribinos para cualquier consulta!",
+      "intro_p1": "En Mágico Ensueño, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-gold font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia <strong class='text-brand font-medium'>experiencia a medida</strong>. ¡Escribinos para cualquier consulta!",
+      "intro_p2": "También puedes optar <strong class='text-brand font-medium'>solo por el alojamiento</strong> si lo deseas, pero recomendamos la experiencia completa de alojamiento, comida y guía: el <strong class='text-gold font-medium'>Reset Vital</strong>.",
+      "badge_accommodation": "Alojamiento",
+      "card_extra_text": "También podés solo alojarte si querés.",
       "btn": "RESERVAR MI LUGAR",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -324,7 +327,10 @@
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
-      "subtitle": "At Mágico Ensueño, the basics are extraordinary. Your stay always includes **Accommodation, Full Board, and the Reset Vital experience**. This is the base version we offer to enhance the experience and its benefits, but you can also build your own custom experience. Write to us for any inquiry!",
+      "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-gold font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. This is the base version we offer to enhance the experience and its benefits, but you can also build your own <strong class='text-brand font-medium'>custom experience</strong>. Write to us for any inquiry!",
+      "intro_p2": "You can also choose <strong class='text-brand font-medium'>accommodation only</strong> if you wish, but we recommend the full experience of accommodation, food, and guidance: the <strong class='text-gold font-medium'>Reset Vital</strong>.",
+      "badge_accommodation": "Accommodation",
+      "card_extra_text": "You can also just book accommodation if you wish.",
       "btn": "Book my spot",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [

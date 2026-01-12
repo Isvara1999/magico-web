@@ -1,0 +1,825 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  ChevronDown, ChevronUp, Music, Video, Wind, Sun, 
+  Feather, Anchor, Heart, Info, Coffee, BookOpen, Compass, Star, 
+  Footprints, PenTool, Smile, Moon, PlayCircle, Headphones, Smartphone,
+  Users, Notebook, Printer, Sparkles, Download
+} from 'lucide-react';
+
+// --- CONFIGURACIÓN DE MARCA (Manual de Uso) ---
+const BRAND = {
+  gold: '#A8971C',      // Ocre (Luz)
+  terracotta: '#AA3E11', // Terracota (Tierra)
+  green: '#005333',     // Verde (Naturaleza)
+  magenta: '#9D005E',   // Magenta (Espiritual)
+  blue: '#0099D1',      // Azul (Cielo)
+  bg: '#FDFBF7',        // Crema Papel
+  dark: '#1F2937'
+};
+
+// --- IMÁGENES DE FONDO (Placeholders estilo Córdoba) ---
+const IMAGES = {
+  hero: "/uploads/img_6948.webp", 
+  day1: "/uploads/hero(3).webp", 
+  day2: "/uploads/f2d5nat1pa6uihnwj480.webp", 
+  day3: "/uploads/494815924_1424799465353456_392615711940557767_n.webp", 
+  day4: "/uploads/refu.webp", 
+  day5: "/uploads/exterior.webp"  
+};
+
+// --- COMPONENTES VISUALES ---
+
+const PortalBackground = ({ color }) => (
+  <svg viewBox="0 0 200 200" className="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none animate-spin-slow">
+    <circle cx="100" cy="100" r="90" stroke={color} strokeWidth="0.5" fill="none" strokeDasharray="4 4"/>
+    <circle cx="100" cy="100" r="70" stroke={color} strokeWidth="0.5" fill="none"/>
+    <path d="M100,10 L100,190 M10,100 L190,100" stroke={color} strokeWidth="0.5"/>
+    <rect x="50" y="50" width="100" height="100" stroke={color} strokeWidth="0.5" fill="none" transform="rotate(45 100 100)"/>
+  </svg>
+);
+
+const MediaButton = ({ type, title, link, color }) => {
+  const isSpotify = type === 'spotify';
+  const Icon = isSpotify ? Music : Video;
+  
+  return (
+    <a 
+      href={link || "#"} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="no-print group flex items-center gap-3 p-3 rounded-lg border border-stone-200 bg-white hover:border-[color] transition-all shadow-sm hover:shadow-md"
+      style={{ borderColor: `${color}40` }}
+    >
+      <div className={`p-2 rounded-full text-white shadow-sm`} style={{ backgroundColor: color }}>
+        <Icon size={16} />
+      </div>
+      <div className="flex-1">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-stone-400">{isSpotify ? 'Audio Guía' : 'Video Guía'}</p>
+        <p className="text-sm font-bold text-stone-700 group-hover:text-[color]" style={{ color: '#444' }}>{title}</p>
+      </div>
+      <span className="text-stone-300">→</span>
+    </a>
+  );
+};
+
+const DayCard = ({ dayNumber, title, subtitle, icon: Icon, color, image, children, isOpen, onClick }) => {
+  return (
+    <div className={`mb-8 print:mb-4 print:block ${isOpen ? 'scale-100' : 'scale-100'}`} style={{ pageBreakBefore: 'always' }}>
+      
+      {/* HEADER CARD */}
+      <button
+        onClick={onClick}
+        className="w-full relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 text-left print:shadow-none print:border-b print:rounded-none break-inside-avoid cursor-pointer z-20 touch-manipulation active:scale-[0.99] group"
+      >
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src={image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div className="absolute inset-0 opacity-40 transition-opacity duration-300" style={{ backgroundColor: color, mixBlendMode: 'multiply' }}></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+
+        <div className="relative z-10 p-6 flex items-end justify-between min-h-[140px]">
+          <div>
+            <div className="flex items-center gap-2 text-white/80 font-sans text-xs font-bold tracking-[0.2em] uppercase mb-1">
+              <span className="w-6 h-px bg-white/50"></span>
+              Día {dayNumber}
+            </div>
+            <h3 className="font-serif text-3xl text-white leading-none mb-1 shadow-black drop-shadow-md">
+              {title}
+            </h3>
+            <p className="text-white/90 font-sans text-sm font-medium">
+              {subtitle}
+            </p>
+          </div>
+          
+          {/* FLECHA CON EFECTO GLASS MEJORADO */}
+          <div 
+            className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-500 no-print shadow-lg border border-white/30 backdrop-blur-xl ${isOpen ? 'rotate-180 bg-white' : 'bg-white/20 group-hover:bg-white/30'}`} 
+            style={{ color: isOpen ? color : 'white' }}
+          >
+            <ChevronDown size={24} />
+          </div>
+        </div>
+      </button>
+
+      {/* CONTENT (Accordion) */}
+      <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-white rounded-b-2xl shadow-md border-x border-b border-stone-100 print:max-h-none print:opacity-100 print:shadow-none print:border-none ${isOpen ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="p-6 md:p-8 space-y-6 relative">
+          <PortalBackground color={color} />
+          <div className="relative z-10 text-stone-700 font-sans leading-relaxed text-justify">
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- MAIN APP ---
+export default function ResetVitalApp() {
+  const [openDay, setOpenDay] = useState(0); 
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isStandalone, setIsStandalone] = useState(false);
+
+  useEffect(() => {
+    // Detectar si la app ya está instalada/abierta en modo standalone
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      setIsStandalone(true);
+    }
+
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  }, []);
+
+  const handleInstall = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          setDeferredPrompt(null);
+        }
+      });
+    } else {
+      alert(" Para Celulares (Android/iOS):\n1. Abrí el menú del navegador (⋮ o botón compartir).\n2. Seleccioná 'Agregar a la pantalla principal' o 'Instalar aplicación'.\n\n💻 Para PC/Notebook:\n1. Buscá el ícono de instalar (⊕ o 🖥️) en la barra de direcciones.\n2. O andá al menú > Guardar y compartir > Instalar página...");
+    }
+  };
+
+  const toggleSection = (index) => {
+    setOpenDay(openDay === index ? -1 : index);
+  };
+
+  const isDayOpen = (index) => openDay === 'ALL' || openDay === index;
+
+  return (
+    <div className="min-h-screen font-sans bg-[#FDFBF7] selection:bg-[#A8971C] selection:text-white print:bg-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Nunito', sans-serif; }
+        .animate-spin-slow { animation: spin 60s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        @media print {
+          .no-print { display: none !important; }
+          .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+          body { background-color: white; color: black; }
+          .shadow-xl, .shadow-lg, .shadow-md { box-shadow: none !important; }
+          * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          
+          /* --- OPTIMIZACIÓN CRÍTICA PARA PDF --- */
+          /* 1. Forzar diseño de una sola columna (elimina cortes verticales raros) */
+          .grid, .md\\:grid-cols-2, .md\\:grid-cols-3 { 
+            display: block !important; 
+          }
+          
+          /* 2. Añadir margen inferior a los elementos que antes estaban en grilla */
+          .grid > *, .md\\:grid-cols-2 > * {
+            margin-bottom: 2rem !important;
+          }
+
+          /* 3. PROHIBIR que estos elementos se corten a la mitad entre páginas */
+          p, h1, h2, h3, h4, h5, h6, li, img, svg, .rounded-xl, .rounded-lg, .bg-stone-50, .bg-green-50 {
+            break-inside: avoid !important;
+            page-break-inside: avoid !important;
+          }
+        }
+      `}</style>
+
+      {/* --- HERO HEADER --- */}
+      <header className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center text-center overflow-hidden pb-20 md:pb-28 lg:pb-32 lg:pt-24 print:h-auto print:py-10 print:pb-0" style={{ pageBreakAfter: 'always' }}>
+        <div className="absolute inset-0 z-0 no-print">
+          <img src={IMAGES.hero} className="w-full h-full object-cover" alt="Cielo estrellado montaña" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-[#005333]/30 mix-blend-overlay"></div>
+        </div>
+
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-center h-full">
+          <div className="w-full flex flex-col items-center text-white print:text-black lg:gap-4">
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 lg:mb-6 shadow-2xl print:border-stone-800 print:text-stone-800 transition-transform hover:scale-105 duration-700">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A8971C] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A8971C]"></span>
+              </span>
+              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/90">Retiro Autogestivo</span>
+            </div>
+            
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 lg:mb-8 tracking-tight drop-shadow-2xl print:text-[#005333] leading-[0.95] lg:leading-[0.9] w-full max-w-5xl">
+              Desconectar<br/>para Reconectar
+            </h1>
+            
+            <div className="flex items-center gap-4 opacity-60 mb-4 lg:mb-8">
+               <div className="h-px w-16 bg-gradient-to-r from-transparent via-white to-transparent"></div>
+               <Star size={14} className="text-[#A8971C]" fill="#A8971C" />
+               <div className="h-px w-16 bg-gradient-to-r from-transparent via-white to-transparent"></div>
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-lg md:text-xl lg:text-2xl font-serif tracking-[0.2em] text-[#FDFBF7] print:text-[#A8971C]">
+                RESET VITAL
+              </p>
+              {/* Logo Blanco para pantalla */}
+              <img 
+                src="/uploads/logo blanco.svg" 
+                alt="Mágico Ensueño" 
+                className="h-20 md:h-24 lg:h-28 w-auto object-contain mt-2 opacity-90 hover:opacity-100 transition-opacity drop-shadow-lg print:hidden" 
+              />
+              {/* Logo Negro para impresión */}
+              <img 
+                src="/uploads/logo negro.svg" 
+                alt="Mágico Ensueño" 
+                className="hidden print:block h-16 w-auto object-contain mt-4" 
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* --- MAIN CONTENT --- */}
+      <main className="max-w-3xl mx-auto px-4 -mt-20 relative z-20 pb-10 print:mt-0 print:pb-0">
+
+        {/* 0. UMBRAL (Intro Card) */}
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl shadow-stone-200/50 mb-12 relative overflow-hidden text-center break-inside-avoid print:shadow-none print:border print:border-stone-200">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
+            <PortalBackground color={BRAND.green} />
+            
+            <div className="relative z-10">
+                <div className="w-16 h-16 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                   <Wind className="text-[#005333]" size={32} strokeWidth={1} />
+                </div>
+                <h2 className="font-serif text-3xl text-[#005333] mb-1">UMBRAL</h2>
+                <p className="text-xs font-bold text-[#AA3E11] uppercase tracking-[0.3em] mb-8">Antes de seguir</p>
+
+                <div className="prose prose-lg mx-auto text-stone-600 mb-10 space-y-6 font-serif leading-relaxed">
+                   <p className="italic text-xl text-[#005333]">
+                     "No llegaste hasta acá por casualidad. Algo en vos sintió un llamado. Este lugar no es solo un espacio físico. Es un portal."
+                   </p>
+                   <p className="font-sans text-base">
+                     A partir de este punto, el tiempo cambia. Las exigencias se aflojan. La escucha se vuelve posible.
+                   </p>
+                   <p className="font-sans text-base">
+                     No hace falta que creas en nada. Solo que estés disponible para dejarte atravesar por la experiencia.
+                   </p>
+                   <p className="font-bold text-[#A8971C] text-sm tracking-wide uppercase mt-4">
+                     Te invitamos a ser vos mismo/a en todo momento.
+                   </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mt-8 pt-8 border-t border-stone-100">
+                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-100">
+                        <Smartphone size={20} className="text-[#AA3E11] mx-auto mb-2" />
+                        <p className="text-xs text-stone-600 leading-tight">Usá el celular lo menos posible durante tu estadía, solo si lo necesitás realmente.</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-100">
+                        <Users size={20} className="text-[#005333] mx-auto mb-2" />
+                        <p className="text-xs text-stone-600 leading-tight">Para lo que necesites, nuestro equipo anfitrión está disponible para acompañarte.</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-100">
+                        <Notebook size={20} className="text-[#A8971C] mx-auto mb-2" />
+                        <p className="text-xs text-stone-600 leading-tight">Tené tu bitácora siempre a mano y, cada vez que lo sientas, escribí lo que emerja.</p>
+                    </div>
+                </div>
+                
+                {/* --- TIP OFFLINE --- */}
+                {!isStandalone && (
+                  <div className="mt-8 p-4 bg-stone-100 rounded-xl border border-stone-200 flex flex-col md:flex-row items-center gap-4 text-center md:text-left no-print">
+                      <div className="p-3 bg-white rounded-full text-[#AA3E11] shadow-sm">
+                          <Smartphone size={24} />
+                      </div>
+                      <div className="flex-1">
+                          <p className="text-sm font-bold text-stone-700">¿Vas a estar sin señal?</p>
+                          <p className="text-xs text-stone-500">Guardá esta guía en tu dispositivo (PC o Celular) para acceder offline.</p>
+                      </div>
+                      <button 
+                          onClick={handleInstall}
+                          className="px-5 py-2 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#8a330e] transition-colors shadow-md whitespace-nowrap"
+                      >
+                          {deferredPrompt ? 'Instalar App' : 'Ver cómo'}
+                      </button>
+                  </div>
+                )}
+
+                <p className="mt-8 text-xs font-bold text-stone-400 uppercase tracking-widest no-print">Cuando estés listo/a, seguí</p>
+            </div>
+        </div>
+
+        {/* DÍA 1 */}
+        <DayCard
+          dayNumber="01"
+          title="CRUZAR EL PORTAL"
+          subtitle="Soltar el ruido · Habitar el cuerpo"
+          icon={Anchor}
+          color={BRAND.terracotta}
+          image={IMAGES.day1}
+          isOpen={isDayOpen(1)}
+          onClick={() => toggleSection(1)}
+        >
+          <div className="text-center mb-8 px-4">
+            <p className="text-xl font-serif italic text-[#AA3E11] mb-4">
+              "Este primer día no es para entender. Es para llegar de verdad."
+            </p>
+            <p className="text-sm font-bold text-stone-400 uppercase tracking-widest">
+              Aterrizar · Sincronizar · Conectar
+            </p>
+            <p className="text-sm text-stone-600 mt-2">
+              Aterrizar en el cuerpo. Sincronizarte con el ritmo. Conectar con vos y con el territorio.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <section>
+               <h4 className="flex items-center gap-2 font-bold text-[#AA3E11] mb-4 text-sm uppercase tracking-wider border-b border-[#AA3E11]/20 pb-2">
+                  <Coffee size={18} /> Ritual de llegada
+                </h4>
+                <p className="text-sm text-stone-500 mb-4 italic">Elegí un gesto simple para marcar el cruce:</p>
+                <ul className="space-y-3 text-sm text-stone-700">
+                  {["Prepará una infusión.", "Salí unos minutos al aire libre.", "Poné ambos pies en la tierra.", "Respirá profundo tres veces.", "Decí, en voz baja o por dentro: Estoy acá."].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#AA3E11] mt-1.5"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 bg-orange-50 p-4 rounded-lg text-xs text-[#AA3E11] italic border-l-2 border-[#AA3E11]">
+                   Más que decirlo, sentilo. Date las gracias. Si hoy estás acá, es porque algo estás haciendo bien.
+                </div>
+            </section>
+
+            <section>
+                <h4 className="flex items-center gap-2 font-bold text-[#AA3E11] mb-4 text-sm uppercase tracking-wider border-b border-[#AA3E11]/20 pb-2">
+                  <Footprints size={18} /> Caminata de aterrizaje
+                </h4>
+                <p className="text-stone-700 mb-4 text-sm">Salí a caminar sin destino.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                   {["Paso Lento", "Respiración Profunda", "Mirada Amplia"].map(tag => (
+                     <span key={tag} className="px-2 py-1 bg-stone-100 text-stone-500 text-[10px] font-bold uppercase rounded">{tag}</span>
+                   ))}
+                </div>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                   No busques nada especial. Si la mente se acelera, volvés al paso. Cada paso es una forma de llegar. Observá lo que pasa en vos y quedate ahí. Dejá que la energía se vaya ordenando sola.
+                </p>
+            </section>
+          </div>
+
+          <section className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+              <h4 className="flex items-center gap-2 font-bold text-[#AA3E11] mb-4 text-sm uppercase tracking-wider">
+                <Sun size={18} /> El cuerpo como puerta
+              </h4>
+              <p className="text-sm text-stone-600 mb-4">
+                 Te invitamos a realizar alguna dinámica que te conecte con el presente a través del cuerpo. Elegí lo que sientas:
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-sm text-stone-700 mb-6">
+                 {["Estiramientos suaves", "Movimiento libre", "Acostarte en el suelo", "Bañarte en el río", "Meditar"].map(item => (
+                   <div key={item} className="flex items-center gap-2">
+                     <div className="w-1 h-1 bg-stone-300 rounded-full"></div> {item}
+                   </div>
+                 ))}
+              </div>
+              <p className="text-sm text-stone-600 italic mb-6">
+                Escuchate. Sentí lo que tu cuerpo tiene para contarte hoy. Agradecele por traerte hasta acá y por ser el canal de esta experiencia.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <MediaButton type="spotify" title="Meditación guiada de llegada" color={BRAND.terracotta} />
+                <MediaButton type="video" title="Secuencia de yoga suave" color={BRAND.terracotta} />
+              </div>
+          </section>
+
+          <section>
+              <h4 className="flex items-center gap-2 font-bold text-[#AA3E11] mb-4 text-sm uppercase tracking-wider border-b border-[#AA3E11]/20 pb-2">
+                <BookOpen size={18} /> Escritura de descarga
+              </h4>
+              <div className="bg-white p-6 rounded-xl shadow-inner border border-stone-200 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10"><PenTool size={40} /></div>
+                <p className="text-sm text-stone-600 mb-4">Tomá un cuaderno o una hoja. Escribí sin pensar demasiado:</p>
+                <ul className="space-y-2 text-base font-serif text-[#AA3E11] italic mb-6">
+                  <li>¿Cómo llego a este lugar?</li>
+                  <li>¿Quién estoy siendo hoy?</li>
+                  <li>¿Cuál es el propósito de este viaje?</li>
+                </ul>
+                <p className="text-xs text-stone-400">
+                    No pienses tanto. Dejá salir lo que sientas. No hay manera de hacerlo mal. Así como sale, está bien.
+                </p>
+              </div>
+          </section>
+          
+          <div className="bg-[#AA3E11] text-white p-8 -mx-6 -mb-6 md:-mx-8 md:-mb-8 mt-4 text-center">
+              <Moon size={24} className="mx-auto mb-3 opacity-80" />
+              <h4 className="font-serif text-xl mb-2">Cierre del día</h4>
+              <p className="text-sm opacity-90 leading-relaxed max-w-md mx-auto mb-4">
+                  "Antes de acostarte, hacé un pequeño ritual de revisión del día. Agradecé por todo lo que sentiste. No por lo que hiciste, sino por haberte permitido llegar y simplemente ser quien sos hoy. Eso ya es mucho."
+              </p>
+              <p className="text-xs opacity-70 mb-4">Lo último que experimentás antes de dormir es lo que más fuerte graba el subconsciente. Regalate ese momento para intencionar y visualizar tu mejor versión.</p>
+              <p className="font-serif italic text-lg opacity-80">Bienvenido/a. Este viaje ya empezó.</p>
+          </div>
+        </DayCard>
+
+        {/* DÍA 2 */}
+        <DayCard
+          dayNumber="02"
+          title="ESCUCHAR"
+          subtitle="Abrir la percepción · Dar espacio a lo que está"
+          icon={Feather}
+          color={BRAND.green}
+          image={IMAGES.day2}
+          isOpen={isDayOpen(2)}
+          onClick={() => toggleSection(2)}
+        >
+          <div className="text-center mb-8 bg-green-50 p-6 rounded-xl border border-green-100">
+             <p className="text-sm text-stone-600 mb-2">Ya cruzaste el portal. Este día es para escuchar. Escuchar el cuerpo. Escuchar el pulso interno. Escuchar lo que normalmente queda tapado por el ruido.</p>
+            <p className="text-lg font-serif italic text-[#005333] mb-2">
+                "Escucharte de verdad. Sentirte. Hacerte lugar."
+            </p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#005333]/60">
+                Acá no hay juicios. Todo lo que estás siendo hoy está bien. Recordá: sos valioso/a.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <section>
+              <h4 className="flex items-center gap-2 font-bold text-[#005333] mb-3 text-sm uppercase tracking-wider">
+                <Sun size={18} /> Ritual de la mañana
+              </h4>
+              <p className="text-sm text-stone-600 mb-3">
+                Al despertar, empezá el día agradeciendo simplemente estar vivo/a. Tomá un vaso de agua fresca. Salí al aire libre. Respirá profundo.
+              </p>
+              <p className="text-sm text-stone-600 mb-3">Preguntate, sin responder con palabras: <br/><span className="font-serif italic text-lg text-[#005333]">¿Cómo estoy hoy?</span></p>
+              <p className="text-sm text-stone-600">Elegí con conciencia cómo querés vivir tu día.</p>
+            </section>
+
+            <section>
+              <h4 className="flex items-center gap-2 font-bold text-[#005333] mb-3 text-sm uppercase tracking-wider">
+                <Wind size={18} /> Movimiento consciente
+              </h4>
+               <p className="text-sm text-stone-600 mb-2">Elegí un movimiento suave para habitarte.</p>
+               <p className="text-sm text-stone-600 mb-4">Algunas ideas: Yoga, Estiramientos intuitivos, Movimiento libre con respiración. Dejá que el cuerpo marque el ritmo.</p>
+              <div className="space-y-2">
+                 <MediaButton type="video" title="Clase guiada de conciencia corporal" color={BRAND.green} />
+                 <MediaButton type="spotify" title="Playlist de movimiento suave" color={BRAND.green} />
+              </div>
+            </section>
+          </div>
+
+          <section className="bg-[#005333]/5 p-6 rounded-xl border-l-4 border-[#005333] my-6">
+            <h4 className="font-bold text-[#005333] mb-2 flex items-center gap-2 text-sm uppercase"><Info size={16} /> Espacio de escucha</h4>
+            <p className="text-sm text-stone-600 mb-2">Buscá un lugar tranquilo. Podés sentarte o acostarte. Observá: La respiración. Las sensaciones. Las emociones. Los pensamientos.</p>
+            <p className="italic text-stone-700 font-medium">"Sé la conciencia que observa. No te identifiques. Solo respirás y sos testigo. Si se siente bien, quedate. Si se siente incómodo, quedate. Lo que sea que aparezca está bien. Habitá con confianza y entregate."</p>
+          </section>
+
+          <section>
+              <h4 className="flex items-center gap-2 font-bold text-[#005333] mb-4 text-sm uppercase tracking-wider">
+                <PenTool size={18} /> Escritura reveladora
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-stone-50 p-4 rounded-lg">
+                   <p className="text-xs font-bold text-stone-400 uppercase mb-2">Disparadores posibles</p>
+                   <ul className="text-sm italic text-[#005333] space-y-2 font-serif">
+                    <li>¿Qué emoción aparece con más fuerza?</li>
+                    <li>¿Qué parte de mí pide atención?</li>
+                    <li>¿Qué estoy evitando escuchar?</li>
+                    <li>¿Cuál es mi mayor miedo?</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col justify-center p-4 text-center text-sm text-stone-500 italic">
+                  <p>"Escribí sin pensar todo lo que llegue. Nadie más lo va a leer. Es para vos. Soltá todo lo que necesites poner afuera."</p>
+                  <p className="text-xs mt-2 not-italic font-bold">Cerrá el cuaderno y registrá cómo te sentís después.</p>
+                </div>
+              </div>
+          </section>
+          
+          <div className="border-t border-stone-100 mt-6 pt-6 text-center">
+             <h4 className="font-bold text-stone-400 flex items-center justify-center gap-2 text-xs uppercase tracking-widest mb-2"><Moon size={14}/> Cierre del día</h4>
+             <p className="text-sm text-stone-600 mb-2">Al anochecer: Bajá el ritmo. Menos palabras. Más silencio.</p>
+             <p className="text-sm text-stone-600 italic">
+                "Agradecé lo que apareció, incluso aquello que resultó incómodo. Ver las cosas como son y aceptarlas es un acto profundo de valentía."
+             </p>
+          </div>
+        </DayCard>
+
+        {/* DÍA 3 */}
+        <DayCard
+          dayNumber="03"
+          title="ORDENAR"
+          subtitle="Dar forma · Integrar lo vivido"
+          icon={Sun}
+          color={BRAND.gold}
+          image={IMAGES.day3}
+          isOpen={isDayOpen(3)}
+          onClick={() => toggleSection(3)}
+        >
+          <div className="text-center mb-8">
+             <Star className="mx-auto text-[#A8971C] mb-2 animate-pulse" size={24} />
+             <p className="text-sm text-stone-600 mb-2">Un nuevo día que invita a ordenar desde adentro.</p>
+             <p className="text-lg font-serif italic text-[#A8971C]">
+                "Lo que fue emergiendo empieza a decantar y acomodarse solo."
+             </p>
+          </div>
+
+          <section className="mb-8">
+              <h4 className="flex items-center gap-2 font-bold text-[#A8971C] mb-2 text-sm uppercase tracking-wider">
+                 Amanecer consciente
+              </h4>
+              <p className="text-sm text-stone-600">
+                  Respirá. Mirà el entorno. Sentí el cuerpo. Agradecé por estar. Simplemente eso. <br/>
+                  <span className="font-bold text-[#A8971C]">Algo ya es distinto. ¿Podés sentirlo?</span>
+              </p>
+          </section>
+
+          <section className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-yellow-50/50 p-6 rounded-xl border border-[#A8971C]/20">
+              <h4 className="flex items-center gap-2 font-bold text-[#A8971C] mb-3 text-sm uppercase tracking-wider">
+                <Footprints size={18} /> Caminata de integración
+              </h4>
+              <p className="text-xs font-bold text-stone-400 uppercase mb-2">Caminá preguntándote suavemente:</p>
+              <ul className="space-y-2 text-sm font-serif text-[#A8971C] italic">
+                  <li>¿Qué me llevo de estos días?</li>
+                  <li>¿Qué elijo dejar acá?</li>
+                  <li>¿Qué necesito cuidar y potenciar al volver?</li>
+              </ul>
+              <p className="text-xs text-stone-500 mt-2">No respondas rápido. Dejá que el paisaje acompañe. Escuchate.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm">
+              <h4 className="flex items-center gap-2 font-bold text-[#A8971C] mb-3 text-sm uppercase tracking-wider">
+                <BookOpen size={18} /> Escritura de claridad
+              </h4>
+               <p className="text-sm text-stone-600 mb-2">Escribí:</p>
+               <ul className="list-disc pl-4 space-y-2 text-sm text-stone-600">
+                  <li>Una verdad que apareció.</li>
+                  <li>Un límite necesario.</li>
+                  <li>Un gesto pequeño y posible para sostener esto en tu vida.</li>
+                  <li>Alguna persona a la que te gustaría escribirle para agradecer o pedir perdón.</li>
+              </ul>
+              <p className="text-xs italic text-stone-400 mt-4">Que sea simple. Que sea real. Animate.</p>
+            </div>
+          </section>
+
+          <section className="text-center p-6 border-2 border-[#A8971C] border-dashed rounded-xl">
+              <h4 className="font-bold text-[#A8971C] mb-2 text-sm uppercase tracking-wider">Ritual de cierre</h4>
+              <p className="text-sm text-stone-600 mb-2">Elegí un gesto simbólico:</p>
+              <p className="text-sm text-stone-600 mb-4">Romper un papel · Agradecer en voz alta · Una respiración profunda mirando el lugar.</p>
+              <p className="font-serif text-[#A8971C] text-lg leading-relaxed">
+                 "Reconocé el tiempo que te regalaste hasta aca. Hacelo Consciente. Agradecerte por darte permiso a vivir esta experiencia de volver a vos!"
+              </p>
+          </section>
+        </DayCard>
+
+        {/* DÍA 4 */}
+        <DayCard
+          dayNumber="04"
+          title="ELEGIR"
+          subtitle="Direccionar la energía · Llevar claridad a la vida"
+          icon={Compass}
+          color={BRAND.blue}
+          image={IMAGES.day4}
+          isOpen={isDayOpen(4)}
+          onClick={() => toggleSection(4)}
+        >
+          <div className="mb-8 pl-4 border-l-4 border-[#0099D1]">
+             <p className="text-sm text-stone-600 mb-2">Este día abre una nueva capa. Después de escuchar y ordenar, llega el momento de elegir conscientemente.</p>
+             <p className="text-lg font-serif italic text-[#0099D1] mb-2">
+                "No desde la exigencia. Desde la coherencia."
+             </p>
+             <p className="text-sm text-stone-500">
+                Elegir qué sí. Elegir qué no. Elegir cómo querés vivir lo que viene.
+             </p>
+          </div>
+          
+           <section className="mb-8">
+              <h4 className="flex items-center gap-2 font-bold text-[#0099D1] mb-3 text-sm uppercase tracking-wider">
+                <Sun size={18} /> Amanecer con intención
+              </h4>
+              <p className="text-sm text-stone-600 mb-1">Al despertar: Respiraciones profundas. Contacto con el entorno. Una mano en el pecho.</p>
+              <p className="text-sm text-stone-600">Preguntate suavemente: <span className="font-bold text-[#0099D1]">¿Qué necesita hoy mi energía?</span></p>
+           </section>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <section>
+              <h4 className="flex items-center gap-2 font-bold text-[#0099D1] mb-3 text-sm uppercase tracking-wider">
+                <Compass size={18} /> Caminata de dirección
+              </h4>
+              <p className="text-sm text-stone-600 mb-3">Caminá en silencio. Imaginá que cada paso es una decisión.</p>
+              <div className="bg-sky-50 p-4 rounded-lg">
+                 <p className="text-xs font-bold text-[#0099D1] uppercase mb-2">Preguntas guía:</p>
+                 <ul className="text-sm italic text-[#0099D1] space-y-2 font-serif">
+                    <li>¿Qué quiero seguir alimentando en mi vida?</li>
+                    <li>¿Qué ya cumplió su ciclo?</li>
+                    <li>¿Qué estoy listo/a para elegir distinto?</li>
+                 </ul>
+              </div>
+              <p className="text-[10px] text-stone-400 mt-2 uppercase tracking-wide">No busques respuestas mentales. Dejá que el cuerpo responda primero.</p>
+            </section>
+
+            <section>
+               <h4 className="flex items-center gap-2 font-bold text-[#0099D1] mb-3 text-sm uppercase tracking-wider">
+                <Smile size={18} /> Integración corporal
+              </h4>
+              <p className="text-sm text-stone-600 mb-3">
+                Elegí una práctica que te ayude a encarnar lo elegido: Movimiento consciente. Yoga suave. Respiración profunda. Quietud.
+              </p>
+              <p className="text-xs italic text-stone-500 mb-4">Sentí cómo se acomoda la energía cuando hay claridad.</p>
+              <div className="space-y-2">
+                 <MediaButton type="spotify" title="Meditación de elección consciente" color={BRAND.blue} />
+                 <MediaButton type="spotify" title="Playlist de integración" color={BRAND.blue} />
+              </div>
+            </section>
+          </div>
+
+          <section className="bg-white shadow-md rounded-xl p-6 border border-stone-100">
+              <h4 className="flex items-center gap-2 font-bold text-[#0099D1] mb-4 text-sm uppercase tracking-wider">
+                <PenTool size={18} /> Escritura de elección
+              </h4>
+              <p className="text-sm text-stone-600 mb-4">Escribí con honestidad:</p>
+              <div className="space-y-4">
+                {[1, 2, 3].map(n => (
+                   <div key={n} className="flex gap-3 items-center border-b border-stone-50 pb-2">
+                      <span className="font-serif text-2xl text-stone-200">{n}</span>
+                      <span className="text-sm text-stone-600">
+                        {n === 1 ? 'Tres cosas que elijo sostener.' : n === 2 ? 'Tres cosas que elijo soltar.' : 'Un compromiso concreto conmigo.'}
+                      </span>
+                   </div>
+                ))}
+              </div>
+              <p className="text-xs text-center mt-4 text-[#0099D1] font-bold uppercase tracking-widest">Que sea posible · Que sea amoroso</p>
+          </section>
+
+          <div className="text-center mt-6 bg-stone-50 p-4 rounded-lg">
+             <h4 className="font-bold text-stone-400 text-xs uppercase mb-2">Cierre del día</h4>
+             <p className="text-sm text-stone-600 mb-2">Al anochecer: Agradecé las decisiones tomadas. Soltá la necesidad de control.</p>
+             <p className="text-lg font-serif text-[#0099D1] italic">
+                 "Elegir también es confiar."
+             </p>
+          </div>
+        </DayCard>
+
+        {/* DÍA 5 */}
+        <DayCard
+          dayNumber="05"
+          title="INTEGRAR"
+          subtitle="HONRAR · REGRESAR"
+          icon={Star}
+          color={BRAND.magenta}
+          image={IMAGES.day5}
+          isOpen={isDayOpen(5)}
+          onClick={() => toggleSection(5)}
+        >
+          <div className="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl border border-purple-100 text-center mb-8">
+              <h4 className="font-bold text-[#9D005E] uppercase tracking-wider text-xs mb-3">Intención del día</h4>
+              <div className="text-sm text-stone-600 mb-4 space-y-1 text-left inline-block">
+                  <p>• Cerrar el proceso con presencia.</p>
+                  <p>• Reconocer lo vivido.</p>
+                  <p>• Elegir qué se lleva uno de regreso a la vida cotidiana.</p>
+                  <p>• No volver igual, pero tampoco forzar un “nuevo yo”.</p>
+              </div>
+              <p className="text-lg font-serif italic text-stone-800">
+                "Hoy no se busca transformación. Hoy se integra."
+              </p>
+          </div>
+
+          <div className="relative border-l border-[#9D005E]/20 ml-4 space-y-8 pl-8 py-2">
+              
+              <div className="relative">
+                  <span className="absolute -left-[39px] top-1 w-5 h-5 rounded-full bg-white border-4 border-[#9D005E]"></span>
+                  <h4 className="font-bold text-[#9D005E] text-sm uppercase mb-2">MAÑANA Despertar en gratitud</h4>
+                  <p className="text-sm font-bold text-stone-700">Ritual simple de inicio</p>
+                  <p className="text-sm text-stone-600">Antes de levantarte: Apoyá una mano en el pecho y otra en el abdomen. Tres respiraciones lentas.</p>
+                  <p className="text-sm text-stone-600">Decí en voz baja o internamente:</p>
+                  <p className="text-lg font-serif italic text-[#9D005E] my-2">“Honro lo vivido. Me preparo para regresar.”</p>
+                  
+                  <p className="text-sm font-bold text-stone-700 mt-4">Movimiento consciente suave (10-15 min)</p>
+                  <p className="text-sm text-stone-600">Estiramientos lentos. Movilidad de columna. Posturas simples, sin exigencia.</p>
+                  <p className="text-xs text-stone-500 italic mt-1">La consigna es habitar el cuerpo, no trabajarlo.</p>
+              </div>
+
+               <div className="relative">
+                  <span className="absolute -left-[39px] top-1 w-5 h-5 rounded-full bg-white border-4 border-[#9D005E]"></span>
+                  <h4 className="font-bold text-[#9D005E] text-sm uppercase mb-2">ESCRITURA Lo que se acomoda</h4>
+                  <p className="text-sm text-stone-600 mb-2">Buscá un lugar tranquilo y escribí sin pensar demasiado:</p>
+                  <div className="bg-stone-50 p-4 rounded-lg text-sm text-stone-600 italic">
+                      <p>¿Qué parte de mí se expresó con más verdad estos días?</p>
+                      <p>¿Qué necesito cuidar más al volver?</p>
+                      <p>¿Qué no quiero volver a hacer como antes?</p>
+                  </div>
+                  <p className="text-xs text-[#9D005E] font-bold mt-2 uppercase">No busques respuestas lindas. Buscá respuestas honestas.</p>
+              </div>
+
+               <div className="relative">
+                  <span className="absolute -left-[39px] top-1 w-5 h-5 rounded-full bg-white border-4 border-[#9D005E]"></span>
+                  <h4 className="font-bold text-[#9D005E] text-sm uppercase mb-2">CAMINATA DE CIERRE Volver con conciencia</h4>
+                  <p className="text-sm text-stone-600 mb-2">
+                    Salí a caminar en silencio. Si podés, descalzo un tramo.
+                  </p>
+                  <p className="text-sm text-stone-600 mb-2">
+                    Durante la caminata: Observá cómo mirás ahora el entorno. Sentí el ritmo de tu paso. Registrá si algo se acomodó sin esfuerzo.
+                  </p>
+                  <p className="text-sm text-stone-600 mb-2">
+                    Al finalizar, recogé un pequeño elemento natural (piedra, hoja, rama).
+                  </p>
+                  <p className="text-sm font-serif italic text-[#9D005E]">
+                    Será tu ancla de este proceso.
+                  </p>
+              </div>
+
+               <div className="relative">
+                  <span className="absolute -left-[39px] top-1 w-5 h-5 rounded-full bg-white border-4 border-[#9D005E]"></span>
+                  <h4 className="font-bold text-[#9D005E] text-sm uppercase mb-2">RITUAL DE INTEGRACIÓN</h4>
+                  <p className="text-sm text-stone-600 mb-2">En un espacio tranquilo:</p>
+                  <ol className="list-decimal pl-4 text-sm text-stone-600 space-y-1 mb-3">
+                     <li>Tomá el objeto que elegiste</li>
+                     <li>Recordá brevemente cada día vivido</li>
+                     <li>Decí (o escribí): <span className="font-serif italic text-[#9D005E]">"Esto no termina aquí. Esto me acompaña."</span></li>
+                  </ol>
+                  <p className="text-sm text-stone-600">Guardá el objeto en un lugar especial o llevalo con vos un tiempo, si tenes un altar en tu hogar podes ponerlo alli,,,</p>
+              </div>
+
+          </div>
+
+          <div className="bg-[#9D005E] text-white p-8 -mx-6 -mb-8 mt-8 text-center">
+              <h4 className="font-serif text-xl mb-2">CIERRE Regresar distinto, no separado</h4>
+              <p className="text-sm opacity-90 mb-3">Antes de dormir o antes de partir:</p>
+              <ul className="text-sm opacity-90 list-none space-y-1 mb-4">
+                  <li>• Agradecé al lugar</li>
+                  <li>• Agradecé al cuerpo</li>
+                  <li>• Agradecé el silencio</li>
+              </ul>
+              <p className="text-sm opacity-90 italic mb-2">No hace falta prometer nada.</p>
+              <p className="font-serif text-lg">Con recordar alcanza.</p>
+          </div>
+        </DayCard>
+
+        {/* --- TARJETA FINAL "PARA LLEVARTE" --- */}
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl shadow-stone-200/50 mt-20 mb-20 relative overflow-hidden text-center break-inside-avoid border border-stone-100 print:shadow-none print:border print:border-stone-200" style={{ pageBreakBefore: 'always' }}>
+             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
+             <PortalBackground color={BRAND.gold} />
+             
+             <div className="relative z-10 max-w-2xl mx-auto">
+                 <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-orange-100">
+                     <Heart size={32} className="text-[#AA3E11]" strokeWidth={1.5} />
+                 </div>
+                 
+                 <h2 className="font-serif text-4xl text-[#005333] mb-8 tracking-wide">Para llevarte</h2>
+                 
+                 <div className="prose prose-lg mx-auto mb-10 text-stone-600 leading-relaxed font-sans">
+                     <p className="mb-4">No hace falta tener todo resuelto. A veces alcanza con elegir un poco mejor.</p>
+                     <p>El portal se cierra, pero algo queda abierto en vos.</p>
+                 </div>
+                 
+                 <div className="w-16 h-px bg-[#A8971C]/30 mx-auto mb-10"></div>
+                 
+                 <div className="space-y-4 mb-12">
+                    <p className="font-serif text-2xl md:text-3xl italic text-[#005333] leading-tight">
+                        Este es un camino de Vida.
+                    </p>
+                    <p className="font-serif text-2xl md:text-3xl italic text-[#005333]/80 leading-tight">
+                        Sos creador/a de tu realidad.
+                    </p>
+                 </div>
+
+                 <div className="inline-block px-6 py-2 rounded-full bg-stone-50 border border-stone-200">
+                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#A8971C]">
+                        ¡No te olvides!
+                    </p>
+                 </div>
+             </div>
+        </div>
+
+        {/* --- MAPA DEL LUGAR --- */}
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl shadow-stone-200/50 mt-12 mb-20 relative overflow-hidden text-center break-inside-avoid border border-stone-100 print:shadow-none print:border print:border-stone-200" style={{ pageBreakBefore: 'always' }}>
+             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
+             
+             <h2 className="font-serif text-3xl text-[#005333] mb-8 tracking-wide">Mapa del Lugar</h2>
+             
+             <div className="relative group cursor-zoom-in max-w-4xl mx-auto" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
+                 <img 
+                     src="/uploads/mapa_magico.webp" 
+                     alt="Mapa de Mágico Ensueño" 
+                     className="w-full h-auto rounded-lg shadow-md transition-transform duration-300 group-hover:scale-[1.01]" 
+                 />
+                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10 rounded-lg">
+                     <span className="bg-white/90 text-[#005333] px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm flex items-center gap-2">
+                         <Sparkles size={16} /> Ver Ampliado
+                     </span>
+                 </div>
+             </div>
+
+             <div className="mt-8 flex justify-center gap-4">
+                 <a 
+                     href="/uploads/mapa_magico.webp" 
+                     download="Mapa_Magico_Ensueno.webp"
+                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#005333] text-white rounded-full hover:bg-[#003822] transition-colors text-sm font-bold uppercase tracking-widest shadow-lg"
+                 >
+                     <Download size={18} /> Descargar Mapa
+                 </a>
+             </div>
+        </div>
+
+      </main>
+      
+      {/* Footer eliminado como se solicitó */}
+      {/* <div className="h-10"></div> Eliminado para evitar hoja en blanco al final */}
+    </div>
+  );
+}
