@@ -106,7 +106,7 @@ const DayCard = ({ dayNumber, title, subtitle, icon: Icon, color, image, childre
       <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-white rounded-b-2xl shadow-md border-x border-b border-stone-100 print:max-h-none print:opacity-100 print:shadow-none print:border-none ${isOpen ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="p-6 md:p-8 space-y-6 relative">
           <PortalBackground color={color} />
-          <div className="relative z-10 text-stone-700 font-sans leading-relaxed text-justify">
+          <div className="relative z-10 text-stone-700 font-sans leading-relaxed text-left">
             {children}
           </div>
         </div>
@@ -120,6 +120,7 @@ export default function ResetVitalApp() {
   const [openDay, setOpenDay] = useState(0); 
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isStandalone, setIsStandalone] = useState(false);
+  const [isOfflineInfoOpen, setIsOfflineInfoOpen] = useState(false);
 
   useEffect(() => {
     // Detectar si la app ya está instalada/abierta en modo standalone
@@ -144,7 +145,7 @@ export default function ResetVitalApp() {
         }
       });
     } else {
-      alert(" Para Celulares (Android/iOS):\n1. Abrí el menú del navegador (⋮ o botón compartir).\n2. Seleccioná 'Agregar a la pantalla principal' o 'Instalar aplicación'.\n\n💻 Para PC/Notebook:\n1. Buscá el ícono de instalar (⊕ o 🖥️) en la barra de direcciones.\n2. O andá al menú > Guardar y compartir > Instalar página...");
+      alert("📱 Para Celulares (Android/iOS):\n1. Abrí el menú del navegador (⋮ o botón compartir).\n2. Seleccioná 'Agregar a la pantalla principal' o 'Instalar aplicación'.\n\n💻 Para PC/Notebook:\n1. Buscá el ícono de instalar (⊕ o 🖥️) en la barra de direcciones.\n2. O andá al menú > Guardar y compartir > Instalar página...\n\n✨ IMPORTANTE: Una vez descargada, podrás ingresar a este mismo enlace incluso sin conexión a internet.");
     }
   };
 
@@ -283,22 +284,60 @@ export default function ResetVitalApp() {
                     </div>
                 </div>
                 
-                {/* --- TIP OFFLINE --- */}
+                {/* --- TIP OFFLINE (Accordion) --- */}
                 {!isStandalone && (
-                  <div className="mt-8 p-4 bg-stone-100 rounded-xl border border-stone-200 flex flex-col md:flex-row items-center gap-4 text-center md:text-left no-print">
-                      <div className="p-3 bg-white rounded-full text-[#AA3E11] shadow-sm">
+                  <div className="mt-8 bg-stone-100 rounded-xl border border-stone-200 overflow-hidden no-print transition-all duration-300">
+                      <button 
+                          onClick={() => setIsOfflineInfoOpen(!isOfflineInfoOpen)}
+                          className="w-full p-4 flex items-center gap-4 text-left hover:bg-stone-50 transition-colors"
+                      >
+                          <div className="p-3 bg-white rounded-full text-[#AA3E11] shadow-sm shrink-0">
                           <Smartphone size={24} />
                       </div>
                       <div className="flex-1">
                           <p className="text-sm font-bold text-stone-700">¿Vas a estar sin señal?</p>
-                          <p className="text-xs text-stone-500">Guardá esta guía en tu dispositivo (PC o Celular) para acceder offline.</p>
+                              <p className="text-xs text-stone-500">Guardá esta guía para acceder offline.</p>
                       </div>
-                      <button 
-                          onClick={handleInstall}
-                          className="px-5 py-2 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#8a330e] transition-colors shadow-md whitespace-nowrap"
-                      >
-                          {deferredPrompt ? 'Instalar App' : 'Ver cómo'}
+                          <div className={`text-stone-400 transition-transform duration-300 ${isOfflineInfoOpen ? 'rotate-180' : ''}`}>
+                              <ChevronDown size={20} />
+                          </div>
                       </button>
+
+                      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOfflineInfoOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                          <div className="p-4 pt-0 text-sm text-stone-600 border-t border-stone-200/50">
+                              <div className="space-y-4 pt-4">
+                                  {deferredPrompt ? (
+                                     <button 
+                                        onClick={handleInstall}
+                                        className="w-full py-3 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#8a330e] transition-colors shadow-md flex items-center justify-center gap-2"
+                                    >
+                                        <Download size={16} /> Instalar App Ahora
+                                    </button>
+                                  ) : (
+                                    <>
+                                      <div>
+                                        <p className="font-bold text-[#AA3E11] mb-1 flex items-center gap-2"><Smartphone size={14}/> En Celulares (Android/iOS):</p>
+                                        <ol className="list-decimal pl-5 space-y-1 text-xs">
+                                          <li>Abrí el menú del navegador (⋮ o botón compartir).</li>
+                                          <li>Seleccioná <strong>"Agregar a inicio"</strong> o <strong>"Instalar aplicación"</strong>.</li>
+                                        </ol>
+                                      </div>
+                                      <div>
+                                        <p className="font-bold text-[#AA3E11] mb-1 flex items-center gap-2"><Printer size={14}/> En PC/Notebook:</p>
+                                        <ol className="list-decimal pl-5 space-y-1 text-xs">
+                                          <li>Buscá el ícono de instalar (⊕) en la barra de direcciones.</li>
+                                          <li>O andá al menú {'>'} Guardar y compartir {'>'} Instalar página.</li>
+                                        </ol>
+                                      </div>
+                                    </>
+                                  )}
+                                  <div className="bg-[#AA3E11]/10 p-3 rounded-lg">
+                                     <p className="text-xs text-[#AA3E11] font-bold">✨ IMPORTANTE:</p>
+                                     <p className="text-xs text-[#AA3E11]">Una vez descargada, podrás ingresar a este mismo enlace incluso sin conexión a internet.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                   </div>
                 )}
 
@@ -383,8 +422,8 @@ export default function ResetVitalApp() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <MediaButton type="spotify" title="Meditación guiada de llegada" color={BRAND.terracotta} />
-                <MediaButton type="video" title="Secuencia de yoga suave" color={BRAND.terracotta} />
+                <MediaButton type="video" title="Meditación: Dejar ir el pasado" link="https://www.youtube.com/watch?v=1eeqKYU_pDY" color={BRAND.terracotta} />
+                <MediaButton type="video" title="Yoga calmante para desconectar" link="https://www.youtube.com/watch?v=ShRi81rRMao" color={BRAND.terracotta} />
               </div>
           </section>
 
@@ -457,8 +496,8 @@ export default function ResetVitalApp() {
                <p className="text-sm text-stone-600 mb-2">Elegí un movimiento suave para habitarte.</p>
                <p className="text-sm text-stone-600 mb-4">Algunas ideas: Yoga, Estiramientos intuitivos, Movimiento libre con respiración. Dejá que el cuerpo marque el ritmo.</p>
               <div className="space-y-2">
-                 <MediaButton type="video" title="Clase guiada de conciencia corporal" color={BRAND.green} />
-                 <MediaButton type="spotify" title="Playlist de movimiento suave" color={BRAND.green} />
+                 <MediaButton type="video" title="Cuencos Tibetanos y Mar en Calma" link="https://www.youtube.com/watch?v=McmaWIW1HVU" color={BRAND.green} />
+                 <MediaButton type="video" title="Solo Cuencos (Pantalla Oscura)" link="https://www.youtube.com/watch?v=cAIpcdNv68Y" color={BRAND.green} />
               </div>
             </section>
           </div>
@@ -557,6 +596,14 @@ export default function ResetVitalApp() {
             </div>
           </section>
 
+          <section className="mb-8">
+             <h4 className="font-bold text-[#A8971C] mb-3 text-sm uppercase tracking-wider flex items-center gap-2"><Headphones size={18}/> Recursos para el enfoque</h4>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <MediaButton type="video" title="Música Focus @432Hz + Naturaleza" link="https://www.youtube.com/watch?v=ZBdlu-gEf4I" color={BRAND.gold} />
+                <MediaButton type="video" title="Meditación para soltar cargas" link="https://www.youtube.com/watch?v=viCo5KHWUwc" color={BRAND.gold} />
+             </div>
+          </section>
+
           <section className="text-center p-6 border-2 border-[#A8971C] border-dashed rounded-xl">
               <h4 className="font-bold text-[#A8971C] mb-2 text-sm uppercase tracking-wider">Ritual de cierre</h4>
               <p className="text-sm text-stone-600 mb-2">Elegí un gesto simbólico:</p>
@@ -622,8 +669,7 @@ export default function ResetVitalApp() {
               </p>
               <p className="text-xs italic text-stone-500 mb-4">Sentí cómo se acomoda la energía cuando hay claridad.</p>
               <div className="space-y-2">
-                 <MediaButton type="spotify" title="Meditación de elección consciente" color={BRAND.blue} />
-                 <MediaButton type="spotify" title="Playlist de integración" color={BRAND.blue} />
+                 <MediaButton type="video" title="Meditación: Crear la realidad que deseas" link="https://www.youtube.com/watch?v=WZEE7BeacN4" color={BRAND.blue} />
               </div>
             </section>
           </div>
@@ -692,6 +738,11 @@ export default function ResetVitalApp() {
                   <p className="text-sm font-bold text-stone-700 mt-4">Movimiento consciente suave (10-15 min)</p>
                   <p className="text-sm text-stone-600">Estiramientos lentos. Movilidad de columna. Posturas simples, sin exigencia.</p>
                   <p className="text-xs text-stone-500 italic mt-1">La consigna es habitar el cuerpo, no trabajarlo.</p>
+                  
+                  <div className="mt-4 space-y-2">
+                    <MediaButton type="video" title="Movilidad y Flexibilidad (15 min)" link="https://www.youtube.com/watch?v=9VPI8d2jt20" color={BRAND.magenta} />
+                    <MediaButton type="video" title="Meditación Poderosa de Gratitud" link="https://www.youtube.com/watch?v=TjvhMtb_Qm0" color={BRAND.magenta} />
+                  </div>
               </div>
 
                <div className="relative">

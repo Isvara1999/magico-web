@@ -15,6 +15,11 @@
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- PWA CONFIG (Manifest & Theme) -->
+  <link rel="manifest" href="/assets/manifest-LYRUeulo.json">
+  <meta name="theme-color" content="#005333">
+  <link rel="apple-touch-icon" href="/assets/favicon-DvJnAZRB.svg">
+
   <!-- IDENTITY WIDGET PARA CMS (Necesario para que funcione el login actual) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -34,8 +39,8 @@
       // Lógica simple para futuro soporte dark mode si es necesario
     }
   </script>
-  <script type="module" crossorigin src="/assets/index-D7D7YZh6.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CBhiWAbw.css">
+  <script type="module" crossorigin src="/assets/index-BDHFLwQd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BFU42N9j.css">
 <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
 <body>
   
@@ -68,6 +73,15 @@
             document.location.href = "/admin/";
           });
         }
+      });
+    }
+
+    // Registrar Service Worker para soporte Offline y PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registrado', reg))
+          .catch(err => console.log('SW error', err));
       });
     }
   </script>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reset-vital-v5';
+const CACHE_NAME = 'reset-vital-v6';
 
 // Archivos críticos para cachear inmediatamente
 const PRECACHE_URLS = [
