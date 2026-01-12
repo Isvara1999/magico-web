@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reset-vital-v1';
+const CACHE_NAME = 'reset-vital-v3';
 
 // Archivos críticos para cachear inmediatamente
 const PRECACHE_URLS = [
@@ -7,7 +7,9 @@ const PRECACHE_URLS = [
   '/reset-vital-5-d',
   '/favicon.svg',
   '/uploads/logo blanco.svg',
-  '/uploads/logo negro.svg'
+  '/uploads/logo negro.svg',
+  '/pwa-192x192.png',
+  '/pwa-512x512.png'
 ];
 
 // Instalación: Cachear archivos estáticos

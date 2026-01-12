@@ -820,6 +820,20 @@ export default function ResetVitalApp() {
       
       {/* Footer eliminado como se solicitó */}
       {/* <div className="h-10"></div> Eliminado para evitar hoja en blanco al final */}
+
+      {/* BOTÓN FLOTANTE DE INSTALACIÓN (Solo si no está instalada) */}
+      {!isStandalone && (
+        <button
+          onClick={handleInstall}
+          className="fixed bottom-6 right-6 z-50 bg-[#AA3E11] text-white p-4 rounded-full shadow-2xl hover:bg-[#8a330e] transition-all duration-300 hover:scale-110 no-print flex items-center gap-2 group border-2 border-white/20"
+          style={{ boxShadow: '0 4px 20px rgba(170, 62, 17, 0.4)' }}
+        >
+          <Download size={24} />
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-bold pl-0 group-hover:pl-2">
+            {deferredPrompt ? 'Instalar App' : 'Descargar'}
+          </span>
+        </button>
+      )}
     </div>
   );
 }
