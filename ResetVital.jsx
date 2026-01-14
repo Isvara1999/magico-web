@@ -137,6 +137,11 @@ export default function ResetVitalApp() {
   }, []);
 
   const handleInstall = () => {
+    // Rastreo de Pixel: Intento de instalación
+    if (window.fbq) {
+      window.fbq('track', 'Lead', { content_name: 'App Install Intent' });
+    }
+
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
@@ -158,7 +163,6 @@ export default function ResetVitalApp() {
   return (
     <div className="min-h-screen font-sans bg-[#FDFBF7] selection:bg-[#A8971C] selection:text-white print:bg-white">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Nunito', sans-serif; }
         .animate-spin-slow { animation: spin 60s linear infinite; }
@@ -422,8 +426,8 @@ export default function ResetVitalApp() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <MediaButton type="video" title="Meditación: Dejar ir el pasado" link="https://www.youtube.com/watch?v=1eeqKYU_pDY" color={BRAND.terracotta} />
-                <MediaButton type="video" title="Yoga calmante para desconectar" link="https://www.youtube.com/watch?v=ShRi81rRMao" color={BRAND.terracotta} />
+                <MediaButton type="spotify" title="Relajación para sentirte a salvo" link="https://soundcloud.com/desansiedad/meditacion-relajacion-para-sentirte-a-salvo-protegido-seguro" color={BRAND.terracotta} />
+                <MediaButton type="video" title="Yoga Suave para desconectar" link="https://www.youtube.com/watch?v=ShRi81rRMao" color={BRAND.terracotta} />
               </div>
           </section>
 
@@ -496,8 +500,8 @@ export default function ResetVitalApp() {
                <p className="text-sm text-stone-600 mb-2">Elegí un movimiento suave para habitarte.</p>
                <p className="text-sm text-stone-600 mb-4">Algunas ideas: Yoga, Estiramientos intuitivos, Movimiento libre con respiración. Dejá que el cuerpo marque el ritmo.</p>
               <div className="space-y-2">
-                 <MediaButton type="video" title="Cuencos Tibetanos y Mar en Calma" link="https://www.youtube.com/watch?v=McmaWIW1HVU" color={BRAND.green} />
-                 <MediaButton type="video" title="Solo Cuencos (Pantalla Oscura)" link="https://www.youtube.com/watch?v=cAIpcdNv68Y" color={BRAND.green} />
+                 <MediaButton type="spotify" title="Tibetan Bowls with Binaural Beats" link="https://soundcloud.com/sonic-yogi/c-tibetan-bowls-with-binaural" color={BRAND.green} />
+                 <MediaButton type="video" title="Relájate: Yoga Suave para Soltar" link="https://www.youtube.com/watch?v=_ycYIPNszMo" color={BRAND.green} />
               </div>
             </section>
           </div>
@@ -599,8 +603,8 @@ export default function ResetVitalApp() {
           <section className="mb-8">
              <h4 className="font-bold text-[#A8971C] mb-3 text-sm uppercase tracking-wider flex items-center gap-2"><Headphones size={18}/> Recursos para el enfoque</h4>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <MediaButton type="video" title="Música Focus @432Hz + Naturaleza" link="https://www.youtube.com/watch?v=ZBdlu-gEf4I" color={BRAND.gold} />
-                <MediaButton type="video" title="Meditación para soltar cargas" link="https://www.youtube.com/watch?v=viCo5KHWUwc" color={BRAND.gold} />
+                <MediaButton type="spotify" title="Deep Focus & Concentration" link="https://soundcloud.com/quietqueststudymusic/3-hours-of-ambient-study-music-to-concentrate-deep-focus-music-for-studying-and-work" color={BRAND.gold} />
+                <MediaButton type="spotify" title="Meditación: Soltar tensiones" link="https://insighttimer.com/es/carmen/meditacion-guiada/soltar-tensiones" color={BRAND.gold} />
              </div>
           </section>
 
@@ -669,7 +673,8 @@ export default function ResetVitalApp() {
               </p>
               <p className="text-xs italic text-stone-500 mb-4">Sentí cómo se acomoda la energía cuando hay claridad.</p>
               <div className="space-y-2">
-                 <MediaButton type="video" title="Meditación: Crear la realidad que deseas" link="https://www.youtube.com/watch?v=WZEE7BeacN4" color={BRAND.blue} />
+                 <MediaButton type="spotify" title="Crear tu realidad / Soltar" link="https://insighttimer.com/es/sacredalquimia/meditacion-guiada/soltar_1" color={BRAND.blue} />
+                 <MediaButton type="video" title="Yoga para el Tercer Chakra" link="https://www.youtube.com/watch?v=1uZIN6NWXCU" color={BRAND.blue} />
               </div>
             </section>
           </div>
@@ -740,8 +745,8 @@ export default function ResetVitalApp() {
                   <p className="text-xs text-stone-500 italic mt-1">La consigna es habitar el cuerpo, no trabajarlo.</p>
                   
                   <div className="mt-4 space-y-2">
-                    <MediaButton type="video" title="Movilidad y Flexibilidad (15 min)" link="https://www.youtube.com/watch?v=9VPI8d2jt20" color={BRAND.magenta} />
-                    <MediaButton type="video" title="Meditación Poderosa de Gratitud" link="https://www.youtube.com/watch?v=TjvhMtb_Qm0" color={BRAND.magenta} />
+                    <MediaButton type="spotify" title="Gratitud: Despertar la conciencia" link="https://soundcloud.com/haciaelser/meditacion-gratitud-despertar-la-conciencia-a-traves-del-agradecimiento" color={BRAND.magenta} />
+                    <MediaButton type="video" title="Estiramientos y Movilidad" link="https://www.youtube.com/watch?v=KCbu5Bb23HI" color={BRAND.magenta} />
                   </div>
               </div>
 
