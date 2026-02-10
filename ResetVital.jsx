@@ -5,6 +5,9 @@ import {
   Footprints, PenTool, Smile, Moon, PlayCircle, Headphones, Smartphone,
   Users, Notebook, Printer, Sparkles, Download
 } from 'lucide-react';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 // --- CONFIGURACIÓN DE MARCA (Manual de Uso) ---
 const BRAND = {
@@ -161,7 +164,10 @@ export default function ResetVitalApp() {
   const isDayOpen = (index) => openDay === 'ALL' || openDay === index;
 
   return (
-    <div className="min-h-screen font-sans bg-[#FDFBF7] selection:bg-[#A8971C] selection:text-white print:bg-white">
+    <LanguageProvider>
+      <>
+        <Header />
+        <div className="min-h-screen font-sans bg-[#FDFBF7] selection:bg-[#A8971C] selection:text-white print:bg-white">
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Nunito', sans-serif; }
@@ -890,6 +896,16 @@ export default function ResetVitalApp() {
           </span>
         </button>
       )}
-    </div>
+        </div>
+        
+        {/* Footer */}
+        <Footer />
+        
+        {/* Diego Epelman Credit */}
+        <div className="bg-stone-800 text-stone-400 text-center text-xs py-3">
+          Diseñado por Diego Epelman
+        </div>
+      </>
+    </LanguageProvider>
   );
 }

@@ -1,0 +1,752 @@
+import React, { useState } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+
+// SVG Icons
+const IconAdultos: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="16" r="6" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="44" cy="16" r="6" stroke="currentColor" strokeWidth="2"/>
+    <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6v8h-12v-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M38 24c0-3.3 2.7-6 6-6s6 2.7 6 6v8h-12v-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="32" cy="42" r="18" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M20 42l4 4m8-4l-4 4m8 0l4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconNiños: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 8c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8z" stroke="currentColor" strokeWidth="2"/>
+    <path d="M24 30h16c4.4 0 8 3.6 8 8v12H16v-12c0-4.4 3.6-8 8-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M28 48l-4 8M36 48l4 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M32 32c0-6 2-8 2-14" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="2,2"/>
+  </svg>
+);
+
+const IconGastronomia: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 20h32c4 0 6 4 6 8v24c0 4-2 8-6 8H16c-4 0-6-4-6-8V28c0-4 2-8 6-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M20 28l4 8 4-8 4 8 4-8 4 8 4-8" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <circle cx="32" cy="50" r="2" fill="currentColor"/>
+  </svg>
+);
+
+const IconTransformacion: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 12l6 12h13l-10 8 4 12-13-10-13 10 4-12-10-8h13l6-12z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.3"/>
+    <circle cx="32" cy="32" r="20" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M32 16v32M16 32h32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconAlojamiento: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 12 L12 32 H20 V52 H44 V32 H52 Z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="24" y="36" width="16" height="10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <path d="M28 42h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconDomo: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 36 C8 22 20 12 32 12 C44 12 56 22 56 36" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 36 L52 36 L44 52 L20 52 Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <circle cx="32" cy="36" r="6" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+  </svg>
+);
+
+const IconAgua: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 8C24 20 16 28 16 36C16 46 24 56 32 56C40 56 48 46 48 36C48 28 40 20 32 8Z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M32 22C34 26 36 30 36 34C36 40 32 44 32 44" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.9"/>
+  </svg>
+);
+
+const IconRed: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="12" r="6" stroke="currentColor" strokeWidth="1.8" fill="none"/>
+    <circle cx="16" cy="44" r="5" stroke="currentColor" strokeWidth="1.6" fill="none"/>
+    <circle cx="48" cy="44" r="5" stroke="currentColor" strokeWidth="1.6" fill="none"/>
+    <path d="M24 18 L18 40" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    <path d="M40 18 L46 40" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    <path d="M19 44 L45 44" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconSol: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="12" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <line x1="32" y1="4" x2="32" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <line x1="32" y1="52" x2="32" y2="60" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <line x1="60" y1="32" x2="52" y2="32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <line x1="12" y1="32" x2="4" y2="32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <line x1="50.5" y1="13.5" x2="44.5" y2="19.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <line x1="19.5" y1="44.5" x2="13.5" y2="50.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconLuna: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M48 32C48 20.9 42.6 11 34 8C45.1 8 54 16.9 54 28C54 39.1 45.1 48 34 48C42.6 45 48 35.1 48 32Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M32 16L35 22L41 23L37 27L38 33L32 30L26 33L27 27L23 23L29 22L32 16Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.5"/>
+  </svg>
+);
+
+const IconCheck: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+  </svg>
+);
+
+const IconCalendar: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+    <path d="M3 10H21" stroke="currentColor" strokeWidth="2"/>
+    <path d="M7 2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M17 2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconLocation: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C7.58 2 4 5.58 4 10C4 16 12 22 12 22S20 16 20 10C20 5.58 16.42 2 12 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
+
+const Familion: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'refugio' | 'domo'>('refugio');
+
+  return (
+    <LanguageProvider>
+      <>
+        <Header />
+        <div className="bg-white text-gray-800 overflow-x-hidden" style={{ fontFamily: "'Nunito', sans-serif" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;600;700&display=swap');
+        
+        
+        * { font-family: 'Nunito', sans-serif; }
+        h1, h2, h3, h4, .serif-title { font-family: 'Marcellus', serif; }
+        
+        .brand-green { color: #005333; }
+        .bg-brand-green { background-color: #005333; }
+        .brand-gold { color: #D4AF37; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        
+        .btn-gold {
+          background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+          color: #005333;
+          padding: 1rem 2.5rem;
+          border-radius: 50px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          display: inline-block;
+          text-decoration: none;
+          white-space: nowrap;
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn-gold:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+        }
+        
+        .btn-glass {
+          background: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 50px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-size: 0.85rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          display: inline-block;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+
+        /* Hero-specific smaller CTAs */
+        .hero-cta .btn-gold {
+          padding: 0.6rem 1.25rem;
+          font-size: 0.82rem;
+          border-radius: 40px;
+        }
+
+        .hero-cta .btn-glass {
+          padding: 0.6rem 1rem;
+          font-size: 0.78rem;
+          border-radius: 40px;
+        }
+
+        /* Ensure hero CTAs are perfectly centered */
+        .hero-cta a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Global smaller buttons on narrow screens */
+        @media (max-width: 640px) {
+          .btn-gold, .btn-glass {
+            padding: 0.5rem 0.9rem;
+            font-size: 0.78rem;
+          }
+        }
+        
+        .btn-glass:hover {
+          background: rgba(255, 255, 255, 0.25);
+          transform: translateY(-3px);
+        }
+
+        .wave-svg {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: auto;
+        }
+
+        .card-hover {
+          transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 30px rgba(0, 83, 51, 0.12);
+        }
+
+        .video-aspect { aspect-ratio: 9 / 16; }
+        
+        .testimonial-quote {
+          position: relative;
+          padding-left: 2rem;
+        }
+        
+        .testimonial-quote:before {
+          content: '"';
+          position: absolute;
+          left: 0;
+          top: -0.5rem;
+          font-size: 4rem;
+          color: #D4AF37;
+          opacity: 0.3;
+          font-family: 'Marcellus', serif;
+        }
+
+        .schedule-item {
+          border-left: 4px solid #D4AF37;
+          padding-left: 1.5rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      `}
+
+      </style>
+
+      {/* Header removed to avoid blank page if context is missing */}
+
+      {/* ====== HERO SECTION (closer, centered) ====== */}
+      <section className="relative w-full px-4 md:px-6 bg-white flex items-center pt-16 md:pt-20 lg:pt-24 pb-8">
+        <div className="max-w-5xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-8 items-center justify-center">
+            {/* Left Content - centered (text first on mobile) */}
+            <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:translate-x-6 lg:-translate-y-2">
+              {/* Subtitle */}
+              <p className="text-xs uppercase tracking-widest font-bold text-brand-green mb-2">
+                Mágico Ensueño Presenta
+              </p>
+
+              {/* Main Title with gold accent */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-brand-green leading-tight mb-3 md:mb-4 tracking-wide" style={{ fontFamily: "'Marcellus', serif" }}>
+                <span className="brand-gold">Familion</span><span className="text-brand-green">: El latido de la montaña en Mágico Ensueño.</span>
+              </h1>
+
+              {/* Tagline with subtle gold highlights */}
+              <p className="text-sm md:text-base text-gray-700 max-w-xl mx-auto mb-4 leading-relaxed">
+                "Cambiamos pantallas por barro, prisa por presencia y soledad por <span className="brand-gold">tribu</span>. Un verano para <span className="brand-gold">volver a la raíz</span> en la inmensidad de Los Gigantes."
+              </p>
+
+              {/* Meta Info - Compact with icons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-5 md:mb-6">
+                <div className="flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
+                  <IconCalendar className="w-4 h-4 text-brand-green" />
+                  <span>27 de febrero al 1 de marzo</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
+                  <IconLocation className="w-4 h-4 text-brand-green" />
+                  <span>Los Gigantes, Córdoba</span>
+                </div>
+                <div className="sm:hidden flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
+                  <IconLocation className="w-4 h-4 text-brand-green" />
+                  <span>Los Gigantes</span>
+                </div>
+              </div>
+
+              {/* CTA - stack in mobile */}
+              <div className="hero-cta flex flex-col sm:flex-row justify-center items-center gap-3 flex-nowrap mx-auto">
+                <a href="#precios" className="btn-gold inline-flex items-center justify-center w-full sm:w-auto">
+                  Quiero sumarme a la tribu
+                </a>
+                <a href="#comodidad" className="btn-glass inline-flex items-center justify-center w-full sm:w-auto">
+                  Ver experiencia completa
+                </a>
+              </div>
+            </div>
+
+            {/* Right Image - appears AFTER text on mobile */}
+            <div className="flex items-center justify-center order-2 lg:order-2">
+              <div className="relative w-full sm:max-w-[420px] lg:max-w-[720px]">
+                <img
+                  src="/uploads/portada familion.webp"
+                  alt="Familion - Los Gigantes"
+                  className="w-full h-auto rounded-2xl shadow-2xl object-cover lg:h-[520px]"
+                />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-brand-green/5 rounded-full blur-2xl -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== VIDEO INVITACIÓN ====== */}
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left Text */}
+            <div className="flex flex-col justify-center">
+              <h2 className="text-2xl md:text-4xl serif-title brand-green mb-6">Una Invitación de la Edición Anterior</h2>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                Sabemos que criar en la ciudad agota y que las vacaciones a veces se sienten como 'más trabajo'. En Familion, diseñamos un espacio donde <span className="text-brand-green font-bold">vos volvés a respirar</span> mientras tus hijos descubren la magia de ser niños en libertad segura.
+              </p>
+              <p className="text-brand-green text-xl md:text-2xl serif-title font-bold mt-6">
+                Porque criar en tribu es más liviano.
+              </p>
+            </div>
+
+            {/* Right Video */}
+            <div className="flex justify-center">
+              <iframe width="360" height="640" src="https://www.youtube.com/embed/Sqc7zbR-sPQ" title="Familion - Una invitación" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen className="rounded-2xl shadow-lg w-full max-w-sm"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== ALIVIO DEL CONFORT ====== */}
+      <section id="comodidad" className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-12 md:mb-16">
+            Comodidad Consciente
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Alojamiento */}
+            <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
+              <div className="mb-4 text-brand-green">
+                <IconAlojamiento className="w-8 h-8" />
+              </div>
+              <h3 className="serif-title text-xl brand-green mb-3">Alojamiento Consciente</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Dormir en Domos geodésicos o en nuestro Refugio de montaña. El formato es de alojamiento compartido, diseñado para facilitar la red familiar, manteniendo siempre la limpieza y el orden impecables.
+              </p>
+              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">No somos un hotel tradicional; somos un refugio sustentable diseñado para el encuentro.</div>
+            </div>
+
+            {/* Domo Privado */}
+            <div className="card-hover p-6 md:p-8 border-2 border-brand-gold/30 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-transparent">
+              <div className="mb-4 text-brand-gold">
+                <IconDomo className="w-8 h-8" />
+              </div>
+              <h3 className="serif-title text-xl brand-green mb-3">Exclusividad Máxima</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Contamos con un <strong>único Domo Privado</strong> para la familia que busca máxima intimidad. <em>Consultar disponibilidad y valor diferencial.</em>
+              </p>
+              <span className="text-xs brand-gold font-bold uppercase tracking-widest">Consultar disponibilidad por nuestro único Domo Privado</span>
+            </div>
+
+            {/* Baños */}
+            <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
+              <div className="mb-4 text-brand-green">
+                <IconAgua className="w-8 h-8" />
+              </div>
+              <h3 className="serif-title text-xl brand-green mb-3">Bienestar de Origen</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Te recibimos con un Kit de Bienestar Consciente (shampoo, acondicionador y jabón) de origen natural y biodegradable, cuidando tu piel y el agua de la montaña.
+              </p>
+              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">Productos naturales y biodegradables</div>
+            </div>
+
+            {/* Conexión */}
+            <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
+              <div className="mb-4 text-brand-green">
+                <IconRed className="w-8 h-8" />
+              </div>
+              <h3 className="serif-title text-xl brand-green mb-3">Energía y Conexión</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Funcionamos 100% con energía solar y contamos con Wi-Fi Starlink para emergencias o trabajo puntual, aunque nuestra recomendación es el silencio digital.
+              </p>
+              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">Energía solar · Wi‑Fi para emergencias</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== LOS 4 PILARES ====== */}
+      <section className="py-16 md:py-24 px-6 bg-slate-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-12 md:mb-16">
+            Los 4 Pilares de la Experiencia
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Pilar 1 */}
+            <div className="card-hover p-6 md:p-8 text-center rounded-2xl bg-white shadow-sm">
+              <div className="mb-4 text-brand-green flex justify-center">
+                <IconAdultos className="w-12 h-12" />
+              </div>
+              <h4 className="serif-title text-lg brand-green mb-3">Adultos en Red</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Espacios de círculo y conexión para soltar la carga de la crianza solitaria.
+              </p>
+            </div>
+
+            {/* Pilar 2 */}
+            <div className="card-hover p-6 md:p-8 text-center rounded-2xl bg-white shadow-sm">
+              <div className="mb-4 text-brand-green flex justify-center">
+                <IconNiños className="w-12 h-12" />
+              </div>
+              <h4 className="serif-title text-lg brand-green mb-3">Infancia en Libertad</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Exploración de arroyos, talleres de barro y asombro puro sin pantallas.
+              </p>
+            </div>
+
+            {/* Pilar 3 */}
+            <div className="card-hover p-6 md:p-8 text-center rounded-2xl bg-white shadow-sm">
+              <div className="mb-4 text-brand-green flex justify-center">
+                <IconGastronomia className="w-12 h-12" />
+              </div>
+              <h4 className="serif-title text-lg brand-green mb-3">Gastronomía de Montaña</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                11 comidas caseras, abundantes y nutritivas incluidas. Nosotros cocinamos, vos disfrutás.
+              </p>
+            </div>
+
+            {/* Pilar 4 */}
+            <div className="card-hover p-6 md:p-8 text-center rounded-2xl bg-white shadow-sm">
+              <div className="mb-4 text-brand-green flex justify-center">
+                <IconTransformacion className="w-12 h-12" />
+              </div>
+              <h4 className="serif-title text-lg brand-green mb-3">Experiencias Transformadoras</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Yoga al amanecer, Temazcal y rituales de fuego bajo las estrellas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== CRONOGRAMA ====== */}
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-12 md:mb-16">
+            Ritmo Serrano
+          </h2>
+
+          <div className="space-y-6 md:space-y-8">
+            {/* Viernes */}
+            <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="text-brand-gold">
+                  <IconTransformacion className="w-5 h-5" />
+                </div>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Viernes</p>
+              </div>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Bienvenida · Almuerzo · Círculos de juego · Atardecer Mágico & Fuego · Cena Grupal.
+              </p>
+            </div>
+
+            {/* Sábado */}
+            <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="text-brand-gold">
+                  <IconSol className="w-5 h-5" />
+                </div>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Sábado</p>
+              </div>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Yoga & Meditación (Adultos) · Juego (Niños) · Caminata · Cocina Familiar · Ecstatic Dance.
+              </p>
+            </div>
+
+            {/* Domingo */}
+            <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="text-brand-gold">
+                  <IconLuna className="w-5 h-5" />
+                </div>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Domingo</p>
+              </div>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Ceremonia de Temazcal · Taller de Arte Natural · Almuerzo Despedida · Cierre de Tribu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== TESTIMONIOS ====== */}
+      <section className="py-16 md:py-24 px-6 bg-slate-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-12 md:mb-16">
+            Voces que Inspiran
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            {/* Testimonio 1 */}
+            <div className="p-8 md:p-10 bg-white rounded-2xl card-hover border border-brand-green/10">
+              <div className="testimonial-quote mb-6">
+                <p className="text-gray-700 italic text-sm md:text-base leading-relaxed">
+                  "¡Es una vivencia que se graba en el alma! El silencio majestuoso nos envolvió como un abrazo."
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/uploads/tefi y familia.webp" alt="Tefi y familia" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <div>
+                  <p className="font-bold text-brand-green text-sm">Tefi y familia</p>
+                  <p className="text-xs text-gray-400">Edición anterior</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonio 2 */}
+            <div className="p-8 md:p-10 bg-white rounded-2xl card-hover border border-brand-green/10">
+              <div className="testimonial-quote mb-6">
+                <p className="text-gray-700 italic text-sm md:text-base leading-relaxed">
+                  "Adultos disfrutando a pleno, aire puro y atención a los chicos con buena onda. La comida, abundante y deliciosa."
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/uploads/portada familion.webp" alt="Jesica, Pablo y familia" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <div>
+                  <p className="font-bold text-brand-green text-sm">Jesica, Pablo y familia</p>
+                  <p className="text-xs text-gray-400">Edición anterior</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* VIDEOS DE TESTIMONIOS */}
+          <div className="mt-16 md:mt-24">
+            <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8">Testimonios en Movimiento</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+              <div className="flex justify-center">
+                <iframe width="360" height="640" src="https://www.youtube.com/embed/IfMqF4oW_fM" title="Testimonios Familion - Parte 1" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen className="rounded-2xl shadow-lg max-w-sm w-full"></iframe>
+              </div>
+              <div className="flex justify-center">
+                <iframe width="360" height="640" src="https://www.youtube.com/embed/wVNmRkIj0-o" title="Testimonios Familion - Parte 2" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen className="rounded-2xl shadow-lg max-w-sm w-full"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
+      <section className="py-16 md:py-24 px-6 bg-brand-green text-white relative overflow-hidden">
+        <div className="max-w-5xl mx-auto">
+          <div className="p-8 md:p-12 bg-white/5 rounded-3xl border border-white/10">
+            <h2 className="text-3xl md:text-5xl serif-title mb-8 text-center">Mágico Ensueño</h2>
+            
+            <div className="max-w-3xl mx-auto mb-10">
+              <p className="text-white/95 text-base md:text-lg leading-relaxed">
+                En el corazón de <span className="text-brand-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y comunidad consciente se encuentran en perfecta armonía. Acceso garantizado con auto común.
+              </p>
+            </div>
+            
+            {/* Images */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <img src="/uploads/469280911_444096748740233_2818770490495002077_n.webp" alt="Infraestructura de Mágico Ensueño" className="w-full rounded-2xl shadow-lg object-cover h-64" />
+              <img src="/uploads/refu.webp" alt="Refugio - Domos" className="w-full rounded-2xl shadow-lg object-cover h-64" />
+            </div>
+            
+            {/* Benefits Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
+                <h4 className="text-brand-gold font-bold text-lg mb-4">Cómo Este Lugar Mejora Tu Experiencia</h4>
+                <ul className="text-white/90 text-sm leading-relaxed space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-brand-gold font-bold mt-1">✓</span>
+                    <span><strong>Regeneración activa:</strong> +8.000 árboles plantados transforman el aire que respiras</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-brand-gold font-bold mt-1">✓</span>
+                    <span><strong>Comunidad ancestral:</strong> 20+ años de coherencia entre valores y acciones</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-brand-gold font-bold mt-1">✓</span>
+                    <span><strong>Energía solar:</strong> 100% sustentable, sin huella de carbono</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
+                <h4 className="text-brand-gold font-bold text-lg mb-4">Tu Inversión Genera Regeneración</h4>
+                <p className="text-white/90 text-sm leading-relaxed mb-4">
+                  El 10% de tu inversión se destina directamente a reforestar los tabaquillos y restaurar las sierras de Los Gigantes.
+                </p>
+                <p className="text-white/90 italic text-sm leading-relaxed">
+                  Cada familia que nos elige es una semilla de cambio en la montaña.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center">
+              <p className="text-white/95 italic text-base md:text-lg leading-relaxed">
+                Mágico Ensueño es más que un destino; aquí <span className="text-brand-gold font-bold">la ubicación en la naturaleza regenera</span> mientras tu familia se reconecta, el cuerpo se sana y el alma vuelve a respirar en armonía con el ritmo de la montaña.
+              </p>
+            </div>
+          </div>
+          {/* Mapa del Lugar */}
+          <div className="mt-8 max-w-4xl mx-auto text-center">
+            <div className="relative group cursor-zoom-in" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
+              <img src="/uploads/mapa_magico.webp" alt="Mapa de Familion - Los Gigantes" className="w-full rounded-2xl shadow-lg" />
+              <div className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a href="/uploads/mapa_magico.webp" download="Mapa_Familion_Los_Gigantes.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
+                <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20consultar%20la%20ubicaci%C3%B3n%20exacta%20y%20c%C3%B3mo%20llegar." className="btn-gold inline-block w-full sm:w-auto text-center">Consultar ubicación</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== PRECIOS ====== */}
+      <section id="precios" className="py-16 md:py-24 px-6 bg-brand-green text-white relative overflow-hidden">
+
+        <div className="max-w-3xl mx-auto relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-12">
+            Combo Familiar, Todo Resuelto
+          </h2>
+
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 mb-10 shadow-2xl">
+            <div className="brand-gold text-5xl md:text-7xl serif-title mb-3 leading-none">
+              $360.000
+            </div>
+            <p className="text-white/90 font-bold uppercase tracking-widest text-xs md:text-sm mb-10">
+              $360.000 por adulto (en alojamiento compartido)
+            </p>
+
+            {/* Pricing Table */}
+            <div className="bg-white/5 rounded-2xl p-6 md:p-8 mb-10 border border-white/10 divideador-y divide-white/10">
+              <div className="flex justify-between items-center py-4 border-b border-white/10">
+                <span className="text-sm md:text-base text-white/90">Niños hasta 4 años</span>
+                <strong className="brand-gold text-lg">Gratis</strong>
+              </div>
+              <div className="flex justify-between items-center py-4 border-b border-white/10">
+                <span className="text-sm md:text-base text-white/90">Niños 4 a 8 años</span>
+                <strong className="text-white text-lg">50% Desc.</strong>
+              </div>
+              <div className="flex justify-between items-center py-4">
+                <span className="text-sm md:text-base text-white/90">Niños 8 a 12 años</span>
+                <strong className="text-white text-lg">70% Desc.</strong>
+              </div>
+            </div>
+
+            {/* What's Included */}
+            <div className="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 mb-10 text-left">
+              <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Incluye:</h4>
+              <ul className="space-y-3 text-white/85 text-sm md:text-base">
+                <li className="flex items-center gap-3">
+                  <span className="text-brand-gold flex-shrink-0">
+                    <IconCheck className="w-5 h-5" />
+                  </span> Alojamiento en Domos o Refugio con ropa blanca y toallas
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-brand-gold flex-shrink-0">
+                    <IconCheck className="w-5 h-5" />
+                  </span> 11 comidas nutritivas y abundantes
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-brand-gold flex-shrink-0">
+                    <IconCheck className="w-5 h-5" />
+                  </span> Kit de higiene natural y biodegradable
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-brand-gold flex-shrink-0">
+                    <IconCheck className="w-5 h-5" />
+                  </span> Todas las actividades y talleres guiados
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-brand-gold flex-shrink-0">
+                    <IconCheck className="w-5 h-5" />
+                  </span> Seguros y guías de montaña
+                </li>
+              </ul>
+            </div>
+
+            {/* Domo Privado */}
+            <div className="bg-brand-gold/20 rounded-2xl p-6 md:p-8 border border-brand-gold/30 mb-10">
+              <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                <strong className="brand-gold">Upgrade Privado:</strong> Consulta disponibilidad y valor para nuestro único Domo Privado.
+              </p>
+            </div>
+
+            <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20reservar%20mi%20lugar%20en%20Familion." className="btn-gold w-full md:w-auto block md:inline-block mb-6">
+              Reservar Nuestro Lugar
+            </a>
+
+            <p className="text-white/70 text-xs md:text-sm leading-relaxed italic">
+              El 10% de tu inversión se destina a reforestar tabaquillos y restaurar nuestras sierras.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== CTA FINAL ====== */}
+      <section className="py-16 md:py-24 px-6 bg-white text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl serif-title brand-green mb-6">
+            ¿Y si este finde se convierte en uno inolvidable?
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10">
+            Familion es más que una experiencia. Es la pausa que tu familia necesita, el refugio que tu alma busca, y la tribu que tu corazón anhela.
+          </p>
+          <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20consultar%20la%20experiencia." className="btn-gold inline-block">
+            Hablar con un Facilitador
+          </a>
+        </div>
+      </section>
+
+      {/* ====== VIDEO DESPEDIDA ====== */}
+      <section className="py-16 md:py-24 px-6 bg-slate-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl serif-title brand-green mb-8">La Magia de Compartir la Mesa</h2>
+          <p className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">Así es como celebramos cada comida en Familion — con gratitud, conexión y el amor que se respira en cada bocado.</p>
+          <div className="flex justify-center">
+            <iframe width="360" height="640" src="https://www.youtube.com/embed/QqGrzFloHsE" title="Familion - Agradecimiento por la comida" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen className="rounded-2xl shadow-lg max-w-sm w-full"></iframe>
+          </div>
+        </div>
+      </section>
+        {/* Footer */}
+        <Footer />
+        
+        {/* Catálisis Credit */}
+        <div className="bg-brand-green/5 text-brand-green/60 text-center text-xs py-3 border-t border-brand-green/10">
+          Growth systems & digital experience by Catálisis
+        </div>
+      </div>
+      </>
+    </LanguageProvider>
+  );
+};
+
+export default Familion;

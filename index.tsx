@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Main';
 // @ts-ignore
 import ResetVitalApp from './ResetVital.jsx';
+import Familion from './Familion';
 import './index.css';
 import { clarity } from 'react-microsoft-clarity';
 
@@ -23,6 +24,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/reset-vital-5-d" element={<ResetVitalApp />} />
+        <Route path="/familion" element={<Familion />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

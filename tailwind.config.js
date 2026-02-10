@@ -18,6 +18,8 @@ export default {
         gold: '#D4AF37',
         dark: '#1A1A1A',
         charcoal: '#2D2D2D',
+         'magico-green': '#1a4731',
+         'magico-gold': '#c5a059',
       },
       fontFamily: {
         serif: ['"Marcellus"', 'serif'],

@@ -131,21 +131,21 @@
           "id": 1,
           "name": "Julieta Castoldi",
           "role": "Facilitadora",
-          "text": "\"Lo más importante: El amor, la entrega de todo el equipo y la capacidad de sentirte uno con la naturaleza.\"",
+          "text": "Lo más importante: El amor, la entrega de todo el equipo y la capacidad de sentirte uno con la naturaleza.",
           "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
         },
         {
           "id": 2,
           "name": "Sofía R.",
           "role": "Viajera",
-          "text": "\"Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.\"",
+          "text": "Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.",
           "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
         },
         {
           "id": 3,
           "name": "Marcos D.",
           "role": "Huésped",
-          "text": "\"Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.\"",
+          "text": "Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.",
           "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
       ]
@@ -166,15 +166,6 @@
       "link": "",
       "cards": [
         {
-          "date": "16 – 18 ENE",
-          "title": "Gondor Bows",
-          "desc": "Formación en Confección de Arco Tradicional",
-          "btn": "Reservar",
-          "image": "/uploads/gondor.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1pcoTPdmRg-iuXAmt31UMs5tfD3DtZdDE/view?usp=sharing"
-        },
-        {
           "date": "23 – 25 ENE",
           "title": "ORIGEN",
           "desc": "Veni a Diseñar y Crear tu 2026",
@@ -184,24 +175,6 @@
           "pdfLink": "https://drive.google.com/file/d/1R3VITszSP07vVQRbpKBLFDbs2jRHl_i_/view?usp=sharing"
         },
         {
-          "date": "28 ENE – 1 FEB",
-          "title": "Lo que acecha el recuerdo de Si",
-          "desc": "Residencia de Movimiento integrativo y Prociocepción",
-          "btn": "Reservar",
-          "image": "/uploads/danza.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1ZKQTkk0u1EMqcLpe7sTC4draL8M9la-3/view"
-        },
-        {
-          "date": "6 – 8 FEB",
-          "title": "Senderos",
-          "desc": "De los pies al alma",
-          "btn": "Reservar",
-          "image": "/uploads/pies.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/151UykardjWz3yfRb6bO939MIt-jpdXWw/view"
-        },
-        {
           "date": "20 – 23 FEB",
           "title": "Botica Serrana de Achala",
           "desc": "Retiro de Plantas Medicinales",
@@ -209,6 +182,15 @@
           "image": "/uploads/botica.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
           "pdfLink": "https://drive.google.com/file/d/1aF_rzgPu79twyx6kHb8B1JwP_MZZYpui/view"
+        },
+        {
+          "date": "27 FEB – 1 MAR",
+          "title": "Familion",
+          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
+          "btn": "Ver Más",
+          "image": "/uploads/portada familion.webp",
+          "link": "/familion",
+          "pdfLink": ""
         },
         {
           "date": "4 – 8 MAR",
@@ -314,7 +296,7 @@
         "privacy": "Políticas de Privacidad",
         "faq": "Preguntas Frecuentes"
       },
-      "copyright": "Mágico Ensueño. Todos los derechos reservados.",
+      "copyright": "Mágico Ensueño Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Hecho con respeto a la montaña"
     },
     "donations": {
@@ -455,21 +437,21 @@
           "id": 1,
           "name": "Julieta Castoldi",
           "role": "Facilitator",
-          "text": "\"The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.\"",
+          "text": "The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.",
           "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
         },
         {
           "id": 2,
           "name": "Sofía R.",
           "role": "Traveler",
-          "text": "\"I felt part of the mountain life, like at home. A unique refuge of peace.\"",
+          "text": "I felt part of the mountain life, like at home. A unique refuge of peace.",
           "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
         },
         {
           "id": 3,
           "name": "Marcos D.",
           "role": "Guest",
-          "text": "\"A transformative experience. The conscious food and spaces are out of this world.\"",
+          "text": "A transformative experience. The conscious food and spaces are out of this world.",
           "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
       ]
@@ -490,13 +472,13 @@
       "link": "",
       "cards": [
         {
-          "date": "JAN 16 – 18",
-          "title": "Gondor Bows",
-          "desc": "Traditional Bow Making Training",
-          "btn": "Book",
-          "image": "/uploads/gondor.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1pcoTPdmRg-iuXAmt31UMs5tfD3DtZdDE/view?usp=sharing"
+          "date": "27 FEB – 1 MAR",
+          "title": "Experiencia Familion",
+          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
+          "btn": "Ver Más",
+          "image": "/uploads/portada familion.webp",
+          "link": "/familion",
+          "pdfLink": ""
         },
         {
           "date": "JAN 23 – 25",
@@ -508,24 +490,6 @@
           "pdfLink": "https://drive.google.com/file/d/1R3VITszSP07vVQRbpKBLFDbs2jRHl_i_/view?usp=sharing"
         },
         {
-          "date": "JAN 28 – FEB 1",
-          "title": "Lo que acecha el recuerdo de Si",
-          "desc": "Integrative Movement and Proprioception Residency",
-          "btn": "Book",
-          "image": "/uploads/danza.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1ZKQTkk0u1EMqcLpe7sTC4draL8M9la-3/view"
-        },
-        {
-          "date": "FEB 6 – 8",
-          "title": "Senderos",
-          "desc": "From feet to soul",
-          "btn": "Book",
-          "image": "/uploads/pies.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/151UykardjWz3yfRb6bO939MIt-jpdXWw/view"
-        },
-        {
           "date": "FEB 20 – 23",
           "title": "Botica Serrana de Achala",
           "desc": "Medicinal Plants Retreat",
@@ -533,6 +497,15 @@
           "image": "/uploads/botica.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
           "pdfLink": "https://drive.google.com/file/d/1aF_rzgPu79twyx6kHb8B1JwP_MZZYpui/view"
+        },
+        {
+          "date": "FEB 27 – MAR 1",
+          "title": "Familion",
+          "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
+          "btn": "See More",
+          "image": "/uploads/portada familion.webp",
+          "link": "/familion",
+          "pdfLink": ""
         },
         {
           "date": "MAR 4 – 8",
@@ -638,7 +611,7 @@
         "privacy": "Privacy Policy",
         "faq": "FAQ"
       },
-      "copyright": "Mágico Ensueño. All rights reserved.",
+      "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Made with respect for the mountain"
     },
     "donations": {
