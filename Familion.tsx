@@ -2,95 +2,51 @@ import React, { useState } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { Home, Droplet, Wifi, Coffee, Users, User, Star, Sun, Moon } from 'lucide-react';
 
 // SVG Icons
 const IconAdultos: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="16" r="6" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="44" cy="16" r="6" stroke="currentColor" strokeWidth="2"/>
-    <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6v8h-12v-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M38 24c0-3.3 2.7-6 6-6s6 2.7 6 6v8h-12v-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <circle cx="32" cy="42" r="18" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M20 42l4 4m8-4l-4 4m8 0l4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
+  <img src={encodeURI('/uploads/Adultos en Red.svg')} className={className} alt="Adultos en Red" />
 );
 
 const IconNiños: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32 8c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8z" stroke="currentColor" strokeWidth="2"/>
-    <path d="M24 30h16c4.4 0 8 3.6 8 8v12H16v-12c0-4.4 3.6-8 8-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M28 48l-4 8M36 48l4 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M32 32c0-6 2-8 2-14" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="2,2"/>
-  </svg>
+  <img src={encodeURI('/uploads/Infancia en Libertad.svg')} className={className} alt="Infancia en Libertad" />
 );
 
 const IconGastronomia: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 20h32c4 0 6 4 6 8v24c0 4-2 8-6 8H16c-4 0-6-4-6-8V28c0-4 2-8 6-8z" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M20 28l4 8 4-8 4 8 4-8 4 8 4-8" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-    <circle cx="32" cy="50" r="2" fill="currentColor"/>
-  </svg>
+  <img src={encodeURI('/uploads/Gastronomía de Montaña.svg')} className={className} alt="Gastronomía de Montaña" />
 );
 
 const IconTransformacion: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32 12l6 12h13l-10 8 4 12-13-10-13 10 4-12-10-8h13l6-12z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.3"/>
-    <circle cx="32" cy="32" r="20" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M32 16v32M16 32h32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
+  <img src={encodeURI('/uploads/Experiencias Transformadoras.svg')} className={className} alt="Experiencias Transformadoras" />
 );
 
 const IconAlojamiento: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32 12 L12 32 H20 V52 H44 V32 H52 Z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    <rect x="24" y="36" width="16" height="10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-    <path d="M28 42h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
+  <img src={encodeURI('/uploads/Alojamiento.svg')} className={className} alt="Alojamiento" />
 );
 
 const IconDomo: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 36 C8 22 20 12 32 12 C44 12 56 22 56 36" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 36 L52 36 L44 52 L20 52 Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-    <circle cx="32" cy="36" r="6" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-  </svg>
+  <img src={encodeURI('/uploads/Alojamiento.svg')} className={className} alt="Domo" />
 );
 
 const IconAgua: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32 8C24 20 16 28 16 36C16 46 24 56 32 56C40 56 48 46 48 36C48 28 40 20 32 8Z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M32 22C34 26 36 30 36 34C36 40 32 44 32 44" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.9"/>
-  </svg>
+  <img src={encodeURI('/uploads/Agua.svg')} className={className} alt="Agua" />
 );
 
 const IconRed: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="32" cy="12" r="6" stroke="currentColor" strokeWidth="1.8" fill="none"/>
-    <circle cx="16" cy="44" r="5" stroke="currentColor" strokeWidth="1.6" fill="none"/>
-    <circle cx="48" cy="44" r="5" stroke="currentColor" strokeWidth="1.6" fill="none"/>
-    <path d="M24 18 L18 40" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
-    <path d="M40 18 L46 40" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
-    <path d="M19 44 L45 44" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-  </svg>
+  <img src={encodeURI('/uploads/Energía y Conexión.svg')} className={className} alt="Energía y Conexión" />
 );
 
 const IconSol: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="32" cy="32" r="12" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <line x1="32" y1="4" x2="32" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="32" y1="52" x2="32" y2="60" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="60" y1="32" x2="52" y2="32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="12" y1="32" x2="4" y2="32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="50.5" y1="13.5" x2="44.5" y2="19.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="19.5" y1="44.5" x2="13.5" y2="50.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
+  <img src={encodeURI('/uploads/Sábado (Sol).svg')} className={className} alt="Sol" />
 );
 
 const IconLuna: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M48 32C48 20.9 42.6 11 34 8C45.1 8 54 16.9 54 28C54 39.1 45.1 48 34 48C42.6 45 48 35.1 48 32Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <path d="M32 16L35 22L41 23L37 27L38 33L32 30L26 33L27 27L23 23L29 22L32 16Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.5"/>
-  </svg>
+  <img src={encodeURI('/uploads/Domingo (Luna).svg')} className={className} alt="Luna" />
+);
+
+const IconEstrella: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <img src={encodeURI('/uploads/star.svg')} className={className} alt="Estrella" />
 );
 
 const IconCheck: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
@@ -260,7 +216,7 @@ const Familion: React.FC = () => {
         <div className="max-w-5xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-8 items-center justify-center">
             {/* Left Content - centered (text first on mobile) */}
-            <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:translate-x-6 lg:-translate-y-2">
+            <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:-translate-y-2">
               {/* Subtitle */}
               <p className="text-xs uppercase tracking-widest font-bold text-brand-green mb-2">
                 Mágico Ensueño Presenta
@@ -268,19 +224,19 @@ const Familion: React.FC = () => {
 
               {/* Main Title with gold accent */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-brand-green leading-tight mb-3 md:mb-4 tracking-wide" style={{ fontFamily: "'Marcellus', serif" }}>
-                <span className="brand-gold">Familion</span><span className="text-brand-green">: El latido de la montaña en Mágico Ensueño.</span>
+                <span className="brand-gold">Familion</span><span className="text-brand-green">: Una experiencia para compartir con la Tribu en la montaña!</span>
               </h1>
 
               {/* Tagline with subtle gold highlights */}
               <p className="text-sm md:text-base text-gray-700 max-w-xl mx-auto mb-4 leading-relaxed">
-                "Cambiamos pantallas por barro, prisa por presencia y soledad por <span className="brand-gold">tribu</span>. Un verano para <span className="brand-gold">volver a la raíz</span> en la inmensidad de Los Gigantes."
+                "Cambiamos pantallas por naturaleza, velocidad por presencia y soledad por <span className="brand-gold">tribu</span>.  Una invitación a despedir el verano con toda la Familia."
               </p>
 
               {/* Meta Info - Compact with icons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-5 md:mb-6">
                 <div className="flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
                   <IconCalendar className="w-4 h-4 text-brand-green" />
-                  <span>27 de febrero al 1 de marzo</span>
+                  <span>Finde Largo del 21 al 24 de Marzo</span>
                 </div>
                 <div className="hidden sm:flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
                   <IconLocation className="w-4 h-4 text-brand-green" />
@@ -326,10 +282,10 @@ const Familion: React.FC = () => {
             <div className="flex flex-col justify-center">
               <h2 className="text-2xl md:text-4xl serif-title brand-green mb-6">Una Invitación de la Edición Anterior</h2>
               <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Sabemos que criar en la ciudad agota y que las vacaciones a veces se sienten como 'más trabajo'. En Familion, diseñamos un espacio donde <span className="text-brand-green font-bold">vos volvés a respirar</span> mientras tus hijos descubren la magia de ser niños en libertad segura.
+                Sabemos que compartir en familia en la ciudad es un gran desafío y que las vacaciones a veces se sienten como 'más trabajo'. En Familion, Co-creamos una experiencia en comunidad para disfrutar una experiencia inolvidable.
               </p>
               <p className="text-brand-green text-xl md:text-2xl serif-title font-bold mt-6">
-                Porque criar en tribu es más liviano.
+                Porque Co-crear en tribu es la que va!
               </p>
             </div>
 
@@ -345,50 +301,30 @@ const Familion: React.FC = () => {
       <section id="comodidad" className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-12 md:mb-16">
-            Comodidad Consciente
+            Nuestro Eco-centro
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Alojamiento */}
             <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
-              <div className="mb-4 text-brand-green">
-                <IconAlojamiento className="w-8 h-8" />
+                <div className="mb-4 text-brand-green">
+                <IconAlojamiento className="w-14 h-14" />
               </div>
-              <h3 className="serif-title text-xl brand-green mb-3">Alojamiento Consciente</h3>
+              <h3 className="serif-title text-xl brand-green mb-3">Alojamiento</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Dormir en Domos geodésicos o en nuestro Refugio de montaña. El formato es de alojamiento compartido, diseñado para facilitar la red familiar, manteniendo siempre la limpieza y el orden impecables.
+                Podes elegir descansar en camping, Domos geodésicos o en el Eco-Refugio. El formato es de alojamiento compartido, diseñado para facilitar la red familiar, manteniendo siempre la limpieza y el orden impecables.
               </p>
-              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">No somos un hotel tradicional; somos un refugio sustentable diseñado para el encuentro.</div>
+              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">No somos un hotel tradicional; Somos un espacio sustentable diseñado para compartir el encuentro.</div>
             </div>
 
-            {/* Domo Privado */}
-            <div className="card-hover p-6 md:p-8 border-2 border-brand-gold/30 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-transparent">
-              <div className="mb-4 text-brand-gold">
-                <IconDomo className="w-8 h-8" />
-              </div>
-              <h3 className="serif-title text-xl brand-green mb-3">Exclusividad Máxima</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Contamos con un <strong>único Domo Privado</strong> para la familia que busca máxima intimidad. <em>Consultar disponibilidad y valor diferencial.</em>
-              </p>
-              <span className="text-xs brand-gold font-bold uppercase tracking-widest">Consultar disponibilidad por nuestro único Domo Privado</span>
-            </div>
+            {/* Domo Privado: tarjeta eliminada según indicación */}
 
-            {/* Baños */}
-            <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
-              <div className="mb-4 text-brand-green">
-                <IconAgua className="w-8 h-8" />
-              </div>
-              <h3 className="serif-title text-xl brand-green mb-3">Bienestar de Origen</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Te recibimos con un Kit de Bienestar Consciente (shampoo, acondicionador y jabón) de origen natural y biodegradable, cuidando tu piel y el agua de la montaña.
-              </p>
-              <div className="text-xs text-gray-400 font-semibold uppercase tracking-widest">Productos naturales y biodegradables</div>
-            </div>
+            {/* Bienestar: tarjeta eliminada según indicación */}
 
             {/* Conexión */}
             <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
               <div className="mb-4 text-brand-green">
-                <IconRed className="w-8 h-8" />
+                <IconRed className="w-14 h-14" />
               </div>
               <h3 className="serif-title text-xl brand-green mb-3">Energía y Conexión</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -426,7 +362,7 @@ const Familion: React.FC = () => {
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Infancia en Libertad</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Exploración de arroyos, talleres de barro y asombro puro sin pantallas.
+                Exploración de arroyos, talleres en la naturaleza y aventura sin pantallas.
               </p>
             </div>
 
@@ -437,7 +373,7 @@ const Familion: React.FC = () => {
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Gastronomía de Montaña</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                11 comidas caseras, abundantes y nutritivas incluidas. Nosotros cocinamos, vos disfrutás.
+                11 comidas caseras, abundantes y nutritivas incluidas.
               </p>
             </div>
 
@@ -467,7 +403,7 @@ const Familion: React.FC = () => {
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
-                  <IconTransformacion className="w-5 h-5" />
+                  <IconEstrella className="w-10 h-10" />
                 </div>
                 <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Viernes</p>
               </div>
@@ -480,7 +416,7 @@ const Familion: React.FC = () => {
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
-                  <IconSol className="w-5 h-5" />
+                  <IconSol className="w-10 h-10" />
                 </div>
                 <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Sábado</p>
               </div>
@@ -493,7 +429,7 @@ const Familion: React.FC = () => {
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
-                  <IconLuna className="w-5 h-5" />
+                  <IconLuna className="w-10 h-10" />
                 </div>
                 <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Domingo</p>
               </div>
@@ -567,9 +503,9 @@ const Familion: React.FC = () => {
           <div className="p-8 md:p-12 bg-white/5 rounded-3xl border border-white/10">
             <h2 className="text-3xl md:text-5xl serif-title mb-8 text-center">Mágico Ensueño</h2>
             
-            <div className="max-w-3xl mx-auto mb-10">
+              <div className="max-w-3xl mx-auto mb-10">
               <p className="text-white/95 text-base md:text-lg leading-relaxed">
-                En el corazón de <span className="text-brand-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y comunidad consciente se encuentran en perfecta armonía. Acceso garantizado con auto común.
+                En el corazón de <span className="text-brand-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía. Acceso para todo tipo de vehiculos hasta la puerta del lugar .
               </p>
             </div>
             
@@ -586,11 +522,11 @@ const Familion: React.FC = () => {
                 <ul className="text-white/90 text-sm leading-relaxed space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-brand-gold font-bold mt-1">✓</span>
-                    <span><strong>Regeneración activa:</strong> +8.000 árboles plantados transforman el aire que respiras</span>
+                    <span><strong>Regeneración activa:</strong> +10.000 árboles plantados transforman el aire que respiras</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-brand-gold font-bold mt-1">✓</span>
-                    <span><strong>Comunidad ancestral:</strong> 20+ años de coherencia entre valores y acciones</span>
+                    <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el próposito</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-brand-gold font-bold mt-1">✓</span>
@@ -634,51 +570,45 @@ const Familion: React.FC = () => {
 
         <div className="max-w-3xl mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-12">
-            Combo Familiar, Todo Resuelto
+            COMBO FAMILIAR
           </h2>
 
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 mb-10 shadow-2xl">
-            <div className="brand-gold text-5xl md:text-7xl serif-title mb-3 leading-none">
-              $360.000
-            </div>
-            <p className="text-white/90 font-bold uppercase tracking-widest text-xs md:text-sm mb-10">
-              $360.000 por adulto (en alojamiento compartido)
-            </p>
-
-            {/* Pricing Table */}
-            <div className="bg-white/5 rounded-2xl p-6 md:p-8 mb-10 border border-white/10 divideador-y divide-white/10">
-              <div className="flex justify-between items-center py-4 border-b border-white/10">
-                <span className="text-sm md:text-base text-white/90">Niños hasta 4 años</span>
-                <strong className="brand-gold text-lg">Gratis</strong>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left">
+                <h3 className="text-lg font-bold text-white mb-2">Camping</h3>
+                <div className="brand-gold text-3xl md:text-4xl serif-title">$350.000</div>
+                <p className="text-white/85 text-sm mt-2">Zona de camping — todo incluido para la familia.</p>
               </div>
-              <div className="flex justify-between items-center py-4 border-b border-white/10">
-                <span className="text-sm md:text-base text-white/90">Niños 4 a 8 años</span>
-                <strong className="text-white text-lg">50% Desc.</strong>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left">
+                <h3 className="text-lg font-bold text-white mb-2">Eco-Refugio (hab. compartidas)</h3>
+                <div className="brand-gold text-3xl md:text-4xl serif-title">$550.000</div>
+                <p className="text-white/85 text-sm mt-2">Habitaciones compartidas con ropa blanca y toallas incluidas.</p>
               </div>
-              <div className="flex justify-between items-center py-4">
-                <span className="text-sm md:text-base text-white/90">Niños 8 a 12 años</span>
-                <strong className="text-white text-lg">70% Desc.</strong>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left">
+                <h3 className="text-lg font-bold text-white mb-2">Domos Compartidos</h3>
+                <div className="brand-gold text-3xl md:text-4xl serif-title">$650.000</div>
+                <p className="text-white/85 text-sm mt-2">Domos geodésicos compartidos — experiencia inmersiva.</p>
               </div>
             </div>
 
-            {/* What's Included */}
-            <div className="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 mb-10 text-left">
+            <div className="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 mb-8 text-left">
               <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Incluye:</h4>
               <ul className="space-y-3 text-white/85 text-sm md:text-base">
                 <li className="flex items-center gap-3">
                   <span className="text-brand-gold flex-shrink-0">
                     <IconCheck className="w-5 h-5" />
-                  </span> Alojamiento en Domos o Refugio con ropa blanca y toallas
+                  </span> Alojamiento en habitaciones incluyen ropa blanca, toallones y toallas
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-brand-gold flex-shrink-0">
                     <IconCheck className="w-5 h-5" />
-                  </span> 11 comidas nutritivas y abundantes
+                  </span> 11 comidas caseras, abundantes y nutritivas incluidas
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-brand-gold flex-shrink-0">
                     <IconCheck className="w-5 h-5" />
-                  </span> Kit de higiene natural y biodegradable
+                  </span> Agua caliente 24 hs y Bio-cósmetica en todas las duchas.
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-brand-gold flex-shrink-0">
@@ -691,13 +621,6 @@ const Familion: React.FC = () => {
                   </span> Seguros y guías de montaña
                 </li>
               </ul>
-            </div>
-
-            {/* Domo Privado */}
-            <div className="bg-brand-gold/20 rounded-2xl p-6 md:p-8 border border-brand-gold/30 mb-10">
-              <p className="text-white/90 text-sm md:text-base leading-relaxed">
-                <strong className="brand-gold">Upgrade Privado:</strong> Consulta disponibilidad y valor para nuestro único Domo Privado.
-              </p>
             </div>
 
             <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20reservar%20mi%20lugar%20en%20Familion." className="btn-gold w-full md:w-auto block md:inline-block mb-6">
