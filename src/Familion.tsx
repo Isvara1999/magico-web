@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { LanguageProvider } from '../contexts/LanguageContext';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { Home, Droplet, Wifi, Coffee, Users, User, Star, Sun, Moon } from 'lucide-react';
 
 // SVG Icons
