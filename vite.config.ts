@@ -68,6 +68,9 @@ export default defineConfig({
     }
   },
   server: {
-    host: true
+    host: true,
+    // choose a constant port so the URL doesn't shift each time you restart
+    // and so you can bookmark or open it without guessing.
+    port: 5173
   }
 })

@@ -1,1 +1,10 @@
 node_modules
+
+# Local Netlify folder
+.netlify
+
+# Build output
+/dist
+
+# Vite cache metadata (can change when running dev)
+node_modules/.vite/deps/_metadata.json

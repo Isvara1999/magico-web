@@ -399,44 +399,64 @@ const Familion: React.FC = () => {
           </h2>
 
           <div className="space-y-6 md:space-y-8">
-            {/* Viernes */}
+            {/* Estrella / Sábado */}
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
                   <IconEstrella className="w-10 h-10" />
                 </div>
-                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Viernes</p>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Sábado</p>
               </div>
               <p className="text-gray-700 text-sm md:text-base leading-relaxed">
                 Bienvenida · Almuerzo · Círculos de juego · Atardecer Mágico & Fuego · Cena Grupal.
               </p>
             </div>
 
-            {/* Sábado */}
+            {/* Sol / Domingo */}
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
                   <IconSol className="w-10 h-10" />
                 </div>
-                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Sábado</p>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Domingo</p>
               </div>
               <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                Yoga & Meditación (Adultos) · Juego (Niños) · Caminata · Cocina Familiar · Ecstatic Dance.
+                Yoga & Meditación (Adultos) · Juego (Niños) · Plantación de Tabaquillos en familia · Cocina Familiar · Meditación en Movimiento.
               </p>
             </div>
 
-            {/* Domingo */}
+            {/* Luna / Lunes */}
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
                   <IconLuna className="w-10 h-10" />
                 </div>
-                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Domingo</p>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Lunes</p>
               </div>
               <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                Ceremonia de Temazcal · Taller de Arte Natural · Almuerzo Despedida · Cierre de Tribu.
+                Ceremonia de Temazcal · Taller de Arte Natural y Cocina · Almuerzo · Tarde en el Río.
               </p>
             </div>
+
+            {/* Martes adicional */}
+            <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="text-brand-gold">
+                  <IconCalendar className="w-10 h-10" />
+                </div>
+                <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Martes</p>
+              </div>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Dinámicas y actividades de Cierre - Almuerzo - Despegue
+              </p>
+            </div>
+          </div>
+
+          {/* mensaje final comunitario */}
+          <div className="mt-8 p-6 md:p-8 bg-slate-50 rounded-2xl">
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+              La experiencia es comunitaria y colaborativa, la Co-creamos entre todas y todos. La intención es que el compartir sea muy disfrutable y organico en todo momento por lo cual todas las actividades son flexibles y sujetas al sentir de toda la tribu en cada momento.
+            </p>
           </div>
         </div>
       </section>
