@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Main';
 // @ts-ignore
 import ResetVitalApp from './ResetVital.jsx';
-import Familion from './Familion';
+import Familion from './src/Familion';
 import './index.css';
 import { clarity } from 'react-microsoft-clarity';
 
