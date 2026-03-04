@@ -142,6 +142,13 @@ const Familion: React.FC = () => {
           padding: 0.6rem 1rem;
           font-size: 0.78rem;
           border-radius: 40px;
+          /* make visible on white hero background */
+          color: #005333;
+          border: 1px solid #005333;
+          background: rgba(255,255,255,0.5);
+        }
+        .hero-cta .btn-glass:hover {
+          background: rgba(255,255,255,0.7);
         }
 
         /* Ensure hero CTAs are perfectly centered */
