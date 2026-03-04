@@ -37,16 +37,16 @@ const IconRed: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) =>
   <img src={encodeURI('/uploads/Energía y Conexión.svg')} className={className} alt="Energía y Conexión" />
 );
 
-const IconSol: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+const IconSol: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <img src={encodeURI('/uploads/Sábado (Sol).svg')} className={className} alt="Sol" />
 );
 
-const IconLuna: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+const IconLuna: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <img src={encodeURI('/uploads/Domingo (Luna).svg')} className={className} alt="Luna" />
 );
 
 const IconEstrella: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
-  <img src={encodeURI('/uploads/star.svg')} className={className} alt="Estrella" />
+  <img src={encodeURI('/uploads/farewell.svg')} className={className} alt="Farewell" />
 );
 
 const IconCheck: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
@@ -212,11 +212,11 @@ const Familion: React.FC = () => {
       {/* Header removed to avoid blank page if context is missing */}
 
       {/* ====== HERO SECTION (closer, centered) ====== */}
-      <section className="relative w-full px-4 md:px-6 bg-white flex items-center pt-16 md:pt-20 lg:pt-24 pb-8">
+      <section className="relative w-full px-4 md:px-6 bg-white flex items-center justify-center pt-16 md:pt-20 lg:pt-24 pb-8">
         <div className="max-w-5xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-8 items-center justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-8 items-center justify-center mx-auto max-w-6xl">
             {/* Left Content - centered (text first on mobile) */}
-            <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:-translate-y-2">
+            <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:-translate-y-2 lg:text-center">
               {/* Subtitle */}
               <p className="text-xs uppercase tracking-widest font-bold text-brand-green mb-2">
                 Mágico Ensueño Presenta
@@ -249,7 +249,7 @@ const Familion: React.FC = () => {
               </div>
 
               {/* CTA - stack in mobile */}
-              <div className="hero-cta flex flex-col sm:flex-row justify-center items-center gap-3 flex-nowrap mx-auto">
+              <div className="hero-cta flex flex-col items-center justify-center text-center sm:flex-row gap-3 flex-nowrap max-w-4xl mx-auto">
                 <a href="#precios" className="btn-gold inline-flex items-center justify-center w-full sm:w-auto">
                   Quiero sumarme a la tribu
                 </a>
@@ -308,7 +308,7 @@ const Familion: React.FC = () => {
             {/* Alojamiento */}
             <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
                 <div className="mb-4 text-brand-green">
-                <IconAlojamiento className="w-14 h-14" />
+                <IconAlojamiento className="w-12 h-12" />
               </div>
               <h3 className="serif-title text-xl brand-green mb-3">Alojamiento</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -324,7 +324,7 @@ const Familion: React.FC = () => {
             {/* Conexión */}
             <div className="card-hover p-6 md:p-8 border border-brand-green/10 rounded-2xl bg-slate-50">
               <div className="mb-4 text-brand-green">
-                <IconRed className="w-14 h-14" />
+                <IconRed className="w-12 h-12" />
               </div>
               <h3 className="serif-title text-xl brand-green mb-3">Energía y Conexión</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -442,7 +442,7 @@ const Familion: React.FC = () => {
             <div className="schedule-item p-6 md:p-8 bg-slate-50 rounded-r-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-brand-gold">
-                  <IconCalendar className="w-10 h-10" />
+                  <IconEstrella className="w-10 h-10" />
                 </div>
                 <p className="font-bold uppercase tracking-widest text-xs md:text-sm">Martes</p>
               </div>
