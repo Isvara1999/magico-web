@@ -21,9 +21,9 @@ import {
   IconLocation,
 } from './icons.tsx';
 
-import AulaVerdeHero from './components/AulaVerdeHero.tsx';
-import AulaVerdeMagico from './components/AulaVerdeMagico.tsx';
-import AulaVerdePrecios from './components/AulaVerdePrecios.tsx';
+import AulaVerdeHero from './components/AulaVerdeHero';
+import AulaVerdeMagico from './components/AulaVerdeMagico';
+import AulaVerdePrecios from './components/AulaVerdePrecios';
 
 const AulaVerde: React.FC = () => {
   useEffect(() => {
