@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -18,11 +18,11 @@ import {
   IconCheck,
   IconCalendar,
   IconLocation,
-} from './icons';
+} from './icons.tsx';
 
-const HeroSection = React.lazy(() => import('./components/FamilionHero'));
-const MagicoSection = React.lazy(() => import('./components/FamilionMagico'));
-const PreciosSection = React.lazy(() => import('./components/FamilionPrecios'));
+import FamilionHero from './components/FamilionHero.tsx';
+import FamilionMagico from './components/FamilionMagico.tsx';
+import FamilionPrecios from './components/FamilionPrecios.tsx';
 
 
 
@@ -195,7 +195,7 @@ const Familion: React.FC = () => {
       {/* Header removed to avoid blank page if context is missing */}
 
       {/* ====== HERO SECTION (closer, centered) ====== */}
-      <Suspense fallback={<div>Loading...</div>}><HeroSection /></Suspense>
+      <FamilionHero />
 
       {/* ====== VIDEO INVITACIÓN ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
@@ -474,10 +474,10 @@ const Familion: React.FC = () => {
       </section>
 
       {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
-      <Suspense fallback={<div>Loading...</div>}><MagicoSection /></Suspense>
+      <FamilionMagico />
 
       {/* ====== PRECIOS ====== */}
-      <Suspense fallback={<div>Loading...</div>}><PreciosSection /></Suspense>
+      <FamilionPrecios />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-white text-center">

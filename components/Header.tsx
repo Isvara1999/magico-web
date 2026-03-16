@@ -207,16 +207,7 @@ export const Header: React.FC = () => {
                   {t.menu.book}
                </a>
             </li>
-            {/* Familion link for quick access */}
-            <li className="hidden lg:block pl-4">
-              <a
-                href="/familion"
-                className={`text-[16px] lg:text-[13px] font-serif lg:font-sans font-normal lg:font-medium transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? 'text-dark hover:text-brand' : 'text-white hover:text-gold'}`}
-              >
-                Familion
-              </a>
-            </li>
-
+            
             {/* Mobile Language Button */}
             <li className="lg:hidden mt-8 w-full flex justify-center pb-10">
               <button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconCalendar, IconLocation } from '../icons';
+import { IconCalendar, IconLocation } from '../icons.tsx';
 
 const FamilionHero: React.FC = () => (
 <section className="relative w-full px-4 sm:px-8 md:px-6 bg-white rounded-3xl overflow-hidden flex items-center justify-center py-16 md:py-20 lg:py-24">

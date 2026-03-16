@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/aos": "^3.0.7",
+    "aos": "^2.3.4",
     "cropperjs": "^2.1.0",
     "html2pdf.js": "^0.13.0",
     "lucide-react": "^0.344.0",
