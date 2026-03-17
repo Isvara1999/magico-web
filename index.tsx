@@ -6,6 +6,7 @@ import Main from './Main';
 // @ts-ignore
 import ResetVitalApp from './ResetVital.jsx';
 import Familion from './src/Familion';
+import Gondorbows from './src/Gondorbows';
 import AulaVerde from './src/AulaVerde';
 import './index.css';
 import { clarity } from 'react-microsoft-clarity';
@@ -26,6 +27,7 @@ root.render(
         <Route path="/" element={<Main />} />
         <Route path="/reset-vital-5-d" element={<ResetVitalApp />} />
         <Route path="/familion" element={<Familion />} />
+        <Route path="/gondorbows" element={<Gondorbows />} />
         <Route path="/escuelas" element={<AulaVerde />} />
       </Routes>
     </BrowserRouter>
