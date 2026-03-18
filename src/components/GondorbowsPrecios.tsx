@@ -22,7 +22,7 @@ const GondorbowsPrecios: React.FC = () => {
           {/* Precio único */}
           <div className="relative p-8 md:p-10 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-white shadow-xl overflow-hidden">
             <h3 className="serif-title text-xl md:text-2xl font-bold mb-4" style={{ color: '#005333' }}>Valor total del retiro</h3>
-            <p className="text-3xl md:text-4xl lg:text-5xl serif-title font-extrabold tracking-tight mb-4" style={{ color: '#D4AF37' }}>$500.000</p>
+            <p className="text-3xl md:text-4xl lg:text-5xl serif-title font-extrabold tracking-tight mb-4" style={{ color: '#D4AF37' }}>$530.000</p>
             <p className="text-sm md:text-base leading-relaxed break-words" style={{ color: '#005333' }}>Todo incluido para 3 días de inmersión completa</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ const GondorbowsPrecios: React.FC = () => {
         <div className="rounded-2xl bg-yellow-400/10 border border-yellow-400/30 p-6 md:p-8 mb-8 text-center">
           <h4 className="text-yellow-400 font-bold uppercase tracking-widest text-xs mb-2">⚠️ Cupos limitados</h4>
           <p className="text-white/90 text-sm md:text-base mb-4">
-            Solo 8 lugares disponibles para garantizar atención personalizada y calidad en el proceso de aprendizaje.
+            Solo 15 lugares disponibles para garantizar atención personalizada y calidad en el proceso de aprendizaje.
           </p>
           <p className="text-white/80 text-xs md:text-sm italic">
             Las inscripciones cierran el 5 de abril o al completar los cupos.

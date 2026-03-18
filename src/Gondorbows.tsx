@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Home, Droplet, Wifi, Coffee, Users, User, Star, Sun, Moon } from 'lucide-react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 import {
   IconAdultos,
   IconNiños,
@@ -26,6 +26,31 @@ import GondorbowsPrecios from './components/GondorbowsPrecios';
 
 const Gondorbows: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'refugio' | 'domo'>('refugio');
+  const [currentImage, setCurrentImage] = useState(0);
+  
+  const images = [
+    { src: "/uploads/arcos-fuego.jpg", alt: "Arcos terminados frente al fuego" },
+    { src: "/uploads/tirando.jpg", alt: "Tiro con arco en el bosque" },
+    { src: "/uploads/herramientas.jpg", alt: "Herramientas de desbaste tradicionales" },
+    { src: "/uploads/grupo.jpg", alt: "Comunidad y tribu con sus arcos" },
+    { src: "/uploads/comida.jpg", alt: "Parrilla con comida serrana" }
+  ];
+
+  // Autoplay
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <LanguageProvider>
@@ -170,6 +195,16 @@ const Gondorbows: React.FC = () => {
           padding-top: 1rem;
           padding-bottom: 1rem;
         }
+
+        /* Hide scrollbar for carousel */
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
       `}
 
       </style>
@@ -178,55 +213,6 @@ const Gondorbows: React.FC = () => {
 
       {/* ====== HERO SECTION (closer, centered) ====== */}
       <GondorbowsHero />
-
-      {/* ====== PRUEBA SOCIAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">
-            Mirá lo que vivieron los grupos anteriores. Una experiencia que transforma.
-          </h3>
-          <div className="flex justify-center">
-            <iframe 
-              width="100%" 
-              height="400" 
-              src="https://www.youtube.com/embed/Q0l3wI7_5LI" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-              className="rounded-2xl shadow-2xl"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      {/* ====== AUTORIDAD ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Columna gráfica - Logo Gondor Bows */}
-            <div className="flex justify-center order-2 md:order-1 px-4">
-              <img 
-                src="/uploads/logo-gondor-bows.png" 
-                alt="Gondor Bows" 
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
-              />
-            </div>
-            
-            {/* Columna de texto */}
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl serif-title brand-green mb-6 md:mb-8">
-                Conocé a tus guías: Gondor Bows
-              </h2>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
-                Gondor Bows nace en 2015 con la misión de recuperar el arte ancestral de la arquería tradicional, integrando técnicas manuales, conexión con la naturaleza y una mirada contemporánea sobre el trabajo artesanal.
-              </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Un equipo comprometido con transmitir oficios que despiertan algo profundo: la memoria del cuerpo, la paciencia del proceso y el poder de crear con tus propias manos.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ====== SOBRE NOSOTROS / LA EXPERIENCIA ====== */}
       <section id="experiencia" className="py-16 md:py-24 px-6 bg-white">
@@ -244,19 +230,6 @@ const Gondorbows: React.FC = () => {
               Durante tres días intensivos, construirás tu propio arco de alto rendimiento, recuperando habilidades esenciales desarrolladas durante más de 150.000 años de historia.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* ====== VIDEO INVITACIÓN ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">Una Invitación Especial</h2>
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
-            Descubrí el arte ancestral de la arquería primitiva. Un viaje de transformación donde tus manos darán forma a la madera y tu espíritu se conectará con técnicas milenarias.
-          </p>
-          <p className="text-brand-green text-xl md:text-2xl serif-title font-bold">
-            Creá tu propio arco funcional en 3 días.
-          </p>
         </div>
       </section>
 
@@ -298,6 +271,58 @@ const Gondorbows: React.FC = () => {
               <h4 className="serif-title text-lg brand-green mb-3">Pensión Completa</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Gastronomía cuidada desde el viernes a las 15:00 hs hasta el domingo a las 17:00 hs para que no tengas que preocuparte por nada.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== PRUEBA SOCIAL ====== */}
+      <section className="py-16 md:py-24 px-6 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">
+            Mirá lo que vivieron los grupos anteriores. Una experiencia que transforma.
+          </h3>
+          <div className="flex justify-center">
+            <iframe 
+              width="100%" 
+              height="400" 
+              src="https://www.youtube.com/embed/Q0l3wI7_5LI" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              className="rounded-2xl shadow-2xl"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== AUTORIDAD ====== */}
+      <section className="py-2 md:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Columna gráfica - Foto Fausto trabajando */}
+            <div className="flex justify-center order-2 md:order-1 px-4 mt-2 mb-4 md:my-12">
+              <img 
+                src="/uploads/fausto-tallando.jpg" 
+                alt="Fausto trabajando" 
+                className="w-full object-cover rounded-xl shadow-lg h-auto aspect-[4/5] md:aspect-square"
+              />
+            </div>
+            
+            {/* Columna de texto */}
+            <div className="order-1 md:order-2">
+              <div className="mb-4 text-brand-green flex justify-center">
+                <img src="/uploads/logo-gondor-bows.png" alt="Gondor Bows" className="w-16" />
+              </div>
+              <h2 className="text-3xl md:text-4xl serif-title brand-green mb-6 md:mb-8">
+                Conocé a tus guías: Gondor Bows
+              </h2>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+                Gondor Bows nace en 2015 con la misión de recuperar el arte ancestral de la arquería tradicional, integrando técnicas manuales, conexión con la naturaleza y una mirada contemporánea sobre el trabajo artesanal.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                Un equipo comprometido con transmitir oficios que despiertan algo profundo: la memoria del cuerpo, la paciencia del proceso y el poder de crear con tus propias manos.
               </p>
             </div>
           </div>
@@ -396,6 +421,67 @@ const Gondorbows: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ====== POSTALES DE LA INMERSIÓN ====== */}
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-6 md:mb-8">
+            Postales de la Inmersión
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base text-center mb-10 md:mb-12 max-w-3xl mx-auto">
+            Comunidad, fuego, herramientas tradicionales y el sabor de las sierras.
+          </p>
+          
+          {/* Carrusel Vertical */}
+          <div className="relative max-w-md mx-auto h-96 md:h-[500px]">
+            {/* Imagen actual */}
+            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg">
+              <img 
+                src={images[currentImage].src} 
+                alt={images[currentImage].alt} 
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Overlay para mejor visibilidad de las flechas */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/30"></div>
+            </div>
+            
+            {/* Flechas de navegación */}
+            <button
+              onClick={prevImage}
+              className="absolute left-1/2 top-4 transform -translate-x-1/2 bg-white/90 hover:bg-white text-brand-green p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              aria-label="Imagen anterior"
+            >
+              <ChevronUp className="w-6 h-6" />
+            </button>
+            
+            <button
+              onClick={nextImage}
+              className="absolute left-1/2 bottom-4 transform -translate-x-1/2 bg-white/90 hover:bg-white text-brand-green p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              aria-label="Siguiente imagen"
+            >
+              <ChevronDown className="w-6 h-6" />
+            </button>
+            
+            {/* Indicadores */}
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImage 
+                      ? 'bg-white w-3' 
+                      : 'bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Ir a imagen ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
       <GondorbowsMagico />
 

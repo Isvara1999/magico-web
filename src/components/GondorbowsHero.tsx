@@ -1,36 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { IconCalendar, IconLocation } from '../icons.tsx';
 
 const GondorbowsHero: React.FC = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section id="heroSec" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
       {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <iframe 
-          width="100vw" 
-          height="100vh" 
-          src="https://www.youtube.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
-          frameBorder="0" 
-          allow="autoplay; encrypted-media" 
-          allowFullScreen 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%) scale(1.8)',
-            width: '177.78vh',
-            height: '100vh',
-            minWidth: '100vw',
-            zIndex: 1
-          }}
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/30 to-transparent mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-bl from-gold/20 via-transparent to-transparent mix-blend-soft-light"></div>
+      <div className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none">
+        {videoLoaded && (
+          <iframe 
+            width="100vw" 
+            height="100vh" 
+            src="https://www.youtube.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
+            frameBorder="0" 
+            allow="autoplay; encrypted-media" 
+            allowFullScreen 
+            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%) scale(1.8)',
+              width: '177.78vh',
+              height: '100vh',
+              minWidth: '100vw',
+              zIndex: 0
+            }}
+          />
+        )}
+        {/* Placeholder color before video loads */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-green/80 z-[0]"></div>
       </div>
+      
+      {/* Overlay oscuro */}
+      <div className="absolute inset-0 bg-black/60 z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-green/95 via-brand-green/30 to-transparent mix-blend-multiply z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-brand-gold/20 via-transparent to-transparent mix-blend-soft-light z-[1]"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center h-full pt-8">
+      <div className="relative z-[2] text-center px-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full pt-8">
         
         {/* Title Container */}
         <div className="mb-6 md:mb-8 transition-all duration-500">
@@ -44,14 +58,12 @@ const GondorbowsHero: React.FC = () => {
         </p>
 
         {/* Glass Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4 mb-12 md:mb-16">
-          <a href="#precios" target="_self" className="group relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/50 to-[#D4AF37]/20 backdrop-blur-md border border-white/40 text-white uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.15)] hover:bg-[#D4AF37]/70 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
-             <span className="relative z-10">Quiero reservar mi lugar</span>
-             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"></div>
+        <div className="hero-cta flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4 mb-12 md:mb-16">
+          <a href="#precios" target="_self" className="btn-gold inline-flex items-center justify-center">
+            Quiero reservar mi lugar
           </a>
-          <a href="#comodidad" className="group relative overflow-hidden bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 text-white/95 uppercase tracking-widest text-[0.7rem] font-bold py-3 px-8 rounded-full shadow-[0_4px_15px_0_rgba(0,0,0,0.1)] hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-0.5 min-w-[180px] w-full sm:w-auto text-center">
-            <span className="relative z-10">Ver detalles</span>
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"></div>
+          <a href="#comodidad" className="btn-glass inline-flex items-center justify-center">
+            Ver detalles
           </a>
         </div>
 

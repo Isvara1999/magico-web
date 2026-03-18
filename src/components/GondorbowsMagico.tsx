@@ -20,9 +20,8 @@ const GondorbowsMagico: React.FC = () => {
         </div>
         
         {/* Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <img src="/uploads/469280911_444096748740233_2818770490495002077_n.webp" alt="Infraestructura de Mágico Ensueño" loading="lazy" className="w-full rounded-2xl shadow-lg object-cover h-64" />
-          <img src="/uploads/refu.webp" alt="Refugio - Domos" loading="lazy" className="w-full rounded-2xl shadow-lg object-cover h-64" />
+        <div className="flex justify-center mb-10">
+          <img src="/uploads/refu.webp" alt="Refugio - Fachada de piedra" loading="lazy" className="w-full max-w-2xl rounded-2xl shadow-lg object-cover h-48 sm:h-56 md:h-64 lg:h-72" />
         </div>
         
         {/* Benefits Grid */}
@@ -89,38 +88,38 @@ const GondorbowsMagico: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Columna 1 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <iframe 
-              width="100%" 
-              height="250" 
-              src="https://www.youtube.com/embed/o3m_A68JC0M" 
-              frameBorder="0" 
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.youtube.com/embed/o3m_A68JC0M" 
+                frameBorder="0" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+              ></iframe>
+            </div>
           </div>
           
           {/* Columna 2 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <iframe 
-              width="100%" 
-              height="250" 
-              src="https://www.youtube.com/embed/JtkYFlsBEW8" 
-              frameBorder="0" 
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.youtube.com/embed/JtkYFlsBEW8" 
+                frameBorder="0" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+              ></iframe>
+            </div>
           </div>
           
           {/* Columna 3 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <iframe 
-              width="100%" 
-              height="250" 
-              src="https://www.youtube.com/embed/rkgQ2e-gEco" 
-              frameBorder="0" 
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.youtube.com/embed/rkgQ2e-gEco" 
+                frameBorder="0" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
