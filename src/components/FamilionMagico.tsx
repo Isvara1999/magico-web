@@ -18,10 +18,24 @@ const FamilionMagico: React.FC = () => {
           </p>
         </div>
         
-        {/* Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <img src="/uploads/469280911_444096748740233_2818770490495002077_n.webp" alt="Infraestructura de Mágico Ensueño" loading="lazy" className="w-full rounded-2xl shadow-lg object-cover h-64" />
-          <img src="/uploads/refu.webp" alt="Refugio - Domos" loading="lazy" className="w-full rounded-2xl shadow-lg object-cover h-64" />
+        {/* Video Principal (Reemplaza Imágenes Anteriores) */}
+        <div className="flex justify-center mb-10 w-full relative z-20">
+          <div className="relative inline-block group w-full max-w-sm">
+            {/* Bordes decorativos detrás del video */}
+            <div className="absolute -inset-3 border border-brand-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
+            <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
+
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
+                title="Mágico Ensueño - Experiencia en la Montaña"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
         
         {/* Benefits Grid */}
@@ -31,7 +45,7 @@ const FamilionMagico: React.FC = () => {
             <ul className="text-white/90 text-sm leading-relaxed space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-1">✓</span>
-                <span><strong>Regeneración activa:</strong> +10.000 árboles plantados transforman el aire que respiras</span>
+                <span><strong>Regeneración activa:</strong> +15.000 árboles plantados transforman el aire que respiras</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-1">✓</span>

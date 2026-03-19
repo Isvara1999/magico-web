@@ -2,7 +2,7 @@ import React from 'react';
 
 const GondorbowsMagico: React.FC = () => {
   const consultLink = "https://wa.me/5491157300099?text=" +
-    encodeURIComponent("Hola Fausto. Vengo de la página de Mágico Ensueño y quiero consultar la ubicación exacta y cómo llegar al retiro de arquería.");
+    encodeURIComponent("¡Hola Fausto! Estoy organizando mi viaje para el retiro de Gondorbows y quería consultar bien la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️🗺️");
 
   return (
     <>
@@ -19,9 +19,24 @@ const GondorbowsMagico: React.FC = () => {
           </p>
         </div>
         
-        {/* Images */}
-        <div className="flex justify-center mb-10">
-          <img src="/uploads/refu.webp" alt="Refugio - Fachada de piedra" loading="lazy" className="w-full max-w-2xl rounded-2xl shadow-lg object-cover h-48 sm:h-56 md:h-64 lg:h-72" />
+        {/* Video Principal (Reemplaza Imágenes Anteriores) */}
+        <div className="flex justify-center mb-10 w-full relative z-20">
+          <div className="relative inline-block group w-full max-w-sm">
+            {/* Bordes decorativos detrás del video */}
+            <div className="absolute -inset-3 border border-brand-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
+            <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
+
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
+                title="Mágico Ensueño - Experiencia en la Montaña"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
         
         {/* Benefits Grid */}
@@ -31,7 +46,7 @@ const GondorbowsMagico: React.FC = () => {
             <ul className="text-white/90 text-sm leading-relaxed space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-0.5">✓</span>
-                <span><strong>Regeneración activa:</strong> +10.000 árboles plantados transforman el aire que respiras</span>
+                <span><strong>Regeneración activa:</strong> +15.000 árboles plantados transforman el aire que respiras</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-0.5">✓</span>

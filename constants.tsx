@@ -80,7 +80,7 @@ export const PILARES: Pillar[] = [
   {
     id: 1,
     title: 'Regeneración',
-    subtitle: '+8mil Árboles.',
+    subtitle: '+15mil Árboles.',
     iconPath: <Leaf className="w-6 h-6 md:w-7 md:h-7" />,
   },
   {

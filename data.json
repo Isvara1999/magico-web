@@ -166,25 +166,7 @@
       "link": "",
       "cards": [
         {
-          "date": "23 – 25 ENE",
-          "title": "ORIGEN",
-          "desc": "Veni a Diseñar y Crear tu 2026",
-          "btn": "Reservar",
-          "image": "/uploads/origen.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1R3VITszSP07vVQRbpKBLFDbs2jRHl_i_/view?usp=sharing"
-        },
-        {
-          "date": "20 – 23 FEB",
-          "title": "Botica Serrana de Achala",
-          "desc": "Retiro de Plantas Medicinales",
-          "btn": "Reservar",
-          "image": "/uploads/botica.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1aF_rzgPu79twyx6kHb8B1JwP_MZZYpui/view"
-        },
-        {
-          "date": "27 FEB – 1 MAR",
+          "date": "ESTE FINDE",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
           "btn": "Ver Más",
@@ -193,13 +175,13 @@
           "pdfLink": ""
         },
         {
-          "date": "4 – 8 MAR",
-          "title": "Campamento Constante",
-          "desc": "Residencia de Investigación del Movimiento",
-          "btn": "Reservar",
-          "image": "/uploads/Constante.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1Iq0hpFRv9wInP3Y0-QyEQ08bajM1JkUz/view?usp=sharing"
+          "date": "10 AL 12 DE ABRIL",
+          "title": "Gondorbows",
+          "desc": "Retiro inmersivo de construcción de arcos. Aprendé un oficio ancestral, trabajá la madera con tus manos y llevate un arco funcional de alta calidad.",
+          "btn": "Ver Más",
+          "image": "/uploads/tirando.jpg",
+          "link": "/gondorbows",
+          "pdfLink": ""
         },
         {
           "date": "RECURRENTE",
@@ -217,7 +199,7 @@
       "btnBook": "EXPERIENCIAS",
       "btnRetreat": "ORGANIZAR RETIRO",
       "stats_years": "+20 Años",
-      "stats_trees": "+8mil Árboles Plantados",
+      "stats_trees": "+15mil Árboles Plantados",
       "stats_sus": "Regeneración & Sustentabilidad",
       "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
       "bgImages": [
@@ -262,7 +244,7 @@
       "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
     },
     "pillars": [
-      { "id": 1, "title": "Regeneración", "subtitle": "Más de 8.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles." },
+      { "id": 1, "title": "Regeneración", "subtitle": "Más de 15.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles." },
       { "id": 2, "title": "Comunidad", "subtitle": "Vínculos reales con personas, productores y vecinos. Co-creamos en red, desde la colaboración y el encuentro." },
       { "id": 3, "title": "Buen Vivir", "subtitle": "Una forma simple y consciente de habitar el tiempo, el trabajo y los vínculos, en equilibrio con la naturaleza." },
       { "id": 4, "title": "Consciencia", "subtitle": "Todo lo que sucede aquí tiene intención y mucho corazón. Prácticas, decisiones y experiencias alineadas con el cuidado, el sentido y la coherencia interna." }
@@ -472,34 +454,7 @@
       "link": "",
       "cards": [
         {
-          "date": "27 FEB – 1 MAR",
-          "title": "Experiencia Familion",
-          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
-          "btn": "Ver Más",
-          "image": "/uploads/portada familion.webp",
-          "link": "/familion",
-          "pdfLink": ""
-        },
-        {
-          "date": "JAN 23 – 25",
-          "title": "ORIGEN",
-          "desc": "Come Design and Create your 2026",
-          "btn": "Book",
-          "image": "/uploads/origen.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1R3VITszSP07vVQRbpKBLFDbs2jRHl_i_/view?usp=sharing"
-        },
-        {
-          "date": "FEB 20 – 23",
-          "title": "Botica Serrana de Achala",
-          "desc": "Medicinal Plants Retreat",
-          "btn": "Book",
-          "image": "/uploads/botica.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1aF_rzgPu79twyx6kHb8B1JwP_MZZYpui/view"
-        },
-        {
-          "date": "FEB 27 – MAR 1",
+          "date": "THIS WEEKEND",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
           "btn": "See More",
@@ -508,13 +463,13 @@
           "pdfLink": ""
         },
         {
-          "date": "MAR 4 – 8",
-          "title": "Constant Camp",
-          "desc": "Movement Research Residency",
-          "btn": "Book",
-          "image": "/uploads/Constante.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85",
-          "pdfLink": "https://drive.google.com/file/d/1Iq0hpFRv9wInP3Y0-QyEQ08bajM1JkUz/view?usp=sharing"
+          "date": "APR 10 - 12",
+          "title": "Gondorbows",
+          "desc": "Immersive bow-making retreat. Learn an ancestral trade, work the wood with your hands, and take home a high-quality functional bow.",
+          "btn": "See More",
+          "image": "/uploads/tirando.jpg",
+          "link": "/gondorbows",
+          "pdfLink": ""
         },
         {
           "date": "RECURRING",

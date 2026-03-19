@@ -242,7 +242,7 @@ const Gondorbows: React.FC = () => {
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Alojamiento Inmersivo</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Descanso en domos geodésicos y yurta de diseño integrados al bosque nativo, con modalidad de camas compartidas, baños y duchas con agua caliente.
+                Descanso en Eco-refugio premium y domos geodésicos de diseño rodeados de bosque nativo. Incluye Ropa blanca, toalla, toallon, bio-cosmetica, agua caliente 24h,  y WIFI en todo el predio.
               </p>
             </div>
 
@@ -253,7 +253,7 @@ const Gondorbows: React.FC = () => {
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Pensión Completa</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Gastronomía cuidada desde el viernes a las 15:00 hs hasta el domingo a las 17:00 hs para que no tengas que preocuparte por nada.
+                Gastronomía local y de estación con todas las comidas riquísimas y abundantes incluidas durante tu estadía para que no tengas que pensar en nada más.
               </p>
             </div>
           </div>
@@ -304,9 +304,15 @@ const Gondorbows: React.FC = () => {
               <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
                 Gondor Bows nace en 2015 con la misión de recuperar el arte ancestral de la arquería tradicional, integrando técnicas manuales, conexión con la naturaleza y una mirada contemporánea sobre el trabajo artesanal.
               </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
                 Un equipo comprometido con transmitir oficios que despiertan algo profundo: la memoria del cuerpo, la paciencia del proceso y el poder de crear con tus propias manos.
               </p>
+              
+              <div className="bg-brand-green/5 border-l-4 border-brand-green p-4 rounded-r-lg mt-8 shadow-sm">
+                <p className="text-brand-green italic font-medium text-sm md:text-base leading-relaxed">
+                  "Esta experiencia es MULTINIVEL, por lo que podés venir tanto si no tenés ninguna experiencia previa como si ya tomaste otro curso y querés profundizar en la técnica y el conocimiento."
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -487,7 +493,7 @@ const Gondorbows: React.FC = () => {
           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10">
             Gondorbows es más que una experiencia. Es la pausa que tu rutina necesita, el refugio que tu instinto busca y la inmersión total que estás esperando.
           </p>
-          <a href="https://wa.me/5491157300099?text=Hola%20Fausto.%20Vengo%20de%20la%20p%C3%A1gina%20de%20M%C3%A1gico%20Ensue%C3%B1o.%20Quiero%20asegurar%20mi%20lugar%20para%20el%20retiro%20de%20arquer%C3%ADa%20del%2010%20al%2012%20de%20abril.%20Te%20escribo%20para%20coordinar%20el%20pago%20de%20la%20se%C3%B1a%20de%20%24250.000." className="btn-gold inline-block">
+          <a href="https://wa.me/5491157300099?text=%C2%A1Hola%20Fausto!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20el%20retiro%20de%20Gondorbows%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar%20del%2010%20al%2012%20de%20abril%20en%20Los%20Gigantes.%20%F0%9F%8C%B2%E2%9C%A8" className="btn-gold inline-block">
             Asegurar mi lugar
           </a>
         </div>

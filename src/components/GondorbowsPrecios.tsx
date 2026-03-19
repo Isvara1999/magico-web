@@ -2,9 +2,11 @@ import React from 'react';
 import { Check, Target, ForkKnife, Hammer, ChalkboardTeacher, House, Plant, Warning } from '@phosphor-icons/react';
 
 const GondorbowsPrecios: React.FC = () => {
-  const waLink = "https://wa.me/5491157300099?text=" +
-    encodeURIComponent("Hola Fausto. Vengo de la página de Mágico Ensueño. Quiero asegurar mi lugar para el retiro de arquería del 10 al 12 de abril. Te escribo para coordinar el pago de la seña de $250.000.");
+  const waLinkMain = "https://wa.me/5491157300099?text=" +
+    encodeURIComponent("¡Hola Fausto! Vengo de la web y me encantaría reservar mi lugar para Gondorbows. Quisiera hacer una seña para asegurar mi participación, ¿cómo podemos hacer? ✨");
 
+  const waLinkFechas = "https://wa.me/5491157300099?text=" +
+    encodeURIComponent("¡Hola Fausto! Me encantó la propuesta de Gondorbows pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
   return (
     <>
       {/* ====== TESTIMONIOS (SHORTS) ====== */}
@@ -109,11 +111,11 @@ const GondorbowsPrecios: React.FC = () => {
             <ul className="space-y-5">
               <li className="flex items-start gap-4 text-white/90">
                 <Check weight="thin" className="w-5 h-5 flex-shrink-0 mt-0.5 text-white" />
-                <span>Confirmá tu asistencia con una seña del 50% ($250.000) por transferencia</span>
+                <span>Confirmá tu asistencia con una seña y el saldo restante se abona durante el retiro.</span>
               </li>
               <li className="flex items-start gap-4 text-white/90">
                 <Check weight="thin" className="w-5 h-5 flex-shrink-0 mt-0.5 text-white" />
-                <span>El saldo restante se abona durante el retiro</span>
+                <span>Consulta por opciones de financiación y otras opciones de intercambio.</span>
               </li>
               <li className="flex items-start gap-4 text-white/90">
                 <Check weight="thin" className="w-5 h-5 flex-shrink-0 mt-0.5 text-white" />
@@ -172,12 +174,29 @@ const GondorbowsPrecios: React.FC = () => {
 
           {/* Button */}
           <div className="mt-8 md:mt-12 pb-16 flex flex-col items-center">
-            <a href={waLink}
+            
+            {/* Beneficios Especiales */}
+            <div className="mb-8 text-center bg-brand-green/20 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-[#D4AF37]/40 w-full max-w-lg shadow-xl shadow-black/10">
+              <p className="font-bold text-[#D4AF37] mb-4 text-lg">🎁 Beneficios Especiales:</p>
+              <ul className="text-white/95 text-sm md:text-base space-y-3 text-left w-fit mx-auto font-medium">
+                <li className="flex items-start gap-3"><span className="text-[#D4AF37]">•</span> 10% OFF si venís de a dos o más personas.</li>
+                <li className="flex items-start gap-3"><span className="text-[#D4AF37]">•</span> 10% OFF para ex-alumnos (o si venís invitado por uno).</li>
+              </ul>
+              <p className="text-white/70 text-xs md:text-sm italic mt-5">(Escribinos al WhatsApp para aplicar tu descuento)</p>
+            </div>
+
+            <a href={waLinkMain}
               style={{ backgroundColor: '#E5B84A', color: '#005333' }}
               className="inline-flex justify-center items-center transition-all hover:bg-yellow-400 py-3 md:py-4 px-8 md:px-12 w-fit mx-auto rounded-full font-bold text-sm md:text-base tracking-[0.1em] uppercase shadow-lg shadow-black/20 hover:shadow-2xl hover:-translate-y-1 duration-300 text-center">
               RESERVAR MI LUGAR AHORA
             </a>
-            <p className="text-white/80 text-xs md:text-sm italic mt-6 md:mt-8 mb-4 max-w-lg mx-auto font-serif px-6 text-center">
+            
+            {/* CTA Secundario */}
+            <a href={waLinkFechas} className="text-white/90 hover:text-[#D4AF37] transition-colors text-sm md:text-base underline underline-offset-4 mt-6 font-medium">
+              ¿No podés en esta fecha? Consultá por otras fechas disponibles.
+            </a>
+
+            <p className="text-white/80 text-xs md:text-sm italic mt-8 md:mt-10 mb-4 max-w-lg mx-auto font-serif px-6 text-center">
               El 10% de tu inversión se destina a reforestar tabaquillos y restaurar nuestras sierras.
             </p>
           </div>
