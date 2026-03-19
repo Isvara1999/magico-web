@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
     "cropperjs": "^2.1.0",

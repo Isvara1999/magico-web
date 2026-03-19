@@ -6,8 +6,8 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-white text-dark/80 py-16 border-t border-brand/5">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm font-light">
+    <footer className="bg-white text-dark/80 py-10 md:py-16 border-t border-brand/5">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 md:gap-12 text-sm font-light">
         <div className="col-span-1 md:col-span-2 text-center md:text-left">
           <img
             src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-brand/10 text-center flex flex-col gap-2">
+      <div className="max-w-7xl mx-auto px-6 mt-10 md:mt-16 pt-6 md:pt-8 border-t border-brand/10 text-center flex flex-col gap-2">
         <span className="text-xs tracking-wider uppercase text-brand font-medium">
           &copy; {currentYear} {t.footer.copyright}
         </span>

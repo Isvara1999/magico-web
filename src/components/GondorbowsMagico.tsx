@@ -6,7 +6,7 @@ const GondorbowsMagico: React.FC = () => {
 
   return (
     <>
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-green text-white rounded-3xl relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-green text-white rounded-3xl relative overflow-hidden mt-16 md:mt-24 mx-2 md:mx-0">
     {/* glassy overlay (no border) */}
     <div className="absolute inset-0 rounded-3xl backdrop-blur-sm pointer-events-none"></div>
     <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -28,17 +28,17 @@ const GondorbowsMagico: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
             <h4 className="text-brand-gold font-bold text-lg mb-4">Cómo Este Lugar Mejora Tu Experiencia</h4>
-            <ul className="text-white/90 text-sm leading-relaxed space-y-3">
+            <ul className="text-white/90 text-sm leading-relaxed space-y-4">
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-1">✓</span>
+                <span className="text-brand-gold font-bold mt-0.5">✓</span>
                 <span><strong>Regeneración activa:</strong> +10.000 árboles plantados transforman el aire que respiras</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-1">✓</span>
-                <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el próposito</span>
+                <span className="text-brand-gold font-bold mt-0.5">✓</span>
+                <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el propósito</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-1">✓</span>
+                <span className="text-brand-gold font-bold mt-0.5">✓</span>
                 <span><strong>Energía solar:</strong> 100% sustentable, sin huella de carbono</span>
               </li>
             </ul>
@@ -46,16 +46,14 @@ const GondorbowsMagico: React.FC = () => {
           
           <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
             <h4 className="text-brand-gold font-bold text-lg mb-4">Tu Inversión Genera Regeneración</h4>
-            <p className="text-white/90 text-sm leading-relaxed mb-4">
-              El 10% de tu inversión se destina directamente a reforestar los tabaquillos y restaurar las sierras de Los Gigantes.
-            </p>
-            <p className="text-white/90 italic text-sm leading-relaxed">
-              Cada familia que nos elige es una semilla de cambio en la montaña.
-            </p>
+            <div className="text-white/90 text-sm leading-relaxed space-y-4">
+              <p>El 10% de tu inversión se destina directamente a reforestar los tabaquillos y restaurar las sierras de Los Gigantes.</p>
+              <p className="italic">Cada familia que nos elige es una semilla de cambio en la montaña.</p>
+            </div>
           </div>
         </div>
         
-        <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center">
+        <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center mt-8">
           <p className="text-white/95 italic text-base md:text-lg leading-relaxed">
             Mágico Ensueño es más que un destino; aquí <span className="text-brand-gold font-bold">la ubicación en la naturaleza regenera</span> mientras tu familia se reconecta, el cuerpo se sana y el alma vuelve a respirar en armonía con el ritmo de la montaña.
           </p>
@@ -63,9 +61,9 @@ const GondorbowsMagico: React.FC = () => {
       </div>
       {/* Mapa del Lugar */}
       <div className="mt-8 max-w-4xl mx-auto text-center">
-        <div className="relative group cursor-zoom-in" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
+        <div className="relative group cursor-zoom-in mb-12" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
           <img src="/uploads/mapa_magico.webp" alt="Mapa de Gondorbows - Los Gigantes" loading="lazy" className="w-full rounded-2xl shadow-lg" />
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <div className="mt-12 mb-16 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30">
             <a href="/uploads/mapa_magico.webp" download="Mapa_Gondorbows_Los_Gigantes.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
             <a href={consultLink} className="btn-gold inline-block w-full sm:w-auto text-center">Consultar ubicación</a>
           </div>
@@ -75,7 +73,7 @@ const GondorbowsMagico: React.FC = () => {
     </section>
 
     {/* ====== EL ARTE DETRÁS DE TU ARCO ====== */}
-    <section className="py-16 md:py-24 px-6 bg-slate-50">
+    <section className="py-16 md:py-24 px-6 bg-slate-50 mt-16 md:mt-24">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl serif-title brand-green text-center mb-8 md:mb-10">
           El Arte detrás de tu Arco: Nuestro Proceso
@@ -88,10 +86,11 @@ const GondorbowsMagico: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Columna 1 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
                 src="https://www.youtube.com/embed/o3m_A68JC0M" 
                 frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>
@@ -100,10 +99,11 @@ const GondorbowsMagico: React.FC = () => {
           
           {/* Columna 2 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
                 src="https://www.youtube.com/embed/JtkYFlsBEW8" 
                 frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>
@@ -112,10 +112,11 @@ const GondorbowsMagico: React.FC = () => {
           
           {/* Columna 3 */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
                 src="https://www.youtube.com/embed/rkgQ2e-gEco" 
                 frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>

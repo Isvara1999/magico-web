@@ -2,23 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { ChevronUp, ChevronDown } from 'lucide-react';
-import {
-  IconAdultos,
-  IconNiños,
-  IconGastronomia,
-  IconTransformacion,
-  IconAlojamiento,
-  IconDomo,
-  IconAgua,
-  IconRed,
-  IconSol,
-  IconLuna,
-  IconEstrella,
-  IconCheck,
-  IconCalendar,
-  IconLocation,
-} from './icons.tsx';
+import { Target, House, ForkKnife, Star, Sun, Moon, CaretLeft, CaretRight } from '@phosphor-icons/react';
 
 import GondorbowsHero from './components/GondorbowsHero';
 import GondorbowsMagico from './components/GondorbowsMagico';
@@ -215,18 +199,17 @@ const Gondorbows: React.FC = () => {
       <GondorbowsHero />
 
       {/* ====== SOBRE NOSOTROS / LA EXPERIENCIA ====== */}
-      <section id="experiencia" className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-8 md:mb-10">
+      <section id="experiencia" className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24" style={{ paddingBottom: 'max(8rem, 120px)' }}>
+        <div className="max-w-5xl mx-auto pt-8">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-10 md:mb-16">
             El verdadero lujo es el ser tiempo de presencia y disfrute.
           </h2>
 
-          <div className="space-y-6 md:space-y-8">
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto">
+          <div className="flex flex-col">
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto px-4">
               Diseñamos esta experiencia con todo resuelto para que tu única tarea sea conectar con el entorno y el proceso creativo. Ubicados a 1800 metros de altura en la zona de Cuchilla Nevada, te ofrecemos una pausa real de la rutina rodeado de 200 hectáreas de montañas, ríos y vertientes.
             </p>
-            
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto">
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto font-serif px-4" style={{ marginTop: 'max(4rem, 64px)' }}>
               Durante tres días intensivos, construirás tu propio arco de alto rendimiento, recuperando habilidades esenciales desarrolladas durante más de 150.000 años de historia.
             </p>
           </div>
@@ -234,17 +217,17 @@ const Gondorbows: React.FC = () => {
       </section>
 
       {/* ====== QUÉ INCLUYE ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50">
+      <section className="py-16 md:py-24 px-6 bg-slate-50" style={{ paddingTop: 'max(6rem, 90px)' }}>
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-8 md:mb-10">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-16 md:mb-24">
             Todo preparado para tu inmersión.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
             {/* Tarjeta 1 - Taller Exclusivo de Arquería */}
             <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
               <div className="mb-4 text-brand-green flex justify-center">
-                <IconTransformacion className="w-12 h-12" />
+                <Target weight="thin" className="w-12 h-12" />
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Taller Exclusivo de Arquería</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -255,7 +238,7 @@ const Gondorbows: React.FC = () => {
             {/* Tarjeta 2 - Alojamiento Inmersivo */}
             <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
               <div className="mb-4 text-brand-green flex justify-center">
-                <IconAlojamiento className="w-12 h-12" />
+                <House weight="thin" className="w-12 h-12" />
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Alojamiento Inmersivo</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -266,7 +249,7 @@ const Gondorbows: React.FC = () => {
             {/* Tarjeta 3 - Pensión Completa */}
             <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
               <div className="mb-4 text-brand-green flex justify-center">
-                <IconGastronomia className="w-12 h-12" />
+                <ForkKnife weight="thin" className="w-12 h-12" />
               </div>
               <h4 className="serif-title text-lg brand-green mb-3">Pensión Completa</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -278,7 +261,7 @@ const Gondorbows: React.FC = () => {
       </section>
 
       {/* ====== PRUEBA SOCIAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 mt-16 md:mt-24">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">
             Mirá lo que vivieron los grupos anteriores. Una experiencia que transforma.
@@ -298,7 +281,7 @@ const Gondorbows: React.FC = () => {
       </section>
 
       {/* ====== AUTORIDAD ====== */}
-      <section className="py-2 md:py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Columna gráfica - Foto Fausto trabajando */}
@@ -330,7 +313,7 @@ const Gondorbows: React.FC = () => {
       </section>
 
       {/* ====== CRONOGRAMA ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-br from-slate-50 to-white">
+      <section className="py-16 md:py-24 px-6 bg-gradient-to-br from-slate-50 to-white mt-16 md:mt-24">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">
@@ -346,7 +329,7 @@ const Gondorbows: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <IconEstrella className="w-8 h-8" />
+                  <Star weight="thin" className="w-8 h-8" />
                 </div>
                 <div>
                   <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Viernes</p>
@@ -369,7 +352,7 @@ const Gondorbows: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <IconSol className="w-8 h-8" />
+                  <Sun weight="thin" className="w-8 h-8" />
                 </div>
                 <div>
                   <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Sábado</p>
@@ -393,7 +376,7 @@ const Gondorbows: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <IconLuna className="w-8 h-8" />
+                  <Moon weight="thin" className="w-8 h-8" />
                 </div>
                 <div>
                   <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Domingo</p>
@@ -432,47 +415,54 @@ const Gondorbows: React.FC = () => {
             Comunidad, fuego, herramientas tradicionales y el sabor de las sierras.
           </p>
           
-          {/* Carrusel Vertical */}
-          <div className="relative max-w-md mx-auto h-96 md:h-[500px]">
+          {/* Carrusel Horizontal / Mobile Cuadrado */}
+          <div className="relative max-w-4xl mx-auto aspect-square md:aspect-[16/9] md:h-[500px]">
             {/* Imagen actual */}
-            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg">
+            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg group bg-gray-900">
               <img 
                 src={images[currentImage].src} 
                 alt={images[currentImage].alt} 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
               
-              {/* Overlay para mejor visibilidad de las flechas */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/30"></div>
+              {/* Overlay suave para legibilidad */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+              {/* Título de la imagen opcional */}
+              <div className="absolute bottom-10 left-0 right-0 text-center pointer-events-none z-10 px-4">
+                <span className="text-white text-sm md:text-lg font-medium drop-shadow-md">
+                  {images[currentImage].alt}
+                </span>
+              </div>
             </div>
             
-            {/* Flechas de navegación */}
+            {/* Flechas de navegación (laterales) */}
             <button
               onClick={prevImage}
-              className="absolute left-1/2 top-4 transform -translate-x-1/2 bg-white/90 hover:bg-white text-brand-green p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-[#005333] p-2 md:p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
               aria-label="Imagen anterior"
             >
-              <ChevronUp className="w-6 h-6" />
+              <CaretLeft weight="thin" className="w-6 h-6 md:w-8 md:h-8" />
             </button>
             
             <button
               onClick={nextImage}
-              className="absolute left-1/2 bottom-4 transform -translate-x-1/2 bg-white/90 hover:bg-white text-brand-green p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-[#005333] p-2 md:p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
               aria-label="Siguiente imagen"
             >
-              <ChevronDown className="w-6 h-6" />
+              <CaretRight weight="thin" className="w-6 h-6 md:w-8 md:h-8" />
             </button>
             
-            {/* Indicadores */}
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+            {/* Indicadores (inferiores) */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3 z-20">
               {images.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`h-2 md:h-2.5 rounded-full transition-all duration-300 shadow-sm active:scale-90 cursor-pointer ${
                     index === currentImage 
-                      ? 'bg-white w-3' 
-                      : 'bg-white/50 hover:bg-white/75'
+                      ? 'bg-white w-6 md:w-8' 
+                      : 'bg-white/50 hover:bg-white/80 w-2 md:w-2.5'
                   }`}
                   aria-label={`Ir a imagen ${index + 1}`}
                 />
@@ -489,8 +479,8 @@ const Gondorbows: React.FC = () => {
       <GondorbowsPrecios />
 
       {/* ====== CTA FINAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white text-center">
-        <div className="max-w-2xl mx-auto">
+      <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-white to-slate-50 mt-16 md:mt-32">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">
             ¿Y si este finde se convierte en uno inolvidable?
           </h2>

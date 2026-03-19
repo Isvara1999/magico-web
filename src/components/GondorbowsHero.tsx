@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconCalendar, IconLocation } from '../icons.tsx';
+
 
 const GondorbowsHero: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
