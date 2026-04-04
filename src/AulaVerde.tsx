@@ -4,7 +4,8 @@ import 'aos/dist/aos.css';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Home, Droplet, Wifi, Coffee, Users, User, Star, Sun, Moon, Check, Leaf, Mountain, Palette, Heart } from 'lucide-react';
+import { Home, Droplet, Wifi, Coffee, Users, User, Star, Sun, Moon, Heart } from 'lucide-react';
+import { Tree, PuzzlePiece, UsersThree, Plant, Leaf, Mountains, Palette, Check } from '@phosphor-icons/react';
 import {
   IconAdultos,
   IconNiños,
@@ -23,7 +24,12 @@ import {
 
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
+import AulaVerdeTestimonio from './components/AulaVerdeTestimonio';
+import AulaVerdeLeadMagnet from './components/AulaVerdeLeadMagnet';
 import AulaVerdePrecios from './components/AulaVerdePrecios';
+import AulaVerdeFAQ from './components/AulaVerdeFAQ';
+import PrevisualizadorPDF from './components/pdf/PrevisualizadorPDF';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const AulaVerde: React.FC = () => {
   useEffect(() => {
@@ -34,6 +40,7 @@ const AulaVerde: React.FC = () => {
     });
   }, []);
   const [activeTab, setActiveTab] = useState<'refugio' | 'domo'>('refugio');
+  const [showPdfPreview, setShowPdfPreview] = useState(false);
 
   return (
     <LanguageProvider>
@@ -199,19 +206,19 @@ const AulaVerde: React.FC = () => {
               <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                 «Aula Verde» es una oportunidad para que niños y jóvenes se alejen de las pantallas y vuelvan a conectarse con lo esencial: la naturaleza, el cuerpo, el otro, el juego, la tierra.
               </p>
-              <p className="text-brand-green text-xl md:text-2xl serif-title font-bold mt-6">
+              <p className="text-brand text-xl md:text-2xl serif-title font-bold mt-6">
                 Creemos en una educación que emociona, que se vive con el cuerpo y que deja huellas duraderas.
               </p>
             </div>
 
             {/* Right Video */}
             <div className="flex justify-center">
-              <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-brand-gold/50 overflow-hidden shadow-2xl">
+              <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-gold/50 overflow-hidden shadow-2xl">
                 <iframe
                   width="360"
                   height="640"
-                  src="https://www.youtube.com/embed/Sqc7zbR-sPQ"
-                  title="Familion - Una invitación"
+                  src="https://www.youtube.com/embed/lLHk-lpRofE"
+                  title="Aprender desde la experiencia"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                   allowFullScreen
@@ -249,54 +256,63 @@ const AulaVerde: React.FC = () => {
       </section>
       {/* ====== ¿QUÉ HACE DIFERENTE? ====== */}
       <section className="py-16 md:py-24 px-6 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-8 md:mb-10" data-aos="fade-up">
-            ¿Qué hace diferente a nuestra propuesta?
-          </h2>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 md:mb-16" data-aos="fade-up">
+            <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">
+              ¿Qué hace diferente a nuestra propuesta?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto md:text-lg">
+              Un enfoque único que combina la fuerza del entorno natural con metodologías que dejan huella.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Pilar 1 */}
-            <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="100">
-              <div className="p-6 md:p-8">
-                <div className="mb-4 flex justify-center">
-                  <IconAdultos className="w-12 h-12 text-green-600" />
-                </div>
-                <h4 className="serif-title text-lg text-brand mb-3 text-center">Entorno natural privilegiado, inmerso en la montaña, con ríos y bosques nativos para explorar con seguridad.</h4>
-                <hr className="border-t border-gold/50" />
+            <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(0,83,51,0.12)] hover:-translate-y-2 transition-all duration-500 border border-gray-100/80 p-8 md:p-10 flex flex-col items-center text-center relative z-10" data-aos="fade-up" data-aos-delay="100">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand/40 to-gold/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand/5 to-transparent rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="mb-6 flex justify-center items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:from-brand group-hover:to-[#003B24] group-hover:text-white transition-all duration-500 shadow-sm border border-brand/10 group-hover:border-transparent">
+                <Tree weight="thin" className="w-10 h-10" />
               </div>
+              <h4 className="font-semibold text-gray-800 text-base md:text-lg leading-relaxed">
+                Entorno natural privilegiado, inmerso en montañas y bosques nativos para explorar con seguridad.
+              </h4>
             </div>
 
             {/* Pilar 2 */}
-            <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="200">
-              <div className="p-6 md:p-8">
-                <div className="mb-4 flex justify-center">
-                  <IconNiños className="w-12 h-12 text-green-600" />
-                </div>
-                <h4 className="serif-title text-lg text-brand mb-3 text-center">Metodología lúdica y vivencial, que invita a aprender desde la experiencia y la reflexión.</h4>
-                <hr className="border-t border-gold/50" />
+            <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(212,175,55,0.15)] hover:-translate-y-2 transition-all duration-500 border border-gray-100/80 p-8 md:p-10 flex flex-col items-center text-center relative z-10" data-aos="fade-up" data-aos-delay="200">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold/40 to-brand/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-br-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="mb-6 flex justify-center items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:from-brand group-hover:to-[#003B24] group-hover:text-white transition-all duration-500 shadow-sm border border-brand/10 group-hover:border-transparent">
+                <PuzzlePiece weight="thin" className="w-10 h-10" />
               </div>
+              <h4 className="font-semibold text-gray-800 text-base md:text-lg leading-relaxed">
+                Metodología lúdica y vivencial, que invita a aprender puramente desde la experiencia y reﬂexión.
+              </h4>
             </div>
 
             {/* Pilar 3 */}
-            <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="300">
-              <div className="p-6 md:p-8">
-                <div className="mb-4 flex justify-center">
-                  <IconGastronomia className="w-12 h-12 text-green-600" />
-                </div>
-                <h4 className="serif-title text-lg text-brand mb-3 text-center">Fomentamos el trabajo en equipo, la curiosidad, el pensamiento crítico y la conexión profunda.</h4>
-                <hr className="border-t border-gold/50" />
+            <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(0,83,51,0.12)] hover:-translate-y-2 transition-all duration-500 border border-gray-100/80 p-8 md:p-10 flex flex-col items-center text-center relative z-10" data-aos="fade-up" data-aos-delay="300">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand/40 to-gold/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand/5 to-transparent rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="mb-6 flex justify-center items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:from-brand group-hover:to-[#003B24] group-hover:text-white transition-all duration-500 shadow-sm border border-brand/10 group-hover:border-transparent">
+                <UsersThree weight="thin" className="w-10 h-10" />
               </div>
+              <h4 className="font-semibold text-gray-800 text-base md:text-lg leading-relaxed">
+                Fomentamos el trabajo en equipo, la curiosidad, el pensamiento crítico y la conexión.
+              </h4>
             </div>
 
             {/* Pilar 4 */}
-            <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="400">
-              <div className="p-6 md:p-8">
-                <div className="mb-4 flex justify-center">
-                  <IconTransformacion className="w-12 h-12 text-green-600" />
-                </div>
-                <h4 className="serif-title text-lg text-brand mb-3 text-center">Compromiso con la sustentabilidad activa, promoviendo prácticas como el compostaje y el cuidado del ambiente.</h4>
-                <hr className="border-t border-gold/50" />
+            <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(212,175,55,0.15)] hover:-translate-y-2 transition-all duration-500 border border-gray-100/80 p-8 md:p-10 flex flex-col items-center text-center relative z-10" data-aos="fade-up" data-aos-delay="400">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold/40 to-brand/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-br-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="mb-6 flex justify-center items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:from-brand group-hover:to-[#003B24] group-hover:text-white transition-all duration-500 shadow-sm border border-brand/10 group-hover:border-transparent">
+                <Plant weight="thin" className="w-10 h-10" />
               </div>
+              <h4 className="font-semibold text-gray-800 text-base md:text-lg leading-relaxed">
+                Firme compromiso con la sustentabilidad activa, el compostaje y el cuidado del ambiente.
+              </h4>
             </div>
           </div>
         </div>
@@ -304,113 +320,152 @@ const AulaVerde: React.FC = () => {
   
 
       {/* CATÁLOGO DE ACTIVIDADES PREMIUM */}
-<section className="py-20 bg-gray-50/50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div className="text-center mb-16" data-aos="fade-up">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: '#005333' }}>
-        Catálogo de Actividades
-      </h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-        Diseñamos cada jornada a la medida de tu grupo, combinando aprendizaje práctico, aventura en la naturaleza y expresión creativa.
-      </p>
-    </div>
+      <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
+        {/* Fondo decorativo sutil */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand/3 skew-x-12 -z-10 translate-x-32 hidden lg:block"></div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      {/* Tarjeta 1: Agroecología */}
-      <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="100">
-        <div className="p-8">
-          <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
-            <Leaf className="w-8 h-8 text-brand-green" />
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-20" data-aos="fade-up">
+            <h2 className="text-3xl md:text-5xl serif-title brand-green mb-6">
+              Catálogo de Actividades
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Diseñamos cada jornada a la medida de tu grupo, porque sabemos que ninguna escuela es igual. Combinamos aventura, tierra y expresión.
+            </p>
           </div>
-          <h3 className="text-brand font-bold text-xl mb-6 text-center font-serif">Talleres Agroecológicos</h3>
-          <ul className="space-y-4 text-dark/80 text-sm md:text-base">
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Preparación de Terrenos</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Cultivo Agroecológico</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Producción de Alimentos</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Producción de Biodiésel</span>
-            </li>
-          </ul>
-        </div>
-      </div>
 
-      {/* Tarjeta 2: Aventura */}
-      <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="200">
-        <div className="p-8">
-          <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
-            <Mountain className="w-8 h-8 text-brand-green" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12">
+            
+            {/* Tarjeta 1: Agroecología */}
+            <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(0,83,51,0.12)] hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative" data-aos="fade-up" data-aos-delay="100">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand to-gold opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="absolute top-20 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+              
+              <div className="p-10 relative z-10">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 shadow-sm border border-brand/10">
+                  <Leaf weight="thin" className="w-10 h-10" />
+                </div>
+                
+                <h3 className="serif-title text-2xl brand-green mb-6 border-b border-gray-100 pb-4">
+                  Talleres Agroecológicos
+                </h3>
+                
+                <ul className="space-y-4 text-gray-600">
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Huerta y Cultivos Orgánicos</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Cocina Saludable y Regenerativa</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Compostaje y Reciclaje</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Botiquín Natural</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Tarjeta 2: Aventura */}
+            <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(212,175,55,0.15)] hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative" data-aos="fade-up" data-aos-delay="200">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-brand opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="absolute top-20 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+              
+              <div className="p-10 relative z-10">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 shadow-sm border border-brand/10">
+                  <Mountains weight="thin" className="w-10 h-10" />
+                </div>
+                
+                <h3 className="serif-title text-2xl text-gold mb-6 border-b border-gray-100 pb-4">
+                  Aventura y Naturaleza
+                </h3>
+                
+                <ul className="space-y-4 text-gray-600">
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Exploración de Arroyos y Ríos</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Senderismo y Aventura de Montaña</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Reconocimiento de Plantas y mundo mineral</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Avistaje de Aves</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Conservación de Biodiversidad</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Tarjeta 3: Arte */}
+            <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] group hover:shadow-[0_8px_40px_rgb(0,83,51,0.12)] hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative" data-aos="fade-up" data-aos-delay="300">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand to-gold opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="absolute top-20 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+              
+              <div className="p-10 relative z-10">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br from-brand/10 to-brand/5 text-brand group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 shadow-sm border border-brand/10">
+                  <Palette weight="thin" className="w-10 h-10" />
+                </div>
+                
+                <h3 className="serif-title text-2xl brand-green mb-6 border-b border-gray-100 pb-4">
+                  Arte y Expresión
+                </h3>
+                
+                <ul className="space-y-4 text-gray-600">
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Arte Natural y Reciclaje</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Artes Escénicas y Teatro</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Música y Expresión Corporal</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Check weight="thin" className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">Fogones Culturales</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
-          <h3 className="text-brand font-bold text-xl mb-6 text-center font-serif">Aventura y Naturaleza</h3>
-          <ul className="space-y-4 text-dark/80 text-sm md:text-base">
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Exploración de Arroyos</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Aventura en Montaña</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Conservación de Biodiversidad</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Tirolesa y Senderismo</span>
-            </li>
-          </ul>
         </div>
-      </div>
-
-      {/* Tarjeta 3: Arte */}
-      <div className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold" data-aos="fade-up" data-aos-delay="300">
-        <div className="p-8">
-          <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
-            <Palette className="w-8 h-8 text-brand-green" />
-          </div>
-          <h3 className="text-brand font-bold text-xl mb-6 text-center font-serif">Arte y Expresión</h3>
-          <ul className="space-y-4 text-dark/80 text-sm md:text-base">
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Arte Natural y Reciclaje</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Artes Escénicas y Teatro</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Música y Expresión Corporal</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>Fogones Culturales</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
       <AulaVerdeMagico />
 
+      {/* ====== TESTIMONIOS Y LOGOS ====== */}
+      <AulaVerdeTestimonio />
+
+      {/* ====== LEAD MAGNET (DESCARGA DE PDF) ====== */}
+      <AulaVerdeLeadMagnet />
+
       {/* ====== PRECIOS ====== */}
       <AulaVerdePrecios />
+
+      {/* ====== PREGUNTAS FRECUENTES ====== */}
+      <AulaVerdeFAQ />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-white text-center">
@@ -421,7 +476,7 @@ const AulaVerde: React.FC = () => {
           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10">
             Sabemos que organizar una salida grupal requiere mucho esfuerzo. En Aula Verde te acompañamos en cada paso: desde la adaptación de la propuesta pedagógica hasta la logística y seguridad. Escribinos para despejar dudas y armar un presupuesto a la medida de tu grupo.
           </p>
-          <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Aula%20Verde%20y%20quiero%20solicitar%20presupuesto%20para%20mi%20escuela." className="btn-gold bg-brand-green text-white hover:bg-white hover:text-brand-green inline-block py-3 px-8 rounded-full">
+          <a href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Aula%20Verde%20y%20quiero%20solicitar%20presupuesto%20para%20mi%20escuela." className="btn-gold bg-brand-green text-white hover:bg-white hover:text-brand inline-block py-3 px-8 rounded-full">
             SOLICITAR ASESORAMIENTO DIRECTO
           </a>
         </div>
@@ -433,12 +488,12 @@ const AulaVerde: React.FC = () => {
           <h2 className="text-2xl md:text-3xl serif-title brand-green mb-8 md:mb-10">Momentos que fortalecen al grupo</h2>
           <p className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">El aprendizaje continúa fuera de los talleres. Compartir las comidas, los fogones y el tiempo libre en la naturaleza genera lazos de compañerismo, empatía y respeto que los chicos se llevan de regreso al aula.</p>
           <div className="flex justify-center">
-            <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-brand-gold/50 overflow-hidden shadow-2xl">
+            <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-gold/50 overflow-hidden shadow-2xl">
               <iframe
                 width="360"
                 height="640"
-                src="https://www.youtube.com/embed/QqGrzFloHsE"
-                title="Familion - Agradecimiento por la comida"
+                src="https://www.youtube.com/embed/_p6dA0v2Fcs"
+                title="Momentos que fortalecen al grupo"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                 allowFullScreen
@@ -453,9 +508,22 @@ const AulaVerde: React.FC = () => {
         <Footer />
         
         {/* Catálisis Credit */}
-        <div className="bg-brand-green/5 text-brand-green/60 text-center text-xs py-3 border-t border-brand-green/10">
+        <div className="bg-brand/5 text-brand/60 text-center text-xs py-3 border-t border-brand/10">
           Growth systems & digital experience by Catálisis
         </div>
+        
+        <WhatsAppButton />
+
+        {/* ADMIN ONLY: Visor del PDF */}
+        <button 
+          onClick={() => setShowPdfPreview(true)}
+          className="fixed bottom-24 right-6 z-40 bg-gray-800 text-white text-xs font-bold py-2 px-4 rounded-full shadow-lg opacity-50 hover:opacity-100 transition-opacity"
+        >
+          🔍 Ver PDF (Admin)
+        </button>
+
+        <PrevisualizadorPDF isOpen={showPdfPreview} onClose={() => setShowPdfPreview(false)} />
+        
       </div>
       </>
     </LanguageProvider>

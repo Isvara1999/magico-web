@@ -222,32 +222,72 @@
           "label": "Nosotros",
           "href": "#nosotros",
           "submenu": [
-            { "label": "Filosofía", "href": "#nosotros" },
-            { "label": "Nuestros Pilares", "href": "#pilares" },
-            { "label": "Voluntariados", "href": "#voluntariados" }
+            {
+              "label": "Filosofía",
+              "href": "#nosotros"
+            },
+            {
+              "label": "Nuestros Pilares",
+              "href": "#pilares"
+            },
+            {
+              "label": "Voluntariados",
+              "href": "#voluntariados"
+            }
           ]
         },
         {
           "label": "Experiencias",
           "href": "#experiencias",
           "submenu": [
-            { "label": "Estadías & Glamping", "href": "#experiencias" },
-            { "label": "Retiros Grupales", "href": "#retiros" }
+            {
+              "label": "Estadías & Glamping",
+              "href": "#experiencias"
+            },
+            {
+              "label": "Retiros Grupales",
+              "href": "#retiros"
+            }
           ]
         },
-        { "label": "Testimonios", "href": "#testimonios" },
-        { "label": "Agenda", "href": "#eventos" },
-        { "label": "Ubicación", "href": "#como-llegar" }
+        {
+          "label": "Testimonios",
+          "href": "#testimonios"
+        },
+        {
+          "label": "Agenda",
+          "href": "#eventos"
+        },
+        {
+          "label": "Ubicación",
+          "href": "#como-llegar"
+        }
       ],
       "book": "RESERVAR",
       "lang": "ENGLISH",
       "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
     },
     "pillars": [
-      { "id": 1, "title": "Regeneración", "subtitle": "Más de 15.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles." },
-      { "id": 2, "title": "Comunidad", "subtitle": "Vínculos reales con personas, productores y vecinos. Co-creamos en red, desde la colaboración y el encuentro." },
-      { "id": 3, "title": "Buen Vivir", "subtitle": "Una forma simple y consciente de habitar el tiempo, el trabajo y los vínculos, en equilibrio con la naturaleza." },
-      { "id": 4, "title": "Consciencia", "subtitle": "Todo lo que sucede aquí tiene intención y mucho corazón. Prácticas, decisiones y experiencias alineadas con el cuidado, el sentido y la coherencia interna." }
+      {
+        "id": 1,
+        "title": "Regeneración",
+        "subtitle": "Más de 15.000 árboles plantados y cuidados. Acciones concretas para restaurar el ecosistema y sembrar nuevos futuros posibles."
+      },
+      {
+        "id": 2,
+        "title": "Comunidad",
+        "subtitle": "Vínculos reales con personas, productores y vecinos. Co-creamos en red, desde la colaboración y el encuentro."
+      },
+      {
+        "id": 3,
+        "title": "Buen Vivir",
+        "subtitle": "Una forma simple y consciente de habitar el tiempo, el trabajo y los vínculos, en equilibrio con la naturaleza."
+      },
+      {
+        "id": 4,
+        "title": "Consciencia",
+        "subtitle": "Todo lo que sucede aquí tiene intención y mucho corazón. Prácticas, decisiones y experiencias alineadas con el cuidado, el sentido y la coherencia interna."
+      }
     ],
     "contact": {
       "title": "Empezar el <span class='italic text-green'>viaje</span>",
@@ -510,32 +550,72 @@
           "label": "About Us",
           "href": "#nosotros",
           "submenu": [
-            { "label": "Philosophy", "href": "#nosotros" },
-            { "label": "Our Pillars", "href": "#pilares" },
-            { "label": "Volunteering", "href": "#voluntariados" }
+            {
+              "label": "Philosophy",
+              "href": "#nosotros"
+            },
+            {
+              "label": "Our Pillars",
+              "href": "#pilares"
+            },
+            {
+              "label": "Volunteering",
+              "href": "#voluntariados"
+            }
           ]
         },
         {
           "label": "Experiencias",
           "href": "#experiencias",
           "submenu": [
-            { "label": "Stays & Glamping", "href": "#experiencias" },
-            { "label": "Group Retreats", "href": "#retiros" }
+            {
+              "label": "Stays & Glamping",
+              "href": "#experiencias"
+            },
+            {
+              "label": "Group Retreats",
+              "href": "#retiros"
+            }
           ]
         },
-        { "label": "Testimonials", "href": "#testimonios" },
-        { "label": "Agenda", "href": "#eventos" },
-        { "label": "Location", "href": "#como-llegar" }
+        {
+          "label": "Testimonials",
+          "href": "#testimonios"
+        },
+        {
+          "label": "Agenda",
+          "href": "#eventos"
+        },
+        {
+          "label": "Location",
+          "href": "#como-llegar"
+        }
       ],
       "book": "BOOK NOW",
       "lang": "ESPAÑOL",
       "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
     },
     "pillars": [
-      { "id": 1, "title": "Regeneration", "subtitle": "Over 8,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures." },
-      { "id": 2, "title": "Community", "subtitle": "Real bonds with people, producers, and neighbors. We co-create in a network, based on collaboration and encounter." },
-      { "id": 3, "title": "Good Living", "subtitle": "A simple and conscious way of inhabiting time, work, and relationships, in balance with nature." },
-      { "id": 4, "title": "Consciousness", "subtitle": "Everything that happens here has intention and heart. Practices, decisions, and experiences aligned with care and internal coherence." }
+      {
+        "id": 1,
+        "title": "Regeneration",
+        "subtitle": "Over 8,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures."
+      },
+      {
+        "id": 2,
+        "title": "Community",
+        "subtitle": "Real bonds with people, producers, and neighbors. We co-create in a network, based on collaboration and encounter."
+      },
+      {
+        "id": 3,
+        "title": "Good Living",
+        "subtitle": "A simple and conscious way of inhabiting time, work, and relationships, in balance with nature."
+      },
+      {
+        "id": 4,
+        "title": "Consciousness",
+        "subtitle": "Everything that happens here has intention and heart. Practices, decisions, and experiences aligned with care and internal coherence."
+      }
     ],
     "contact": {
       "title": "Start the <span class='italic text-green'>journey</span>",

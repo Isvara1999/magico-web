@@ -15,7 +15,7 @@ const GondorbowsMagico: React.FC = () => {
         
           <div className="max-w-3xl mx-auto mb-10">
           <p className="text-white/95 text-base md:text-lg leading-relaxed">
-            En el corazón de <span className="text-brand-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía. Acceso para todo tipo de vehiculos hasta la puerta del lugar .
+            En el corazón de <span className="text-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía. Acceso para todo tipo de vehiculos hasta la puerta del lugar .
           </p>
         </div>
         
@@ -23,7 +23,7 @@ const GondorbowsMagico: React.FC = () => {
         <div className="flex justify-center mb-10 w-full relative z-20">
           <div className="relative inline-block group w-full max-w-sm">
             {/* Bordes decorativos detrás del video */}
-            <div className="absolute -inset-3 border border-brand-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
+            <div className="absolute -inset-3 border border-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
             <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
 
             <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
@@ -41,26 +41,26 @@ const GondorbowsMagico: React.FC = () => {
         
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
-          <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
-            <h4 className="text-brand-gold font-bold text-lg mb-4">Cómo Este Lugar Mejora Tu Experiencia</h4>
+          <div className="bg-gold/10 rounded-2xl p-6 md:p-8 border border-gold/30">
+            <h4 className="text-gold font-bold text-lg mb-4">Cómo Este Lugar Mejora Tu Experiencia</h4>
             <ul className="text-white/90 text-sm leading-relaxed space-y-4">
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-0.5">✓</span>
+                <span className="text-gold font-bold mt-0.5">✓</span>
                 <span><strong>Regeneración activa:</strong> +15.000 árboles plantados transforman el aire que respiras</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-0.5">✓</span>
+                <span className="text-gold font-bold mt-0.5">✓</span>
                 <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el propósito</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold mt-0.5">✓</span>
+                <span className="text-gold font-bold mt-0.5">✓</span>
                 <span><strong>Energía solar:</strong> 100% sustentable, sin huella de carbono</span>
               </li>
             </ul>
           </div>
           
-          <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
-            <h4 className="text-brand-gold font-bold text-lg mb-4">Tu Inversión Genera Regeneración</h4>
+          <div className="bg-gold/10 rounded-2xl p-6 md:p-8 border border-gold/30">
+            <h4 className="text-gold font-bold text-lg mb-4">Tu Inversión Genera Regeneración</h4>
             <div className="text-white/90 text-sm leading-relaxed space-y-4">
               <p>El 10% de tu inversión se destina directamente a reforestar los tabaquillos y restaurar las sierras de Los Gigantes.</p>
               <p className="italic">Cada familia que nos elige es una semilla de cambio en la montaña.</p>
@@ -70,7 +70,7 @@ const GondorbowsMagico: React.FC = () => {
         
         <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center mt-8">
           <p className="text-white/95 italic text-base md:text-lg leading-relaxed">
-            Mágico Ensueño es más que un destino; aquí <span className="text-brand-gold font-bold">la ubicación en la naturaleza regenera</span> mientras tu familia se reconecta, el cuerpo se sana y el alma vuelve a respirar en armonía con el ritmo de la montaña.
+            Mágico Ensueño es más que un destino; aquí <span className="text-gold font-bold">la ubicación en la naturaleza regenera</span> mientras tu familia se reconecta, el cuerpo se sana y el alma vuelve a respirar en armonía con el ritmo de la montaña.
           </p>
         </div>
       </div>

@@ -1,65 +1,108 @@
-import React from 'react';
-import { IconCalendar, IconLocation } from '../icons.tsx';
+import React, { useState, useEffect } from 'react';
+import { MapPin, CalendarBlank } from '@phosphor-icons/react';
 
-const AulaVerdeHero: React.FC = () => (
-<section className="relative w-full px-4 sm:px-8 md:px-6 bg-white rounded-3xl overflow-hidden flex items-center justify-center py-16 md:py-20 lg:py-24">
-    <div className="max-w-5xl mx-auto w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center justify-center mx-auto max-w-6xl">
-        {/* Left Content - centered (text first on mobile) */}
-        <div className="flex flex-col justify-center text-center order-1 lg:order-1 lg:relative lg:z-20 lg:transform lg:-translate-y-2 lg:text-center" data-aos="fade-right" data-aos-duration="1000">
-          {/* Subtitle */}
-          <p className="text-xs uppercase tracking-widest font-bold text-brand-green mb-2">
-            Mágico Ensueño Presenta
-          </p>
+const AulaVerdeHero: React.FC = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-          {/* Main Title with gold accent */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-brand-green leading-tight mb-4 md:mb-5 tracking-wide" style={{ fontFamily: "'Marcellus', serif" }}>
-            <span className="brand-gold">Aula Verde</span>
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
+      {/* Background */}
+      <div className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none">
+        {videoLoaded && (
+          <iframe 
+            width="100vw" 
+            height="100vh" 
+            src="https://www.youtube.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080" 
+            frameBorder="0" 
+            allow="autoplay; encrypted-media" 
+            allowFullScreen 
+            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%) scale(1.4)',
+              width: '177.78vh',
+              height: '100vh',
+              minWidth: '100vw',
+              zIndex: 0
+            }}
+          />
+        )}
+        {/* Placeholder color before video loads */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-green/80 z-[0]"></div>
+      </div>
+      
+      {/* Overlay oscuro */}
+      <div className="absolute inset-0 bg-black/60 z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-green/95 via-brand-green/30 to-transparent mix-blend-multiply z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-brand-gold/20 via-transparent to-transparent mix-blend-soft-light z-[1]"></div>
+
+      {/* Content */}
+      <div className="relative z-[2] text-center px-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full pt-8" data-aos="fade-up" data-aos-duration="1000">
+        
+        {/* Subtitle */}
+        <p className="text-xs md:text-sm uppercase tracking-widest font-bold text-white mb-3 md:mb-4 drop-shadow-md">
+          Mágico Ensueño Presenta
+        </p>
+
+        {/* Title Container */}
+        <div className="mb-4 md:mb-6 transition-all duration-500">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-white leading-tight tracking-wide drop-shadow-xl font-light" style={{ fontFamily: "'Marcellus', serif" }}>
+            Aula Verde
           </h1>
-
-          {/* Tagline with subtle gold highlights */}
-          <p className="text-sm md:text-base text-gray-700 max-w-xl mx-auto mb-5 leading-relaxed">
-            Campamentos con Propósito en la Montaña
-          </p>
-
-          {/* Description */}
-          <p className="text-sm md:text-base text-gray-700 max-w-xl mx-auto mb-5 leading-relaxed">
-            Una experiencia educativa, consciente y transformadora para niños, adolescentes y jóvenes de todas las edades.
-          </p>
-
-          {/* Meta Info - Compact with icons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-5 md:mb-6">
-            <div className="flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
-              <IconLocation className="w-4 h-4 text-brand-green" />
-              <span>Los Gigantes, Córdoba, Argentina</span>
-            </div>
-          </div>
-
-          {/* CTA - stack in mobile */}
-          <div className="hero-cta flex flex-col items-center justify-center text-center sm:flex-row gap-3 flex-nowrap max-w-4xl mx-auto mt-6 md:mt-8">
-            <a href="#precios" className="btn-gold inline-flex items-center justify-center w-full sm:w-auto max-w-xs hover:scale-105 transition-transform">
-              SOLICITAR PRESUPUESTO
-            </a>
-            <a href="#comodidad" className="btn-glass inline-flex items-center justify-center w-full sm:w-auto max-w-xs">
-              Ver detalles
-            </a>
-          </div>
         </div>
 
-        {/* Right Image - appears AFTER text on mobile */}
-        <div className="flex items-center justify-center order-2 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          <div className="relative w-full sm:max-w-[420px] lg:max-w-[720px]">
-            <img
-              src="/uploads/portada familion.webp"
-              alt="Aula Verde - Los Gigantes" loading="lazy"
-              className="w-full h-auto rounded-2xl shadow-2xl object-cover lg:h-[520px]"
-            />
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-brand-green/5 rounded-full blur-2xl -z-10"></div>
+        {/* Tagline */}
+        <p className="text-lg sm:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-4 md:mb-6 drop-shadow-md">
+          Campamentos con Propósito en la Montaña
+        </p>
+
+        {/* Description */}
+        <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-xl mx-auto mb-8 md:mb-12 leading-relaxed drop-shadow-sm">
+          Una experiencia educativa, consciente y transformadora para niños, adolescentes y jóvenes de todas las edades.
+        </p>
+
+        {/* Custom Premium Buttons */}
+        <div className="hero-cta flex flex-col sm:flex-row gap-5 justify-center items-center w-full px-4 mb-12 md:mb-16">
+          <a 
+            href="#precios" 
+            target="_self" 
+            className="relative overflow-hidden group bg-gradient-to-r from-[#D4AF37] to-[#B38D1C] text-[#003823] font-extrabold tracking-widest uppercase text-sm px-10 py-4 rounded-full shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] transition-all duration-300 hover:-translate-y-1"
+          >
+            <span className="relative z-10">Solicitar Presupuesto</span>
+            {/* Shimmer Effect */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms] skew-x-12"></div>
+          </a>
+          
+          <a 
+            href="#comodidad" 
+            className="relative group bg-white/5 backdrop-blur-md border border-white/20 hover:border-white/50 text-white font-semibold tracking-widest uppercase text-sm px-10 py-4 rounded-full shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+          >
+            Ver Instalaciones
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-white/60 text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium px-4">
+          <div className="flex items-center gap-2">
+            <CalendarBlank weight="thin" className="w-5 h-5 text-brand-gold/80" />
+            <span>Abierto Todo el Año</span>
+          </div>
+          <span className="hidden sm:inline opacity-30">|</span>
+          <div className="flex items-center gap-2">
+            <MapPin weight="thin" className="w-5 h-5 text-brand-gold/80" />
+            <span>Los Gigantes, Córdoba, Argentina</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default AulaVerdeHero;

@@ -2,8 +2,11 @@ import React from 'react';
 import { Check } from 'lucide-react';
 
 const AulaVerdePrecios: React.FC = () => {
-  const waLink = "https://wa.me/5493516765820?text=" +
-    encodeURIComponent("Hola! Vengo de Aula Verde y quiero reservar mi lugar en Aula Verde.");
+  const getWaLink = (plan: string) => "https://wa.me/5493516765820?text=" +
+    encodeURIComponent(`Hola! Vengo de Aula Verde y quiero consultar por el plan: ${plan}.`);
+
+  const waLinkGeneral = "https://wa.me/5493516765820?text=" +
+    encodeURIComponent("Hola! Vengo de Aula Verde y quiero solicitar presupuesto y disponibilidad.");
 
   return (
     <section id="precios" className="py-16 md:py-24 px-6 bg-brand-green text-white rounded-3xl relative overflow-hidden">
@@ -45,6 +48,13 @@ const AulaVerdePrecios: React.FC = () => {
         <span>Asistencia médica base</span>
       </li>
     </ul>
+    <div className="mt-8 text-center mt-auto">
+      <a href={getWaLink("Eco-Campamento Base")} target="_blank" rel="noreferrer" className="inline-block w-full">
+        <button className="w-full bg-transparent text-[#D4AF37] border border-[#D4AF37] font-bold px-6 py-3 rounded-full text-sm uppercase hover:bg-[#D4AF37] hover:text-[#005333] transition-colors">
+          CONSULTAR PLAN BASE
+        </button>
+      </a>
+    </div>
   </div>
 
   {/* TARJETA 2 - DESTACADA (La dejamos igual que ya funciona perfecto) */}
@@ -75,8 +85,8 @@ const AulaVerdePrecios: React.FC = () => {
         <span>Fogón de cierre</span>
       </li>
     </ul>
-    <div className="mt-8 text-center">
-      <a href={waLink} target="_blank" rel="noreferrer" className="inline-block w-full">
+    <div className="mt-8 text-center mt-auto">
+      <a href={getWaLink("Inmersión Educativa")} target="_blank" rel="noreferrer" className="inline-block w-full">
         <button style={{ backgroundColor: '#005333', border: '2px solid #D4AF37' }} className="w-full text-white font-bold px-6 py-3 rounded-full text-sm uppercase shadow-lg hover:opacity-90 transition-opacity">
           SOLICITAR PRESUPUESTO
         </button>
@@ -110,6 +120,13 @@ const AulaVerdePrecios: React.FC = () => {
         <span className="font-bold">Exclusividad total del predio</span>
       </li>
     </ul>
+    <div className="mt-8 text-center mt-auto">
+      <a href={getWaLink("Proyecto a Medida")} target="_blank" rel="noreferrer" className="inline-block w-full">
+        <button className="w-full bg-[#D4AF37] text-[#005333] font-bold px-6 py-3 rounded-full text-sm uppercase shadow-lg hover:bg-yellow-500 transition-colors">
+          SOLICITAR PRESUPUESTO
+        </button>
+      </a>
+    </div>
   </div>
 
 </div>
@@ -119,7 +136,7 @@ const AulaVerdePrecios: React.FC = () => {
     <p className="text-sm italic text-green-100 mb-6 font-medium">
       * Valores de referencia expresados en ARS. Sujetos a actualización y volumen del grupo.
     </p>
-    <a href={waLink} target="_blank" rel="noreferrer">
+    <a href={waLinkGeneral} target="_blank" rel="noreferrer">
       <button className="bg-[#D4AF37] text-green-900 font-extrabold px-8 py-4 rounded-full text-sm md:text-base uppercase shadow-xl hover:bg-yellow-500 hover:scale-105 transition-all duration-300">
         SOLICITAR PRESUPUESTO Y DISPONIBILIDAD
       </button>
