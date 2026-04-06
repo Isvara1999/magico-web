@@ -117,6 +117,13 @@ const DossierAulaVerde = () => (
         </Text>
       </View>
 
+      <View style={styles.imageGrid}>
+        <Image style={styles.imageGridItem} src="/uploads/Aula%20Verde/IMG-20251120-WA0149.jpg" />
+        <Image style={styles.imageGridItem} src="/uploads/469280911_444096748740233_2818770490495002077_n.webp" />
+        <Image style={styles.imageGridItem} src="/uploads/469742031_941240881439467_8316347989568757415_n.webp" />
+        <Image style={styles.imageGridItem} src="/uploads/Aula%20Verde/IMG-20251120-WA0276.jpg" />
+      </View>
+
       <View fixed style={styles.footer}>
         <Text style={styles.footerText}>Mágico Ensueño | Dossier Aula Verde</Text>
         <Text style={styles.footerText} render={({ pageNumber, totalPages }) => `Página ${pageNumber} de ${totalPages}`} />
