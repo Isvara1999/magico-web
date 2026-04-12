@@ -68,14 +68,20 @@ const AulaVerdeTestimonio: React.FC = () => {
         {/* Carrusel de Testimonios */}
         <div className="relative group">
           {/* Contenedor del track deslizable */}
-          <div className="overflow-hidden w-full pb-8 px-1 md:px-4">
-            <div 
+          <div className="overflow-hidden w-full py-6 px-1 md:px-4">
+            <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonios.map((testimonio) => (
                 <div key={testimonio.id} className="min-w-full px-1 md:px-4">
-                  <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative overflow-hidden transition-shadow duration-500 hover:shadow-[0_12px_45px_rgb(0,83,51,0.1)]">
+                  {/*
+                    Para modificar la sombra de esta tarjeta puedes editar las clases "shadow-[...]" a continuación:
+                    Formato: shadow-[X-offset_Y-offset_Desenfoque_Color]
+                    Ejemplo (Sombra natural centrada): shadow-[0_0_15px_rgba(0,0,0,0.05)]
+                    Ejemplo al hacer hover: hover:shadow-[0_0_25px_rgba(0,83,51,0.1)]
+                  */}
+                  <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-14 shadow-[0_0_15px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative overflow-hidden transition-shadow duration-500 hover:shadow-[0_0_30px_rgba(0,83,51,0.12)]">
                     {/* Acento lateral/superior dorado */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand to-gold opacity-80"></div>
 
@@ -87,25 +93,25 @@ const AulaVerdeTestimonio: React.FC = () => {
                     <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center relative z-10 flex-1">
                       {/* Ícono Primario */}
                       <div className="flex-shrink-0 animate-pulse-slow">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-brand/10 to-transparent flex items-center justify-center border border-brand/5">
-                          <Quotes weight="fill" className="w-8 h-8 md:w-10 md:h-10 text-gold" />
+                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-brand/10 to-transparent flex items-center justify-center border border-brand/5">
+                          <Quotes weight="fill" className="w-6 h-6 md:w-7 md:h-7 text-gold" />
                         </div>
                       </div>
 
                       {/* Contenido del Testimonio */}
                       <div className="flex-1 w-full flex flex-col justify-between h-full">
-                        <p className="text-lg md:text-xl lg:text-2xl font-serif text-charcoal leading-relaxed md:leading-loose mb-6 italic">
+                        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 italic">
                           "{testimonio.text}"
                         </p>
 
                         <div className="mt-auto">
                           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 border-t border-gray-100 pt-6">
-                            <span className="font-bold text-brand text-lg tracking-wide uppercase">
+                            <span className="font-bold text-brand text-base md:text-lg">
                               {testimonio.name}
                             </span>
                             <span className="hidden md:inline text-brand/30">|</span>
-                            <span className="text-gray-500 text-xs md:text-sm font-semibold uppercase tracking-widest max-w-[90%] md:max-w-none">
-                              {testimonio.role} {testimonio.extraRole && <span className="font-light normal-case tracking-normal">{testimonio.extraRole}</span>}
+                            <span className="text-gray-600 text-sm max-w-[90%] md:max-w-none">
+                              {testimonio.role} {testimonio.extraRole && <span className="text-gray-400 ms-1">{testimonio.extraRole}</span>}
                             </span>
                           </div>
 
@@ -132,15 +138,15 @@ const AulaVerdeTestimonio: React.FC = () => {
           </div>
 
           {/* Controles del Carrusel */}
-          <button 
+          <button
             onClick={prevSlide}
             className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-4 xl:-left-8 w-10 h-10 md:w-14 md:h-14 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-brand hover:scale-110 hover:text-gold transition-all z-20 focus:outline-none md:opacity-0 md:group-hover:opacity-100"
             aria-label="Anterior testimonio"
           >
             <CaretLeft weight="bold" className="w-5 h-5 md:w-7 md:h-7" />
           </button>
-          
-          <button 
+
+          <button
             onClick={nextSlide}
             className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-4 xl:-right-8 w-10 h-10 md:w-14 md:h-14 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-brand hover:scale-110 hover:text-gold transition-all z-20 focus:outline-none md:opacity-0 md:group-hover:opacity-100"
             aria-label="Siguiente testimonio"
@@ -154,11 +160,10 @@ const AulaVerdeTestimonio: React.FC = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`transition-all duration-300 rounded-full ${
-                  currentIndex === idx 
-                    ? "w-8 md:w-10 h-2 md:h-2.5 bg-brand" 
+                className={`transition-all duration-300 rounded-full ${currentIndex === idx
+                    ? "w-8 md:w-10 h-2 md:h-2.5 bg-brand"
                     : "w-2 md:w-2.5 h-2 md:h-2.5 bg-brand/20 hover:bg-brand/50"
-                }`}
+                  }`}
                 aria-label={`Ir al testimonio ${idx + 1}`}
               />
             ))}
@@ -178,14 +183,14 @@ const AulaVerdeTestimonio: React.FC = () => {
 
         {/* Logos fijos sin carrusel y a color */}
         <div className="relative w-full flex justify-center bg-white/50 backdrop-blur-sm border-y border-gray-200/50 py-10 md:py-16">
-          <div className="flex flex-wrap gap-12 md:gap-24 px-8 items-center justify-center">
+          <div className="flex flex-wrap gap-10 md:gap-16 px-8 items-center justify-center">
 
             {/* Logo de Hebraica */}
             <div className="flex items-center justify-center">
               <img
                 src="/uploads/Aula Verde/logo_hebraica.png"
                 alt="Logo de Institución Hebraica"
-                className="w-32 h-32 md:w-36 md:h-36 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -194,7 +199,43 @@ const AulaVerdeTestimonio: React.FC = () => {
               <img
                 src="/uploads/Aula Verde/Escudo_del_Club_Racing_de_Córdoba.svg"
                 alt="Escudo de Racing Club de Córdoba"
-                className="w-32 h-32 md:w-36 md:h-36 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Logo Waldorf El Trigal */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/el trigal.png"
+                alt="Escuela Waldorf El Trigal"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            {/* Logo Waldorf Villa Belgrano */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/wladorr villa Belgrano.png"
+                alt="Escuela Waldorf Villa Belgrano"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Logo Senshi Dojo Unquillo */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/senshi dojo unquillo.png"
+                alt="Senshi Dojo Unquillo"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Logo KWU Senshi */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/kwu_senshi-removebg-preview.png"
+                alt="KWU Senshi"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
               />
             </div>
 
