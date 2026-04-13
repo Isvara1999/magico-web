@@ -10,7 +10,7 @@ const AulaVerdeMagico: React.FC = () => {
     {/* glassy overlay (no border) */}
     <div className="absolute inset-0 rounded-3xl backdrop-blur-sm pointer-events-none"></div>
     <div className="max-w-5xl mx-auto px-4 relative z-10">
-      <div className="p-8 md:p-12 bg-white/5 backdrop-blur-sm rounded-3xl">
+      <div className="p-8 md:p-12 bg-white/5 backdrop-blur-sm rounded-3xl" data-aos="fade-up">
         <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-10 text-center">Mágico Ensueño</h2>
         
           <div className="max-w-4xl mx-auto mb-10">
@@ -32,7 +32,7 @@ const AulaVerdeMagico: React.FC = () => {
         </div>
         
         {/* Video Principal (Reemplaza Imágenes Anteriores) */}
-        <div className="flex justify-center mb-10 w-full relative z-20">
+        <div className="flex justify-center mb-10 w-full relative z-20" data-aos="fade-up" data-aos-delay="100">
           <div className="relative inline-block group w-full max-w-sm">
             {/* Bordes decorativos detrás del video */}
             <div className="absolute -inset-3 border border-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
@@ -52,7 +52,7 @@ const AulaVerdeMagico: React.FC = () => {
         </div>
         
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        <div className="grid md:grid-cols-2 gap-6 mb-10" data-aos="fade-up" data-aos-delay="200">
           <div className="bg-gold/10 rounded-2xl p-6 md:p-8 border border-gold/30">
             <h4 className="text-gold font-bold text-lg mb-4">Cómo Este Lugar Fortalece la Experiencia</h4>
             <ul className="text-white/90 text-sm leading-relaxed space-y-4">
@@ -89,7 +89,7 @@ const AulaVerdeMagico: React.FC = () => {
           </div>
         </div>
         
-        <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center mt-8">
+        <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center mt-8" data-aos="fade-up" data-aos-delay="300">
           <p className="text-white/95 italic text-base md:text-lg leading-relaxed">
             Mágico Ensueño es más que un destino; aquí la ubicación en la naturaleza <span className="text-gold font-bold">regenera el talento humano</span> mientras el grupo se reconecta, los estudiantes aprenden y el equipo docente se fortalece en armonía con el ritmo de la montaña.
           </p>
@@ -146,7 +146,7 @@ const AulaVerdeMagico: React.FC = () => {
       </div>
       
       {/* ====== GALERÍA DE LA EXPERIENCIA ====== */}
-      <div className="mt-16 max-w-5xl mx-auto px-4">
+      <div className="mt-16 max-w-5xl mx-auto px-4" data-aos="fade-up">
         <div className="text-center mb-8">
           <h3 className="text-2xl md:text-3xl text-gold font-serif mb-3">Viviendo la Experiencia 100% Real</h3>
           <p className="text-white/80 text-sm md:text-base">Grupos que ya pasaron por Aula Verde desconectando de todo.</p>

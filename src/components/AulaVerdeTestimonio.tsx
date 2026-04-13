@@ -66,7 +66,7 @@ const AulaVerdeTestimonio: React.FC = () => {
         </div>
 
         {/* Carrusel de Testimonios */}
-        <div className="relative group">
+        <div className="relative group" data-aos="fade-up" data-aos-delay="100">
           {/* Contenedor del track deslizable */}
           <div className="overflow-hidden w-full py-6 px-1 md:px-4">
             <div
@@ -182,7 +182,7 @@ const AulaVerdeTestimonio: React.FC = () => {
         </div>
 
         {/* Logos fijos sin carrusel y a color */}
-        <div className="relative w-full flex justify-center bg-white/50 backdrop-blur-sm border-y border-gray-200/50 py-10 md:py-16">
+        <div className="relative w-full flex justify-center bg-white/50 backdrop-blur-sm border-y border-gray-200/50 py-10 md:py-16" data-aos="fade-up" data-aos-delay="200">
           <div className="flex flex-wrap gap-10 md:gap-16 px-8 items-center justify-center">
 
             {/* Logo de Hebraica */}

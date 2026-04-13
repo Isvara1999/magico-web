@@ -42,7 +42,7 @@
 </head>
 <body>
   
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="whatsapp" />
@@ -51,7 +51,7 @@
   </form>
 
   <!-- Hidden Form para Netlify (Lead Magnet PDF Aula Verde) -->
-  <form name="aula-verde-pdf" netlify netlify-honeypot="bot-field" hidden>
+  <form name="aula-verde-pdf" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="nombre_apellido" />
     <input type="text" name="colegio" />
     <input type="email" name="email" />

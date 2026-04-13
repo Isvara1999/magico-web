@@ -28,7 +28,6 @@ import AulaVerdeTestimonio from './components/AulaVerdeTestimonio';
 import AulaVerdeLeadMagnet from './components/AulaVerdeLeadMagnet';
 import AulaVerdePrecios from './components/AulaVerdePrecios';
 import AulaVerdeFAQ from './components/AulaVerdeFAQ';
-import PrevisualizadorPDF from './components/pdf/PrevisualizadorPDF';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const AulaVerde: React.FC = () => {
@@ -40,7 +39,6 @@ const AulaVerde: React.FC = () => {
     });
   }, []);
   const [activeTab, setActiveTab] = useState<'refugio' | 'domo'>('refugio');
-  const [showPdfPreview, setShowPdfPreview] = useState(false);
 
   return (
     <LanguageProvider>
@@ -514,16 +512,6 @@ const AulaVerde: React.FC = () => {
         
         <WhatsAppButton />
 
-        {/* ADMIN ONLY: Visor del PDF */}
-        <button 
-          onClick={() => setShowPdfPreview(true)}
-          className="fixed bottom-24 right-6 z-40 bg-gray-800 text-white text-xs font-bold py-2 px-4 rounded-full shadow-lg opacity-50 hover:opacity-100 transition-opacity"
-        >
-          🔍 Ver PDF (Admin)
-        </button>
-
-        <PrevisualizadorPDF isOpen={showPdfPreview} onClose={() => setShowPdfPreview(false)} />
-        
       </div>
       </>
     </LanguageProvider>
