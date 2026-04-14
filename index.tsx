@@ -9,15 +9,11 @@ import Familion from './src/Familion';
 import Gondorbows from './src/Gondorbows';
 import AulaVerde from './src/AulaVerde';
 import './index.css';
-import { clarity } from 'react-microsoft-clarity';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
-
-// Inicializar Microsoft Clarity
-clarity.init('uycou5x3v2');
 
 const root = ReactDOM.createRoot(rootElement);
 root.render(
