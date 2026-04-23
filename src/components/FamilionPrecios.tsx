@@ -37,7 +37,7 @@ const FamilionPrecios: React.FC = () => {
           <div className="relative p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-[#002e1c] shadow-xl overflow-hidden">
             <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#D4AF37' }}>Domo Privado</h3>
             <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#ffffff' }}>$650.000</p>
-            <p className="text-white/80 text-sm md:text-base leading-relaxed break-words">Exclusivo para familia de hasta 4 integrantes.</p>
+            <p className="text-white/80 text-sm md:text-base leading-relaxed break-words">Exclusivo para tu familia. Consultar capacidad de integrantes.</p>
           </div>
         </div>
 
