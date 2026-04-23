@@ -203,7 +203,7 @@ export default function ResetVitalApp() {
       {/* --- HERO HEADER --- */}
       <header className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center text-center overflow-hidden pb-20 md:pb-28 lg:pb-32 lg:pt-24 print:h-auto print:py-10 print:pb-0" style={{ pageBreakAfter: 'always' }}>
         <div className="absolute inset-0 z-0 no-print">
-          <img src={IMAGES.hero} className="w-full h-full object-cover" alt="Cielo estrellado montaña" />
+          <img src={IMAGES.hero} className="w-full h-full object-cover scale-[1.15] md:scale-[1.20] transition-transform duration-1000" alt="Cielo estrellado montaña" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-[#005333]/30 mix-blend-overlay"></div>
         </div>
