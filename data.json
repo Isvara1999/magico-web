@@ -184,6 +184,15 @@
           "pdfLink": ""
         },
         {
+          "date": "9 Y 10 DE MAYO",
+          "title": "Achala Viva",
+          "desc": "Tierra, Cielo y Vida Salvaje. Una experiencia inmersiva en la naturaleza. Un viaje hacia lo esencial en la Sierra de Achala.",
+          "btn": "Ver Más",
+          "image": "/uploads/img_6948.webp",
+          "link": "/achala-viva",
+          "pdfLink": ""
+        },
+        {
           "date": "RECURRENTE",
           "title": "Temazcal",
           "desc": "Fines de semana (Consultar fechas específicas).",
@@ -509,6 +518,15 @@
           "btn": "See More",
           "image": "/uploads/tirando.jpg",
           "link": "/gondorbows",
+          "pdfLink": ""
+        },
+        {
+          "date": "MAY 9 - 10",
+          "title": "Achala Viva",
+          "desc": "Earth, Sky and Wild Life. An immersive experience in nature. A journey to the essential in the Achala Mountain Range.",
+          "btn": "See More",
+          "image": "/uploads/img_6948.webp",
+          "link": "/achala-viva",
           "pdfLink": ""
         },
         {

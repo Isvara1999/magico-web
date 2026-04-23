@@ -1,0 +1,82 @@
+import React from 'react';
+
+const AchalaVivaMagico: React.FC = () => {
+  const consultLink = "https://wa.me/5493516765820?text=" +
+    encodeURIComponent("¡Hola! Estoy organizando mi viaje para el retiro de Achala Viva y quería consultar bien la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️🗺️");
+
+  return (
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-green text-white rounded-3xl relative overflow-hidden mt-16 md:mt-24 mx-2 md:mx-0">
+    {/* glassy overlay (no border) */}
+    <div className="absolute inset-0 rounded-3xl backdrop-blur-sm pointer-events-none"></div>
+    <div className="max-w-5xl mx-auto px-4 relative z-10">
+      <div className="p-8 md:p-12 bg-white/5 backdrop-blur-sm rounded-3xl">
+        <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-10 text-center">Mágico Ensueño</h2>
+        
+          <div className="max-w-3xl mx-auto mb-10">
+          <p className="text-white/95 text-base md:text-lg leading-relaxed text-center">
+            En el corazón de <span className="text-gold font-bold">Los Gigantes, Córdoba</span>, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía. Acceso para todo tipo de vehículos hasta la puerta del lugar.
+          </p>
+        </div>
+        
+        {/* Video Principal */}
+        <div className="flex justify-center mb-10 w-full relative z-20">
+          <div className="relative inline-block group w-full max-w-sm">
+            {/* Bordes decorativos detrás del video */}
+            <div className="absolute -inset-3 border border-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
+            <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
+
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
+                title="Mágico Ensueño - Experiencia en la Montaña"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        
+        {/* Benefits Grid */}
+        <div className="max-w-4xl mx-auto mb-10">
+          <div className="bg-gold/10 rounded-2xl p-8 md:p-12 border border-gold/30 text-center">
+            <h2 className="text-2xl md:text-4xl serif-title brand-gold mb-8 uppercase tracking-wide">
+              Tu Inversión Genera Regeneración
+            </h2>
+            <ul className="text-white/90 text-base md:text-lg leading-relaxed space-y-6 text-left max-w-2xl mx-auto mb-8">
+              <li className="flex items-start gap-4">
+                <span className="text-2xl">♻️</span>
+                <span><strong>+15.000 árboles plantados</strong> en nuestra reserva.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-2xl">☀️</span>
+                <span><strong>100% Energía Solar</strong> (Cero huella de carbono).</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-2xl">🌱</span>
+                <span>El <strong>10% de tu inversión</strong> va directo a reforestar tabaquillos y restaurar nuestras sierras.</span>
+              </li>
+            </ul>
+            <p className="text-white font-serif text-lg md:text-xl italic">
+              Venir al Mágico no solo te regenera a vos, regenera a la montaña.
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* Mapa del Lugar */}
+      <div className="mt-8 max-w-4xl mx-auto text-center">
+        <div className="relative group cursor-zoom-in mb-12" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
+          <img src="/uploads/mapa_magico.webp" alt="Mapa de Mágico Ensueño - Los Gigantes" loading="lazy" className="w-full rounded-2xl shadow-lg" />
+          <div className="mt-12 mb-16 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30">
+            <a href="/uploads/mapa_magico.webp" download="Mapa_Magico_Ensueno.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
+            <a href={consultLink} className="btn-gold inline-block w-full sm:w-auto text-center">Consultar ubicación</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  );
+};
+
+export default AchalaVivaMagico;

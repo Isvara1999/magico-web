@@ -8,6 +8,7 @@ import ResetVitalApp from './ResetVital.jsx';
 import Familion from './src/Familion';
 import Gondorbows from './src/Gondorbows';
 import AulaVerde from './src/AulaVerde';
+import AchalaViva from './src/AchalaViva';
 import './index.css';
 
 const rootElement = document.getElementById('root');
@@ -25,6 +26,7 @@ root.render(
         <Route path="/familion" element={<Familion />} />
         <Route path="/gondorbows" element={<Gondorbows />} />
         <Route path="/escuelas" element={<AulaVerde />} />
+        <Route path="/achala-viva" element={<AchalaViva />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
