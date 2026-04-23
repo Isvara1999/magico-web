@@ -22,22 +22,22 @@ const FamilionPrecios: React.FC = () => {
           {/* Camping */}
           <div className="p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border border-white/20 shadow-inner bg-[#003d26]">
             <h3 className="serif-title text-lg md:text-xl font-bold text-white mb-3">Camping</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>$350.000</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>$280.000</p>
             <p className="text-white/80 text-sm md:text-base">Zona de camping — todo incluido para la familia.</p>
           </div>
 
-          {/* Eco-Refugio - Destacado */}
+          {/* Eco-Refugio y Domos - Destacado */}
           <div className="relative p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-white shadow-xl overflow-hidden">
-            <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#005333' }}>Eco-Refugio</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>$550.000</p>
-            <p className="text-sm md:text-base leading-relaxed break-words" style={{ color: '#005333' }}>Hab. compartidas con ropa blanca y toallas incluidas.</p>
+            <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#005333' }}>Eco-Refugio y Domos</h3>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>$450.000</p>
+            <p className="text-sm md:text-base leading-relaxed break-words" style={{ color: '#005333' }}>Hab. y domos compartidos con ropa blanca y toallas incluidas.</p>
           </div>
 
-          {/* Domos */}
-          <div className="p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border border-white/20 shadow-inner bg-[#003d26]">
-            <h3 className="serif-title text-lg md:text-xl font-bold text-white mb-3">Domos Compartidos</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>$650.000</p>
-            <p className="text-white/80 text-sm md:text-base">Domos geodésicos compartidos — experiencia inmersiva.</p>
+          {/* Domo Privado */}
+          <div className="relative p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-[#002e1c] shadow-xl overflow-hidden">
+            <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#D4AF37' }}>Domo Privado</h3>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#ffffff' }}>$650.000</p>
+            <p className="text-white/80 text-sm md:text-base leading-relaxed break-words">Exclusivo para familia de hasta 4 integrantes.</p>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const FamilionPrecios: React.FC = () => {
               <span className="text-brand-gold flex-shrink-0 mt-0.5">
                 <Check className="w-5 h-5" />
               </span>
-              <span>11 comidas caseras, abundantes y nutritivas incluidas</span>
+              <span>9 comidas caseras, abundantes y nutritivas incluidas</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-brand-gold flex-shrink-0 mt-0.5">

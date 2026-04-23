@@ -26,7 +26,7 @@ const FamilionHero: React.FC = () => (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-5 md:mb-6">
             <div className="flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
               <IconCalendar className="w-4 h-4 text-brand-green" />
-              <span>Finde Largo del 21 al 24 de Marzo</span>
+              <span>Finde del 1 al 3 de Mayo</span>
             </div>
             <div className="hidden sm:flex items-center gap-2 text-sm md:text-base text-gray-700 font-semibold">
               <IconLocation className="w-4 h-4 text-brand-green" />

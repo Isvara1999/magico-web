@@ -1,4 +1,5 @@
 import React from 'react';
+import { Recycle, Sun, Leaf } from '@phosphor-icons/react';
 
 const AchalaVivaMagico: React.FC = () => {
   const consultLink = "https://wa.me/5493516765820?text=" +
@@ -20,17 +21,12 @@ const AchalaVivaMagico: React.FC = () => {
         
         {/* Video Principal */}
         <div className="flex justify-center mb-10 w-full relative z-20">
-          <div className="relative inline-block group w-full max-w-sm">
-            {/* Bordes decorativos detrás del video */}
-            <div className="absolute -inset-3 border border-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
-            <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
-
+          <div className="relative w-full max-w-sm">
             <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
                 title="Mágico Ensueño - Experiencia en la Montaña"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
@@ -46,15 +42,15 @@ const AchalaVivaMagico: React.FC = () => {
             </h2>
             <ul className="text-white/90 text-base md:text-lg leading-relaxed space-y-6 text-left max-w-2xl mx-auto mb-8">
               <li className="flex items-start gap-4">
-                <span className="text-2xl">♻️</span>
+                <Recycle weight="thin" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
                 <span><strong>+15.000 árboles plantados</strong> en nuestra reserva.</span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-2xl">☀️</span>
+                <Sun weight="thin" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
                 <span><strong>100% Energía Solar</strong> (Cero huella de carbono).</span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-2xl">🌱</span>
+                <Leaf weight="thin" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
                 <span>El <strong>10% de tu inversión</strong> va directo a reforestar tabaquillos y restaurar nuestras sierras.</span>
               </li>
             </ul>

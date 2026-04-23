@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Target, House, ForkKnife, Star, Sun, Moon, CaretLeft, CaretRight, Camera, Binoculars, Compass, Bird, Tree } from '@phosphor-icons/react';
+import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 
 import AchalaVivaHero from './components/AchalaVivaHero';
 import AchalaVivaMagico from './components/AchalaVivaMagico';
@@ -23,7 +23,68 @@ const AchalaViva: React.FC = () => {
     { src: "/uploads/469742031_941240881439467_8316347989568757415_n.webp", alt: "Experiencia en Comunidad" }
   ];
 
-  // Autoplay
+  // SEO — title, meta, OG, canonical y JSON-LD para esta página
+  useEffect(() => {
+    const TITLE = 'Achala Viva — Retiro de Naturaleza · Los Gigantes, Córdoba | Mágico Ensueño';
+    const DESC  = 'Retiro de inmersión total en Los Gigantes, Córdoba. 9 y 10 de Mayo. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas. Mágico Ensueño.';
+    const URL   = 'https://experienciamagico.com/achala-viva';
+    const IMG   = 'https://experienciamagico.com/uploads/img_6948.webp';
+    const prevTitle = document.title;
+
+    document.title = TITLE;
+
+    const setMeta = (sel: string, attr: string, val: string) => {
+      let el = document.querySelector(sel) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement('meta'); document.head.appendChild(el); }
+      el.setAttribute(attr, val);
+    };
+    const setLink = (rel: string, href: string) => {
+      let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+      if (!el) { el = document.createElement('link'); el.setAttribute('rel', rel); document.head.appendChild(el); }
+      el.setAttribute('href', href);
+    };
+
+    setMeta('meta[name="description"]',   'content', DESC);
+    setMeta('meta[property="og:title"]',  'property', 'og:title');
+    setMeta('meta[property="og:title"]',  'content',  TITLE);
+    setMeta('meta[property="og:description"]', 'property', 'og:description');
+    setMeta('meta[property="og:description"]', 'content',  DESC);
+    setMeta('meta[property="og:image"]',  'property', 'og:image');
+    setMeta('meta[property="og:image"]',  'content',  IMG);
+    setMeta('meta[property="og:url"]',    'property', 'og:url');
+    setMeta('meta[property="og:url"]',    'content',  URL);
+    setMeta('meta[property="og:type"]',   'property', 'og:type');
+    setMeta('meta[property="og:type"]',   'content',  'website');
+    setLink('canonical', URL);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Achala Viva — Retiro de Naturaleza en Los Gigantes",
+      "description": "Retiro de inmersión total de 2 días en la Sierra de Achala. Astroturismo, avistaje de aves con guía biológica, fotografía en la naturaleza y descanso en eco-refugio.",
+      "startDate": "2025-05-09",
+      "endDate": "2025-05-10",
+      "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
+      "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://experienciamagico.com" },
+      "offers": { "@type": "Offer", "price": "150000", "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "url": URL },
+      "image": IMG,
+      "maximumAttendeeCapacity": 15,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+    };
+    const ldScript = document.createElement('script');
+    ldScript.type = 'application/ld+json';
+    ldScript.id   = 'ld-achala-viva';
+    ldScript.textContent = JSON.stringify(schema);
+    if (!document.getElementById('ld-achala-viva')) document.head.appendChild(ldScript);
+
+    return () => {
+      document.title = prevTitle;
+      document.getElementById('ld-achala-viva')?.remove();
+    };
+  }, []);
+
+  // Autoplay carrusel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -45,10 +106,10 @@ const AchalaViva: React.FC = () => {
         <Header />
         <div className="bg-white text-gray-800 overflow-x-hidden" style={{ fontFamily: "'Nunito', sans-serif" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;600;700&display=swap');
-        
-        * { font-family: 'Nunito', sans-serif; }
-        h1, h2, h3, h4, .serif-title { font-family: 'Marcellus', serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+        * { font-family: 'Jost', sans-serif; }
+        h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
         
         .brand-green { color: #005333; }
         .bg-brand-green { background-color: #005333; }
@@ -125,112 +186,102 @@ const AchalaViva: React.FC = () => {
       <AchalaVivaHero />
 
       {/* ====== EL DOLOR Y LA IDENTIFICACION ====== */}
-      <section id="experiencia" className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24" style={{ paddingBottom: 'max(8rem, 120px)' }}>
-        <div className="max-w-5xl mx-auto pt-8">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-10 md:mb-16 uppercase tracking-wide">
+      <section id="experiencia" className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl serif-title brand-green mb-8 md:mb-10" style={{ lineHeight: '1.1', letterSpacing: '-0.01em' }}>
             Vivimos rodeados de ruido,<br className="hidden md:block" /> pero estamos sordos a lo esencial.
           </h2>
 
-          <div className="flex flex-col gap-6">
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto px-4">
+          <div className="max-w-2xl flex flex-col gap-4 mb-10">
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-light">
               Pasamos los días mirando pantallas, corriendo contra el reloj y viviendo en piloto automático. La naturaleza está ahí, pero ya no sabemos cómo verla, ni cómo escucharla.
             </p>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto px-4 font-medium">
+            <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-normal">
               Achala Viva no es una "escapada de fin de semana". Es una puerta para abrir la percepción, afinar los sentidos y reconectar con la inteligencia viva de la Sierra. No venís solo a descansar; venís a recordar que sos parte de algo inmenso.
             </p>
+          </div>
 
-            <div className="mt-12 max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-              <div className="flex flex-col items-center text-center">
-                <Compass weight="thin" className="w-12 h-12 text-brand-gold mb-4" />
-                <h4 className="font-bold text-brand-green mb-2">El cielo nocturno como brújula</h4>
-                <p className="text-gray-600 text-sm">Aprender a leer las constelaciones.</p>
+          {/* Lista editorial numerada — sin iconos sobre cada heading */}
+          <div className="max-w-xl">
+            {[
+              { num: "01", heading: "El cielo nocturno como brújula", text: "Aprender a leer las constelaciones, planetas y vida nocturna de la sierra." },
+              { num: "02", heading: "La biodiversidad como maestra", text: "Observación guiada de flora y fauna nativa en tiempo real, con biólogo presente." },
+              { num: "03", heading: "La presencia como camino", text: "Reducir el ritmo al de la montaña. Sin agenda. Sin pantallas. Con todos los sentidos." },
+            ].map((item, i) => (
+              <div key={item.num} className={`py-6 flex items-start gap-7 ${i > 0 ? 'border-t border-gray-100' : ''}`}>
+                <span className="serif-title text-2xl font-light text-gray-200 w-10 flex-shrink-0 tabular-nums leading-none mt-0.5">{item.num}</span>
+                <div>
+                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1">{item.heading}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+                </div>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <Bird weight="thin" className="w-12 h-12 text-brand-gold mb-4" />
-                <h4 className="font-bold text-brand-green mb-2">La biodiversidad como maestra</h4>
-                <p className="text-gray-600 text-sm">Observación guiada de flora y fauna nativa.</p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <Tree weight="thin" className="w-12 h-12 text-brand-gold mb-4" />
-                <h4 className="font-bold text-brand-green mb-2">La presencia como camino</h4>
-                <p className="text-gray-600 text-sm">Bajar el ritmo cardíaco al ritmo de la montaña.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ====== EL VEHICULO ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50" style={{ paddingTop: 'max(6rem, 90px)' }}>
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-6 uppercase tracking-wide">
+      <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl serif-title brand-green mb-5 uppercase tracking-wide" style={{ lineHeight: '1.1' }}>
             Tu refugio y tus herramientas
           </h2>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto mb-16 md:mb-24">
-            Durante 2 días te sumergís en un espacio donde la ciencia y la contemplación se unen. Nosotros nos ocupamos de toda la logística material, vos solo te ocupás de estar presente.
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10 font-light">
+            Durante 2 días te sumergís donde la ciencia y la contemplación se unen. Nosotros nos ocupamos de toda la logística; vos solo te ocupás de estar presente.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-            {/* Tarjeta 1 - Talleres */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300 border-t-4 border-[#005333]">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <Binoculars weight="thin" className="w-12 h-12" />
+          {/* Lista editorial numerada — reemplaza las 3 tarjetas idénticas */}
+          <div className="divide-y divide-gray-200">
+            {[
+              {
+                num: "01",
+                title: "Conocimiento Aplicado",
+                text: "No son charlas, es interpretación en el terreno. Astroturismo, avistaje de aves y lectura del paisaje en tiempo real con guía biológica.",
+              },
+              {
+                num: "02",
+                title: "Descanso Premium",
+                text: "Eco-refugio y domos geodésicos en medio del bosque nativo. Ropa blanca, biocosmética y agua caliente 24h. Cuidado humano real.",
+              },
+              {
+                num: "03",
+                title: "Nutrición Regenerativa",
+                text: "Pensión completa con gastronomía local y de estación. Abundante, riquísima y pensada para sostener tu energía durante toda la inmersión.",
+              },
+            ].map((item) => (
+              <div key={item.num} className="py-8 flex flex-col md:flex-row gap-4 md:gap-12 items-start">
+                <div className="md:w-52 flex-shrink-0">
+                  <span className="serif-title text-4xl font-light text-gray-200 block leading-none">{item.num}</span>
+                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mt-2">{item.title}</h4>
+                </div>
+                <p className="text-gray-600 text-base leading-relaxed">{item.text}</p>
               </div>
-              <h4 className="serif-title text-lg brand-green mb-3 font-bold uppercase tracking-widest text-sm">Conocimiento Aplicado</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                No son "charlas", es interpretación en el terreno. Astroturismo, avistaje de aves y lectura del paisaje en tiempo real.
-              </p>
-            </div>
-
-            {/* Tarjeta 2 - Alojamiento Inmersivo */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300 border-t-4 border-[#D4AF37]">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <House weight="thin" className="w-12 h-12" />
-              </div>
-              <h4 className="serif-title text-lg brand-green mb-3 font-bold uppercase tracking-widest text-sm">Descanso Premium</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Eco-refugio y domos geodésicos en medio del bosque nativo. Ropa blanca, biocosmética y agua caliente 24h. Cuidado humano real.
-              </p>
-            </div>
-
-            {/* Tarjeta 3 - Pensión Completa */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300 border-t-4 border-[#005333]">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <ForkKnife weight="thin" className="w-12 h-12" />
-              </div>
-              <h4 className="serif-title text-lg brand-green mb-3 font-bold uppercase tracking-widest text-sm">Nutrición Regenerativa</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Pensión completa con gastronomía local y de estación. Abundante, riquísima y pensada para sostener tu energía.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ====== AUTORIDAD (FACILITADOR) ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Columna gráfica - Placeholder */}
-            <div className="flex justify-center order-2 md:order-1 px-4 mt-2 mb-4 md:my-12">
-              <img 
-                src="/uploads/Walter_E._Cejas.jpg" 
-                alt="Walter Eugenio Cejas" 
-                className="w-full object-cover rounded-xl shadow-lg h-auto aspect-[4/5] md:aspect-square"
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <img
+                src="/uploads/Walter_E._Cejas.jpg"
+                alt="Walter Eugenio Cejas — Biólogo guía de Achala Viva"
+                className="w-full object-cover rounded-2xl h-auto aspect-[4/5]"
               />
             </div>
-            
-            {/* Columna de texto */}
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl serif-title brand-green mb-6 md:mb-8 uppercase tracking-wide">
-                Tu Guía en esta Inmersión
+              <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-4">Tu guía en esta inmersión</p>
+              <h2 className="text-3xl md:text-4xl serif-title brand-green mb-2" style={{ lineHeight: '1.15' }}>
+                Walter Eugenio Cejas
               </h2>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Walter Eugenio Cejas</h3>
-              <p className="text-gray-600 text-sm md:text-base font-medium mb-6 uppercase tracking-wider">
-                Biólogo, investigador y apasionado por la vida salvaje.
+              <p className="text-gray-400 text-sm font-light mb-6 uppercase tracking-widest">
+                Biólogo · Investigador · Vida Salvaje
               </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
-                Walter no es solo un docente; es un puente entre el conocimiento científico y la experiencia espiritual directa. Te va a guiar a través de los secretos mejor guardados de la Sierra de Achala con la cercanía de quien conoce su propia casa.
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed font-light">
+                Walter no es solo un docente; es un puente entre el conocimiento científico y la experiencia directa. Te va a guiar a través de los secretos mejor guardados de la Sierra de Achala con la cercanía de quien conoce su propia casa.
               </p>
             </div>
           </div>
@@ -238,65 +289,66 @@ const AchalaViva: React.FC = () => {
       </section>
 
       {/* ====== CRONOGRAMA ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-br from-slate-50 to-white mt-16 md:mt-24">
+      <section className="py-16 md:py-24 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">
+          <div className="mb-10 md:mb-14">
+            <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Dos días · Los Gigantes</p>
+            <h2 className="text-4xl md:text-5xl serif-title brand-green" style={{ lineHeight: '1.1' }}>
               Cronograma de la Inmersión
             </h2>
-            <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-              Dos días de inmersión total en el entorno natural de Los Gigantes.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            {/* Día 1 - Sábado */}
-            <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <Sun weight="thin" className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Sábado</p>
-                  <p className="text-xs text-gray-500">Día 1</p>
+          <div className="max-w-4xl">
+
+            {/* Día 1 */}
+            <div className="pb-10 md:pb-14">
+              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-gray-200">
+                <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
+                <div className="pb-2">
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 9 de Mayo</p>
+                  <h3 className="text-2xl md:text-3xl serif-title brand-green">Tierra y Cielo</h3>
                 </div>
               </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-brand-green text-sm mb-2">Tierra y Cielo</h4>
-                <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                  <li>• Recepción y acomodación en Mágico Ensueño</li>
-                  <li>• Almuerzo de bienvenida</li>
-                  <li>• Taller de Fotografía en la naturaleza</li>
-                  <li>• Charla–taller de Astroturismo y Ecoturismo</li>
-                  <li>• Merienda de campo</li>
-                  <li>• Al caer la noche… observación del cielo profundo, interpretación de estrellas, constelaciones y vida nocturna</li>
-                  <li>• Cena compartida bajo el cielo abierto con fogón</li>
-                </ul>
+              <div className="divide-y divide-gray-100 md:pl-12">
+                {[
+                  "Recepción y acomodación en Mágico Ensueño",
+                  "Almuerzo de bienvenida",
+                  "Taller de Fotografía en la naturaleza",
+                  "Charla–taller de Astroturismo y Ecoturismo",
+                  "Merienda de campo",
+                  "Al caer la noche — observación del cielo profundo, constelaciones y vida nocturna de la sierra",
+                  "Cena compartida bajo el cielo abierto con fogón",
+                ].map((item, i) => (
+                  <p key={i} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
+                ))}
               </div>
             </div>
 
-            {/* Día 2 - Domingo */}
-            <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <Camera weight="thin" className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Domingo</p>
-                  <p className="text-xs text-gray-500">Día 2</p>
+            {/* Separador de días */}
+            <div className="w-12 h-px bg-[#D4AF37] mb-10 md:mb-14" />
+
+            {/* Día 2 */}
+            <div>
+              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-gray-200">
+                <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
+                <div className="pb-2">
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 10 de Mayo</p>
+                  <h3 className="text-2xl md:text-3xl serif-title brand-green">Vida Salvaje</h3>
                 </div>
               </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-brand-green text-sm mb-2">Vida Salvaje</h4>
-                <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                  <li>• Despertar en la naturaleza</li>
-                  <li>• Desayuno Serrano</li>
-                  <li>• Salida de observación: Avistaje de aves + lectura del paisaje</li>
-                  <li>• Almuerzo de campo para integrar la experiencia</li>
-                  <li>• Despedida por la tarde</li>
-                </ul>
+              <div className="divide-y divide-gray-100 md:pl-12">
+                {[
+                  "Despertar en la naturaleza",
+                  "Desayuno serrano",
+                  "Salida de observación — avistaje de aves + lectura del paisaje con biólogo",
+                  "Almuerzo de campo para integrar la experiencia",
+                  "Despedida por la tarde",
+                ].map((item, i) => (
+                  <p key={i} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
+                ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -304,20 +356,20 @@ const AchalaViva: React.FC = () => {
       {/* ====== POSTALES DE LA INMERSIÓN ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-6 md:mb-8">
+          <h2 className="text-4xl md:text-5xl serif-title brand-green text-center mb-4" style={{ lineHeight: '1.1' }}>
             Postales de la Inmersión
           </h2>
-          <p className="text-gray-600 text-sm md:text-base text-center mb-10 md:mb-12 max-w-3xl mx-auto">
+          <p className="text-gray-500 text-base md:text-lg text-center mb-8 md:mb-12 max-w-xl mx-auto font-light">
             Paisajes, astroturismo y avistaje en su máxima expresión.
           </p>
           
           {/* Carrusel */}
           <div className="relative max-w-5xl mx-auto aspect-square md:aspect-[16/9]">
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg group bg-stone-900 flex items-center justify-center">
-              <img 
-                src={images[currentImage].src} 
-                alt={images[currentImage].alt} 
-                className="w-full h-full object-contain transition-transform duration-700"
+              <img
+                src={images[currentImage].src}
+                alt={images[currentImage].alt}
+                className="w-full h-full object-cover transition-opacity duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
               <div className="absolute bottom-10 left-0 right-0 text-center pointer-events-none z-10 px-4">
@@ -364,59 +416,39 @@ const AchalaViva: React.FC = () => {
       <AchalaVivaPrecios />
 
       {/* ====== PREGUNTAS FRECUENTES ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-10 md:mb-16 uppercase tracking-wide">
+          <h2 className="text-3xl md:text-4xl serif-title brand-green text-center mb-8 md:mb-10 uppercase tracking-wide">
             Preguntas Frecuentes
           </h2>
           
-          <div className="space-y-4">
-            <details className="group bg-slate-50 rounded-xl border border-gray-200 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer p-6 font-bold text-gray-800">
-                ¿Necesito conocimientos previos en biología o astronomía?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Cero. La experiencia está diseñada para curiosos y amantes de la naturaleza de todos los niveles. Walter traduce todo a un lenguaje simple y fascinante.
-              </div>
-            </details>
-
-            <details className="group bg-slate-50 rounded-xl border border-gray-200 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer p-6 font-bold text-gray-800">
-                ¿Tengo que llevar equipo especial?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Solo ropa cómoda, abrigo para la noche en la montaña y calzado de trekking. Nosotros ponemos las herramientas y el confort.
-              </div>
-            </details>
-
-            <details className="group bg-slate-50 rounded-xl border border-gray-200 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer p-6 font-bold text-gray-800">
-                ¿Puedo ir solo/a?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                ¡Por supuesto! La gran mayoría de nuestros visitantes vienen solos. Es el espacio perfecto para estar con vos mismo y conocer gente en tu misma sintonía.
-              </div>
-            </details>
+          <div className="divide-y divide-gray-200">
+            {[
+              { q: "¿Necesito conocimientos previos en biología o astronomía?", a: "Cero. La experiencia está diseñada para curiosos y amantes de la naturaleza de todos los niveles. Walter traduce todo a un lenguaje simple y fascinante." },
+              { q: "¿Tengo que llevar equipo especial?", a: "Solo ropa cómoda, abrigo para la noche en la montaña y calzado de trekking. Nosotros ponemos las herramientas y el confort." },
+              { q: "¿Puedo ir solo/a?", a: "Por supuesto. La gran mayoría de nuestros visitantes vienen solos. Es el espacio perfecto para estar con vos mismo y conocer gente en tu misma sintonía." },
+            ].map((item, i) => (
+              <details key={i} className="group [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer py-5 font-medium text-gray-800 text-base md:text-lg gap-6">
+                  {item.q}
+                  <span className="flex-shrink-0 transition-transform duration-200 group-open:rotate-180 text-gray-400">
+                    <svg fill="none" height="20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p className="pb-5 text-gray-500 font-light leading-relaxed text-base">{item.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ====== CTA FINAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-white to-slate-50 mt-8 md:mt-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">
-            El cielo, la tierra y la vida latiendo en un mismo instante ✨
+      <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl serif-title brand-green mb-6" style={{ lineHeight: '1.12' }}>
+            El cielo, la tierra y la vida latiendo en un mismo instante.
           </h2>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             Achala Viva es la pausa que tu instinto busca. Unimos ciencia, contemplación y descanso para ofrecerte una inmersión inolvidable.
           </p>
           <a href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8" className="btn-gold inline-block">
@@ -433,6 +465,24 @@ const AchalaViva: React.FC = () => {
           Growth systems & digital experience by Catálisis
         </div>
       </div>
+
+      {/* ====== STICKY CTA MÓVIL ====== */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3">
+        <div className="flex-1 min-w-0">
+          <p className="text-xs font-bold text-[#005333] uppercase tracking-widest truncate">Achala Viva · 9–10 Mayo</p>
+          <p className="text-[11px] text-gray-400 truncate">15 plazas · Cierra el 30 de Abril</p>
+        </div>
+        <a
+          href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Quiero%20reservar%20mi%20lugar%20en%20Achala%20Viva.%20%E2%9C%A8"
+          className="btn-gold flex-shrink-0 whitespace-nowrap"
+          style={{ padding: '0.5rem 1.1rem', fontSize: '0.78rem', borderRadius: '40px' }}
+        >
+          Reservar
+        </a>
+      </div>
+
+      {/* Spacer para que el sticky no tape el footer en móvil */}
+      <div className="h-16 md:hidden" aria-hidden="true"></div>
       </>
     </LanguageProvider>
   );
