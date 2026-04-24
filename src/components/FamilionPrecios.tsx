@@ -77,6 +77,13 @@ const FamilionPrecios: React.FC = () => {
           </ul>
         </div>
 
+        <div className="rounded-2xl bg-white/5 border border-[#D4AF37]/30 p-6 md:p-8 mb-8 text-center shadow-inner">
+          <h4 className="text-[#D4AF37] font-bold uppercase tracking-widest text-xs mb-3">Pagos e Intercambios Posibles</h4>
+          <p className="text-white/90 text-sm md:text-base leading-relaxed italic">
+            "Nuestra filosofía es que si sentís el llamado, la tranquera y el corazón están abiertos a recibirte. Conversemos la forma 😉"
+          </p>
+        </div>
+
         <a
           href={waLink}
           className="btn-gold w-full md:w-auto block md:inline-block mb-6 hover:animate-pulse hover:shadow-yellow-300/60"
