@@ -9,13 +9,10 @@ export const SectionRetiros: React.FC = () => {
   return (
     <>
       <span id="retiros" className="block -mt-20 pt-20" aria-hidden="true"></span>
-      <section className="py-24 bg-brand text-white relative overflow-hidden">
-        {/* Texture Overlay */}
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <section className="py-24 bg-brand text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+            <div data-reveal>
               <p className="text-gold font-bold tracking-widest uppercase text-xs mb-4 opacity-90">
                 {t.retreats.tag}
               </p>
@@ -38,7 +35,7 @@ export const SectionRetiros: React.FC = () => {
                   href={t.retreats.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 bg-gold text-white rounded-full hover:bg-white hover:text-brand transition-all duration-300 text-xs tracking-widest uppercase font-bold"
+                  className="px-8 py-3 bg-gold text-white rounded-full hover:bg-white hover:text-brand transition-[background-color,color] duration-300 text-xs tracking-widest uppercase font-bold"
                 >
                   {t.retreats.btn}
                 </a>
@@ -49,14 +46,14 @@ export const SectionRetiros: React.FC = () => {
               <img
                 src={(t.retreats.images[0] as any).image}
                 alt="Yoga"
-                className="rounded-xl w-full h-48 md:h-64 object-cover mt-8 shadow-2xl transition-all duration-500"
+                className="rounded-xl w-full h-48 md:h-64 object-cover mt-8 shadow-2xl transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
               />
               <img
                 src={(t.retreats.images[1] as any).image}
                 alt="Grupo"
-                className="rounded-xl w-full h-48 md:h-64 object-cover shadow-2xl transition-all duration-500"
+                className="rounded-xl w-full h-48 md:h-64 object-cover shadow-2xl transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
               />

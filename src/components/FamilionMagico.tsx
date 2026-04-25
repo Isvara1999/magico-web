@@ -20,16 +20,13 @@ const FamilionMagico: React.FC = () => {
         
         {/* Video Principal (Reemplaza Imágenes Anteriores) */}
         <div className="flex justify-center mb-10 w-full relative z-20">
-          <div className="relative inline-block group w-full max-w-sm">
-            {/* Bordes decorativos detrás del video */}
-            <div className="absolute -inset-3 border border-brand-gold/20 rounded-2xl -z-10 rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
-            <div className="absolute -inset-3 border border-white/10 rounded-2xl -z-10 -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
-
-            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+          <div className="relative w-full max-w-sm">
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#001a0d]">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
                 title="Mágico Ensueño - Experiencia en la Montaña"
+                loading="lazy"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

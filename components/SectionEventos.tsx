@@ -24,7 +24,7 @@ export const SectionEventos: React.FC = () => {
           <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">
             {t.events.tag}
           </p>
-          <h2 className="text-3xl md:text-5xl text-brand font-serif mb-6">
+          <h2 data-reveal className="text-3xl md:text-5xl text-brand font-serif mb-6">
             {t.events.title}
           </h2>
           <a href="#" className="text-gold underline">
@@ -53,7 +53,7 @@ export const SectionEventos: React.FC = () => {
           {t.events.cards.map((card: any, index: number) => (
             <div
               key={index}
-              className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-brand/5 flex flex-col h-full group"
+              className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand/5 flex flex-col h-full group"
             >
               {/* Imagen con Overlay de Fecha */}
               <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
@@ -96,7 +96,7 @@ export const SectionEventos: React.FC = () => {
                     rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 text-brand/60 hover:text-brand font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors group/pdf whitespace-nowrap flex-grow sm:flex-grow-0"
                   >
-                      <span className="border-b border-transparent group-hover/pdf:border-brand transition-all">
+                      <span className="border-b border-transparent group-hover/pdf:border-brand transition-[border-color]">
                     {(t.events as any).btnPdf || "+ Info"}
                       </span>
                       <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />

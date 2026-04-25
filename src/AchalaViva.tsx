@@ -10,6 +10,9 @@ import AchalaVivaPrecios from './components/AchalaVivaPrecios';
 
 const AchalaViva: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   
   // Using placeholder images requested by user
   const images = [
@@ -86,10 +89,48 @@ const AchalaViva: React.FC = () => {
 
   // Autoplay carrusel
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(interval);
+  }, [isPaused, images.length]);
+
+  // Touch handlers para swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+      setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+      setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+      if (isLeftSwipe) {
+          nextImage();
+      }
+      if (isRightSwipe) {
+          prevImage();
+      }
+      // reset values
+      setTouchStart(0);
+      setTouchEnd(0);
+  };
+
+  // Scroll reveal
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   const nextImage = () => {
@@ -104,10 +145,8 @@ const AchalaViva: React.FC = () => {
     <LanguageProvider>
       <>
         <Header />
-        <div className="bg-white text-gray-800 overflow-x-hidden" style={{ fontFamily: "'Nunito', sans-serif" }}>
+        <div className="bg-white text-gray-800 overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
-
         * { font-family: 'Jost', sans-serif; }
         h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
         
@@ -125,7 +164,7 @@ const AchalaViva: React.FC = () => {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           font-size: 0.9rem;
-          transition: all 0.3s ease;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
           border: none;
           cursor: pointer;
           display: inline-block;
@@ -133,12 +172,12 @@ const AchalaViva: React.FC = () => {
           white-space: nowrap;
           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
-        
+
         .btn-gold:hover {
-          transform: translateY(-3px);
+          transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
         }
-        
+
         .btn-glass {
           background: rgba(255, 255, 255, 0.15);
           border: 1px solid rgba(255, 255, 255, 0.3);
@@ -149,11 +188,16 @@ const AchalaViva: React.FC = () => {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           font-size: 0.85rem;
-          transition: all 0.3s ease;
+          transition: background-color 0.2s ease;
           cursor: pointer;
           display: inline-block;
           text-decoration: none;
           white-space: nowrap;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-img-zoom { animation: none; }
+          .btn-gold:hover { transform: none; }
         }
 
         .hero-cta .btn-gold {
@@ -166,12 +210,12 @@ const AchalaViva: React.FC = () => {
           padding: 0.6rem 1rem;
           font-size: 0.78rem;
           border-radius: 40px;
-          color: #005333;
-          border: 1px solid #005333;
-          background: rgba(255,255,255,0.5);
+          color: white;
+          border: 1px solid rgba(255,255,255,0.55);
+          background: transparent;
         }
         .hero-cta .btn-glass:hover {
-          background: rgba(255,255,255,0.7);
+          background: rgba(255,255,255,0.12);
         }
 
         @media (max-width: 640px) {
@@ -179,6 +223,23 @@ const AchalaViva: React.FC = () => {
             padding: 0.5rem 0.9rem;
             font-size: 0.78rem;
           }
+        }
+
+        /* ── Scroll reveal ── */
+        [data-reveal] {
+          opacity: 0;
+          transform: translateY(22px);
+          transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        [data-reveal].visible { opacity: 1; transform: translateY(0); }
+        [data-reveal][data-delay="1"] { transition-delay: 100ms; }
+        [data-reveal][data-delay="2"] { transition-delay: 200ms; }
+        [data-reveal][data-delay="3"] { transition-delay: 300ms; }
+        [data-reveal][data-delay="4"] { transition-delay: 400ms; }
+        [data-reveal][data-delay="5"] { transition-delay: 500ms; }
+        @media (prefers-reduced-motion: reduce) {
+          [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
       `}</style>
 
@@ -188,15 +249,15 @@ const AchalaViva: React.FC = () => {
       {/* ====== EL DOLOR Y LA IDENTIFICACION ====== */}
       <section id="experiencia" className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl serif-title brand-green mb-8 md:mb-10" style={{ lineHeight: '1.1', letterSpacing: '-0.01em' }}>
+          <h2 data-reveal className="text-4xl md:text-5xl serif-title brand-green mb-8 md:mb-10" style={{ lineHeight: '1.1', letterSpacing: '-0.01em' }}>
             Vivimos rodeados de ruido,<br className="hidden md:block" /> pero estamos sordos a lo esencial.
           </h2>
 
-          <div className="max-w-2xl flex flex-col gap-4 mb-10">
-            <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-light">
+          <div data-reveal data-delay="1" className="max-w-2xl flex flex-col gap-4 mb-10">
+            <p className="text-gray-500 text-lg md:text-xl leading-relaxed font-light">
               Pasamos los días mirando pantallas, corriendo contra el reloj y viviendo en piloto automático. La naturaleza está ahí, pero ya no sabemos cómo verla, ni cómo escucharla.
             </p>
-            <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-normal">
+            <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
               Achala Viva no es una "escapada de fin de semana". Es una puerta para abrir la percepción, afinar los sentidos y reconectar con la inteligencia viva de la Sierra. No venís solo a descansar; venís a recordar que sos parte de algo inmenso.
             </p>
           </div>
@@ -208,8 +269,8 @@ const AchalaViva: React.FC = () => {
               { num: "02", heading: "La biodiversidad como maestra", text: "Observación guiada de flora y fauna nativa en tiempo real, con biólogo presente." },
               { num: "03", heading: "La presencia como camino", text: "Reducir el ritmo al de la montaña. Sin agenda. Sin pantallas. Con todos los sentidos." },
             ].map((item, i) => (
-              <div key={item.num} className={`py-6 flex items-start gap-7 ${i > 0 ? 'border-t border-gray-100' : ''}`}>
-                <span className="serif-title text-2xl font-light text-gray-200 w-10 flex-shrink-0 tabular-nums leading-none mt-0.5">{item.num}</span>
+              <div key={item.num} data-reveal data-delay={String(i + 2)} className={`py-6 flex items-start gap-7 ${i > 0 ? 'border-t border-gray-100' : ''}`}>
+                <span className="serif-title text-2xl font-light w-10 flex-shrink-0 tabular-nums leading-none mt-0.5" style={{ color: 'rgba(0,83,51,0.18)' }}>{item.num}</span>
                 <div>
                   <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1">{item.heading}</h4>
                   <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
@@ -223,15 +284,15 @@ const AchalaViva: React.FC = () => {
       {/* ====== EL VEHICULO ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl serif-title brand-green mb-5 uppercase tracking-wide" style={{ lineHeight: '1.1' }}>
+          <h2 data-reveal className="text-4xl md:text-5xl serif-title brand-green mb-5" style={{ lineHeight: '1.1' }}>
             Tu refugio y tus herramientas
           </h2>
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10 font-light">
+          <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10 font-light">
             Durante 2 días te sumergís donde la ciencia y la contemplación se unen. Nosotros nos ocupamos de toda la logística; vos solo te ocupás de estar presente.
           </p>
 
           {/* Lista editorial numerada — reemplaza las 3 tarjetas idénticas */}
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-[#E8E4D9]">
             {[
               {
                 num: "01",
@@ -248,10 +309,10 @@ const AchalaViva: React.FC = () => {
                 title: "Nutrición Regenerativa",
                 text: "Pensión completa con gastronomía local y de estación. Abundante, riquísima y pensada para sostener tu energía durante toda la inmersión.",
               },
-            ].map((item) => (
-              <div key={item.num} className="py-8 flex flex-col md:flex-row gap-4 md:gap-12 items-start">
+            ].map((item, idx) => (
+              <div key={item.num} data-reveal data-delay={String(idx + 2)} className="py-8 flex flex-col md:flex-row gap-4 md:gap-12 items-start">
                 <div className="md:w-52 flex-shrink-0">
-                  <span className="serif-title text-4xl font-light text-gray-200 block leading-none">{item.num}</span>
+                  <span className="serif-title text-4xl font-light block leading-none" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
                   <h4 className="font-bold brand-green text-sm uppercase tracking-widest mt-2">{item.title}</h4>
                 </div>
                 <p className="text-gray-600 text-base leading-relaxed">{item.text}</p>
@@ -265,20 +326,21 @@ const AchalaViva: React.FC = () => {
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="order-2 md:order-1">
+            <div data-reveal className="order-2 md:order-1">
               <img
                 src="/uploads/Walter_E._Cejas.jpg"
                 alt="Walter Eugenio Cejas — Biólogo guía de Achala Viva"
+                loading="lazy"
                 className="w-full object-cover rounded-2xl h-auto aspect-[4/5]"
               />
             </div>
-            <div className="order-1 md:order-2">
+            <div data-reveal data-delay="1" className="order-1 md:order-2">
               <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-4">Tu guía en esta inmersión</p>
               <h2 className="text-3xl md:text-4xl serif-title brand-green mb-2" style={{ lineHeight: '1.15' }}>
                 Walter Eugenio Cejas
               </h2>
               <p className="text-gray-400 text-sm font-light mb-6 uppercase tracking-widest">
-                Biólogo · Investigador · Vida Salvaje
+                Biólogo · Investigador · Vida Silvestre
               </p>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed font-light">
                 Walter no es solo un docente; es un puente entre el conocimiento científico y la experiencia directa. Te va a guiar a través de los secretos mejor guardados de la Sierra de Achala con la cercanía de quien conoce su propia casa.
@@ -289,9 +351,9 @@ const AchalaViva: React.FC = () => {
       </section>
 
       {/* ====== CRONOGRAMA ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50">
+      <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-10 md:mb-14">
+          <div data-reveal className="mb-10 md:mb-14">
             <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Dos días · Los Gigantes</p>
             <h2 className="text-4xl md:text-5xl serif-title brand-green" style={{ lineHeight: '1.1' }}>
               Cronograma de la Inmersión
@@ -301,15 +363,15 @@ const AchalaViva: React.FC = () => {
           <div className="max-w-4xl">
 
             {/* Día 1 */}
-            <div className="pb-10 md:pb-14">
-              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-gray-200">
+            <div data-reveal data-delay="1" className="pb-10 md:pb-14">
+              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
                 <div className="pb-2">
                   <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 9 de Mayo</p>
                   <h3 className="text-2xl md:text-3xl serif-title brand-green">Tierra y Cielo</h3>
                 </div>
               </div>
-              <div className="divide-y divide-gray-100 md:pl-12">
+              <div className="divide-y divide-[#EDEBE3] md:pl-12">
                 {[
                   "Recepción y acomodación en Mágico Ensueño",
                   "Almuerzo de bienvenida",
@@ -328,15 +390,15 @@ const AchalaViva: React.FC = () => {
             <div className="w-12 h-px bg-[#D4AF37] mb-10 md:mb-14" />
 
             {/* Día 2 */}
-            <div>
-              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-gray-200">
+            <div data-reveal data-delay="2">
+              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
                 <div className="pb-2">
                   <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 10 de Mayo</p>
-                  <h3 className="text-2xl md:text-3xl serif-title brand-green">Vida Salvaje</h3>
+                  <h3 className="text-2xl md:text-3xl serif-title brand-green">Vida Silvestre</h3>
                 </div>
               </div>
-              <div className="divide-y divide-gray-100 md:pl-12">
+              <div className="divide-y divide-[#EDEBE3] md:pl-12">
                 {[
                   "Despertar en la naturaleza",
                   "Desayuno serrano",
@@ -356,15 +418,22 @@ const AchalaViva: React.FC = () => {
       {/* ====== POSTALES DE LA INMERSIÓN ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl serif-title brand-green text-center mb-4" style={{ lineHeight: '1.1' }}>
+          <h2 data-reveal className="text-4xl md:text-5xl serif-title brand-green text-center mb-4" style={{ lineHeight: '1.1' }}>
             Postales de la Inmersión
           </h2>
-          <p className="text-gray-500 text-base md:text-lg text-center mb-8 md:mb-12 max-w-xl mx-auto font-light">
+          <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg text-center mb-8 md:mb-12 max-w-xl mx-auto font-light">
             Paisajes, astroturismo y avistaje en su máxima expresión.
           </p>
           
           {/* Carrusel */}
-          <div className="relative max-w-5xl mx-auto aspect-square md:aspect-[16/9]">
+          <div data-reveal data-delay="2" 
+               className="relative max-w-5xl mx-auto aspect-square md:aspect-[16/9]"
+               onMouseEnter={() => setIsPaused(true)}
+               onMouseLeave={() => setIsPaused(false)}
+               onTouchStart={handleTouchStart}
+               onTouchMove={handleTouchMove}
+               onTouchEnd={handleTouchEnd}
+          >
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg group bg-stone-900 flex items-center justify-center">
               <img
                 src={images[currentImage].src}
@@ -381,28 +450,34 @@ const AchalaViva: React.FC = () => {
             
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-[#005333] p-2 md:p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
+              aria-label="Imagen anterior"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#001a0d]/50 hover:bg-white text-white hover:text-[#005333] p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
             >
-              <CaretLeft weight="thin" className="w-6 h-6 md:w-8 md:h-8" />
+              <CaretLeft weight="light" className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-[#005333] p-2 md:p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
+              aria-label="Siguiente imagen"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#001a0d]/50 hover:bg-white text-white hover:text-[#005333] p-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer"
             >
-              <CaretRight weight="thin" className="w-6 h-6 md:w-8 md:h-8" />
+              <CaretRight weight="light" className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3 z-20">
-              {images.map((_, index) => (
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1 z-20">
+              {images.map((img, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`h-2 md:h-2.5 rounded-full transition-all duration-300 shadow-sm active:scale-90 cursor-pointer ${
-                    index === currentImage 
-                      ? 'bg-white w-6 md:w-8' 
-                      : 'bg-white/50 hover:bg-white/80 w-2 md:w-2.5'
-                  }`}
-                />
+                  aria-label={`Ver ${img.alt}`}
+                  aria-current={index === currentImage ? 'true' : undefined}
+                  className={`relative flex items-center justify-center w-8 h-8 cursor-pointer`}
+                >
+                  <span className={`block rounded-full transition-all duration-300 ${
+                    index === currentImage
+                      ? 'bg-white w-5 h-1.5'
+                      : 'bg-white/50 hover:bg-white/80 w-1.5 h-1.5'
+                  }`} />
+                </button>
               ))}
             </div>
           </div>
@@ -418,20 +493,20 @@ const AchalaViva: React.FC = () => {
       {/* ====== PREGUNTAS FRECUENTES ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl serif-title brand-green text-center mb-8 md:mb-10 uppercase tracking-wide">
+          <h2 data-reveal className="text-3xl md:text-4xl serif-title brand-green text-center mb-8 md:mb-10">
             Preguntas Frecuentes
           </h2>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-[#E8E4D9]">
             {[
               { q: "¿Necesito conocimientos previos en biología o astronomía?", a: "Cero. La experiencia está diseñada para curiosos y amantes de la naturaleza de todos los niveles. Walter traduce todo a un lenguaje simple y fascinante." },
               { q: "¿Tengo que llevar equipo especial?", a: "Solo ropa cómoda, abrigo para la noche en la montaña y calzado de trekking. Nosotros ponemos las herramientas y el confort." },
               { q: "¿Puedo ir solo/a?", a: "Por supuesto. La gran mayoría de nuestros visitantes vienen solos. Es el espacio perfecto para estar con vos mismo y conocer gente en tu misma sintonía." },
             ].map((item, i) => (
-              <details key={i} className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between cursor-pointer py-5 font-medium text-gray-800 text-base md:text-lg gap-6">
+              <details key={i} data-reveal data-delay={String(i + 1)} className="group [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer py-5 font-medium text-gray-800 text-base md:text-lg gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:rounded-lg">
                   {item.q}
-                  <span className="flex-shrink-0 transition-transform duration-200 group-open:rotate-180 text-gray-400">
+                  <span className="flex-shrink-0 transition-transform duration-200 group-open:rotate-180 text-gray-400" aria-hidden="true">
                     <svg fill="none" height="20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"/></svg>
                   </span>
                 </summary>
@@ -445,13 +520,13 @@ const AchalaViva: React.FC = () => {
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green mb-6" style={{ lineHeight: '1.12' }}>
+          <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green mb-6" style={{ lineHeight: '1.12' }}>
             El cielo, la tierra y la vida latiendo en un mismo instante.
           </h2>
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
+          <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             Achala Viva es la pausa que tu instinto busca. Unimos ciencia, contemplación y descanso para ofrecerte una inmersión inolvidable.
           </p>
-          <a href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8" className="btn-gold inline-block">
+          <a data-reveal data-delay="2" href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8" className="btn-gold inline-block">
             Asegurar mi lugar
           </a>
         </div>

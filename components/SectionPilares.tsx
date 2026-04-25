@@ -18,7 +18,7 @@ export const SectionPilares: React.FC = () => {
   return (
     <section id="pilares" className="py-20 bg-white border-y border-brand/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div data-reveal className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {t.pillars.map((pillar) => (
             <div key={pillar.id} className="text-center group">
               <div className="w-12 h-12 md:w-14 md:h-14 mx-auto bg-bone rounded-full flex items-center justify-center mb-4 group-hover:bg-brand transition-colors duration-300 text-brand group-hover:text-gold">
@@ -39,7 +39,7 @@ export const SectionPilares: React.FC = () => {
             href={t.donations.link} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-white rounded-full transition-all duration-300 text-xs font-bold uppercase tracking-widest"
+            className="inline-block px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-white rounded-full transition-[background-color,color,border-color] duration-300 text-xs font-bold uppercase tracking-widest"
           >
             {t.donations.btn}
           </a>

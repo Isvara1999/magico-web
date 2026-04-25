@@ -17,8 +17,8 @@ export const SectionComoLlegar: React.FC = () => {
             />
           </div>
         </div>
-        <div className="order-1 md:order-2 md:pl-12">
-          <h2 
+        <div data-reveal className="order-1 md:order-2 md:pl-12">
+          <h2
             className="text-3xl md:text-4xl text-brand mb-6 font-serif leading-tight"
             dangerouslySetInnerHTML={{ __html: t.location.title as string }}
           />
@@ -30,7 +30,7 @@ export const SectionComoLlegar: React.FC = () => {
               href={t.location.mapLink}
               target="_blank"
               rel="noreferrer"
-              className="px-8 py-4 bg-brand text-white text-center rounded-full hover:bg-gold transition-all duration-300 text-sm font-bold uppercase tracking-widest"
+              className="px-8 py-4 bg-brand text-white text-center rounded-full hover:bg-gold transition-[background-color] duration-300 text-sm font-bold uppercase tracking-widest"
             >
               {t.location.btnMap}
             </a>
@@ -38,7 +38,7 @@ export const SectionComoLlegar: React.FC = () => {
               href={t.location.transferLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border border-brand text-brand text-center rounded-full hover:bg-brand hover:text-white transition-all duration-300 text-sm font-bold uppercase tracking-widest"
+              className="px-8 py-4 border border-brand text-brand text-center rounded-full hover:bg-brand hover:text-white transition-[background-color,color,border-color] duration-300 text-sm font-bold uppercase tracking-widest"
             >
               {t.location.btnTransfer}
             </a>

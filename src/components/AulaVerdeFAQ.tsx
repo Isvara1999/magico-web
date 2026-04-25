@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CaretDown } from '@phosphor-icons/react';
+import { CaretDownIcon } from '@phosphor-icons/react';
 
 const AulaVerdeFAQ: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -36,43 +36,44 @@ const AulaVerdeFAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-[#F9F8F4]">
+    <section className="py-16 md:py-24 px-6 bg-[#F9F8F4]">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-3xl md:text-5xl serif-title text-brand mb-6">Preguntas Frecuentes</h2>
-          <p className="text-gray-600 text-lg md:text-xl">Todo lo que necesitás saber para la tranquilidad de tu colegio.</p>
+        <div className="mb-12" data-reveal>
+          <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">Preguntas Frecuentes</h2>
+          <p className="text-gray-500 text-base md:text-lg font-light">Todo lo que necesitás saber para la tranquilidad de tu colegio.</p>
         </div>
 
-        <div className="space-y-4 md:space-y-6" data-aos="fade-up" data-aos-delay="100">
+        <div className="space-y-4 md:space-y-6">
           {faqs.map((faq, index) => {
             const isActive = activeIndex === index;
-            
+
             return (
-              <div 
+              <div
                 key={index}
-                className={`bg-white rounded-2xl md:rounded-3xl border transition-all duration-300 overflow-hidden ${
-                  isActive ? 'border-gold shadow-lg' : 'border-gray-200 hover:border-gold/50 shadow-sm'
+                data-reveal
+                className={`bg-white rounded-2xl md:rounded-3xl border transition-colors duration-300 overflow-hidden ${
+                  isActive ? 'border-[#D4AF37] shadow-lg' : 'border-gray-200 hover:border-[#D4AF37]/50 shadow-sm'
                 }`}
               >
                 <button
-                  className="w-full text-left px-6 py-6 md:px-8 md:py-8 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-opacity-50"
+                  className="w-full text-left px-6 py-6 md:px-8 md:py-8 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005333] focus-visible:ring-opacity-50"
                   onClick={() => toggleAccordion(index)}
                   aria-expanded={isActive}
                 >
-                  <h3 className={`font-serif text-lg md:text-xl md:pr-8 leading-snug transition-colors duration-300 ${isActive ? 'text-brand' : 'text-gray-800'}`}>
+                  <h3 className={`serif-title text-lg md:text-xl md:pr-8 leading-snug transition-colors duration-300 ${isActive ? 'brand-green' : 'text-gray-800'}`}>
                     {faq.question}
                   </h3>
-                  <div 
-                    className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isActive ? 'bg-brand text-gold rotate-180' : 'bg-gray-100 text-brand'
+                  <div
+                    className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-transform duration-300 ${
+                      isActive ? 'bg-[#005333] text-[#D4AF37] rotate-180' : 'bg-gray-100 text-[#005333]'
                     }`}
                   >
-                    <CaretDown weight="bold" className="w-4 h-4 md:w-5 md:h-5" />
+                    <CaretDownIcon weight="bold" className="w-4 h-4 md:w-5 md:h-5" />
                   </div>
                 </button>
-                
-                <div 
-                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
+
+                <div
+                  className={`transition-[max-height,opacity] duration-500 ease-in-out overflow-hidden ${
                     isActive ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >

@@ -19,7 +19,7 @@ export const SectionNosotros: React.FC = () => {
         <div className="max-w-[90%] mx-auto px-6 lg:px-12 relative z-10">
           
           {/* Header Section (Title moved up) */}
-          <div className="text-center mb-12 max-w-4xl mx-auto">
+          <div data-reveal className="text-center mb-12 max-w-4xl mx-auto">
             <span className="text-brand font-bold tracking-widest text-xs uppercase mb-3 block opacity-70">
               {t.about.tag}
             </span>
@@ -37,7 +37,7 @@ export const SectionNosotros: React.FC = () => {
                 <img
                   src={images[currentIndex]}
                   alt="Vista Mágico Ensueño"
-                  className="w-full h-full object-cover transition-all duration-500"
+                  className="w-full h-full object-cover transition-[transform,opacity] duration-500"
                   loading="lazy"
                 />
                 
@@ -64,7 +64,7 @@ export const SectionNosotros: React.FC = () => {
             </div>
 
             {/* Text Content */}
-            <div className="md:col-span-6 order-first md:order-last">
+            <div data-reveal data-delay="1" className="md:col-span-6 order-first md:order-last">
               <div className="prose prose-lg text-dark/80 text-justify font-light leading-relaxed">
                 <p>{t.about.p1}</p>
                 <p className="mt-4">{t.about.p2}</p>

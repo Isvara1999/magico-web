@@ -2,7 +2,7 @@ import React from 'react';
 
 const AchalaVivaHero: React.FC = () => {
   return (
-    <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
+    <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center group">
       <style>{`
         @keyframes hero-zoom {
           from { transform: scale(1.08); }
@@ -10,6 +10,7 @@ const AchalaVivaHero: React.FC = () => {
         }
         .hero-img-zoom {
           animation: hero-zoom 16s ease-out forwards;
+          will-change: transform;
         }
       `}</style>
 
@@ -18,12 +19,15 @@ const AchalaVivaHero: React.FC = () => {
         <img
           src="/uploads/img_6948.webp"
           alt="Achala Viva — Los Gigantes, Córdoba"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover hero-img-zoom"
         />
       </div>
 
-      {/* Un solo gradiente: oscuro abajo, translúcido arriba */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#002B18]/88 via-[#004229]/35 to-black/15 z-[1]"></div>
+      {/* Gradiente oscuro que se acentúa en hover para mejorar la legibilidad de los textos */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#002B18]/88 via-[#004229]/35 to-black/15 z-[1] transition-all duration-700 group-hover:from-[#001f11]/95 group-hover:via-[#00301e]/60 group-hover:to-black/40"></div>
 
       {/* Content */}
       <div className="relative z-[2] text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center h-full pt-8">
@@ -34,10 +38,10 @@ const AchalaVivaHero: React.FC = () => {
         </p>
 
         {/* Título partido en dos líneas de jerarquía distinta */}
-        <h1 className="font-serif text-white font-light leading-[1.0] mb-3">
+        <h1 className="serif-title text-white font-light leading-[1.0] mb-3">
           <span className="block text-5xl sm:text-6xl md:text-7xl tracking-tight">Achala Viva</span>
           <span className="block text-base sm:text-lg md:text-xl tracking-[0.35em] uppercase text-white/60 mt-3 font-sans font-light">
-            Tierra &nbsp;·&nbsp; Cielo &nbsp;·&nbsp; Vida Salvaje
+            Tierra &nbsp;·&nbsp; Cielo &nbsp;·&nbsp; Vida Silvestre
           </span>
         </h1>
 

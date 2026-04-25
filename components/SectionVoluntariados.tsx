@@ -21,7 +21,7 @@ export const SectionVoluntariados: React.FC = () => {
   return (
     <section id="voluntariados" className="py-24 bg-bone">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="bg-white rounded-premium p-8 md:p-16 shadow-sm flex flex-col md:flex-row items-center gap-12 border-t-4 border-gold">
+        <div className="bg-white rounded-premium p-8 md:p-16 shadow-sm flex flex-col md:flex-row items-center gap-12 border-t-4 border-[#005333]/20" data-reveal>
           <div className="md:w-1/2 order-2 md:order-1">
             <h2 
               className="text-3xl md:text-4xl font-serif text-brand mb-6"

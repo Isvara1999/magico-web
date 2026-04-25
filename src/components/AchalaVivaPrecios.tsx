@@ -28,7 +28,7 @@ const AchalaVivaPrecios: React.FC = () => {
           <div className="w-full flex justify-center px-4 mb-12">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative w-full max-w-2xl p-8 md:p-14 text-center flex flex-col items-center hover:shadow-yellow-500/20 transition-shadow duration-500">
               <p className="font-bold text-base md:text-xl mb-4 md:mb-6 uppercase tracking-widest" style={{ color: '#005333' }}>Valor total de la experiencia</p>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#D4AF37' }}>$150.000 ARS</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>$150.000 ARS</div>
               <p className="text-sm md:text-base opacity-80 font-medium tracking-wide" style={{ color: '#005333' }}>Financiación disponible · Seña del 50%</p>
             </div>
           </div>
@@ -38,23 +38,23 @@ const AchalaVivaPrecios: React.FC = () => {
             <h4 className="text-white font-bold uppercase tracking-widest text-sm md:text-base mb-8 text-center serif-title">¿Qué incluye tu inversión?</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 text-left">
               <div className="flex items-center gap-3 text-white/90">
-                <Check weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
+                <Check weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
                 <span><strong>Alojamiento inmersivo</strong> (2 Días / 1 Noche).</span>
               </div>
               <div className="flex items-center gap-3 text-white/90">
-                <Check weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
+                <Check weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
                 <span><strong>Pensión completa</strong> (4 comidas de sábado a domingo).</span>
               </div>
               <div className="flex items-center gap-3 text-white/90">
-                <Check weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
+                <Check weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
                 <span><strong>Guía experto 24/7</strong> (Biólogo Walter Cejas).</span>
               </div>
               <div className="flex items-center gap-3 text-white/90">
-                <Check weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
+                <Check weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
                 <span><strong>Todos los talleres</strong> (Astroturismo, Avistaje, Fotografía).</span>
               </div>
               <div className="flex items-center gap-3 text-white/90 md:col-span-2">
-                <Check weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
+                <Check weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" />
                 <span><strong>Uso libre</strong> de la reserva de 200 hectáreas.</span>
               </div>
             </div>
@@ -63,13 +63,13 @@ const AchalaVivaPrecios: React.FC = () => {
           {/* Cupos */}
           <div className="bg-white/5 border border-white/20 rounded-2xl md:rounded-3xl p-6 md:p-8 mb-12 max-w-4xl mx-auto text-center">
             <h4 className="text-white font-bold tracking-widest text-base mb-4 uppercase flex items-center justify-center gap-2">
-              <Warning weight="thin" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" /> Cupos limitados a 15 personas
+              <Warning weight="light" className="w-6 h-6 text-[#D4AF37] flex-shrink-0" /> Cupos limitados a 15 personas
             </h4>
             <p className="text-white/80 text-sm md:text-base mb-4">
               Para garantizar el silencio, el respeto por la fauna y la atención personalizada del guía, no podemos sumar a nadie más.
             </p>
             <p className="text-[#D4AF37] font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-              <CalendarCheck weight="thin" className="w-5 h-5 flex-shrink-0" />
+              <CalendarCheck weight="light" className="w-5 h-5 flex-shrink-0" />
               Inscripciones cierran el 30 de Abril.
             </p>
           </div>
@@ -80,7 +80,7 @@ const AchalaVivaPrecios: React.FC = () => {
             {/* Beneficios Especiales */}
             <div className="mb-8 text-center bg-white/5 p-6 md:p-8 rounded-2xl border border-[#D4AF37]/40 w-full max-w-lg shadow-xl shadow-black/10">
               <p className="font-bold text-[#D4AF37] mb-4 text-base flex items-center justify-center gap-2">
-                <Gift weight="thin" className="w-5 h-5 flex-shrink-0" /> Beneficios especiales
+                <Gift weight="light" className="w-5 h-5 flex-shrink-0" /> Beneficios especiales
               </p>
               <ul className="text-white/90 text-sm md:text-base space-y-3 text-left w-fit mx-auto font-medium">
                 <li className="flex items-start gap-3"><span className="text-[#D4AF37] font-bold">10% OFF</span> viniendo de a dos.</li>

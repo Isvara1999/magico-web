@@ -86,7 +86,7 @@ const FamilionPrecios: React.FC = () => {
 
         <a
           href={waLink}
-          className="btn-gold w-full md:w-auto block md:inline-block mb-6 hover:animate-pulse hover:shadow-yellow-300/60"
+          className="btn-gold w-full md:w-auto block md:inline-block mb-6"
         >
           Reservar Nuestro Lugar
         </a>

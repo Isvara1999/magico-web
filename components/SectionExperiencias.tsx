@@ -13,7 +13,8 @@ export const SectionExperiencias: React.FC = () => {
           <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">
             {t.experiences.tag}
           </p>
-          <h2 
+          <h2
+            data-reveal
             className="text-3xl md:text-5xl text-brand mb-6 font-serif"
             dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.title as string) as string }}
           />
@@ -27,7 +28,7 @@ export const SectionExperiencias: React.FC = () => {
         </div>
 
         {/* Reset Vital Section */}
-        <div className="mb-20 bg-bone rounded-2xl p-8 md:p-12 shadow-sm border-l-4 border-gold relative overflow-hidden">
+        <div className="mb-20 bg-bone rounded-2xl p-8 md:p-12 shadow-sm border-l-4 border-[#005333]/20 relative overflow-hidden" data-reveal>
           {/* Decorative Icon Background */}
           <BookOpen className="absolute -right-10 -bottom-10 w-64 h-64 text-brand/5 rotate-12" />
           

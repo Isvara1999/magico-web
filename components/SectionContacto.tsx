@@ -53,8 +53,8 @@ export const SectionContacto = () => {
   return (
     <section id="contacto" className="py-24 bg-bone relative">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <h2 
+        <div data-reveal className="text-center mb-12">
+          <h2
             className="text-4xl md:text-5xl text-brand mb-4 font-serif"
             dangerouslySetInnerHTML={{ __html: marked.parse(t.contact.title as string) as string }}
           />
@@ -78,7 +78,7 @@ export const SectionContacto = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder={t.contact.placeholders.name}
-                className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-all rounded-lg font-light text-dark"
+                className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-[border-color,background-color] duration-200 rounded-lg font-light text-dark"
                 required
               />
               <input
@@ -87,7 +87,7 @@ export const SectionContacto = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder={t.contact.placeholders.email}
-                className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-all rounded-lg font-light text-dark"
+                className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-[border-color,background-color] duration-200 rounded-lg font-light text-dark"
                 required
               />
             </div>
@@ -97,7 +97,7 @@ export const SectionContacto = () => {
               value={formData.whatsapp}
               onChange={handleChange}
               placeholder={t.contact.placeholders.whatsapp}
-              className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-all rounded-lg font-light text-dark"
+              className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-[border-color,background-color] duration-200 rounded-lg font-light text-dark"
             />
             <textarea
               name="message"
@@ -105,7 +105,7 @@ export const SectionContacto = () => {
               onChange={handleChange}
               rows={4}
               placeholder={t.contact.placeholders.message}
-              className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-all rounded-lg font-light text-dark"
+              className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-[border-color,background-color] duration-200 rounded-lg font-light text-dark"
               required
             ></textarea>
 
@@ -114,10 +114,10 @@ export const SectionContacto = () => {
                 type="submit"
                 disabled={status === 'submitting' || status === 'success'}
                 className={`
-                  w-full md:w-auto px-12 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg mt-4 transition-all duration-300 flex items-center justify-center gap-2
-                  ${status === 'success' 
-                    ? 'bg-green-600 text-white cursor-default' 
-                    : 'bg-gold text-white hover:bg-brand disabled:opacity-70 disabled:cursor-not-allowed'}
+                  w-full md:w-auto px-12 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg mt-4 flex items-center justify-center gap-2
+                  ${status === 'success'
+                    ? 'bg-green-600 text-white cursor-default'
+                    : 'bg-gold text-white hover:bg-brand disabled:opacity-70 disabled:cursor-not-allowed transition-[background-color,opacity] duration-300'}
                 `}
               >
                 {status === 'submitting' ? (
