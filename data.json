@@ -340,6 +340,7 @@
       "description": "Un refugio de montaña diseñado para inspirar vidas más simples, conscientes y conectadas con la naturaleza.",
       "titles": {
         "explore": "Explorar",
+        "experiences": "Experiencias",
         "legal": "Legal"
       },
       "links": {
@@ -347,6 +348,12 @@
         "privacy": "Políticas de Privacidad",
         "faq": "Preguntas Frecuentes"
       },
+      "experienceLinks": [
+        { "label": "Familion", "href": "/familion" },
+        { "label": "Achala Viva", "href": "/achala-viva" },
+        { "label": "Gondorbows", "href": "/gondorbows" },
+        { "label": "Aulas Verdes", "href": "/escuelas" }
+      ],
       "copyright": "Mágico Ensueño Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Hecho con respeto a la montaña"
     },
@@ -697,6 +704,7 @@
       "description": "A mountain refuge designed to inspire simpler, conscious lives connected with nature.",
       "titles": {
         "explore": "Explore",
+        "experiences": "Experiences",
         "legal": "Legal"
       },
       "links": {
@@ -704,6 +712,12 @@
         "privacy": "Privacy Policy",
         "faq": "FAQ"
       },
+      "experienceLinks": [
+        { "label": "Familion", "href": "/familion" },
+        { "label": "Achala Viva", "href": "/achala-viva" },
+        { "label": "Gondorbows", "href": "/gondorbows" },
+        { "label": "Green Classrooms", "href": "/escuelas" }
+      ],
       "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Made with respect for the mountain"
     },

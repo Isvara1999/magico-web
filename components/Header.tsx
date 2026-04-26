@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,6 +9,10 @@ export const Header: React.FC = () => {
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('');
   const { language, toggleLanguage, t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === '/';
 
   // Scroll effect for header styling
   useEffect(() => {
@@ -21,9 +26,14 @@ export const Header: React.FC = () => {
 
   // Intersection Observer for Active Section Highlighting
   useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection('');
+      return;
+    }
+
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px', // Active when section is near top/center
+      rootMargin: '-20% 0px -60% 0px',
       threshold: 0
     };
 
@@ -37,15 +47,14 @@ export const Header: React.FC = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Collect all IDs to observe
     const idsToObserve = new Set<string>();
-    t.menu.items.forEach(item => {
+    t.menu.items.forEach((item: any) => {
       if (item.href.startsWith('#')) idsToObserve.add(item.href.substring(1));
-      item.submenu?.forEach(sub => {
+      item.submenu?.forEach((sub: any) => {
         if (sub.href.startsWith('#')) idsToObserve.add(sub.href.substring(1));
       });
     });
-    idsToObserve.add('contacto'); // Button link
+    idsToObserve.add('contacto');
 
     idsToObserve.forEach(id => {
       const element = document.getElementById(id);
@@ -53,7 +62,7 @@ export const Header: React.FC = () => {
     });
 
     return () => observer.disconnect();
-  }, [t.menu.items]);
+  }, [t.menu.items, isHomePage]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -69,24 +78,29 @@ export const Header: React.FC = () => {
 
     // Navigation logic
     if (href.startsWith('#')) {
-      e.preventDefault();
-      const targetId = href.substring(1);
-      const element = document.getElementById(targetId);
-      
-      if (element) {
+      if (isHomePage) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const element = document.getElementById(targetId);
+        
+        if (element) {
+          setIsMobileMenuOpen(false);
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        }
+      } else {
+        // On a sub-landing, we let the link navigate to /#section
         setIsMobileMenuOpen(false);
-        // Smooth scroll
-        element.scrollIntoView({ behavior: 'smooth' });
-        // Update URL hash manually to keep history clean
-        window.history.pushState(null, '', href);
       }
+    } else {
+      setIsMobileMenuOpen(false);
     }
   };
 
   // Helper to check if link is active
   const isLinkActive = (href: string) => {
-    if (!href.startsWith('#')) return false;
-    return activeSection === href.substring(1);
+    if (!href.startsWith('#')) return location.pathname === href;
+    return isHomePage && activeSection === href.substring(1);
   };
 
   // Dynamic Classes
@@ -109,7 +123,12 @@ export const Header: React.FC = () => {
   return (
     <header className={pillClasses}>
       <div className="flex justify-between items-center w-full lg:px-0 px-2">
-        <a href="#" className="relative z-[1200]" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }}>
+        <a href="/" className="relative z-[1200]" onClick={(e) => { 
+          if (isHomePage) {
+            e.preventDefault(); 
+            window.scrollTo({top: 0, behavior: 'smooth'}); 
+          }
+        }}>
           <img
             src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
             alt="Mágico Ensueño"
@@ -140,10 +159,10 @@ export const Header: React.FC = () => {
           `}
         >
           <ul className="flex flex-col lg:flex-row items-center gap-0 lg:gap-[45px] w-full lg:w-auto">
-            {t.menu.items.map((item, index) => (
+            {t.menu.items.map((item: any, index: number) => (
               <li key={index} className="relative group w-full lg:w-auto text-center lg:text-left">
                 <a
-                  href={item.href}
+                  href={item.href.startsWith('#') && !isHomePage ? '/' + item.href : item.href}
                   onClick={(e) => handleNavClick(e, item.href, !!item.submenu, index)}
                   className={`
                     flex items-center justify-center lg:justify-start gap-1.5 py-3.5 lg:py-2.5 
@@ -176,10 +195,10 @@ export const Header: React.FC = () => {
                       ${activeSubmenu === index ? 'block animate-fadeIn' : 'hidden lg:block'}
                     `}
                   >
-                    {item.submenu.map((sub, subIndex) => (
+                    {item.submenu.map((sub: any, subIndex: number) => (
                       <li key={subIndex}>
                         <a
-                          href={sub.href}
+                          href={sub.href.startsWith('#') && !isHomePage ? '/' + sub.href : sub.href}
                           onClick={(e) => handleNavClick(e, sub.href, false, index)}
                           className={`
                             block py-2.5 px-5 text-[14px] lg:text-[12px] transition-all text-center lg:text-left
@@ -238,5 +257,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
     </header>
+
   );
 };
