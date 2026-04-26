@@ -1,11 +1,12 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { WA_MAGICO } from '../../constants';
 
 const AulaVerdePrecios: React.FC = () => {
-  const getWaLink = (plan: string) => "https://wa.me/5493516765820?text=" +
+  const getWaLink = (plan: string) => "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent(`Hola! Vengo de Aula Verde y quiero consultar por el plan: ${plan}.`);
 
-  const waLinkGeneral = "https://wa.me/5493516765820?text=" +
+  const waLinkGeneral = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("Hola! Vengo de Aula Verde y quiero solicitar presupuesto y disponibilidad.");
 
   return (

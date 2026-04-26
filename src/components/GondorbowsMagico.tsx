@@ -1,7 +1,8 @@
 import React from 'react';
+import { WA_GONDOR } from '../../constants';
 
 const GondorbowsMagico: React.FC = () => {
-  const consultLink = "https://wa.me/5491157300099?text=" +
+  const consultLink = "https://wa.me/" + WA_GONDOR + "?text=" +
     encodeURIComponent("¡Hola Fausto! Estoy organizando mi viaje para el retiro de Gondorbows y quería consultar bien la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️🗺️");
 
   return (
@@ -107,6 +108,7 @@ const GondorbowsMagico: React.FC = () => {
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>
             </div>
@@ -120,6 +122,7 @@ const GondorbowsMagico: React.FC = () => {
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>
             </div>
@@ -133,6 +136,7 @@ const GondorbowsMagico: React.FC = () => {
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                 className="absolute top-0 left-0 w-full h-full"
               ></iframe>
             </div>

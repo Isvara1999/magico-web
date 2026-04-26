@@ -1,5 +1,8 @@
 import React from 'react';
 import { MenuItem, Testimonial, Experience, Pillar } from './types';
+
+export const WA_MAGICO = '5493516765820';
+export const WA_GONDOR = '5491157300099';
 import { Leaf, Users, Heart, Coffee } from 'lucide-react';
 
 export const MENU_ITEMS: MenuItem[] = [

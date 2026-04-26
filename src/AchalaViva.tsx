@@ -8,6 +8,7 @@ import AchalaVivaHero from './components/AchalaVivaHero';
 import AchalaVivaMagico from './components/AchalaVivaMagico';
 import AchalaVivaPrecios from './components/AchalaVivaPrecios';
 import AchalaVivaFAQ from './components/AchalaVivaFAQ';
+import { WA_MAGICO } from '../constants';
 
 const AchalaViva: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -60,6 +61,17 @@ const AchalaViva: React.FC = () => {
     setMeta('meta[property="og:type"]',   'property', 'og:type');
     setMeta('meta[property="og:type"]',   'content',  'website');
     setLink('canonical', URL);
+
+    setMeta('meta[name="twitter:card"]',        'name',    'twitter:card');
+    setMeta('meta[name="twitter:card"]',        'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]',       'name',    'twitter:title');
+    setMeta('meta[name="twitter:title"]',       'content', TITLE);
+    setMeta('meta[name="twitter:description"]', 'name',    'twitter:description');
+    setMeta('meta[name="twitter:description"]', 'content', DESC);
+    setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
+    setMeta('meta[name="twitter:image"]',       'content', IMG);
+    setMeta('meta[property="og:locale"]',       'property', 'og:locale');
+    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
 
     const schema = {
       "@context": "https://schema.org",
@@ -134,18 +146,6 @@ const AchalaViva: React.FC = () => {
       setTouchStart(0);
       setTouchEnd(0);
   };
-
-  // Scroll reveal
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
-    );
-    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length);
@@ -421,7 +421,7 @@ const AchalaViva: React.FC = () => {
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             Achala Viva es la pausa que tu instinto busca. Unimos ciencia, contemplación y descanso para ofrecerte una inmersión inolvidable.
           </p>
-          <a data-reveal data-delay="2" href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8" className="btn-gold inline-block">
+          <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8"} className="btn-gold inline-block">
             Asegurar mi lugar
           </a>
         </div>
@@ -443,7 +443,7 @@ const AchalaViva: React.FC = () => {
           <p className="text-[11px] text-gray-400 truncate">15 plazas · Cierra el 30 de Abril</p>
         </div>
         <a
-          href="https://wa.me/5493516765820?text=%C2%A1Hola!%20Quiero%20reservar%20mi%20lugar%20en%20Achala%20Viva.%20%E2%9C%A8"
+          href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Quiero%20reservar%20mi%20lugar%20en%20Achala%20Viva.%20%E2%9C%A8"}
           className="btn-gold flex-shrink-0 whitespace-nowrap"
           style={{ padding: '0.5rem 1.1rem', fontSize: '0.78rem', borderRadius: '40px' }}
         >

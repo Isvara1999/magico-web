@@ -8,6 +8,7 @@ import FamilionHero from './components/FamilionHero';
 import FamilionMagico from './components/FamilionMagico';
 import FamilionPrecios from './components/FamilionPrecios';
 import FamilionFAQ from './components/FamilionFAQ';
+import { WA_MAGICO } from '../constants';
 
 
 
@@ -61,6 +62,17 @@ const Familion: React.FC = () => {
     setMeta('meta[property="og:type"]',        'property', 'og:type');
     setMeta('meta[property="og:type"]',        'content',  'website');
     setLink('canonical', URL);
+
+    setMeta('meta[name="twitter:card"]',        'name',    'twitter:card');
+    setMeta('meta[name="twitter:card"]',        'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]',       'name',    'twitter:title');
+    setMeta('meta[name="twitter:title"]',       'content', TITLE);
+    setMeta('meta[name="twitter:description"]', 'name',    'twitter:description');
+    setMeta('meta[name="twitter:description"]', 'content', DESC);
+    setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
+    setMeta('meta[name="twitter:image"]',       'content', IMG);
+    setMeta('meta[property="og:locale"]',       'property', 'og:locale');
+    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
 
     const schema = {
       "@context": "https://schema.org",
@@ -138,6 +150,7 @@ const Familion: React.FC = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                   allowFullScreen
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   className="w-full h-full rounded-3xl"
                 ></iframe>
               </div>
@@ -390,7 +403,7 @@ const Familion: React.FC = () => {
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             Familion es la pausa que tu familia necesita: tres días sin prisa, con tribu real, en la sierra que sana.
           </p>
-          <a data-reveal data-delay="2" href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20consultar%20la%20experiencia." className="btn-gold inline-block">
+          <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20consultar%20la%20experiencia."} className="btn-gold inline-block">
             Asegurar nuestro lugar
           </a>
         </div>

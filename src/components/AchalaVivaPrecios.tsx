@@ -1,11 +1,12 @@
 import React from 'react';
 import { Check, Warning, CalendarCheck, Gift } from '@phosphor-icons/react';
+import { WA_MAGICO } from '../../constants';
 
 const AchalaVivaPrecios: React.FC = () => {
-  const waLinkMain = "https://wa.me/5493516765820?text=" +
+  const waLinkMain = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("¡Hola! Vengo de la web y me encantaría reservar mi lugar para la inmersión Achala Viva. Quisiera hacer una seña para asegurar mi participación, ¿cómo podemos hacer? ✨");
 
-  const waLinkFechas = "https://wa.me/5493516765820?text=" +
+  const waLinkFechas = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("¡Hola! Me encantó la propuesta de Achala Viva pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
 
   return (

@@ -50,6 +50,17 @@ const Main: React.FC = () => {
     setMeta('meta[property="og:type"]',        'content',  'website');
     setLink('canonical', URL);
 
+    setMeta('meta[name="twitter:card"]',        'name',    'twitter:card');
+    setMeta('meta[name="twitter:card"]',        'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]',       'name',    'twitter:title');
+    setMeta('meta[name="twitter:title"]',       'content', TITLE);
+    setMeta('meta[name="twitter:description"]', 'name',    'twitter:description');
+    setMeta('meta[name="twitter:description"]', 'content', DESC);
+    setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
+    setMeta('meta[name="twitter:image"]',       'content', IMG);
+    setMeta('meta[property="og:locale"]',       'property', 'og:locale');
+    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
+
     const schema = {
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",

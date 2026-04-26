@@ -1,8 +1,9 @@
 import React from 'react';
 import { Recycle, Sun, Leaf } from '@phosphor-icons/react';
+import { WA_MAGICO } from '../../constants';
 
 const AchalaVivaMagico: React.FC = () => {
-  const consultLink = "https://wa.me/5493516765820?text=" +
+  const consultLink = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("¡Hola! Estoy organizando mi viaje para el retiro de Achala Viva y quería consultar bien la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️🗺️");
 
   return (

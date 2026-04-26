@@ -1,7 +1,8 @@
 import React from 'react';
+import { WA_MAGICO } from '../../constants';
 
 const FamilionMagico: React.FC = () => {
-  const consultLink = "https://wa.me/5493516765820?text=" +
+  const consultLink = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("Hola! Vengo de Familion y quiero consultar la ubicación exacta y cómo llegar.");
 
   return (

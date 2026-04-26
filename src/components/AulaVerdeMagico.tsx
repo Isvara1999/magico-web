@@ -1,8 +1,9 @@
 import React from 'react';
 import { User, Heartbeat, ShieldCheck } from '@phosphor-icons/react';
+import { WA_MAGICO } from '../../constants';
 
 const AulaVerdeMagico: React.FC = () => {
-  const consultLink = "https://wa.me/5493516765820?text=" +
+  const consultLink = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("Hola! Vengo de Aula Verde y quiero consultar la ubicación exacta y cómo llegar.");
 
   return (

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { WA_MAGICO } from '../../constants';
 
 const FamilionPrecios: React.FC = () => {
-  const waLink = "https://wa.me/5493516765820?text=" +
+  const waLink = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("Hola! Vengo de Familion y quiero reservar mi lugar en Familion.");
 
   return (

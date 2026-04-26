@@ -2,19 +2,19 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eco‑Refugio & Glamping — Mágico Ensueño</title>
   <meta name="description" content="Ecocentro en Sierras Grandes (Córdoba, AR): retiros, co‑living, glamping en domos y yurta, cocina de autor y naturaleza." />
   
   <link rel="icon" href="/favicon.svg" />
-  <!-- LCP HERO PRELOADS -->
+  <!-- LCP HERO PRELOAD (home page) -->
   <link rel="preload" as="image" href="/uploads/img_6948.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/uploads/portada familion.webp" fetchpriority="high">
 
   <!-- PRECONEXIONES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
   
   <!-- FUENTES GLOBALES (Marcellus + Nunito para páginas que aún las usan) -->
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -33,14 +33,15 @@
     html { scroll-behavior: smooth; }
     body { background-color: #F9F8F4; color: #1A1A1A; margin: 0; padding: 0; }
     #loader-container {
-      height: 100vh; width: 100%; background-color: #F9F8F4; 
+      height: 100vh; width: 100%; background-color: #F9F8F4;
       display: flex; justify-content: center; align-items: center;
       position: fixed; top: 0; left: 0; z-index: 9999;
     }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
   </style>
 
   <script>
-    const ICON_LIGHT = "https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"; 
+    const ICON_LIGHT = "/uploads/logo negro.svg";
     function updateFavicon() {
       // Lógica simple para futuro soporte dark mode si es necesario
     }
@@ -68,7 +69,7 @@
   <div id="root">
     <div id="loader-container">
       <img 
-        src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg" 
+        src="/uploads/logo negro.svg"
         style="height: 80px; width: auto; animation: pulse 2.5s infinite ease-in-out;" 
         alt="Cargando..." 
       />

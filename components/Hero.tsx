@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
         {/* Logo Container */}
         <div className="mb-8 md:mb-12">
           <img
-            src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
+            src="/uploads/logo negro.svg"
             alt="Mágico Ensueño"
             className="h-12 md:h-16 w-auto mx-auto brightness-0 invert opacity-90"
           />

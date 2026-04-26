@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Mágico Ensueño - Reset Vital',
-        short_name: 'Reset Vital',
-        description: 'Guía de retiro autoguiado de 5 días.',
+        name: 'Mágico Ensueño',
+        short_name: 'Mágico Ensueño',
+        description: 'Ecocentro en Sierras Grandes de Córdoba: retiros, glamping, campamentos educativos y voluntariados en la montaña.',
         theme_color: '#FDFBF7',
         background_color: '#FDFBF7',
         display: 'standalone',

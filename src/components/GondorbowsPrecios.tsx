@@ -1,11 +1,12 @@
 import React from 'react';
 import { Check, Target, ForkKnife, Hammer, ChalkboardTeacher, House, Plant, Warning } from '@phosphor-icons/react';
+import { WA_GONDOR } from '../../constants';
 
 const GondorbowsPrecios: React.FC = () => {
-  const waLinkMain = "https://wa.me/5491157300099?text=" +
+  const waLinkMain = "https://wa.me/" + WA_GONDOR + "?text=" +
     encodeURIComponent("¡Hola Fausto! Vengo de la web y me encantaría reservar mi lugar para Gondorbows. Quisiera hacer una seña para asegurar mi participación, ¿cómo podemos hacer? ✨");
 
-  const waLinkFechas = "https://wa.me/5491157300099?text=" +
+  const waLinkFechas = "https://wa.me/" + WA_GONDOR + "?text=" +
     encodeURIComponent("¡Hola Fausto! Me encantó la propuesta de Gondorbows pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
   return (
     <>
@@ -29,6 +30,7 @@ const GondorbowsPrecios: React.FC = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   title="Testimonio de la comunidad 1"
                 ></iframe>
               </div>
@@ -43,6 +45,7 @@ const GondorbowsPrecios: React.FC = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   title="Testimonio de la comunidad 2"
                 ></iframe>
               </div>
@@ -57,6 +60,7 @@ const GondorbowsPrecios: React.FC = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   title="Testimonio de la comunidad 3"
                 ></iframe>
               </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -7,17 +7,19 @@ import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, Chalkb
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
 import AulaVerdeTestimonio from './components/AulaVerdeTestimonio';
-import AulaVerdeLeadMagnet from './components/AulaVerdeLeadMagnet';
 import AulaVerdePrecios from './components/AulaVerdePrecios';
 import AulaVerdeFAQ from './components/AulaVerdeFAQ';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { WA_MAGICO } from '../constants';
+
+const AulaVerdeLeadMagnet = lazy(() => import('./components/AulaVerdeLeadMagnet'));
 
 const AulaVerde: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Aula Verde — Campamentos Educativos · Los Gigantes, Córdoba | Mágico Ensueño';
     const DESC  = 'Campamentos educativos en Los Gigantes, Córdoba. Talleres agroecológicos, aventura y naturaleza. Para escuelas, primaria y secundaria. Capacidad hasta 180 alumnos.';
     const URL   = 'https://experienciamagico.com/escuelas';
-    const IMG   = 'https://experienciamagico.com/uploads/portada familion.webp';
+    const IMG   = 'https://experienciamagico.com/uploads/Aula Verde/IMG-20251120-WA0149.jpg';
     const prevTitle = document.title;
 
     document.title = TITLE;
@@ -45,6 +47,17 @@ const AulaVerde: React.FC = () => {
     setMeta('meta[property="og:type"]',        'property', 'og:type');
     setMeta('meta[property="og:type"]',        'content',  'website');
     setLink('canonical', URL);
+
+    setMeta('meta[name="twitter:card"]',        'name',    'twitter:card');
+    setMeta('meta[name="twitter:card"]',        'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]',       'name',    'twitter:title');
+    setMeta('meta[name="twitter:title"]',       'content', TITLE);
+    setMeta('meta[name="twitter:description"]', 'name',    'twitter:description');
+    setMeta('meta[name="twitter:description"]', 'content', DESC);
+    setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
+    setMeta('meta[name="twitter:image"]',       'content', IMG);
+    setMeta('meta[property="og:locale"]',       'property', 'og:locale');
+    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
 
     const schema = {
       "@context": "https://schema.org",
@@ -157,6 +170,7 @@ const AulaVerde: React.FC = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                   allowFullScreen
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   loading="lazy"
                   className="w-full h-full rounded-3xl"
                 ></iframe>
@@ -291,7 +305,9 @@ const AulaVerde: React.FC = () => {
       <AulaVerdeTestimonio />
 
       {/* ====== LEAD MAGNET (DESCARGA DE PDF) ====== */}
-      <AulaVerdeLeadMagnet />
+      <Suspense fallback={<div className="h-32" />}>
+        <AulaVerdeLeadMagnet />
+      </Suspense>
 
       {/* ====== PRECIOS ====== */}
       <AulaVerdePrecios />
@@ -308,7 +324,7 @@ const AulaVerde: React.FC = () => {
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             En Aula Verde te acompañamos en cada paso: propuesta pedagógica, logística y seguridad. Todo adaptado a la medida de tu institución.
           </p>
-          <a data-reveal data-delay="2" href="https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20Aula%20Verde%20y%20quiero%20solicitar%20presupuesto%20para%20mi%20escuela." className="btn-gold inline-block">
+          <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=Hola!%20Vengo%20de%20Aula%20Verde%20y%20quiero%20solicitar%20presupuesto%20para%20mi%20escuela."} className="btn-gold inline-block">
             Solicitar asesoramiento
           </a>
         </div>

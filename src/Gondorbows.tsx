@@ -25,8 +25,8 @@ const Gondorbows: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Gondorbows — Retiro de Arquería Ancestral · Los Gigantes, Córdoba | Mágico Ensueño';
     const DESC  = 'Construí tu propio arco en 3 días de inmersión en Los Gigantes, Córdoba. Taller de arquería tradicional con Gondor Bows. Todo incluido. Sin experiencia previa necesaria.';
-    const URL   = 'https://www.experienciamagico.com/gondorbows';
-    const IMG   = 'https://www.experienciamagico.com/uploads/arcos-fuego.jpg';
+    const URL   = 'https://experienciamagico.com/gondorbows';
+    const IMG   = 'https://experienciamagico.com/uploads/arcos-fuego.jpg';
     const prevTitle = document.title;
 
     document.title = TITLE;
@@ -54,6 +54,17 @@ const Gondorbows: React.FC = () => {
     setMeta('meta[property="og:type"]',        'property', 'og:type');
     setMeta('meta[property="og:type"]',        'content',  'website');
     setLink('canonical', URL);
+
+    setMeta('meta[name="twitter:card"]',        'name',    'twitter:card');
+    setMeta('meta[name="twitter:card"]',        'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]',       'name',    'twitter:title');
+    setMeta('meta[name="twitter:title"]',       'content', TITLE);
+    setMeta('meta[name="twitter:description"]', 'name',    'twitter:description');
+    setMeta('meta[name="twitter:description"]', 'content', DESC);
+    setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
+    setMeta('meta[name="twitter:image"]',       'content', IMG);
+    setMeta('meta[property="og:locale"]',       'property', 'og:locale');
+    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
 
     const schema = {
       "@context": "https://schema.org",
@@ -212,6 +223,7 @@ const Gondorbows: React.FC = () => {
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
               className="rounded-2xl shadow-2xl"
             ></iframe>
           </div>
