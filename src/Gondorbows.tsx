@@ -7,6 +7,7 @@ import { Target, House, ForkKnife, Star, Sun, Moon, CaretLeft, CaretRight } from
 import GondorbowsHero from './components/GondorbowsHero';
 import GondorbowsMagico from './components/GondorbowsMagico';
 import GondorbowsPrecios from './components/GondorbowsPrecios';
+import GondorbowsFAQ from './components/GondorbowsFAQ';
 
 const Gondorbows: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'refugio' | 'domo'>('refugio');
@@ -19,6 +20,93 @@ const Gondorbows: React.FC = () => {
     { src: "/uploads/grupo.jpg", alt: "Comunidad y tribu con sus arcos" },
     { src: "/uploads/comida.jpg", alt: "Parrilla con comida serrana" }
   ];
+
+  // SEO — title, meta, OG, canonical y JSON-LD
+  useEffect(() => {
+    const TITLE = 'Gondorbows — Retiro de Arquería Ancestral · Los Gigantes, Córdoba | Mágico Ensueño';
+    const DESC  = 'Construí tu propio arco en 3 días de inmersión en Los Gigantes, Córdoba. Taller de arquería tradicional con Gondor Bows. Todo incluido. Sin experiencia previa necesaria.';
+    const URL   = 'https://www.experienciamagico.com/gondorbows';
+    const IMG   = 'https://www.experienciamagico.com/uploads/arcos-fuego.jpg';
+    const prevTitle = document.title;
+
+    document.title = TITLE;
+
+    const setMeta = (sel: string, attr: string, val: string) => {
+      let el = document.querySelector(sel) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement('meta'); document.head.appendChild(el); }
+      el.setAttribute(attr, val);
+    };
+    const setLink = (rel: string, href: string) => {
+      let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+      if (!el) { el = document.createElement('link'); el.setAttribute('rel', rel); document.head.appendChild(el); }
+      el.setAttribute('href', href);
+    };
+
+    setMeta('meta[name="description"]',        'content', DESC);
+    setMeta('meta[property="og:title"]',       'property', 'og:title');
+    setMeta('meta[property="og:title"]',       'content',  TITLE);
+    setMeta('meta[property="og:description"]', 'property', 'og:description');
+    setMeta('meta[property="og:description"]', 'content',  DESC);
+    setMeta('meta[property="og:image"]',       'property', 'og:image');
+    setMeta('meta[property="og:image"]',       'content',  IMG);
+    setMeta('meta[property="og:url"]',         'property', 'og:url');
+    setMeta('meta[property="og:url"]',         'content',  URL);
+    setMeta('meta[property="og:type"]',        'property', 'og:type');
+    setMeta('meta[property="og:type"]',        'content',  'website');
+    setLink('canonical', URL);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Event",
+          "name": "Gondorbows — Retiro de Arquería Ancestral en Los Gigantes",
+          "description": "3 días de retiro inmersivo: construí tu propio arco de arquería tradicional con materiales naturales guiado por Gondor Bows. Todo incluido. No requiere experiencia previa.",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
+          "organizer": [
+            { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+            { "@type": "Organization", "name": "Gondor Bows", "foundingDate": "2015", "description": "Organización dedicada a recuperar el arte ancestral de la arquería tradicional." }
+          ],
+          "offers": { "@type": "Offer", "url": URL, "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "description": "Todo incluido: materiales, alojamiento y gastronomía completa. 10% OFF viniendo de a dos." },
+          "maximumAttendeeCapacity": 12,
+          "image": IMG,
+          "keywords": "arquería tradicional Córdoba, taller arco y flecha Argentina, retiro artesanal Córdoba, tecnología primitiva"
+        },
+        {
+          "@type": "Course",
+          "name": "Construcción de Arco Tradicional — Gondorbows",
+          "description": "Taller práctico de 3 días para construir un arco de alto rendimiento desde cero usando técnicas ancestrales. Multinivel: apto para principiantes y avanzados.",
+          "provider": { "@type": "Organization", "name": "Gondor Bows" },
+          "coursePrerequisites": "No requiere experiencia previa",
+          "educationalLevel": "Multinivel"
+        }
+      ]
+    };
+    const ldScript = document.createElement('script');
+    ldScript.type = 'application/ld+json';
+    ldScript.id   = 'ld-gondorbows';
+    ldScript.textContent = JSON.stringify(schema);
+    if (!document.getElementById('ld-gondorbows')) document.head.appendChild(ldScript);
+
+    return () => {
+      document.title = prevTitle;
+      document.getElementById('ld-gondorbows')?.remove();
+    };
+  }, []);
+
+  // Scroll-reveal
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   // Autoplay
   useEffect(() => {
@@ -40,158 +128,8 @@ const Gondorbows: React.FC = () => {
     <LanguageProvider>
       <>
         <Header />
-        <div className="bg-white text-gray-800 overflow-x-hidden" style={{ fontFamily: "'Nunito', sans-serif" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@300;400;600;700&display=swap');
-        
-        
-        * { font-family: 'Nunito', sans-serif; }
-        h1, h2, h3, h4, .serif-title { font-family: 'Marcellus', serif; }
-        
-        .brand-green { color: #005333; }
-        .bg-brand-green { background-color: #005333; }
-        .brand-gold { color: #D4AF37; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        
-        .btn-gold {
-          background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
-          color: #005333;
-          padding: 1rem 2.5rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.9rem;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-        }
-        
-        .btn-gold:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
-        }
-        
-        .btn-glass {
-          background: rgba(255, 255, 255, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.85rem;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-        }
+        <div className="bg-white text-gray-800 overflow-x-hidden">
 
-        /* Hero-specific smaller CTAs */
-        .hero-cta .btn-gold {
-          padding: 0.6rem 1.25rem;
-          font-size: 0.82rem;
-          border-radius: 40px;
-        }
-
-        .hero-cta .btn-glass {
-          padding: 0.6rem 1rem;
-          font-size: 0.78rem;
-          border-radius: 40px;
-          /* make visible on white hero background */
-          color: #005333;
-          border: 1px solid #005333;
-          background: rgba(255,255,255,0.5);
-        }
-        .hero-cta .btn-glass:hover {
-          background: rgba(255,255,255,0.7);
-        }
-
-        /* Ensure hero CTAs are perfectly centered */
-        .hero-cta a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* Global smaller buttons on narrow screens */
-        @media (max-width: 640px) {
-          .btn-gold, .btn-glass {
-            padding: 0.5rem 0.9rem;
-            font-size: 0.78rem;
-          }
-        }
-        
-        .btn-glass:hover {
-          background: rgba(255, 255, 255, 0.25);
-          transform: translateY(-3px);
-        }
-
-        .wave-svg {
-          position: absolute;
-          bottom: -1px;
-          left: 0;
-          width: 100%;
-          height: auto;
-        }
-
-        .card-hover {
-          transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 12px 30px rgba(0, 83, 51, 0.12);
-        }
-
-        .video-aspect {
-          aspect-ratio: 9 / 16;
-          border-radius: 1.5rem;
-          overflow: hidden;
-          max-height: 80vh;
-        }
-
-        .testimonial-quote {
-          position: relative;
-          padding-left: 2rem;
-        }
-        
-        .testimonial-quote:before {
-          content: '"';
-          position: absolute;
-          left: 0;
-          top: -0.5rem;
-          font-size: 4rem;
-          color: #D4AF37;
-          opacity: 0.3;
-          font-family: 'Marcellus', serif;
-        }
-
-        .schedule-item {
-          border-left: 4px solid #D4AF37;
-          padding-left: 1.5rem;
-          padding-top: 1rem;
-          padding-bottom: 1rem;
-        }
-
-        /* Hide scrollbar for carousel */
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}
-
-      </style>
 
       {/* Header removed to avoid blank page if context is missing */}
 
@@ -483,6 +421,9 @@ const Gondorbows: React.FC = () => {
 
       {/* ====== PRECIOS ====== */}
       <GondorbowsPrecios />
+
+      {/* ====== FAQ ====== */}
+      <GondorbowsFAQ />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-white to-slate-50 mt-16 md:mt-32">

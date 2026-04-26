@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Tree, PuzzlePiece, UsersThree, Plant, Leaf, Mountains, Palette, Check } from '@phosphor-icons/react';
+import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon } from '@phosphor-icons/react';
 
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
@@ -15,7 +15,7 @@ import { WhatsAppButton } from '../components/WhatsAppButton';
 const AulaVerde: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Aula Verde — Campamentos Educativos · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Campamentos educativos con propósito en Los Gigantes, Córdoba. Para escuelas y colegios. Talleres agroecológicos, aventura y naturaleza. Adaptados a nivel primario y secundario.';
+    const DESC  = 'Campamentos educativos en Los Gigantes, Córdoba. Talleres agroecológicos, aventura y naturaleza. Para escuelas, primaria y secundaria. Capacidad hasta 180 alumnos.';
     const URL   = 'https://experienciamagico.com/escuelas';
     const IMG   = 'https://experienciamagico.com/uploads/portada familion.webp';
     const prevTitle = document.title;
@@ -48,11 +48,53 @@ const AulaVerde: React.FC = () => {
 
     const schema = {
       "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Aula Verde — Mágico Ensueño",
-      "description": "Campamentos educativos con propósito en la Sierra de Achala. Talleres agroecológicos, aventura y naturaleza para escuelas.",
-      "url": URL,
-      "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } }
+      "@graph": [
+        {
+          "@type": "Service",
+          "name": "Aula Verde — Campamentos Educativos",
+          "provider": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+          "description": "Campamentos educativos en Los Gigantes, Córdoba. Talleres agroecológicos, aventura y naturaleza para escuelas. Adaptado a primaria y secundaria. Capacidad hasta 180 alumnos.",
+          "serviceType": "Campamento educativo",
+          "areaServed": { "@type": "Country", "name": "Argentina" },
+          "url": URL,
+          "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué pasa si llueve o hay mal clima durante el campamento?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Contamos con un Salón Octogonal cerrado y vidriado de más de 100m² y espacios techados donde adaptamos todas las dinámicas grupales, talleres y comidas sin perder la magia de la experiencia." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo funciona la asistencia médica y seguridad?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Trabajamos con Guías Profesionales habilitados y coordinación permanente. La tarifa incluye Seguros de Accidentes Personales y de Responsabilidad Civil, y contamos con protocolos de asistencia médica, estando a solo una hora de los centros urbanos (Tanti/Carlos Paz)." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Se adaptan a dietas especiales, vegetarianos o celíacos?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí. La gastronomía es 100% casera. Si nos avisan con anticipación al hacer la reserva, adaptamos el menú para celiaquía, restricciones alimentarias, vegetarianos o veganos." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo es el acceso para micros o transportes escolares?",
+              "acceptedAnswer": { "@type": "Answer", "text": "El acceso es muy sencillo. Contamos con camino apto para todo tipo de vehículos y los micros escolares pueden llegar directamente hasta la puerta del predio." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Los docentes y acompañantes pagan la misma tarifa?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Manejamos una política de liberados (bonificados) dependiendo de la cantidad de alumnos. Al solicitar el presupuesto, detallamos cuántos lugares bonificados corresponden al grupo." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuántos alumnos puede recibir Mágico Ensueño?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Hemos anfitrionado experiencias de hasta 180 jóvenes. Disponemos de un salón de más de 100m², eco-refugio con habitaciones compartidas, domos geodésicos, baños con agua caliente 24hs y WiFi satelital." }
+            }
+          ]
+        }
+      ]
     };
     const ldScript = document.createElement('script');
     ldScript.type = 'application/ld+json';
@@ -82,149 +124,7 @@ const AulaVerde: React.FC = () => {
       <>
         <Header />
         <div className="bg-white text-gray-800 overflow-x-hidden">
-      <style>{`
-        * { font-family: 'Jost', sans-serif; }
-        h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
 
-        .brand-green { color: #005333; }
-        .bg-brand-green { background-color: #005333; }
-        .brand-gold { color: #D4AF37; }
-        .bg-brand-gold { background-color: #D4AF37; }
-
-        .btn-gold {
-          background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
-          color: #005333;
-          padding: 1rem 2.5rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.9rem;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-          border: none;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .btn-gold:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .btn-glass {
-          background: rgba(255, 255, 255, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.85rem;
-          transition: background-color 0.2s ease;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        /* Hero-specific smaller CTAs */
-        .hero-cta .btn-gold {
-          padding: 0.6rem 1.25rem;
-          font-size: 0.82rem;
-          border-radius: 40px;
-        }
-
-        .hero-cta .btn-glass {
-          padding: 0.6rem 1rem;
-          font-size: 0.78rem;
-          border-radius: 40px;
-          /* make visible on white hero background */
-          color: #005333;
-          border: 1px solid #005333;
-          background: rgba(255,255,255,0.5);
-        }
-        .hero-cta .btn-glass:hover {
-          background: rgba(255,255,255,0.7);
-        }
-
-        /* Ensure hero CTAs are perfectly centered */
-        .hero-cta a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* Global smaller buttons on narrow screens */
-        @media (max-width: 640px) {
-          .btn-gold, .btn-glass {
-            padding: 0.5rem 0.9rem;
-            font-size: 0.78rem;
-          }
-        }
-
-        .btn-glass:hover {
-          background: rgba(255, 255, 255, 0.25);
-        }
-
-        .card-hover {
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .card-hover:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(0, 83, 51, 0.1);
-        }
-
-        .video-aspect {
-          aspect-ratio: 9 / 16;
-          border-radius: 1.5rem;
-          overflow: hidden;
-          max-height: 80vh;
-        }
-
-        .testimonial-quote {
-          position: relative;
-          padding-left: 2rem;
-        }
-
-        .testimonial-quote:before {
-          content: '"';
-          position: absolute;
-          left: 0;
-          top: -0.5rem;
-          font-size: 4rem;
-          color: #005333;
-          opacity: 0.15;
-          font-family: 'Gilda Display', serif;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .btn-gold:hover { transform: none; }
-          .card-hover:hover { transform: none; }
-        }
-
-        /* ── Scroll reveal ── */
-        [data-reveal] {
-          opacity: 0;
-          transform: translateY(22px);
-          transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        [data-reveal].visible { opacity: 1; transform: translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay: 100ms; }
-        [data-reveal][data-delay="2"] { transition-delay: 200ms; }
-        [data-reveal][data-delay="3"] { transition-delay: 300ms; }
-        [data-reveal][data-delay="4"] { transition-delay: 400ms; }
-        @media (prefers-reduced-motion: reduce) {
-          [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
-        }
-      `}
-
-      </style>
 
       {/* ====== HERO SECTION ====== */}
       <AulaVerdeHero />
@@ -277,13 +177,16 @@ const AulaVerde: React.FC = () => {
           </p>
           <div className="divide-y divide-[#E8E4D9]">
             {[
-              { num: "01", title: "Escuelas y Docentes", text: "Para instituciones educativas, docentes, directivos y coordinadores que organizan salidas educativas y campamentos escolares con un enfoque formativo e integral." },
-              { num: "02", title: "Primario y Secundario", text: "Trabajamos con ambos niveles, adaptando cada programa a la edad, etapa educativa y objetivos del grupo. Sin límite de edad mientras sea una propuesta grupal." },
+              { num: "01", Icon: ChalkboardTeacherIcon, title: "Escuelas y Docentes", text: "Para instituciones educativas, docentes, directivos y coordinadores que organizan salidas educativas y campamentos escolares con un enfoque formativo e integral." },
+              { num: "02", Icon: UsersThreeIcon, title: "Primario y Secundario", text: "Trabajamos con ambos niveles, adaptando cada programa a la edad, etapa educativa y objetivos del grupo. Sin límite de edad mientras sea una propuesta grupal." },
             ].map((item) => (
               <div key={item.num} data-reveal className="py-8 flex flex-col md:flex-row gap-4 md:gap-12 items-start">
                 <div className="md:w-52 flex-shrink-0">
                   <span className="serif-title text-4xl font-light block leading-none" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
-                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mt-2">{item.title}</h4>
+                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mt-2 flex items-center gap-2">
+                    <item.Icon weight="light" className="w-4 h-4 flex-shrink-0 opacity-60" aria-hidden="true" />
+                    {item.title}
+                  </h4>
                 </div>
                 <p className="text-gray-600 text-base leading-relaxed">{item.text}</p>
               </div>
@@ -303,15 +206,18 @@ const AulaVerde: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             {[
-              { num: "01", title: "Entorno Natural Privilegiado", text: "Inmerso en montañas y bosques nativos de las Sierras Grandes para explorar con seguridad y guías expertos." },
-              { num: "02", title: "Metodología Vivencial", text: "Aprender puramente desde la experiencia y la reflexión. Nada de pizarrones; todo de tierra, arroyos y cielo abierto." },
-              { num: "03", title: "Trabajo en Equipo y Convivencia", text: "Fomentamos la curiosidad, el pensamiento crítico y la conexión genuina entre pares y con la naturaleza." },
-              { num: "04", title: "Sustentabilidad Activa", text: "Compostaje, plantación de tabaquillos, 100% energía solar. Los chicos no solo aprenden sobre sustentabilidad: la practican." },
+              { num: "01", Icon: MountainsIcon, title: "Entorno Natural Privilegiado", text: "Inmerso en montañas y bosques nativos de las Sierras Grandes para explorar con seguridad y guías expertos." },
+              { num: "02", Icon: LeafIcon,      title: "Metodología Vivencial",        text: "Aprender puramente desde la experiencia y la reflexión. Nada de pizarrones; todo de tierra, arroyos y cielo abierto." },
+              { num: "03", Icon: UsersThreeIcon, title: "Trabajo en Equipo y Convivencia", text: "Fomentamos la curiosidad, el pensamiento crítico y la conexión genuina entre pares y con la naturaleza." },
+              { num: "04", Icon: PlantIcon,     title: "Sustentabilidad Activa",       text: "Compostaje, plantación de tabaquillos, 100% energía solar. Los chicos no solo aprenden sobre sustentabilidad: la practican." },
             ].map((item, i) => (
               <div key={item.num} data-reveal data-delay={String(i + 1)} className={`py-7 flex items-start gap-6 ${i < 2 ? 'border-b border-[#E8E4D9]' : ''} ${i > 1 ? 'border-b border-[#E8E4D9] md:border-b-0' : ''}`}>
                 <span className="serif-title text-2xl font-light flex-shrink-0 w-9 leading-none mt-0.5" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
                 <div>
-                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1">{item.title}</h4>
+                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1 flex items-center gap-2">
+                    <item.Icon weight="light" className="w-4 h-4 flex-shrink-0 opacity-60" aria-hidden="true" />
+                    {item.title}
+                  </h4>
                   <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
                 </div>
               </div>
@@ -335,7 +241,10 @@ const AulaVerde: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-0 divide-y md:divide-y-0 divide-[#E8E4D9]">
             {/* Talleres Agroecológicos */}
             <div data-reveal className="py-8 md:py-0 md:border-r md:border-[#E8E4D9] md:pr-10">
-              <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Módulo 01</p>
+              <div className="flex items-center gap-2 mb-3">
+                <PlantIcon weight="light" className="w-5 h-5 text-[#005333]/40" aria-hidden="true" />
+                <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">Módulo 01</p>
+              </div>
               <h3 className="text-xl md:text-2xl serif-title brand-green mb-6">Talleres Agroecológicos</h3>
               <div className="divide-y divide-[#EDEBE3]">
                 {["Huerta y Cultivos Orgánicos", "Cocina Saludable y Regenerativa", "Compostaje y Reciclaje", "Botiquín Natural"].map((item, i) => (
@@ -346,7 +255,10 @@ const AulaVerde: React.FC = () => {
 
             {/* Aventura y Naturaleza */}
             <div data-reveal data-delay="1" className="py-8 md:py-0 md:border-r md:border-[#E8E4D9] md:px-10">
-              <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Módulo 02</p>
+              <div className="flex items-center gap-2 mb-3">
+                <MountainsIcon weight="light" className="w-5 h-5 text-[#005333]/40" aria-hidden="true" />
+                <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">Módulo 02</p>
+              </div>
               <h3 className="text-xl md:text-2xl serif-title brand-green mb-6">Aventura y Naturaleza</h3>
               <div className="divide-y divide-[#EDEBE3]">
                 {["Exploración de Arroyos y Ríos", "Senderismo y Aventura de Montaña", "Reconocimiento de Flora y Mundo Mineral", "Avistaje de Aves", "Conservación de Biodiversidad"].map((item, i) => (
@@ -357,7 +269,10 @@ const AulaVerde: React.FC = () => {
 
             {/* Arte y Expresión */}
             <div data-reveal data-delay="2" className="py-8 md:py-0 md:pl-10">
-              <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Módulo 03</p>
+              <div className="flex items-center gap-2 mb-3">
+                <PaletteIcon weight="light" className="w-5 h-5 text-[#005333]/40" aria-hidden="true" />
+                <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">Módulo 03</p>
+              </div>
               <h3 className="text-xl md:text-2xl serif-title brand-green mb-6">Arte y Expresión</h3>
               <div className="divide-y divide-[#EDEBE3]">
                 {["Arte Natural y Reciclaje", "Artes Escénicas y Teatro", "Música y Expresión Corporal", "Fogones Culturales"].map((item, i) => (

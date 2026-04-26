@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Campfire, Sun, Moon } from '@phosphor-icons/react';
+import { CampfireIcon, SunIcon, MoonIcon, UsersThreeIcon, LeafIcon, ForkKnifeIcon, StarIcon } from '@phosphor-icons/react';
 
-import FamilionHero from './components/FamilionHero.tsx';
-import FamilionMagico from './components/FamilionMagico.tsx';
-import FamilionPrecios from './components/FamilionPrecios.tsx';
+import FamilionHero from './components/FamilionHero';
+import FamilionMagico from './components/FamilionMagico';
+import FamilionPrecios from './components/FamilionPrecios';
+import FamilionFAQ from './components/FamilionFAQ';
 
 
 
@@ -30,7 +31,7 @@ const Familion: React.FC = () => {
   // SEO — title, meta, OG, canonical y JSON-LD
   useEffect(() => {
     const TITLE = 'Familion — Retiro Familiar en la Montaña · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Tres días de inmersión familiar en Los Gigantes, Córdoba. 1, 2 y 3 de Mayo. Adultos en red, niños en libertad, gastronomía de montaña y experiencias transformadoras. Solo para familias.';
+    const DESC  = 'Retiro familiar en Los Gigantes, Córdoba. 1 al 3 de Mayo. Adultos en red, niños en libertad, gastronomía de montaña y experiencias transformadoras. Yoga, temazcal y tribu real.';
     const URL   = 'https://experienciamagico.com/familion';
     const IMG   = 'https://experienciamagico.com/uploads/portada familion.webp';
     const prevTitle = document.title;
@@ -66,8 +67,8 @@ const Familion: React.FC = () => {
       "@type": "Event",
       "name": "Familion — Retiro Familiar en Los Gigantes",
       "description": "Retiro de inmersión familiar de 3 días en la Sierra de Achala. Adultos en red, infancia en libertad, gastronomía de montaña y experiencias transformadoras.",
-      "startDate": "2025-05-01",
-      "endDate": "2025-05-03",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-03",
       "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
       "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://experienciamagico.com" },
       "offers": { "@type": "Offer", "price": "280000", "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "url": URL },
@@ -103,156 +104,7 @@ const Familion: React.FC = () => {
       <>
         <Header />
         <div className="bg-white text-gray-800 overflow-x-hidden">
-      <style>{`
-        * { font-family: 'Jost', sans-serif; }
-        h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
-        
-        .brand-green { color: #005333; }
-        .bg-brand-green { background-color: #005333; }
-        .brand-gold { color: #D4AF37; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        
-        .btn-gold {
-          background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
-          color: #005333;
-          padding: 1rem 2.5rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.9rem;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-          border: none;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-        }
 
-        .btn-gold:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .btn-glass {
-          background: rgba(255, 255, 255, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.85rem;
-          transition: background-color 0.2s ease;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        /* Hero-specific smaller CTAs */
-        .hero-cta .btn-gold {
-          padding: 0.6rem 1.25rem;
-          font-size: 0.82rem;
-          border-radius: 40px;
-        }
-
-        .hero-cta .btn-glass {
-          padding: 0.6rem 1rem;
-          font-size: 0.78rem;
-          border-radius: 40px;
-          /* make visible on white hero background */
-          color: #005333;
-          border: 1px solid #005333;
-          background: rgba(255,255,255,0.5);
-        }
-        .hero-cta .btn-glass:hover {
-          background: rgba(255,255,255,0.7);
-        }
-
-        /* Ensure hero CTAs are perfectly centered */
-        .hero-cta a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* Global smaller buttons on narrow screens */
-        @media (max-width: 640px) {
-          .btn-gold, .btn-glass {
-            padding: 0.5rem 0.9rem;
-            font-size: 0.78rem;
-          }
-        }
-        
-        .btn-glass:hover {
-          background: rgba(255, 255, 255, 0.25);
-        }
-
-        .card-hover {
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .card-hover:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(0, 83, 51, 0.1);
-        }
-
-        .video-aspect {
-          aspect-ratio: 9 / 16;
-          border-radius: 1.5rem;
-          overflow: hidden;
-          max-height: 80vh;
-        }
-
-        .testimonial-quote {
-          position: relative;
-          padding-left: 2rem;
-        }
-        
-        .testimonial-quote:before {
-          content: '"';
-          position: absolute;
-          left: 0;
-          top: -0.5rem;
-          font-size: 4rem;
-          color: #005333;
-          opacity: 0.15;
-          font-family: 'Gilda Display', serif;
-        }
-
-        .schedule-item {
-          border-left: 3px solid #005333;
-          padding-left: 1.5rem;
-          padding-top: 1rem;
-          padding-bottom: 1rem;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .btn-gold:hover { transform: none; }
-          .card-hover:hover { transform: none; }
-        }
-
-        /* ── Scroll reveal ── */
-        [data-reveal] {
-          opacity: 0;
-          transform: translateY(22px);
-          transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        [data-reveal].visible { opacity: 1; transform: translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay: 100ms; }
-        [data-reveal][data-delay="2"] { transition-delay: 200ms; }
-        [data-reveal][data-delay="3"] { transition-delay: 300ms; }
-        [data-reveal][data-delay="4"] { transition-delay: 400ms; }
-        @media (prefers-reduced-motion: reduce) {
-          [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
-        }
-      `}
-
-      </style>
 
       {/* Header removed to avoid blank page if context is missing */}
 
@@ -341,15 +193,18 @@ const Familion: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             {[
-              { num: "01", title: "Adultos en Red", text: "Círculos de conexión para soltar la carga de la crianza solitaria y encontrar tribu." },
-              { num: "02", title: "Infancia en Libertad", text: "Arroyos, talleres en la naturaleza y aventura real sin pantallas." },
-              { num: "03", title: "Gastronomía de Montaña", text: "9 comidas caseras, abundantes y nutritivas, pensadas para sostener la energía de toda la familia." },
-              { num: "04", title: "Experiencias Transformadoras", text: "Yoga al amanecer, Temazcal y rituales de fuego bajo las estrellas de los Gigantes." },
+              { num: "01", Icon: UsersThreeIcon, title: "Adultos en Red", text: "Círculos de conexión para soltar la carga de la crianza solitaria y encontrar tribu." },
+              { num: "02", Icon: LeafIcon, title: "Infancia en Libertad", text: "Arroyos, talleres en la naturaleza y aventura real sin pantallas." },
+              { num: "03", Icon: ForkKnifeIcon, title: "Gastronomía de Montaña", text: "9 comidas caseras, abundantes y nutritivas, pensadas para sostener la energía de toda la familia." },
+              { num: "04", Icon: StarIcon, title: "Experiencias Transformadoras", text: "Yoga al amanecer, Temazcal y rituales de fuego bajo las estrellas de los Gigantes." },
             ].map((item, i) => (
               <div key={item.num} data-reveal data-delay={String(i + 1)} className={`py-7 flex items-start gap-6 ${i < 2 ? 'border-b border-[#E8E4D9]' : ''} ${i > 1 ? 'border-b border-[#E8E4D9] md:border-b-0' : ''}`}>
                 <span className="serif-title text-2xl font-light flex-shrink-0 w-9 leading-none mt-0.5" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
                 <div>
-                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1">{item.title}</h4>
+                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1 flex items-center gap-2">
+                    <item.Icon weight="light" className="w-4 h-4 flex-shrink-0 opacity-60" aria-hidden="true" />
+                    {item.title}
+                  </h4>
                   <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
                 </div>
               </div>
@@ -379,7 +234,7 @@ const Familion: React.FC = () => {
                     <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Viernes · 1 de Mayo</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Llegada y Fuego</h3>
                   </div>
-                  <Campfire weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
+                  <CampfireIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
                 </div>
               </div>
               <div className="divide-y divide-[#EDEBE3] md:pl-12">
@@ -400,7 +255,7 @@ const Familion: React.FC = () => {
                     <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 2 de Mayo</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Raíces y Cielo</h3>
                   </div>
-                  <Sun weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
+                  <SunIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
                 </div>
               </div>
               <div className="divide-y divide-[#EDEBE3] md:pl-12">
@@ -421,7 +276,7 @@ const Familion: React.FC = () => {
                     <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 3 de Mayo</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Cierre y Partida</h3>
                   </div>
-                  <Moon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
+                  <MoonIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
                 </div>
               </div>
               <div className="divide-y divide-[#EDEBE3] md:pl-12">
@@ -522,6 +377,9 @@ const Familion: React.FC = () => {
 
       {/* ====== PRECIOS ====== */}
       <FamilionPrecios />
+
+      {/* ====== FAQ ====== */}
+      <FamilionFAQ />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">

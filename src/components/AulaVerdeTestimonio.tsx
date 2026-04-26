@@ -239,6 +239,24 @@ const AulaVerdeTestimonio: React.FC = () => {
               />
             </div>
 
+            {/* Logo Waldorf Dandelion */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/dandelion.png"
+                alt="Escuela Waldorf Dandelion"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Logo Waldorf Aurora */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/uploads/Aula Verde/Logos escuelas/aurora.png"
+                alt="Escuela Waldorf Aurora"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
           </div>
         </div>
       </div>

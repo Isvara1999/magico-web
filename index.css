@@ -42,6 +42,139 @@ body {
 [data-reveal][data-delay="2"] { transition-delay: 200ms; }
 [data-reveal][data-delay="3"] { transition-delay: 300ms; }
 [data-reveal][data-delay="4"] { transition-delay: 400ms; }
+[data-reveal][data-delay="5"] { transition-delay: 500ms; }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ── Typography & Brand Colors ── */
+* { font-family: 'Jost', sans-serif; }
+h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
+
+.brand-green { color: #005333; }
+.bg-brand-green { background-color: #005333; }
+.brand-gold { color: #D4AF37; }
+.bg-brand-gold { background-color: #D4AF37; }
+
+/* ── Buttons ── */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+  color: #005333;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Hero-specific CTAs */
+.hero-cta .btn-gold {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  border-radius: 40px;
+}
+
+.hero-cta .btn-glass {
+  padding: 0.6rem 1rem;
+  font-size: 0.78rem;
+  border-radius: 40px;
+  color: #005333;
+  border: 1px solid #005333;
+  background: rgba(255,255,255,0.5);
+}
+
+.hero-cta .btn-glass:hover {
+  background: rgba(255,255,255,0.7);
+}
+
+.hero-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .btn-gold, .btn-glass {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── UI Components ── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 83, 51, 0.12);
+}
+
+.video-aspect {
+  aspect-ratio: 9 / 16;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  max-height: 80vh;
+}
+
+.testimonial-quote {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.testimonial-quote:before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 4rem;
+  color: #005333;
+  opacity: 0.15;
+  font-family: 'Gilda Display', serif;
+}
+
+.schedule-item {
+  border-left: 3px solid #D4AF37;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-gold:hover, .btn-glass:hover, .card-hover:hover { transform: none; }
 }

@@ -67,7 +67,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url))
-    }
+    },
+    dedupe: ['react', 'react-dom']
   },
   server: {
     host: true,

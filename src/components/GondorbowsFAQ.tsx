@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
-import { CaretDownIcon, SunIcon, ShieldCheckIcon, ForkKnifeIcon, MapPinIcon, ChalkboardTeacherIcon } from '@phosphor-icons/react';
+import { CaretDownIcon, BowlFoodIcon, TreeEvergreenIcon, WrenchIcon, UsersThreeIcon, HouseIcon } from '@phosphor-icons/react';
 
 const faqs = [
   {
-    Icon: SunIcon,
-    question: "¿Qué pasa si llueve o hay mal clima?",
-    answer: "En la montaña el clima es dinámico, pero estamos preparados. Contamos con un Salón Octogonal cerrado y vidriado de más de 100m² y espacios techados donde podemos adaptar y trasladar todas nuestras dinámicas grupales, talleres y comidas sin perder la magia de la experiencia."
+    Icon: BowlFoodIcon,
+    question: "¿Necesito fuerza física especial para desbastar o tensar el arco?",
+    answer: "Para nada. El taller está diseñado paso a paso y te enseñaremos la técnica correcta de desbaste, que requiere más paciencia y método que fuerza bruta. Los arcos además se adaptan y calibran a la contextura y libraje ideal de cada participante."
   },
   {
-    Icon: ShieldCheckIcon,
-    question: "¿Cómo funciona la asistencia médica y seguridad?",
-    answer: "La seguridad es nuestra prioridad número uno. Trabajamos con Guías Profesionales habilitados y coordinación permanente. Además, la tarifa incluye Seguros de Accidentes Personales y de Responsabilidad Civil, y contamos con protocolos de asistencia médica para cualquier eventualidad, estando a solo una hora de los centros urbanos (Tanti/Carlos Paz)."
+    Icon: TreeEvergreenIcon,
+    question: "¿Me llevo el arco terminado?",
+    answer: "¡Sí! El objetivo de la inmersión es que termines el taller disparando las primeras flechas con tu propio arco artesanal, que luego te llevarás a casa como tu compañero de aventuras para seguir practicando."
   },
   {
-    Icon: ForkKnifeIcon,
-    question: "¿Se adaptan a dietas especiales, vegetarianos o celíacos?",
-    answer: "¡Absolutamente! Nuestra gastronomía es 100% casera y cuidada. Si nos avisan con anticipación al momento de hacer la reserva, adaptamos el menú con opciones nutritivas y seguras para chicos con celiaquía, restricciones alimentarias, vegetarianos o veganos."
+    Icon: WrenchIcon,
+    question: "¿Necesito llevar herramientas o materiales?",
+    answer: "No es necesario. Gondorbows provee todos los materiales, los vástagos de madera seleccionados y el set completo de herramientas tradicionales (bastrenes, escofinas, lijas, formones) para cada uno."
   },
   {
-    Icon: MapPinIcon,
-    question: "¿Cómo es el acceso para los micros o transportes escolares?",
-    answer: "El acceso es muy sencillo. Contamos con camino apto para todo tipo de vehículos y los micros escolares o traffics pueden llegar directamente hasta la puerta del predio, facilitando la logística de bajada de bolsos y chicos con total comodidad y seguridad."
+    Icon: UsersThreeIcon,
+    question: "¿Puedo participar si nunca toqué un arco en mi vida?",
+    answer: "Completamente. Es un taller multinivel. Recibirás acompañamiento personalizado tanto si es tu primera vez acercándote a la arquería como si ya tenés experiencia y querés perfeccionar tu técnica de forja."
   },
   {
-    Icon: ChalkboardTeacherIcon,
-    question: "¿Los docentes y acompañantes pagan la misma tarifa?",
-    answer: "Sabemos el esfuerzo que hacen los docentes para acompañar a los grupos. Por eso, manejamos una política de liberados (bonificados) dependiendo de la cantidad total de alumnos que viajen. Al solicitar tu presupuesto, te detallamos cuántos lugares liberados corresponden a tu grupo."
+    Icon: HouseIcon,
+    question: "¿Cómo es el alojamiento y la comida?",
+    answer: "La estadía incluye alojamiento premium (Domos Geodésicos o Eco-refugio compartido) con ropa de cama y abrigo, duchas con agua caliente 24hs y todas las comidas caseras (desayuno, almuerzo, merienda y cena) incluidas durante los tres días."
   }
 ];
 
-const AulaVerdeFAQ: React.FC = () => {
+const GondorbowsFAQ: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => setActiveIndex(activeIndex === index ? null : index);
 
   return (
-    <section className="py-16 md:py-24 px-6 bg-[#F9F8F4]">
+    <section className="py-16 md:py-24 px-6 bg-slate-50">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12" data-reveal>
           <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">Preguntas Frecuentes</h2>
-          <p className="text-gray-500 text-base md:text-lg font-light">Todo lo que necesitás saber para la tranquilidad de tu colegio.</p>
+          <p className="text-gray-500 text-base md:text-lg font-light">Resolvé todas tus dudas antes de empezar tu camino.</p>
         </div>
 
         <div className="space-y-3 md:space-y-4">
@@ -106,4 +106,4 @@ const AulaVerdeFAQ: React.FC = () => {
   );
 };
 
-export default AulaVerdeFAQ;
+export default GondorbowsFAQ;

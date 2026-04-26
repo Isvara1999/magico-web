@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
-import { CaretDownIcon, SunIcon, ShieldCheckIcon, ForkKnifeIcon, MapPinIcon, ChalkboardTeacherIcon } from '@phosphor-icons/react';
+import { CaretDownIcon, UsersThreeIcon, CloudRainIcon, HouseIcon, ForkKnifeIcon, LeafIcon } from '@phosphor-icons/react';
 
 const faqs = [
   {
-    Icon: SunIcon,
-    question: "¿Qué pasa si llueve o hay mal clima?",
-    answer: "En la montaña el clima es dinámico, pero estamos preparados. Contamos con un Salón Octogonal cerrado y vidriado de más de 100m² y espacios techados donde podemos adaptar y trasladar todas nuestras dinámicas grupales, talleres y comidas sin perder la magia de la experiencia."
+    Icon: UsersThreeIcon,
+    question: "¿Desde qué edad pueden participar los niños?",
+    answer: "Familion está diseñado para familias con niños de todas las edades. Contamos con actividades flexibles y adaptadas, y espacios seguros para que desde los más pequeños hasta los adolescentes puedan disfrutar y explorar en libertad."
   },
   {
-    Icon: ShieldCheckIcon,
-    question: "¿Cómo funciona la asistencia médica y seguridad?",
-    answer: "La seguridad es nuestra prioridad número uno. Trabajamos con Guías Profesionales habilitados y coordinación permanente. Además, la tarifa incluye Seguros de Accidentes Personales y de Responsabilidad Civil, y contamos con protocolos de asistencia médica para cualquier eventualidad, estando a solo una hora de los centros urbanos (Tanti/Carlos Paz)."
+    Icon: CloudRainIcon,
+    question: "¿Qué pasa si llueve o hay mal clima?",
+    answer: "Contamos con un amplio Salón Octogonal cerrado, calefaccionado y vidriado, además de espacios techados donde trasladamos las actividades y círculos de juego para que el clima nunca sea un impedimento para compartir."
+  },
+  {
+    Icon: HouseIcon,
+    question: "¿Tenemos que llevar carpa o ropa de cama?",
+    answer: "Depende de la opción de alojamiento que elijas. Los Domos Geodésicos y el Eco-refugio ya incluyen ropa de cama y abrigo. Si venís en modalidad Camping, sí deberás traer tu propia carpa, bolsa de dormir y aislante."
   },
   {
     Icon: ForkKnifeIcon,
-    question: "¿Se adaptan a dietas especiales, vegetarianos o celíacos?",
-    answer: "¡Absolutamente! Nuestra gastronomía es 100% casera y cuidada. Si nos avisan con anticipación al momento de hacer la reserva, adaptamos el menú con opciones nutritivas y seguras para chicos con celiaquía, restricciones alimentarias, vegetarianos o veganos."
+    question: "¿Cómo son las opciones de comida para los chicos?",
+    answer: "La tarifa incluye pensión completa con un menú casero, abundante y nutritivo que a los chicos les encanta. También contemplamos dietas especiales, opciones para celíacos o vegetarianos si nos avisan con anticipación."
   },
   {
-    Icon: MapPinIcon,
-    question: "¿Cómo es el acceso para los micros o transportes escolares?",
-    answer: "El acceso es muy sencillo. Contamos con camino apto para todo tipo de vehículos y los micros escolares o traffics pueden llegar directamente hasta la puerta del predio, facilitando la logística de bajada de bolsos y chicos con total comodidad y seguridad."
-  },
-  {
-    Icon: ChalkboardTeacherIcon,
-    question: "¿Los docentes y acompañantes pagan la misma tarifa?",
-    answer: "Sabemos el esfuerzo que hacen los docentes para acompañar a los grupos. Por eso, manejamos una política de liberados (bonificados) dependiendo de la cantidad total de alumnos que viajen. Al solicitar tu presupuesto, te detallamos cuántos lugares liberados corresponden a tu grupo."
+    Icon: LeafIcon,
+    question: "¿Hay señal de celular o WiFi?",
+    answer: "La señal de celular es intermitente, pero contamos con WiFi de Starlink para emergencias o trabajo puntual. Nuestra recomendación es apagar las pantallas para poder conectar de verdad con la tribu y la naturaleza."
   }
 ];
 
-const AulaVerdeFAQ: React.FC = () => {
+const FamilionFAQ: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => setActiveIndex(activeIndex === index ? null : index);
 
   return (
-    <section className="py-16 md:py-24 px-6 bg-[#F9F8F4]">
+    <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12" data-reveal>
           <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">Preguntas Frecuentes</h2>
-          <p className="text-gray-500 text-base md:text-lg font-light">Todo lo que necesitás saber para la tranquilidad de tu colegio.</p>
+          <p className="text-gray-500 text-base md:text-lg font-light">Todo lo que necesitás saber para venir en tribu.</p>
         </div>
 
         <div className="space-y-3 md:space-y-4">
@@ -106,4 +106,4 @@ const AulaVerdeFAQ: React.FC = () => {
   );
 };
 
-export default AulaVerdeFAQ;
+export default FamilionFAQ;

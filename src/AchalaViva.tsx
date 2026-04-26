@@ -7,6 +7,7 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import AchalaVivaHero from './components/AchalaVivaHero';
 import AchalaVivaMagico from './components/AchalaVivaMagico';
 import AchalaVivaPrecios from './components/AchalaVivaPrecios';
+import AchalaVivaFAQ from './components/AchalaVivaFAQ';
 
 const AchalaViva: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -65,10 +66,11 @@ const AchalaViva: React.FC = () => {
       "@type": "Event",
       "name": "Achala Viva — Retiro de Naturaleza en Los Gigantes",
       "description": "Retiro de inmersión total de 2 días en la Sierra de Achala. Astroturismo, avistaje de aves con guía biológica, fotografía en la naturaleza y descanso en eco-refugio.",
-      "startDate": "2025-05-09",
-      "endDate": "2025-05-10",
+      "startDate": "2026-05-09",
+      "endDate": "2026-05-10",
       "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
-      "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://experienciamagico.com" },
+      "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+      "performer": { "@type": "Person", "name": "Walter Eugenio Cejas", "jobTitle": "Biólogo e investigador de vida silvestre", "description": "Guía experto en biodiversidad de la Sierra de Achala, astroturismo y avistaje de aves." },
       "offers": { "@type": "Offer", "price": "150000", "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "url": URL },
       "image": IMG,
       "maximumAttendeeCapacity": 15,
@@ -85,6 +87,18 @@ const AchalaViva: React.FC = () => {
       document.title = prevTitle;
       document.getElementById('ld-achala-viva')?.remove();
     };
+  }, []);
+
+  // Scroll-reveal
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   // Autoplay carrusel
@@ -146,102 +160,7 @@ const AchalaViva: React.FC = () => {
       <>
         <Header />
         <div className="bg-white text-gray-800 overflow-x-hidden">
-      <style>{`
-        * { font-family: 'Jost', sans-serif; }
-        h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
-        
-        .brand-green { color: #005333; }
-        .bg-brand-green { background-color: #005333; }
-        .brand-gold { color: #D4AF37; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        
-        .btn-gold {
-          background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
-          color: #005333;
-          padding: 1rem 2.5rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.9rem;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-          border: none;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-        }
 
-        .btn-gold:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .btn-glass {
-          background: rgba(255, 255, 255, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 0.85rem;
-          transition: background-color 0.2s ease;
-          cursor: pointer;
-          display: inline-block;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .hero-img-zoom { animation: none; }
-          .btn-gold:hover { transform: none; }
-        }
-
-        .hero-cta .btn-gold {
-          padding: 0.6rem 1.25rem;
-          font-size: 0.82rem;
-          border-radius: 40px;
-        }
-
-        .hero-cta .btn-glass {
-          padding: 0.6rem 1rem;
-          font-size: 0.78rem;
-          border-radius: 40px;
-          color: white;
-          border: 1px solid rgba(255,255,255,0.55);
-          background: transparent;
-        }
-        .hero-cta .btn-glass:hover {
-          background: rgba(255,255,255,0.12);
-        }
-
-        @media (max-width: 640px) {
-          .btn-gold, .btn-glass {
-            padding: 0.5rem 0.9rem;
-            font-size: 0.78rem;
-          }
-        }
-
-        /* ── Scroll reveal ── */
-        [data-reveal] {
-          opacity: 0;
-          transform: translateY(22px);
-          transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        [data-reveal].visible { opacity: 1; transform: translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay: 100ms; }
-        [data-reveal][data-delay="2"] { transition-delay: 200ms; }
-        [data-reveal][data-delay="3"] { transition-delay: 300ms; }
-        [data-reveal][data-delay="4"] { transition-delay: 400ms; }
-        [data-reveal][data-delay="5"] { transition-delay: 500ms; }
-        @media (prefers-reduced-motion: reduce) {
-          [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
-        }
-      `}</style>
 
       {/* ====== HERO SECTION ====== */}
       <AchalaVivaHero />
@@ -491,31 +410,7 @@ const AchalaViva: React.FC = () => {
       <AchalaVivaPrecios />
 
       {/* ====== PREGUNTAS FRECUENTES ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 data-reveal className="text-3xl md:text-4xl serif-title brand-green text-center mb-8 md:mb-10">
-            Preguntas Frecuentes
-          </h2>
-          
-          <div className="divide-y divide-[#E8E4D9]">
-            {[
-              { q: "¿Necesito conocimientos previos en biología o astronomía?", a: "Cero. La experiencia está diseñada para curiosos y amantes de la naturaleza de todos los niveles. Walter traduce todo a un lenguaje simple y fascinante." },
-              { q: "¿Tengo que llevar equipo especial?", a: "Solo ropa cómoda, abrigo para la noche en la montaña y calzado de trekking. Nosotros ponemos las herramientas y el confort." },
-              { q: "¿Puedo ir solo/a?", a: "Por supuesto. La gran mayoría de nuestros visitantes vienen solos. Es el espacio perfecto para estar con vos mismo y conocer gente en tu misma sintonía." },
-            ].map((item, i) => (
-              <details key={i} data-reveal data-delay={String(i + 1)} className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between cursor-pointer py-5 font-medium text-gray-800 text-base md:text-lg gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:rounded-lg">
-                  {item.q}
-                  <span className="flex-shrink-0 transition-transform duration-200 group-open:rotate-180 text-gray-400" aria-hidden="true">
-                    <svg fill="none" height="20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"/></svg>
-                  </span>
-                </summary>
-                <p className="pb-5 text-gray-500 font-light leading-relaxed text-base">{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AchalaVivaFAQ />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
