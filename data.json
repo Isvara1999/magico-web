@@ -226,9 +226,9 @@
       "stats_years": "+20 Años",
       "stats_trees": "+15mil Árboles Plantados",
       "stats_sus": "Regeneración & Sustentabilidad",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+      "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
-        "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+        "/uploads/img_8475.webp",
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],
@@ -590,9 +590,9 @@
       "stats_years": "+20 Years",
       "stats_trees": "+8k Trees Planted",
       "stats_sus": "Regeneration & Sustainability",
-      "bgImage": "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+      "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
-        "https://tawaapukuntur.com/wp-content/uploads/2025/10/IMG_8475-scaled.webp",
+        "/uploads/img_8475.webp",
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],

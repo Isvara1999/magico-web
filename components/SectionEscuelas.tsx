@@ -19,8 +19,10 @@ export const SectionEscuelas: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 md:h-[500px] bg-[#002B18] pointer-events-none group">
                 <iframe
                   src="https://www.youtube.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080&playsinline=1"
+                  title="Video de Aula Verde — Mágico Ensueño"
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
+                  loading="lazy"
                   className="absolute top-1/2 left-1/2 w-[200%] h-[200%] sm:w-[150%] sm:h-[150%] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-90 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>

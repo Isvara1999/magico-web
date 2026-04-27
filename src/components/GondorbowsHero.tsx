@@ -18,9 +18,10 @@ const GondorbowsHero: React.FC = () => {
             width="100vw" 
             height="100vh" 
             src="https://www.youtube.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
-            frameBorder="0" 
-            allow="autoplay; encrypted-media" 
-            allowFullScreen 
+            title="Video de fondo — Gondorbows"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
             className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none"
             style={{
               position: 'absolute',

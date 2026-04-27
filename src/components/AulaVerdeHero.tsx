@@ -18,6 +18,7 @@ const AulaVerdeHero: React.FC = () => {
             width="100vw"
             height="100vh"
             src="https://www.youtube.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080"
+            title="Video de fondo — Aula Verde"
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen

@@ -22,13 +22,13 @@ export const Footer: React.FC = () => {
               {t.footer.description}
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com/magicoensueno" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href="https://instagram.com/magicoensueno" target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Instagram" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <InstagramLogo size={20} weight="light" />
               </a>
-              <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Contactanos por WhatsApp" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <WhatsappLogo size={20} weight="light" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href="https://facebook.com/magicoensueno" target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Facebook" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <FacebookLogo size={20} weight="light" />
               </a>
             </div>
