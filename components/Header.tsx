@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('');
+  const [isMobile, setIsMobile] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   // Scroll effect for header styling
   useEffect(() => {
@@ -70,7 +78,7 @@ export const Header: React.FC = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, hasSubmenu: boolean, index: number) => {
     // Mobile: Toggle submenu if it exists
-    if (window.innerWidth < 1024 && hasSubmenu) {
+    if (isMobile && hasSubmenu) {
       e.preventDefault();
       setActiveSubmenu(activeSubmenu === index ? null : index);
       return;
@@ -130,8 +138,10 @@ export const Header: React.FC = () => {
           }
         }}>
           <img
-            src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
+            src="/uploads/logo negro.svg"
             alt="Mágico Ensueño"
+            width="900"
+            height="900"
             className={logoClasses}
           />
         </a>
@@ -172,7 +182,7 @@ export const Header: React.FC = () => {
                     ${isScrolled || isMobileMenuOpen 
                       ? (isLinkActive(item.href) ? 'text-gold font-bold' : 'text-dark hover:text-brand') 
                       : (isLinkActive(item.href) ? 'text-gold' : 'text-white hover:text-gold')}
-                    ${window.innerWidth < 1024 && !isLinkActive(item.href) ? 'text-[#444]' : ''}
+                    ${isMobile && !isLinkActive(item.href) ? 'text-[#444]' : ''}
                   `}
                 >
                   {item.label}

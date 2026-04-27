@@ -117,7 +117,7 @@ export const SectionContacto = () => {
                   w-full md:w-auto px-12 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg mt-4 flex items-center justify-center gap-2
                   ${status === 'success'
                     ? 'bg-green-600 text-white cursor-default'
-                    : 'bg-gold text-white hover:bg-brand disabled:opacity-70 disabled:cursor-not-allowed transition-[background-color,opacity] duration-300'}
+                    : 'bg-brand text-white hover:bg-gold disabled:opacity-70 disabled:cursor-not-allowed transition-[background-color,opacity] duration-300'}
                 `}
               >
                 {status === 'submitting' ? (
@@ -147,7 +147,7 @@ export const SectionContacto = () => {
           </form>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-8 text-center text-dark/60 text-sm">
+        <div className="mt-16 grid md:grid-cols-3 gap-8 text-center text-dark/80 text-sm">
           <div>
             <p className="font-bold text-brand mb-1 font-serif text-base">{t.contact.labels.email}</p>
             <a href="mailto:experienciamagico@gmail.com" className="hover:text-gold transition-colors font-light">

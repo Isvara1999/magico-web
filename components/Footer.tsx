@@ -14,8 +14,10 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <img
-              src="https://tawaapukuntur.com/wp-content/uploads/2025/10/logotipo-marron-magico.svg"
+              src="/uploads/logo negro.svg"
               alt="Mágico Ensueño"
+              width="160"
+              height="40"
               className="h-10 opacity-90"
             />
             <p className="text-gray-500 leading-relaxed font-light text-base max-w-xs">
@@ -36,10 +38,10 @@ export const Footer: React.FC = () => {
 
           {/* Explore Column */}
           <div>
-            <h4 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
+            <h3 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
               {t.footer.titles.explore}
               <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
-            </h4>
+            </h3>
             <ul className="space-y-4">
               {t.menu.items.map((item: any, index: number) => (
                 <li key={index}>
@@ -54,10 +56,10 @@ export const Footer: React.FC = () => {
 
           {/* Experiences Column */}
           <div>
-            <h4 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
+            <h3 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
               {t.footer.titles.experiences}
               <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
-            </h4>
+            </h3>
             <ul className="space-y-4">
               {t.footer.experienceLinks.map((link: any, index: number) => (
                 <li key={index}>
@@ -72,22 +74,22 @@ export const Footer: React.FC = () => {
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
+            <h3 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
               Contacto
               <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
-            </h4>
+            </h3>
             <ul className="space-y-5">
-              <li className="flex items-start gap-3 text-gray-500">
+              <li className="flex items-start gap-3 text-gray-600">
                 <MapPin size={18} weight="light" className="text-brand-gold mt-1 flex-shrink-0" />
                 <span className="text-sm font-light leading-relaxed">Los Gigantes, Sierras Grandes,<br/>Córdoba, Argentina</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-500">
+              <li className="flex items-center gap-3 text-gray-600">
                 <Phone size={18} weight="light" className="text-brand-gold flex-shrink-0" />
                 <a href={`tel:${t.contact.labels.phone}`} className="text-sm font-light hover:text-brand-gold transition-colors">
                   {t.contact.labels.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-gray-500">
+              <li className="flex items-center gap-3 text-gray-600">
                 <Envelope size={18} weight="light" className="text-brand-gold flex-shrink-0" />
                 <a href={`mailto:${t.contact.labels.email}`} className="text-sm font-light hover:text-brand-gold transition-colors">
                   {t.contact.labels.email}
@@ -99,7 +101,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-gray-400 font-light flex flex-col md:flex-row items-center gap-2 md:gap-4">
+          <div className="text-xs text-gray-500 font-light flex flex-col md:flex-row items-center gap-2 md:gap-4">
             <span>&copy; {currentYear} {t.footer.copyright}</span>
             <span className="hidden md:block w-1 h-1 rounded-full bg-gray-200"></span>
             <div className="flex gap-4">
@@ -108,7 +110,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400 italic">{t.footer.madeBy}</span>
+            <span className="text-xs text-gray-500 italic">{t.footer.madeBy}</span>
             <span className="text-[10px] uppercase tracking-widest text-brand-green/40 font-bold ml-2">by Catálisis</span>
           </div>
         </div>

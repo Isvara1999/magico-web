@@ -40,7 +40,7 @@ export const SectionExperiencias: React.FC = () => {
               {t.experiences.resetVital.title}
             </h3>
             <div 
-              className="text-dark/80 mb-10 font-light leading-relaxed text-lg max-w-4xl [&_strong]:text-gold [&_strong]:font-medium"
+              className="text-dark/80 mb-10 font-light leading-relaxed text-lg max-w-4xl [&_strong]:text-[#8B6914] [&_strong]:font-medium"
               dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.resetVital.description as string) as string }}
             />
             
@@ -60,7 +60,7 @@ export const SectionExperiencias: React.FC = () => {
 
         {/* Cards Section */}
         <div className="text-center mb-10">
-          <span className="text-brand/60 font-bold tracking-widest uppercase text-xs">
+          <span className="text-brand/80 font-bold tracking-widest uppercase text-xs">
             PERSONALIZÁ TU ESTADÍA
           </span>
         </div>
@@ -85,7 +85,7 @@ export const SectionExperiencias: React.FC = () => {
                   {card.description}
                   {isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}
                 </p>
-                <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-gold font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
+                <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
                   {card.ctaText}
                 </a>
               </div>

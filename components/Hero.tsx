@@ -44,6 +44,8 @@ export const Hero: React.FC = () => {
           <img
             src="/uploads/logo negro.svg"
             alt="Mágico Ensueño"
+            width="900"
+            height="900"
             className="h-12 md:h-16 w-auto mx-auto brightness-0 invert opacity-90"
           />
         </div>

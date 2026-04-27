@@ -17,7 +17,7 @@ const GondorbowsHero: React.FC = () => {
           <iframe 
             width="100vw" 
             height="100vh" 
-            src="https://www.youtube.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
+            src="https://www.youtube-nocookie.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
             title="Video de fondo — Gondorbows"
             frameBorder="0"
             allow="autoplay; encrypted-media"

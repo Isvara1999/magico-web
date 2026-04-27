@@ -28,7 +28,7 @@ export const SectionVoluntariados: React.FC = () => {
               dangerouslySetInnerHTML={{ __html: t.volunteer.title as string }}
             />
             <div 
-              className="text-charcoal/80 text-base leading-relaxed mb-10 font-light [&_strong]:text-gold [&_strong]:font-medium"
+              className="text-charcoal/80 text-base leading-relaxed mb-10 font-light [&_strong]:text-brand [&_strong]:font-medium"
               dangerouslySetInnerHTML={{ __html: marked.parse(t.volunteer.description as string) as string }}
             />
             <a
@@ -52,7 +52,7 @@ export const SectionVoluntariados: React.FC = () => {
 
         {/* Volunteer Testimonials Carousel */}
         <div className="mt-12">
-          <p className="text-center text-brand/60 font-bold tracking-widest uppercase text-xs mb-8">VOCES DE LA COMUNIDAD</p>
+          <p className="text-center text-brand/80 font-bold tracking-widest uppercase text-xs mb-8">VOCES DE LA COMUNIDAD</p>
           
           <div className="relative">
             <button 

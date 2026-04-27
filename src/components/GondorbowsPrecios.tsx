@@ -25,7 +25,7 @@ const GondorbowsPrecios: React.FC = () => {
             <div className="bg-stone-800 rounded-2xl border border-stone-700/50 shadow-2xl overflow-hidden hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative aspect-[9/16] w-full">
                 <iframe
-                  src="https://www.youtube.com/embed/uQy7HgK-L_E"
+                  src="https://www.youtube-nocookie.com/embed/uQy7HgK-L_E"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -40,7 +40,7 @@ const GondorbowsPrecios: React.FC = () => {
             <div className="bg-stone-800 rounded-2xl border border-stone-700/50 shadow-2xl overflow-hidden hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative aspect-[9/16] w-full">
                 <iframe
-                  src="https://www.youtube.com/embed/4pQ2DTh2rd8"
+                  src="https://www.youtube-nocookie.com/embed/4pQ2DTh2rd8"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -55,7 +55,7 @@ const GondorbowsPrecios: React.FC = () => {
             <div className="bg-stone-800 rounded-2xl border border-stone-700/50 shadow-2xl overflow-hidden hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative aspect-[9/16] w-full">
                 <iframe
-                  src="https://www.youtube.com/embed/wRamh8nZXNQ"
+                  src="https://www.youtube-nocookie.com/embed/wRamh8nZXNQ"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

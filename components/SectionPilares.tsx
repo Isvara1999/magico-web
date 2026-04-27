@@ -39,7 +39,7 @@ export const SectionPilares: React.FC = () => {
             href={t.donations.link} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-white rounded-full transition-[background-color,color,border-color] duration-300 text-xs font-bold uppercase tracking-widest"
+            className="inline-block px-8 py-3 border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-[background-color,color,border-color] duration-300 text-xs font-bold uppercase tracking-widest"
           >
             {t.donations.btn}
           </a>

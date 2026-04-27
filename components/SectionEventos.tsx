@@ -27,9 +27,6 @@ export const SectionEventos: React.FC = () => {
           <h2 data-reveal className="text-3xl md:text-5xl text-brand font-serif mb-6">
             {t.events.title}
           </h2>
-          <a href="#" className="text-gold underline">
-            {t.events.link}
-          </a>
         </div>
         <div className="relative">
           <button 

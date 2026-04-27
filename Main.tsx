@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -16,7 +16,16 @@ import { SectionContacto } from './components/SectionContacto';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
+const win: any = typeof window !== 'undefined' ? window : {};
+const scheduleIdle = win.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 200));
+
 const Main: React.FC = () => {
+  const [belowFoldReady, setBelowFoldReady] = useState(false);
+
+  useEffect(() => {
+    scheduleIdle(() => setBelowFoldReady(true));
+  }, []);
+
   useEffect(() => {
     const TITLE = 'Mágico Ensueño — Eco‑Refugio & Glamping · Los Gigantes, Córdoba';
     const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos y yurta, voluntariados y cocina de autor. 20 años regenerando la montaña.';
@@ -118,16 +127,18 @@ const Main: React.FC = () => {
           <SectionNosotros />
           <SectionPilares />
           <SectionVideo />
-          <SectionExperiencias />
-          <SectionEventos />
-          <SectionRetiros />
-          <SectionEscuelas />
-          <SectionVoluntariados />
-          <SectionTestimonios />
-          <SectionComoLlegar />
-          <SectionContacto />
+          {belowFoldReady && <>
+            <SectionExperiencias />
+            <SectionEventos />
+            <SectionRetiros />
+            <SectionEscuelas />
+            <SectionVoluntariados />
+            <SectionTestimonios />
+            <SectionComoLlegar />
+            <SectionContacto />
+          </>}
         </main>
-        <Footer />
+        {belowFoldReady && <Footer />}
         <WhatsAppButton />
       </div>
     </LanguageProvider>

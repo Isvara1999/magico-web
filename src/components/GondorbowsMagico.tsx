@@ -30,7 +30,7 @@ const GondorbowsMagico: React.FC = () => {
             <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
+                src="https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
                 title="Mágico Ensueño - Experiencia en la Montaña"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -104,7 +104,7 @@ const GondorbowsMagico: React.FC = () => {
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
-                src="https://www.youtube.com/embed/o3m_A68JC0M" 
+                src="https://www.youtube-nocookie.com/embed/o3m_A68JC0M" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -118,7 +118,7 @@ const GondorbowsMagico: React.FC = () => {
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
-                src="https://www.youtube.com/embed/JtkYFlsBEW8" 
+                src="https://www.youtube-nocookie.com/embed/JtkYFlsBEW8" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -132,7 +132,7 @@ const GondorbowsMagico: React.FC = () => {
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe 
-                src="https://www.youtube.com/embed/rkgQ2e-gEco" 
+                src="https://www.youtube-nocookie.com/embed/rkgQ2e-gEco" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

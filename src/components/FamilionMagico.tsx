@@ -25,7 +25,7 @@ const FamilionMagico: React.FC = () => {
             <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#001a0d]">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
+                src="https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
                 title="Mágico Ensueño - Experiencia en la Montaña"
                 loading="lazy"
                 frameBorder="0"

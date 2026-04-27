@@ -219,7 +219,7 @@ const Gondorbows: React.FC = () => {
             <iframe 
               width="100%" 
               height="400" 
-              src="https://www.youtube.com/embed/Q0l3wI7_5LI" 
+              src="https://www.youtube-nocookie.com/embed/Q0l3wI7_5LI" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen

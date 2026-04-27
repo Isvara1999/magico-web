@@ -18,7 +18,7 @@ export const SectionEscuelas: React.FC = () => {
             <div data-reveal className="order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 md:h-[500px] bg-[#002B18] pointer-events-none group">
                 <iframe
-                  src="https://www.youtube.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080&playsinline=1"
+                  src="https://www.youtube-nocookie.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080&playsinline=1"
                   title="Video de Aula Verde — Mágico Ensueño"
                   frameBorder="0"
                   allow="autoplay; encrypted-media"

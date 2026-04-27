@@ -165,7 +165,7 @@ const AulaVerde: React.FC = () => {
                 <iframe
                   width="360"
                   height="640"
-                  src="https://www.youtube.com/embed/lLHk-lpRofE"
+                  src="https://www.youtube-nocookie.com/embed/lLHk-lpRofE"
                   title="Aprender desde la experiencia"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
@@ -340,7 +340,7 @@ const AulaVerde: React.FC = () => {
               <iframe
                 width="360"
                 height="640"
-                src="https://www.youtube.com/embed/_p6dA0v2Fcs"
+                src="https://www.youtube-nocookie.com/embed/_p6dA0v2Fcs"
                 title="Momentos que fortalecen al grupo"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"

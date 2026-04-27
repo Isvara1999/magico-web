@@ -20,7 +20,7 @@ export const SectionVideo: React.FC = () => {
       } else {
         return url;
       }
-      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
+      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
     } catch (e) {
       return url;
     }

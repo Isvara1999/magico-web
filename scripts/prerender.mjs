@@ -85,3 +85,28 @@ for (const route of ROUTES) {
 }
 
 console.log(`\nPrerender complete — ${ROUTES.length} routes`);
+
+// Make Vite's CSS non-render-blocking: preload + onload swap pattern
+// Finds <link rel="stylesheet" crossorigin href="/assets/*.css"> and converts it
+const CSS_BLOCKING = /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g;
+const allHtmlFiles = [
+  join(DIST, 'index.html'),
+  ...ROUTES.filter(r => r.path !== '/').map(r => join(DIST, r.path.slice(1), 'index.html')),
+];
+
+console.log('\nMaking CSS non-blocking...');
+for (const file of allHtmlFiles) {
+  try {
+    const html = readFileSync(file, 'utf-8');
+    const patched = html.replace(CSS_BLOCKING, (_, href) =>
+      `<link rel="preload" as="style" href="${href}" onload="this.onload=null;this.rel='stylesheet'">` +
+      `<noscript><link rel="stylesheet" href="${href}"></noscript>`
+    );
+    if (patched !== html) {
+      writeFileSync(file, patched);
+      console.log(`  ✓ non-blocking CSS: ${file.replace(DIST, '').replace(/\\/g, '/') || '/index.html'}`);
+    }
+  } catch (e) {
+    console.warn(`  ⚠ skipped ${file}: ${e.message}`);
+  }
+};
