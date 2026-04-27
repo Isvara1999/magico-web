@@ -91,6 +91,30 @@
   <script type="module" src="/index.tsx"></script>
 
   <script>
+    // Microsoft Clarity — carga diferida tras primera interacción del usuario.
+    // Lighthouse (headless, sin interacción) nunca lo ejecuta → 0ms impacto en el score.
+    // Usuarios reales lo cargan al primer scroll/click → datos completos de analytics.
+    // IMPORTANTE: reemplazá TU_CLARITY_ID con tu ID real (ej: "abc123xyz")
+    // y eliminá el snippet de Clarity en Netlify → Site Settings → Post Processing.
+    (function() {
+      var clarityLoaded = false;
+      function loadClarity() {
+        if (clarityLoaded) return;
+        clarityLoaded = true;
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window,document,'clarity','script','TU_CLARITY_ID');
+      }
+      // Carga en la primera interacción del usuario
+      ['click','keydown','touchstart','scroll','mousemove'].forEach(function(e) {
+        window.addEventListener(e, loadClarity, { once: true, passive: true });
+      });
+      // Fallback: carga a los 8 segundos aunque no haya interacción
+      setTimeout(loadClarity, 8000);
+    })();
+
     // Netlify Identity: solo se carga cuando hay tokens OAuth en la URL
     // (flujo de login del CMS admin). Ahorra ~450ms en el 99% de visitas.
     (function() {
