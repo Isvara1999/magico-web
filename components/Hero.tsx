@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
             alt="Mágico Ensueño"
             width="900"
             height="900"
-            className="h-12 md:h-16 w-auto mx-auto brightness-0 invert opacity-90"
+            className="h-20 md:h-28 w-auto mx-auto brightness-0 invert opacity-95 drop-shadow-2xl"
           />
         </div>
 

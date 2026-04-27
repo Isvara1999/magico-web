@@ -99,14 +99,32 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Legal identity row */}
+        <div className="pt-10 border-t border-gray-100 mb-6">
+          <p className="text-xs text-gray-400 font-light text-center leading-relaxed">
+            <strong className="text-gray-500 font-medium">HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA</strong>
+            {' · '}Calle Aconquija 635, Villa Allende, Dpto. Colón, Córdoba, Argentina.
+            {' · '}
+            <a
+              href="https://www.afip.gob.ar/fe/qr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-gold transition-colors underline underline-offset-2"
+              title="Ver Data Fiscal AFIP"
+            >
+              Data Fiscal (AFIP)
+            </a>
+          </p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-gray-500 font-light flex flex-col md:flex-row items-center gap-2 md:gap-4">
             <span>&copy; {currentYear} {t.footer.copyright}</span>
             <span className="hidden md:block w-1 h-1 rounded-full bg-gray-200"></span>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-brand-gold transition-colors">{t.footer.links.terms}</a>
-              <a href="#" className="hover:text-brand-gold transition-colors">{t.footer.links.privacy}</a>
+              <a href="/terminos-y-condiciones" className="hover:text-brand-gold transition-colors">{t.footer.links.terms}</a>
+              <a href="/politica-de-privacidad" className="hover:text-brand-gold transition-colors">{t.footer.links.privacy}</a>
             </div>
           </div>
           <div className="flex items-center gap-2">

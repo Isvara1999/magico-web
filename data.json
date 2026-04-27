@@ -238,7 +238,7 @@
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
       "subtitle": "",
-      "videoUrl": "https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY",
+      "videoUrl": "https://youtube.com/shorts/hxE7Ksy7IsY?si=7LxNs6mLuTtOQaBh",
       "poster": "/uploads/img_3027-1-1-.webp"
     },
     "menu": {
@@ -356,6 +356,12 @@
       ],
       "copyright": "Mágico Ensueño Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Hecho con respeto a la montaña"
+    },
+    "notFound": {
+      "title": "Un sendero hacia <span class='italic text-gold'>lo desconocido.</span>",
+      "subtitle": "Parece que te has desviado del sendero. Este camino no conduce a ningún refugio, pero te ayudamos a volver al origen.",
+      "btnHome": "VOLVER AL INICIO",
+      "btnContact": "RESCATE POR WHATSAPP"
     },
     "donations": {
       "text": "Acá puedes realizar donaciones para seguir expandiendo este proyecto.",
@@ -602,7 +608,7 @@
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
       "subtitle": "",
-      "videoUrl": "https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY",
+      "videoUrl": "https://youtube.com/shorts/hxE7Ksy7IsY?si=7LxNs6mLuTtOQaBh",
       "poster": "/uploads/img_3027-1-1-.webp"
     },
     "menu": {
@@ -720,6 +726,12 @@
       ],
       "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Made with respect for the mountain"
+    },
+    "notFound": {
+      "title": "A path to <span class='italic text-gold'>the unknown.</span>",
+      "subtitle": "It seems you've wandered off the trail. This path doesn't lead to any shelter, but we'll help you find your way back.",
+      "btnHome": "BACK TO HOME",
+      "btnContact": "WHATSAPP RESCUE"
     },
     "donations": {
       "text": "Here you can make donations to continue expanding this project.",

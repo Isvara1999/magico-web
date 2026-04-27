@@ -125,26 +125,29 @@ export const Header: React.FC = () => {
 
   const logoClasses = `
     block transition-all duration-300
-    ${isScrolled || isMobileMenuOpen ? 'h-[28px] filter-none' : 'h-[32px] brightness-0 invert'}
+    ${isScrolled || isMobileMenuOpen ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
   `;
 
   return (
     <header className={pillClasses}>
-      <div className="flex justify-between items-center w-full lg:px-0 px-2">
-        <a href="/" className="relative z-[1200]" onClick={(e) => { 
-          if (isHomePage) {
-            e.preventDefault(); 
-            window.scrollTo({top: 0, behavior: 'smooth'}); 
-          }
-        }}>
-          <img
-            src="/uploads/logo negro.svg"
-            alt="Mágico Ensueño"
-            width="900"
-            height="900"
-            className={logoClasses}
-          />
-        </a>
+      <div className="flex justify-between items-center w-full lg:px-4 px-2">
+        {/* Logo - Left */}
+        <div className="flex-1 lg:flex-none">
+          <a href="/" className="relative z-[1200] inline-block" onClick={(e) => { 
+            if (isHomePage) {
+              e.preventDefault(); 
+              window.scrollTo({top: 0, behavior: 'smooth'}); 
+            }
+          }}>
+            <img
+              src="/uploads/logo negro.svg"
+              alt="Mágico Ensueño"
+              width="240"
+              height="65"
+              className={logoClasses}
+            />
+          </a>
+        </div>
 
         {/* Mobile Toggle */}
         <button

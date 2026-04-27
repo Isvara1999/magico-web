@@ -15,6 +15,7 @@ import { SectionComoLlegar } from './components/SectionComoLlegar';
 import { SectionContacto } from './components/SectionContacto';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { CookieBanner } from './components/CookieBanner';
 
 const win: any = typeof window !== 'undefined' ? window : {};
 const scheduleIdle = win.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 200));
@@ -23,7 +24,18 @@ const Main: React.FC = () => {
   const [belowFoldReady, setBelowFoldReady] = useState(false);
 
   useEffect(() => {
-    scheduleIdle(() => setBelowFoldReady(true));
+    // Forzamos la carga de elementos pesados después de que la prioridad inicial termine
+    // o después de 1 segundo como máximo (seguridad para PageSpeed y UX)
+    const timer = setTimeout(() => setBelowFoldReady(true), 1000);
+    
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        clearTimeout(timer);
+        setBelowFoldReady(true);
+      });
+    }
+    
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -127,19 +139,18 @@ const Main: React.FC = () => {
           <SectionNosotros />
           <SectionPilares />
           <SectionVideo />
-          {belowFoldReady && <>
-            <SectionExperiencias />
-            <SectionEventos />
-            <SectionRetiros />
-            <SectionEscuelas />
-            <SectionVoluntariados />
-            <SectionTestimonios />
-            <SectionComoLlegar />
-            <SectionContacto />
-          </>}
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}><SectionExperiencias /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }}><SectionEventos /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}><SectionRetiros /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }}><SectionEscuelas /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px' }}><SectionVoluntariados /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }}><SectionTestimonios /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }}><SectionComoLlegar /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }}><SectionContacto /></div>
         </main>
         {belowFoldReady && <Footer />}
         <WhatsAppButton />
+        {belowFoldReady && <CookieBanner />}
       </div>
     </LanguageProvider>
   );
