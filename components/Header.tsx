@@ -93,7 +93,16 @@ export const Header: React.FC = () => {
         
         if (element) {
           setIsMobileMenuOpen(false);
-          element.scrollIntoView({ behavior: 'smooth' });
+          // Offset by ~80px to avoid the fixed header covering the section title.
+          // Use scrollTo with behavior:'smooth' when supported (Safari 15.4+);
+          // fall back to an instant jump on older browsers.
+          const headerOffset = 80;
+          const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+          if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo({ top, behavior: 'smooth' });
+          } else {
+            window.scrollTo(0, top);
+          }
           window.history.pushState(null, '', href);
         }
       } else {
@@ -112,8 +121,13 @@ export const Header: React.FC = () => {
   };
 
   // Dynamic Classes
+  // iOS Safari bug: transform on position:fixed makes the element scroll with the page.
+  // Fix: center with left-0/right-0/mx-auto instead of left-1/2/-translate-x-1/2.
+  // Also scope transition properties explicitly — transition-all includes transform,
+  // which can trigger the same WebKit compositing bug.
   const pillClasses = `
-    fixed left-1/2 -translate-x-1/2 z-[1000] transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+    fixed left-0 right-0 mx-auto z-[1000]
+    transition-[background-color,box-shadow,border-radius,top,width,max-width,padding] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
     flex items-center justify-between
     ${
       isScrolled || isMobileMenuOpen

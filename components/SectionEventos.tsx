@@ -62,9 +62,11 @@ export const SectionEventos: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                 
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg flex items-center gap-2 z-10">
-                  <Calendar className="w-3 h-3 text-gold" />
-                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-brand uppercase">{card.date}</span>
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-xl shadow-lg flex items-start gap-2 z-10 max-w-[calc(100%-2rem)]">
+                  <Calendar className="w-3 h-3 text-gold mt-0.5 flex-shrink-0" />
+                  <span className="text-[9px] md:text-[10px] font-bold tracking-wider text-brand uppercase whitespace-pre-line leading-tight">
+                    {card.date}
+                  </span>
                 </div>
               </div>
               
@@ -73,7 +75,7 @@ export const SectionEventos: React.FC = () => {
                   {card.title}
                 </h3>
                 
-                <p className="text-dark/70 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                <p className="text-dark/70 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow whitespace-pre-line">
                   {card.desc}
                 </p>
                 

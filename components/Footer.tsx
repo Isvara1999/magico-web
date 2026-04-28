@@ -100,21 +100,26 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Legal identity row */}
-        <div className="pt-10 border-t border-gray-100 mb-6">
-          <p className="text-xs text-gray-400 font-light text-center leading-relaxed">
+        <div className="pt-10 border-t border-gray-100 mb-6 flex flex-col items-center gap-4">
+          <p className="text-xs text-gray-400 font-light text-center leading-relaxed max-w-4xl">
             <strong className="text-gray-500 font-medium">HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA</strong>
+            {' · '}CUIT 30-71875586-3
             {' · '}Calle Aconquija 635, Villa Allende, Dpto. Colón, Córdoba, Argentina.
-            {' · '}
-            <a
-              href="https://www.afip.gob.ar/fe/qr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-gold transition-colors underline underline-offset-2"
-              title="Ver Data Fiscal AFIP"
-            >
-              Data Fiscal (AFIP)
-            </a>
+            {' · '}Hab. Agencia Córdoba Turismo N° 000258
           </p>
+          <a
+            href="https://www.afip.gob.ar/fe/qr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+            title="Ver Data Fiscal AFIP"
+          >
+            <img 
+              src="/uploads/qr-arca.png" 
+              alt="Data Fiscal AFIP" 
+              className="h-20 w-auto object-contain"
+            />
+          </a>
         </div>
 
         {/* Bottom Bar */}

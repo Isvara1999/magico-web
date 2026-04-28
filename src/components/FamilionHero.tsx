@@ -22,8 +22,8 @@ const FamilionHero: React.FC = () => {
       <div className="relative z-[2] text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center h-full pt-8">
 
         {/* Pre-título */}
-        <p className="text-gold font-medium tracking-[0.28em] text-[11px] sm:text-xs uppercase mb-7">
-          1 al 3 de Mayo &nbsp;·&nbsp; Los Gigantes, Córdoba
+        <p className="text-gold font-medium tracking-[0.22em] text-[10px] sm:text-xs uppercase mb-7 text-center">
+          1 al 3 de Mayo (¡Últimos 2 cupos!) &nbsp;·&nbsp; 13 al 15 de Junio (¡Nueva fecha!)
         </p>
 
         {/* Título partido en dos líneas de jerarquía distinta */}

@@ -58,7 +58,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Columna Izquierda: Copy / Explicación del PDF */}
-          <div data-aos="fade-right">
+          <div data-reveal>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/20 text-gold border border-gold/30 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
               <FilePdf weight="fill" className="w-4 h-4" />
               <span>Material Descargable</span>
@@ -90,7 +90,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
           </div>
 
           {/* Columna Derecha: Formulario */}
-          <div data-aos="fade-left">
+          <div data-reveal data-delay="1">
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl relative">
               
               {!submitted ? (

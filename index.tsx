@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import './src/i18n';
 import Main from './Main';
 import './index.css';
 
@@ -11,6 +12,7 @@ const Familion = lazy(() => import('./src/Familion'));
 const Gondorbows = lazy(() => import('./src/Gondorbows'));
 const AulaVerde = lazy(() => import('./src/AulaVerde'));
 const AchalaViva = lazy(() => import('./src/AchalaViva'));
+const Estadia = lazy(() => import('./src/Estadia'));
 const TerminosYCondiciones = lazy(() => import('./src/TerminosYCondiciones'));
 const PoliticaPrivacidad = lazy(() => import('./src/PoliticaPrivacidad'));
 const NotFound = lazy(() => import('./src/NotFound'));
@@ -40,6 +42,7 @@ root.render(
           <Route path="/gondorbows" element={<Gondorbows />} />
           <Route path="/escuelas" element={<AulaVerde />} />
           <Route path="/achala-viva" element={<AchalaViva />} />
+          <Route path="/estadia" element={<Estadia />} />
           <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />
           <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="*" element={<NotFound />} />

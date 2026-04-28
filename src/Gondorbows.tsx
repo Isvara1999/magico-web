@@ -23,7 +23,7 @@ const Gondorbows: React.FC = () => {
 
   // SEO — title, meta, OG, canonical y JSON-LD
   useEffect(() => {
-    const TITLE = 'Gondorbows — Retiro de Arquería Ancestral · Los Gigantes, Córdoba | Mágico Ensueño';
+    const TITLE = 'Gondorbows — Arquería Ancestral · Los Gigantes, Córdoba';
     const DESC  = 'Construí tu propio arco en 3 días de inmersión en Los Gigantes, Córdoba. Taller de arquería tradicional con Gondor Bows. Todo incluido. Sin experiencia previa necesaria.';
     const URL   = 'https://experienciamagico.com/gondorbows';
     const IMG   = 'https://experienciamagico.com/uploads/arcos-fuego.jpg';
@@ -47,8 +47,12 @@ const Gondorbows: React.FC = () => {
     setMeta('meta[property="og:title"]',       'content',  TITLE);
     setMeta('meta[property="og:description"]', 'property', 'og:description');
     setMeta('meta[property="og:description"]', 'content',  DESC);
-    setMeta('meta[property="og:image"]',       'property', 'og:image');
-    setMeta('meta[property="og:image"]',       'content',  IMG);
+    setMeta('meta[property="og:image"]',        'property', 'og:image');
+    setMeta('meta[property="og:image"]',        'content',  IMG);
+    setMeta('meta[property="og:image:width"]',  'property', 'og:image:width');
+    setMeta('meta[property="og:image:width"]',  'content',  '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height');
+    setMeta('meta[property="og:image:height"]', 'content',  '630');
     setMeta('meta[property="og:url"]',         'property', 'og:url');
     setMeta('meta[property="og:url"]',         'content',  URL);
     setMeta('meta[property="og:type"]',        'property', 'og:type');

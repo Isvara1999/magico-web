@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { BookOpen, Check, FileText } from 'lucide-react';
+import { BookOpenText, CheckCircle } from '@phosphor-icons/react';
 import { marked } from 'marked';
 
 export const SectionExperiencias: React.FC = () => {
@@ -20,18 +20,17 @@ export const SectionExperiencias: React.FC = () => {
           />
           <div className="text-dark/70 text-lg max-w-5xl mx-auto leading-relaxed space-y-6">
             <p dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p1 }} />
-            <p 
+            <p
               className="font-light"
-              dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p2 }} 
+              dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p2 }}
             />
           </div>
         </div>
 
         {/* Reset Vital Section */}
         <div className="mb-20 bg-bone rounded-2xl p-8 md:p-12 shadow-sm border-l-4 border-[#005333]/20 relative overflow-hidden" data-reveal>
-          {/* Decorative Icon Background */}
-          <BookOpen className="absolute -right-10 -bottom-10 w-64 h-64 text-brand/5 rotate-12" />
-          
+          <BookOpenText className="absolute -right-10 -bottom-10 w-64 h-64 text-brand/5 rotate-12" weight="duotone" />
+
           <div className="w-full">
             <span className="text-gold font-bold tracking-widest uppercase text-xs mb-2 block opacity-90">
               {t.experiences.resetVital.subtitle}
@@ -39,19 +38,19 @@ export const SectionExperiencias: React.FC = () => {
             <h3 className="text-3xl font-serif text-brand mb-6">
               {t.experiences.resetVital.title}
             </h3>
-            <div 
+            <div
               className="text-dark/80 mb-10 font-light leading-relaxed text-lg max-w-4xl [&_strong]:text-[#8B6914] [&_strong]:font-medium"
               dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.resetVital.description as string) as string }}
             />
-            
+
             <ul className="space-y-6">
               {t.experiences.resetVital.items.map((item: any, idx: number) => (
                 <li key={idx} className="flex flex-col gap-1">
                   <strong className="text-brand text-sm font-bold uppercase tracking-wide flex items-center gap-2">
-                    <Check className="w-4 h-4 text-gold" />
+                    <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" />
                     {item.title}
                   </strong>
-                  <span className="text-sm text-dark/70 pl-4 border-l border-brand/10">{item.desc}</span>
+                  <span className="text-sm text-dark/70 pl-6 border-l border-brand/10">{item.desc}</span>
                 </li>
               ))}
             </ul>
@@ -68,29 +67,73 @@ export const SectionExperiencias: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {t.experiences.cards.map((card: any) => {
             const isEcoRefugio = card.title?.toString().toLowerCase().includes('eco-refugio') || card.title?.toString().toLowerCase().includes('glamping');
-            
+
             return (
-            <div key={card.id} className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold relative">
-              {isEcoRefugio && (
-                <div className="absolute top-4 right-4 z-20 bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  {(t.experiences as any).badge_accommodation}
+              <div key={card.id} className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold relative">
+                {isEcoRefugio && (
+                  <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-start pointer-events-none">
+                    <div className="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">
+                      {(t.experiences as any).badge_accommodation}
+                    </div>
+                    <div className="bg-gold text-brand text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">
+                      Coworking & Coliving
+                    </div>
+                  </div>
+                )}
+                <div className="h-48 overflow-hidden">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
-              )}
-              <div className="h-48 overflow-hidden">
-                <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div className="p-6">
+                  <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
+                  <p className="text-dark/70 mb-4 text-sm leading-relaxed">
+                    {card.description}
+                    {isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}
+                  </p>
+                  <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
+                    {card.ctaText}
+                  </a>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
-                <p className="text-dark/70 mb-4 text-sm leading-relaxed">
-                  {card.description}
-                  {isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}
-                </p>
-                <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
-                  {card.ctaText}
-                </a>
+            );
+          })}
+        </div>
+
+        {/* Weekday Discount */}
+        <div className="mt-20 bg-bone rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-gold/20 shadow-sm">
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <span className="inline-block bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5">
+              12,5% de descuento
+            </span>
+            <h3 className="text-2xl md:text-4xl font-serif text-brand mb-4 leading-tight">
+              Vení de Lunes a Jueves
+            </h3>
+            <p className="text-dark/65 text-base font-light leading-relaxed mb-8 max-w-xl mx-auto">
+              Los días de semana (no feriados) tienen un precio especial. Más silencio, más privacidad, el entorno ideal para el foco creativo o el descanso profundo.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+              <div className="bg-white rounded-xl px-6 py-4 border border-brand/10 shadow-sm text-center">
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Alojamiento</p>
+                <p className="text-dark/30 text-sm line-through mb-0.5">$40.000</p>
+                <p className="text-brand text-2xl font-serif font-light">$35.000 <span className="text-sm text-dark/50">/ noche</span></p>
+              </div>
+              <div className="bg-white rounded-xl px-6 py-4 border border-gold/20 shadow-sm text-center">
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Pensión Completa</p>
+                <p className="text-dark/30 text-sm line-through mb-0.5">$95.000</p>
+                <p className="text-gold text-2xl font-serif font-light">$83.000 <span className="text-sm text-dark/50">/ noche</span></p>
               </div>
             </div>
-          )})}
+            <div className="flex flex-wrap justify-center gap-5 text-sm text-dark/60">
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> Lunes a jueves
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> No aplica feriados
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> Todo incluido
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

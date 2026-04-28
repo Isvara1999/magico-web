@@ -24,8 +24,15 @@ const AchalaVivaMagico: React.FC = () => {
         <div className="flex justify-center mb-10 w-full relative z-20">
           <div className="relative w-full max-w-sm">
             <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#001a0d]">
+              {/* Poster as fallback when iframe is blocked (Brave) */}
+              <img
+                src="/uploads/img_6948.webp"
+                alt="Mágico Ensueño — Experiencia en la Montaña"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+                loading="lazy"
+              />
               <iframe
-                className="w-full h-full"
+                className="absolute inset-0 w-full h-full"
                 src="https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
                 title="Mágico Ensueño - Experiencia en la Montaña"
                 loading="lazy"

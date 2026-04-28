@@ -9,14 +9,16 @@ export const SectionContacto = () => {
     name: '',
     email: '',
     whatsapp: '',
-    message: ''
+    message: '',
+    consent: false,
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
     });
   };
 
@@ -29,7 +31,7 @@ export const SectionContacto = () => {
       const data = new URLSearchParams();
       data.append('form-name', 'contact');
       Object.entries(formData).forEach(([key, value]) => {
-        data.append(key, value);
+        data.append(key, String(value));
       });
 
       await fetch('/', {
@@ -39,7 +41,7 @@ export const SectionContacto = () => {
       });
 
       setStatus('success');
-      setFormData({ name: '', email: '', whatsapp: '', message: '' });
+      setFormData({ name: '', email: '', whatsapp: '', message: '', consent: false });
       
       // Resetear mensaje de éxito después de 5 segundos
       setTimeout(() => setStatus('idle'), 5000);
@@ -68,8 +70,9 @@ export const SectionContacto = () => {
             name="contact" 
             data-netlify="true"
           >
-            {/* Campo oculto necesario para Netlify Forms en React */}
+            {/* Campos ocultos necesarios para Netlify Forms en React */}
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="consent" value={formData.consent ? 'si' : 'no'} />
 
             <div className="grid md:grid-cols-2 gap-6">
               <input
@@ -108,6 +111,25 @@ export const SectionContacto = () => {
               className="w-full px-4 py-3 bg-bone border border-transparent focus:border-gold focus:bg-white focus:outline-none transition-[border-color,background-color] duration-200 rounded-lg font-light text-dark"
               required
             ></textarea>
+
+            {/* Checkbox de consentimiento — requerido por Ley 25.326 para uso en marketing */}
+            <label className="flex items-start gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={formData.consent}
+                onChange={handleChange}
+                required
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-brand accent-brand flex-shrink-0 cursor-pointer"
+              />
+              <span className="text-xs text-dark/60 leading-relaxed">
+                Acepto los{' '}
+                <a href="/terminos-y-condiciones" target="_blank" className="text-brand hover:underline">Términos y Condiciones</a>{' '}
+                y la{' '}
+                <a href="/politica-de-privacidad" target="_blank" className="text-brand hover:underline">Política de Privacidad</a>.
+                Autorizo a Mágico Ensueño a contactarme por WhatsApp o email con información sobre disponibilidad, ofertas y novedades.
+              </span>
+            </label>
 
             <div className="flex flex-col items-center gap-4">
               <button

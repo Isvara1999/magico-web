@@ -31,8 +31,8 @@ import { WA_MAGICO } from '../constants';
 const Familion: React.FC = () => {
   // SEO — title, meta, OG, canonical y JSON-LD
   useEffect(() => {
-    const TITLE = 'Familion — Retiro Familiar en la Montaña · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Retiro familiar en Los Gigantes, Córdoba. 1 al 3 de Mayo. Adultos en red, niños en libertad, gastronomía de montaña y experiencias transformadoras. Yoga, temazcal y tribu real.';
+    const TITLE = 'Familion — Retiro Familiar · Los Gigantes, Córdoba | Mágico Ensueño';
+    const DESC  = 'Retiro familiar en Los Gigantes, Córdoba. 1-3 Mayo (¡Últimos 2 cupos!) & 13-15 Junio. Adultos en red, niños en libertad, gastronomía de montaña.';
     const URL   = 'https://experienciamagico.com/familion';
     const IMG   = 'https://experienciamagico.com/uploads/portada familion.webp';
     const prevTitle = document.title;
@@ -55,8 +55,12 @@ const Familion: React.FC = () => {
     setMeta('meta[property="og:title"]',       'content',  TITLE);
     setMeta('meta[property="og:description"]', 'property', 'og:description');
     setMeta('meta[property="og:description"]', 'content',  DESC);
-    setMeta('meta[property="og:image"]',       'property', 'og:image');
-    setMeta('meta[property="og:image"]',       'content',  IMG);
+    setMeta('meta[property="og:image"]',        'property', 'og:image');
+    setMeta('meta[property="og:image"]',        'content',  IMG);
+    setMeta('meta[property="og:image:width"]',  'property', 'og:image:width');
+    setMeta('meta[property="og:image:width"]',  'content',  '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height');
+    setMeta('meta[property="og:image:height"]', 'content',  '630');
     setMeta('meta[property="og:url"]',         'property', 'og:url');
     setMeta('meta[property="og:url"]',         'content',  URL);
     setMeta('meta[property="og:type"]',        'property', 'og:type');
@@ -234,6 +238,14 @@ const Familion: React.FC = () => {
             <h2 className="text-4xl md:text-5xl serif-title brand-green" style={{ lineHeight: '1.1' }}>
               Ritmo Serrano
             </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-brand-green/10 text-brand-green text-xs font-bold rounded-full border border-brand-green/20">
+                1 al 3 de Mayo — ¡Últimos 2 cupos!
+              </span>
+              <span className="px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs font-bold rounded-full border border-brand-gold/20">
+                13 al 15 de Junio — ¡Nueva Fecha!
+              </span>
+            </div>
           </div>
 
           <div className="max-w-4xl">
@@ -244,7 +256,7 @@ const Familion: React.FC = () => {
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
                 <div className="pb-2 flex items-end gap-4">
                   <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Viernes · 1 de Mayo</p>
+                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 1 · Llegada</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Llegada y Fuego</h3>
                   </div>
                   <CampfireIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
@@ -265,7 +277,7 @@ const Familion: React.FC = () => {
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
                 <div className="pb-2 flex items-end gap-4">
                   <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 2 de Mayo</p>
+                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 2 · Inmersión</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Raíces y Cielo</h3>
                   </div>
                   <SunIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
@@ -286,7 +298,7 @@ const Familion: React.FC = () => {
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>3</span>
                 <div className="pb-2 flex items-end gap-4">
                   <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 3 de Mayo</p>
+                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 3 · Cierre</p>
                     <h3 className="text-2xl md:text-3xl serif-title brand-green">Cierre y Partida</h3>
                   </div>
                   <MoonIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />

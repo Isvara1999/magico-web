@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npx playwright install chromium --with-deps && npm run build"
   publish = "dist"
 
 [[redirects]]
@@ -9,6 +9,31 @@
 
 [[redirects]]
   from = "/familion"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/achala-viva"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/gondorbows"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/estadia"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terminos-y-condiciones"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/politica-de-privacidad"
   to = "/index.html"
   status = 200
 

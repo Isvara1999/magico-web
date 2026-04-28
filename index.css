@@ -4,6 +4,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset anchor scrolls by the height of the fixed header (~80px) so section
+     titles are never hidden behind the pill navbar on anchor-link navigation.
+     Also covers direct <a href="#section"> clicks that bypass the JS handler. */
+  scroll-padding-top: 90px;
 }
 
 /* Custom Scrollbar Hide */
@@ -34,17 +38,27 @@ body {
 [data-reveal] {
   opacity: 0;
   transform: translateY(22px);
+  /* Promote to compositor layer BEFORE the animation starts — prevents the
+     browser from doing a full repaint on every animation frame (major cause
+     of scroll jank on Mac/Safari with many simultaneous fade-ins). */
+  will-change: opacity, transform;
   transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
-[data-reveal].visible { opacity: 1; transform: translateY(0); }
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+  /* Release the compositor layer once the element has settled — avoids
+     keeping hundreds of layers in GPU memory after all reveals are done. */
+  will-change: auto;
+}
 [data-reveal][data-delay="1"] { transition-delay: 100ms; }
 [data-reveal][data-delay="2"] { transition-delay: 200ms; }
 [data-reveal][data-delay="3"] { transition-delay: 300ms; }
 [data-reveal][data-delay="4"] { transition-delay: 400ms; }
 [data-reveal][data-delay="5"] { transition-delay: 500ms; }
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; will-change: auto !important; }
 }
 
 /* ── Typography & Brand Colors ── */

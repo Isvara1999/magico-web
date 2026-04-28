@@ -30,7 +30,7 @@ const AchalaViva: React.FC = () => {
 
   // SEO — title, meta, OG, canonical y JSON-LD para esta página
   useEffect(() => {
-    const TITLE = 'Achala Viva — Retiro de Naturaleza · Los Gigantes, Córdoba | Mágico Ensueño';
+    const TITLE = 'Achala Viva — Retiro de Naturaleza · Los Gigantes, Córdoba';
     const DESC  = 'Retiro de inmersión total en Los Gigantes, Córdoba. 9 y 10 de Mayo. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas. Mágico Ensueño.';
     const URL   = 'https://experienciamagico.com/achala-viva';
     const IMG   = 'https://experienciamagico.com/uploads/img_6948.webp';
@@ -54,8 +54,12 @@ const AchalaViva: React.FC = () => {
     setMeta('meta[property="og:title"]',  'content',  TITLE);
     setMeta('meta[property="og:description"]', 'property', 'og:description');
     setMeta('meta[property="og:description"]', 'content',  DESC);
-    setMeta('meta[property="og:image"]',  'property', 'og:image');
-    setMeta('meta[property="og:image"]',  'content',  IMG);
+    setMeta('meta[property="og:image"]',        'property', 'og:image');
+    setMeta('meta[property="og:image"]',        'content',  IMG);
+    setMeta('meta[property="og:image:width"]',  'property', 'og:image:width');
+    setMeta('meta[property="og:image:width"]',  'content',  '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height');
+    setMeta('meta[property="og:image:height"]', 'content',  '630');
     setMeta('meta[property="og:url"]',    'property', 'og:url');
     setMeta('meta[property="og:url"]',    'content',  URL);
     setMeta('meta[property="og:type"]',   'property', 'og:type');

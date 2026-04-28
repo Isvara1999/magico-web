@@ -63,44 +63,46 @@ export const SectionVideo: React.FC = () => {
 
         <div data-reveal data-delay="1" className="relative max-w-sm mx-auto group">
           <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border border-brand/10 bg-black">
-            {isPlaying ? (
-              <>
-                {isYouTube ? (
-                  <iframe
-                    className="w-full h-full"
-                    src={getEmbedUrl(t.video.videoUrl)}
-                    title="Video de Mágico Ensueño"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                ) : (
-                  <video
-                    className="w-full h-full object-cover"
-                    src={t.video.videoUrl}
-                    autoPlay
-                    muted={isMuted}
-                    loop
-                    playsInline
-                    controls
-                  ></video>
-                )}
-                
-                {/* Sound Toggle Button */}
-                <button 
-                  onClick={() => setIsMuted(!isMuted)}
-                  className="absolute bottom-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2.5 rounded-full border border-white/20 text-white hover:bg-black/60 transition-colors shadow-lg"
-                  aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-                >
-                  {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                </button>
-              </>
-            ) : (
-              <img 
-                src={t.video.poster} 
-                alt="Video cover" 
-                className="w-full h-full object-cover"
-              />
+            {/* Poster always rendered as background — visible before play and as
+                fallback when the iframe is blocked (e.g. Brave aggressive shields). */}
+            <img
+              src={t.video.poster}
+              alt="Video cover"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {isPlaying && (
+              isYouTube ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={getEmbedUrl(t.video.videoUrl)}
+                  title="Video de Mágico Ensueño"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={t.video.videoUrl}
+                  autoPlay
+                  muted={isMuted}
+                  loop
+                  playsInline
+                  controls
+                />
+              )
+            )}
+
+            {/* Sound toggle button */}
+            {isPlaying && (
+              <button
+                onClick={() => setIsMuted(!isMuted)}
+                className="absolute bottom-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2.5 rounded-full border border-white/20 text-white hover:bg-black/60 transition-colors shadow-lg"
+                aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+              >
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              </button>
             )}
           </div>
           

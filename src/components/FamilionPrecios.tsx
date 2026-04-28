@@ -17,6 +17,20 @@ const FamilionPrecios: React.FC = () => {
       <p className="text-white/80 text-sm md:text-base mb-8 md:mb-10 max-w-2xl mx-auto">
         Un único valor para que toda la familia viva la experiencia completa sin sorpresas ocultas.
       </p>
+      
+      {/* Fechas Alert */}
+      <div className="max-w-2xl mx-auto mb-10 flex flex-col md:flex-row gap-4 justify-center items-center">
+        <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-4 flex-1 w-full md:w-auto">
+          <p className="text-xs uppercase tracking-widest text-white/60 mb-1">Próxima Edición</p>
+          <p className="text-lg serif-title font-bold text-white">1 al 3 de Mayo</p>
+          <p className="text-xs font-bold text-[#D4AF37] mt-1">¡Últimos 2 cupos para familias!</p>
+        </div>
+        <div className="bg-white/10 border border-brand-gold/30 rounded-2xl px-6 py-4 flex-1 w-full md:w-auto">
+          <p className="text-xs uppercase tracking-widest text-white/60 mb-1">Nueva Fecha</p>
+          <p className="text-lg serif-title font-bold text-white">13 al 15 de Junio</p>
+          <p className="text-xs font-bold text-[#D4AF37] mt-1">¡Inscripciones abiertas!</p>
+        </div>
+      </div>
 
       <div className="rounded-3xl p-8 md:p-12 mb-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 items-stretch">

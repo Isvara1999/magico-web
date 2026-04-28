@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from '@phosphor-icons/react';
 
-const CUIT_PLACEHOLDER = '[COMPLETAR: CUIT de HERMANOS MÁGICOS S.A.S.]';
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-10">
@@ -62,7 +61,7 @@ export const PoliticaPrivacidad: React.FC = () => {
             <strong>Nombre comercial:</strong> Mágico Ensueño — Eco-Refugio & Glamping
           </p>
           <p>
-            <strong>CUIT:</strong> {CUIT_PLACEHOLDER}
+            <strong>CUIT:</strong> 30-71875586-3
           </p>
           <p>
             <strong>Domicilio:</strong> Calle Aconquija 635, Villa Allende, Departamento Colón, Córdoba, Argentina.
@@ -212,12 +211,27 @@ export const PoliticaPrivacidad: React.FC = () => {
           </p>
         </Section>
 
-        <div className="mt-12 pt-8 border-t border-gray-200 text-xs text-dark/40 text-center">
-          © {new Date().getFullYear()} HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA — Todos los derechos reservados.
-          <br />
-          <a href="/terminos-y-condiciones" className="hover:text-brand transition-colors">Términos y Condiciones</a>
-          {' · '}
-          <a href="/" className="hover:text-brand transition-colors">Volver al inicio</a>
+        <div className="mt-12 pt-8 border-t border-gray-200 text-xs text-dark/40 text-center flex flex-col items-center gap-4">
+          <a
+            href="https://www.afip.gob.ar/fe/qr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+            title="Ver Data Fiscal AFIP"
+          >
+            <img 
+              src="/uploads/qr-arca.png" 
+              alt="Data Fiscal AFIP" 
+              className="h-16 w-auto object-contain"
+            />
+          </a>
+          <div>
+            © {new Date().getFullYear()} HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA — Todos los derechos reservados.
+            <br />
+            <a href="/terminos-y-condiciones" className="hover:text-brand transition-colors">Términos y Condiciones</a>
+            {' · '}
+            <a href="/" className="hover:text-brand transition-colors">Volver al inicio</a>
+          </div>
         </div>
       </main>
     </div>

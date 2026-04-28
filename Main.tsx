@@ -13,12 +13,12 @@ import { SectionTestimonios } from './components/SectionTestimonios';
 import { SectionEventos } from './components/SectionEventos';
 import { SectionComoLlegar } from './components/SectionComoLlegar';
 import { SectionContacto } from './components/SectionContacto';
+import { SectionInclusiones } from './components/SectionInclusiones';
+import { SectionParaQuien } from './components/SectionParaQuien';
+import { SectionFAQ } from './components/SectionFAQ';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { CookieBanner } from './components/CookieBanner';
-
-const win: any = typeof window !== 'undefined' ? window : {};
-const scheduleIdle = win.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 200));
 
 const Main: React.FC = () => {
   const [belowFoldReady, setBelowFoldReady] = useState(false);
@@ -63,8 +63,12 @@ const Main: React.FC = () => {
     setMeta('meta[property="og:title"]',       'content',  TITLE);
     setMeta('meta[property="og:description"]', 'property', 'og:description');
     setMeta('meta[property="og:description"]', 'content',  DESC);
-    setMeta('meta[property="og:image"]',       'property', 'og:image');
-    setMeta('meta[property="og:image"]',       'content',  IMG);
+    setMeta('meta[property="og:image"]',        'property', 'og:image');
+    setMeta('meta[property="og:image"]',        'content',  IMG);
+    setMeta('meta[property="og:image:width"]',  'property', 'og:image:width');
+    setMeta('meta[property="og:image:width"]',  'content',  '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height');
+    setMeta('meta[property="og:image:height"]', 'content',  '630');
     setMeta('meta[property="og:url"]',         'property', 'og:url');
     setMeta('meta[property="og:url"]',         'content',  URL);
     setMeta('meta[property="og:type"]',        'property', 'og:type');
@@ -84,15 +88,19 @@ const Main: React.FC = () => {
 
     const schema = {
       "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
+      "@type": ["LodgingBusiness", "TouristAttraction"],
       "name": "Mágico Ensueño",
       "description": DESC,
       "url": URL,
       "image": IMG,
+      "telephone": "+5493516765820",
+      "email": "experienciamagico@gmail.com",
       "priceRange": "$$",
+      "currenciesAccepted": "ARS",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Los Gigantes",
+        "streetAddress": "Paraje Cuchilla Nevada, Ojo de Agua",
+        "addressLocality": "Pedanía La Candelaria",
         "addressRegion": "Córdoba",
         "addressCountry": "AR"
       },
@@ -101,10 +109,19 @@ const Main: React.FC = () => {
         "latitude": -31.5,
         "longitude": -64.7
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "64",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Glamping en domos" },
+        { "@type": "LocationFeatureSpecification", "name": "Glamping en domos geodésicos" },
         { "@type": "LocationFeatureSpecification", "name": "Energía solar" },
-        { "@type": "LocationFeatureSpecification", "name": "Retiros y voluntariados" }
+        { "@type": "LocationFeatureSpecification", "name": "Retiros y voluntariados" },
+        { "@type": "LocationFeatureSpecification", "name": "Coworking con Starlink" },
+        { "@type": "LocationFeatureSpecification", "name": "Cocina de autor orgánica" }
       ]
     };
     const ldScript = document.createElement('script');
@@ -136,17 +153,20 @@ const Main: React.FC = () => {
         <Header />
         <main>
           <Hero />
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionEventos /></div>
           <SectionNosotros />
           <SectionPilares />
           <SectionVideo />
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}><SectionExperiencias /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }}><SectionEventos /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}><SectionRetiros /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }}><SectionEscuelas /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px' }}><SectionVoluntariados /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }}><SectionTestimonios /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }}><SectionComoLlegar /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }}><SectionContacto /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionExperiencias /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionInclusiones /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionParaQuien /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionTestimonios /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionRetiros /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionEscuelas /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px', isolation: 'isolate' }}><SectionVoluntariados /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px', isolation: 'isolate' }}><SectionComoLlegar /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionFAQ /></div>
+          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionContacto /></div>
         </main>
         {belowFoldReady && <Footer />}
         <WhatsAppButton />

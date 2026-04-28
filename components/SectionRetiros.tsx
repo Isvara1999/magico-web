@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, FileText } from 'lucide-react';
+import { Sparkle } from '@phosphor-icons/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { marked } from 'marked';
 
@@ -26,7 +26,7 @@ export const SectionRetiros: React.FC = () => {
               <ul className="space-y-4 text-gray-300/80 mb-10 font-sans text-sm">
                 {t.retreats.list.map((item: any, index: number) => (
                   <li key={index} className="flex items-center gap-3">
-                    <Sparkles className="w-5 h-5 text-gold" /> {item.text}
+                    <Sparkle className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" /> {item.text}
                   </li>
                 ))}
               </ul>

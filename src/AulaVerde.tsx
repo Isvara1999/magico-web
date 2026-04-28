@@ -16,7 +16,7 @@ const AulaVerdeLeadMagnet = lazy(() => import('./components/AulaVerdeLeadMagnet'
 
 const AulaVerde: React.FC = () => {
   useEffect(() => {
-    const TITLE = 'Aula Verde — Campamentos Educativos · Los Gigantes, Córdoba | Mágico Ensueño';
+    const TITLE = 'Aula Verde — Campamentos Educativos en Córdoba | Mágico Ensueño';
     const DESC  = 'Campamentos educativos en Los Gigantes, Córdoba. Talleres agroecológicos, aventura y naturaleza. Para escuelas, primaria y secundaria. Capacidad hasta 180 alumnos.';
     const URL   = 'https://experienciamagico.com/escuelas';
     const IMG   = 'https://experienciamagico.com/uploads/Aula Verde/IMG-20251120-WA0149.jpg';
@@ -40,8 +40,12 @@ const AulaVerde: React.FC = () => {
     setMeta('meta[property="og:title"]',       'content',  TITLE);
     setMeta('meta[property="og:description"]', 'property', 'og:description');
     setMeta('meta[property="og:description"]', 'content',  DESC);
-    setMeta('meta[property="og:image"]',       'property', 'og:image');
-    setMeta('meta[property="og:image"]',       'content',  IMG);
+    setMeta('meta[property="og:image"]',        'property', 'og:image');
+    setMeta('meta[property="og:image"]',        'content',  IMG);
+    setMeta('meta[property="og:image:width"]',  'property', 'og:image:width');
+    setMeta('meta[property="og:image:width"]',  'content',  '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height');
+    setMeta('meta[property="og:image:height"]', 'content',  '630');
     setMeta('meta[property="og:url"]',         'property', 'og:url');
     setMeta('meta[property="og:url"]',         'content',  URL);
     setMeta('meta[property="og:type"]',        'property', 'og:type');
@@ -63,7 +67,7 @@ const AulaVerde: React.FC = () => {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Service",
+          "@type": "EducationalOccupationalProgram",
           "name": "Aula Verde — Campamentos Educativos",
           "provider": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
           "description": "Campamentos educativos en Los Gigantes, Córdoba. Talleres agroecológicos, aventura y naturaleza para escuelas. Adaptado a primaria y secundaria. Capacidad hasta 180 alumnos.",

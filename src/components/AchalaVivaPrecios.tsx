@@ -29,7 +29,7 @@ const AchalaVivaPrecios: React.FC = () => {
           <div className="w-full flex justify-center px-4 mb-12">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative w-full max-w-2xl p-8 md:p-14 text-center flex flex-col items-center hover:shadow-yellow-500/20 transition-shadow duration-500">
               <p className="font-bold text-base md:text-xl mb-4 md:mb-6 uppercase tracking-widest" style={{ color: '#005333' }}>Valor total de la experiencia</p>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>$150.000 ARS</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>$180.000 ARS</div>
               <p className="text-sm md:text-base opacity-80 font-medium tracking-wide" style={{ color: '#005333' }}>Financiación disponible · Seña del 50%</p>
             </div>
           </div>

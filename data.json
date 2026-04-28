@@ -3,8 +3,8 @@
     "experiences": {
       "tag": "En Mágico",
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
-      "intro_p1": "En Mágico Ensueño, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Esta es la versión base que te ofrecemos para potenciar la experiencia y sus beneficios, pero también podés armar tu propia <strong class='text-brand font-medium'>experiencia a medida</strong>. ¡Escribinos para cualquier consulta!",
-      "intro_p2": "También puedes optar <strong class='text-brand font-medium'>solo por el alojamiento</strong> si lo deseas, pero recomendamos la experiencia completa de alojamiento, comida y guía: el <strong class='text-[#8B6914] font-medium'>Reset Vital</strong>.",
+      "intro_p1": "En Mágico Ensueño, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
+      "intro_p2": "Ya recibimos viajeros de **más de 20 países**. Somos el destino ideal para quienes buscan un **Coworking con alma** o un retiro personal autoguiado: el **Reset Vital**.",
       "badge_accommodation": "Alojamiento",
       "card_extra_text": "También podés solo alojarte si querés.",
       "btn": "RESERVAR MI LUGAR",
@@ -38,7 +38,7 @@
       "resetVital": {
         "title": "¿Qué es RESET VITAL?",
         "subtitle": "TU RETIRO AUTOGUIADO (INCLUIDO)",
-        "description": "Es el corazón de nuestra propuesta. Entendemos que a veces necesitás desconectar del mundo para reconectar con vos, pero sin la estructura rígida de un retiro grupal. Reset Vital es una **Bitácora de Viaje Interior (PDF)** que te entregamos al llegar, diseñada para ser tu brújula en la montaña.",
+        "description": "Es el corazón de nuestra propuesta y está **incluido en todas las estadías**. Un retiro autoguiado que te brinda las herramientas para una profunda reconexión mientras disfrutás de la libertad de la montaña. Ideal tanto para quienes buscan silencio absoluto como para nómades digitales que buscan un **entorno de trabajo inspirador con Starlink**.",
         "image": "/uploads/campoentero.webp",
         "items": [
           {
@@ -57,8 +57,8 @@
       }
     },
     "volunteer": {
-      "title": "Un intercambio que <span class='italic text-green'>expande</span>",
-      "description": "Recibimos viajeros de todo el mundo para vivir una experiencia de **colaboración, aprendizaje y servicio a la Tierra**. Una propuesta simple y profunda, para explorar la **vida en comunidad**, el **trabajo en equipo** y la filosofía del **buen vivir**.",
+      "title": "Un refugio <span class='italic text-green'>internacional</span>",
+      "description": "Recibimos voluntarios y viajeros de **más de 20 países**. La energía de Mágico Ensueño se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
       "btn": "POSTULARME",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -122,7 +122,7 @@
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
-      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, cultivamos este espacio desde hace más de 20 años como un refugio para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
+      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, cultivamos este espacio desde hace más de 20 años como un refugio internacional que ya ha recibido a personas de **más de 20 países**, siendo un hogar para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
       "p2": "Combinamos colaboración genuina, bienestar y un enfoque regenerativo en cada acción que realizamos. Cada árbol plantado y cada plato servido cuentan una historia de amor, cuidado y respeto por la Tierra y el ecosistema que nos sostiene.",
       "link": "Nuestra manera de Ser y Hacer",
       "image": "/uploads/dji_0074.webp",
@@ -174,7 +174,7 @@
       "link": "",
       "cards": [
         {
-          "date": "1, 2 Y 3 DE MAYO",
+          "date": "1-3 MAYO (¡ULT. 2 CUPOS!)\n13-15 JUNIO (¡NUEVA FECHA!)",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
           "btn": "Ver Más",
@@ -196,7 +196,7 @@
           "title": "Habitar la Transformación",
           "desc": "Retiro de montaña centrado en Eneagrama y prácticas corporales para pasar de la personalidad a la esencia.",
           "btn": "Consultar",
-          "image": "/uploads/bienestar-balance.webp",
+          "image": "/uploads/hero(2).webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
@@ -215,25 +215,39 @@
           "btn": "Consultar",
           "image": "/uploads/temazcal.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "SIEMPRE DISPONIBLE",
+          "title": "Reset Vital",
+          "desc": "Tu retiro autoguiado incluido en toda estadía. Una guía PDF con meditaciones, journaling, caminatas conscientes y rituales simples para reconectar a tu propio ritmo. Sin horarios, sin obligaciones. Reservá tu estadía y llevate la experiencia.",
+          "btn": "Ver Estadías",
+          "image": "/uploads/bienestar-balance.webp",
+          "link": "/estadia"
         }
       ]
     },
     "hero": {
       "title": "Te invita a Ser",
-      "subtitle": "Un espacio para vivir experiencias transformadoras que te invitan a reconectar con vos, disfrutar y descansar.",
-      "btnBook": "EXPERIENCIAS",
+      "subtitle": "Estadías, retiros y cocina de autor en una granja regenerativa. Sierras Grandes de Córdoba.",
+      "tag": "20+ AÑOS · GRANJA REGENERATIVA · SIERRAS DE CÓRDOBA",
+      "btnBook": "RESERVAR AHORA",
       "btnRetreat": "ORGANIZAR RETIRO",
-      "stats_years": "+20 Años",
-      "stats_trees": "+15mil Árboles Plantados",
-      "stats_sus": "Regeneración & Sustentabilidad",
+      "stats_years": "+15.000 Árboles Plantados",
+      "stats_trees": "Huéspedes de +20 Países",
+      "stats_sus": "Desde $40.000 / noche",
+      "stats_google": "5.0★ · 64 reseñas Google",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
         "/uploads/img_8475.webp",
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],
-      "bookLink": "#experiencias",
-      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
+      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20saber%20m%C3%A1s%20sobre%20las%20experiencias%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+      "nextEvent": {
+        "label": "FAMILION · 1–3 MAYO · ¡ULT. 2 CUPOS!",
+        "link": "/familion"
+      }
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -349,6 +363,7 @@
         "faq": "Preguntas Frecuentes"
       },
       "experienceLinks": [
+        { "label": "Estadías & Glamping", "href": "/estadia" },
         { "label": "Familion", "href": "/familion" },
         { "label": "Achala Viva", "href": "/achala-viva" },
         { "label": "Gondorbows", "href": "/gondorbows" },
@@ -364,17 +379,17 @@
       "btnContact": "RESCATE POR WHATSAPP"
     },
     "donations": {
-      "text": "Acá puedes realizar donaciones para seguir expandiendo este proyecto.",
-      "btn": "REALIZAR DONACIÓN",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20realizar%20una%20donaci%C3%B3n%20para%20seguir%20expandiendo%20el%20proyecto.%20%F0%9F%99%8F"
+      "text": "Apoyá la restauración de las Sierras Grandes de Córdoba con la plantación de tabaquillos nativos. Cada árbol es un paso hacia el monte nativo que alguna vez fue.",
+      "btn": "SUMARME A RESTAURAR",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
     }
   },
   "en": {
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
-      "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. This is the base version we offer to enhance the experience and its benefits, but you can also build your own <strong class='text-brand font-medium'>custom experience</strong>. Write to us for any inquiry!",
-      "intro_p2": "You can also choose <strong class='text-brand font-medium'>accommodation only</strong> if you wish, but we recommend the full experience of accommodation, food, and guidance: the <strong class='text-[#8B6914] font-medium'>Reset Vital</strong>.",
+      "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
+      "intro_p2": "We have already hosted travelers from **over 20 countries**. We are the ideal destination for those seeking a **Coworking with soul** or a self-guided personal retreat: the **Reset Vital**.",
       "badge_accommodation": "Accommodation",
       "card_extra_text": "You can also just book accommodation if you wish.",
       "btn": "Book my spot",
@@ -408,7 +423,7 @@
       "resetVital": {
         "title": "What is RESET VITAL?",
         "subtitle": "YOUR SELF-GUIDED RETREAT (INCLUDED)",
-        "description": "It is the heart of our proposal. We understand that sometimes you need to disconnect from the world to reconnect with yourself, but without the rigid structure of a group retreat. Reset Vital is an **Inner Journey Logbook (PDF)** that we give you upon arrival, designed to be your compass in the mountain.",
+        "description": "It is the heart of our proposal and is **included in all stays**. A self-guided retreat that provides you with the tools for deep reconnection while you enjoy the freedom of the mountain. Ideal for those seeking absolute silence as well as digital nomads looking for an **inspiring work environment with Starlink**.",
         "image": "/uploads/campoentero.webp",
         "items": [
           {
@@ -427,8 +442,8 @@
       }
     },
     "volunteer": {
-      "title": "An exchange that <span class='italic text-green'>expands</span>",
-      "description": "We receive travelers from all over the world to live an experience of **collaboration, learning and service to the Earth**. A simple and deep proposal to explore **community life**, **teamwork** and the philosophy of **good living**.",
+      "title": "An <span class='italic text-green'>international</span> haven",
+      "description": "We receive volunteers and travelers from **over 20 countries**. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
       "btn": "Apply",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -492,7 +507,7 @@
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as a refuge for rest, connection and Good Living, in harmony with nature and community life.",
+      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as an international refuge that has already received people from **over 20 countries**, being a home for rest, connection and Good Living, in harmony with nature and community life.",
       "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
       "link": "Our way of Being and Doing",
       "image": "/uploads/dji_0074.webp",
@@ -544,7 +559,7 @@
       "link": "",
       "cards": [
         {
-          "date": "MAY 1 - 3",
+          "date": "MAY 1-3 (LAST 2 SPOTS!)\nJUNE 13-15 (NEW DATE!)",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
           "btn": "See More",
@@ -566,7 +581,7 @@
           "title": "Habitar la Transformación",
           "desc": "Mountain retreat focused on Enneagram and body practices to shift from personality to essence.",
           "btn": "Inquire",
-          "image": "/uploads/bienestar-balance.webp",
+          "image": "/uploads/hero(2).webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
@@ -585,25 +600,39 @@
           "btn": "Inquire",
           "image": "/uploads/temazcal.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+        },
+        {
+          "date": "ALWAYS AVAILABLE",
+          "title": "Reset Vital",
+          "desc": "Your self-guided retreat included in every stay. A PDF guide with meditations, journaling, mindful walks and simple rituals to reconnect at your own pace. No schedules, no obligations.",
+          "btn": "See Stays",
+          "image": "/uploads/bienestar-balance.webp",
+          "link": "/estadia"
         }
       ]
     },
     "hero": {
       "title": "Invites You to Be",
-      "subtitle": "A space to live transformative experiences that invite you to reconnect with yourself, enjoy and rest.",
-      "btnBook": "EXPERIENCES",
+      "subtitle": "Stays, retreats and artisan cuisine on a regenerative farm. Sierras Grandes, Córdoba.",
+      "tag": "20+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
+      "btnBook": "BOOK NOW",
       "btnRetreat": "ORGANIZE RETREAT",
-      "stats_years": "+20 Years",
-      "stats_trees": "+8k Trees Planted",
-      "stats_sus": "Regeneration & Sustainability",
+      "stats_years": "+15,000 Trees Planted",
+      "stats_trees": "Guests from +20 Countries",
+      "stats_sus": "From $40,000 / night",
+      "stats_google": "5.0★ · 64 Google Reviews",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
         "/uploads/img_8475.webp",
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],
-      "bookLink": "#experiencias",
-      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F"
+      "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+      "nextEvent": {
+        "label": "FAMILION · MAY 1–3 · LAST 2 SPOTS!",
+        "link": "/familion"
+      }
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -734,9 +763,9 @@
       "btnContact": "WHATSAPP RESCUE"
     },
     "donations": {
-      "text": "Here you can make donations to continue expanding this project.",
-      "btn": "MAKE A DONATION",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20realizar%20una%20donaci%C3%B3n%20para%20seguir%20expandiendo%20el%20proyecto.%20%F0%9F%99%8F"
+      "text": "Support the restoration of the Sierras Grandes de Córdoba through native tabaquillo tree planting. Every tree is a step toward the forest it once was.",
+      "btn": "JOIN THE RESTORATION",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
     }
   }
 }

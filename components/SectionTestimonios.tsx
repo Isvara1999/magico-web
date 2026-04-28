@@ -23,9 +23,19 @@ export const SectionTestimonios: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div data-reveal className="text-center mb-16">
           <h2
-            className="text-3xl md:text-5xl text-brand font-serif"
+            className="text-3xl md:text-5xl text-brand font-serif mb-6"
             dangerouslySetInnerHTML={{ __html: marked.parse(t.testimonials.title as string) as string }}
           />
+          <a
+            href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white border border-brand/10 rounded-full px-5 py-2 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <span className="text-yellow-400 text-base leading-none tracking-tight">★★★★★</span>
+            <span className="text-brand font-bold text-sm">5.0</span>
+            <span className="text-dark/50 text-xs font-light">· 64 reseñas en Google Maps</span>
+          </a>
         </div>
         <div className="relative">
           <button 

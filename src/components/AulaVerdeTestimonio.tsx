@@ -56,7 +56,7 @@ const AulaVerdeTestimonio: React.FC = () => {
       <div className="max-w-5xl mx-auto mb-20 relative z-10">
 
         {/* Título de la Sección */}
-        <div className="text-center mb-10 md:mb-14" data-aos="fade-up">
+        <div className="text-center mb-10 md:mb-14" data-reveal>
           <h2 className="text-3xl md:text-4xl lg:text-5xl serif-title text-brand mb-4">
             Lo que dicen de nosotros
           </h2>
@@ -66,7 +66,7 @@ const AulaVerdeTestimonio: React.FC = () => {
         </div>
 
         {/* Carrusel de Testimonios */}
-        <div className="relative group" data-aos="fade-up" data-aos-delay="100">
+        <div className="relative group" data-reveal data-delay="1">
           {/* Contenedor del track deslizable */}
           <div className="overflow-hidden w-full py-6 px-1 md:px-4">
             <div
@@ -174,7 +174,7 @@ const AulaVerdeTestimonio: React.FC = () => {
 
       {/* SECTION TIRA DE LOGOS */}
       <div className="w-full relative z-10">
-        <div className="max-w-4xl mx-auto px-6 text-center mb-10" data-aos="fade-up">
+        <div className="max-w-4xl mx-auto px-6 text-center mb-10" data-reveal>
           <h3 className="text-xl md:text-2xl lg:text-3xl font-serif text-brand mb-3">
             Instituciones educativas que ya vivieron la experiencia Aula Verde
           </h3>
@@ -182,7 +182,7 @@ const AulaVerdeTestimonio: React.FC = () => {
         </div>
 
         {/* Logos fijos sin carrusel y a color */}
-        <div className="relative w-full flex justify-center bg-white/50 backdrop-blur-sm border-y border-gray-200/50 py-10 md:py-16" data-aos="fade-up" data-aos-delay="200">
+        <div className="relative w-full flex justify-center bg-white/50 backdrop-blur-sm border-y border-gray-200/50 py-10 md:py-16" data-reveal data-delay="2">
           <div className="flex flex-wrap gap-10 md:gap-16 px-8 items-center justify-center">
 
             {/* Logo de Hebraica */}

@@ -34,4 +34,19 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
 Sitemap: https://experienciamagico.com/sitemap.xml

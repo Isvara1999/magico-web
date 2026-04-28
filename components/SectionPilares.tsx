@@ -1,17 +1,18 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Leaf, Users, Heart, Sparkles } from 'lucide-react';
+import { Tree, UsersThree, SunHorizon, Eye } from '@phosphor-icons/react';
 
 export const SectionPilares: React.FC = () => {
   const { t } = useLanguage();
 
   const getIcon = (id: number) => {
-    switch(id) {
-      case 1: return <Leaf className="w-6 h-6 md:w-7 md:h-7" />;
-      case 2: return <Users className="w-6 h-6 md:w-7 md:h-7" />;
-      case 3: return <Heart className="w-6 h-6 md:w-7 md:h-7" />;
-      case 4: return <Sparkles className="w-6 h-6 md:w-7 md:h-7" />;
-      default: return <Leaf className="w-6 h-6 md:w-7 md:h-7" />;
+    const cls = 'w-6 h-6 md:w-7 md:h-7';
+    switch (id) {
+      case 1: return <Tree className={cls} weight="duotone" />;
+      case 2: return <UsersThree className={cls} weight="duotone" />;
+      case 3: return <SunHorizon className={cls} weight="duotone" />;
+      case 4: return <Eye className={cls} weight="duotone" />;
+      default: return <Tree className={cls} weight="duotone" />;
     }
   };
 
@@ -35,9 +36,9 @@ export const SectionPilares: React.FC = () => {
           <p className="text-brand/80 font-serif text-lg mb-8 max-w-2xl mx-auto">
             {t.donations.text}
           </p>
-          <a 
-            href={t.donations.link} 
-            target="_blank" 
+          <a
+            href={t.donations.link}
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-[background-color,color,border-color] duration-300 text-xs font-bold uppercase tracking-widest"
           >

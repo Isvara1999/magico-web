@@ -17,6 +17,13 @@ export const SectionEscuelas: React.FC = () => {
             
             <div data-reveal className="order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 md:h-[500px] bg-[#002B18] pointer-events-none group">
+                {/* Fallback image shown when iframe is blocked (Brave) or on slow connections */}
+                <img
+                  src="/uploads/Aula Verde/IMG-20251120-WA0149.jpg"
+                  alt="Aula Verde — Campamento educativo en Los Gigantes"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70"
+                  loading="lazy"
+                />
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080&playsinline=1"
                   title="Video de Aula Verde — Mágico Ensueño"

@@ -1,9 +1,10 @@
-// Post-build prerender: generates static HTML per route with correct meta tags.
-// Crawlers and social bots see full OG/Twitter tags without executing JavaScript.
+// Post-build prerender: generates static HTML per route with correct meta tags,
+// then uses Playwright to snapshot full rendered content (visible to AI crawlers).
 // Run automatically via "postbuild" script after `vite build`.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, createReadStream, statSync } from 'fs';
+import { join, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
+import { createServer } from 'http';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -44,6 +45,27 @@ const ROUTES = [
     image: 'https://experienciamagico.com/uploads/arcos-fuego.jpg',
     canonical: 'https://experienciamagico.com/gondorbows',
   },
+  {
+    path: '/terminos-y-condiciones',
+    title: 'Términos y Condiciones — Mágico Ensueño',
+    description: 'Términos y condiciones de uso, contratación y cancelación de Mágico Ensueño. Información sobre medios de pago, políticas de reserva y derechos del consumidor.',
+    image: 'https://experienciamagico.com/uploads/img_6948.webp',
+    canonical: 'https://experienciamagico.com/terminos-y-condiciones',
+  },
+  {
+    path: '/estadia',
+    title: 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño',
+    description: 'Glamping, coworking y retiro autoguiado en las Sierras de Córdoba. Domos, yurta, habitaciones y camping. Desde $35.000/noche todo incluido: alojamiento + pensión completa + Reset Vital.',
+    image: 'https://experienciamagico.com/uploads/campoentero.webp',
+    canonical: 'https://experienciamagico.com/estadia',
+  },
+  {
+    path: '/politica-de-privacidad',
+    title: 'Política de Privacidad — Mágico Ensueño',
+    description: 'Política de privacidad y protección de datos personales de Mágico Ensueño conforme a la Ley 25.326. Información sobre recopilación, uso y derechos sobre tus datos.',
+    image: 'https://experienciamagico.com/uploads/img_6948.webp',
+    canonical: 'https://experienciamagico.com/politica-de-privacidad',
+  },
 ];
 
 if (!existsSync(DIST)) {
@@ -51,6 +73,8 @@ if (!existsSync(DIST)) {
   process.exit(1);
 }
 
+// ─── Phase 1: Meta tag injection (fast, no browser needed) ───────────────────
+console.log('\nPhase 1: Meta tag injection...');
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
 for (const route of ROUTES) {
@@ -58,6 +82,8 @@ for (const route of ROUTES) {
     `  <meta property="og:title" content="${route.title}" />`,
     `  <meta property="og:description" content="${route.description}" />`,
     `  <meta property="og:image" content="${route.image}" />`,
+    `  <meta property="og:image:width" content="1200" />`,
+    `  <meta property="og:image:height" content="630" />`,
     `  <meta property="og:url" content="${route.canonical}" />`,
     `  <meta property="og:type" content="website" />`,
     `  <meta property="og:locale" content="es_AR" />`,
@@ -81,13 +107,10 @@ for (const route of ROUTES) {
     writeFileSync(join(dir, 'index.html'), html);
   }
 
-  console.log(`  ✓ ${route.path}`);
+  console.log(`  ✓ meta: ${route.path}`);
 }
 
-console.log(`\nPrerender complete — ${ROUTES.length} routes`);
-
-// Make Vite's CSS non-render-blocking: preload + onload swap pattern
-// Finds <link rel="stylesheet" crossorigin href="/assets/*.css"> and converts it
+// ─── Phase 1b: Make Vite CSS non-render-blocking ─────────────────────────────
 const CSS_BLOCKING = /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g;
 const allHtmlFiles = [
   join(DIST, 'index.html'),
@@ -109,4 +132,125 @@ for (const file of allHtmlFiles) {
   } catch (e) {
     console.warn(`  ⚠ skipped ${file}: ${e.message}`);
   }
+}
+
+// ─── Phase 2: Playwright full-content snapshots ───────────────────────────────
+// Captures fully rendered React HTML so AI crawlers see visible text content.
+// Gracefully skipped if Playwright/Chromium is unavailable.
+const MIME = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'application/javascript',
+  '.css': 'text/css',
+  '.svg': 'image/svg+xml',
+  '.webp': 'image/webp',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.json': 'application/json',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain',
 };
+
+async function startStaticServer(port) {
+  const server = createServer((req, res) => {
+    let urlPath = req.url.split('?')[0].split('#')[0];
+    if (urlPath === '' || urlPath === '/') urlPath = '/index.html';
+
+    // Try exact file, then /path/index.html, then SPA fallback
+    const candidates = [
+      join(DIST, urlPath),
+      join(DIST, urlPath, 'index.html'),
+      join(DIST, 'index.html'),
+    ];
+
+    for (const candidate of candidates) {
+      try {
+        const stat = statSync(candidate);
+        if (stat.isFile()) {
+          const mime = MIME[extname(candidate).toLowerCase()] || 'application/octet-stream';
+          res.writeHead(200, { 'Content-Type': mime });
+          createReadStream(candidate).pipe(res);
+          return;
+        }
+      } catch { /* try next */ }
+    }
+
+    res.writeHead(404);
+    res.end('Not found');
+  });
+
+  return new Promise((resolve, reject) => {
+    server.listen(port, '127.0.0.1', () => resolve(server));
+    server.on('error', reject);
+  });
+}
+
+async function runPlaywrightSnapshots() {
+  const { chromium } = await import('playwright');
+  const PORT = 4174;
+
+  const server = await startStaticServer(PORT);
+  console.log(`\nPhase 2: Playwright snapshots (port ${PORT})...`);
+
+  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  const context = await browser.newContext({
+    // Disable service workers so cached state doesn't interfere
+    serviceWorkers: 'block',
+    // Pretend to be a standard desktop browser
+    userAgent: 'Mozilla/5.0 (compatible; Prerenderer/1.0)',
+  });
+  const page = await context.newPage();
+
+  // Suppress console noise from the React app
+  page.on('console', () => {});
+  page.on('pageerror', () => {});
+
+  for (const route of ROUTES) {
+    try {
+      // 'load' waits for DOMContentLoaded + stylesheets/images in <head>,
+      // but does NOT wait for iframes (YouTube, etc.) to finish — avoids 30s hangs.
+      await page.goto(`http://127.0.0.1:${PORT}${route.path}`, {
+        waitUntil: 'load',
+        timeout: 30_000,
+      });
+
+      // Wait for React to replace the loader with actual content
+      await page.waitForFunction(() => {
+        const root = document.getElementById('root');
+        const loader = document.getElementById('loader-container');
+        return root && !loader;
+      }, { timeout: 12_000 }).catch(() => {
+        // Loader may persist on slow pages — scroll anyway
+      });
+
+      // Scroll to trigger IntersectionObserver reveals and contentVisibility sections
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForTimeout(800);
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(300);
+
+      const html = await page.content();
+
+      const destPath = route.path === '/'
+        ? join(DIST, 'index.html')
+        : join(DIST, route.path.slice(1), 'index.html');
+
+      writeFileSync(destPath, html);
+      console.log(`  ✓ snapshot: ${route.path}`);
+    } catch (e) {
+      console.warn(`  ⚠ snapshot failed for ${route.path}: ${e.message.split('\n')[0]}`);
+    }
+  }
+
+  await browser.close();
+  server.close();
+  console.log('\nPhase 2 complete.');
+}
+
+runPlaywrightSnapshots().catch(e => {
+  console.warn(`\n⚠ Playwright snapshots skipped: ${e.message.split('\n')[0]}`);
+  console.warn('  Phase 1 meta tag prerender still applies — social/search bots are covered.');
+  console.warn('  To enable full snapshots, run: npx playwright install chromium\n');
+});
