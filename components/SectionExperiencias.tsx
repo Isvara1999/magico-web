@@ -102,7 +102,7 @@ export const SectionExperiencias: React.FC = () => {
         <div className="mt-20 bg-bone rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-gold/20 shadow-sm">
           <div className="relative z-10 max-w-3xl mx-auto">
             <span className="inline-block bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5">
-              12,5% de descuento
+              20% de descuento
             </span>
             <h3 className="text-2xl md:text-4xl font-serif text-brand mb-4 leading-tight">
               Vení de Lunes a Jueves
@@ -114,12 +114,12 @@ export const SectionExperiencias: React.FC = () => {
               <div className="bg-white rounded-xl px-6 py-4 border border-brand/10 shadow-sm text-center">
                 <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Alojamiento</p>
                 <p className="text-dark/30 text-sm line-through mb-0.5">$40.000</p>
-                <p className="text-brand text-2xl font-serif font-light">$35.000 <span className="text-sm text-dark/50">/ noche</span></p>
+                <p className="text-brand text-2xl font-serif font-light">$32.000 <span className="text-sm text-dark/50">/ noche</span></p>
               </div>
               <div className="bg-white rounded-xl px-6 py-4 border border-gold/20 shadow-sm text-center">
                 <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Pensión Completa</p>
                 <p className="text-dark/30 text-sm line-through mb-0.5">$95.000</p>
-                <p className="text-gold text-2xl font-serif font-light">$83.000 <span className="text-sm text-dark/50">/ noche</span></p>
+                <p className="text-gold text-2xl font-serif font-light">$76.000 <span className="text-sm text-dark/50">/ noche</span></p>
               </div>
             </div>
             <div className="flex flex-wrap justify-center gap-5 text-sm text-dark/60">

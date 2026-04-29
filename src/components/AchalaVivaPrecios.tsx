@@ -21,7 +21,7 @@ const AchalaVivaPrecios: React.FC = () => {
 
           <div className="flex justify-center items-center mb-12 md:mb-16">
             <span className="bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/40 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm shadow-lg shadow-black/20">
-              9 y 10 de Mayo · Los Gigantes, Córdoba
+              8 y 9 de Mayo · Los Gigantes, Córdoba
             </span>
           </div>
 

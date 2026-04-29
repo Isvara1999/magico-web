@@ -31,7 +31,7 @@ const AchalaViva: React.FC = () => {
   // SEO — title, meta, OG, canonical y JSON-LD para esta página
   useEffect(() => {
     const TITLE = 'Achala Viva — Retiro de Naturaleza · Los Gigantes, Córdoba';
-    const DESC  = 'Retiro de inmersión total en Los Gigantes, Córdoba. 9 y 10 de Mayo. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas. Mágico Ensueño.';
+    const DESC  = 'Retiro de inmersión total en Los Gigantes, Córdoba. 8 y 9 de Mayo. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas. Mágico Ensueño.';
     const URL   = 'https://experienciamagico.com/achala-viva';
     const IMG   = 'https://experienciamagico.com/uploads/img_6948.webp';
     const prevTitle = document.title;
@@ -82,8 +82,8 @@ const AchalaViva: React.FC = () => {
       "@type": "Event",
       "name": "Achala Viva — Retiro de Naturaleza en Los Gigantes",
       "description": "Retiro de inmersión total de 2 días en la Sierra de Achala. Astroturismo, avistaje de aves con guía biológica, fotografía en la naturaleza y descanso en eco-refugio.",
-      "startDate": "2026-05-09",
-      "endDate": "2026-05-10",
+      "startDate": "2026-05-08",
+      "endDate": "2026-05-09",
       "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
       "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
       "performer": { "@type": "Person", "name": "Walter Eugenio Cejas", "jobTitle": "Biólogo e investigador de vida silvestre", "description": "Guía experto en biodiversidad de la Sierra de Achala, astroturismo y avistaje de aves." },
@@ -290,7 +290,7 @@ const AchalaViva: React.FC = () => {
               <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
                 <div className="pb-2">
-                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 9 de Mayo</p>
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Viernes · 8 de Mayo</p>
                   <h3 className="text-2xl md:text-3xl serif-title brand-green">Tierra y Cielo</h3>
                 </div>
               </div>
@@ -317,7 +317,7 @@ const AchalaViva: React.FC = () => {
               <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
                 <div className="pb-2">
-                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 10 de Mayo</p>
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 9 de Mayo</p>
                   <h3 className="text-2xl md:text-3xl serif-title brand-green">Vida Silvestre</h3>
                 </div>
               </div>
@@ -443,7 +443,7 @@ const AchalaViva: React.FC = () => {
       {/* ====== STICKY CTA MÓVIL ====== */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3">
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-bold text-[#005333] uppercase tracking-widest truncate">Achala Viva · 9–10 Mayo</p>
+          <p className="text-xs font-bold text-[#005333] uppercase tracking-widest truncate">Achala Viva · 8–9 Mayo</p>
           <p className="text-[11px] text-gray-400 truncate">15 plazas · Cierra el 30 de Abril</p>
         </div>
         <a

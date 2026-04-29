@@ -4,7 +4,7 @@
       "tag": "En Mágico",
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
       "intro_p1": "En Mágico Ensueño, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
-      "intro_p2": "Ya recibimos viajeros de **más de 20 países**. Somos el destino ideal para quienes buscan un **Coworking con alma** o un retiro personal autoguiado: el **Reset Vital**.",
+      "intro_p2": "Ya recibimos viajeros de todo el mundo. Somos el destino ideal para quienes buscan un <b>Coworking con alma</b> o un retiro personal autoguiado: el <b>Reset Vital</b>.",
       "badge_accommodation": "Alojamiento",
       "card_extra_text": "También podés solo alojarte si querés.",
       "btn": "RESERVAR MI LUGAR",
@@ -38,7 +38,7 @@
       "resetVital": {
         "title": "¿Qué es RESET VITAL?",
         "subtitle": "TU RETIRO AUTOGUIADO (INCLUIDO)",
-        "description": "Es el corazón de nuestra propuesta y está **incluido en todas las estadías**. Un retiro autoguiado que te brinda las herramientas para una profunda reconexión mientras disfrutás de la libertad de la montaña. Ideal tanto para quienes buscan silencio absoluto como para nómades digitales que buscan un **entorno de trabajo inspirador con Starlink**.",
+        "description": "Es el corazón de nuestra propuesta y está <b>incluido en todas las estadías</b>. Un retiro autoguiado que te brinda las herramientas para una profunda reconexión mientras disfrutás de la libertad de la montaña. Ideal tanto para quienes buscan silencio absoluto como para nómades digitales que buscan un <b>entorno de trabajo inspirador con Starlink</b>.",
         "image": "/uploads/campoentero.webp",
         "items": [
           {
@@ -58,7 +58,7 @@
     },
     "volunteer": {
       "title": "Un refugio <span class='italic text-green'>internacional</span>",
-      "description": "Recibimos voluntarios y viajeros de **más de 20 países**. La energía de Mágico Ensueño se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
+      "description": "Recibimos voluntarios y viajeros de todo el mundo. La energía de Mágico Ensueño se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
       "btn": "POSTULARME",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -122,7 +122,7 @@
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
-      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, cultivamos este espacio desde hace más de 20 años como un refugio internacional que ya ha recibido a personas de **más de 20 países**, siendo un hogar para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
+      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, llevamos más de 25 años construyendo este espacio. Hoy es un refugio internacional que ha recibido a viajeros de todo el mundo, siendo un hogar para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
       "p2": "Combinamos colaboración genuina, bienestar y un enfoque regenerativo en cada acción que realizamos. Cada árbol plantado y cada plato servido cuentan una historia de amor, cuidado y respeto por la Tierra y el ecosistema que nos sostiene.",
       "link": "Nuestra manera de Ser y Hacer",
       "image": "/uploads/dji_0074.webp",
@@ -183,7 +183,7 @@
           "pdfLink": ""
         },
         {
-          "date": "7 AL 9 DE MAYO",
+          "date": "8 Y 9 DE MAYO",
           "title": "Achala Viva",
           "desc": "Una exploración guiada que incluye astroturismo, avistaje de aves y fotografía de naturaleza.",
           "btn": "Ver Más",
@@ -229,7 +229,7 @@
     "hero": {
       "title": "Te invita a Ser",
       "subtitle": "Estadías, retiros y cocina de autor en una granja regenerativa. Sierras Grandes de Córdoba.",
-      "tag": "20+ AÑOS · GRANJA REGENERATIVA · SIERRAS DE CÓRDOBA",
+      "tag": "25+ AÑOS · GRANJA REGENERATIVA · SIERRAS DE CÓRDOBA",
       "btnBook": "RESERVAR AHORA",
       "btnRetreat": "ORGANIZAR RETIRO",
       "stats_years": "+15.000 Árboles Plantados",
@@ -389,7 +389,7 @@
       "tag": "Mágico Experience",
       "title": "Design your stay",
       "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
-      "intro_p2": "We have already hosted travelers from **over 20 countries**. We are the ideal destination for those seeking a **Coworking with soul** or a self-guided personal retreat: the **Reset Vital**.",
+      "intro_p2": "We have already hosted travelers from all over the world. We are the ideal destination for those seeking a <b>Coworking with soul</b> or a self-guided personal retreat: the <b>Reset Vital</b>.",
       "badge_accommodation": "Accommodation",
       "card_extra_text": "You can also just book accommodation if you wish.",
       "btn": "Book my spot",
@@ -423,7 +423,7 @@
       "resetVital": {
         "title": "What is RESET VITAL?",
         "subtitle": "YOUR SELF-GUIDED RETREAT (INCLUDED)",
-        "description": "It is the heart of our proposal and is **included in all stays**. A self-guided retreat that provides you with the tools for deep reconnection while you enjoy the freedom of the mountain. Ideal for those seeking absolute silence as well as digital nomads looking for an **inspiring work environment with Starlink**.",
+        "description": "It is the heart of our proposal and is <b>included in all stays</b>. A self-guided retreat that provides you with the tools for deep reconnection while you enjoy the freedom of the mountain. Ideal for those seeking absolute silence as well as digital nomads looking for an <b>inspiring work environment with Starlink</b>.",
         "image": "/uploads/campoentero.webp",
         "items": [
           {
@@ -443,7 +443,7 @@
     },
     "volunteer": {
       "title": "An <span class='italic text-green'>international</span> haven",
-      "description": "We receive volunteers and travelers from **over 20 countries**. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
+      "description": "We receive volunteers and travelers from all over the world. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
       "btn": "Apply",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -507,7 +507,7 @@
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have cultivated this space for over 20 years as an international refuge that has already received people from **over 20 countries**, being a home for rest, connection and Good Living, in harmony with nature and community life.",
+      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
       "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
       "link": "Our way of Being and Doing",
       "image": "/uploads/dji_0074.webp",
@@ -568,7 +568,7 @@
           "pdfLink": ""
         },
         {
-          "date": "MAY 7 - 9",
+          "date": "MAY 8 - 9",
           "title": "Achala Viva",
           "desc": "A guided exploration that includes astrotourism, bird watching, and nature photography.",
           "btn": "See More",
@@ -614,7 +614,7 @@
     "hero": {
       "title": "Invites You to Be",
       "subtitle": "Stays, retreats and artisan cuisine on a regenerative farm. Sierras Grandes, Córdoba.",
-      "tag": "20+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
+      "tag": "25+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
       "btnBook": "BOOK NOW",
       "btnRetreat": "ORGANIZE RETREAT",
       "stats_years": "+15,000 Trees Planted",

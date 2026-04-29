@@ -47,7 +47,7 @@ const FamilionMagico: React.FC = () => {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-1">✓</span>
-                <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el próposito</span>
+                <span><strong>Comunidad:</strong> 25+ años de coherencia manifestando el propósito</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-gold font-bold mt-1">✓</span>

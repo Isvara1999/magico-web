@@ -40,7 +40,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     const TITLE = 'Mágico Ensueño — Eco‑Refugio & Glamping · Los Gigantes, Córdoba';
-    const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos y yurta, voluntariados y cocina de autor. 20 años regenerando la montaña.';
+    const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos y yurta, voluntariados y cocina de autor. 25 años regenerando la montaña.';
     const URL   = 'https://experienciamagico.com/';
     const IMG   = 'https://experienciamagico.com/uploads/img_6948.webp';
     const prevTitle = document.title;

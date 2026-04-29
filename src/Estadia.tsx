@@ -173,7 +173,7 @@ const Alojamientos: React.FC = () => (
       <div className="mt-10 text-center bg-white rounded-2xl p-6 border border-brand/5 shadow-sm">
         <CurrencyCircleDollar className="w-8 h-8 text-gold mx-auto mb-3" weight="duotone" />
         <p className="text-brand font-serif text-xl mb-1">Desde <strong className="text-gold">$40.000</strong> por persona / noche</p>
-        <p className="text-dark/50 text-xs font-light">Alojamiento desde $40.000/noche · Pensión completa (3 comidas) desde $95.000/noche · 12,5% dto. Lun–Jue no feriados</p>
+        <p className="text-dark/50 text-xs font-light">Alojamiento desde $40.000/noche · Pensión completa (3 comidas) desde $95.000/noche · 20% dto. Lun–Jue no feriados</p>
       </div>
     </div>
   </section>
@@ -236,7 +236,7 @@ const RitmoDeLaSemana: React.FC = () => (
 
       <div data-reveal className="mt-12 bg-bone border border-gold/20 rounded-2xl p-8 md:p-10 text-center">
         <span className="inline-block bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5">
-          12,5% de descuento
+          20% de descuento
         </span>
         <h3 className="font-serif text-2xl md:text-3xl text-brand mb-3">Vení de Lunes a Jueves</h3>
         <p className="text-dark/65 font-light leading-relaxed max-w-xl mx-auto mb-6">
@@ -246,12 +246,12 @@ const RitmoDeLaSemana: React.FC = () => (
           <div className="bg-white rounded-xl px-5 py-3 border border-brand/10 text-center">
             <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Alojamiento</p>
             <p className="text-dark/30 text-xs line-through">$40.000</p>
-            <p className="text-brand text-xl font-serif">$35.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+            <p className="text-brand text-xl font-serif">$32.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
           </div>
           <div className="bg-white rounded-xl px-5 py-3 border border-gold/20 text-center">
             <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión Completa</p>
             <p className="text-dark/30 text-xs line-through">$95.000</p>
-            <p className="text-gold text-xl font-serif">$83.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+            <p className="text-gold text-xl font-serif">$76.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
           </div>
         </div>
         <p className="text-dark/40 text-xs">Lunes a jueves · no aplica feriados · sujeto a disponibilidad</p>
@@ -491,7 +491,7 @@ const CTAFinal: React.FC = () => (
 const Estadia: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Glamping, coworking y retiro autoguiado en las Sierras de Córdoba. Domos, yurta, habitaciones y camping. Desde $35.000/noche todo incluido (alojamiento + pensión completa + Reset Vital).';
+    const DESC  = 'Glamping, coworking y retiro autoguiado en las Sierras de Córdoba. Domos, yurta, habitaciones y camping. Desde $32.000/noche todo incluido (alojamiento + pensión completa + Reset Vital).';
     const URL   = 'https://experienciamagico.com/estadia';
     const IMG   = 'https://experienciamagico.com/uploads/campoentero.webp';
     const prevTitle = document.title;

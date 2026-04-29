@@ -51,7 +51,7 @@ const GondorbowsMagico: React.FC = () => {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-gold font-bold mt-0.5">✓</span>
-                <span><strong>Comunidad:</strong> 20+ años de coherencia manifestando el propósito</span>
+                <span><strong>Comunidad:</strong> 25+ años de coherencia manifestando el propósito</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-gold font-bold mt-0.5">✓</span>

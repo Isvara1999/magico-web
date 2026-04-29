@@ -34,7 +34,7 @@ const AchalaVivaHero: React.FC = () => {
 
         {/* Pre-título */}
         <p className="text-gold font-medium tracking-[0.28em] text-[11px] sm:text-xs uppercase mb-7">
-          9 &amp; 10 de Mayo &nbsp;·&nbsp; Los Gigantes, Córdoba
+          8 &amp; 9 de Mayo &nbsp;·&nbsp; Los Gigantes, Córdoba
         </p>
 
         {/* Título partido en dos líneas de jerarquía distinta */}
