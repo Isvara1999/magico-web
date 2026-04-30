@@ -6,9 +6,13 @@ import {
   Bed, ForkKnife, Leaf, WifiHigh, Tree, UsersThree,
   CheckCircle, ArrowRight, Sun, Mountains, Campfire,
   Laptop, HeartStraight, Compass, ChartLineUp, CurrencyCircleDollar,
-  Star, CaretDown, WhatsappLogo, Drop, Globe, Towel
+  Star, CaretDown, WhatsappLogo, Drop, Globe, Towel,
+  CaretDownIcon, HouseIcon, WifiHighIcon, MountainsIcon, MapPinIcon,
+  ClockIcon, UsersThreeIcon, CalendarIcon, WhatsappLogoIcon
 } from '@phosphor-icons/react';
-import { WA_MAGICO } from '../constants';
+import { WA_MAGICO, SITE_URL } from './data/config';
+import { ESTADIA_PRICES } from './data/retreats';
+import { ROUTES } from './routes';
 
 const WA = (msg: string) =>
   `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
@@ -172,7 +176,7 @@ const Alojamientos: React.FC = () => (
 
       <div className="mt-10 text-center bg-white rounded-2xl p-6 border border-brand/5 shadow-sm">
         <CurrencyCircleDollar className="w-8 h-8 text-gold mx-auto mb-3" weight="duotone" />
-        <p className="text-brand font-serif text-xl mb-1">Desde <strong className="text-gold">$40.000</strong> por persona / noche</p>
+        <p className="text-brand font-serif text-xl mb-1">Desde <strong className="text-gold">$32.000</strong> por persona / noche</p>
         <p className="text-dark/50 text-xs font-light">Alojamiento desde $40.000/noche · Pensión completa (3 comidas) desde $95.000/noche · 20% dto. Lun–Jue no feriados</p>
       </div>
     </div>
@@ -389,63 +393,111 @@ const Testimonios: React.FC = () => (
 // ── FAQ ───────────────────────────────────────────────────────────────────────
 const FAQS = [
   {
+    Icon: HouseIcon,
     q: '¿Qué incluye el precio?',
     a: 'Alojamiento, pensión completa (desayuno, almuerzo y cena), acceso a todos los espacios del refugio, guía de retiro autoguiado Reset Vital y Starlink para trabajo remoto. Sin sorpresas ocultas.',
   },
   {
+    Icon: MountainsIcon,
     q: '¿Necesito experiencia previa en yoga o meditación?',
     a: 'Para nada. El Reset Vital es un retiro autoguiado: vos decidís qué practicás y cuándo. Las herramientas están disponibles, nada es obligatorio. Podés venir simplemente a descansar y caminar.',
   },
   {
+    Icon: WifiHighIcon,
     q: '¿Hay conectividad real para trabajar?',
     a: 'Sí. Contamos con Starlink de alta velocidad, ideal para videollamadas, trabajo remoto o simplemente estar disponible cuando lo necesitás. Dicho esto, la montaña tiene una señal mucho más potente 😄',
   },
   {
+    Icon: MapPinIcon,
     q: '¿Cómo llego?',
     a: 'El paraje está a unos 90-100 km de Córdoba Capital. Acceso por Ruta Provincial 28 desde Villa Carlos Paz. Se recomienda vehículo con buena altura. También podemos coordinar traslado desde la ciudad.',
   },
   {
+    Icon: ClockIcon,
     q: '¿Cuál es el check-in y check-out?',
     a: 'Check-in: a partir de las 15:00 hs. Check-out: hasta las 11:00 hs. Podés consultar flexibilidad si llegás tarde o salís temprano.',
   },
   {
+    Icon: UsersThreeIcon,
     q: '¿Es para ir solo o en grupo?',
     a: 'Ambos. Muchos llegan solos y se encuentran con una comunidad genuina de viajeros afines. Si venís en grupo, también hay opciones de uso exclusivo del espacio.',
   },
   {
+    Icon: CalendarIcon,
     q: '¿Hay mínimo de noches?',
     a: 'Recomendamos mínimo 3 noches para sentir el impacto real del Reset Vital. Pero podés consultar disponibilidad para estancias más cortas.',
   },
 ];
 
 const FAQ: React.FC = () => {
-  const [open, setOpen] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const toggle = (index: number) => setActiveIndex(activeIndex === index ? null : index);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="py-24 bg-[#F9F8F4]">
+      <div className="max-w-4xl mx-auto px-6">
         <div data-reveal className="text-center mb-12">
           <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">Preguntas frecuentes</p>
-          <h2 className="text-3xl md:text-4xl font-serif text-brand">Todo lo que querés saber</h2>
+          <h2 className="text-3xl md:text-5xl serif-title brand-green">Todo lo que querés saber</h2>
+          <p className="text-gray-500 text-base md:text-lg font-light mt-2">Respuestas para tu tranquilidad antes de viajar.</p>
         </div>
-        <div className="divide-y divide-brand/5">
-          {FAQS.map((faq, i) => (
-            <div key={i}>
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full text-left py-5 flex items-center justify-between gap-4 group"
-              >
-                <span className="font-serif text-brand text-base md:text-lg group-hover:text-gold transition-colors">{faq.q}</span>
-                <CaretDown
-                  className={`w-5 h-5 text-gold flex-shrink-0 transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`}
-                  weight="bold"
-                />
-              </button>
-              {open === i && (
-                <p className="pb-6 text-dark/65 text-sm leading-relaxed font-light">{faq.a}</p>
-              )}
-            </div>
-          ))}
+
+        <div className="space-y-3 md:space-y-4">
+          {FAQS.map((faq, index) => {
+            const isActive = activeIndex === index;
+            const Icon = faq.Icon;
+
+            return (
+              <div key={index} data-reveal>
+                <div
+                  className={`bg-white rounded-2xl border transition-colors duration-300 overflow-hidden ${
+                    isActive ? 'border-[#D4AF37] shadow-md' : 'border-gray-100 hover:border-gray-200 shadow-sm'
+                  }`}
+                >
+                  <button
+                    className="w-full text-left px-6 py-5 md:px-8 md:py-6 flex items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005333]/40"
+                    onClick={() => toggle(index)}
+                    aria-expanded={isActive}
+                  >
+                    <span className={`flex-shrink-0 transition-colors duration-300 ${isActive ? 'text-[#005333]' : 'text-[#005333]/30'}`}>
+                      <Icon weight="light" className="w-5 h-5" aria-hidden="true" />
+                    </span>
+
+                    <h3 className={`flex-1 serif-title text-base md:text-lg leading-snug transition-colors duration-300 ${isActive ? 'text-[#005333]' : 'text-gray-800'}`}>
+                      {faq.q}
+                    </h3>
+
+                    <span
+                      className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-300 ${
+                        isActive ? 'bg-[#005333] text-[#D4AF37] rotate-180' : 'bg-gray-100 text-[#005333]'
+                      }`}
+                      aria-hidden="true"
+                    >
+                      <CaretDownIcon weight="bold" className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    </span>
+                  </button>
+
+                  <div
+                    className="transition-all duration-500 ease-in-out overflow-hidden"
+                    style={{
+                      display: 'grid',
+                      gridTemplateRows: isActive ? '1fr' : '0fr',
+                      opacity: isActive ? 1 : 0
+                    }}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="pl-[3.75rem] pr-6 md:pl-[4.5rem] md:pr-8 pb-6 md:pb-7 pt-1">
+                        <div className="w-full h-px bg-gray-100 mb-5"></div>
+                        <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -491,9 +543,9 @@ const CTAFinal: React.FC = () => (
 const Estadia: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Glamping, coworking y retiro autoguiado en las Sierras de Córdoba. Domos, yurta, habitaciones y camping. Desde $32.000/noche todo incluido (alojamiento + pensión completa + Reset Vital).';
-    const URL   = 'https://experienciamagico.com/estadia';
-    const IMG   = 'https://experienciamagico.com/uploads/campoentero.webp';
+    const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $${ESTADIA_PRICES.base.toLocaleString('es-AR')}/noche.`;
+    const URL = SITE_URL + ROUTES.ESTADIA;
+    const IMG = `${SITE_URL}/uploads/campoentero.webp`;
     const prevTitle = document.title;
 
     document.title = TITLE;

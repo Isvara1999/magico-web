@@ -1,52 +1,25 @@
 import React, { useState } from 'react';
 import { Quotes, Headphones, CaretLeft, CaretRight } from '@phosphor-icons/react';
-
-const testimonios = [
-  {
-    id: 1,
-    name: 'Alejandro',
-    role: 'Coordinador Gral. de Campamentos, Racing de Córdoba',
-    text: 'Llegar a Mágico Ensueño fue recibir un regalo del cielo. A los chicos les costó soltar la inercia de la ciudad, pero esa resistencia se rindió ante la naturaleza. La comida fue sagrada: los chicos metieron las manos en la tierra, trabajaron en la huerta y el compost, viendo el ciclo de la vida. Tuvimos desde juegos en el barro hasta la profundidad de un fogón donde la palabra circuló de otra manera. Terminamos plantando un árbol como testigo de nuestra transformación; nos hicieron sentir familia.',
-    audioSrc: '/audios/testimonio-alejandro.mp3',
-    audioText: 'Escuchá el emocionante relato de Alejandro:'
-  },
-  {
-    id: 2,
-    name: 'Marcelo',
-    role: 'Escuelas Waldorf (Dandelion, El Trigal y Aurora)',
-    text: 'Nos tocó un cambio de clima bastante abrupto, pasamos del calor a un garrotillo. La disposición de todo el equipo de Mágico Ensueño para abrirnos el lugar fue increíble. Rápidamente pasamos de las carpas a los domos y el refugio para hacer todas las actividades y comer adentro. Esa voluntad de ustedes fue muy valiosa para salvar la experiencia, que socialmente entre los jóvenes de las tres escuelas fue mágica; de lo mejor que vivieron en el año.',
-    audioSrc: '/audios/testimonio-marcelo.mp3',
-    audioText: 'Escuchá la experiencia de Marcelo:'
-  },
-  {
-    id: 3,
-    name: 'Paulo',
-    role: 'Director de Campamento de Artes Marciales',
-    text: 'Pudimos encontrar mucha comodidad en sus instalaciones, amabilidad del personal y un tremendo servicio de comidas gourmet, saludables y nutritivas. El lugar está súper equipado para recibir delegaciones grandes en su refugio principal y los hermosos domos. Contar con un salón de usos múltiples y una inmensidad de espacio natural para realizar actividades y entrenamientos hace que sea un predio imperdible.',
-    audioSrc: null,
-    audioText: null
-  },
-  {
-    id: 4,
-    name: 'Fede',
-    role: 'Director del Depto. de Juventud, Institución Hebraica',
-    extraRole: '(Campamento de 9 días)',
-    text: 'Llevamos un grupo de 200 personas. La comida que nos hicieron fue 100% casera, cuidada, con una calidad y cantidad espectacular. Lo que más destaco es la predisposición de todo el equipo para tomar el desafío, adaptar los recursos y lograr una propuesta que los chicos no se van a olvidar nunca. Fue un desafío hermoso.',
-    audioSrc: '/audios/testimonio-fede.mp3',
-    audioText: 'Escuchá la voz de Fede:'
-  }
-];
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const AulaVerdeTestimonio: React.FC = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? testimonios.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? t.aula_verde.testimonios.items.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === testimonios.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === t.aula_verde.testimonios.items.length - 1 ? 0 : prev + 1));
   };
+
+  const audioSources = [
+    '/audios/testimonio-alejandro.mp3',
+    '/audios/testimonio-marcelo.mp3',
+    null,
+    '/audios/testimonio-fede.mp3'
+  ];
 
   return (
     <section className="py-16 md:py-24 px-6 w-full bg-slate-50 relative overflow-hidden">
@@ -58,10 +31,10 @@ const AulaVerdeTestimonio: React.FC = () => {
         {/* Título de la Sección */}
         <div className="text-center mb-10 md:mb-14" data-reveal>
           <h2 className="text-3xl md:text-4xl lg:text-5xl serif-title text-brand mb-4">
-            Lo que dicen de nosotros
+            {t.aula_verde.testimonios.title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto md:text-lg">
-            Un reflejo del amor y la dedicación que todo el equipo de Mágico Ensueño pone en cada visita.
+            {t.aula_verde.testimonios.subtitle}
           </p>
         </div>
 
@@ -73,14 +46,8 @@ const AulaVerdeTestimonio: React.FC = () => {
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {testimonios.map((testimonio) => (
-                <div key={testimonio.id} className="min-w-full px-1 md:px-4">
-                  {/*
-                    Para modificar la sombra de esta tarjeta puedes editar las clases "shadow-[...]" a continuación:
-                    Formato: shadow-[X-offset_Y-offset_Desenfoque_Color]
-                    Ejemplo (Sombra natural centrada): shadow-[0_0_15px_rgba(0,0,0,0.05)]
-                    Ejemplo al hacer hover: hover:shadow-[0_0_25px_rgba(0,83,51,0.1)]
-                  */}
+              {t.aula_verde.testimonios.items.map((testimonio: any, idx: number) => (
+                <div key={idx} className="min-w-full px-1 md:px-4">
                   <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-14 shadow-[0_0_15px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative overflow-hidden transition-shadow duration-500 hover:shadow-[0_0_30px_rgba(0,83,51,0.12)]">
                     {/* Acento lateral/superior dorado */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand to-gold opacity-80"></div>
@@ -111,19 +78,19 @@ const AulaVerdeTestimonio: React.FC = () => {
                             </span>
                             <span className="hidden md:inline text-brand/30">|</span>
                             <span className="text-gray-600 text-sm max-w-[90%] md:max-w-none">
-                              {testimonio.role} {testimonio.extraRole && <span className="text-gray-400 ms-1">{testimonio.extraRole}</span>}
+                              {testimonio.role} {testimonio.extra_role && <span className="text-gray-400 ms-1">{testimonio.extra_role}</span>}
                             </span>
                           </div>
 
                           {/* Reproductor de Audio */}
-                          {testimonio.audioSrc && (
+                          {audioSources[idx] && (
                             <div className="mt-8 bg-brand/5 p-4 md:p-5 rounded-2xl border border-brand/10 hover:border-brand/20 transition-colors w-full max-w-lg">
                               <p className="text-brand font-semibold mb-3 flex items-center gap-2 text-sm md:text-base">
                                 <Headphones weight="fill" className="w-6 h-6 text-gold" />
-                                <span>{testimonio.audioText}</span>
+                                <span>{testimonio.audio_text}</span>
                               </p>
                               <audio controls className="w-full outline-none opacity-90 transition-opacity">
-                                <source src={testimonio.audioSrc} type="audio/mpeg" />
+                                <source src={audioSources[idx]!} type="audio/mpeg" />
                                 Tu navegador no soporta el elemento de audio.
                               </audio>
                             </div>
@@ -156,7 +123,7 @@ const AulaVerdeTestimonio: React.FC = () => {
 
           {/* Puntos Indicadores (Dots) */}
           <div className="flex justify-center items-center gap-2 md:gap-3 mt-4 md:mt-6">
-            {testimonios.map((_, idx) => (
+            {t.aula_verde.testimonios.items.map((_: any, idx: number) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
@@ -176,7 +143,7 @@ const AulaVerdeTestimonio: React.FC = () => {
       <div className="w-full relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center mb-10" data-reveal>
           <h3 className="text-xl md:text-2xl lg:text-3xl font-serif text-brand mb-3">
-            Instituciones educativas que ya vivieron la experiencia Aula Verde
+            {t.aula_verde.testimonios.institutions_title}
           </h3>
           <div className="w-16 md:w-24 h-1 bg-gold mx-auto rounded-full opacity-60"></div>
         </div>

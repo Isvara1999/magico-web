@@ -1,10 +1,11 @@
 import React from 'react';
 import { Check, Warning, CalendarCheck, Gift } from '@phosphor-icons/react';
-import { WA_MAGICO } from '../../constants';
+import { WA_MAGICO } from '../data/config';
+import { RETREATS_DATA } from '../data/retreats';
 
 const AchalaVivaPrecios: React.FC = () => {
   const waLinkMain = "https://wa.me/" + WA_MAGICO + "?text=" +
-    encodeURIComponent("¡Hola! Vengo de la web y me encantaría reservar mi lugar para la inmersión Achala Viva. Quisiera hacer una seña para asegurar mi participación, ¿cómo podemos hacer? ✨");
+    encodeURIComponent(RETREATS_DATA.achalaViva.message);
 
   const waLinkFechas = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent("¡Hola! Me encantó la propuesta de Achala Viva pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
@@ -21,7 +22,7 @@ const AchalaVivaPrecios: React.FC = () => {
 
           <div className="flex justify-center items-center mb-12 md:mb-16">
             <span className="bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/40 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm shadow-lg shadow-black/20">
-              8 y 9 de Mayo · Los Gigantes, Córdoba
+              {RETREATS_DATA.achalaViva.dates} · Los Gigantes, Córdoba
             </span>
           </div>
 
@@ -29,7 +30,7 @@ const AchalaVivaPrecios: React.FC = () => {
           <div className="w-full flex justify-center px-4 mb-12">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative w-full max-w-2xl p-8 md:p-14 text-center flex flex-col items-center hover:shadow-yellow-500/20 transition-shadow duration-500">
               <p className="font-bold text-base md:text-xl mb-4 md:mb-6 uppercase tracking-widest" style={{ color: '#005333' }}>Valor total de la experiencia</p>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>$180.000 ARS</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>${RETREATS_DATA.achalaViva.price.toLocaleString('es-AR')} {RETREATS_DATA.achalaViva.currency}</div>
               <p className="text-sm md:text-base opacity-80 font-medium tracking-wide" style={{ color: '#005333' }}>Financiación disponible · Seña del 50%</p>
             </div>
           </div>

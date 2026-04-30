@@ -1,35 +1,11 @@
 import React, { useState } from 'react';
 import { CaretDownIcon, UsersThreeIcon, CloudRainIcon, HouseIcon, ForkKnifeIcon, LeafIcon } from '@phosphor-icons/react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
-const faqs = [
-  {
-    Icon: UsersThreeIcon,
-    question: "¿Desde qué edad pueden participar los niños?",
-    answer: "Familion está diseñado para familias con niños de todas las edades. Contamos con actividades flexibles y adaptadas, y espacios seguros para que desde los más pequeños hasta los adolescentes puedan disfrutar y explorar en libertad."
-  },
-  {
-    Icon: CloudRainIcon,
-    question: "¿Qué pasa si llueve o hay mal clima?",
-    answer: "Contamos con un amplio Salón Octogonal cerrado, calefaccionado y vidriado, además de espacios techados donde trasladamos las actividades y círculos de juego para que el clima nunca sea un impedimento para compartir."
-  },
-  {
-    Icon: HouseIcon,
-    question: "¿Tenemos que llevar carpa o ropa de cama?",
-    answer: "Depende de la opción de alojamiento que elijas. Los Domos Geodésicos y el Eco-refugio ya incluyen ropa de cama y abrigo. Si venís en modalidad Camping, sí deberás traer tu propia carpa, bolsa de dormir y aislante."
-  },
-  {
-    Icon: ForkKnifeIcon,
-    question: "¿Cómo son las opciones de comida para los chicos?",
-    answer: "La tarifa incluye pensión completa con un menú casero, abundante y nutritivo que a los chicos les encanta. También contemplamos dietas especiales, opciones para celíacos o vegetarianos si nos avisan con anticipación."
-  },
-  {
-    Icon: LeafIcon,
-    question: "¿Hay señal de celular o WiFi?",
-    answer: "La señal de celular es intermitente, pero contamos con WiFi de Starlink para emergencias o trabajo puntual. Nuestra recomendación es apagar las pantallas para poder conectar de verdad con la tribu y la naturaleza."
-  }
-];
+const FAQ_ICONS = [UsersThreeIcon, CloudRainIcon, HouseIcon, ForkKnifeIcon, LeafIcon];
 
 const FamilionFAQ: React.FC = () => {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => setActiveIndex(activeIndex === index ? null : index);
@@ -38,14 +14,14 @@ const FamilionFAQ: React.FC = () => {
     <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12" data-reveal>
-          <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">Preguntas Frecuentes</h2>
-          <p className="text-gray-500 text-base md:text-lg font-light">Todo lo que necesitás saber para venir en tribu.</p>
+          <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">{t.familion.faq.title}</h2>
+          <p className="text-gray-500 text-base md:text-lg font-light">{t.familion.faq.subtitle}</p>
         </div>
 
         <div className="space-y-3 md:space-y-4">
-          {faqs.map((faq, index) => {
+          {t.familion.faq.items.map((faq: any, index: number) => {
             const isActive = activeIndex === index;
-            const Icon = faq.Icon;
+            const Icon = FAQ_ICONS[index % FAQ_ICONS.length];
 
             return (
               <div key={index} data-reveal>
@@ -59,7 +35,6 @@ const FamilionFAQ: React.FC = () => {
                     onClick={() => toggle(index)}
                     aria-expanded={isActive}
                   >
-                    {/* Contextual icon */}
                     <span className={`flex-shrink-0 transition-colors duration-300 ${isActive ? 'text-[#005333]' : 'text-[#005333]/30'}`}>
                       <Icon weight="light" className="w-5 h-5" aria-hidden="true" />
                     </span>
@@ -68,7 +43,6 @@ const FamilionFAQ: React.FC = () => {
                       {faq.question}
                     </h3>
 
-                    {/* Chevron */}
                     <span
                       className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-300 ${
                         isActive ? 'bg-[#005333] text-[#D4AF37] rotate-180' : 'bg-gray-100 text-[#005333]'

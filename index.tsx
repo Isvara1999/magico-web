@@ -4,14 +4,16 @@ import { StrictMode } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import './src/i18n';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Main from './Main';
 import './index.css';
 
 const ResetVitalApp = lazy(() => import('./ResetVital.jsx'));
-const Familion = lazy(() => import('./src/Familion'));
-const Gondorbows = lazy(() => import('./src/Gondorbows'));
-const AulaVerde = lazy(() => import('./src/AulaVerde'));
-const AchalaViva = lazy(() => import('./src/AchalaViva'));
+import Familion from './src/Familion';
+import Gondorbows from './src/Gondorbows';
+import AulaVerde from './src/AulaVerde';
+import AchalaViva from './src/AchalaViva';
+import VueloDelCondor from './src/VueloDelCondor';
 const Estadia = lazy(() => import('./src/Estadia'));
 const TerminosYCondiciones = lazy(() => import('./src/TerminosYCondiciones'));
 const PoliticaPrivacidad = lazy(() => import('./src/PoliticaPrivacidad'));
@@ -33,22 +35,25 @@ const root = ReactDOM.createRoot(rootElement);
 root.render(
   <StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/reset-vital-5-d" element={<ResetVitalApp />} />
-          <Route path="/familion" element={<Familion />} />
-          <Route path="/gondorbows" element={<Gondorbows />} />
-          <Route path="/escuelas" element={<AulaVerde />} />
-          <Route path="/achala-viva" element={<AchalaViva />} />
-          <Route path="/estadia" element={<Estadia />} />
-          <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />
-          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
-          <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <LanguageProvider>
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/reset-vital" element={<ResetVitalApp />} />
+              <Route path="/familion" element={<Familion />} />
+              <Route path="/gondorbows" element={<Gondorbows />} />
+              <Route path="/escuelas" element={<AulaVerde />} />
+              <Route path="/achala-viva" element={<AchalaViva />} />
+              <Route path="/el-vuelo-del-condor" element={<VueloDelCondor />} />
+              <Route path="/estadia" element={<Estadia />} />
+              <Route path="/terminos" element={<TerminosYCondiciones />} />
+              <Route path="/privacidad" element={<PoliticaPrivacidad />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </LanguageProvider>
     </ErrorBoundary>
   </StrictMode>
 );

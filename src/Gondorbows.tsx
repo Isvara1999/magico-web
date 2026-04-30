@@ -3,6 +3,8 @@ import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Target, House, ForkKnife, Star, Sun, Moon, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { SITE_URL } from './data/config';
+import { ROUTES } from './routes';
 
 import GondorbowsHero from './components/GondorbowsHero';
 import GondorbowsMagico from './components/GondorbowsMagico';
@@ -25,8 +27,8 @@ const Gondorbows: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Gondorbows — Arquería Ancestral · Los Gigantes, Córdoba';
     const DESC  = 'Construí tu propio arco en 3 días de inmersión en Los Gigantes, Córdoba. Taller de arquería tradicional con Gondor Bows. Todo incluido. Sin experiencia previa necesaria.';
-    const URL   = 'https://experienciamagico.com/gondorbows';
-    const IMG   = 'https://experienciamagico.com/uploads/arcos-fuego.jpg';
+    const URL   = SITE_URL + ROUTES.GONDORBOWS;
+    const IMG   = `${SITE_URL}/uploads/arcos-fuego.jpg`;
     const prevTitle = document.title;
 
     document.title = TITLE;
@@ -105,9 +107,24 @@ const Gondorbows: React.FC = () => {
     ldScript.textContent = JSON.stringify(schema);
     if (!document.getElementById('ld-gondorbows')) document.head.appendChild(ldScript);
 
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Gondorbows", "item": URL }
+      ]
+    };
+    const bcScript = document.createElement('script');
+    bcScript.type = 'application/ld+json';
+    bcScript.id   = 'ld-bc-gondorbows';
+    bcScript.textContent = JSON.stringify(breadcrumb);
+    if (!document.getElementById('ld-bc-gondorbows')) document.head.appendChild(bcScript);
+
     return () => {
       document.title = prevTitle;
       document.getElementById('ld-gondorbows')?.remove();
+      document.getElementById('ld-bc-gondorbows')?.remove();
     };
   }, []);
 

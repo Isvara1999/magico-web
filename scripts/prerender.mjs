@@ -13,7 +13,7 @@ const ROUTES = [
   {
     path: '/',
     title: 'Mágico Ensueño — Eco‑Refugio & Glamping · Los Gigantes, Córdoba',
-    description: 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos y yurta, voluntariados y cocina de autor. 20 años regenerando la montaña.',
+    description: 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos geodésicos, voluntariados y cocina de autor. 20 años regenerando la montaña.',
     image: 'https://experienciamagico.com/uploads/img_6948.webp',
     canonical: 'https://experienciamagico.com/',
   },
@@ -55,7 +55,7 @@ const ROUTES = [
   {
     path: '/estadia',
     title: 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño',
-    description: 'Glamping, coworking y retiro autoguiado en las Sierras de Córdoba. Domos, yurta, habitaciones y camping. Desde $35.000/noche todo incluido: alojamiento + pensión completa + Reset Vital.',
+    description: 'Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $40.000/noche (ropa blanca + Reset Vital). Pensión completa desde $95.000. 20% dto. lun–jue.',
     image: 'https://experienciamagico.com/uploads/campoentero.webp',
     canonical: 'https://experienciamagico.com/estadia',
   },
@@ -65,6 +65,13 @@ const ROUTES = [
     description: 'Política de privacidad y protección de datos personales de Mágico Ensueño conforme a la Ley 25.326. Información sobre recopilación, uso y derechos sobre tus datos.',
     image: 'https://experienciamagico.com/uploads/img_6948.webp',
     canonical: 'https://experienciamagico.com/politica-de-privacidad',
+  },
+  {
+    path: '/el-vuelo-del-condor',
+    title: 'El Vuelo del Cóndor — Un viaje iniciático en Perú | Mágico Ensueño',
+    description: '7 días para elevar tu conciencia, expandir tu visión y reconectar con tu propósito en el Valle Sagrado de los Incas, Perú. Del 22 al 29 de Mayo.',
+    image: 'https://experienciamagico.com/uploads/temazcal.webp',
+    canonical: 'https://experienciamagico.com/el-vuelo-del-condor',
   },
 ];
 

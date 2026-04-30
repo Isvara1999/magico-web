@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, CalendarBlank } from '@phosphor-icons/react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const AulaVerdeHero: React.FC = () => {
+  const { t } = useLanguage();
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const AulaVerdeHero: React.FC = () => {
             width="100vw"
             height="100vh"
             src="https://www.youtube-nocookie.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080"
-            title="Video de fondo — Aula Verde"
+            title={t.aula_verde.hero.title}
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
@@ -50,24 +52,24 @@ const AulaVerdeHero: React.FC = () => {
 
         {/* Subtitle */}
         <p className="text-xs md:text-sm uppercase tracking-widest font-bold text-white mb-3 md:mb-4 drop-shadow-md">
-          Mágico Ensueño Presenta
+          {t.aula_verde.hero.subtitle}
         </p>
 
         {/* Title Container */}
         <div className="mb-4 md:mb-6">
           <h1 className="text-5xl sm:text-6xl md:text-7xl serif-title text-white leading-tight tracking-wide drop-shadow-xl font-light">
-            Aula Verde
+            {t.aula_verde.hero.title}
           </h1>
         </div>
 
         {/* Tagline */}
         <p className="text-lg sm:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-4 md:mb-6 drop-shadow-md">
-          Campamentos con Propósito en la Montaña
+          {t.aula_verde.hero.tagline}
         </p>
 
         {/* Description */}
         <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-xl mx-auto mb-8 md:mb-12 leading-relaxed drop-shadow-sm">
-          Una experiencia educativa, consciente y transformadora para niños, adolescentes y jóvenes de todas las edades.
+          {t.aula_verde.hero.description}
         </p>
 
         {/* Custom Premium Buttons */}
@@ -77,7 +79,7 @@ const AulaVerdeHero: React.FC = () => {
             target="_self"
             className="relative overflow-hidden group bg-gradient-to-r from-[#D4AF37] to-[#B38D1C] text-[#003823] font-extrabold tracking-widest uppercase text-sm px-10 py-4 rounded-full shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1"
           >
-            <span className="relative z-10">Solicitar Presupuesto</span>
+            <span className="relative z-10">{t.aula_verde.hero.cta_budget}</span>
             {/* Shimmer Effect */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms] skew-x-12"></div>
           </a>
@@ -86,7 +88,7 @@ const AulaVerdeHero: React.FC = () => {
             href="#comodidad"
             className="relative group bg-white/5 backdrop-blur-md border border-white/20 hover:border-white/50 text-white font-semibold tracking-widest uppercase text-sm px-10 py-4 rounded-full shadow-lg hover:bg-white/10 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-1"
           >
-            Ver Instalaciones
+            {t.aula_verde.hero.cta_facilities}
           </a>
         </div>
 
@@ -94,12 +96,12 @@ const AulaVerdeHero: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-white/60 text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium px-4">
           <div className="flex items-center gap-2">
             <CalendarBlank weight="thin" className="w-5 h-5 text-brand-gold/80" />
-            <span>Abierto Todo el Año</span>
+            <span>{t.aula_verde.hero.stat_open}</span>
           </div>
           <span className="hidden sm:inline opacity-30">|</span>
           <div className="flex items-center gap-2">
             <MapPin weight="thin" className="w-5 h-5 text-brand-gold/80" />
-            <span>Los Gigantes, Córdoba, Argentina</span>
+            <span>{t.aula_verde.hero.stat_location}</span>
           </div>
         </div>
       </div>

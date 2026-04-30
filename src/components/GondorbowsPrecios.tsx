@@ -1,10 +1,12 @@
 import React from 'react';
 import { Check, Target, ForkKnife, Hammer, ChalkboardTeacher, House, Plant, Warning } from '@phosphor-icons/react';
-import { WA_GONDOR } from '../../constants';
+import { WA_GONDOR, SITE_URL } from '../data/config';
+import { RETREATS_DATA } from '../data/retreats';
+import { ROUTES } from '../routes';
 
 const GondorbowsPrecios: React.FC = () => {
   const waLinkMain = "https://wa.me/" + WA_GONDOR + "?text=" +
-    encodeURIComponent("¡Hola Fausto! Vengo de la web y me encantaría reservar mi lugar para Gondorbows. Quisiera hacer una seña para asegurar mi participación, ¿cómo podemos hacer? ✨");
+    encodeURIComponent(RETREATS_DATA.gondorbows.message);
 
   const waLinkFechas = "https://wa.me/" + WA_GONDOR + "?text=" +
     encodeURIComponent("¡Hola Fausto! Me encantó la propuesta de Gondorbows pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
@@ -88,7 +90,7 @@ const GondorbowsPrecios: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-12 md:mb-16">
             <span className="bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/40 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold uppercase tracking-widest text-[11px] md:text-sm backdrop-blur-sm shadow-lg shadow-black/20">
-              10 AL 12 DE ABRIL
+              {RETREATS_DATA.gondorbows.dates}
             </span>
             <span className="hidden sm:block text-[#D4AF37] opacity-60">•</span>
             <span className="bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/40 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold uppercase tracking-widest text-[11px] md:text-sm backdrop-blur-sm shadow-lg shadow-black/20">
@@ -102,9 +104,9 @@ const GondorbowsPrecios: React.FC = () => {
 
           {/* Main Pricing Card (White) - Centered unconditionally */}
           <div className="w-full flex justify-center px-4 mb-12">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative w-full max-w-2xl p-8 md:p-14 text-center flex flex-col items-center animate-float-soft focus-within:shadow-yellow-500/30 hover:shadow-yellow-500/30 transition-shadow duration-500">
-              <p className="font-bold text-lg md:text-2xl mb-4 md:mb-6 uppercase tracking-widest" style={{ color: '#005333' }}>Valor total del retiro</p>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#D4AF37' }}>$530.000</div>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative w-full max-w-2xl p-8 md:p-14 text-center flex flex-col items-center hover:shadow-yellow-500/20 transition-shadow duration-500">
+              <p className="font-bold text-base md:text-xl mb-4 md:mb-6 uppercase tracking-widest" style={{ color: '#005333' }}>Valor total de la experiencia</p>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide mb-6 md:mb-8 font-serif" style={{ color: '#005333' }}>${RETREATS_DATA.gondorbows.price.toLocaleString('es-AR')} {RETREATS_DATA.gondorbows.currency}</div>
               <p className="text-sm md:text-lg opacity-90 font-medium tracking-wide" style={{ color: '#005333' }}>Todo incluido para 3 días de inmersión completa</p>
             </div>
           </div>

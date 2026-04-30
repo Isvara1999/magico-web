@@ -9,12 +9,12 @@ https://experienciamagico.com/
 - **Razón social:** HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA
 - **CUIT:** 30-71875586-3
 - **Habilitación turística:** Resolución N° 000258 — Agencia Córdoba Turismo (14 ABR 2025). Clase: Alojamiento Alternativo
-- **Capacidad:** 3 Habitaciones Compartidas, 3 Domos, 1 Yurta — 48 plazas fijas
+- **Capacidad:** 3 Habitaciones Compartidas, 3 Domos — 48 plazas fijas (habilitación oficial Res. N° 000258)
 - **Titulares:** Ari Epelman, Diego Epelman, Yonathan Epelman
 - **Domicilio operativo:** Ojo de Agua, Pedanía La Candelaria, Paraje Cuchilla Nevada, Departamento Cruz del Eje, Córdoba, Argentina
 
 ## ¿Qué es Mágico Ensueño?
-Mágico Ensueño es un eco-refugio con más de 20 años de historia ubicado en Los Gigantes / Cuchilla Nevada, Sierras Grandes, Córdoba, Argentina. Ofrecemos experiencias de inmersión en la naturaleza: retiros personales y grupales, glamping en domos geodésicos y yurta mongola, co-living, voluntariados agroecológicos, campamentos educativos para escuelas y cocina de autor con productos de la huerta propia.
+Mágico Ensueño es un eco-refugio con más de 20 años de historia ubicado en Los Gigantes / Cuchilla Nevada, Sierras Grandes, Córdoba, Argentina. Ofrecemos experiencias de inmersión en la naturaleza: retiros personales y grupales, glamping en domos geodésicos, co-living, voluntariados agroecológicos, campamentos educativos para escuelas y cocina de autor.
 
 El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15.000 árboles plantados por el equipo como parte de su misión de regeneración ecosistémica.
 
@@ -23,7 +23,9 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 - **Perfil:** https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9
 
 ## Precios orientativos
-- **Estadías generales (Reset Vital):** desde $32.000 ARS por noche (incluye alojamiento, pensión completa y experiencia Reset Vital)
+- **Alojamiento base:** desde $40.000 ARS por noche (incluye ropa blanca, biocosmética y guía Reset Vital PDF)
+- **Pensión completa:** desde $95.000 ARS por noche (+ desayuno, almuerzo y cena)
+- **Descuento días de semana:** 20% de descuento lunes a jueves no feriados (alojamiento $32.000 / pensión completa $76.000)
 - Los precios varían por temporada, tipo de alojamiento y paquete. Consultar disponibilidad y precio definitivo por WhatsApp.
 - **Moneda:** Pesos argentinos (ARS). Se acepta efectivo, transferencia bancaria, tarjeta de crédito y débito.
 
@@ -31,9 +33,10 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 
 - [Home](https://experienciamagico.com/) — Presentación general del ecocentro, filosofía, experiencias y contacto
 - [Familion](https://experienciamagico.com/familion) — Retiro familiar (1 al 3 de Mayo y 13-15 de Junio). Adultos en red, niños en libertad, gastronomía de montaña y experiencias transformadoras
-- [Achala Viva](https://experienciamagico.com/achala-viva) — Retiro de inmersión total en naturaleza (8 y 9 de Mayo). Astroturismo, avistaje de aves, guiado por biólogo. Plazas limitadas
+- [Achala Viva](https://experienciamagico.com/achala-viva) — Retiro de inmersión total en naturaleza (9 y 10 de Mayo). Astroturismo, avistaje de aves, guiado por biólogo. Plazas limitadas
 - [Aula Verde / Escuelas](https://experienciamagico.com/escuelas) — Campamentos educativos para primaria y secundaria. Talleres agroecológicos, aventura y naturaleza. Capacidad hasta 180 alumnos
 - [Gondorbows](https://experienciamagico.com/gondorbows) — Retiro de arquería ancestral 29-31 de Mayo (3 días). Construí tu propio arco tradicional con Gondor Bows. Todo incluido
+- [El Vuelo del Cóndor](https://experienciamagico.com/el-vuelo-del-condor) — Viaje iniciático en el Valle Sagrado, Perú (22 al 29 de Mayo). 7 días para expandir tu visión y reconectar con tu propósito. Incluye alojamiento, comidas y ceremonias ancestrales.
 
 ## Páginas legales
 
@@ -45,8 +48,9 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 | Fecha | Evento | Descripción |
 |-------|--------|-------------|
 | 1-3 MAYO | Familion (¡Últ. 2 cupos!) | Retiro familiar: adultos en red, niños en libertad |
-| 8-9 MAYO | Achala Viva | Astroturismo, avistaje de aves, fotografía de naturaleza |
+| 9-10 MAYO | Achala Viva | Astroturismo, avistaje de aves, fotografía de naturaleza |
 | 23-25 MAYO | Habitar la Transformación | Eneagrama y prácticas corporales |
+| 22-29 MAYO | El Vuelo del Cóndor (Perú) | Viaje iniciático en el Valle Sagrado de los Incas |
 | 29-31 MAYO | Gondorbows | Taller de arquería ancestral |
 | RECURRENTE | Temazcal | Ceremonias de temazcal (consultar fechas) |
 | 13-15 JUNIO | Familion (¡Nueva fecha!) | Segunda edición del retiro familiar |
@@ -55,7 +59,6 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 
 ### Alojamiento
 - Domos geodésicos (glamping)
-- Yurta mongola tradicional
 - Habitaciones compartidas (tipo hostel de montaña)
 - Camping
 

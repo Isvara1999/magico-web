@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { InstagramLogo, WhatsappLogo, FacebookLogo, MapPin, Envelope, Phone } from '@phosphor-icons/react';
+import { SOCIAL_LINKS } from '../src/data/config';
+import { ROUTES } from '../src/routes';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -24,13 +26,13 @@ export const Footer: React.FC = () => {
               {t.footer.description}
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com/magicoensueno" target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Instagram" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Instagram" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <InstagramLogo size={20} weight="light" />
               </a>
               <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Contactanos por WhatsApp" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <WhatsappLogo size={20} weight="light" />
               </a>
-              <a href="https://facebook.com/magicoensueno" target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Facebook" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Facebook" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <FacebookLogo size={20} weight="light" />
               </a>
             </div>
@@ -128,8 +130,8 @@ export const Footer: React.FC = () => {
             <span>&copy; {currentYear} {t.footer.copyright}</span>
             <span className="hidden md:block w-1 h-1 rounded-full bg-gray-200"></span>
             <div className="flex gap-4">
-              <a href="/terminos-y-condiciones" className="hover:text-brand-gold transition-colors">{t.footer.links.terms}</a>
-              <a href="/politica-de-privacidad" className="hover:text-brand-gold transition-colors">{t.footer.links.privacy}</a>
+              <a href={ROUTES.TERMINOS} className="hover:text-brand-gold transition-colors">{t.footer.links.terms}</a>
+              <a href={ROUTES.PRIVACIDAD} className="hover:text-brand-gold transition-colors">{t.footer.links.privacy}</a>
             </div>
           </div>
           <div className="flex items-center gap-2">

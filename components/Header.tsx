@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useLocation } from 'react-router-dom';
+import { ROUTES } from '../src/routes';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,7 +13,7 @@ export const Header: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === ROUTES.HOME;
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 1023px)');
@@ -147,7 +148,7 @@ export const Header: React.FC = () => {
       <div className="flex justify-between items-center w-full lg:px-4 px-2">
         {/* Logo - Left */}
         <div className="flex-1 lg:flex-none">
-          <a href="/" className="relative z-[1200] inline-block" onClick={(e) => { 
+          <a href={ROUTES.HOME} className="relative z-[1200] inline-block" onClick={(e) => { 
             if (isHomePage) {
               e.preventDefault(); 
               window.scrollTo({top: 0, behavior: 'smooth'}); 
@@ -189,7 +190,7 @@ export const Header: React.FC = () => {
             {t.menu.items.map((item: any, index: number) => (
               <li key={index} className="relative group w-full lg:w-auto text-center lg:text-left">
                 <a
-                  href={item.href.startsWith('#') && !isHomePage ? '/' + item.href : item.href}
+                  href={item.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.href : item.href}
                   onClick={(e) => handleNavClick(e, item.href, !!item.submenu, index)}
                   className={`
                     flex items-center justify-center lg:justify-start gap-1.5 py-3.5 lg:py-2.5 
@@ -225,7 +226,7 @@ export const Header: React.FC = () => {
                     {item.submenu.map((sub: any, subIndex: number) => (
                       <li key={subIndex}>
                         <a
-                          href={sub.href.startsWith('#') && !isHomePage ? '/' + sub.href : sub.href}
+                          href={sub.href.startsWith('#') && !isHomePage ? ROUTES.HOME + sub.href : sub.href}
                           onClick={(e) => handleNavClick(e, sub.href, false, index)}
                           className={`
                             block py-2.5 px-5 text-[14px] lg:text-[12px] transition-all text-center lg:text-left

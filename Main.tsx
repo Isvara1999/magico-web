@@ -20,6 +20,9 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { CookieBanner } from './components/CookieBanner';
 
+import { SITE_URL } from './src/data/config';
+import { ROUTES } from './src/routes';
+
 const Main: React.FC = () => {
   const [belowFoldReady, setBelowFoldReady] = useState(false);
 
@@ -40,9 +43,9 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     const TITLE = 'Mágico Ensueño — Eco‑Refugio & Glamping · Los Gigantes, Córdoba';
-    const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos y yurta, voluntariados y cocina de autor. 25 años regenerando la montaña.';
-    const URL   = 'https://experienciamagico.com/';
-    const IMG   = 'https://experienciamagico.com/uploads/img_6948.webp';
+    const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos geodésicos, voluntariados y cocina de autor. 20 años regenerando la montaña.';
+    const URL   = SITE_URL + ROUTES.HOME;
+    const IMG   = `${SITE_URL}/uploads/img_6948.webp`;
     const prevTitle = document.title;
 
     document.title = TITLE;
@@ -148,31 +151,29 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <LanguageProvider>
-      <div className="font-sans antialiased selection:bg-brand selection:text-white">
-        <Header />
-        <main>
-          <Hero />
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionEventos /></div>
-          <SectionNosotros />
-          <SectionPilares />
-          <SectionVideo />
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionExperiencias /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionInclusiones /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionParaQuien /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionTestimonios /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionRetiros /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionEscuelas /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px', isolation: 'isolate' }}><SectionVoluntariados /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px', isolation: 'isolate' }}><SectionComoLlegar /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionFAQ /></div>
-          <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionContacto /></div>
-        </main>
-        {belowFoldReady && <Footer />}
-        <WhatsAppButton />
-        {belowFoldReady && <CookieBanner />}
-      </div>
-    </LanguageProvider>
+    <div className="font-sans antialiased selection:bg-brand selection:text-white">
+      <Header />
+      <main>
+        <Hero />
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionEventos /></div>
+        <SectionNosotros />
+        <SectionPilares />
+        <SectionVideo />
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionExperiencias /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionInclusiones /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionParaQuien /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionTestimonios /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionRetiros /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionEscuelas /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px', isolation: 'isolate' }}><SectionVoluntariados /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px', isolation: 'isolate' }}><SectionComoLlegar /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionFAQ /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionContacto /></div>
+      </main>
+      {belowFoldReady && <Footer />}
+      <WhatsAppButton />
+      {belowFoldReady && <CookieBanner />}
+    </div>
   );
 };
 

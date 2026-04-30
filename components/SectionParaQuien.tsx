@@ -1,47 +1,21 @@
 import React from 'react';
 import { Laptop, Heartbeat, Heart, Compass, UsersThree, Globe } from '@phosphor-icons/react';
-import { WA_MAGICO } from '../constants';
+import { WA_MAGICO } from '../src/data/config';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const AVATARS = [
-  {
-    icon: <Laptop weight="duotone" className="w-8 h-8" />,
-    title: 'El nómade digital',
-    desc: 'Trabajás remoto y querés un lugar con WiFi real, silencio y conexión humana auténtica. Starlink + naturaleza + comunidad.',
-    wa: 'Hola! Me interesa el coworking con alojamiento para trabajo remoto en Mágico Ensueño. ¿Tienen disponibilidad?',
-  },
-  {
-    icon: <Heartbeat weight="duotone" className="w-8 h-8" />,
-    title: 'El profesional en burnout',
-    desc: 'Necesitás salir del ruido urbano y resetear. Comida real, montaña, silencio y espacios para volver a vos.',
-    wa: 'Hola! Busco un retiro de descanso en Mágico Ensueño. ¿Cuándo tienen disponibilidad?',
-  },
-  {
-    icon: <Heart weight="duotone" className="w-8 h-8" />,
-    title: 'La pareja',
-    desc: 'Buscan una escapada romántica diferente. Domo geodésico, cielo estrellado, fogón y cocina de autor en la montaña.',
-    wa: 'Hola! Queremos ir en pareja a Mágico Ensueño. ¿Tienen domos disponibles y cuál es el precio?',
-  },
-  {
-    icon: <Compass weight="duotone" className="w-8 h-8" />,
-    title: 'El buscador en tránsito',
-    desc: 'Estás en un momento de transformación y buscás comunidad, propósito y un espacio que acompañe el proceso.',
-    wa: 'Hola! Me interesa conocer más sobre los retiros y el co-living en Mágico Ensueño. ¿Podemos hablar?',
-  },
-  {
-    icon: <UsersThree weight="duotone" className="w-8 h-8" />,
-    title: 'La familia',
-    desc: 'Buscan desconectar de las pantallas y reconectar entre ustedes. Espacios amplios, naturaleza segura y aventuras compartidas en la montaña.',
-    wa: 'Hola! Queremos ir en familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?',
-  },
-  {
-    icon: <Globe weight="duotone" className="w-8 h-8" />,
-    title: 'El ciudadano del mundo',
-    desc: 'Buscás nutrirte de otras culturas sin tomarte un avión. Disfrutás de compartir un fogón con viajeros y voluntarios de todas partes del mundo.',
-    wa: 'Hola! Me encanta la vibra internacional de Mágico Ensueño. ¿Qué opciones de estadía tienen?',
-  },
+const ICONS = [
+  <Laptop weight="duotone" className="w-8 h-8" />,
+  <Heartbeat weight="duotone" className="w-8 h-8" />,
+  <Heart weight="duotone" className="w-8 h-8" />,
+  <Compass weight="duotone" className="w-8 h-8" />,
+  <UsersThree weight="duotone" className="w-8 h-8" />,
+  <Globe weight="duotone" className="w-8 h-8" />,
 ];
 
 export const SectionParaQuien: React.FC = () => {
+  const { t } = useLanguage();
+  const pq = t.para_quien;
+
   return (
     <>
       <span id="para-quien" className="block -mt-20 pt-20" aria-hidden="true"></span>
@@ -50,16 +24,16 @@ export const SectionParaQuien: React.FC = () => {
 
           <div className="text-center mb-12" data-reveal>
             <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3 opacity-80">
-              PARA QUIÉN ES
+              {pq.eyebrow}
             </p>
             <h2 className="text-3xl md:text-5xl font-serif text-gray-900 leading-tight">
-              ¿Esto es para mí?
+              {pq.title}
             </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal>
-            {AVATARS.map((avatar, i) => {
-              const waUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(avatar.wa)}`;
+            {pq.profiles.map((profile: { title: string; desc: string; wa: string }, i: number) => {
+              const waUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(profile.wa)}`;
               return (
                 <a
                   key={i}
@@ -69,12 +43,12 @@ export const SectionParaQuien: React.FC = () => {
                   className="group flex flex-col bg-white rounded-2xl border border-stone-200 p-7 hover:border-brand hover:shadow-lg transition-all duration-300"
                 >
                   <span className="text-brand mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
-                    {avatar.icon}
+                    {ICONS[i]}
                   </span>
-                  <h3 className="font-serif text-lg text-gray-900 mb-3 leading-snug">{avatar.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed flex-1">{avatar.desc}</p>
+                  <h3 className="font-serif text-lg text-gray-900 mb-3 leading-snug">{profile.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed flex-1">{profile.desc}</p>
                   <span className="mt-5 text-xs font-bold tracking-widest uppercase text-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Consultar →
+                    {pq.cta_label} →
                   </span>
                 </a>
               );

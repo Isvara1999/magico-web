@@ -12,3 +12,8 @@ node_modules/.vite/deps/_metadata.json
 # Agent related
 .claude/
 outputs/
+.graphify_python
+.graphify_transcripts.json
+.graphifyignore
+graphify-out/
+

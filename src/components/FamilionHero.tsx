@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const FamilionHero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center group">
       
@@ -15,7 +18,7 @@ const FamilionHero: React.FC = () => {
         ></iframe>
       </div>
 
-      {/* Gradiente oscuro que se acentúa en hover para mejorar la legibilidad de los textos */}
+      {/* Gradiente oscuro */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#002B18]/88 via-[#004229]/35 to-black/15 z-[1] transition-all duration-700 group-hover:from-[#001f11]/95 group-hover:via-[#00301e]/60 group-hover:to-black/40"></div>
 
       {/* Content */}
@@ -23,28 +26,28 @@ const FamilionHero: React.FC = () => {
 
         {/* Pre-título */}
         <p className="text-gold font-medium tracking-[0.22em] text-[10px] sm:text-xs uppercase mb-7 text-center">
-          1 al 3 de Mayo (¡Últimos 2 cupos!) &nbsp;·&nbsp; 13 al 15 de Junio (¡Nueva fecha!)
+          {t.familion.hero.dates}
         </p>
 
-        {/* Título partido en dos líneas de jerarquía distinta */}
+        {/* Título */}
         <h1 className="serif-title text-white font-light leading-[1.0] mb-3">
-          <span className="block text-5xl sm:text-6xl md:text-7xl tracking-tight">Familion</span>
+          <span className="block text-5xl sm:text-6xl md:text-7xl tracking-tight">{t.familion.hero.title}</span>
           <span className="block text-sm sm:text-base md:text-lg tracking-[0.2em] sm:tracking-[0.35em] uppercase text-white/60 mt-3 font-sans font-light">
-            Una experiencia para compartir con la Tribu
+            {t.familion.hero.subtitle}
           </span>
         </h1>
 
         <p className="text-sm sm:text-base text-white/80 font-light max-w-xl mx-auto mt-8 mb-10 leading-relaxed">
-          "Cambiamos pantallas por naturaleza, velocidad por presencia y soledad por tribu. Una invitación a conectar con toda la Familia."
+          {t.familion.hero.description}
         </p>
 
         {/* CTAs */}
         <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center w-full mb-8">
           <a href="#precios" className="btn-gold inline-flex items-center justify-center">
-            Sumarse
+            {t.familion.hero.cta_join}
           </a>
           <a href="#comodidad" className="btn-glass inline-flex items-center justify-center">
-            Ver detalles
+            {t.familion.hero.cta_details}
           </a>
         </div>
       </div>

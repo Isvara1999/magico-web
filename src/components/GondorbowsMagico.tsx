@@ -1,5 +1,5 @@
 import React from 'react';
-import { WA_GONDOR } from '../../constants';
+import { WA_GONDOR } from '../data/config';
 
 const GondorbowsMagico: React.FC = () => {
   const consultLink = "https://wa.me/" + WA_GONDOR + "?text=" +

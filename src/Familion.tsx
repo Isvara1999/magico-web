@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { LanguageProvider } from '../contexts/LanguageContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { CampfireIcon, SunIcon, MoonIcon, UsersThreeIcon, LeafIcon, ForkKnifeIcon, StarIcon } from '@phosphor-icons/react';
@@ -8,33 +8,18 @@ import FamilionHero from './components/FamilionHero';
 import FamilionMagico from './components/FamilionMagico';
 import FamilionPrecios from './components/FamilionPrecios';
 import FamilionFAQ from './components/FamilionFAQ';
-import { WA_MAGICO } from '../constants';
+import { WA_MAGICO, SITE_URL } from './data/config';
+import { ROUTES } from './routes';
 
+const FamilionContent: React.FC = () => {
+  const { t, language } = useLanguage();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Familion: React.FC = () => {
   // SEO — title, meta, OG, canonical y JSON-LD
   useEffect(() => {
-    const TITLE = 'Familion — Retiro Familiar · Los Gigantes, Córdoba | Mágico Ensueño';
-    const DESC  = 'Retiro familiar en Los Gigantes, Córdoba. 1-3 Mayo (¡Últimos 2 cupos!) & 13-15 Junio. Adultos en red, niños en libertad, gastronomía de montaña.';
-    const URL   = 'https://experienciamagico.com/familion';
-    const IMG   = 'https://experienciamagico.com/uploads/portada familion.webp';
+    const TITLE = t.familion.seo.title;
+    const DESC = t.familion.seo.description;
+    const URL = SITE_URL + ROUTES.FAMILION;
+    const IMG = `${SITE_URL}/uploads/Familion/IMG_6045.webp`;
     const prevTitle = document.title;
 
     document.title = TITLE;
@@ -76,13 +61,13 @@ const Familion: React.FC = () => {
     setMeta('meta[name="twitter:image"]',       'name',    'twitter:image');
     setMeta('meta[name="twitter:image"]',       'content', IMG);
     setMeta('meta[property="og:locale"]',       'property', 'og:locale');
-    setMeta('meta[property="og:locale"]',       'content',  'es_AR');
+    setMeta('meta[property="og:locale"]',       'content',  language === 'es' ? 'es_AR' : 'en_US');
 
     const schema = {
       "@context": "https://schema.org",
       "@type": "Event",
-      "name": "Familion — Retiro Familiar en Los Gigantes",
-      "description": "Retiro de inmersión familiar de 3 días en la Sierra de Achala. Adultos en red, infancia en libertad, gastronomía de montaña y experiencias transformadoras.",
+      "name": TITLE,
+      "description": DESC,
       "startDate": "2026-05-01",
       "endDate": "2026-05-03",
       "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
@@ -98,11 +83,26 @@ const Familion: React.FC = () => {
     ldScript.textContent = JSON.stringify(schema);
     if (!document.getElementById('ld-familion')) document.head.appendChild(ldScript);
 
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Familion", "item": URL }
+      ]
+    };
+    const bcScript = document.createElement('script');
+    bcScript.type = 'application/ld+json';
+    bcScript.id   = 'ld-bc-familion';
+    bcScript.textContent = JSON.stringify(breadcrumb);
+    if (!document.getElementById('ld-bc-familion')) document.head.appendChild(bcScript);
+
     return () => {
       document.title = prevTitle;
       document.getElementById('ld-familion')?.remove();
+      document.getElementById('ld-bc-familion')?.remove();
     };
-  }, []);
+  }, [t, language]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -115,41 +115,36 @@ const Familion: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
+  const PILAR_ICONS = [UsersThreeIcon, LeafIcon, ForkKnifeIcon, StarIcon];
+  const CRONO_ICONS = [CampfireIcon, SunIcon, MoonIcon];
+
   return (
-    <LanguageProvider>
-      <>
-        <Header />
-        <div className="bg-white text-gray-800 overflow-x-hidden">
+    <div className="bg-white text-gray-800 overflow-x-hidden">
+      <Header />
 
-
-      {/* Header removed to avoid blank page if context is missing */}
-
-      {/* ====== HERO SECTION (closer, centered) ====== */}
       <FamilionHero />
 
       {/* ====== VIDEO INVITACIÓN ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Text */}
             <div data-reveal className="flex flex-col justify-center">
-              <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">Una Invitación de la Edición Anterior</h2>
+              <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">{t.familion.invitation.title}</h2>
               <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Sabemos que compartir en familia en la ciudad es un gran desafío y que las vacaciones a veces se sienten como 'más trabajo'. En Familion, Co-creamos una experiencia en comunidad para disfrutar una experiencia inolvidable.
+                {t.familion.invitation.text1}
               </p>
               <p className="text-brand-green text-xl md:text-2xl serif-title font-bold mt-6">
-                Porque Co-crear en tribu es la que va!
+                {t.familion.invitation.text2}
               </p>
             </div>
 
-            {/* Right Video */}
             <div data-reveal data-delay="1" className="flex justify-center">
               <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-brand-gold/50 overflow-hidden shadow-2xl">
                 <iframe
                   width="360"
                   height="640"
                   src="https://www.youtube-nocookie.com/embed/Sqc7zbR-sPQ"
-                  title="Familion - Una invitación"
+                  title={t.familion.invitation.video_title}
                   loading="lazy"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
@@ -167,25 +162,14 @@ const Familion: React.FC = () => {
       <section id="comodidad" className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
         <div className="max-w-4xl mx-auto">
           <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green mb-5" style={{ lineHeight: '1.1' }}>
-            Nuestro Eco-centro
+            {t.familion.eco_center.title}
           </h2>
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10 font-light">
-            Pensado para familias en comunidad. Nos ocupamos de toda la logística; vos solo te ocupás de estar con los tuyos.
+            {t.familion.eco_center.subtitle}
           </p>
 
           <div className="divide-y divide-[#E8E4D9]">
-            {[
-              {
-                num: "01",
-                title: "Alojamiento",
-                text: "Camping, domos geodésicos o eco-refugio compartido. Diseñado para facilitar la red familiar, con limpieza y orden impecables. No somos un hotel tradicional; somos un espacio sustentable diseñado para el encuentro real.",
-              },
-              {
-                num: "02",
-                title: "Energía y Conexión",
-                text: "100% energía solar y Wi-Fi Starlink disponible para emergencias o trabajo puntual. Nuestra recomendación es el silencio digital — la montaña tiene una señal mucho más potente.",
-              },
-            ].map((item) => (
+            {t.familion.eco_center.items.map((item: any) => (
               <div key={item.num} className="py-8 flex flex-col md:flex-row gap-4 md:gap-12 items-start">
                 <div className="md:w-52 flex-shrink-0">
                   <span className="serif-title text-4xl font-light block leading-none" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
@@ -202,30 +186,28 @@ const Familion: React.FC = () => {
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green mb-5" style={{ lineHeight: '1.1' }}>
-            Los 4 Pilares de la Experiencia
+            {t.familion.pilares.title}
           </h2>
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10 font-light">
-            Cada dimensión de Familion está pensada para que adultos y niños puedan estar completamente presentes.
+            {t.familion.pilares.subtitle}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
-            {[
-              { num: "01", Icon: UsersThreeIcon, title: "Adultos en Red", text: "Círculos de conexión para soltar la carga de la crianza solitaria y encontrar tribu." },
-              { num: "02", Icon: LeafIcon, title: "Infancia en Libertad", text: "Arroyos, talleres en la naturaleza y aventura real sin pantallas." },
-              { num: "03", Icon: ForkKnifeIcon, title: "Gastronomía de Montaña", text: "9 comidas caseras, abundantes y nutritivas, pensadas para sostener la energía de toda la familia." },
-              { num: "04", Icon: StarIcon, title: "Experiencias Transformadoras", text: "Yoga al amanecer, Temazcal y rituales de fuego bajo las estrellas de los Gigantes." },
-            ].map((item, i) => (
-              <div key={item.num} data-reveal data-delay={String(i + 1)} className={`py-7 flex items-start gap-6 ${i < 2 ? 'border-b border-[#E8E4D9]' : ''} ${i > 1 ? 'border-b border-[#E8E4D9] md:border-b-0' : ''}`}>
-                <span className="serif-title text-2xl font-light flex-shrink-0 w-9 leading-none mt-0.5" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
-                <div>
-                  <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1 flex items-center gap-2">
-                    <item.Icon weight="light" className="w-4 h-4 flex-shrink-0 opacity-60" aria-hidden="true" />
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+            {t.familion.pilares.items.map((item: any, i: number) => {
+              const Icon = PILAR_ICONS[i];
+              return (
+                <div key={item.num} data-reveal data-delay={String(i + 1)} className={`py-7 flex items-start gap-6 ${i < 2 ? 'border-b border-[#E8E4D9]' : ''} ${i > 1 ? 'border-b border-[#E8E4D9] md:border-b-0' : ''}`}>
+                  <span className="serif-title text-2xl font-light flex-shrink-0 w-9 leading-none mt-0.5" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
+                  <div>
+                    <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-1 flex items-center gap-2">
+                      <Icon weight="light" className="w-4 h-4 flex-shrink-0 opacity-60" aria-hidden="true" />
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -234,87 +216,50 @@ const Familion: React.FC = () => {
       <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
         <div className="max-w-5xl mx-auto">
           <div data-reveal className="mb-10 md:mb-14">
-            <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">Tres días · Los Gigantes</p>
+            <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">{t.familion.cronograma.tag}</p>
             <h2 className="text-4xl md:text-5xl serif-title brand-green" style={{ lineHeight: '1.1' }}>
-              Ritmo Serrano
+              {t.familion.cronograma.title}
             </h2>
             <div className="mt-4 flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-brand-green/10 text-brand-green text-xs font-bold rounded-full border border-brand-green/20">
-                1 al 3 de Mayo — ¡Últimos 2 cupos!
+                {t.familion.cronograma.dates[0]}
               </span>
               <span className="px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs font-bold rounded-full border border-brand-gold/20">
-                13 al 15 de Junio — ¡Nueva Fecha!
+                {t.familion.cronograma.dates[1]}
               </span>
             </div>
           </div>
 
           <div className="max-w-4xl">
-
-            {/* Viernes */}
-            <div data-reveal data-delay="1" className="pb-10 md:pb-14">
-              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
-                <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
-                <div className="pb-2 flex items-end gap-4">
-                  <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 1 · Llegada</p>
-                    <h3 className="text-2xl md:text-3xl serif-title brand-green">Llegada y Fuego</h3>
+            {t.familion.cronograma.days.map((day: any, i: number) => {
+              const Icon = CRONO_ICONS[i];
+              return (
+                <React.Fragment key={day.num}>
+                  <div data-reveal data-delay={String(i + 1)} className="pb-10 md:pb-14">
+                    <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
+                      <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>{day.num}</span>
+                      <div className="pb-2 flex items-end gap-4">
+                        <div>
+                          <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">{day.tag}</p>
+                          <h3 className="text-2xl md:text-3xl serif-title brand-green">{day.title}</h3>
+                        </div>
+                        <Icon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
+                      </div>
+                    </div>
+                    <div className="divide-y divide-[#EDEBE3] md:pl-12">
+                      {day.items.map((item: string, idx: number) => (
+                        <p key={idx} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
+                      ))}
+                    </div>
                   </div>
-                  <CampfireIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
-                </div>
-              </div>
-              <div className="divide-y divide-[#EDEBE3] md:pl-12">
-                {["Bienvenida y acomodación", "Almuerzo de encuentro", "Círculos de juego · niños y adultos", "Atardecer Mágico en la sierra", "Fuego y cena grupal bajo el cielo abierto"].map((item, i) => (
-                  <p key={i} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-12 h-px bg-[#D4AF37] mb-10 md:mb-14" />
-
-            {/* Sábado */}
-            <div data-reveal data-delay="2" className="pb-10 md:pb-14">
-              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
-                <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
-                <div className="pb-2 flex items-end gap-4">
-                  <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 2 · Inmersión</p>
-                    <h3 className="text-2xl md:text-3xl serif-title brand-green">Raíces y Cielo</h3>
-                  </div>
-                  <SunIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
-                </div>
-              </div>
-              <div className="divide-y divide-[#EDEBE3] md:pl-12">
-                {["Yoga y meditación para adultos · juego libre para niños", "Plantación de tabaquillos en familia", "Cocina familiar compartida", "Tarde libre en la naturaleza", "Ceremonia de Temazcal"].map((item, i) => (
-                  <p key={i} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-12 h-px bg-[#D4AF37] mb-10 md:mb-14" />
-
-            {/* Domingo */}
-            <div data-reveal data-delay="3">
-              <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
-                <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>3</span>
-                <div className="pb-2 flex items-end gap-4">
-                  <div>
-                    <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Día 3 · Cierre</p>
-                    <h3 className="text-2xl md:text-3xl serif-title brand-green">Cierre y Partida</h3>
-                  </div>
-                  <MoonIcon weight="light" className="w-7 h-7 text-brand-gold mb-1 flex-shrink-0" />
-                </div>
-              </div>
-              <div className="divide-y divide-[#EDEBE3] md:pl-12">
-                {["Taller de arte natural y cocina", "Dinámicas y actividades de cierre", "Almuerzo de integración", "Despegue a la tarde"].map((item, i) => (
-                  <p key={i} className="py-3 text-gray-600 font-light text-base leading-relaxed">{item}</p>
-                ))}
-              </div>
-            </div>
-
+                  {i < 2 && <div className="w-12 h-px bg-[#D4AF37] mb-10 md:mb-14" />}
+                </React.Fragment>
+              );
+            })}
           </div>
 
           <p className="mt-12 text-gray-400 text-sm font-light italic max-w-xl">
-            Todas las actividades son flexibles y se co-crean con el sentir de la tribu en cada momento.
+            {t.familion.cronograma.footer}
           </p>
         </div>
       </section>
@@ -323,46 +268,30 @@ const Familion: React.FC = () => {
       <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
         <div className="max-w-5xl mx-auto">
           <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green text-center mb-8 md:mb-10">
-            Voces que Inspiran
+            {t.familion.testimonials.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-            {/* Testimonio 1 */}
-            <div data-reveal className="p-8 md:p-10 bg-white rounded-2xl card-hover border border-brand-green/10">
-              <div className="testimonial-quote mb-6">
-                <p className="text-gray-700 italic text-sm md:text-base leading-relaxed">
-                  "¡Es una vivencia que se graba en el alma! El silencio majestuoso nos envolvió como un abrazo."
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img src="/uploads/tefi y familia.webp" alt="Tefi y familia" loading="lazy" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
-                <div>
-                  <p className="font-bold text-brand-green text-sm">Tefi y familia</p>
-                  <p className="text-xs text-gray-400">Edición anterior</p>
+            {t.familion.testimonials.items.map((testi: any, i: number) => (
+              <div key={i} data-reveal data-delay={String(i)} className="p-8 md:p-10 bg-white rounded-2xl card-hover border border-brand-green/10">
+                <div className="testimonial-quote mb-6">
+                  <p className="text-gray-700 italic text-sm md:text-base leading-relaxed">
+                    {testi.text}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <img src={i === 0 ? "/uploads/tefi y familia.webp" : "/uploads/portada familion.webp"} alt={testi.name} loading="lazy" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                  <div>
+                    <p className="font-bold text-brand-green text-sm">{testi.name}</p>
+                    <p className="text-xs text-gray-400">{testi.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Testimonio 2 */}
-            <div data-reveal data-delay="1" className="p-8 md:p-10 bg-white rounded-2xl card-hover border border-brand-green/10">
-              <div className="testimonial-quote mb-6">
-                <p className="text-gray-700 italic text-sm md:text-base leading-relaxed">
-                  "Adultos disfrutando a pleno, aire puro y atención a los chicos con buena onda. La comida, abundante y deliciosa."
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img src="/uploads/portada familion.webp" alt="Jesica, Pablo y familia" loading="lazy" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
-                <div>
-                  <p className="font-bold text-brand-green text-sm">Jesica, Pablo y familia</p>
-                  <p className="text-xs text-gray-400">Edición anterior</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* VIDEOS DE TESTIMONIOS */}
           <div className="mt-16 md:mt-24">
-            <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">Testimonios en Movimiento</h3>
+            <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">{t.familion.testimonials.subtitle}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
               <div className="flex justify-center">
                 <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-brand-gold/50 overflow-hidden shadow-2xl">
@@ -397,26 +326,21 @@ const Familion: React.FC = () => {
         </div>
       </section>
 
-      {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
       <FamilionMagico />
-
-      {/* ====== PRECIOS ====== */}
       <FamilionPrecios />
-
-      {/* ====== FAQ ====== */}
       <FamilionFAQ />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green mb-6" style={{ lineHeight: '1.12' }}>
-            La montaña espera. Tu tribu también.
+            {t.familion.cta_final.title}
           </h2>
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
-            Familion es la pausa que tu familia necesita: tres días sin prisa, con tribu real, en la sierra que sana.
+            {t.familion.cta_final.subtitle}
           </p>
           <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=Hola!%20Vengo%20de%20Familion%20y%20quiero%20consultar%20la%20experiencia."} className="btn-gold inline-block">
-            Asegurar nuestro lugar
+            {t.familion.cta_final.btn}
           </a>
         </div>
       </section>
@@ -424,8 +348,8 @@ const Familion: React.FC = () => {
       {/* ====== VIDEO DESPEDIDA ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl serif-title brand-green mb-8 md:mb-10">La Magia de Compartir la Mesa</h2>
-          <p className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">Así es como celebramos cada comida en Familion — con gratitud, conexión y el amor que se respira en cada bocado.</p>
+          <h2 className="text-2xl md:text-3xl serif-title brand-green mb-8 md:mb-10">{t.familion.video_closing.title}</h2>
+          <p className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">{t.familion.video_closing.text}</p>
           <div className="flex justify-center">
             <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-brand-gold/50 overflow-hidden shadow-2xl">
               <iframe
@@ -442,17 +366,18 @@ const Familion: React.FC = () => {
           </div>
         </div>
       </section>
-        {/* Footer */}
-        <Footer />
-        
-        {/* Catálisis Credit */}
-        <div className="bg-brand-green/5 text-brand-green/60 text-center text-xs py-3 border-t border-brand-green/10">
-          Growth systems & digital experience by Catálisis
-        </div>
+
+      <Footer />
+      
+      <div className="bg-brand-green/5 text-brand-green/60 text-center text-xs py-3 border-t border-brand-green/10">
+        Growth systems & digital experience by Catálisis
       </div>
-      </>
-    </LanguageProvider>
+    </div>
   );
+};
+
+const Familion: React.FC = () => {
+  return <FamilionContent />;
 };
 
 export default Familion;

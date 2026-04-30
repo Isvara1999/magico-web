@@ -1,6 +1,6 @@
 import React from 'react';
 import { Recycle, Sun, Leaf } from '@phosphor-icons/react';
-import { WA_MAGICO } from '../../constants';
+import { WA_MAGICO } from '../data/config';
 
 const AchalaVivaMagico: React.FC = () => {
   const consultLink = "https://wa.me/" + WA_MAGICO + "?text=" +
