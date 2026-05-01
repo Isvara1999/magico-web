@@ -529,10 +529,10 @@
     "vuelo_condor": {
       "seo": {
         "title": "El Vuelo del Cóndor — Un viaje iniciático en Perú | Mágico Ensueño",
-        "description": "7 días para elevar tu consciencia en el Valle Sagrado de los Incas. Del 22 al 29 de Mayo."
+        "description": "7 días para elevar tu consciencia en el Valle Sagrado de los Incas. Del 22 al 29 de Julio."
       },
       "hero": {
-        "dates": "22 al 29 de Mayo, 2026",
+        "dates": "22 al 29 de Julio, 2026",
         "title": "El Vuelo del Cóndor",
         "subtitle": "Un viaje iniciático al corazón de los Andes.",
         "text": "Siete días de inmersión profunda en la sabiduría ancestral y la energía del Valle Sagrado de los Incas, Perú. Un camino de transformación diseñado para elevar tu consciencia y reconectar con el origen.",
@@ -672,19 +672,22 @@
         ]
       },
       "equipo": {
-        "title": "Guardianes del Viaje",
+        "title": "Guardianes del Arkan del Fuego",
         "subtitle": "Un equipo multidisciplinario al servicio de tu transformación.",
         "members": [
           {
             "nombre": "Gustavo Torras",
-            "desc": "Fundador de Mágico Ensueño. Guía iniciático con más de 15 años acompañando procesos de transformación masculina. Especialista en trabajo con plantas maestras y rituales ancestrales andinos."
+            "foto": "/uploads/vuelo-condor/Toti.webp",
+            "desc": "Fundador del Arkan del Fuego. Guía iniciático con más de 15 años acompañando procesos de transformación masculina. Especialista en trabajo con plantas maestras y rituales ancestrales andinos."
           },
           {
             "nombre": "Diego Epelman Hodara",
+            "foto": "/uploads/vuelo-condor/Diego.webp",
             "desc": "Facilitador de Constelaciones Familiares y procesos de integración. Combina la tradición sistémica con la sabiduría ancestral para trabajar los vínculos más profundos."
           },
           {
             "nombre": "Juan Cruz Sartori",
+            "foto": "/uploads/vuelo-condor/juan.webp",
             "desc": "Músico de medicina y facilitador de movimiento consciente. Acompaña los procesos con sonido sagrado, creando puentes entre el cuerpo, la emoción y el espíritu."
           }
         ],
@@ -694,23 +697,25 @@
         "title": "Tu Inversión en el Alma",
         "incluye_title": "Qué incluye",
         "incluye": [
-          "7 días de alojamiento en Eco-Resort",
-          "Pensión completa (alimentación vital)",
-          "Todas las ceremonias y actividades",
-          "Traslados internos en el Valle",
-          "Guías especializados",
-          "Entradas a sitios arqueológicos"
+          "7 noches en Hostal Medicina, Pisac",
+          "Pensión completa (desayunos, almuerzos y cenas)",
+          "Temazcal de apertura y cierre del proceso",
+          "Ceremonia de Ayahuasca en tipi sagrado",
+          "Ceremonia de Wuachuma en el Ausangate",
+          "Traslados internos en el Valle Sagrado",
+          "Entradas a todos los sitios arqueológicos",
+          "Acompañamiento espiritual del equipo 24/7"
         ],
-        "no_incluye_title": "Qué NO incluye",
+        "no_incluye_title": "No incluye",
         "no_incluye": "Vuelos internacionales y seguro de viaje.",
-        "vuelos_help": "Te asesoramos para que encuentres la mejor opción de vuelos.",
-        "slots": "Cupos Muy Limitados",
+        "vuelos_help": "Te asesoramos para que encuentres la mejor opción. Llegada: Cusco (CUZ) 22/07. Salida: desde las 18:00 del 29/07.",
+        "slots": "12 cupos · Julio 2026",
         "total_title": "Valor del Programa",
         "currency": "USD",
-        "price": "1.850",
-        "note": "Reserva tu lugar con 500 USD.",
+        "price": "1.800",
+        "note": "Reservá con <strong>USD 540</strong> · el saldo 30 días antes del inicio.",
         "btn": "RESERVAR MI LUGAR",
-        "msg": "Consultá facilidades de pago."
+        "msg": "Grupo máximo de 12 personas. Consultar financiación."
       },
       "faq": {
         "title": "Preguntas Frecuentes",
@@ -734,7 +739,7 @@
           },
           {
             "question": "¿Qué vuelos debo tomar?",
-            "answer": "Debés llegar a Cusco (CUZ) el 22 de mayo antes de las 9:00 hs y tu vuelo de regreso puede ser el 29 de mayo a partir de las 18:00 hs. Si venís de Argentina, los vuelos suelen hacer escala en Lima."
+            "answer": "Debés llegar a Cusco (CUZ) el 22 de julio antes de las 9:00 hs y tu vuelo de regreso puede ser el 29 de julio a partir de las 18:00 hs. Si venís de Argentina, los vuelos suelen hacer escala en Lima."
           },
           {
             "question": "¿Qué pasa si tengo dudas o miedos antes de viajar?",
@@ -1394,10 +1399,10 @@
     "vuelo_condor": {
       "seo": {
         "title": "The Flight of the Condor — An initiatory journey in Peru | Magico Ensueno",
-        "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From May 22 to 29."
+        "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From July 22 to 29."
       },
       "hero": {
-        "dates": "May 22 to 29, 2026",
+        "dates": "July 22 to 29, 2026",
         "title": "The Flight of the Condor",
         "subtitle": "An initiatory journey to the heart of the Andes.",
         "text": "Seven days of deep immersion in the ancestral wisdom and energy of the Sacred Valley of the Incas, Peru. A path of transformation designed to raise your consciousness and reconnect with the origin.",
@@ -1537,19 +1542,22 @@
         ]
       },
       "equipo": {
-        "title": "Guardians of the Journey",
+        "title": "Guardians of Arkan del Fuego",
         "subtitle": "A multidisciplinary team at the service of your transformation.",
         "members": [
           {
             "nombre": "Gustavo Torras",
-            "desc": "Founder of Mágico Ensueño. Initiatory guide with over 15 years supporting masculine transformation journeys. Specialist in master plant work and Andean ancestral rituals."
+            "foto": "/uploads/vuelo-condor/Toti.webp",
+            "desc": "Founder of Arkan del Fuego. Initiatory guide with over 15 years supporting masculine transformation journeys. Specialist in master plant work and Andean ancestral rituals."
           },
           {
             "nombre": "Diego Epelman Hodara",
+            "foto": "/uploads/vuelo-condor/Diego.webp",
             "desc": "Family Constellations facilitator and integration process guide. He bridges systemic tradition with ancestral wisdom to work through the deepest bonds."
           },
           {
             "nombre": "Juan Cruz Sartori",
+            "foto": "/uploads/vuelo-condor/juan.webp",
             "desc": "Medicine musician and conscious movement facilitator. He accompanies processes through sacred sound, building bridges between body, emotion, and spirit."
           }
         ],
@@ -1559,23 +1567,25 @@
         "title": "Your Investment in the Soul",
         "incluye_title": "What's included",
         "incluye": [
-          "7 days of accommodation in Eco-Resort",
-          "Full board (vital nutrition)",
-          "All mentioned ceremonies and activities",
-          "Internal transfers in the Valley",
-          "Specialized guides",
-          "Entrance to archaeological sites"
+          "7 nights at Hostal Medicina, Pisac",
+          "Full board (breakfasts, lunches & dinners)",
+          "Opening & closing Temazcal ceremony",
+          "Ayahuasca ceremony in sacred tipi",
+          "Wuachuma ceremony on Ausangate",
+          "Internal transfers through the Sacred Valley",
+          "Entry to all archaeological sites",
+          "Full spiritual team support 24/7"
         ],
-        "no_incluye_title": "What's NOT included",
+        "no_incluye_title": "Not included",
         "no_incluye": "International flights and travel insurance.",
-        "vuelos_help": "We advise you to find the best flight option.",
-        "slots": "Very Limited Spots",
+        "vuelos_help": "We help you find the best flights. Arrival: Cusco (CUZ) July 22. Departure: from 6 PM on July 29.",
+        "slots": "12 spots · July 2026",
         "total_title": "Program Value",
         "currency": "USD",
-        "price": "1,850",
-        "note": "Reserve your spot with 500 USD.",
+        "price": "1.800",
+        "note": "Reserve with <strong>USD 540</strong> · balance due 30 days before.",
         "btn": "BOOK MY SPOT",
-        "msg": "Consult payment facilities."
+        "msg": "Group max 12 people. Payment plans available."
       },
       "faq": {
         "title": "Frequently Asked Questions",
@@ -1599,7 +1609,7 @@
           },
           {
             "question": "What flights should I book?",
-            "answer": "You need to arrive at Cusco (CUZ) on May 22nd before 9:00 AM. Your return flight can be May 29th from 6:00 PM onwards. Flights from Argentina usually connect through Lima."
+            "answer": "You need to arrive at Cusco (CUZ) on July 22nd before 9:00 AM. Your return flight can be July 29th from 6:00 PM onwards. Flights from Argentina usually connect through Lima."
           },
           {
             "question": "What if I have doubts or fears before the trip?",

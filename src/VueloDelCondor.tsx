@@ -14,6 +14,7 @@ import VueloDelCondorParaQuien from './components/VueloDelCondorParaQuien';
 import VueloDelCondorVivencia from './components/VueloDelCondorVivencia';
 import VueloDelCondorItinerario from './components/VueloDelCondorItinerario';
 import VueloDelCondorEquipo from './components/VueloDelCondorEquipo';
+import VueloDelCondorGallery from './components/VueloDelCondorGallery';
 import VueloDelCondorTestimonios from './components/VueloDelCondorTestimonios';
 import VueloDelCondorInversion from './components/VueloDelCondorInversion';
 import VueloDelCondorFAQ from './components/VueloDelCondorFAQ';
@@ -66,8 +67,8 @@ const VueloDelCondorContent: React.FC = () => {
         "name": "Itinerario 7 días — Valle Sagrado, Perú",
         "numberOfItems": 7
       },
-      "startDate": "2026-05-22",
-      "endDate": "2026-05-29",
+      "startDate": "2026-07-22",
+      "endDate": "2026-07-29",
       "location": {
         "@type": "Place",
         "name": "Valle Sagrado de los Incas",
@@ -84,7 +85,7 @@ const VueloDelCondorContent: React.FC = () => {
       },
       "offers": {
         "@type": "Offer",
-        "price": "1850",
+        "price": "1800",
         "priceCurrency": "USD",
         "availability": "https://schema.org/LimitedAvailability",
         "url": URL
@@ -170,63 +171,7 @@ const VueloDelCondorContent: React.FC = () => {
       <VueloDelCondorItinerario />
       <VueloDelCondorEquipo />
 
-      {/* GALLERY */}
-      <section className="py-20 md:py-28 px-6 bg-[#F4F3EF]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10" data-reveal>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-brand-gold mb-4">El camino en imágenes</p>
-            <h2 className="text-3xl md:text-4xl serif-title brand-green">Registros del Camino</h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto" data-reveal data-delay="1">
-            <div className="relative aspect-video overflow-hidden rounded-2xl shadow-xl bg-gray-900">
-              {images.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img.src}
-                  alt={img.alt}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${idx === currentImage ? 'opacity-100' : 'opacity-0'}`}
-                />
-              ))}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-7 left-0 right-0 text-center z-10 px-4">
-                <span className="text-white text-sm md:text-base font-medium drop-shadow-md">{images[currentImage].alt}</span>
-              </div>
-
-              <button
-                onClick={() => setCurrentImage(p => (p - 1 + images.length) % images.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-white text-white hover:text-brand-green rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110 z-20 cursor-pointer"
-                aria-label="Imagen anterior"
-              >
-                <CaretLeft weight="thin" className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => setCurrentImage(p => (p + 1) % images.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-white text-white hover:text-brand-green rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110 z-20 cursor-pointer"
-                aria-label="Siguiente imagen"
-              >
-                <CaretRight weight="thin" className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Progress bars */}
-            <div className="mt-3 flex gap-1.5">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className="flex-1 h-0.5 rounded-full overflow-hidden bg-[#005333]/15 cursor-pointer"
-                  aria-label={`Ir a imagen ${index + 1}`}
-                >
-                  <div className={`h-full bg-[#005333] transition-all duration-300 ${
-                    index === currentImage ? 'w-full' : index < currentImage ? 'w-full opacity-25' : 'w-0'
-                  }`} />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <VueloDelCondorGallery />
 
       <VueloDelCondorTestimonios />
       <VueloDelCondorInversion />
@@ -251,7 +196,7 @@ const VueloDelCondorContent: React.FC = () => {
               {t.vuelo_condor.cta.btn}
             </a>
           </div>
-          <p className="text-white/30 text-xs mt-8 font-light tracking-wide">22 al 29 de Mayo · Valle Sagrado, Perú · USD 1.850</p>
+          <p className="text-white/30 text-xs mt-8 font-light tracking-wide">22 al 29 de Julio · Valle Sagrado, Perú · USD 1.800</p>
         </div>
       </section>
 
@@ -270,7 +215,7 @@ const VueloDelCondorContent: React.FC = () => {
         <div className="bg-white border-t border-gray-100 shadow-2xl px-4 py-3 flex items-center gap-3">
           <div className="flex-1 min-w-0">
             <p className="text-[10px] text-gray-400 uppercase tracking-widest">Viaje iniciático · Perú</p>
-            <p className="text-sm font-bold text-brand-green truncate">USD 1.850 — {RETREATS_DATA.vueloDelCondor.dates}</p>
+            <p className="text-sm font-bold text-brand-green truncate">USD 1.800 — {RETREATS_DATA.vueloDelCondor.dates}</p>
           </div>
           <a
             href={WA_HREF}

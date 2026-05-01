@@ -29,8 +29,16 @@ const VueloDelCondorEquipo: React.FC = () => {
               data-reveal
               data-delay={String(i + 1)}
             >
-              <div className="w-20 h-20 rounded-full bg-[#005333]/8 border border-[#005333]/15 flex items-center justify-center mx-auto mb-5">
-                <span className="font-serif text-xl text-[#005333]">{getInitials(p.nombre)}</span>
+              <div className="w-24 h-24 rounded-full bg-[#005333]/8 border border-[#005333]/15 flex items-center justify-center mx-auto mb-5 overflow-hidden shadow-md">
+                {p.foto ? (
+                  <img 
+                    src={p.foto} 
+                    alt={p.nombre} 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="font-serif text-2xl text-[#005333]">{getInitials(p.nombre)}</span>
+                )}
               </div>
               <h4 className="text-lg md:text-xl serif-title brand-green mb-2">{p.nombre}</h4>
               <div className="w-6 h-px bg-brand-gold/40 mx-auto mb-3" />
