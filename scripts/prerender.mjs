@@ -69,7 +69,7 @@ const ROUTES = [
   {
     path: '/el-vuelo-del-condor',
     title: 'El Vuelo del Cóndor — Un viaje iniciático en Perú | Mágico Ensueño',
-    description: '7 días para elevar tu conciencia, expandir tu visión y reconectar con tu propósito en el Valle Sagrado de los Incas, Perú. Del 22 al 29 de Mayo.',
+    description: '7 días para elevar tu conciencia, expandir tu visión y reconectar con tu propósito en el Valle Sagrado de los Incas, Perú. Del 22 al 29 de Julio.',
     image: 'https://experienciamagico.com/uploads/temazcal.webp',
     canonical: 'https://experienciamagico.com/el-vuelo-del-condor',
   },
