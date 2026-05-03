@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Target, House, ForkKnife, Star, Sun, Moon, CaretLeft, CaretRight } from '@phosphor-icons/react';
-import { SITE_URL } from './data/config';
+import { Target, House, ForkKnife, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { SITE_URL, WA_GONDOR } from './data/config';
 import { ROUTES } from './routes';
+import { RETREATS_DATA } from './data/retreats';
 
 import GondorbowsHero from './components/GondorbowsHero';
 import GondorbowsMagico from './components/GondorbowsMagico';
@@ -168,217 +169,190 @@ const Gondorbows: React.FC = () => {
       {/* ====== HERO SECTION (closer, centered) ====== */}
       <GondorbowsHero />
 
-      {/* ====== SOBRE NOSOTROS / LA EXPERIENCIA ====== */}
-      <section id="experiencia" className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24" style={{ paddingBottom: 'max(8rem, 120px)' }}>
-        <div className="max-w-5xl mx-auto pt-8">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-10 md:mb-16">
-            El verdadero lujo es el ser tiempo de presencia y disfrute.
-          </h2>
-
-          <div className="flex flex-col">
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto px-4">
-              Diseñamos esta experiencia con todo resuelto para que tu única tarea sea conectar con el entorno y el proceso creativo. Ubicados a 1800 metros de altura en la zona de Cuchilla Nevada, te ofrecemos una pausa real de la rutina rodeado de 200 hectáreas de montañas, ríos y vertientes.
-            </p>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto font-serif px-4" style={{ marginTop: 'max(4rem, 64px)' }}>
-              Durante tres días intensivos, construirás tu propio arco de alto rendimiento, recuperando habilidades esenciales desarrolladas durante más de 150.000 años de historia.
-            </p>
+      {/* ====== LA EXPERIENCIA ====== */}
+      <section id="experiencia" className="py-20 md:py-32 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
+            <div>
+              <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-5">La experiencia</p>
+              <h2 className="text-4xl md:text-5xl serif-title text-brand leading-[1.05]">
+                El verdadero lujo es el tiempo de presencia.
+              </h2>
+            </div>
+            <div className="md:pt-14 space-y-6">
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                Diseñamos esta experiencia con todo resuelto para que tu única tarea sea conectar con el entorno y el proceso creativo. A 1800 metros de altura, rodeado de 200 hectáreas de montañas, ríos y vertientes.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed font-serif">
+                Durante tres días intensivos, construirás tu propio arco de alto rendimiento — recuperando habilidades desarrolladas durante más de 150.000 años de historia.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ====== QUÉ INCLUYE ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50" style={{ paddingTop: 'max(6rem, 90px)' }}>
+      <section id="comodidad" className="py-20 md:py-32 px-6 bg-[#F8F6F1]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-16 md:mb-24">
-            Todo preparado para tu inmersión.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-            {/* Tarjeta 1 - Taller Exclusivo de Arquería */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <Target weight="thin" className="w-12 h-12" />
-              </div>
-              <h4 className="serif-title text-lg brand-green mb-3">Taller Exclusivo de Arquería</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Todos los materiales, herramientas y la guía directa de Gondorbows a tu disposición para construir tu arco desde cero.
+          <div className="grid md:grid-cols-[5fr_7fr] gap-12 md:gap-20 items-start">
+            <div>
+              <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-5">Todo incluido</p>
+              <h2 className="text-4xl md:text-5xl serif-title text-brand leading-[1.05]">
+                Todo preparado para tu inmersión.
+              </h2>
+              <p className="text-gray-400 text-sm mt-5 leading-relaxed" style={{ maxWidth: '28ch' }}>
+                Llegás, te instalás y te enfocás en crear.
               </p>
             </div>
 
-            {/* Tarjeta 2 - Alojamiento Inmersivo */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <House weight="thin" className="w-12 h-12" />
-              </div>
-              <h4 className="serif-title text-lg brand-green mb-3">Alojamiento Inmersivo</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Descanso en Eco-refugio premium y domos geodésicos de diseño rodeados de bosque nativo. Incluye Ropa blanca, toalla, toallon, bio-cosmetica, agua caliente 24h,  y WIFI en todo el predio.
-              </p>
-            </div>
-
-            {/* Tarjeta 3 - Pensión Completa */}
-            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-6 md:p-8 text-center hover:-translate-y-1 transition-transform duration-300">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <ForkKnife weight="thin" className="w-12 h-12" />
-              </div>
-              <h4 className="serif-title text-lg brand-green mb-3">Pensión Completa</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Gastronomía local y de estación con todas las comidas riquísimas y abundantes incluidas durante tu estadía para que no tengas que pensar en nada más.
-              </p>
+            <div className="divide-y divide-gray-200/70 mt-2 md:mt-12">
+              {([
+                { icon: Target, title: 'Taller Exclusivo de Arquería', desc: 'Todos los materiales, herramientas y la guía directa de Gondorbows para construir tu arco desde cero.' },
+                { icon: House,  title: 'Alojamiento Inmersivo',        desc: 'Eco-refugio premium y domos geodésicos en bosque nativo. Ropa blanca, bio-cosmética, agua caliente 24 h y WiFi.' },
+                { icon: ForkKnife, title: 'Pensión Completa',          desc: 'Gastronomía de estación, abundante y riquísima. Todas las comidas incluidas para que no pienses en nada más.' },
+              ] as { icon: React.ComponentType<any>; title: string; desc: string }[]).map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="py-7 flex items-start gap-5 group">
+                  <div className="w-10 h-10 rounded-xl bg-brand/8 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-brand transition-colors duration-300">
+                    <Icon weight="thin" className="w-5 h-5 text-brand group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <div>
+                    <h4 className="text-brand font-semibold text-base mb-1.5">{title}</h4>
+                    <p className="text-gray-500 text-sm leading-relaxed" style={{ maxWidth: '44ch' }}>{desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ====== PRUEBA SOCIAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50 mt-16 md:mt-24">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl md:text-3xl serif-title brand-green text-center mb-8 md:mb-10">
-            Mirá lo que vivieron los grupos anteriores. Una experiencia que transforma.
-          </h3>
-          <div className="flex justify-center">
-            <iframe 
-              width="100%" 
-              height="400" 
-              src="https://www.youtube-nocookie.com/embed/Q0l3wI7_5LI" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-              sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-              className="rounded-2xl shadow-2xl"
-            ></iframe>
-          </div>
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold text-center mb-5">Testimonios</p>
+          <h2 className="text-3xl md:text-4xl serif-title text-brand text-center mb-12 leading-tight">
+            Mirá lo que vivieron los grupos anteriores.
+          </h2>
+          <iframe
+            width="100%"
+            height="420"
+            src="https://www.youtube-nocookie.com/embed/Q0l3wI7_5LI"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+            className="rounded-2xl shadow-lg"
+          />
         </div>
       </section>
 
       {/* ====== AUTORIDAD ====== */}
-      <section className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 md:py-32 px-6 bg-[#F8F6F1]">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Columna gráfica - Foto Fausto trabajando */}
-            <div className="flex justify-center order-2 md:order-1 px-4 mt-2 mb-4 md:my-12">
-              <img 
-                src="/uploads/fausto-tallando.jpg" 
-                alt="Fausto trabajando" 
-                className="w-full object-cover rounded-xl shadow-lg h-auto aspect-[4/5] md:aspect-square"
+            {/* Foto */}
+            <div className="order-2 md:order-1">
+              <img
+                src="/uploads/fausto-tallando.jpg"
+                alt="Fausto trabajando"
+                className="w-full object-cover rounded-2xl h-auto aspect-[4/5] md:aspect-square"
+                style={{ boxShadow: '0 20px 60px rgba(0,83,51,0.12)' }}
               />
             </div>
-            
-            {/* Columna de texto */}
+
+            {/* Texto */}
             <div className="order-1 md:order-2">
-              <div className="mb-4 text-brand-green flex justify-center">
-                <img src="/uploads/logo-gondor-bows.png" alt="Gondor Bows" className="w-16" />
-              </div>
-              <h2 className="text-3xl md:text-4xl serif-title brand-green mb-6 md:mb-8">
-                Conocé a tus guías: Gondor Bows
+              <img src="/uploads/logo-gondor-bows.png" alt="Gondor Bows" className="w-14 mb-6" />
+              <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-4">Tus guías</p>
+              <h2 className="text-3xl md:text-4xl serif-title text-brand mb-6 leading-tight">
+                Gondor Bows
               </h2>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-5">
                 Gondor Bows nace en 2015 con la misión de recuperar el arte ancestral de la arquería tradicional, integrando técnicas manuales, conexión con la naturaleza y una mirada contemporánea sobre el trabajo artesanal.
               </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
                 Un equipo comprometido con transmitir oficios que despiertan algo profundo: la memoria del cuerpo, la paciencia del proceso y el poder de crear con tus propias manos.
               </p>
-              
-              <div className="bg-brand-green/5 border-l-4 border-brand-green p-4 rounded-r-lg mt-8 shadow-sm">
-                <p className="text-brand-green italic font-medium text-sm md:text-base leading-relaxed">
-                  "Esta experiencia es MULTINIVEL, por lo que podés venir tanto si no tenés ninguna experiencia previa como si ya tomaste otro curso y querés profundizar en la técnica y el conocimiento."
+
+              {/* Quote — sin border-left */}
+              <blockquote className="relative pl-6 py-1">
+                <span className="absolute top-0 left-0 text-5xl leading-none text-brand/15 font-serif select-none" aria-hidden="true">"</span>
+                <p className="text-brand/75 italic text-sm md:text-base leading-relaxed font-serif">
+                  Esta experiencia es multinivel: podés venir sin ninguna experiencia previa o ya con conocimiento para profundizar la técnica.
                 </p>
-              </div>
+              </blockquote>
             </div>
           </div>
         </div>
       </section>
 
       {/* ====== CRONOGRAMA ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-br from-slate-50 to-white mt-16 md:mt-24">
+      <section className="py-20 md:py-32 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl serif-title brand-green mb-4">
-              Cronograma de la Inmersión
-            </h2>
-            <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-              Tres días de inmersión total en el arte ancestral de la arquería tradicional
-            </p>
+          <div className="text-center mb-16 md:mb-20">
+            <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-4">3 días</p>
+            <h2 className="text-4xl md:text-6xl serif-title text-brand">Cronograma de la Inmersión</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Día 1 - Viernes */}
-            <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <Star weight="thin" className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Viernes</p>
-                  <p className="text-xs text-gray-500">Día 1</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-brand-green text-sm mb-2">Llegada & Preparación</h4>
-                <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                  <li>• Recepción y acomodación en Mágico Ensueño</li>
-                  <li>• Introducción a la tecnología primitiva</li>
-                  <li>• Selección del vástago de madera</li>
-                  <li>• Primer desbaste del arco</li>
-                  <li>• Cena de bienvenida y fuego</li>
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200/70">
+            {([
+              {
+                num: '01', day: 'Viernes', title: 'Llegada & Preparación',
+                items: [
+                  'Recepción y acomodación en Mágico Ensueño',
+                  'Introducción a la tecnología primitiva',
+                  'Selección del vástago de madera',
+                  'Primer desbaste del arco',
+                  'Cena de bienvenida y fuego',
+                ],
+              },
+              {
+                num: '02', day: 'Sábado', title: 'Taller Intensivo',
+                items: [
+                  'Desayuno serrano',
+                  'Jornada intensiva: trabajo de la fibra',
+                  'Diseño de palas y alineación por calor',
+                  'Almuerzo nutritivo',
+                  'Continuación del proceso de forja',
+                  'Cena y descanso',
+                ],
+              },
+              {
+                num: '03', day: 'Domingo', title: 'Finalización & Prueba',
+                items: [
+                  'Desayuno',
+                  'Tillerizado fino: balance y retoques',
+                  'Prueba de tiro en entorno natural',
+                  'Almuerzo de cierre',
+                  'Entrega de arcos y despedida (17:00 hs)',
+                ],
+              },
+            ] as { num: string; day: string; title: string; items: string[] }[]).map(({ num, day, title, items }) => (
+              <div key={num} className="py-10 md:py-0 md:px-10 first:md:pl-0 last:md:pr-0">
+                <p
+                  className="serif-title text-brand/8 leading-none select-none -mb-2"
+                  style={{ fontSize: 'clamp(5rem, 10vw, 7rem)' }}
+                  aria-hidden="true"
+                >
+                  {num}
+                </p>
+                <p className="text-gold text-[10px] tracking-[0.35em] uppercase font-bold mb-2">{day}</p>
+                <h3 className="text-xl md:text-2xl serif-title text-brand mb-5 leading-snug">{title}</h3>
+                <ul className="space-y-2.5">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-gray-500 text-sm leading-relaxed">
+                      <span className="w-1 h-1 rounded-full bg-gold/50 flex-shrink-0 mt-2" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
-            </div>
-
-            {/* Día 2 - Sábado */}
-            <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <Sun weight="thin" className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Sábado</p>
-                  <p className="text-xs text-gray-500">Día 2</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-brand-green text-sm mb-2">Taller Intensivo</h4>
-                <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                  <li>• Desayuno serrano</li>
-                  <li>• Jornada intensiva: trabajo de la fibra</li>
-                  <li>• Diseño de palas y alineación por calor</li>
-                  <li>• Almuerzo nutritivo</li>
-                  <li>• Continuación del proceso de forja</li>
-                  <li>• Cena y descanso</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Día 3 - Domingo */}
-            <div className="bg-white rounded-2xl shadow-lg border border-brand-green/10 p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-brand-gold bg-brand-green/10 p-2 rounded-full">
-                  <Moon weight="thin" className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-widest text-xs md:text-sm text-brand-green">Domingo</p>
-                  <p className="text-xs text-gray-500">Día 3</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-brand-green text-sm mb-2">Finalización & Prueba</h4>
-                <ul className="text-gray-700 text-sm md:text-base space-y-2">
-                  <li>• Desayuno</li>
-                  <li>• Tillerizado fino: balance y retoques</li>
-                  <li>• Prueba de tiro en entorno natural</li>
-                  <li>• Almuerzo de cierre</li>
-                  <li>• Entrega de arcos y despedida (17:00 hs)</li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* mensaje final de la sección */}
-          <div className="mt-8 p-6 md:p-8 border-t border-gray-200">
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-              El cronograma está diseñado para garantizar que te lleves tu arco completamente terminado y funcional, respetando los tiempos de aprendizaje y descanso de cada participante.
-            </p>
-          </div>
+          <p className="text-gray-400 text-xs md:text-sm text-center mt-14 max-w-xl mx-auto leading-relaxed">
+            El cronograma garantiza que te lleves tu arco terminado y funcional, respetando los tiempos de aprendizaje de cada participante.
+          </p>
         </div>
       </section>
 
@@ -459,15 +433,19 @@ const Gondorbows: React.FC = () => {
       <GondorbowsFAQ />
 
       {/* ====== CTA FINAL ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-white to-slate-50 mt-16 md:mt-32">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">
-            ¿Y si este finde se convierte en uno inolvidable?
+      <section className="py-20 md:py-32 px-6 bg-brand text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-6">Cupos limitados</p>
+          <h2 className="text-3xl md:text-5xl serif-title text-white mb-8 leading-tight">
+            ¿Y si este fin de semana<br className="hidden md:block" /> se convierte en uno que no olvidás?
           </h2>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10">
-            Gondorbows es más que una experiencia. Es la pausa que tu rutina necesita, el refugio que tu instinto busca y la inmersión total que estás esperando.
+          <p className="text-white/55 text-base leading-relaxed mb-10 mx-auto" style={{ maxWidth: '44ch' }}>
+            La pausa que tu rutina necesita. La inmersión total que estás esperando.
           </p>
-          <a href="https://wa.me/5491157300099?text=%C2%A1Hola%20Fausto!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20el%20retiro%20de%20Gondorbows%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar%20del%2010%20al%2012%20de%20abril%20en%20Los%20Gigantes.%20%F0%9F%8C%B2%E2%9C%A8" className="btn-gold inline-block">
+          <a
+            href={"https://wa.me/" + WA_GONDOR + "?text=" + encodeURIComponent(RETREATS_DATA.gondorbows.message)}
+            className="btn-gold inline-block"
+          >
             Asegurar mi lugar
           </a>
         </div>

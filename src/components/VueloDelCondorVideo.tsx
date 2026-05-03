@@ -9,7 +9,7 @@ const VueloDelCondorVideo: React.FC = () => {
           <p className="text-[10px] tracking-[0.35em] uppercase text-brand-gold mb-4">El equipo detrás del viaje</p>
           <h2 className="text-3xl md:text-4xl serif-title brand-green">Conocé a los Guardianes</h2>
           <p className="text-gray-400 text-sm md:text-base font-light mt-3 max-w-xl mx-auto">
-            Gustavo, Diego y Juan Cruz te cuentan qué es El Vuelo del Cóndor y por qué eligieron el Valle Sagrado como escenario de transformación.
+            Gustavo, Diego y Juan Cruz del Equipo de Acan de Fuego te cuentan qué es El Vuelo del Cóndor y por qué eligieron el Valle Sagrado como escenario de transformación.
           </p>
         </div>
 

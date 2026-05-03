@@ -11,14 +11,17 @@ const VueloDelCondorHero: React.FC = () => {
     <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <img
-          src="/uploads/vuelo-del-condor-hero.png"
-          alt="El Vuelo del Cóndor — Valle Sagrado, Perú"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          className="w-full h-full object-cover object-center"
-        />
+        <picture>
+          <source media="(orientation: portrait)" srcSet="/uploads/vuelo-condor/hero-mobile.webp" />
+          <img
+            src="/uploads/vuelo-del-condor-hero.png"
+            alt="El Vuelo del Cóndor — Valle Sagrado, Perú"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
         {/* Optimized Overlays for Clarity & Readability */}
         <div className="absolute inset-0 bg-black/30 z-[1]"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-transparent to-black/20 z-[2]"></div>

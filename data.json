@@ -408,12 +408,17 @@
         "tag": "Experiencia Colectiva",
         "title": "Familión",
         "subtitle": "Un encuentro para volver a lo esencial en familia.",
-        "btn": "Consultar Próxima Fecha"
+        "btn": "Consultar Próxima Fecha",
+        "dates": "1-3 MAYO · 13-15 JUNIO · Los Gigantes, Córdoba",
+        "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con talleres, fogones y momentos que se quedan para siempre.",
+        "cta_join": "RESERVAR MI LUGAR",
+        "cta_details": "Ver detalles"
       },
       "invitation": {
         "title": "Un espacio para <span class='italic text-gold'>vincularse</span>",
         "text1": "Familión es una propuesta diseñada para que padres, madres e hijos compartan un tiempo de calidad en un entorno natural único. Lejos de las pantallas y el ruido de la ciudad.",
-        "text2": "Proponemos actividades lúdicas, caminatas suaves y momentos de reflexión que fortalecen los lazos familiares y nos enseñan a convivir en armonía con la tierra."
+        "text2": "Proponemos actividades lúdicas, caminatas suaves y momentos de reflexión que fortalecen los lazos familiares y nos enseñan a convivir en armonía con la tierra.",
+        "video_title": "Familion — Experiencia en familia en Los Gigantes"
       },
       "vivencia": {
         "title": "La Propuesta",
@@ -445,7 +450,45 @@
             "price": "60.000"
           }
         ],
-        "btn": "RESERVAR LUGAR"
+        "btn": "RESERVAR LUGAR",
+        "editions": [
+          "1RA EDICIÓN",
+          "2DA EDICIÓN"
+        ],
+        "spots": [
+          "¡ÚLTIMOS 2 CUPOS!",
+          "¡NUEVA FECHA ABIERTA!"
+        ],
+        "cards": {
+          "camping": {
+            "title": "Camping",
+            "text": "Por persona · Traé tu propia carpa o alquilá la nuestra"
+          },
+          "refugio": {
+            "title": "Eco-Refugio y Domos",
+            "text": "Por persona · Alojamiento compartido en habitaciones"
+          },
+          "privado": {
+            "title": "Domo Privado",
+            "text": "Por persona · Domo exclusivo para tu grupo familiar"
+          }
+        },
+        "includes": {
+          "title": "¿Qué incluye tu inversión?",
+          "items": [
+            "Alojamiento (viernes noche a lunes mediodía)",
+            "Pensión completa: 6 comidas (desayunos, almuerzos y cenas)",
+            "Todos los talleres y actividades del programa",
+            "Uso libre de la reserva de 200 hectáreas",
+            "Fogón nocturno con cuentos y canciones",
+            "Guía Reset Vital PDF de regalo"
+          ]
+        },
+        "exchange": {
+          "title": "Beneficios especiales",
+          "text": "10% OFF viniendo de a dos familias. 10% OFF para ex-alumnos o referidos. Los descuentos no son acumulables."
+        },
+        "footer": "Financiación disponible · Seña del 50% para reservar. El programa puede ajustarse según las condiciones climáticas."
       },
       "faq": {
         "title": "Preguntas Frecuentes",
@@ -457,8 +500,176 @@
           {
             "question": "¿Hay opciones de comida para niños?",
             "answer": "Sí, nuestra cocina es saludable y adaptable a los gustos de los más pequeños."
+          },
+          {
+            "question": "¿Qué pasa si llueve?",
+            "answer": "El Familion está diseñado para disfrutarse en cualquier clima. Tenemos espacios cubiertos y las actividades bajo la lluvia se vuelven aún más mágicas. Solo suspendemos en caso de condiciones extremas."
+          },
+          {
+            "question": "¿Cómo es el alojamiento?",
+            "answer": "Ofrecemos tres opciones: camping familiar, eco-refugio compartido y domo privado. Todas incluyen baños con agua caliente."
+          },
+          {
+            "question": "¿Qué debo llevar?",
+            "answer": "Ropa cómoda para caminar, abrigo para las noches, linterna y ganas de desconectarte. Todo lo demás está incluido: comidas, talleres y actividades."
+          }
+        ],
+        "subtitle": "Todo lo que necesitás saber antes de venir con tu familia."
+      },
+      "eco_center": {
+        "title": "Un eco-centro vivo en la montaña",
+        "subtitle": "Mágico Ensueño es mucho más que un lugar: es una comunidad viva donde la naturaleza y las personas se encuentran en equilibrio.",
+        "items": [
+          {
+            "num": "01",
+            "title": "200 Hectáreas de Reserva",
+            "text": "Una reserva natural privada con ríos, bosques y miradores de altura. El patio de juegos más grande que conocerán tus hijos."
+          },
+          {
+            "num": "02",
+            "title": "Energía 100% Solar",
+            "text": "Toda la energía del lugar proviene del sol. Un ejemplo viviente de que es posible vivir en armonía con la naturaleza sin renunciar al confort."
+          },
+          {
+            "num": "03",
+            "title": "+15.000 Árboles Plantados",
+            "text": "Somos parte activa de la restauración del monte nativo. El 10% de cada experiencia va directo a reforestar tabaquillos en las Sierras Grandes."
+          },
+          {
+            "num": "04",
+            "title": "Cocina Regenerativa",
+            "text": "Todos los alimentos son frescos, locales y preparados con amor. Desayunos, almuerzos y cenas que nutren el cuerpo y el alma de toda la familia."
           }
         ]
+      },
+      "pilares": {
+        "title": "Lo que hace especial a Familion",
+        "subtitle": "Cuatro pilares diseñados para que cada miembro de la familia viva una transformación genuina.",
+        "items": [
+          {
+            "num": "01",
+            "title": "Vínculo y Tribu",
+            "text": "Espacios y actividades para que familias de todo el país se encuentren, compartan y se reconozcan en un contexto de comunidad real."
+          },
+          {
+            "num": "02",
+            "title": "Naturaleza y Juego",
+            "text": "Los niños (y los adultos) recuperan el juego libre en un entorno seguro y salvaje. Sin pantallas. Sin agenda. Solo la montaña."
+          },
+          {
+            "num": "03",
+            "title": "Alimentación Consciente",
+            "text": "Comidas preparadas con ingredientes locales y orgánicos. Aprendemos juntos de dónde vienen los alimentos y cómo nutrir el cuerpo."
+          },
+          {
+            "num": "04",
+            "title": "Memoria y Gratitud",
+            "text": "Momentos diseñados para que queden grabados: el fogón bajo las estrellas, la canción de la montaña, el abrazo al despedirse."
+          }
+        ]
+      },
+      "cronograma": {
+        "tag": "PROGRAMA",
+        "title": "3 días para volver a lo esencial",
+        "dates": [
+          "1-3 MAYO · ULTIMOS 2 CUPOS",
+          "13-15 JUNIO · NUEVA FECHA"
+        ],
+        "days": [
+          {
+            "num": "01",
+            "tag": "DÍA 1 · SÁBADO",
+            "title": "Llegada y Apertura",
+            "items": [
+              "10:00 — Bienvenida e instalación en el lugar",
+              "12:30 — Almuerzo comunitario · primer encuentro del grupo",
+              "14:30 — Taller de Huerta para familias",
+              "17:00 — Caminata de reconocimiento por la reserva",
+              "19:30 — Cena · cocina regenerativa compartida",
+              "21:00 — Fogón de bienvenida · cuentos y canciones bajo las estrellas"
+            ]
+          },
+          {
+            "num": "02",
+            "tag": "DÍA 2 · DOMINGO",
+            "title": "Inmersión y Magia",
+            "items": [
+              "08:00 — Desayuno con la montaña",
+              "09:30 — Taller de Cocina en Familia",
+              "11:00 — Exploración libre por la reserva",
+              "13:00 — Almuerzo · espacios de descanso y juego libre",
+              "15:30 — Ceremonia de Gratitud · integración familiar",
+              "17:00 — Actividades artísticas y creativas",
+              "19:30 — Cena de gala familiar"
+            ]
+          },
+          {
+            "num": "03",
+            "tag": "DÍA 3 · LUNES",
+            "title": "Cierre y Regreso",
+            "items": [
+              "08:00 — Desayuno de cierre",
+              "09:30 — Círculo de cierre · palabras y regalos de la experiencia",
+              "11:00 — Tiempo libre para fotos y despedidas",
+              "12:00 — Almuerzo de despedida",
+              "13:00 — Retorno a casa con el corazón lleno"
+            ]
+          }
+        ],
+        "footer": "El programa puede ajustarse según las condiciones climáticas y las necesidades del grupo."
+      },
+      "testimonials": {
+        "title": "Familias que vivieron la experiencia",
+        "subtitle": "Escuchá en primera persona",
+        "items": [
+          {
+            "text": "Fue el mejor fin de semana que pasamos juntos como familia en años. Mis hijos no querían volver a casa. Yo tampoco.",
+            "name": "Tefi y familia",
+            "role": "Participantes edición Mayo"
+          },
+          {
+            "text": "La conexión que logramos entre padres e hijos fue increíble. Volvimos diferentes. El Familion nos regaló presencia.",
+            "name": "Lucas y Sofi",
+            "role": "Participantes edición Octubre"
+          }
+        ]
+      },
+      "cta_final": {
+        "title": "Tu familia merece este tiempo juntos",
+        "subtitle": "Cupos limitados para garantizar la calidad de la experiencia. No esperes a la última semana.",
+        "btn": "RESERVAR AHORA"
+      },
+      "video_closing": {
+        "title": "Una familia, una experiencia transformadora",
+        "text": "Este es el ritual de gratitud por los alimentos que las familias vivieron en el Familion. Un momento simple y profundo que resume la esencia de lo que proponemos."
+      },
+      "magico": {
+        "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Magico Ensueno en Los Gigantes.",
+        "title": "Mágico Ensueño",
+        "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía.",
+        "video_title": "Mágico Ensueño — Experiencia en la Montaña",
+        "benefits_title": "Por qué Mágico Ensueño",
+        "benefits": [
+          {
+            "title": "200 hectáreas de naturaleza pura.",
+            "text": "Bosques, ríos, miradores y senderos para explorar en familia sin límites."
+          },
+          {
+            "title": "100% energía solar.",
+            "text": "Un ejemplo vivo de vida regenerativa que los niños internalizan naturalmente."
+          },
+          {
+            "title": "Comunidad internacional.",
+            "text": "Voluntarios y viajeros de todo el mundo que enriquecen la experiencia con sus culturas."
+          }
+        ],
+        "investment_title": "Tu inversión regenera la montaña",
+        "investment_text": "El 10% de cada Familion va directo a la restauración del monte nativo con plantación de tabaquillos. Al venir, sos parte de algo más grande.",
+        "investment_quote": "Venir al Mágico no solo te regenera a vos, regenera a la montaña.",
+        "footer_text": "Acceso para todo tipo de vehículos hasta la puerta del lugar.",
+        "map_alt": "Mapa de Mágico Ensueño - Los Gigantes, Córdoba",
+        "map_download": "Descargar Mapa",
+        "map_consult": "Consultar ubicación"
       }
     },
     "aula_verde": {
@@ -469,7 +680,8 @@
       "invitation": {
         "title": "El aprendizaje ocurre <span class='italic text-gold'>afuera</span>",
         "text1": "Aula Verde es nuestra propuesta para instituciones educativas que buscan una experiencia de aprendizaje vivencial.",
-        "text2": "Transformamos el campamento tradicional en una inmersión pedagógica en la naturaleza, donde el respeto por el ecosistema es el eje central."
+        "text2": "Transformamos el campamento tradicional en una inmersión pedagógica en la naturaleza, donde el respeto por el ecosistema es el eje central.",
+        "video_title": "Aula Verde — Experiencia educativa en Los Gigantes"
       },
       "dirigida_a": {
         "title": "¿A quién va dirigido?",
@@ -524,6 +736,185 @@
             ]
           }
         ]
+      },
+      "hero": {
+        "title": "Aula Verde",
+        "subtitle": "Programas educativos en la naturaleza",
+        "tagline": "Donde el aula no tiene paredes.",
+        "description": "Llevá a tu institución a una experiencia que transforma. Aprendizaje vivencial, conexión profunda con la naturaleza y una metodología que fortalece el grupo.",
+        "cta_budget": "SOLICITAR PRESUPUESTO",
+        "cta_facilities": "Ver las instalaciones",
+        "stat_open": "Inscripciones abiertas 2025-2026",
+        "stat_location": "Los Gigantes, Sierras de Córdoba"
+      },
+      "magico": {
+        "wa_query": "Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Magico Ensueno para mi institucion.",
+        "title": "Mágico Ensueño",
+        "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un espacio con más de 25 años de historia que ha recibido instituciones educativas de toda Argentina.",
+        "infra_title": "Infraestructura para grupos",
+        "infra_text": "Salón principal para 60 personas, cocina equipada, dormitorios grupales, sanitarios con agua caliente y espacios al aire libre para todas las actividades del programa.",
+        "video_title": "Mágico Ensueño — Experiencia en la Montaña",
+        "benefits_title": "Por qué elegirnos",
+        "benefits": [
+          {
+            "title": "Guías especializados.",
+            "text": "Equipo pedagógico con experiencia en educación ambiental y dinámica grupal."
+          },
+          {
+            "title": "Programa personalizable.",
+            "text": "Adaptamos cada jornada a los objetivos pedagógicos de tu institución y el nivel educativo del grupo."
+          },
+          {
+            "title": "Seguridad certificada.",
+            "text": "Protocolos de seguridad para grupos escolares, primeros auxilios y guías con formación en emergencias."
+          }
+        ],
+        "strengthen_title": "Fortalecer el grupo",
+        "strengthen_text": "Cada actividad está diseñada para trabajar la confianza, la comunicación y el trabajo en equipo. Los chicos vuelven con lazos más fuertes.",
+        "reforest_title": "Plantamos juntos",
+        "reforest_text": "Cada grupo que visita el Mágico planta al menos un árbol. Una acción concreta de regeneración que los chicos se llevan en el corazón.",
+        "footer_text": "Acceso para micros y vehículos escolares hasta la entrada del lugar.",
+        "safety_items": [
+          {
+            "title": "Guía Certificado",
+            "text": "Nuestro equipo tiene formación en primeros auxilios, manejo de grupos y emergencias en montaña."
+          },
+          {
+            "title": "Seguro de Responsabilidad",
+            "text": "Cobertura integral para todas las actividades del programa durante la estadía."
+          },
+          {
+            "title": "Protocolos Escolares",
+            "text": "Trabajamos con los protocolos institucionales de cada escuela y adaptamos las actividades según las necesidades."
+          }
+        ],
+        "gallery_title": "La experiencia en imágenes",
+        "gallery_subtitle": "Grupos que ya vivieron el Aula Verde en Los Gigantes",
+        "map_alt": "Mapa de Mágico Ensueño - Los Gigantes, Córdoba",
+        "map_download": "Descargar Mapa",
+        "map_consult": "Consultar ubicación"
+      },
+      "precios": {
+        "title": "Planes para tu institución",
+        "subtitle": "Tres formatos adaptables al tamaño de tu grupo y los objetivos de tu proyecto educativo.",
+        "cards": [
+          {
+            "title": "Jornada de Día",
+            "price": "A consultar",
+            "unit": "por persona",
+            "tag": "Mínimo 20 personas",
+            "badge": null,
+            "features": [
+              "Actividades de medio día o día completo",
+              "Almuerzo incluido",
+              "Talleres a elección del catálogo",
+              "Guía pedagógico durante toda la jornada",
+              "Transporte no incluido"
+            ],
+            "btn": "Consultar precio"
+          },
+          {
+            "title": "Campamento 2 Noches",
+            "price": "A consultar",
+            "unit": "por persona",
+            "tag": "Mínimo 20 personas",
+            "badge": "MÁS ELEGIDO",
+            "features": [
+              "2 noches de alojamiento grupal",
+              "Pensión completa (4 comidas)",
+              "Programa completo de actividades",
+              "Guía pedagógico 24 horas",
+              "Plantación de árbol nativo incluida"
+            ],
+            "btn": "Consultar precio"
+          },
+          {
+            "title": "Residencia Educativa",
+            "price": "A consultar",
+            "unit": "por persona",
+            "tag": "3 a 5 noches",
+            "badge": null,
+            "features": [
+              "Programa personalizado completo",
+              "Pensión completa todo incluido",
+              "Equipo pedagógico dedicado",
+              "Documentación para el colegio",
+              "Proyecto de reforestación incluido"
+            ],
+            "btn": "Armar propuesta"
+          }
+        ],
+        "note": "Los precios se calculan según el tamaño del grupo, los módulos elegidos y la duración. Pedinos un presupuesto sin cargo.",
+        "global_btn": "SOLICITAR PRESUPUESTO GRATUITO"
+      },
+      "testimonios": {
+        "title": "Instituciones que nos eligieron",
+        "subtitle": "La voz de quienes ya vivieron el Aula Verde",
+        "institutions_title": "Instituciones que nos eligieron",
+        "items": [
+          {
+            "text": "La experiencia superó nuestras expectativas. Los chicos volvieron transformados. La metodología de Mágico Ensueño conecta con el aprendizaje experiencial que buscamos como escuela Waldorf.",
+            "name": "Cinthia B.",
+            "role": "Docente",
+            "extra_role": "Escuela Waldorf El Trigal",
+            "audio_text": "Escuchá el audio de Alejandro"
+          },
+          {
+            "text": "Organizamos el viaje de egresados acá y fue la mejor decisión. Los chicos terminaron llorando en el fogón de cierre porque no querían irse. Eso lo dice todo.",
+            "name": "Marcelo G.",
+            "role": "Coordinador educativo",
+            "extra_role": "Institución Hebraica",
+            "audio_text": "Escuchá el audio de Marcelo"
+          },
+          {
+            "text": "Llevamos a un grupo de karate y fue increíble ver cómo el contacto con la naturaleza potenció la concentración y el respeto entre los chicos. Lo repetimos cada año.",
+            "name": "Sensei Alejandro",
+            "role": "Instructor",
+            "extra_role": "Senshi Dojo Unquillo"
+          },
+          {
+            "text": "El equipo de Mágico Ensueño es profesional y cálido a la vez. Se adaptaron a todos nuestros requerimientos institucionales y el programa fue impecable.",
+            "name": "Federico T.",
+            "role": "Director",
+            "extra_role": "Colegio Racing Club de Córdoba",
+            "audio_text": "Escuchá el audio de Fede"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Preguntas Frecuentes",
+        "subtitle": "Todo lo que necesitás saber antes de organizar la salida educativa.",
+        "items": [
+          {
+            "question": "¿Qué edades son las más adecuadas para el programa?",
+            "answer": "Diseñamos programas para todas las edades, desde nivel inicial hasta secundario y universitario. Cada actividad se adapta al nivel cognitivo y físico del grupo."
+          },
+          {
+            "question": "¿Qué pasa si hay chicos con necesidades especiales o alergias?",
+            "answer": "Nos adaptamos a cada grupo. Pedimos un detalle de las necesidades especiales antes del viaje para preparar el programa y la alimentación adecuados."
+          },
+          {
+            "question": "¿Está incluido el transporte?",
+            "answer": "El transporte no está incluido en el precio base, pero podemos coordinar micros desde Córdoba Capital o Villa Carlos Paz. Consultanos para incluirlo en el presupuesto."
+          },
+          {
+            "question": "¿Pueden venir los docentes acompañantes?",
+            "answer": "¡Por supuesto! Los docentes acompañantes tienen precio especial. Recomendamos una relación de 1 adulto cada 10 alumnos para actividades en la naturaleza."
+          },
+          {
+            "question": "¿Qué documentación necesitamos para la salida educativa?",
+            "answer": "Preparamos toda la documentación que el colegio necesite: programa detallado, seguro de responsabilidad civil, certificaciones del equipo y protocolos de seguridad."
+          }
+        ]
+      },
+      "cta_final": {
+        "title": "Llevá tu escuela a la montaña",
+        "subtitle": "Escribinos para recibir el dossier informativo y coordinar una visita sin cargo.",
+        "btn": "SOLICITAR DOSSIER"
+      },
+      "video_closing": {
+        "title": "Una experiencia que se lleva en el corazón",
+        "text": "Mirá cómo los chicos de una escuela de Córdoba vivieron el programa de Aula Verde en Mágico Ensueño. Sus palabras dicen más que cualquier folleto."
       }
     },
     "vuelo_condor": {
@@ -543,15 +934,15 @@
       "cosmovision": {
         "title": "Un Retorno al Origen",
         "quote": "El Cóndor no vuela, es el viento quien lo lleva. Así es el alma cuando se entrega al Gran Espíritu.",
-        "text1": "Este viaje no es turismo, es una peregrinación hacia adentro. Acompañados por la majestuosidad de los Andes peruanos, caminaremos por senderos que guardan la memoria de una civilización que entendía la vida como un tejido sagrado.",
-        "text2": "Desde ceremonias de apertura hasta visitas a centros energéticos ancestrales, cada paso está diseñado para que puedas soltar lo que ya no sirve y desplegar tus propias alas."
+        "text1": "Este no es un viaje más, es una profunda peregrinación hacia adentro. Acompañados por la majestuosidad de los Andes peruanos, caminaremos por senderos que guardan la memoria de una civilización que entendía la vida como un tejido sagrado.",
+        "text2": "Desde ceremonias originarias hasta visitas a centros energéticos ancestrales, cada detalle está diseñado para que puedas soltar aquello que ya no va más y desplegar tus propias alas para elevar tu vuelo."
       },
       "para_quien": {
         "title": "¿Para quién es este viaje?",
         "subtitle": "Buscamos caminantes dispuestos a abrir el corazón y recibir la medicina de la montaña.",
         "items": [
           "Buscadores espirituales en proceso de transformación.",
-          "Personas que sienten el llamado de la sabiduría andina.",
+          "Hombres que sienten el llamado a conectar con su propia ancestralidad",
           "Quienes necesiten un espacio de silencio y reconexión profunda.",
           "Caminantes que disfrutan de la naturaleza en su estado más puro."
         ]
@@ -589,8 +980,8 @@
         ]
       },
       "grupo": {
-        "title": "Un Grupo para el Alma",
-        "text1": "Caminamos juntos en este viaje sagrado, formando una comunidad temporal basada en el respeto, el cuidado y la profundidad.",
+        "title": "Una Comunidad con Propósito",
+        "text1": "Caminamos juntos en este viaje sagrado, conformando una tribu basada en el respeto, la confianza y el cuidado para explorar la Filosofía del Buen Vivir.",
         "text2": "Una experiencia compartida que trasciende lo ordinario y crea vínculos que perduran en el tiempo."
       },
       "itinerario": {
@@ -599,7 +990,8 @@
         "days": [
           {
             "dia": "Día 1",
-            "titulo": "Limpieza & Llegada",
+            "titulo": "LIMPIEZA Y APERTURA",
+            "resumen": "Llegada al Valle Sagrado y primer encuentro del grupo. Temazcal de apertura para limpiar cuerpo y mente, seguido de un círculo de palabra para comenzar a abrir el proceso.",
             "items": [
               "10:00 — Encuentro en Plaza de Armas, Cusco",
               "12:00 — Traslado a Pisac · Hostal Medicina",
@@ -611,7 +1003,8 @@
           },
           {
             "dia": "Día 2",
-            "titulo": "Apertura & Ayahuasca",
+            "titulo": "APERTURA DE PORTALES",
+            "resumen": "Recorrido por sitios sagrados (Ollantaytambo y Moray). Activaciones energéticas, música y conexión con la tierra. Por la noche, ceremonia de Ayahuasca.",
             "items": [
               "Desayuno grupal · intención del día",
               "Visita a Ollantaytambo · sitio arqueológico sagrado",
@@ -621,7 +1014,8 @@
           },
           {
             "dia": "Día 3",
-            "titulo": "Integración & Tierra",
+            "titulo": "INTEGRACIÓN",
+            "resumen": "Espacio de descanso, integración y contemplación. Caminata consciente y tiempo en comunidad para asentar la experiencia vivida.",
             "items": [
               "06:00 — Temazcal post-ceremonia · cierre y limpieza",
               "Descanso profundo · espacio libre de integración",
@@ -631,7 +1025,8 @@
           },
           {
             "dia": "Día 4",
-            "titulo": "La Montaña Sagrada",
+            "titulo": "ENCUENTRO CON LA MONTAÑA",
+            "resumen": "Viaje hacia Ausangate. Conexión con los Apus (espíritus de la montaña) y ofrenda ceremonial. Ingreso a un espacio más profundo de introspección.",
             "items": [
               "Traslado a Cusco · Sacsayhuamán",
               "Mercado San Pedro · plantas y esencias",
@@ -641,7 +1036,8 @@
           },
           {
             "dia": "Día 5",
-            "titulo": "Wuachuma & Termas",
+            "titulo": "VISIÓN",
+            "resumen": "Ceremonia con medicina ancestral en plena montaña. Caminata, naturaleza y apertura de la visión.",
             "items": [
               "Ceremonia de Wuachuma (San Pedro) al amanecer",
               "Caminata ceremonial por el glaciar",
@@ -651,7 +1047,8 @@
           },
           {
             "dia": "Día 6",
-            "titulo": "El Regreso",
+            "titulo": "REGRESO E INTEGRACIÓN",
+            "resumen": "Cierre en la montaña y regreso a Pisac. Tiempo de integración grupal y personal.",
             "items": [
               "07:30 — Desayuno en la montaña",
               "Descenso y salida del Ausangate",
@@ -661,7 +1058,8 @@
           },
           {
             "dia": "Día 7",
-            "titulo": "Consagración & Cierre",
+            "titulo": "CONSAGRACIÓN",
+            "resumen": "Temazcal de cierre. Integración final y consagración del proceso vivido.",
             "items": [
               "08:00 — Temazcal de cierre y consagración",
               "Círculo final · palabra libre del grupo",
@@ -672,8 +1070,8 @@
         ]
       },
       "equipo": {
-        "title": "Guardianes del Arkan del Fuego",
-        "subtitle": "Un equipo multidisciplinario al servicio de tu transformación.",
+        "title": "Guardianes del Acan del Fuego",
+        "subtitle": "Un equipo multidisciplinario al servicio de tu transformación. Buscador y Facilitador de ceremonias con plantas maestras y rituales ancestrales. Terapeuta Sonoro, Regresiones y Caminante del danzar de la vida.",
         "members": [
           {
             "nombre": "Gustavo Torras",
@@ -683,28 +1081,26 @@
           {
             "nombre": "Diego Epelman Hodara",
             "foto": "/uploads/vuelo-condor/Diego.webp",
-            "desc": "Facilitador de Constelaciones Familiares y procesos de integración. Combina la tradición sistémica con la sabiduría ancestral para trabajar los vínculos más profundos."
+            "desc": "Facilitador de procesos y experiencias transformadoras. Emprendedor apasionado y Guardián de Vida. Combina diferentes herramientas con la sabiduría ancestral para trabajar en la profundidad del Ser."
           },
           {
             "nombre": "Juan Cruz Sartori",
             "foto": "/uploads/vuelo-condor/juan.webp",
-            "desc": "Músico de medicina y facilitador de movimiento consciente. Acompaña los procesos con sonido sagrado, creando puentes entre el cuerpo, la emoción y el espíritu."
+            "desc": "Músico medicina y facilitador de movimiento consciente. Coach Ontologico, BreathWork y Constelaciones Fmailiares.  Acompaña los procesos con sonido sagrado, creando puentes entre el cuerpo, la emoción y el espíritu."
           }
         ],
-        "footer": "Contamos también con guías locales quechuas y especialistas en cada lugar sagrado del Valle."
+        "footer": "Contamos también con guías y maestros ancestrales que nos acompañaran en cada lugar sagrado del Valle."
       },
       "inversion": {
-        "title": "Tu Inversión en el Alma",
+        "title": "Tu Inversión con Propósito",
         "incluye_title": "Qué incluye",
         "incluye": [
-          "7 noches en Hostal Medicina, Pisac",
-          "Pensión completa (desayunos, almuerzos y cenas)",
-          "Temazcal de apertura y cierre del proceso",
-          "Ceremonia de Ayahuasca en tipi sagrado",
-          "Ceremonia de Wuachuma en el Ausangate",
+          "7 noches en Alojamientos seleccionados",
+          "Todas las comidas del viaje: Pensión completa (Desayunos, almuerzos y cenas)",
+          "Todas las actividades y Ceremonias ancestrales del viaje.",
           "Traslados internos en el Valle Sagrado",
           "Entradas a todos los sitios arqueológicos",
-          "Acompañamiento espiritual del equipo 24/7"
+          "Acompañamiento del Equipo Anfitrión antes, durante y despues del viaje."
         ],
         "no_incluye_title": "No incluye",
         "no_incluye": "Vuelos internacionales y seguro de viaje.",
@@ -1273,12 +1669,17 @@
         "tag": "Collective Experience",
         "title": "Familion",
         "subtitle": "An encounter to return to the essentials as a family.",
-        "btn": "Check Next Date"
+        "btn": "Check Next Date",
+        "dates": "MAY 1-3 · JUN 13-15 · Los Gigantes, Córdoba",
+        "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with workshops, bonfires, and moments that last forever.",
+        "cta_join": "BOOK MY SPOT",
+        "cta_details": "View details"
       },
       "invitation": {
         "title": "A space to <span class='italic text-gold'>bond</span>",
         "text1": "Familion is a proposal designed for parents and children to share quality time in a unique natural environment. Away from screens and city noise.",
-        "text2": "We propose playful activities, gentle walks and moments of reflection that strengthen family ties and teach us to live in harmony with the earth."
+        "text2": "We propose playful activities, gentle walks and moments of reflection that strengthen family ties and teach us to live in harmony with the earth.",
+        "video_title": "Familion — Family experience in Los Gigantes"
       },
       "vivencia": {
         "title": "The Proposal",
@@ -1310,20 +1711,226 @@
             "price": "60,000"
           }
         ],
-        "btn": "BOOK SPOT"
+        "btn": "BOOK SPOT",
+        "editions": [
+          "1ST EDITION",
+          "2ND EDITION"
+        ],
+        "spots": [
+          "LAST 2 SPOTS!",
+          "NEW DATE OPEN!"
+        ],
+        "cards": {
+          "camping": {
+            "title": "Camping",
+            "text": "Per person · Bring your own tent or rent ours"
+          },
+          "refugio": {
+            "title": "Eco-Shelter & Domes",
+            "text": "Per person · Shared accommodation in rooms"
+          },
+          "privado": {
+            "title": "Private Dome",
+            "text": "Per person · Exclusive dome for your family group"
+          }
+        },
+        "includes": {
+          "title": "What does your investment include?",
+          "items": [
+            "Accommodation (Friday night to Monday midday)",
+            "Full board: 6 meals (breakfasts, lunches, and dinners)",
+            "All workshops and program activities",
+            "Free use of the 200-hectare reserve",
+            "Night bonfire with stories and songs",
+            "Reset Vital PDF guide as a gift"
+          ]
+        },
+        "exchange": {
+          "title": "Special benefits",
+          "text": "10% OFF when coming with another family. 10% OFF for alumni or referrals. Discounts cannot be combined."
+        },
+        "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
       },
       "faq": {
         "title": "Frequently Asked Questions",
         "items": [
           {
-            "question": "What age can children go from?",
+            "question": "From what age can children come?",
             "answer": "We recommend from 4 years old so they can fully enjoy the activities."
           },
           {
             "question": "Are there food options for children?",
             "answer": "Yes, our kitchen is healthy and adaptable to the tastes of the little ones."
+          },
+          {
+            "question": "What if it rains?",
+            "answer": "Familion is designed to be enjoyed in any weather. We have covered spaces and activities in the rain become even more magical. We only suspend in extreme conditions."
+          },
+          {
+            "question": "What is the accommodation like?",
+            "answer": "We offer three options: family camping, shared eco-shelter, and private dome. All include access to bathrooms with hot water."
+          },
+          {
+            "question": "What should I bring?",
+            "answer": "Comfortable clothes for walking, warm layers for the nights, a torch, and the desire to disconnect. Everything else is included: meals, workshops, and activities."
+          }
+        ],
+        "subtitle": "Everything you need to know before coming with your family."
+      },
+      "eco_center": {
+        "title": "A living eco-center in the mountains",
+        "subtitle": "Magico Ensueno is much more than a place: it is a living community where nature and people find balance.",
+        "items": [
+          {
+            "num": "01",
+            "title": "200-Hectare Reserve",
+            "text": "A private nature reserve with rivers, forests and mountaintop viewpoints. The biggest playground your children will ever know."
+          },
+          {
+            "num": "02",
+            "title": "100% Solar Energy",
+            "text": "All energy comes from the sun. A living example that it is possible to live in harmony with nature without sacrificing comfort."
+          },
+          {
+            "num": "03",
+            "title": "+15,000 Trees Planted",
+            "text": "We are an active part of native forest restoration. 10% of every experience goes directly to replanting native tabaquillo trees."
+          },
+          {
+            "num": "04",
+            "title": "Regenerative Kitchen",
+            "text": "All food is fresh, local, and prepared with love. Breakfasts, lunches, and dinners that nourish the body and soul of the whole family."
           }
         ]
+      },
+      "pilares": {
+        "title": "What makes Familion special",
+        "subtitle": "Four pillars designed so that every family member experiences a genuine transformation.",
+        "items": [
+          {
+            "num": "01",
+            "title": "Bond & Tribe",
+            "text": "Spaces and activities for families from across the country to meet, share, and recognize themselves in a context of real community."
+          },
+          {
+            "num": "02",
+            "title": "Nature & Play",
+            "text": "Children (and adults) reclaim free play in a safe and wild environment. No screens. No agenda. Just the mountain."
+          },
+          {
+            "num": "03",
+            "title": "Conscious Food",
+            "text": "Meals prepared with local and organic ingredients. We learn together where food comes from and how to nourish the body."
+          },
+          {
+            "num": "04",
+            "title": "Memory & Gratitude",
+            "text": "Moments designed to be remembered: the bonfire under the stars, the mountain song, the embrace at farewell."
+          }
+        ]
+      },
+      "cronograma": {
+        "tag": "PROGRAM",
+        "title": "3 days to return to the essentials",
+        "dates": [
+          "MAY 1-3 · LAST 2 SPOTS!",
+          "JUNE 13-15 · NEW DATE"
+        ],
+        "days": [
+          {
+            "num": "01",
+            "tag": "DAY 1 · SATURDAY",
+            "title": "Arrival & Opening",
+            "items": [
+              "10:00 — Welcome and settling in",
+              "12:30 — Community lunch · first group gathering",
+              "14:30 — Family Orchard Workshop",
+              "17:00 — Guided nature walk through the reserve",
+              "19:30 — Dinner · shared regenerative cuisine",
+              "21:00 — Welcome bonfire · stories and songs under the stars"
+            ]
+          },
+          {
+            "num": "02",
+            "tag": "DAY 2 · SUNDAY",
+            "title": "Immersion & Magic",
+            "items": [
+              "08:00 — Breakfast with the mountain",
+              "09:30 — Family Cooking Workshop",
+              "11:00 — Free exploration of the reserve",
+              "13:00 — Lunch · rest and free play",
+              "15:30 — Gratitude Ceremony · family integration",
+              "17:00 — Artistic and creative activities",
+              "19:30 — Family gala dinner"
+            ]
+          },
+          {
+            "num": "03",
+            "tag": "DAY 3 · MONDAY",
+            "title": "Closing & Return",
+            "items": [
+              "08:00 — Closing breakfast",
+              "09:30 — Closing circle · words and gifts of the experience",
+              "11:00 — Free time for photos and farewells",
+              "12:00 — Farewell lunch",
+              "13:00 — Return home with a full heart"
+            ]
+          }
+        ],
+        "footer": "The program may be adjusted based on weather and the group's needs."
+      },
+      "testimonials": {
+        "title": "Families who lived the experience",
+        "subtitle": "Hear it in their own words",
+        "items": [
+          {
+            "text": "It was the best weekend we spent together as a family in years. My kids did not want to go home. Neither did I.",
+            "name": "Tefi & family",
+            "role": "May edition participants"
+          },
+          {
+            "text": "The connection we achieved between parents and children was incredible. We came back different. Familion gave us presence.",
+            "name": "Lucas & Sofi",
+            "role": "October edition participants"
+          }
+        ]
+      },
+      "cta_final": {
+        "title": "Your family deserves this time together",
+        "subtitle": "Limited spots to guarantee the quality of the experience. Do not wait until the last week.",
+        "btn": "BOOK NOW"
+      },
+      "video_closing": {
+        "title": "A family, a transformative experience",
+        "text": "This is the gratitude ritual for the food that families experienced at Familion. A simple and profound moment that captures the essence of what we offer."
+      },
+      "magico": {
+        "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Magico Ensueno in Los Gigantes.",
+        "title": "Magico Ensueno",
+        "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
+        "video_title": "Magico Ensueno — Mountain Experience",
+        "benefits_title": "Why Magico Ensueno",
+        "benefits": [
+          {
+            "title": "200 hectares of pure nature.",
+            "text": "Forests, rivers, viewpoints, and trails to explore as a family without limits."
+          },
+          {
+            "title": "100% solar energy.",
+            "text": "A living example of regenerative living that children internalize naturally."
+          },
+          {
+            "title": "International community.",
+            "text": "Volunteers and travelers from around the world who enrich the experience with their cultures."
+          }
+        ],
+        "investment_title": "Your investment regenerates the mountain",
+        "investment_text": "10% of every Familion goes directly to native forest restoration by planting tabaquillo trees. By coming, you are part of something larger.",
+        "investment_quote": "Coming to the Magico does not only regenerate you, it regenerates the mountain.",
+        "footer_text": "Road access for all vehicle types right to the door of the property.",
+        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+        "map_download": "Download Map",
+        "map_consult": "Ask about location"
       }
     },
     "aula_verde": {
@@ -1334,7 +1941,8 @@
       "invitation": {
         "title": "Learning happens <span class='italic text-gold'>outside</span>",
         "text1": "Aula Verde is our proposal for educational institutions looking for an experiential learning experience.",
-        "text2": "We transform the traditional camp into a pedagogical immersion in nature, where respect for the ecosystem is the central axis."
+        "text2": "We transform the traditional camp into a pedagogical immersion in nature, where respect for the ecosystem is the central axis.",
+        "video_title": "Aula Verde — Educational experience in Los Gigantes"
       },
       "dirigida_a": {
         "title": "Who is it for?",
@@ -1394,6 +2002,180 @@
         "title": "Take your school to the mountains",
         "subtitle": "Write to us to receive the informational dossier and coordinate a visit.",
         "btn": "Request Dossier"
+      },
+      "hero": {
+        "title": "Green Classroom",
+        "subtitle": "Educational programs in nature",
+        "tagline": "Where the classroom has no walls.",
+        "description": "Take your institution on an experience that transforms. Experiential learning, deep connection with nature, and a methodology that strengthens the group.",
+        "cta_budget": "REQUEST A QUOTE",
+        "cta_facilities": "View facilities",
+        "stat_open": "Enrollments open 2025-2026",
+        "stat_location": "Los Gigantes, Cordoba Mountains"
+      },
+      "magico": {
+        "wa_query": "Hi! I come from the Aula Verde website and want to ask about educational programs at Magico Ensueno for my institution.",
+        "title": "Magico Ensueno",
+        "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
+        "infra_title": "Infrastructure for groups",
+        "infra_text": "Main hall for 60 people, equipped kitchen, group dormitories, bathrooms with hot water, and outdoor spaces for all program activities.",
+        "video_title": "Magico Ensueno — Mountain Experience",
+        "benefits_title": "Why choose us",
+        "benefits": [
+          {
+            "title": "Specialized guides.",
+            "text": "Educational team with experience in environmental education and group dynamics."
+          },
+          {
+            "title": "Customizable program.",
+            "text": "We adapt each session to the pedagogical objectives of your institution and the educational level of the group."
+          },
+          {
+            "title": "Certified safety.",
+            "text": "Safety protocols for school groups, first aid, and guides trained in emergency response."
+          }
+        ],
+        "strengthen_title": "Strengthen the group",
+        "strengthen_text": "Every activity is designed to work on trust, communication, and teamwork. Students return with stronger bonds.",
+        "reforest_title": "We plant together",
+        "reforest_text": "Every group that visits Magico plants at least one tree. A concrete act of regeneration that students carry in their hearts.",
+        "footer_text": "Road access for coaches and school vehicles right to the entrance of the property.",
+        "safety_items": [
+          {
+            "title": "Certified Guide",
+            "text": "Our team is trained in first aid, group management, and mountain emergency protocols."
+          },
+          {
+            "title": "Liability Insurance",
+            "text": "Full coverage for all program activities throughout the stay."
+          },
+          {
+            "title": "School Protocols",
+            "text": "We work with each school's institutional protocols and adapt activities to specific needs."
+          }
+        ],
+        "gallery_title": "The experience in images",
+        "gallery_subtitle": "Groups that have already experienced Aula Verde in Los Gigantes",
+        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+        "map_download": "Download Map",
+        "map_consult": "Ask about location"
+      },
+      "precios": {
+        "title": "Plans for your institution",
+        "subtitle": "Three adaptable formats for the size of your group and the goals of your educational project.",
+        "cards": [
+          {
+            "title": "Day Trip",
+            "price": "On request",
+            "unit": "per person",
+            "tag": "Minimum 20 people",
+            "badge": null,
+            "features": [
+              "Half-day or full-day activities",
+              "Lunch included",
+              "Workshops of your choice from the catalog",
+              "Pedagogical guide throughout the session",
+              "Transport not included"
+            ],
+            "btn": "Ask for price"
+          },
+          {
+            "title": "2-Night Camp",
+            "price": "On request",
+            "unit": "per person",
+            "tag": "Minimum 20 people",
+            "badge": "MOST POPULAR",
+            "features": [
+              "2 nights of group accommodation",
+              "Full board (4 meals)",
+              "Full activity program",
+              "Pedagogical guide 24 hours",
+              "Native tree planting included"
+            ],
+            "btn": "Ask for price"
+          },
+          {
+            "title": "Educational Residency",
+            "price": "On request",
+            "unit": "per person",
+            "tag": "3 to 5 nights",
+            "badge": null,
+            "features": [
+              "Fully personalized program",
+              "All-inclusive full board",
+              "Dedicated educational team",
+              "Documentation for school records",
+              "Reforestation project included"
+            ],
+            "btn": "Build a proposal"
+          }
+        ],
+        "note": "Prices are calculated based on group size, chosen modules, and duration. Request a free quote.",
+        "global_btn": "REQUEST FREE QUOTE"
+      },
+      "testimonios": {
+        "title": "Institutions that chose us",
+        "subtitle": "The voices of those who lived the Aula Verde experience",
+        "institutions_title": "Institutions that chose us",
+        "items": [
+          {
+            "text": "The experience exceeded our expectations. The kids came back transformed. The methodology at Magico Ensueno connects with the experiential learning we seek as a Waldorf school.",
+            "name": "Cinthia B.",
+            "role": "Teacher",
+            "extra_role": "Waldorf School El Trigal",
+            "audio_text": "Listen to Alejandro's audio"
+          },
+          {
+            "text": "We organized the graduation trip here and it was the best decision. The kids ended up crying at the closing bonfire because they did not want to leave. That says it all.",
+            "name": "Marcelo G.",
+            "role": "Educational coordinator",
+            "extra_role": "Hebraica Institution",
+            "audio_text": "Listen to Marcelo's audio"
+          },
+          {
+            "text": "We took a karate group and it was incredible to see how contact with nature enhanced concentration and respect among the kids. We repeat it every year.",
+            "name": "Sensei Alejandro",
+            "role": "Instructor",
+            "extra_role": "Senshi Dojo Unquillo"
+          },
+          {
+            "text": "The Magico Ensueno team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
+            "name": "Federico T.",
+            "role": "Director",
+            "extra_role": "Racing Club de Cordoba School",
+            "audio_text": "Listen to Fede's audio"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Everything you need to know before organizing the educational outing.",
+        "items": [
+          {
+            "question": "What ages are most suitable for the program?",
+            "answer": "We design programs for all ages, from preschool to secondary and university level. Each activity is adapted to the cognitive and physical level of the group."
+          },
+          {
+            "question": "What if there are students with special needs or allergies?",
+            "answer": "We adapt to every group. We ask for a list of special needs before the trip so we can prepare the right program and food."
+          },
+          {
+            "question": "Is transport included?",
+            "answer": "Transport is not included in the base price, but we can coordinate coaches from Cordoba Capital or Villa Carlos Paz. Ask us to include it in the quote."
+          },
+          {
+            "question": "Can accompanying teachers come?",
+            "answer": "Of course! Accompanying teachers have a special price. We recommend a ratio of 1 adult per 10 students for nature activities."
+          },
+          {
+            "question": "What documentation do we need for the educational outing?",
+            "answer": "We prepare all the documentation the school needs: detailed program, civil liability insurance, team certifications, and safety protocols."
+          }
+        ]
+      },
+      "video_closing": {
+        "title": "An experience carried in the heart",
+        "text": "Watch how students from a Cordoba school experienced the Aula Verde program at Magico Ensueno. Their words say more than any brochure."
       }
     },
     "vuelo_condor": {
@@ -1469,7 +2251,8 @@
         "days": [
           {
             "dia": "Day 1",
-            "titulo": "Cleansing & Arrival",
+            "titulo": "CLEANSING AND OPENING",
+            "resumen": "Arrival at the Sacred Valley and first group meeting. Opening Temazcal to cleanse body and mind, followed by a word circle to begin opening the process.",
             "items": [
               "10:00 — Meet at Plaza de Armas, Cusco",
               "12:00 — Transfer to Pisac · Hostal Medicina",
@@ -1481,7 +2264,8 @@
           },
           {
             "dia": "Day 2",
-            "titulo": "Opening & Ayahuasca",
+            "titulo": "OPENING OF PORTALS",
+            "resumen": "Journey through sacred sites (Ollantaytambo and Moray). Energetic activations, music, and connection with the earth. At night, Ayahuasca ceremony.",
             "items": [
               "Group breakfast · intention of the day",
               "Ollantaytambo visit · sacred archaeological site",
@@ -1491,7 +2275,8 @@
           },
           {
             "dia": "Day 3",
-            "titulo": "Integration & Earth",
+            "titulo": "INTEGRATION",
+            "resumen": "Space for rest, integration, and contemplation. Conscious walk and community time to settle the lived experience.",
             "items": [
               "06:00 — Post-ceremony Temazcal · cleansing",
               "Deep rest · free integration time",
@@ -1501,7 +2286,8 @@
           },
           {
             "dia": "Day 4",
-            "titulo": "The Sacred Mountain",
+            "titulo": "ENCOUNTER WITH THE MOUNTAIN",
+            "resumen": "Journey to Ausangate. Connection with the Apus (mountain spirits) and ceremonial offering. Entry into a deeper space of introspection.",
             "items": [
               "Transfer to Cusco · Sacsayhuamán",
               "San Pedro Market · plants and essences",
@@ -1511,7 +2297,8 @@
           },
           {
             "dia": "Day 5",
-            "titulo": "Wuachuma & Hot Springs",
+            "titulo": "VISION",
+            "resumen": "Ceremony with ancestral medicine in the heart of the mountain. Walking, nature, and opening of vision.",
             "items": [
               "Wuachuma (San Pedro) ceremony at dawn",
               "Ceremonial walk across the glacier",
@@ -1521,7 +2308,8 @@
           },
           {
             "dia": "Day 6",
-            "titulo": "The Return",
+            "titulo": "RETURN AND INTEGRATION",
+            "resumen": "Closing on the mountain and return to Pisac. Group and personal integration time.",
             "items": [
               "07:30 — Breakfast on the mountain",
               "Descent and departure from Ausangate",
@@ -1531,7 +2319,8 @@
           },
           {
             "dia": "Day 7",
-            "titulo": "Consecration & Closing",
+            "titulo": "CONSECRATION",
+            "resumen": "Closing Temazcal. Final integration and consecration of the lived process.",
             "items": [
               "08:00 — Closing & consecration Temazcal",
               "Final circle · open sharing",

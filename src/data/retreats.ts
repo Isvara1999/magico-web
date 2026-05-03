@@ -26,9 +26,9 @@ export const RETREATS_DATA = {
     message: '¡Hola! Terminé de leer todo sobre la inmersión Achala Viva y no me lo quiero perder. Me comunico para coordinar la seña y asegurar mi lugar. ✨',
   },
   gondorbows: {
-    price: 160000,
+    price: 640000,
     currency: 'ARS',
-    dates: '10 al 12 de Abril',
+    dates: '29 al 31 de Mayo',
     message: '¡Hola Fausto! Terminé de leer todo sobre el retiro de Gondorbows y no me lo quiero perder. Me comunico para coordinar la seña y asegurar mi lugar. 🌲✨',
   }
 };

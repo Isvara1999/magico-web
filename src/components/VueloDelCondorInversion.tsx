@@ -7,7 +7,7 @@ import { RETREATS_DATA } from '../data/retreats';
 const STEPS = [
   { icon: WhatsappLogoIcon,     num: '01', label: 'Escribinos por WhatsApp' },
   { icon: ChatsIcon,            num: '02', label: 'Conversamos tu proceso'  },
-  { icon: CurrencyDollarIcon,   num: '03', label: 'Enviás la seña (30%)'   },
+  { icon: CurrencyDollarIcon,   num: '03', label: 'Enviás la seña'   },
   { icon: SealCheckIcon,        num: '04', label: 'Tu lugar está asegurado' },
 ];
 
@@ -134,6 +134,29 @@ const VueloDelCondorInversion: React.FC = () => {
                 </div>
                 <span className="text-[10px] tracking-[0.3em] text-[#D4AF37]/50 font-mono">{num}</span>
                 <p className="text-white/70 text-xs leading-snug max-w-[100px]">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── FORMA DE PAGO ───────────────────────────────────────────── */}
+        <div className="border-t border-white/8 pt-10 md:pt-14 mt-10 md:mt-14" data-reveal>
+          <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-8">
+            Forma de pago
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
+            {[
+              'Confirmá tu asistencia con una seña para asegurar tu lugar.',
+              'El saldo restante se puede abonar en diferentes modalidades a convenir, con flexibilidad.',
+              'Consultá por opciones de financiación y otras formas de intercambio.',
+              'Si sentís el llamado, estamos abiertos a conversar con vos para que puedas ser parte.',
+            ].map((text, i) => (
+              <div key={i} className="flex items-start gap-4">
+                <span className="text-[#D4AF37]/40 font-mono text-[10px] tracking-widest mt-0.5 flex-shrink-0">
+                  {'0' + (i + 1)}
+                </span>
+                <p className="text-white/65 text-sm md:text-base leading-relaxed">{text}</p>
               </div>
             ))}
           </div>

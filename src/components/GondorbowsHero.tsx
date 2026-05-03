@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
+import { RETREATS_DATA } from '../data/retreats';
+import { WA_GONDOR } from '../data/config';
 
 const GondorbowsHero: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const MSG = encodeURIComponent(RETREATS_DATA.gondorbows.message);
 
   useEffect(() => {
     const timer = setTimeout(() => setVideoLoaded(true), 100);
@@ -11,70 +13,94 @@ const GondorbowsHero: React.FC = () => {
 
   return (
     <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
-      {/* Background */}
-      <div className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none">
+
+      {/* ── Video background ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#001A0E]">
         {videoLoaded && (
-          <iframe 
-            width="100vw" 
-            height="100vh" 
-            src="https://www.youtube-nocookie.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&modestbranding=1&showinfo=0" 
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/Kd1RCM1LcmI?autoplay=1&mute=1&controls=0&loop=1&playlist=Kd1RCM1LcmI&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&showinfo=0&fs=0"
             title="Video de fondo — Gondorbows"
             frameBorder="0"
             allow="autoplay; encrypted-media"
-            allowFullScreen
-            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 z-[0] pointer-events-none"
+            allowFullScreen={false}
+            className="pointer-events-none absolute"
             style={{
-              position: 'absolute',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%) scale(1.8)',
               width: '177.78vh',
               height: '100vh',
               minWidth: '100vw',
-              zIndex: 0
             }}
           />
         )}
-        {/* Placeholder color before video loads */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-green/80 z-[0]"></div>
-      </div>
-      
-      {/* Overlay oscuro */}
-      <div className="absolute inset-0 bg-black/60 z-[1]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-green/95 via-brand-green/30 to-transparent mix-blend-multiply z-[1]"></div>
-      <div className="absolute inset-0 bg-gradient-to-bl from-brand-gold/20 via-transparent to-transparent mix-blend-soft-light z-[1]"></div>
 
-      {/* Content */}
-      <div className="relative z-[2] text-center px-4 max-w-5xl mx-auto flex flex-col items-center justify-center h-full pt-8">
-        
-        {/* Title Container */}
-        <div className="mb-6 md:mb-8 transition-all duration-500">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-4 tracking-wide drop-shadow-xl font-light">
-            Despertá tu instinto
-          </h1>
+        {/*
+          Transparent interceptor: sits above the iframe and captures all
+          pointer events, preventing YouTube's hover/play/replay overlays
+          from ever activating.
+        */}
+        <div className="absolute inset-0 z-[1]" style={{ pointerEvents: 'auto' }} />
+      </div>
+
+      {/* ── Overlays ── */}
+      <div className="absolute inset-0 bg-black/35 z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-[3]" />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center justify-center h-full pt-12">
+
+        {/* Badge */}
+        <div className="mb-5" data-reveal>
+          <span className="px-4 py-1.5 rounded-full bg-gold text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] shadow-xl">
+            {RETREATS_DATA.gondorbows.dates} · Los Gigantes, Córdoba
+          </span>
         </div>
 
-        <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-lg mx-auto mb-8 leading-normal drop-shadow-sm">
-          Del 10 al 12 de abril. Mágico Ensueño y Gondorbows se unen en Córdoba para tres días de retiro inmersivo. Aprendé un oficio ancestral, trabajá la madera con tus manos y llevate un arco funcional de alta calidad. No requiere experiencia previa.
+        {/* Titles */}
+        <div className="mb-8" data-reveal data-delay="1">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl serif-title text-white leading-tight mb-4 tracking-tight drop-shadow-2xl font-light">
+            Despertá tu instinto.
+          </h1>
+          <p className="text-xl sm:text-2xl md:text-3xl text-white font-serif mt-2 tracking-wide drop-shadow-lg opacity-90">
+            Arquería Ancestral · Gondor Bows
+          </p>
+        </div>
+
+        {/* Description */}
+        <p
+          className="text-base md:text-lg text-white/80 font-light max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm"
+          data-reveal data-delay="2"
+        >
+          Construí tu propio arco en 3 días de inmersión total en la montaña.
+          Oficio ancestral, todo incluido. Sin experiencia previa necesaria.
         </p>
 
-        {/* Glass Buttons */}
-        <div className="hero-cta flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4 mb-12 md:mb-16">
-          <a href="#precios" target="_self" className="btn-gold inline-flex items-center justify-center">
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full" data-reveal data-delay="3">
+          <a
+            href={`https://wa.me/${WA_GONDOR}?text=${MSG}`}
+            className="btn-gold min-w-[220px] shadow-2xl shadow-gold/20"
+          >
             Quiero reservar mi lugar
           </a>
-          <a href="#comodidad" className="btn-glass inline-flex items-center justify-center">
-            Ver detalles
+          <a href="#comodidad" className="btn-glass min-w-[220px]">
+            Ver la experiencia
           </a>
         </div>
+      </div>
 
-        {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-white/60 text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium px-4">
-          <span>10 al 12 de Abril</span>
-          <span className="hidden sm:inline opacity-30">|</span>
-          <span>Los Gigantes, Córdoba</span>
+      {/* ── Location footer ── */}
+      <div className="absolute bottom-14 left-0 right-0 flex justify-center z-10" data-reveal data-delay="4">
+        <div className="flex items-center gap-3 text-white text-[10px] tracking-[0.4em] uppercase font-bold">
+          <div className="w-10 h-px bg-white/40" />
+          <span>Los Gigantes · Córdoba · Argentina</span>
+          <div className="w-10 h-px bg-white/40" />
         </div>
       </div>
+
+      {/* ── Bottom fade ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/40 to-transparent z-[5]" />
     </section>
   );
 };
