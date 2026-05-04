@@ -1070,1461 +1070,1460 @@
         ]
       },
       "equipo": {
-        "title": "Guardianes del Acan del Fuego",
-        "subtitle": "Un equipo multidisciplinario al servicio de tu transformación. Buscador y Facilitador de ceremonias con plantas maestras y rituales ancestrales. Terapeuta Sonoro, Regresiones y Caminante del danzar de la vida.",
+        "title": "Un equipo multidisciplinario al servicio de tu transformación",
+        "subtitle": "Acan de Fuego es una Comunidad de hombres que nace del anhelo profundo de habitar lo masculino de forma más consciente y autentica.\nSomos tres compañeros de camino que sentimos el llamado a compartirnos en espacios sagrados donde los hombres podamos mirarnos, acompañarnos y transformarnos.\nCon diferentes trayectorias y herramientas, Co-creamos experiencias que honran la tribu, el rito, el cuerpo, la emoción y el Ser con la Filosofia del Buen Vivir como bandera.",
         "members": [
-          {
-            "nombre": "Gustavo Torras",
-            "foto": "/uploads/vuelo-condor/Toti.webp",
-            "desc": "Fundador del Arkan del Fuego. Guía iniciático con más de 15 años acompañando procesos de transformación masculina. Especialista en trabajo con plantas maestras y rituales ancestrales andinos."
-          },
-          {
-            "nombre": "Diego Epelman Hodara",
-            "foto": "/uploads/vuelo-condor/Diego.webp",
-            "desc": "Facilitador de procesos y experiencias transformadoras. Emprendedor apasionado y Guardián de Vida. Combina diferentes herramientas con la sabiduría ancestral para trabajar en la profundidad del Ser."
-          },
-          {
-            "nombre": "Juan Cruz Sartori",
-            "foto": "/uploads/vuelo-condor/juan.webp",
-            "desc": "Músico medicina y facilitador de movimiento consciente. Coach Ontologico, BreathWork y Constelaciones Fmailiares.  Acompaña los procesos con sonido sagrado, creando puentes entre el cuerpo, la emoción y el espíritu."
-          }
+          {"nombre": "Gustavo Torras",
+        "foto": "/uploads/vuelo-condor/Toti.webp",
+        "desc": "Buscador y Facilitador de ceremonias con plantas maestras y rituales ancestrales. Terapeuta Sonoro, Regresiones y Caminante del danzar de la vida."
+      },
+      {
+        "nombre": "Diego Epelman Hodara",
+        "foto": "/uploads/vuelo-condor/Diego.webp",
+        "desc": "Facilitador de procesos y experiencias transformadoras. Emprendedor apasionado y Guardián de Vida. Combina diferentes herramientas con la sabiduría ancestral para trabajar en la profundidad del Ser."
+      },
+      {
+        "nombre": "Juan Cruz Sartori",
+        "foto": "/uploads/vuelo-condor/juan.webp",
+        "desc": "Músico medicina y facilitador de movimiento consciente. Coach Ontologico, BreathWork y Constelaciones Fmailiares.  Acompaña los procesos con sonido sagrado, creando puentes entre el cuerpo, la emoción y el espíritu."
+      }
         ],
         "footer": "Contamos también con guías y maestros ancestrales que nos acompañaran en cada lugar sagrado del Valle."
       },
-      "inversion": {
-        "title": "Tu Inversión con Propósito",
-        "incluye_title": "Qué incluye",
-        "incluye": [
-          "7 noches en Alojamientos seleccionados",
-          "Todas las comidas del viaje: Pensión completa (Desayunos, almuerzos y cenas)",
-          "Todas las actividades y Ceremonias ancestrales del viaje.",
-          "Traslados internos en el Valle Sagrado",
-          "Entradas a todos los sitios arqueológicos",
-          "Acompañamiento del Equipo Anfitrión antes, durante y despues del viaje."
-        ],
-        "no_incluye_title": "No incluye",
-        "no_incluye": "Vuelos internacionales y seguro de viaje.",
-        "vuelos_help": "Te asesoramos para que encuentres la mejor opción. Llegada: Cusco (CUZ) 22/07. Salida: desde las 18:00 del 29/07.",
-        "slots": "12 cupos · Julio 2026",
-        "total_title": "Valor del Programa",
-        "currency": "USD",
-        "price": "1.800",
-        "note": "Reservá con <strong>USD 540</strong> · el saldo 30 días antes del inicio.",
-        "btn": "RESERVAR MI LUGAR",
-        "msg": "Grupo máximo de 12 personas. Consultar financiación."
-      },
-      "faq": {
-        "title": "Preguntas Frecuentes",
-        "subtitle": "Todo lo que necesitás saber antes de emprender el vuelo.",
-        "items": [
-          {
-            "question": "¿Necesito experiencia previa con plantas maestras?",
-            "answer": "No es necesario. Lo que sí pedimos es apertura genuina y voluntad de honrar el proceso. Hacemos una entrevista previa con cada participante para asegurarnos de que el viaje es apropiado para vos."
-          },
-          {
-            "question": "¿Qué condición física se necesita para el Ausangate?",
-            "answer": "El Ausangate está a 5.200 m de altitud. Se requiere buena condición física general y recomendamos llegar 48 hs antes a Cusco para aclimatarse. No es una expedición de montañismo — caminamos a ritmo de grupo, contemplativo."
-          },
-          {
-            "question": "¿Cómo es el proceso de reserva?",
-            "answer": "El lugar se reserva con una seña del 30% (USD 540). El saldo se abona 30 días antes del inicio. El grupo es de máximo 12 personas, así que los cupos son limitados."
-          },
-          {
-            "question": "¿Las habitaciones son compartidas?",
-            "answer": "El Hostal Medicina tiene habitaciones dobles. Si querés habitación individual, hay disponibilidad con un costo adicional. Consultanos al reservar."
-          },
-          {
-            "question": "¿Qué vuelos debo tomar?",
-            "answer": "Debés llegar a Cusco (CUZ) el 22 de julio antes de las 9:00 hs y tu vuelo de regreso puede ser el 29 de julio a partir de las 18:00 hs. Si venís de Argentina, los vuelos suelen hacer escala en Lima."
-          },
-          {
-            "question": "¿Qué pasa si tengo dudas o miedos antes de viajar?",
-            "answer": "Es parte del camino. Tenemos un encuentro virtual de preparación con todos los participantes semanas antes del viaje. Además, podés escribirnos en cualquier momento — estamos para acompañarte desde el primer contacto."
-          }
-        ]
-      },
-      "cta": {
-        "title": "Si sentís el llamado,\nescribinos.",
-        "subtitle": "No lo racionalices demasiado. Estos viajes no se entienden, se sienten.",
-        "btn": "Quiero más información"
-      }
-    },
-    "notFound": {
-      "title": "Un sendero hacia <span class='italic text-gold'>lo desconocido.</span>",
-      "subtitle": "Parece que te has desviado del sendero. Este camino no conduce a ningún refugio, pero te ayudamos a volver al origen.",
-      "btnHome": "VOLVER AL INICIO",
-      "btnContact": "RESCATE POR WHATSAPP"
-    },
-    "donations": {
-      "text": "Apoyá la restauración de las Sierras Grandes de Córdoba con la plantación de tabaquillos nativos. Cada árbol es un paso hacia el monte nativo que alguna vez fue.",
-      "btn": "SUMARME A RESTAURAR",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
-    },
-    "inclusiones": {
-      "eyebrow": "TODO INCLUIDO",
-      "title": "Lo que incluye tu estadía",
-      "subtitle": "Sin sorpresas. Un precio claro que incluye todo lo que necesitás para desconectarte y reconectarte.",
-      "items": [
-        {
-          "label": "Alojamiento",
-          "sub": "Domo, habitación o camping"
-        },
-        {
-          "label": "Ropa blanca",
-          "sub": "Sábanas, toalla y toallón"
-        },
-        {
-          "label": "Starlink WiFi",
-          "sub": "Conexión en la montaña"
-        },
-        {
-          "label": "Espacios comunes",
-          "sub": "Fogón, huerta y jardines"
-        },
-        {
-          "label": "Energía solar",
-          "sub": "100% renovable"
-        },
-        {
-          "label": "Reset Vital",
-          "sub": "Guía PDF de retiro autoguiado"
-        },
-        {
-          "label": "Biokit Ecológico",
-          "sub": "Jabón, shampoo y acondicionador biodegradables"
-        }
-      ],
-      "price_solo_label": "Solo alojamiento",
-      "price_solo_sub": "Incluye ropa blanca, biocosmética y Reset Vital",
-      "price_pension_label": "Pensión completa",
-      "price_pension_sub": "+ desayuno, almuerzo y cena · todo incluido",
-      "price_unit": "/ noche",
-      "cta": "Ver todos los alojamientos"
-    },
-    "para_quien": {
-      "eyebrow": "PARA QUIÉN ES",
-      "title": "¿Esto es para mí?",
-      "cta_label": "Consultar",
-      "profiles": [
-        {
-          "title": "El nómade digital",
-          "desc": "Trabajás remoto y querés un lugar con WiFi real, silencio y conexión humana auténtica. Starlink + naturaleza + comunidad.",
-          "wa": "Hola! Me interesa el coworking con alojamiento para trabajo remoto en Mágico Ensueño. ¿Tienen disponibilidad?"
-        },
-        {
-          "title": "El profesional en burnout",
-          "desc": "Necesitás salir del ruido urbano y resetear. Comida real, montaña, silencio y espacios para volver a vos.",
-          "wa": "Hola! Busco un retiro de descanso en Mágico Ensueño. ¿Cuándo tienen disponibilidad?"
-        },
-        {
-          "title": "La pareja",
-          "desc": "Buscan una escapada romántica diferente. Domo geodésico, cielo estrellado, fogón y cocina de autor en la montaña.",
-          "wa": "Hola! Queremos ir en pareja a Mágico Ensueño. ¿Tienen domos disponibles y cuál es el precio?"
-        },
-        {
-          "title": "El buscador en tránsito",
-          "desc": "Estás en un momento de transformación y buscás comunidad, propósito y un espacio que acompañe el proceso.",
-          "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Mágico Ensueño. ¿Podemos hablar?"
-        },
-        {
-          "title": "La familia",
-          "desc": "Buscan desconectar de las pantallas y reconectar entre ustedes. Espacios amplios, naturaleza segura y aventuras compartidas en la montaña.",
-          "wa": "Hola! Queremos ir en familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?"
-        },
-        {
-          "title": "El ciudadano del mundo",
-          "desc": "Buscás nutrirte de otras culturas sin tomarte un avión. Disfrutás de compartir un fogón con viajeros y voluntarios de todas partes del mundo.",
-          "wa": "Hola! Me encanta la vibra internacional de Mágico Ensueño. ¿Qué opciones de estadía tienen?"
-        }
-      ]
-    },
-    "faq": {
-      "eyebrow": "PREGUNTAS FRECUENTES",
-      "title": "Antes de consultar",
-      "subtitle": "Todo lo que necesitás saber antes de reservar.",
-      "footer_text": "¿Tenés otra pregunta?",
-      "footer_cta": "Escribinos por WhatsApp",
-      "items": [
-        {
-          "q": "¿Qué incluye el precio de la estadía?",
-          "a": "El precio base incluye alojamiento (domo, habitación o camping), ropa blanca (sábanas, toalla y toallón), biocosmética, WiFi Starlink, acceso al fogón y jardines, y la guía PDF Reset Vital. La pensión completa agrega las 3 comidas del día con cocina de autor. Sin cargos ocultos."
-        },
-        {
-          "q": "¿Necesito experiencia previa en retiros o meditación?",
-          "a": "Para nada. Mágico Ensueño no es un centro de meditación formal — es un ecocentro vivo donde cada persona encuentra su propio ritmo. Podés venir a trabajar remoto, descansar, explorar la naturaleza o simplemente estar."
-        },
-        {
-          "q": "¿Hay señal o internet en la montaña?",
-          "a": "Sí. Tenemos conexión Starlink de alta velocidad en todos los espacios de trabajo y áreas comunes. Si lo que buscás es desconectarte del celular, también podés hacerlo — el entorno lo facilita naturalmente."
-        },
-        {
-          "q": "¿Cómo llego si no tengo auto?",
-          "a": "Estamos en Paraje Cuchilla Nevada, Ojo de Agua, a 20 minutos de Los Gigantes (Córdoba). Podemos coordinar traslado desde Villa Carlos Paz o Alta Gracia — consultanos por WhatsApp y lo organizamos juntos."
-        }
-      ]
-    }
+  "inversion": {
+    "title": "Tu Inversión con Propósito",
+    "incluye_title": "Qué incluye",
+    "incluye": [
+      "7 noches en Alojamientos seleccionados",
+      "Todas las comidas del viaje: Pensión completa (Desayunos, almuerzos y cenas)",
+      "Todas las actividades y Ceremonias ancestrales del viaje.",
+      "Traslados internos en el Valle Sagrado",
+      "Entradas a todos los sitios arqueológicos",
+      "Acompañamiento del Equipo Anfitrión antes, durante y despues del viaje."
+    ],
+    "no_incluye_title": "No incluye",
+    "no_incluye": "Vuelos internacionales y seguro de viaje.",
+    "vuelos_help": "Te asesoramos para que encuentres la mejor opción. Llegada: Cusco (CUZ) 22/07. Salida: desde las 18:00 del 29/07.",
+    "slots": "12 cupos · Julio 2026",
+    "total_title": "Valor del Programa",
+    "currency": "USD",
+    "price": "1.800",
+    "note": "Reservá con <strong>USD 540</strong> · el saldo 30 días antes del inicio.",
+    "btn": "RESERVAR MI LUGAR",
+    "msg": "Grupo máximo de 12 personas. Consultar financiación."
   },
-  "en": {
-    "experiences": {
-      "tag": "Mágico Experience",
-      "title": "Design your stay",
-      "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
-      "intro_p2": "We have already hosted travelers from all over the world. We are the ideal destination for those seeking a <b>Coworking with soul</b> or a self-guided personal retreat: the <b>Reset Vital</b>.",
-      "badge_accommodation": "Accommodation",
-      "card_extra_text": "You can also just book accommodation if you wish.",
-      "btn": "Book my spot",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
-      "cards": [
-        {
-          "id": 1,
-          "title": "Wellness & Balance",
-          "description": "Ancestral ceremonies, yoga, body awareness and temazcal.",
-          "ctaText": "Consult Therapies",
-          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20las%20terapias%20de%20Bienestar%20%26%20Presencia.%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F",
-          "image": "/uploads/bienestar-balance.webp"
-        },
-        {
-          "id": 2,
-          "title": "Glamping & Shelter",
-          "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
-          "ctaText": "View Options",
-          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
-          "image": "/uploads/refu.webp"
-        },
-        {
-          "id": 3,
-          "title": "Conscious Kitchen",
-          "description": "Nutrition for body and soul. Local and organic products.",
-          "ctaText": "View Proposal",
-          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20la%20propuesta%20de%20Alimentaci%C3%B3n%20Natural.%20%F0%9F%A5%97",
-          "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
-        }
-      ],
-      "resetVital": {
-        "title": "What is RESET VITAL?",
-        "subtitle": "YOUR SELF-GUIDED RETREAT (INCLUDED)",
-        "description": "It is the heart of our proposal and is <b>included in all stays</b>. A self-guided retreat that provides you with the tools for deep reconnection while you enjoy the freedom of the mountain. Ideal for those seeking absolute silence as well as digital nomads looking for an <b>inspiring work environment with Starlink</b>.",
-        "image": "/uploads/campoentero.webp",
-        "items": [
-          {
-            "title": "FREEDOM & OWN PACE",
-            "desc": "Experience the benefits of a retreat but in your own way. Without imposed schedules, you decide when to rest and when to activate."
-          },
-          {
-            "title": "TRANSFORMATIVE CONTENT",
-            "desc": "The guide includes meditations, journaling exercises, conscious walks, and simple rituals to connect with nature."
-          },
-          {
-            "title": "INTEGRATION",
-            "desc": "It's not just momentary relaxation; you take home concrete tools to sustain calm and clarity when you return to your routine."
-          }
-        ]
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitás saber antes de emprender el vuelo.",
+    "items": [
+      {
+        "question": "¿Necesito experiencia previa con plantas maestras?",
+        "answer": "No es necesario. Lo que sí pedimos es apertura genuina y voluntad de honrar el proceso. Hacemos una entrevista previa con cada participante para asegurarnos de que el viaje es apropiado para vos."
+      },
+      {
+        "question": "¿Qué condición física se necesita para el Ausangate?",
+        "answer": "El Ausangate está a 5.200 m de altitud. Se requiere buena condición física general y recomendamos llegar 48 hs antes a Cusco para aclimatarse. No es una expedición de montañismo — caminamos a ritmo de grupo, contemplativo."
+      },
+      {
+        "question": "¿Cómo es el proceso de reserva?",
+        "answer": "El lugar se reserva con una seña del 30% (USD 540). El saldo se abona 30 días antes del inicio. El grupo es de máximo 12 personas, así que los cupos son limitados."
+      },
+      {
+        "question": "¿Las habitaciones son compartidas?",
+        "answer": "El Hostal Medicina tiene habitaciones dobles. Si querés habitación individual, hay disponibilidad con un costo adicional. Consultanos al reservar."
+      },
+      {
+        "question": "¿Qué vuelos debo tomar?",
+        "answer": "Debés llegar a Cusco (CUZ) el 22 de julio antes de las 9:00 hs y tu vuelo de regreso puede ser el 29 de julio a partir de las 18:00 hs. Si venís de Argentina, los vuelos suelen hacer escala en Lima."
+      },
+      {
+        "question": "¿Qué pasa si tengo dudas o miedos antes de viajar?",
+        "answer": "Es parte del camino. Tenemos un encuentro virtual de preparación con todos los participantes semanas antes del viaje. Además, podés escribirnos en cualquier momento — estamos para acompañarte desde el primer contacto."
       }
+    ]
+  },
+  "cta": {
+    "title": "Si sentís el llamado,\nescribinos.",
+    "subtitle": "No lo racionalices demasiado. Estos viajes no se entienden, se sienten.",
+    "btn": "Quiero más información"
+  }
+},
+"notFound": {
+  "title": "Un sendero hacia <span class='italic text-gold'>lo desconocido.</span>",
+  "subtitle": "Parece que te has desviado del sendero. Este camino no conduce a ningún refugio, pero te ayudamos a volver al origen.",
+  "btnHome": "VOLVER AL INICIO",
+  "btnContact": "RESCATE POR WHATSAPP"
+},
+"donations": {
+  "text": "Apoyá la restauración de las Sierras Grandes de Córdoba con la plantación de tabaquillos nativos. Cada árbol es un paso hacia el monte nativo que alguna vez fue.",
+  "btn": "SUMARME A RESTAURAR",
+  "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
+},
+"inclusiones": {
+  "eyebrow": "TODO INCLUIDO",
+  "title": "Lo que incluye tu estadía",
+  "subtitle": "Sin sorpresas. Un precio claro que incluye todo lo que necesitás para desconectarte y reconectarte.",
+  "items": [
+    {
+      "label": "Alojamiento",
+      "sub": "Domo, habitación o camping"
     },
-    "volunteer": {
-      "title": "An <span class='italic text-green'>international</span> haven",
-      "description": "We receive volunteers and travelers from all over the world. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
-      "btn": "Apply",
-      "image": "/uploads/voluntarios.webp",
-      "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
-      "testimonials": [
-        {
-          "name": "Ainhoa",
-          "text": "Not your typical volunteering, it's a lifestyle. You quickly feel welcomed and like family. If you are looking to connect with nature and yourself, this is your place.",
-          "image": "/uploads/Ainhoa.webp"
-        },
-        {
-          "name": "Ronen",
-          "text": "I arrived intending to stay 2 weeks and ended up staying 2.5 months. A wonderful place to connect with the earth, offering a freedom that feels unique.",
-          "image": "/uploads/Ronen.webp"
-        },
-        {
-          "name": "Anna-Lea",
-          "text": "A green oasis in the middle of nowhere. The work rhythm is very organic and people are incredibly open-hearted. I leave recharged and inspired.",
-          "image": "/uploads/Anna-Lea.webp"
-        },
-        {
-          "name": "Kylan",
-          "text": "Paradise. Such a lovely community feeling. The place is in the middle of nowhere, which is beautiful, and there are no bounds to where you can walk.",
-          "image": "/uploads/Kylan.webp"
-        }
-      ]
+    {
+      "label": "Ropa blanca",
+      "sub": "Sábanas, toalla y toallón"
     },
-    "retreats": {
-      "tag": "Group Experiences",
-      "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
-      "description": "We open the space, the team and the energy of Mágico Ensueño to Co-create retreats, gatherings and days in deep contact with nature.",
-      "btn": "Organize Retreat",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
-      "list": [
-        {
-          "text": "Panoramic hall."
-        },
-        {
-          "text": "Regenerative food."
-        },
-        {
-          "text": "Integral production."
-        }
-      ],
-      "images": [
-        {
-          "image": "/uploads/469280911_444096748740233_2818770490495002077_n.webp"
-        },
-        {
-          "image": "/uploads/469742031_941240881439467_8316347989568757415_n.webp"
-        }
-      ]
+    {
+      "label": "Starlink WiFi",
+      "sub": "Conexión en la montaña"
     },
-    "schools": {
-      "tag": "For Institutions",
-      "title": "Green Classrooms",
-      "description": "Learning happens outside. Nature immersion programs, alternative graduation trips, and retreats for schools and institutions.",
-      "btn": "View Proposal",
-      "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
-      "link": "/escuelas"
+    {
+      "label": "Espacios comunes",
+      "sub": "Fogón, huerta y jardines"
     },
-    "about": {
-      "tag": "Our Essence",
-      "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
-      "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
-      "link": "Our way of Being and Doing",
-      "image": "/uploads/dji_0074.webp",
-      "images": [
-        "/uploads/dji_0074.webp",
-        "/uploads/habitaciones.webp",
-        "/uploads/exterior.webp"
-      ]
+    {
+      "label": "Energía solar",
+      "sub": "100% renovable"
     },
-    "testimonials": {
-      "title": "Mountain Stories",
-      "items": [
-        {
-          "id": 1,
-          "name": "Julieta Castoldi",
-          "role": "Facilitator",
-          "text": "The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.",
-          "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
-        },
-        {
-          "id": 2,
-          "name": "Sofía R.",
-          "role": "Traveler",
-          "text": "I felt part of the mountain life, like at home. A unique refuge of peace.",
-          "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
-        },
-        {
-          "id": 3,
-          "name": "Marcos D.",
-          "role": "Guest",
-          "text": "A transformative experience. The conscious food and spaces are out of this world.",
-          "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-      ]
+    {
+      "label": "Reset Vital",
+      "sub": "Guía PDF de retiro autoguiado"
     },
-    "location": {
-      "title": "The journey is part <br />of the <span class='text-gold italic'>experience.</span>",
-      "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. It is accessible for any vehicle.",
-      "btnMap": "View on Map",
-      "btnTransfer": "Coordinate Transfer",
+    {
+      "label": "Biokit Ecológico",
+      "sub": "Jabón, shampoo y acondicionador biodegradables"
+    }
+  ],
+  "price_solo_label": "Solo alojamiento",
+  "price_solo_sub": "Incluye ropa blanca, biocosmética y Reset Vital",
+  "price_pension_label": "Pensión completa",
+  "price_pension_sub": "+ desayuno, almuerzo y cena · todo incluido",
+  "price_unit": "/ noche",
+  "cta": "Ver todos los alojamientos"
+},
+"para_quien": {
+  "eyebrow": "PARA QUIÉN ES",
+  "title": "¿Esto es para mí?",
+  "cta_label": "Consultar",
+  "profiles": [
+    {
+      "title": "El nómade digital",
+      "desc": "Trabajás remoto y querés un lugar con WiFi real, silencio y conexión humana auténtica. Starlink + naturaleza + comunidad.",
+      "wa": "Hola! Me interesa el coworking con alojamiento para trabajo remoto en Mágico Ensueño. ¿Tienen disponibilidad?"
+    },
+    {
+      "title": "El profesional en burnout",
+      "desc": "Necesitás salir del ruido urbano y resetear. Comida real, montaña, silencio y espacios para volver a vos.",
+      "wa": "Hola! Busco un retiro de descanso en Mágico Ensueño. ¿Cuándo tienen disponibilidad?"
+    },
+    {
+      "title": "La pareja",
+      "desc": "Buscan una escapada romántica diferente. Domo geodésico, cielo estrellado, fogón y cocina de autor en la montaña.",
+      "wa": "Hola! Queremos ir en pareja a Mágico Ensueño. ¿Tienen domos disponibles y cuál es el precio?"
+    },
+    {
+      "title": "El buscador en tránsito",
+      "desc": "Estás en un momento de transformación y buscás comunidad, propósito y un espacio que acompañe el proceso.",
+      "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Mágico Ensueño. ¿Podemos hablar?"
+    },
+    {
+      "title": "La familia",
+      "desc": "Buscan desconectar de las pantallas y reconectar entre ustedes. Espacios amplios, naturaleza segura y aventuras compartidas en la montaña.",
+      "wa": "Hola! Queremos ir en familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?"
+    },
+    {
+      "title": "El ciudadano del mundo",
+      "desc": "Buscás nutrirte de otras culturas sin tomarte un avión. Disfrutás de compartir un fogón con viajeros y voluntarios de todas partes del mundo.",
+      "wa": "Hola! Me encanta la vibra internacional de Mágico Ensueño. ¿Qué opciones de estadía tienen?"
+    }
+  ]
+},
+"faq": {
+  "eyebrow": "PREGUNTAS FRECUENTES",
+  "title": "Antes de consultar",
+  "subtitle": "Todo lo que necesitás saber antes de reservar.",
+  "footer_text": "¿Tenés otra pregunta?",
+  "footer_cta": "Escribinos por WhatsApp",
+  "items": [
+    {
+      "q": "¿Qué incluye el precio de la estadía?",
+      "a": "El precio base incluye alojamiento (domo, habitación o camping), ropa blanca (sábanas, toalla y toallón), biocosmética, WiFi Starlink, acceso al fogón y jardines, y la guía PDF Reset Vital. La pensión completa agrega las 3 comidas del día con cocina de autor. Sin cargos ocultos."
+    },
+    {
+      "q": "¿Necesito experiencia previa en retiros o meditación?",
+      "a": "Para nada. Mágico Ensueño no es un centro de meditación formal — es un ecocentro vivo donde cada persona encuentra su propio ritmo. Podés venir a trabajar remoto, descansar, explorar la naturaleza o simplemente estar."
+    },
+    {
+      "q": "¿Hay señal o internet en la montaña?",
+      "a": "Sí. Tenemos conexión Starlink de alta velocidad en todos los espacios de trabajo y áreas comunes. Si lo que buscás es desconectarte del celular, también podés hacerlo — el entorno lo facilita naturalmente."
+    },
+    {
+      "q": "¿Cómo llego si no tengo auto?",
+      "a": "Estamos en Paraje Cuchilla Nevada, Ojo de Agua, a 20 minutos de Los Gigantes (Córdoba). Podemos coordinar traslado desde Villa Carlos Paz o Alta Gracia — consultanos por WhatsApp y lo organizamos juntos."
+    }
+  ]
+}
+},
+"en": {
+"experiences": {
+  "tag": "Mágico Experience",
+  "title": "Design your stay",
+  "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
+  "intro_p2": "We have already hosted travelers from all over the world. We are the ideal destination for those seeking a <b>Coworking with soul</b> or a self-guided personal retreat: the <b>Reset Vital</b>.",
+  "badge_accommodation": "Accommodation",
+  "card_extra_text": "You can also just book accommodation if you wish.",
+  "btn": "Book my spot",
+  "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
+  "cards": [
+    {
+      "id": 1,
+      "title": "Wellness & Balance",
+      "description": "Ancestral ceremonies, yoga, body awareness and temazcal.",
+      "ctaText": "Consult Therapies",
+      "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20las%20terapias%20de%20Bienestar%20%26%20Presencia.%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F",
+      "image": "/uploads/bienestar-balance.webp"
+    },
+    {
+      "id": 2,
+      "title": "Glamping & Shelter",
+      "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
+      "ctaText": "View Options",
+      "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
+      "image": "/uploads/refu.webp"
+    },
+    {
+      "id": 3,
+      "title": "Conscious Kitchen",
+      "description": "Nutrition for body and soul. Local and organic products.",
+      "ctaText": "View Proposal",
+      "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20la%20propuesta%20de%20Alimentaci%C3%B3n%20Natural.%20%F0%9F%A5%97",
+      "image": "/uploads/469731807_3987061274856806_2943773444767775905_n.jpg"
+    }
+  ],
+  "resetVital": {
+    "title": "What is RESET VITAL?",
+    "subtitle": "YOUR SELF-GUIDED RETREAT (INCLUDED)",
+    "description": "It is the heart of our proposal and is <b>included in all stays</b>. A self-guided retreat that provides you with the tools for deep reconnection while you enjoy the freedom of the mountain. Ideal for those seeking absolute silence as well as digital nomads looking for an <b>inspiring work environment with Starlink</b>.",
+    "image": "/uploads/campoentero.webp",
+    "items": [
+      {
+        "title": "FREEDOM & OWN PACE",
+        "desc": "Experience the benefits of a retreat but in your own way. Without imposed schedules, you decide when to rest and when to activate."
+      },
+      {
+        "title": "TRANSFORMATIVE CONTENT",
+        "desc": "The guide includes meditations, journaling exercises, conscious walks, and simple rituals to connect with nature."
+      },
+      {
+        "title": "INTEGRATION",
+        "desc": "It's not just momentary relaxation; you take home concrete tools to sustain calm and clarity when you return to your routine."
+      }
+    ]
+  }
+},
+"volunteer": {
+  "title": "An <span class='italic text-green'>international</span> haven",
+  "description": "We receive volunteers and travelers from all over the world. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
+  "btn": "Apply",
+  "image": "/uploads/voluntarios.webp",
+  "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
+  "testimonials": [
+    {
+      "name": "Ainhoa",
+      "text": "Not your typical volunteering, it's a lifestyle. You quickly feel welcomed and like family. If you are looking to connect with nature and yourself, this is your place.",
+      "image": "/uploads/Ainhoa.webp"
+    },
+    {
+      "name": "Ronen",
+      "text": "I arrived intending to stay 2 weeks and ended up staying 2.5 months. A wonderful place to connect with the earth, offering a freedom that feels unique.",
+      "image": "/uploads/Ronen.webp"
+    },
+    {
+      "name": "Anna-Lea",
+      "text": "A green oasis in the middle of nowhere. The work rhythm is very organic and people are incredibly open-hearted. I leave recharged and inspired.",
+      "image": "/uploads/Anna-Lea.webp"
+    },
+    {
+      "name": "Kylan",
+      "text": "Paradise. Such a lovely community feeling. The place is in the middle of nowhere, which is beautiful, and there are no bounds to where you can walk.",
+      "image": "/uploads/Kylan.webp"
+    }
+  ]
+},
+"retreats": {
+  "tag": "Group Experiences",
+  "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
+  "description": "We open the space, the team and the energy of Mágico Ensueño to Co-create retreats, gatherings and days in deep contact with nature.",
+  "btn": "Organize Retreat",
+  "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+  "list": [
+    {
+      "text": "Panoramic hall."
+    },
+    {
+      "text": "Regenerative food."
+    },
+    {
+      "text": "Integral production."
+    }
+  ],
+  "images": [
+    {
+      "image": "/uploads/469280911_444096748740233_2818770490495002077_n.webp"
+    },
+    {
+      "image": "/uploads/469742031_941240881439467_8316347989568757415_n.webp"
+    }
+  ]
+},
+"schools": {
+  "tag": "For Institutions",
+  "title": "Green Classrooms",
+  "description": "Learning happens outside. Nature immersion programs, alternative graduation trips, and retreats for schools and institutions.",
+  "btn": "View Proposal",
+  "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
+  "link": "/escuelas"
+},
+"about": {
+  "tag": "Our Essence",
+  "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
+  "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
+  "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
+  "link": "Our way of Being and Doing",
+  "image": "/uploads/dji_0074.webp",
+  "images": [
+    "/uploads/dji_0074.webp",
+    "/uploads/habitaciones.webp",
+    "/uploads/exterior.webp"
+  ]
+},
+"testimonials": {
+  "title": "Mountain Stories",
+  "items": [
+    {
+      "id": 1,
+      "name": "Julieta Castoldi",
+      "role": "Facilitator",
+      "text": "The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.",
+      "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Sofía R.",
+      "role": "Traveler",
+      "text": "I felt part of the mountain life, like at home. A unique refuge of peace.",
+      "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Marcos D.",
+      "role": "Guest",
+      "text": "A transformative experience. The conscious food and spaces are out of this world.",
+      "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+  ]
+},
+"location": {
+  "title": "The journey is part <br />of the <span class='text-gold italic'>experience.</span>",
+  "description": "Just 100 km from Córdoba Capital, the road transforms as you approach the Los Gigantes. It is accessible for any vehicle.",
+  "btnMap": "View on Map",
+  "btnTransfer": "Coordinate Transfer",
+  "image": "/uploads/img_6948.webp",
+  "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
+  "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
+},
+"events": {
+  "tag": "Calendar",
+  "title": "Upcoming Gatherings",
+  "btnPdf": "+ Info",
+  "link": "",
+  "cards": [
+    {
+      "date": "MAY 1-3 (LAST 2 SPOTS!)\nJUNE 13-15 (NEW DATE!)",
+      "title": "Familion",
+      "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
+      "btn": "See More",
+      "image": "/uploads/portada familion.webp",
+      "link": "/familion",
+      "pdfLink": ""
+    },
+    {
+      "date": "MAY 9 - 10",
+      "title": "Achala Viva",
+      "desc": "A guided exploration that includes astrotourism, bird watching, and nature photography.",
+      "btn": "See More",
       "image": "/uploads/img_6948.webp",
-      "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
-      "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
+      "link": "/achala-viva",
+      "pdfLink": ""
     },
-    "events": {
-      "tag": "Calendar",
-      "title": "Upcoming Gatherings",
-      "btnPdf": "+ Info",
-      "link": "",
-      "cards": [
+    {
+      "date": "MAY 23 - 25",
+      "title": "Habitar la Transformación",
+      "desc": "Mountain retreat focused on Enneagram and body practices to shift from personality to essence.",
+      "btn": "Inquire",
+      "image": "/uploads/hero(2).webp",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
+    },
+    {
+      "date": "MAY 29 - 31",
+      "title": "Gondorbows",
+      "desc": "Experiential and practical experience in intuitive and meditative archery to work on focus and intention in nature.",
+      "btn": "See More",
+      "image": "/uploads/tirando.jpg",
+      "link": "/gondorbows",
+      "pdfLink": ""
+    },
+    {
+      "date": "RECURRING",
+      "title": "Temazcal",
+      "desc": "Weekends (Ask for specific dates).",
+      "btn": "Inquire",
+      "image": "/uploads/temazcal.webp",
+      "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
+    },
+    {
+      "date": "ALWAYS AVAILABLE",
+      "title": "Reset Vital",
+      "desc": "Your self-guided retreat included in every stay. A PDF guide with meditations, journaling, mindful walks and simple rituals to reconnect at your own pace. No schedules, no obligations.",
+      "btn": "See Stays",
+      "image": "/uploads/bienestar-balance.webp",
+      "link": "/estadia"
+    }
+  ]
+},
+"hero": {
+  "title": "Invites You to Be",
+  "subtitle": "Stays, retreats and artisan cuisine on a regenerative farm. Sierras Grandes, Córdoba.",
+  "tag": "25+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
+  "btnBook": "BOOK NOW",
+  "btnRetreat": "ORGANIZE RETREAT",
+  "stats_years": "+15,000 Trees Planted",
+  "stats_trees": "Guests from +20 Countries",
+  "stats_sus": "From $40,000 / night",
+  "stats_google": "5.0★ · 64 Google Reviews",
+  "bgImage": "/uploads/img_8475.webp",
+  "bgImages": [
+    "/uploads/img_8475.webp",
+    "/uploads/hero(2).webp",
+    "/uploads/hero(3).webp"
+  ],
+  "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
+  "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+  "nextEvent": {
+    "label": "FAMILION · MAY 1–3 · LAST 2 SPOTS!",
+    "link": "/familion"
+  }
+},
+"video": {
+  "title": "Live our mountain <span class='italic text-gold'>experience</span>",
+  "subtitle": "",
+  "videoUrl": "https://youtube.com/shorts/hxE7Ksy7IsY?si=7LxNs6mLuTtOQaBh",
+  "poster": "/uploads/img_3027-1-1-.webp"
+},
+"menu": {
+  "items": [
+    {
+      "label": "About Us",
+      "href": "#nosotros",
+      "submenu": [
         {
-          "date": "MAY 1-3 (LAST 2 SPOTS!)\nJUNE 13-15 (NEW DATE!)",
-          "title": "Familion",
-          "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
-          "btn": "See More",
-          "image": "/uploads/portada familion.webp",
-          "link": "/familion",
-          "pdfLink": ""
+          "label": "Philosophy",
+          "href": "#nosotros"
         },
         {
-          "date": "MAY 9 - 10",
-          "title": "Achala Viva",
-          "desc": "A guided exploration that includes astrotourism, bird watching, and nature photography.",
-          "btn": "See More",
-          "image": "/uploads/img_6948.webp",
-          "link": "/achala-viva",
-          "pdfLink": ""
+          "label": "Our Pillars",
+          "href": "#pilares"
         },
         {
-          "date": "MAY 23 - 25",
-          "title": "Habitar la Transformación",
-          "desc": "Mountain retreat focused on Enneagram and body practices to shift from personality to essence.",
-          "btn": "Inquire",
-          "image": "/uploads/hero(2).webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
-        },
-        {
-          "date": "MAY 29 - 31",
-          "title": "Gondorbows",
-          "desc": "Experiential and practical experience in intuitive and meditative archery to work on focus and intention in nature.",
-          "btn": "See More",
-          "image": "/uploads/tirando.jpg",
-          "link": "/gondorbows",
-          "pdfLink": ""
-        },
-        {
-          "date": "RECURRING",
-          "title": "Temazcal",
-          "desc": "Weekends (Ask for specific dates).",
-          "btn": "Inquire",
-          "image": "/uploads/temazcal.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
-        },
-        {
-          "date": "ALWAYS AVAILABLE",
-          "title": "Reset Vital",
-          "desc": "Your self-guided retreat included in every stay. A PDF guide with meditations, journaling, mindful walks and simple rituals to reconnect at your own pace. No schedules, no obligations.",
-          "btn": "See Stays",
-          "image": "/uploads/bienestar-balance.webp",
-          "link": "/estadia"
+          "label": "Volunteering",
+          "href": "#voluntariados"
         }
       ]
     },
-    "hero": {
-      "title": "Invites You to Be",
-      "subtitle": "Stays, retreats and artisan cuisine on a regenerative farm. Sierras Grandes, Córdoba.",
-      "tag": "25+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
-      "btnBook": "BOOK NOW",
-      "btnRetreat": "ORGANIZE RETREAT",
-      "stats_years": "+15,000 Trees Planted",
-      "stats_trees": "Guests from +20 Countries",
-      "stats_sus": "From $40,000 / night",
-      "stats_google": "5.0★ · 64 Google Reviews",
-      "bgImage": "/uploads/img_8475.webp",
-      "bgImages": [
-        "/uploads/img_8475.webp",
-        "/uploads/hero(2).webp",
-        "/uploads/hero(3).webp"
-      ],
-      "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
-      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
-      "nextEvent": {
-        "label": "FAMILION · MAY 1–3 · LAST 2 SPOTS!",
-        "link": "/familion"
-      }
-    },
-    "video": {
-      "title": "Live our mountain <span class='italic text-gold'>experience</span>",
-      "subtitle": "",
-      "videoUrl": "https://youtube.com/shorts/hxE7Ksy7IsY?si=7LxNs6mLuTtOQaBh",
-      "poster": "/uploads/img_3027-1-1-.webp"
-    },
-    "menu": {
-      "items": [
+    {
+      "label": "Experiencias",
+      "href": "#experiencias",
+      "submenu": [
         {
-          "label": "About Us",
-          "href": "#nosotros",
-          "submenu": [
-            {
-              "label": "Philosophy",
-              "href": "#nosotros"
-            },
-            {
-              "label": "Our Pillars",
-              "href": "#pilares"
-            },
-            {
-              "label": "Volunteering",
-              "href": "#voluntariados"
-            }
-          ]
+          "label": "Stays & Glamping",
+          "href": "#experiencias"
         },
         {
-          "label": "Experiencias",
-          "href": "#experiencias",
-          "submenu": [
-            {
-              "label": "Stays & Glamping",
-              "href": "#experiencias"
-            },
-            {
-              "label": "Group Retreats",
-              "href": "#retiros"
-            },
-            {
-              "label": "Schools & Institutions",
-              "href": "/escuelas"
-            },
-            {
-              "label": "The Condor's Flight",
-              "href": "/el-vuelo-del-condor"
-            }
-          ]
+          "label": "Group Retreats",
+          "href": "#retiros"
         },
         {
-          "label": "Testimonials",
-          "href": "#testimonios"
+          "label": "Schools & Institutions",
+          "href": "/escuelas"
         },
         {
-          "label": "Agenda",
-          "href": "#eventos"
-        },
-        {
-          "label": "Location",
-          "href": "#como-llegar"
+          "label": "The Condor's Flight",
+          "href": "/el-vuelo-del-condor"
         }
-      ],
-      "book": "BOOK NOW",
-      "lang": "ESPAÑOL",
-      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
+      ]
     },
-    "pillars": [
+    {
+      "label": "Testimonials",
+      "href": "#testimonios"
+    },
+    {
+      "label": "Agenda",
+      "href": "#eventos"
+    },
+    {
+      "label": "Location",
+      "href": "#como-llegar"
+    }
+  ],
+  "book": "BOOK NOW",
+  "lang": "ESPAÑOL",
+  "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20experiencia%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8"
+},
+"pillars": [
+  {
+    "id": 1,
+    "title": "Regeneration",
+    "subtitle": "Over 8,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures."
+  },
+  {
+    "id": 2,
+    "title": "Community",
+    "subtitle": "Real bonds with people, producers, and neighbors. We co-create in a network, based on collaboration and encounter."
+  },
+  {
+    "id": 3,
+    "title": "Good Living",
+    "subtitle": "A simple and conscious way of inhabiting time, work, and relationships, in balance with nature."
+  },
+  {
+    "id": 4,
+    "title": "Consciousness",
+    "subtitle": "Everything that happens here has intention and heart. Practices, decisions, and experiences aligned with care and internal coherence."
+  }
+],
+"contact": {
+  "title": "Start the <span class='italic text-green'>journey</span>",
+  "subtitle": "Write to us to design your stay or retreat.",
+  "placeholders": {
+    "name": "Full Name",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "message": "How would you like to live the experience?"
+  },
+  "btn": "Send Message",
+  "labels": {
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "social": "Social",
+    "phone": "5493516765820",
+    "whatsappLink": "https://wa.me/5493516765820?text=Hola!%20Estoy%20viendo%20la%20web%20de%20M%C3%A1gico%20Ensue%C3%B1o%20y%20tengo%20una%20consulta.%20%F0%9F%8C%BF"
+  }
+},
+"footer": {
+  "description": "A mountain refuge designed to inspire simpler, conscious lives connected with nature.",
+  "titles": {
+    "explore": "Explore",
+    "experiences": "Experiences",
+    "legal": "Legal"
+  },
+  "links": {
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "faq": "FAQ"
+  },
+  "experienceLinks": [
+    {
+      "label": "Familion",
+      "href": "/familion"
+    },
+    {
+      "label": "Achala Viva",
+      "href": "/achala-viva"
+    },
+    {
+      "label": "Gondorbows",
+      "href": "/gondorbows"
+    },
+    {
+      "label": "Green Classrooms",
+      "href": "/escuelas"
+    }
+  ],
+  "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
+  "madeBy": "Made with respect for the mountain"
+},
+"cookieBanner": {
+  "title": "Privacy & cookies",
+  "description": "We use analytics cookies (Microsoft Clarity) to improve your experience. More info in our",
+  "policy": "Privacy Policy",
+  "accept": "Accept",
+  "decline": "Decline",
+  "essentials": "Essentials only"
+},
+"familion": {
+  "seo": {
+    "title": "Familion — Family Experiences · Los Gigantes, Cordoba | Magico Ensueno",
+    "description": "3 days of urban disconnection and family reconnection in the mountains. Workshops, hikes and wildlife for all ages."
+  },
+  "hero": {
+    "tag": "Collective Experience",
+    "title": "Familion",
+    "subtitle": "An encounter to return to the essentials as a family.",
+    "btn": "Check Next Date",
+    "dates": "MAY 1-3 · JUN 13-15 · Los Gigantes, Córdoba",
+    "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with workshops, bonfires, and moments that last forever.",
+    "cta_join": "BOOK MY SPOT",
+    "cta_details": "View details"
+  },
+  "invitation": {
+    "title": "A space to <span class='italic text-gold'>bond</span>",
+    "text1": "Familion is a proposal designed for parents and children to share quality time in a unique natural environment. Away from screens and city noise.",
+    "text2": "We propose playful activities, gentle walks and moments of reflection that strengthen family ties and teach us to live in harmony with the earth.",
+    "video_title": "Familion — Family experience in Los Gigantes"
+  },
+  "vivencia": {
+    "title": "The Proposal",
+    "items": [
       {
-        "id": 1,
-        "title": "Regeneration",
-        "subtitle": "Over 8,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures."
+        "label": "Orchard Workshops"
       },
       {
-        "id": 2,
-        "title": "Community",
-        "subtitle": "Real bonds with people, producers, and neighbors. We co-create in a network, based on collaboration and encounter."
+        "label": "Recognition Hikes"
       },
       {
-        "id": 3,
-        "title": "Good Living",
-        "subtitle": "A simple and conscious way of inhabiting time, work, and relationships, in balance with nature."
+        "label": "Bonfires & Stories"
       },
       {
-        "id": 4,
-        "title": "Consciousness",
-        "subtitle": "Everything that happens here has intention and heart. Practices, decisions, and experiences aligned with care and internal coherence."
+        "label": "Family Cooking"
+      }
+    ]
+  },
+  "precios": {
+    "title": "Join the Next Encounter",
+    "subtitle": "Values per family group. Includes accommodation, all meals and activities.",
+    "items": [
+      {
+        "name": "Adult",
+        "price": "120,000"
+      },
+      {
+        "name": "Child (4 to 12 years old)",
+        "price": "60,000"
       }
     ],
-    "contact": {
-      "title": "Start the <span class='italic text-green'>journey</span>",
-      "subtitle": "Write to us to design your stay or retreat.",
-      "placeholders": {
-        "name": "Full Name",
-        "email": "Email",
-        "whatsapp": "WhatsApp",
-        "message": "How would you like to live the experience?"
+    "btn": "BOOK SPOT",
+    "editions": [
+      "1ST EDITION",
+      "2ND EDITION"
+    ],
+    "spots": [
+      "LAST 2 SPOTS!",
+      "NEW DATE OPEN!"
+    ],
+    "cards": {
+      "camping": {
+        "title": "Camping",
+        "text": "Per person · Bring your own tent or rent ours"
       },
-      "btn": "Send Message",
-      "labels": {
-        "email": "Email",
-        "whatsapp": "WhatsApp",
-        "social": "Social",
-        "phone": "5493516765820",
-        "whatsappLink": "https://wa.me/5493516765820?text=Hola!%20Estoy%20viendo%20la%20web%20de%20M%C3%A1gico%20Ensue%C3%B1o%20y%20tengo%20una%20consulta.%20%F0%9F%8C%BF"
+      "refugio": {
+        "title": "Eco-Shelter & Domes",
+        "text": "Per person · Shared accommodation in rooms"
+      },
+      "privado": {
+        "title": "Private Dome",
+        "text": "Per person · Exclusive dome for your family group"
       }
     },
-    "footer": {
-      "description": "A mountain refuge designed to inspire simpler, conscious lives connected with nature.",
-      "titles": {
-        "explore": "Explore",
-        "experiences": "Experiences",
-        "legal": "Legal"
-      },
-      "links": {
-        "terms": "Terms and Conditions",
-        "privacy": "Privacy Policy",
-        "faq": "FAQ"
-      },
-      "experienceLinks": [
-        {
-          "label": "Familion",
-          "href": "/familion"
-        },
-        {
-          "label": "Achala Viva",
-          "href": "/achala-viva"
-        },
-        {
-          "label": "Gondorbows",
-          "href": "/gondorbows"
-        },
-        {
-          "label": "Green Classrooms",
-          "href": "/escuelas"
-        }
-      ],
-      "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
-      "madeBy": "Made with respect for the mountain"
-    },
-    "cookieBanner": {
-      "title": "Privacy & cookies",
-      "description": "We use analytics cookies (Microsoft Clarity) to improve your experience. More info in our",
-      "policy": "Privacy Policy",
-      "accept": "Accept",
-      "decline": "Decline",
-      "essentials": "Essentials only"
-    },
-    "familion": {
-      "seo": {
-        "title": "Familion — Family Experiences · Los Gigantes, Cordoba | Magico Ensueno",
-        "description": "3 days of urban disconnection and family reconnection in the mountains. Workshops, hikes and wildlife for all ages."
-      },
-      "hero": {
-        "tag": "Collective Experience",
-        "title": "Familion",
-        "subtitle": "An encounter to return to the essentials as a family.",
-        "btn": "Check Next Date",
-        "dates": "MAY 1-3 · JUN 13-15 · Los Gigantes, Córdoba",
-        "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with workshops, bonfires, and moments that last forever.",
-        "cta_join": "BOOK MY SPOT",
-        "cta_details": "View details"
-      },
-      "invitation": {
-        "title": "A space to <span class='italic text-gold'>bond</span>",
-        "text1": "Familion is a proposal designed for parents and children to share quality time in a unique natural environment. Away from screens and city noise.",
-        "text2": "We propose playful activities, gentle walks and moments of reflection that strengthen family ties and teach us to live in harmony with the earth.",
-        "video_title": "Familion — Family experience in Los Gigantes"
-      },
-      "vivencia": {
-        "title": "The Proposal",
-        "items": [
-          {
-            "label": "Orchard Workshops"
-          },
-          {
-            "label": "Recognition Hikes"
-          },
-          {
-            "label": "Bonfires & Stories"
-          },
-          {
-            "label": "Family Cooking"
-          }
-        ]
-      },
-      "precios": {
-        "title": "Join the Next Encounter",
-        "subtitle": "Values per family group. Includes accommodation, all meals and activities.",
-        "items": [
-          {
-            "name": "Adult",
-            "price": "120,000"
-          },
-          {
-            "name": "Child (4 to 12 years old)",
-            "price": "60,000"
-          }
-        ],
-        "btn": "BOOK SPOT",
-        "editions": [
-          "1ST EDITION",
-          "2ND EDITION"
-        ],
-        "spots": [
-          "LAST 2 SPOTS!",
-          "NEW DATE OPEN!"
-        ],
-        "cards": {
-          "camping": {
-            "title": "Camping",
-            "text": "Per person · Bring your own tent or rent ours"
-          },
-          "refugio": {
-            "title": "Eco-Shelter & Domes",
-            "text": "Per person · Shared accommodation in rooms"
-          },
-          "privado": {
-            "title": "Private Dome",
-            "text": "Per person · Exclusive dome for your family group"
-          }
-        },
-        "includes": {
-          "title": "What does your investment include?",
-          "items": [
-            "Accommodation (Friday night to Monday midday)",
-            "Full board: 6 meals (breakfasts, lunches, and dinners)",
-            "All workshops and program activities",
-            "Free use of the 200-hectare reserve",
-            "Night bonfire with stories and songs",
-            "Reset Vital PDF guide as a gift"
-          ]
-        },
-        "exchange": {
-          "title": "Special benefits",
-          "text": "10% OFF when coming with another family. 10% OFF for alumni or referrals. Discounts cannot be combined."
-        },
-        "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "question": "From what age can children come?",
-            "answer": "We recommend from 4 years old so they can fully enjoy the activities."
-          },
-          {
-            "question": "Are there food options for children?",
-            "answer": "Yes, our kitchen is healthy and adaptable to the tastes of the little ones."
-          },
-          {
-            "question": "What if it rains?",
-            "answer": "Familion is designed to be enjoyed in any weather. We have covered spaces and activities in the rain become even more magical. We only suspend in extreme conditions."
-          },
-          {
-            "question": "What is the accommodation like?",
-            "answer": "We offer three options: family camping, shared eco-shelter, and private dome. All include access to bathrooms with hot water."
-          },
-          {
-            "question": "What should I bring?",
-            "answer": "Comfortable clothes for walking, warm layers for the nights, a torch, and the desire to disconnect. Everything else is included: meals, workshops, and activities."
-          }
-        ],
-        "subtitle": "Everything you need to know before coming with your family."
-      },
-      "eco_center": {
-        "title": "A living eco-center in the mountains",
-        "subtitle": "Magico Ensueno is much more than a place: it is a living community where nature and people find balance.",
-        "items": [
-          {
-            "num": "01",
-            "title": "200-Hectare Reserve",
-            "text": "A private nature reserve with rivers, forests and mountaintop viewpoints. The biggest playground your children will ever know."
-          },
-          {
-            "num": "02",
-            "title": "100% Solar Energy",
-            "text": "All energy comes from the sun. A living example that it is possible to live in harmony with nature without sacrificing comfort."
-          },
-          {
-            "num": "03",
-            "title": "+15,000 Trees Planted",
-            "text": "We are an active part of native forest restoration. 10% of every experience goes directly to replanting native tabaquillo trees."
-          },
-          {
-            "num": "04",
-            "title": "Regenerative Kitchen",
-            "text": "All food is fresh, local, and prepared with love. Breakfasts, lunches, and dinners that nourish the body and soul of the whole family."
-          }
-        ]
-      },
-      "pilares": {
-        "title": "What makes Familion special",
-        "subtitle": "Four pillars designed so that every family member experiences a genuine transformation.",
-        "items": [
-          {
-            "num": "01",
-            "title": "Bond & Tribe",
-            "text": "Spaces and activities for families from across the country to meet, share, and recognize themselves in a context of real community."
-          },
-          {
-            "num": "02",
-            "title": "Nature & Play",
-            "text": "Children (and adults) reclaim free play in a safe and wild environment. No screens. No agenda. Just the mountain."
-          },
-          {
-            "num": "03",
-            "title": "Conscious Food",
-            "text": "Meals prepared with local and organic ingredients. We learn together where food comes from and how to nourish the body."
-          },
-          {
-            "num": "04",
-            "title": "Memory & Gratitude",
-            "text": "Moments designed to be remembered: the bonfire under the stars, the mountain song, the embrace at farewell."
-          }
-        ]
-      },
-      "cronograma": {
-        "tag": "PROGRAM",
-        "title": "3 days to return to the essentials",
-        "dates": [
-          "MAY 1-3 · LAST 2 SPOTS!",
-          "JUNE 13-15 · NEW DATE"
-        ],
-        "days": [
-          {
-            "num": "01",
-            "tag": "DAY 1 · SATURDAY",
-            "title": "Arrival & Opening",
-            "items": [
-              "10:00 — Welcome and settling in",
-              "12:30 — Community lunch · first group gathering",
-              "14:30 — Family Orchard Workshop",
-              "17:00 — Guided nature walk through the reserve",
-              "19:30 — Dinner · shared regenerative cuisine",
-              "21:00 — Welcome bonfire · stories and songs under the stars"
-            ]
-          },
-          {
-            "num": "02",
-            "tag": "DAY 2 · SUNDAY",
-            "title": "Immersion & Magic",
-            "items": [
-              "08:00 — Breakfast with the mountain",
-              "09:30 — Family Cooking Workshop",
-              "11:00 — Free exploration of the reserve",
-              "13:00 — Lunch · rest and free play",
-              "15:30 — Gratitude Ceremony · family integration",
-              "17:00 — Artistic and creative activities",
-              "19:30 — Family gala dinner"
-            ]
-          },
-          {
-            "num": "03",
-            "tag": "DAY 3 · MONDAY",
-            "title": "Closing & Return",
-            "items": [
-              "08:00 — Closing breakfast",
-              "09:30 — Closing circle · words and gifts of the experience",
-              "11:00 — Free time for photos and farewells",
-              "12:00 — Farewell lunch",
-              "13:00 — Return home with a full heart"
-            ]
-          }
-        ],
-        "footer": "The program may be adjusted based on weather and the group's needs."
-      },
-      "testimonials": {
-        "title": "Families who lived the experience",
-        "subtitle": "Hear it in their own words",
-        "items": [
-          {
-            "text": "It was the best weekend we spent together as a family in years. My kids did not want to go home. Neither did I.",
-            "name": "Tefi & family",
-            "role": "May edition participants"
-          },
-          {
-            "text": "The connection we achieved between parents and children was incredible. We came back different. Familion gave us presence.",
-            "name": "Lucas & Sofi",
-            "role": "October edition participants"
-          }
-        ]
-      },
-      "cta_final": {
-        "title": "Your family deserves this time together",
-        "subtitle": "Limited spots to guarantee the quality of the experience. Do not wait until the last week.",
-        "btn": "BOOK NOW"
-      },
-      "video_closing": {
-        "title": "A family, a transformative experience",
-        "text": "This is the gratitude ritual for the food that families experienced at Familion. A simple and profound moment that captures the essence of what we offer."
-      },
-      "magico": {
-        "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Magico Ensueno in Los Gigantes.",
-        "title": "Magico Ensueno",
-        "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
-        "video_title": "Magico Ensueno — Mountain Experience",
-        "benefits_title": "Why Magico Ensueno",
-        "benefits": [
-          {
-            "title": "200 hectares of pure nature.",
-            "text": "Forests, rivers, viewpoints, and trails to explore as a family without limits."
-          },
-          {
-            "title": "100% solar energy.",
-            "text": "A living example of regenerative living that children internalize naturally."
-          },
-          {
-            "title": "International community.",
-            "text": "Volunteers and travelers from around the world who enrich the experience with their cultures."
-          }
-        ],
-        "investment_title": "Your investment regenerates the mountain",
-        "investment_text": "10% of every Familion goes directly to native forest restoration by planting tabaquillo trees. By coming, you are part of something larger.",
-        "investment_quote": "Coming to the Magico does not only regenerate you, it regenerates the mountain.",
-        "footer_text": "Road access for all vehicle types right to the door of the property.",
-        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
-        "map_download": "Download Map",
-        "map_consult": "Ask about location"
-      }
-    },
-    "aula_verde": {
-      "seo": {
-        "title": "Aula Verde — Educational Camps in Cordoba | Magico Ensueno",
-        "description": "Nature immersion programs for schools and institutions in Los Gigantes."
-      },
-      "invitation": {
-        "title": "Learning happens <span class='italic text-gold'>outside</span>",
-        "text1": "Aula Verde is our proposal for educational institutions looking for an experiential learning experience.",
-        "text2": "We transform the traditional camp into a pedagogical immersion in nature, where respect for the ecosystem is the central axis.",
-        "video_title": "Aula Verde — Educational experience in Los Gigantes"
-      },
-      "dirigida_a": {
-        "title": "Who is it for?",
-        "subtitle": "Adaptable programs according to educational level.",
-        "items": [
-          {
-            "num": "01",
-            "title": "Primary Schools",
-            "text": "Playful approach and sensory discovery."
-          },
-          {
-            "num": "02",
-            "title": "High Schools",
-            "text": "Autonomy challenges and deep environmental awareness."
-          }
-        ]
-      },
-      "diferencial": {
-        "title": "Why choose us",
-        "subtitle": "More than a graduation trip, a journey of awareness.",
-        "items": [
-          {
-            "num": "01",
-            "title": "Protected Environment",
-            "text": "Private nature reserve with security and expert guides."
-          },
-          {
-            "num": "02",
-            "title": "Own Pedagogy",
-            "text": "Activities designed to strengthen the group and the bond with the land."
-          }
-        ]
-      },
-      "catalogo": {
-        "title": "Our Modules",
-        "subtitle": "Choose the workshops that best fit your institutional project.",
-        "modules": [
-          {
-            "tag": "Nature",
-            "title": "Botany & Recognition",
-            "items": [
-              "Species identification",
-              "Seed collection"
-            ]
-          },
-          {
-            "tag": "Sustainability",
-            "title": "Clean Energies",
-            "items": [
-              "Solar oven",
-              "Waste management"
-            ]
-          }
-        ]
-      },
-      "cta_final": {
-        "title": "Take your school to the mountains",
-        "subtitle": "Write to us to receive the informational dossier and coordinate a visit.",
-        "btn": "Request Dossier"
-      },
-      "hero": {
-        "title": "Green Classroom",
-        "subtitle": "Educational programs in nature",
-        "tagline": "Where the classroom has no walls.",
-        "description": "Take your institution on an experience that transforms. Experiential learning, deep connection with nature, and a methodology that strengthens the group.",
-        "cta_budget": "REQUEST A QUOTE",
-        "cta_facilities": "View facilities",
-        "stat_open": "Enrollments open 2025-2026",
-        "stat_location": "Los Gigantes, Cordoba Mountains"
-      },
-      "magico": {
-        "wa_query": "Hi! I come from the Aula Verde website and want to ask about educational programs at Magico Ensueno for my institution.",
-        "title": "Magico Ensueno",
-        "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
-        "infra_title": "Infrastructure for groups",
-        "infra_text": "Main hall for 60 people, equipped kitchen, group dormitories, bathrooms with hot water, and outdoor spaces for all program activities.",
-        "video_title": "Magico Ensueno — Mountain Experience",
-        "benefits_title": "Why choose us",
-        "benefits": [
-          {
-            "title": "Specialized guides.",
-            "text": "Educational team with experience in environmental education and group dynamics."
-          },
-          {
-            "title": "Customizable program.",
-            "text": "We adapt each session to the pedagogical objectives of your institution and the educational level of the group."
-          },
-          {
-            "title": "Certified safety.",
-            "text": "Safety protocols for school groups, first aid, and guides trained in emergency response."
-          }
-        ],
-        "strengthen_title": "Strengthen the group",
-        "strengthen_text": "Every activity is designed to work on trust, communication, and teamwork. Students return with stronger bonds.",
-        "reforest_title": "We plant together",
-        "reforest_text": "Every group that visits Magico plants at least one tree. A concrete act of regeneration that students carry in their hearts.",
-        "footer_text": "Road access for coaches and school vehicles right to the entrance of the property.",
-        "safety_items": [
-          {
-            "title": "Certified Guide",
-            "text": "Our team is trained in first aid, group management, and mountain emergency protocols."
-          },
-          {
-            "title": "Liability Insurance",
-            "text": "Full coverage for all program activities throughout the stay."
-          },
-          {
-            "title": "School Protocols",
-            "text": "We work with each school's institutional protocols and adapt activities to specific needs."
-          }
-        ],
-        "gallery_title": "The experience in images",
-        "gallery_subtitle": "Groups that have already experienced Aula Verde in Los Gigantes",
-        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
-        "map_download": "Download Map",
-        "map_consult": "Ask about location"
-      },
-      "precios": {
-        "title": "Plans for your institution",
-        "subtitle": "Three adaptable formats for the size of your group and the goals of your educational project.",
-        "cards": [
-          {
-            "title": "Day Trip",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "Minimum 20 people",
-            "badge": null,
-            "features": [
-              "Half-day or full-day activities",
-              "Lunch included",
-              "Workshops of your choice from the catalog",
-              "Pedagogical guide throughout the session",
-              "Transport not included"
-            ],
-            "btn": "Ask for price"
-          },
-          {
-            "title": "2-Night Camp",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "Minimum 20 people",
-            "badge": "MOST POPULAR",
-            "features": [
-              "2 nights of group accommodation",
-              "Full board (4 meals)",
-              "Full activity program",
-              "Pedagogical guide 24 hours",
-              "Native tree planting included"
-            ],
-            "btn": "Ask for price"
-          },
-          {
-            "title": "Educational Residency",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "3 to 5 nights",
-            "badge": null,
-            "features": [
-              "Fully personalized program",
-              "All-inclusive full board",
-              "Dedicated educational team",
-              "Documentation for school records",
-              "Reforestation project included"
-            ],
-            "btn": "Build a proposal"
-          }
-        ],
-        "note": "Prices are calculated based on group size, chosen modules, and duration. Request a free quote.",
-        "global_btn": "REQUEST FREE QUOTE"
-      },
-      "testimonios": {
-        "title": "Institutions that chose us",
-        "subtitle": "The voices of those who lived the Aula Verde experience",
-        "institutions_title": "Institutions that chose us",
-        "items": [
-          {
-            "text": "The experience exceeded our expectations. The kids came back transformed. The methodology at Magico Ensueno connects with the experiential learning we seek as a Waldorf school.",
-            "name": "Cinthia B.",
-            "role": "Teacher",
-            "extra_role": "Waldorf School El Trigal",
-            "audio_text": "Listen to Alejandro's audio"
-          },
-          {
-            "text": "We organized the graduation trip here and it was the best decision. The kids ended up crying at the closing bonfire because they did not want to leave. That says it all.",
-            "name": "Marcelo G.",
-            "role": "Educational coordinator",
-            "extra_role": "Hebraica Institution",
-            "audio_text": "Listen to Marcelo's audio"
-          },
-          {
-            "text": "We took a karate group and it was incredible to see how contact with nature enhanced concentration and respect among the kids. We repeat it every year.",
-            "name": "Sensei Alejandro",
-            "role": "Instructor",
-            "extra_role": "Senshi Dojo Unquillo"
-          },
-          {
-            "text": "The Magico Ensueno team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
-            "name": "Federico T.",
-            "role": "Director",
-            "extra_role": "Racing Club de Cordoba School",
-            "audio_text": "Listen to Fede's audio"
-          }
-        ]
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "subtitle": "Everything you need to know before organizing the educational outing.",
-        "items": [
-          {
-            "question": "What ages are most suitable for the program?",
-            "answer": "We design programs for all ages, from preschool to secondary and university level. Each activity is adapted to the cognitive and physical level of the group."
-          },
-          {
-            "question": "What if there are students with special needs or allergies?",
-            "answer": "We adapt to every group. We ask for a list of special needs before the trip so we can prepare the right program and food."
-          },
-          {
-            "question": "Is transport included?",
-            "answer": "Transport is not included in the base price, but we can coordinate coaches from Cordoba Capital or Villa Carlos Paz. Ask us to include it in the quote."
-          },
-          {
-            "question": "Can accompanying teachers come?",
-            "answer": "Of course! Accompanying teachers have a special price. We recommend a ratio of 1 adult per 10 students for nature activities."
-          },
-          {
-            "question": "What documentation do we need for the educational outing?",
-            "answer": "We prepare all the documentation the school needs: detailed program, civil liability insurance, team certifications, and safety protocols."
-          }
-        ]
-      },
-      "video_closing": {
-        "title": "An experience carried in the heart",
-        "text": "Watch how students from a Cordoba school experienced the Aula Verde program at Magico Ensueno. Their words say more than any brochure."
-      }
-    },
-    "vuelo_condor": {
-      "seo": {
-        "title": "The Flight of the Condor — An initiatory journey in Peru | Magico Ensueno",
-        "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From July 22 to 29."
-      },
-      "hero": {
-        "dates": "July 22 to 29, 2026",
-        "title": "The Flight of the Condor",
-        "subtitle": "An initiatory journey to the heart of the Andes.",
-        "text": "Seven days of deep immersion in the ancestral wisdom and energy of the Sacred Valley of the Incas, Peru. A path of transformation designed to raise your consciousness and reconnect with the origin.",
-        "btn_info": "I want more information",
-        "btn_itinerary": "View Itinerary",
-        "location": "Sacred Valley · Cuzco · Peru"
-      },
-      "cosmovision": {
-        "title": "A Return to the Origin",
-        "quote": "The Condor does not fly, it is the wind that carries it. So is the soul when it surrenders to the Great Spirit.",
-        "text1": "This journey is not tourism, it is a pilgrimage inward. Accompanied by the majesty of the Peruvian Andes, we will walk along paths that hold the memory of a civilization that understood life as a sacred fabric.",
-        "text2": "From opening ceremonies to visits to ancestral energy centers, each step is designed so that you can let go of what no longer serves and unfold your own wings."
-      },
-      "para_quien": {
-        "title": "Who is this journey for?",
-        "subtitle": "We look for walkers willing to open their hearts and receive the medicine of the mountain.",
-        "items": [
-          "Spiritual seekers in the process of transformation.",
-          "People who feel the call of Andean wisdom.",
-          "Those who need a space for silence and deep reconnection.",
-          "Walkers who enjoy nature in its purest state."
-        ]
-      },
-      "vivencia": {
-        "title": "The Experience",
-        "items": [
-          {
-            "label": "Ancestral rituals & ceremonies"
-          },
-          {
-            "label": "Connection with nature"
-          },
-          {
-            "label": "Sharing circles"
-          },
-          {
-            "label": "Guided introspection"
-          },
-          {
-            "label": "Conscious movement"
-          },
-          {
-            "label": "Sound harmonizations"
-          },
-          {
-            "label": "Purposeful hikes"
-          },
-          {
-            "label": "Family Constellations"
-          },
-          {
-            "label": "Silence & contemplation"
-          }
-        ]
-      },
-      "grupo": {
-        "title": "A Group for the Soul",
-        "text1": "We walk together on this sacred journey, forming a temporary community based on respect, care and depth.",
-        "text2": "A shared experience that transcends the ordinary and creates bonds that last over time."
-      },
-      "itinerario": {
-        "title": "The Path",
-        "subtitle": "Seven portals of transformation through the Sacred Valley.",
-        "days": [
-          {
-            "dia": "Day 1",
-            "titulo": "CLEANSING AND OPENING",
-            "resumen": "Arrival at the Sacred Valley and first group meeting. Opening Temazcal to cleanse body and mind, followed by a word circle to begin opening the process.",
-            "items": [
-              "10:00 — Meet at Plaza de Armas, Cusco",
-              "12:00 — Transfer to Pisac · Hostal Medicina",
-              "12:30 — Welcome Temazcal · purification",
-              "17:00 — Opening circle & group intro",
-              "19:00 — Rapé ceremony",
-              "20:00 — Rest · free integration"
-            ]
-          },
-          {
-            "dia": "Day 2",
-            "titulo": "OPENING OF PORTALS",
-            "resumen": "Journey through sacred sites (Ollantaytambo and Moray). Energetic activations, music, and connection with the earth. At night, Ayahuasca ceremony.",
-            "items": [
-              "Group breakfast · intention of the day",
-              "Ollantaytambo visit · sacred archaeological site",
-              "Moray · Rapé ceremony and medicine music",
-              "21:00 — Ayahuasca ceremony in sacred tipi"
-            ]
-          },
-          {
-            "dia": "Day 3",
-            "titulo": "INTEGRATION",
-            "resumen": "Space for rest, integration, and contemplation. Conscious walk and community time to settle the lived experience.",
-            "items": [
-              "06:00 — Post-ceremony Temazcal · cleansing",
-              "Deep rest · free integration time",
-              "Afternoon: Pisac archaeological park",
-              "Group meal · evening circle"
-            ]
-          },
-          {
-            "dia": "Day 4",
-            "titulo": "ENCOUNTER WITH THE MOUNTAIN",
-            "resumen": "Journey to Ausangate. Connection with the Apus (mountain spirits) and ceremonial offering. Entry into a deeper space of introspection.",
-            "items": [
-              "Transfer to Cusco · Sacsayhuamán",
-              "San Pedro Market · plants and essences",
-              "Ascent to Ausangate (sacred peak, 5,200 m)",
-              "Offering to the Apu · first night on the mountain"
-            ]
-          },
-          {
-            "dia": "Day 5",
-            "titulo": "VISION",
-            "resumen": "Ceremony with ancestral medicine in the heart of the mountain. Walking, nature, and opening of vision.",
-            "items": [
-              "Wuachuma (San Pedro) ceremony at dawn",
-              "Ceremonial walk across the glacier",
-              "Natural mountain hot springs · rest",
-              "Second night under the stars on Ausangate"
-            ]
-          },
-          {
-            "dia": "Day 6",
-            "titulo": "RETURN AND INTEGRATION",
-            "resumen": "Closing on the mountain and return to Pisac. Group and personal integration time.",
-            "items": [
-              "07:30 — Breakfast on the mountain",
-              "Descent and departure from Ausangate",
-              "Arrival in Cusco · free break",
-              "Return to Pisac · Hostal Medicina"
-            ]
-          },
-          {
-            "dia": "Day 7",
-            "titulo": "CONSECRATION",
-            "resumen": "Closing Temazcal. Final integration and consecration of the lived process.",
-            "items": [
-              "08:00 — Closing & consecration Temazcal",
-              "Final circle · open sharing",
-              "15:00 — Official end of the retreat",
-              "Transfer to Cusco for night flights or onwards"
-            ]
-          }
-        ]
-      },
-      "equipo": {
-        "title": "Guardians of Arkan del Fuego",
-        "subtitle": "A multidisciplinary team at the service of your transformation.",
-        "members": [
-          {
-            "nombre": "Gustavo Torras",
-            "foto": "/uploads/vuelo-condor/Toti.webp",
-            "desc": "Founder of Arkan del Fuego. Initiatory guide with over 15 years supporting masculine transformation journeys. Specialist in master plant work and Andean ancestral rituals."
-          },
-          {
-            "nombre": "Diego Epelman Hodara",
-            "foto": "/uploads/vuelo-condor/Diego.webp",
-            "desc": "Family Constellations facilitator and integration process guide. He bridges systemic tradition with ancestral wisdom to work through the deepest bonds."
-          },
-          {
-            "nombre": "Juan Cruz Sartori",
-            "foto": "/uploads/vuelo-condor/juan.webp",
-            "desc": "Medicine musician and conscious movement facilitator. He accompanies processes through sacred sound, building bridges between body, emotion, and spirit."
-          }
-        ],
-        "footer": "We also work with local Quechua guides and specialists at each sacred site of the Valley."
-      },
-      "inversion": {
-        "title": "Your Investment in the Soul",
-        "incluye_title": "What's included",
-        "incluye": [
-          "7 nights at Hostal Medicina, Pisac",
-          "Full board (breakfasts, lunches & dinners)",
-          "Opening & closing Temazcal ceremony",
-          "Ayahuasca ceremony in sacred tipi",
-          "Wuachuma ceremony on Ausangate",
-          "Internal transfers through the Sacred Valley",
-          "Entry to all archaeological sites",
-          "Full spiritual team support 24/7"
-        ],
-        "no_incluye_title": "Not included",
-        "no_incluye": "International flights and travel insurance.",
-        "vuelos_help": "We help you find the best flights. Arrival: Cusco (CUZ) July 22. Departure: from 6 PM on July 29.",
-        "slots": "12 spots · July 2026",
-        "total_title": "Program Value",
-        "currency": "USD",
-        "price": "1.800",
-        "note": "Reserve with <strong>USD 540</strong> · balance due 30 days before.",
-        "btn": "BOOK MY SPOT",
-        "msg": "Group max 12 people. Payment plans available."
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "subtitle": "Everything you need to know before you take flight.",
-        "items": [
-          {
-            "question": "Do I need previous experience with master plants?",
-            "answer": "No experience required. What we ask for is genuine openness and willingness to honor the process. We hold a pre-trip interview with each participant to ensure the journey is right for you."
-          },
-          {
-            "question": "What physical condition is needed for Ausangate?",
-            "answer": "Ausangate sits at 5,200 m altitude. Good general fitness is required, and we recommend arriving 48 hours early in Cusco to acclimatize. This is not a mountaineering expedition — we walk at a group, contemplative pace."
-          },
-          {
-            "question": "How does the booking process work?",
-            "answer": "Your spot is secured with a 30% deposit (USD 540). The balance is due 30 days before the start date. The group is capped at 12 people, so spots are limited."
-          },
-          {
-            "question": "Are the rooms shared?",
-            "answer": "Hostal Medicina has double rooms. Single rooms are available at an extra cost — just ask when you book."
-          },
-          {
-            "question": "What flights should I book?",
-            "answer": "You need to arrive at Cusco (CUZ) on July 22nd before 9:00 AM. Your return flight can be July 29th from 6:00 PM onwards. Flights from Argentina usually connect through Lima."
-          },
-          {
-            "question": "What if I have doubts or fears before the trip?",
-            "answer": "That's part of the path. We hold a virtual preparation session with all participants weeks before the journey. You can also message us anytime — we're here to support you from your first contact."
-          }
-        ]
-      },
-      "cta": {
-        "title": "If you feel the call,\nwrite to us.",
-        "subtitle": "Don't overthink it. These journeys aren't understood — they're felt.",
-        "btn": "I want more information"
-      }
-    },
-    "notFound": {
-      "title": "A path to <span class='italic text-gold'>the unknown.</span>",
-      "subtitle": "It seems you've wandered off the trail. This path doesn't lead to any shelter, but we'll help you find your way back.",
-      "btnHome": "BACK TO HOME",
-      "btnContact": "WHATSAPP RESCUE"
-    },
-    "donations": {
-      "text": "Support the restoration of the Sierras Grandes de Córdoba through native tabaquillo tree planting. Every tree is a step toward the forest it once was.",
-      "btn": "JOIN THE RESTORATION",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
-    },
-    "inclusiones": {
-      "eyebrow": "ALL INCLUDED",
-      "title": "What's included in your stay",
-      "subtitle": "No surprises. One clear price that includes everything you need to disconnect and reconnect.",
+    "includes": {
+      "title": "What does your investment include?",
       "items": [
-        {
-          "label": "Accommodation",
-          "sub": "Dome, room or camping"
-        },
-        {
-          "label": "Bed linen",
-          "sub": "Sheets, towel and bath towel"
-        },
-        {
-          "label": "Starlink WiFi",
-          "sub": "Mountain connectivity"
-        },
-        {
-          "label": "Common areas",
-          "sub": "Firepit, garden and orchard"
-        },
-        {
-          "label": "Solar energy",
-          "sub": "100% renewable"
-        },
-        {
-          "label": "Reset Vital",
-          "sub": "Self-guided retreat PDF guide"
-        },
-        {
-          "label": "Eco Biokit",
-          "sub": "Biodegradable soap, shampoo & conditioner"
-        }
-      ],
-      "price_solo_label": "Accommodation only",
-      "price_solo_sub": "Includes linen, eco-cosmetics and Reset Vital",
-      "price_pension_label": "Full board",
-      "price_pension_sub": "+ breakfast, lunch and dinner · all inclusive",
-      "price_unit": "/ night",
-      "cta": "View all accommodations"
-    },
-    "para_quien": {
-      "eyebrow": "WHO IS IT FOR",
-      "title": "Is this for me?",
-      "cta_label": "Ask us",
-      "profiles": [
-        {
-          "title": "The digital nomad",
-          "desc": "You work remotely and want a place with real WiFi, silence and authentic human connection. Starlink + nature + community.",
-          "wa": "Hi! I am interested in co-working accommodation for remote work at Mágico Ensueño. Do you have availability?"
-        },
-        {
-          "title": "The burned-out professional",
-          "desc": "You need to escape the urban noise and reset. Real food, mountain air, silence and space to return to yourself.",
-          "wa": "Hi! I am looking for a rest retreat at Mágico Ensueño. When do you have availability?"
-        },
-        {
-          "title": "The couple",
-          "desc": "Looking for a different romantic getaway. Geodesic dome, starry sky, firepit and gourmet cooking in the mountains.",
-          "wa": "Hi! We want to go as a couple to Mágico Ensueño. Do you have domes available and what is the price?"
-        },
-        {
-          "title": "The seeker in transition",
-          "desc": "You are in a moment of transformation and looking for community, purpose and a space that supports the process.",
-          "wa": "Hi! I am interested in learning more about retreats and co-living at Mágico Ensueño. Can we talk?"
-        },
-        {
-          "title": "The family",
-          "desc": "Looking to disconnect from screens and reconnect with each other. Ample spaces, safe nature and shared adventures in the mountains.",
-          "wa": "Hi! We want to go as a family to Mágico Ensueño. What accommodation options do you have?"
-        },
-        {
-          "title": "The world citizen",
-          "desc": "You want to absorb other cultures without boarding a plane. You enjoy sharing a firepit with travelers and volunteers from all over the world.",
-          "wa": "Hi! I love the international vibe at Mágico Ensueño. What stay options do you have?"
-        }
+        "Accommodation (Friday night to Monday midday)",
+        "Full board: 6 meals (breakfasts, lunches, and dinners)",
+        "All workshops and program activities",
+        "Free use of the 200-hectare reserve",
+        "Night bonfire with stories and songs",
+        "Reset Vital PDF guide as a gift"
       ]
     },
-    "faq": {
-      "eyebrow": "FREQUENTLY ASKED QUESTIONS",
-      "title": "Before you ask",
-      "subtitle": "Everything you need to know before booking.",
-      "footer_text": "Have another question?",
-      "footer_cta": "Message us on WhatsApp",
-      "items": [
-        {
-          "q": "What does the stay price include?",
-          "a": "The base price includes accommodation (dome, room or camping), bed linen (sheets, towel and bath towel), eco-cosmetics, Starlink WiFi, access to the firepit and gardens, and the Reset Vital PDF guide. Full board adds 3 daily gourmet meals. No hidden fees."
-        },
-        {
-          "q": "Do I need prior experience with retreats or meditation?",
-          "a": "Not at all. Mágico Ensueño is not a formal meditation center — it is a living eco-center where each person finds their own rhythm. You can come to work remotely, rest, explore nature or simply be."
-        },
-        {
-          "q": "Is there signal or internet in the mountains?",
-          "a": "Yes. We have high-speed Starlink connectivity in all workspaces and common areas. If you want to disconnect from your phone, you can do that too — the environment naturally supports it."
-        },
-        {
-          "q": "How do I get there without a car?",
-          "a": "We are in Paraje Cuchilla Nevada, Ojo de Agua, 20 minutes from Los Gigantes (Córdoba). We can arrange a transfer from Villa Carlos Paz or Alta Gracia — contact us on WhatsApp and we will sort it out together."
-        }
-      ]
-    }
+    "exchange": {
+      "title": "Special benefits",
+      "text": "10% OFF when coming with another family. 10% OFF for alumni or referrals. Discounts cannot be combined."
+    },
+    "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "From what age can children come?",
+        "answer": "We recommend from 4 years old so they can fully enjoy the activities."
+      },
+      {
+        "question": "Are there food options for children?",
+        "answer": "Yes, our kitchen is healthy and adaptable to the tastes of the little ones."
+      },
+      {
+        "question": "What if it rains?",
+        "answer": "Familion is designed to be enjoyed in any weather. We have covered spaces and activities in the rain become even more magical. We only suspend in extreme conditions."
+      },
+      {
+        "question": "What is the accommodation like?",
+        "answer": "We offer three options: family camping, shared eco-shelter, and private dome. All include access to bathrooms with hot water."
+      },
+      {
+        "question": "What should I bring?",
+        "answer": "Comfortable clothes for walking, warm layers for the nights, a torch, and the desire to disconnect. Everything else is included: meals, workshops, and activities."
+      }
+    ],
+    "subtitle": "Everything you need to know before coming with your family."
+  },
+  "eco_center": {
+    "title": "A living eco-center in the mountains",
+    "subtitle": "Magico Ensueno is much more than a place: it is a living community where nature and people find balance.",
+    "items": [
+      {
+        "num": "01",
+        "title": "200-Hectare Reserve",
+        "text": "A private nature reserve with rivers, forests and mountaintop viewpoints. The biggest playground your children will ever know."
+      },
+      {
+        "num": "02",
+        "title": "100% Solar Energy",
+        "text": "All energy comes from the sun. A living example that it is possible to live in harmony with nature without sacrificing comfort."
+      },
+      {
+        "num": "03",
+        "title": "+15,000 Trees Planted",
+        "text": "We are an active part of native forest restoration. 10% of every experience goes directly to replanting native tabaquillo trees."
+      },
+      {
+        "num": "04",
+        "title": "Regenerative Kitchen",
+        "text": "All food is fresh, local, and prepared with love. Breakfasts, lunches, and dinners that nourish the body and soul of the whole family."
+      }
+    ]
+  },
+  "pilares": {
+    "title": "What makes Familion special",
+    "subtitle": "Four pillars designed so that every family member experiences a genuine transformation.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Bond & Tribe",
+        "text": "Spaces and activities for families from across the country to meet, share, and recognize themselves in a context of real community."
+      },
+      {
+        "num": "02",
+        "title": "Nature & Play",
+        "text": "Children (and adults) reclaim free play in a safe and wild environment. No screens. No agenda. Just the mountain."
+      },
+      {
+        "num": "03",
+        "title": "Conscious Food",
+        "text": "Meals prepared with local and organic ingredients. We learn together where food comes from and how to nourish the body."
+      },
+      {
+        "num": "04",
+        "title": "Memory & Gratitude",
+        "text": "Moments designed to be remembered: the bonfire under the stars, the mountain song, the embrace at farewell."
+      }
+    ]
+  },
+  "cronograma": {
+    "tag": "PROGRAM",
+    "title": "3 days to return to the essentials",
+    "dates": [
+      "MAY 1-3 · LAST 2 SPOTS!",
+      "JUNE 13-15 · NEW DATE"
+    ],
+    "days": [
+      {
+        "num": "01",
+        "tag": "DAY 1 · SATURDAY",
+        "title": "Arrival & Opening",
+        "items": [
+          "10:00 — Welcome and settling in",
+          "12:30 — Community lunch · first group gathering",
+          "14:30 — Family Orchard Workshop",
+          "17:00 — Guided nature walk through the reserve",
+          "19:30 — Dinner · shared regenerative cuisine",
+          "21:00 — Welcome bonfire · stories and songs under the stars"
+        ]
+      },
+      {
+        "num": "02",
+        "tag": "DAY 2 · SUNDAY",
+        "title": "Immersion & Magic",
+        "items": [
+          "08:00 — Breakfast with the mountain",
+          "09:30 — Family Cooking Workshop",
+          "11:00 — Free exploration of the reserve",
+          "13:00 — Lunch · rest and free play",
+          "15:30 — Gratitude Ceremony · family integration",
+          "17:00 — Artistic and creative activities",
+          "19:30 — Family gala dinner"
+        ]
+      },
+      {
+        "num": "03",
+        "tag": "DAY 3 · MONDAY",
+        "title": "Closing & Return",
+        "items": [
+          "08:00 — Closing breakfast",
+          "09:30 — Closing circle · words and gifts of the experience",
+          "11:00 — Free time for photos and farewells",
+          "12:00 — Farewell lunch",
+          "13:00 — Return home with a full heart"
+        ]
+      }
+    ],
+    "footer": "The program may be adjusted based on weather and the group's needs."
+  },
+  "testimonials": {
+    "title": "Families who lived the experience",
+    "subtitle": "Hear it in their own words",
+    "items": [
+      {
+        "text": "It was the best weekend we spent together as a family in years. My kids did not want to go home. Neither did I.",
+        "name": "Tefi & family",
+        "role": "May edition participants"
+      },
+      {
+        "text": "The connection we achieved between parents and children was incredible. We came back different. Familion gave us presence.",
+        "name": "Lucas & Sofi",
+        "role": "October edition participants"
+      }
+    ]
+  },
+  "cta_final": {
+    "title": "Your family deserves this time together",
+    "subtitle": "Limited spots to guarantee the quality of the experience. Do not wait until the last week.",
+    "btn": "BOOK NOW"
+  },
+  "video_closing": {
+    "title": "A family, a transformative experience",
+    "text": "This is the gratitude ritual for the food that families experienced at Familion. A simple and profound moment that captures the essence of what we offer."
+  },
+  "magico": {
+    "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Magico Ensueno in Los Gigantes.",
+    "title": "Magico Ensueno",
+    "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
+    "video_title": "Magico Ensueno — Mountain Experience",
+    "benefits_title": "Why Magico Ensueno",
+    "benefits": [
+      {
+        "title": "200 hectares of pure nature.",
+        "text": "Forests, rivers, viewpoints, and trails to explore as a family without limits."
+      },
+      {
+        "title": "100% solar energy.",
+        "text": "A living example of regenerative living that children internalize naturally."
+      },
+      {
+        "title": "International community.",
+        "text": "Volunteers and travelers from around the world who enrich the experience with their cultures."
+      }
+    ],
+    "investment_title": "Your investment regenerates the mountain",
+    "investment_text": "10% of every Familion goes directly to native forest restoration by planting tabaquillo trees. By coming, you are part of something larger.",
+    "investment_quote": "Coming to the Magico does not only regenerate you, it regenerates the mountain.",
+    "footer_text": "Road access for all vehicle types right to the door of the property.",
+    "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+    "map_download": "Download Map",
+    "map_consult": "Ask about location"
   }
+},
+"aula_verde": {
+  "seo": {
+    "title": "Aula Verde — Educational Camps in Cordoba | Magico Ensueno",
+    "description": "Nature immersion programs for schools and institutions in Los Gigantes."
+  },
+  "invitation": {
+    "title": "Learning happens <span class='italic text-gold'>outside</span>",
+    "text1": "Aula Verde is our proposal for educational institutions looking for an experiential learning experience.",
+    "text2": "We transform the traditional camp into a pedagogical immersion in nature, where respect for the ecosystem is the central axis.",
+    "video_title": "Aula Verde — Educational experience in Los Gigantes"
+  },
+  "dirigida_a": {
+    "title": "Who is it for?",
+    "subtitle": "Adaptable programs according to educational level.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Primary Schools",
+        "text": "Playful approach and sensory discovery."
+      },
+      {
+        "num": "02",
+        "title": "High Schools",
+        "text": "Autonomy challenges and deep environmental awareness."
+      }
+    ]
+  },
+  "diferencial": {
+    "title": "Why choose us",
+    "subtitle": "More than a graduation trip, a journey of awareness.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Protected Environment",
+        "text": "Private nature reserve with security and expert guides."
+      },
+      {
+        "num": "02",
+        "title": "Own Pedagogy",
+        "text": "Activities designed to strengthen the group and the bond with the land."
+      }
+    ]
+  },
+  "catalogo": {
+    "title": "Our Modules",
+    "subtitle": "Choose the workshops that best fit your institutional project.",
+    "modules": [
+      {
+        "tag": "Nature",
+        "title": "Botany & Recognition",
+        "items": [
+          "Species identification",
+          "Seed collection"
+        ]
+      },
+      {
+        "tag": "Sustainability",
+        "title": "Clean Energies",
+        "items": [
+          "Solar oven",
+          "Waste management"
+        ]
+      }
+    ]
+  },
+  "cta_final": {
+    "title": "Take your school to the mountains",
+    "subtitle": "Write to us to receive the informational dossier and coordinate a visit.",
+    "btn": "Request Dossier"
+  },
+  "hero": {
+    "title": "Green Classroom",
+    "subtitle": "Educational programs in nature",
+    "tagline": "Where the classroom has no walls.",
+    "description": "Take your institution on an experience that transforms. Experiential learning, deep connection with nature, and a methodology that strengthens the group.",
+    "cta_budget": "REQUEST A QUOTE",
+    "cta_facilities": "View facilities",
+    "stat_open": "Enrollments open 2025-2026",
+    "stat_location": "Los Gigantes, Cordoba Mountains"
+  },
+  "magico": {
+    "wa_query": "Hi! I come from the Aula Verde website and want to ask about educational programs at Magico Ensueno for my institution.",
+    "title": "Magico Ensueno",
+    "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
+    "infra_title": "Infrastructure for groups",
+    "infra_text": "Main hall for 60 people, equipped kitchen, group dormitories, bathrooms with hot water, and outdoor spaces for all program activities.",
+    "video_title": "Magico Ensueno — Mountain Experience",
+    "benefits_title": "Why choose us",
+    "benefits": [
+      {
+        "title": "Specialized guides.",
+        "text": "Educational team with experience in environmental education and group dynamics."
+      },
+      {
+        "title": "Customizable program.",
+        "text": "We adapt each session to the pedagogical objectives of your institution and the educational level of the group."
+      },
+      {
+        "title": "Certified safety.",
+        "text": "Safety protocols for school groups, first aid, and guides trained in emergency response."
+      }
+    ],
+    "strengthen_title": "Strengthen the group",
+    "strengthen_text": "Every activity is designed to work on trust, communication, and teamwork. Students return with stronger bonds.",
+    "reforest_title": "We plant together",
+    "reforest_text": "Every group that visits Magico plants at least one tree. A concrete act of regeneration that students carry in their hearts.",
+    "footer_text": "Road access for coaches and school vehicles right to the entrance of the property.",
+    "safety_items": [
+      {
+        "title": "Certified Guide",
+        "text": "Our team is trained in first aid, group management, and mountain emergency protocols."
+      },
+      {
+        "title": "Liability Insurance",
+        "text": "Full coverage for all program activities throughout the stay."
+      },
+      {
+        "title": "School Protocols",
+        "text": "We work with each school's institutional protocols and adapt activities to specific needs."
+      }
+    ],
+    "gallery_title": "The experience in images",
+    "gallery_subtitle": "Groups that have already experienced Aula Verde in Los Gigantes",
+    "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+    "map_download": "Download Map",
+    "map_consult": "Ask about location"
+  },
+  "precios": {
+    "title": "Plans for your institution",
+    "subtitle": "Three adaptable formats for the size of your group and the goals of your educational project.",
+    "cards": [
+      {
+        "title": "Day Trip",
+        "price": "On request",
+        "unit": "per person",
+        "tag": "Minimum 20 people",
+        "badge": null,
+        "features": [
+          "Half-day or full-day activities",
+          "Lunch included",
+          "Workshops of your choice from the catalog",
+          "Pedagogical guide throughout the session",
+          "Transport not included"
+        ],
+        "btn": "Ask for price"
+      },
+      {
+        "title": "2-Night Camp",
+        "price": "On request",
+        "unit": "per person",
+        "tag": "Minimum 20 people",
+        "badge": "MOST POPULAR",
+        "features": [
+          "2 nights of group accommodation",
+          "Full board (4 meals)",
+          "Full activity program",
+          "Pedagogical guide 24 hours",
+          "Native tree planting included"
+        ],
+        "btn": "Ask for price"
+      },
+      {
+        "title": "Educational Residency",
+        "price": "On request",
+        "unit": "per person",
+        "tag": "3 to 5 nights",
+        "badge": null,
+        "features": [
+          "Fully personalized program",
+          "All-inclusive full board",
+          "Dedicated educational team",
+          "Documentation for school records",
+          "Reforestation project included"
+        ],
+        "btn": "Build a proposal"
+      }
+    ],
+    "note": "Prices are calculated based on group size, chosen modules, and duration. Request a free quote.",
+    "global_btn": "REQUEST FREE QUOTE"
+  },
+  "testimonios": {
+    "title": "Institutions that chose us",
+    "subtitle": "The voices of those who lived the Aula Verde experience",
+    "institutions_title": "Institutions that chose us",
+    "items": [
+      {
+        "text": "The experience exceeded our expectations. The kids came back transformed. The methodology at Magico Ensueno connects with the experiential learning we seek as a Waldorf school.",
+        "name": "Cinthia B.",
+        "role": "Teacher",
+        "extra_role": "Waldorf School El Trigal",
+        "audio_text": "Listen to Alejandro's audio"
+      },
+      {
+        "text": "We organized the graduation trip here and it was the best decision. The kids ended up crying at the closing bonfire because they did not want to leave. That says it all.",
+        "name": "Marcelo G.",
+        "role": "Educational coordinator",
+        "extra_role": "Hebraica Institution",
+        "audio_text": "Listen to Marcelo's audio"
+      },
+      {
+        "text": "We took a karate group and it was incredible to see how contact with nature enhanced concentration and respect among the kids. We repeat it every year.",
+        "name": "Sensei Alejandro",
+        "role": "Instructor",
+        "extra_role": "Senshi Dojo Unquillo"
+      },
+      {
+        "text": "The Magico Ensueno team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
+        "name": "Federico T.",
+        "role": "Director",
+        "extra_role": "Racing Club de Cordoba School",
+        "audio_text": "Listen to Fede's audio"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before organizing the educational outing.",
+    "items": [
+      {
+        "question": "What ages are most suitable for the program?",
+        "answer": "We design programs for all ages, from preschool to secondary and university level. Each activity is adapted to the cognitive and physical level of the group."
+      },
+      {
+        "question": "What if there are students with special needs or allergies?",
+        "answer": "We adapt to every group. We ask for a list of special needs before the trip so we can prepare the right program and food."
+      },
+      {
+        "question": "Is transport included?",
+        "answer": "Transport is not included in the base price, but we can coordinate coaches from Cordoba Capital or Villa Carlos Paz. Ask us to include it in the quote."
+      },
+      {
+        "question": "Can accompanying teachers come?",
+        "answer": "Of course! Accompanying teachers have a special price. We recommend a ratio of 1 adult per 10 students for nature activities."
+      },
+      {
+        "question": "What documentation do we need for the educational outing?",
+        "answer": "We prepare all the documentation the school needs: detailed program, civil liability insurance, team certifications, and safety protocols."
+      }
+    ]
+  },
+  "video_closing": {
+    "title": "An experience carried in the heart",
+    "text": "Watch how students from a Cordoba school experienced the Aula Verde program at Magico Ensueno. Their words say more than any brochure."
+  }
+},
+"vuelo_condor": {
+  "seo": {
+    "title": "The Flight of the Condor — An initiatory journey in Peru | Magico Ensueno",
+    "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From July 22 to 29."
+  },
+  "hero": {
+    "dates": "July 22 to 29, 2026",
+    "title": "The Flight of the Condor",
+    "subtitle": "An initiatory journey to the heart of the Andes.",
+    "text": "Seven days of deep immersion in the ancestral wisdom and energy of the Sacred Valley of the Incas, Peru. A path of transformation designed to raise your consciousness and reconnect with the origin.",
+    "btn_info": "I want more information",
+    "btn_itinerary": "View Itinerary",
+    "location": "Sacred Valley · Cuzco · Peru"
+  },
+  "cosmovision": {
+    "title": "A Return to the Origin",
+    "quote": "The Condor does not fly, it is the wind that carries it. So is the soul when it surrenders to the Great Spirit.",
+    "text1": "This journey is not tourism, it is a pilgrimage inward. Accompanied by the majesty of the Peruvian Andes, we will walk along paths that hold the memory of a civilization that understood life as a sacred fabric.",
+    "text2": "From opening ceremonies to visits to ancestral energy centers, each step is designed so that you can let go of what no longer serves and unfold your own wings."
+  },
+  "para_quien": {
+    "title": "Who is this journey for?",
+    "subtitle": "We look for walkers willing to open their hearts and receive the medicine of the mountain.",
+    "items": [
+      "Spiritual seekers in the process of transformation.",
+      "People who feel the call of Andean wisdom.",
+      "Those who need a space for silence and deep reconnection.",
+      "Walkers who enjoy nature in its purest state."
+    ]
+  },
+  "vivencia": {
+    "title": "The Experience",
+    "items": [
+      {
+        "label": "Ancestral rituals & ceremonies"
+      },
+      {
+        "label": "Connection with nature"
+      },
+      {
+        "label": "Sharing circles"
+      },
+      {
+        "label": "Guided introspection"
+      },
+      {
+        "label": "Conscious movement"
+      },
+      {
+        "label": "Sound harmonizations"
+      },
+      {
+        "label": "Purposeful hikes"
+      },
+      {
+        "label": "Family Constellations"
+      },
+      {
+        "label": "Silence & contemplation"
+      }
+    ]
+  },
+  "grupo": {
+    "title": "A Group for the Soul",
+    "text1": "We walk together on this sacred journey, forming a temporary community based on respect, care and depth.",
+    "text2": "A shared experience that transcends the ordinary and creates bonds that last over time."
+  },
+  "itinerario": {
+    "title": "The Path",
+    "subtitle": "Seven portals of transformation through the Sacred Valley.",
+    "days": [
+      {
+        "dia": "Day 1",
+        "titulo": "CLEANSING AND OPENING",
+        "resumen": "Arrival at the Sacred Valley and first group meeting. Opening Temazcal to cleanse body and mind, followed by a word circle to begin opening the process.",
+        "items": [
+          "10:00 — Meet at Plaza de Armas, Cusco",
+          "12:00 — Transfer to Pisac · Hostal Medicina",
+          "12:30 — Welcome Temazcal · purification",
+          "17:00 — Opening circle & group intro",
+          "19:00 — Rapé ceremony",
+          "20:00 — Rest · free integration"
+        ]
+      },
+      {
+        "dia": "Day 2",
+        "titulo": "OPENING OF PORTALS",
+        "resumen": "Journey through sacred sites (Ollantaytambo and Moray). Energetic activations, music, and connection with the earth. At night, Ayahuasca ceremony.",
+        "items": [
+          "Group breakfast · intention of the day",
+          "Ollantaytambo visit · sacred archaeological site",
+          "Moray · Rapé ceremony and medicine music",
+          "21:00 — Ayahuasca ceremony in sacred tipi"
+        ]
+      },
+      {
+        "dia": "Day 3",
+        "titulo": "INTEGRATION",
+        "resumen": "Space for rest, integration, and contemplation. Conscious walk and community time to settle the lived experience.",
+        "items": [
+          "06:00 — Post-ceremony Temazcal · cleansing",
+          "Deep rest · free integration time",
+          "Afternoon: Pisac archaeological park",
+          "Group meal · evening circle"
+        ]
+      },
+      {
+        "dia": "Day 4",
+        "titulo": "ENCOUNTER WITH THE MOUNTAIN",
+        "resumen": "Journey to Ausangate. Connection with the Apus (mountain spirits) and ceremonial offering. Entry into a deeper space of introspection.",
+        "items": [
+          "Transfer to Cusco · Sacsayhuamán",
+          "San Pedro Market · plants and essences",
+          "Ascent to Ausangate (sacred peak, 5,200 m)",
+          "Offering to the Apu · first night on the mountain"
+        ]
+      },
+      {
+        "dia": "Day 5",
+        "titulo": "VISION",
+        "resumen": "Ceremony with ancestral medicine in the heart of the mountain. Walking, nature, and opening of vision.",
+        "items": [
+          "Wuachuma (San Pedro) ceremony at dawn",
+          "Ceremonial walk across the glacier",
+          "Natural mountain hot springs · rest",
+          "Second night under the stars on Ausangate"
+        ]
+      },
+      {
+        "dia": "Day 6",
+        "titulo": "RETURN AND INTEGRATION",
+        "resumen": "Closing on the mountain and return to Pisac. Group and personal integration time.",
+        "items": [
+          "07:30 — Breakfast on the mountain",
+          "Descent and departure from Ausangate",
+          "Arrival in Cusco · free break",
+          "Return to Pisac · Hostal Medicina"
+        ]
+      },
+      {
+        "dia": "Day 7",
+        "titulo": "CONSECRATION",
+        "resumen": "Closing Temazcal. Final integration and consecration of the lived process.",
+        "items": [
+          "08:00 — Closing & consecration Temazcal",
+          "Final circle · open sharing",
+          "15:00 — Official end of the retreat",
+          "Transfer to Cusco for night flights or onwards"
+        ]
+      }
+    ]
+  },
+  "equipo": {
+    "title": "Guardians of Arkan del Fuego",
+    "subtitle": "A multidisciplinary team at the service of your transformation.",
+    "members": [
+      {
+        "nombre": "Gustavo Torras",
+        "foto": "/uploads/vuelo-condor/Toti.webp",
+        "desc": "Founder of Arkan del Fuego. Initiatory guide with over 15 years supporting masculine transformation journeys. Specialist in master plant work and Andean ancestral rituals."
+      },
+      {
+        "nombre": "Diego Epelman Hodara",
+        "foto": "/uploads/vuelo-condor/Diego.webp",
+        "desc": "Family Constellations facilitator and integration process guide. He bridges systemic tradition with ancestral wisdom to work through the deepest bonds."
+      },
+      {
+        "nombre": "Juan Cruz Sartori",
+        "foto": "/uploads/vuelo-condor/juan.webp",
+        "desc": "Medicine musician and conscious movement facilitator. He accompanies processes through sacred sound, building bridges between body, emotion, and spirit."
+      }
+    ],
+    "footer": "We also work with local Quechua guides and specialists at each sacred site of the Valley."
+  },
+  "inversion": {
+    "title": "Your Investment in the Soul",
+    "incluye_title": "What's included",
+    "incluye": [
+      "7 nights at Hostal Medicina, Pisac",
+      "Full board (breakfasts, lunches & dinners)",
+      "Opening & closing Temazcal ceremony",
+      "Ayahuasca ceremony in sacred tipi",
+      "Wuachuma ceremony on Ausangate",
+      "Internal transfers through the Sacred Valley",
+      "Entry to all archaeological sites",
+      "Full spiritual team support 24/7"
+    ],
+    "no_incluye_title": "Not included",
+    "no_incluye": "International flights and travel insurance.",
+    "vuelos_help": "We help you find the best flights. Arrival: Cusco (CUZ) July 22. Departure: from 6 PM on July 29.",
+    "slots": "12 spots · July 2026",
+    "total_title": "Program Value",
+    "currency": "USD",
+    "price": "1.800",
+    "note": "Reserve with <strong>USD 540</strong> · balance due 30 days before.",
+    "btn": "BOOK MY SPOT",
+    "msg": "Group max 12 people. Payment plans available."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before you take flight.",
+    "items": [
+      {
+        "question": "Do I need previous experience with master plants?",
+        "answer": "No experience required. What we ask for is genuine openness and willingness to honor the process. We hold a pre-trip interview with each participant to ensure the journey is right for you."
+      },
+      {
+        "question": "What physical condition is needed for Ausangate?",
+        "answer": "Ausangate sits at 5,200 m altitude. Good general fitness is required, and we recommend arriving 48 hours early in Cusco to acclimatize. This is not a mountaineering expedition — we walk at a group, contemplative pace."
+      },
+      {
+        "question": "How does the booking process work?",
+        "answer": "Your spot is secured with a 30% deposit (USD 540). The balance is due 30 days before the start date. The group is capped at 12 people, so spots are limited."
+      },
+      {
+        "question": "Are the rooms shared?",
+        "answer": "Hostal Medicina has double rooms. Single rooms are available at an extra cost — just ask when you book."
+      },
+      {
+        "question": "What flights should I book?",
+        "answer": "You need to arrive at Cusco (CUZ) on July 22nd before 9:00 AM. Your return flight can be July 29th from 6:00 PM onwards. Flights from Argentina usually connect through Lima."
+      },
+      {
+        "question": "What if I have doubts or fears before the trip?",
+        "answer": "That's part of the path. We hold a virtual preparation session with all participants weeks before the journey. You can also message us anytime — we're here to support you from your first contact."
+      }
+    ]
+  },
+  "cta": {
+    "title": "If you feel the call,\nwrite to us.",
+    "subtitle": "Don't overthink it. These journeys aren't understood — they're felt.",
+    "btn": "I want more information"
+  }
+},
+"notFound": {
+  "title": "A path to <span class='italic text-gold'>the unknown.</span>",
+  "subtitle": "It seems you've wandered off the trail. This path doesn't lead to any shelter, but we'll help you find your way back.",
+  "btnHome": "BACK TO HOME",
+  "btnContact": "WHATSAPP RESCUE"
+},
+"donations": {
+  "text": "Support the restoration of the Sierras Grandes de Córdoba through native tabaquillo tree planting. Every tree is a step toward the forest it once was.",
+  "btn": "JOIN THE RESTORATION",
+  "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
+},
+"inclusiones": {
+  "eyebrow": "ALL INCLUDED",
+  "title": "What's included in your stay",
+  "subtitle": "No surprises. One clear price that includes everything you need to disconnect and reconnect.",
+  "items": [
+    {
+      "label": "Accommodation",
+      "sub": "Dome, room or camping"
+    },
+    {
+      "label": "Bed linen",
+      "sub": "Sheets, towel and bath towel"
+    },
+    {
+      "label": "Starlink WiFi",
+      "sub": "Mountain connectivity"
+    },
+    {
+      "label": "Common areas",
+      "sub": "Firepit, garden and orchard"
+    },
+    {
+      "label": "Solar energy",
+      "sub": "100% renewable"
+    },
+    {
+      "label": "Reset Vital",
+      "sub": "Self-guided retreat PDF guide"
+    },
+    {
+      "label": "Eco Biokit",
+      "sub": "Biodegradable soap, shampoo & conditioner"
+    }
+  ],
+  "price_solo_label": "Accommodation only",
+  "price_solo_sub": "Includes linen, eco-cosmetics and Reset Vital",
+  "price_pension_label": "Full board",
+  "price_pension_sub": "+ breakfast, lunch and dinner · all inclusive",
+  "price_unit": "/ night",
+  "cta": "View all accommodations"
+},
+"para_quien": {
+  "eyebrow": "WHO IS IT FOR",
+  "title": "Is this for me?",
+  "cta_label": "Ask us",
+  "profiles": [
+    {
+      "title": "The digital nomad",
+      "desc": "You work remotely and want a place with real WiFi, silence and authentic human connection. Starlink + nature + community.",
+      "wa": "Hi! I am interested in co-working accommodation for remote work at Mágico Ensueño. Do you have availability?"
+    },
+    {
+      "title": "The burned-out professional",
+      "desc": "You need to escape the urban noise and reset. Real food, mountain air, silence and space to return to yourself.",
+      "wa": "Hi! I am looking for a rest retreat at Mágico Ensueño. When do you have availability?"
+    },
+    {
+      "title": "The couple",
+      "desc": "Looking for a different romantic getaway. Geodesic dome, starry sky, firepit and gourmet cooking in the mountains.",
+      "wa": "Hi! We want to go as a couple to Mágico Ensueño. Do you have domes available and what is the price?"
+    },
+    {
+      "title": "The seeker in transition",
+      "desc": "You are in a moment of transformation and looking for community, purpose and a space that supports the process.",
+      "wa": "Hi! I am interested in learning more about retreats and co-living at Mágico Ensueño. Can we talk?"
+    },
+    {
+      "title": "The family",
+      "desc": "Looking to disconnect from screens and reconnect with each other. Ample spaces, safe nature and shared adventures in the mountains.",
+      "wa": "Hi! We want to go as a family to Mágico Ensueño. What accommodation options do you have?"
+    },
+    {
+      "title": "The world citizen",
+      "desc": "You want to absorb other cultures without boarding a plane. You enjoy sharing a firepit with travelers and volunteers from all over the world.",
+      "wa": "Hi! I love the international vibe at Mágico Ensueño. What stay options do you have?"
+    }
+  ]
+},
+"faq": {
+  "eyebrow": "FREQUENTLY ASKED QUESTIONS",
+  "title": "Before you ask",
+  "subtitle": "Everything you need to know before booking.",
+  "footer_text": "Have another question?",
+  "footer_cta": "Message us on WhatsApp",
+  "items": [
+    {
+      "q": "What does the stay price include?",
+      "a": "The base price includes accommodation (dome, room or camping), bed linen (sheets, towel and bath towel), eco-cosmetics, Starlink WiFi, access to the firepit and gardens, and the Reset Vital PDF guide. Full board adds 3 daily gourmet meals. No hidden fees."
+    },
+    {
+      "q": "Do I need prior experience with retreats or meditation?",
+      "a": "Not at all. Mágico Ensueño is not a formal meditation center — it is a living eco-center where each person finds their own rhythm. You can come to work remotely, rest, explore nature or simply be."
+    },
+    {
+      "q": "Is there signal or internet in the mountains?",
+      "a": "Yes. We have high-speed Starlink connectivity in all workspaces and common areas. If you want to disconnect from your phone, you can do that too — the environment naturally supports it."
+    },
+    {
+      "q": "How do I get there without a car?",
+      "a": "We are in Paraje Cuchilla Nevada, Ojo de Agua, 20 minutes from Los Gigantes (Córdoba). We can arrange a transfer from Villa Carlos Paz or Alta Gracia — contact us on WhatsApp and we will sort it out together."
+    }
+  ]
+}
+}
 }

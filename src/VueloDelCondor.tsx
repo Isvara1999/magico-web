@@ -14,6 +14,7 @@ import VueloDelCondorParaQuien from './components/VueloDelCondorParaQuien';
 import VueloDelCondorVivencia from './components/VueloDelCondorVivencia';
 import VueloDelCondorItinerario from './components/VueloDelCondorItinerario';
 import VueloDelCondorEquipo from './components/VueloDelCondorEquipo';
+import VueloDelCondorCoproduccion from './components/VueloDelCondorCoproduccion';
 import VueloDelCondorGallery from './components/VueloDelCondorGallery';
 import VueloDelCondorTestimonios from './components/VueloDelCondorTestimonios';
 import VueloDelCondorInversion from './components/VueloDelCondorInversion';
@@ -170,6 +171,8 @@ const VueloDelCondorContent: React.FC = () => {
 
       <VueloDelCondorItinerario />
       <VueloDelCondorEquipo />
+
+      <VueloDelCondorCoproduccion />
 
       <VueloDelCondorGallery />
 
