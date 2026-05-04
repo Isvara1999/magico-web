@@ -3,6 +3,7 @@ import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { img } from './lib/img';
 
 import AchalaVivaHero from './components/AchalaVivaHero';
 import AchalaVivaMagico from './components/AchalaVivaMagico';
@@ -267,7 +268,7 @@ const AchalaViva: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div data-reveal className="order-2 md:order-1">
               <img
-                src="/uploads/Walter_E._Cejas.jpg"
+                src={img('/uploads/Walter_E._Cejas.jpg', 600)}
                 alt="Walter Eugenio Cejas — Biólogo guía de Achala Viva"
                 loading="lazy"
                 className="w-full object-cover rounded-2xl h-auto aspect-[4/5]"

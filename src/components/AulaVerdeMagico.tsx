@@ -2,6 +2,7 @@ import React from 'react';
 import { User, Heartbeat, ShieldCheck } from '@phosphor-icons/react';
 import { WA_MAGICO } from '../data/config';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { img } from '../lib/img';
 
 const AulaVerdeMagico: React.FC = () => {
   const { t } = useLanguage();
@@ -137,16 +138,16 @@ const AulaVerdeMagico: React.FC = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           <div className="rounded-xl overflow-hidden shadow-lg border border-white/10 group aspect-square">
-            <img src="/uploads/Aula%20Verde/IMG-20251118-WA0056.jpg" alt="Río en Aula Verde" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src={img('/uploads/Aula%20Verde/IMG-20251118-WA0056.jpg', 600)} alt="Río en Aula Verde" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg border border-white/10 group aspect-square">
-            <img src="/uploads/Aula%20Verde/IMG-20251118-WA0085.jpg" alt="Actividades en naturaleza" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src={img('/uploads/Aula%20Verde/IMG-20251118-WA0085.jpg', 600)} alt="Actividades en naturaleza" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg border border-white/10 group aspect-square">
-            <img src="/uploads/Aula%20Verde/IMG-20251120-WA0061.jpg" alt="Caminata en Los Gigantes" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src={img('/uploads/Aula%20Verde/IMG-20251120-WA0061.jpg', 600)} alt="Caminata en Los Gigantes" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg border border-white/10 group aspect-square">
-            <img src="/uploads/Aula%20Verde/IMG-20251120-WA0036.jpg" alt="Grupo disfrutando" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src={img('/uploads/Aula%20Verde/IMG-20251120-WA0036.jpg', 600)} alt="Grupo disfrutando" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           </div>
         </div>
       </div>

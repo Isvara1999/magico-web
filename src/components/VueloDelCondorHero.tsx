@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { WA_VUELO_CONDOR } from '../data/config';
 import { RETREATS_DATA } from '../data/retreats';
+import { img } from '../lib/img';
 
 const VueloDelCondorHero: React.FC = () => {
   const { t } = useLanguage();
@@ -14,7 +15,7 @@ const VueloDelCondorHero: React.FC = () => {
         <picture>
           <source media="(orientation: portrait)" srcSet="/uploads/vuelo-condor/hero-mobile.webp" />
           <img
-            src="/uploads/vuelo-del-condor-hero.png"
+            src={img('/uploads/vuelo-del-condor-hero.png', 1920)}
             alt="El Vuelo del Cóndor — Valle Sagrado, Perú"
             fetchPriority="high"
             loading="eager"

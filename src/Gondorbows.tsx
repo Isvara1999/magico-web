@@ -3,6 +3,7 @@ import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Target, House, ForkKnife, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { img } from './lib/img';
 import { SITE_URL, WA_GONDOR } from './data/config';
 import { ROUTES } from './routes';
 import { RETREATS_DATA } from './data/retreats';
@@ -253,7 +254,7 @@ const Gondorbows: React.FC = () => {
             {/* Foto */}
             <div className="order-2 md:order-1">
               <img
-                src="/uploads/fausto-tallando.jpg"
+                src={img('/uploads/fausto-tallando.jpg', 800)}
                 alt="Fausto trabajando"
                 className="w-full object-cover rounded-2xl h-auto aspect-[4/5] md:aspect-square"
                 style={{ boxShadow: '0 20px 60px rgba(0,83,51,0.12)' }}

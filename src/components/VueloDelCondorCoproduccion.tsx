@@ -1,4 +1,5 @@
 import React from 'react';
+import { img } from '../lib/img';
 
 const KINTU_PARAGRAPHS = [
   "KINTU es una productora de experiencias transformadoras que diseña viajes y procesos con corazón y propósito.",
@@ -30,7 +31,7 @@ const VueloDelCondorCoproduccion: React.FC = () => {
           <div className="flex flex-col items-center gap-3">
             <div className="bg-white/8 border border-white/15 rounded-2xl px-8 py-6 flex items-center justify-center backdrop-blur-sm hover:bg-white/12 transition-colors duration-300">
               <img
-                src="/uploads/vuelo-condor/Logo Acan.png"
+                src={img('/uploads/vuelo-condor/Logo Acan.png', 300)}
                 alt="Acan del Fuego"
                 className="h-16 md:h-20 w-auto object-contain"
                 loading="lazy"
@@ -49,7 +50,7 @@ const VueloDelCondorCoproduccion: React.FC = () => {
           <div className="flex flex-col items-center gap-3">
             <div className="bg-white/8 border border-white/15 rounded-2xl px-8 py-6 flex items-center justify-center backdrop-blur-sm hover:bg-white/12 transition-colors duration-300">
               <img
-                src="/uploads/vuelo-condor/PRODUCCIONES.png"
+                src={img('/uploads/vuelo-condor/PRODUCCIONES.png', 300)}
                 alt="Kintu Producciones"
                 className="h-16 md:h-20 w-auto object-contain"
                 loading="lazy"
