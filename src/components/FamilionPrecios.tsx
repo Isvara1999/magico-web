@@ -23,16 +23,13 @@ const FamilionPrecios: React.FC = () => {
       
       {/* Fechas Alert */}
       <div className="max-w-2xl mx-auto mb-10 flex flex-col md:flex-row gap-4 justify-center items-center">
-        <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-4 flex-1 w-full md:w-auto">
-          <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t.familion.precios.editions[0]}</p>
-          <p className="text-lg serif-title font-bold text-white">{RETREATS_DATA.familion.dates[0]}</p>
-          <p className="text-xs font-bold text-[#D4AF37] mt-1">{t.familion.precios.spots[0]}</p>
-        </div>
-        <div className="bg-white/10 border border-brand-gold/30 rounded-2xl px-6 py-4 flex-1 w-full md:w-auto">
-          <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t.familion.precios.editions[1]}</p>
-          <p className="text-lg serif-title font-bold text-white">{RETREATS_DATA.familion.dates[1]}</p>
-          <p className="text-xs font-bold text-[#D4AF37] mt-1">{t.familion.precios.spots[1]}</p>
-        </div>
+        {RETREATS_DATA.familion.dates.map((date: string, i: number) => (
+          <div key={i} className={`bg-white/10 border ${i === 0 ? 'border-brand-gold/30' : 'border-white/20'} rounded-2xl px-6 py-4 flex-1 w-full md:w-auto`}>
+            <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t.familion.precios.editions[i] || "EDICIÓN"}</p>
+            <p className="text-lg serif-title font-bold text-white">{date}</p>
+            <p className="text-xs font-bold text-[#D4AF37] mt-1">{t.familion.precios.spots[i] || "¡CUPOS LIMITADOS!"}</p>
+          </div>
+        ))}
       </div>
 
       <div className="rounded-3xl p-8 md:p-12 mb-10">

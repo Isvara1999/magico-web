@@ -16,7 +16,7 @@ export const RETREATS_DATA = {
       refugio: 450000,
       domoPrivado: 650000,
     },
-    dates: ['1 al 3 de Mayo', '13 al 15 de Junio'],
+    dates: ['13 al 15 de Junio'],
     message: 'Hola! Vengo de Familion y quiero consultar la experiencia.',
   },
   achalaViva: {

@@ -70,10 +70,7 @@ const AchalaVivaPrecios: React.FC = () => {
             <p className="text-white/80 text-sm md:text-base mb-4">
               Para garantizar el silencio, el respeto por la fauna y la atención personalizada del guía, no podemos sumar a nadie más.
             </p>
-            <p className="text-[#D4AF37] font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-              <CalendarCheck weight="light" className="w-5 h-5 flex-shrink-0" />
-              Inscripciones cierran el 30 de Abril.
-            </p>
+
           </div>
 
           {/* Button */}

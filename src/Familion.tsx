@@ -221,12 +221,11 @@ const FamilionContent: React.FC = () => {
               {t.familion.cronograma.title}
             </h2>
             <div className="mt-4 flex flex-wrap gap-3">
-              <span className="px-3 py-1 bg-brand-green/10 text-brand-green text-xs font-bold rounded-full border border-brand-green/20">
-                {t.familion.cronograma.dates[0]}
-              </span>
-              <span className="px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs font-bold rounded-full border border-brand-gold/20">
-                {t.familion.cronograma.dates[1]}
-              </span>
+              {t.familion.cronograma.dates.map((date: string, i: number) => (
+                <span key={i} className={`px-3 py-1 ${i === 0 ? 'bg-brand-green/10 text-brand-green border-brand-green/20' : 'bg-brand-gold/10 text-brand-gold border-brand-gold/20'} text-xs font-bold rounded-full border whitespace-nowrap`}>
+                  {date}
+                </span>
+              ))}
             </div>
           </div>
 

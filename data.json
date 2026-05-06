@@ -174,7 +174,7 @@
       "link": "",
       "cards": [
         {
-          "date": "1-3 MAYO (¡ULT. 2 CUPOS!)\n13-15 JUNIO (¡NUEVA FECHA!)",
+          "date": "13-15 JUNIO (¡NUEVA FECHA!)",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
           "btn": "Ver Más",
@@ -207,6 +207,14 @@
           "image": "/uploads/tirando.jpg",
           "link": "/gondorbows",
           "pdfLink": ""
+        },
+        {
+          "date": "26 AL 28 DE JUNIO",
+          "title": "Las Hijas de Venus - Edición Invierno",
+          "desc": "Círculo de mujeres. El placer como brújula. La presencia como medicina. El encuentro como acto sagrado y potenciador.",
+          "btn": "Consultar",
+          "image": "/uploads/danza.webp",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Las%20Hijas%20de%20Venus%20-%20Edicion%20Invierno.%20%F0%9F%93%85"
         },
         {
           "date": "RECURRENTE",
@@ -245,7 +253,7 @@
       "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20saber%20m%C3%A1s%20sobre%20las%20experiencias%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "nextEvent": {
-        "label": "FAMILION · 1–3 MAYO · ¡ULT. 2 CUPOS!",
+        "label": "FAMILION · 13–15 JUNIO · ¡ULTIMOS CUPOS!",
         "link": "/familion"
       }
     },
@@ -409,7 +417,7 @@
         "title": "Familión",
         "subtitle": "Un encuentro para volver a lo esencial en familia.",
         "btn": "Consultar Próxima Fecha",
-        "dates": "1-3 MAYO · 13-15 JUNIO · Los Gigantes, Córdoba",
+        "dates": "13-15 JUNIO · Los Gigantes, Córdoba",
         "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con talleres, fogones y momentos que se quedan para siempre.",
         "cta_join": "RESERVAR MI LUGAR",
         "cta_details": "Ver detalles"
@@ -452,12 +460,10 @@
         ],
         "btn": "RESERVAR LUGAR",
         "editions": [
-          "1RA EDICIÓN",
-          "2DA EDICIÓN"
+          "PRÓXIMA EDICIÓN"
         ],
         "spots": [
-          "¡ÚLTIMOS 2 CUPOS!",
-          "¡NUEVA FECHA ABIERTA!"
+          "¡ÚLTIMOS CUPOS!"
         ],
         "cards": {
           "camping": {
@@ -572,8 +578,7 @@
         "tag": "PROGRAMA",
         "title": "3 días para volver a lo esencial",
         "dates": [
-          "1-3 MAYO · ULTIMOS 2 CUPOS",
-          "13-15 JUNIO · NUEVA FECHA"
+          "13-15 JUNIO · ÚLTIMOS CUPOS"
         ],
         "days": [
           {
