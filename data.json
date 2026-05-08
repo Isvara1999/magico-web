@@ -922,35 +922,33 @@
         "text": "Mirá cómo los chicos de una escuela de Córdoba vivieron el programa de Aula Verde en Mágico Ensueño. Sus palabras dicen más que cualquier folleto."
       },
       "lead_magnet": {
-        "badge": "Propuesta Institucional · PDF Gratuito",
-        "title": "Llevate la propuesta completa del Aula Verde",
-        "subtitle": "Un dossier diseñado para presentarle a tu dirección: programa, logística, precios y todo lo que necesitás para tomar la decisión.",
+        "badge": "Material Descargable",
+        "title": "¿Necesitás compartirlo con la directora o tu equipo?",
+        "subtitle": "Sabemos que organizar la salida requiere que varias personas lo aprueben. Por eso diseñamos una presentación institucional lista para enviar por WhatsApp o mail.",
         "items": [
-          "<strong>Programa detallado</strong> de actividades por módulo",
-          "<strong>Opciones de alojamiento</strong> y regímenes disponibles",
-          "<strong>Precios actualizados</strong> con desglose por modalidad",
-          "<strong>Testimonios</strong> de instituciones que ya vivieron el Aula Verde",
-          "<strong>Mapa y accesos</strong> a Mágico Ensueño, Los Gigantes"
+          "<strong>Quiénes somos:</strong> La visión detrás de Mágico Ensueño y nuestra reserva en Los Gigantes.",
+          "<strong>Cronograma tipo:</strong> Cómo se estructura el Día 1, Día 2, actividades guiadas y tiempos libres.",
+          "<strong>Qué incluye:</strong> Detalles de gastronomía, infraestructura, y personal a cargo (no incluye precios, para garantizar flexibilidad según el grupo)."
         ],
         "form": {
-          "title": "Recibí el dossier ahora",
-          "subtitle": "Sin spam. Solo el PDF que necesitás.",
-          "label_name": "Nombre y apellido",
-          "placeholder_name": "Tu nombre",
-          "label_school": "Institución educativa",
-          "placeholder_school": "Nombre del colegio o institución",
-          "label_email": "Email institucional",
-          "placeholder_email": "tu@colegio.edu.ar",
-          "label_whatsapp": "WhatsApp",
-          "placeholder_whatsapp": "+54 9 ...",
-          "btn_download": "Descargar propuesta PDF",
+          "title": "Descargar Propuesta Educativa",
+          "subtitle": "Completá los datos y accedé al PDF al instante.",
+          "label_name": "Nombre y Apellido",
+          "placeholder_name": "Ej. Mariana López",
+          "label_school": "Nombre del Colegio / Institución",
+          "placeholder_school": "Ej. Instituto Belgrano",
+          "label_email": "Correo Electrónico",
+          "placeholder_email": "tu@correo.com",
+          "label_whatsapp": "Número de WhatsApp",
+          "placeholder_whatsapp": "+54 9 351...",
+          "btn_download": "Descargar PDF",
           "btn_generating": "Generando PDF...",
-          "footer": "Tu información es confidencial y no será compartida."
+          "footer": "Tus datos están seguros y no enviamos spam."
         },
         "success": {
-          "title": "¡Listo! Tu PDF está descargando",
-          "text": "Guardá el dossier y compartilo con tu equipo. Si querés hablar con nosotros, escribinos por WhatsApp.",
-          "btn": "Descargar de nuevo"
+          "title": "¡Listo, enviado!",
+          "text": "Tus datos fueron recibidos. Estamos preparando el material (en tu dispositivo debería haber comenzado la descarga).",
+          "btn": "Volver"
         }
       }
     },
@@ -2215,34 +2213,32 @@
         "text": "Watch how students from a Cordoba school experienced the Aula Verde program at Magico Ensueno. Their words say more than any brochure."
       },
       "lead_magnet": {
-        "badge": "Institutional Proposal · Free PDF",
-        "title": "Download the complete Aula Verde proposal",
-        "subtitle": "A dossier designed to present to your school board: program, logistics, pricing and everything you need to make a decision.",
+        "badge": "Downloadable Material",
+        "title": "Need to share it with the principal or your team?",
+        "subtitle": "We know that organizing the trip requires approval from multiple people. That is why we designed an institutional presentation ready to send by WhatsApp or email.",
         "items": [
-          "<strong>Detailed activity program</strong> by module",
-          "<strong>Accommodation options</strong> and available plans",
-          "<strong>Updated pricing</strong> with breakdown by modality",
-          "<strong>Testimonials</strong> from institutions that have experienced Aula Verde",
-          "<strong>Map and directions</strong> to Mágico Ensueño, Los Gigantes"
+          "<strong>Who we are:</strong> The vision behind Mágico Ensueño and our nature reserve in Los Gigantes.",
+          "<strong>Sample schedule:</strong> How Day 1 and Day 2 are structured — guided activities and free time.",
+          "<strong>What is included:</strong> Dining, infrastructure, and staff details (no prices, to allow flexibility per group)."
         ],
         "form": {
-          "title": "Get the dossier now",
-          "subtitle": "No spam. Just the PDF you need.",
-          "label_name": "Full name",
-          "placeholder_name": "Your name",
-          "label_school": "Educational institution",
-          "placeholder_school": "School or institution name",
-          "label_email": "Institutional email",
+          "title": "Download Educational Proposal",
+          "subtitle": "Fill in your details and get instant access to the PDF.",
+          "label_name": "Full Name",
+          "placeholder_name": "E.g. Maria López",
+          "label_school": "School / Institution Name",
+          "placeholder_school": "E.g. Instituto Belgrano",
+          "label_email": "Email Address",
           "placeholder_email": "you@school.edu",
-          "label_whatsapp": "WhatsApp",
-          "placeholder_whatsapp": "+1 ...",
-          "btn_download": "Download proposal PDF",
+          "label_whatsapp": "WhatsApp Number",
+          "placeholder_whatsapp": "+54 9 351...",
+          "btn_download": "Download PDF",
           "btn_generating": "Generating PDF...",
-          "footer": "Your information is confidential and will not be shared."
+          "footer": "Your data is safe and we do not send spam."
         },
         "success": {
-          "title": "Done! Your PDF is downloading",
-          "text": "Save the dossier and share it with your team. If you want to talk, reach us on WhatsApp.",
+          "title": "Done, sent!",
+          "text": "Your details were received. We are preparing the material (the download should have started on your device).",
           "btn": "Download again"
         }
       }
