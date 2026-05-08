@@ -689,55 +689,80 @@
         "video_title": "Aula Verde — Experiencia educativa en Los Gigantes"
       },
       "dirigida_a": {
-        "title": "¿A quién va dirigido?",
-        "subtitle": "Programas adaptables según el nivel educativo.",
+        "title": "¿A quién está dirigida?",
+        "subtitle": "Una experiencia adaptable para todos los niveles y objetivos educativos.",
         "items": [
           {
             "num": "01",
-            "title": "Primarias",
-            "text": "Enfoque lúdico y de descubrimiento sensorial."
+            "title": "Escuelas y Docentes",
+            "text": "A escuelas, docentes, directivos y coordinadores que organizan salidas educativas y campamentos escolares y grupales con un enfoque formativo e integral."
           },
           {
             "num": "02",
-            "title": "Secundarias",
-            "text": "Desafíos de autonomía y conciencia ambiental profunda."
+            "title": "Propuesta Pedagógica",
+            "text": "Trabajamos tanto con nivel primario como secundario, adaptando cada programa a la edad, etapa educativa y objetivos del grupo."
           }
         ]
       },
       "diferencial": {
-        "title": "Por qué elegirnos",
-        "subtitle": "Más que un viaje de egresados, un viaje de conciencia.",
+        "title": "¿Qué hace diferente a nuestra propuesta?",
+        "subtitle": "Un enfoque único que combina la fuerza del entorno natural con metodologías que dejan huella.",
         "items": [
           {
             "num": "01",
-            "title": "Entorno Protegido",
-            "text": "Reserva natural privada con seguridad y guías expertos."
+            "title": "Entorno Natural",
+            "text": "Entorno natural privilegiado, inmerso en montañas y bosques nativos para explorar con seguridad."
           },
           {
             "num": "02",
-            "title": "Pedagogía Propia",
-            "text": "Actividades diseñadas para fortalecer el grupo y el vínculo con la tierra."
+            "title": "Aprendizaje Vivencial",
+            "text": "Metodología lúdica y vivencial, que invita a aprender puramente desde la experiencia y reflexión."
+          },
+          {
+            "num": "03",
+            "title": "Vínculo y Comunidad",
+            "text": "Fomentamos el trabajo en equipo, la curiosidad, el pensamiento crítico y la conexión."
+          },
+          {
+            "num": "04",
+            "title": "Sustentabilidad Activa",
+            "text": "Firme compromiso con la sustentabilidad activa, el compostaje y el cuidado del ambiente."
           }
         ]
       },
       "catalogo": {
-        "title": "Nuestros Módulos",
-        "subtitle": "Elegí los talleres que mejor se adapten a tu proyecto institucional.",
+        "title": "Catálogo de Actividades",
+        "subtitle": "Diseñamos cada jornada a la medida de tu grupo, porque sabemos que ninguna escuela es igual. Combinamos aventura, tierra y expresión.",
         "modules": [
           {
-            "tag": "Naturaleza",
-            "title": "Botánica & Reconocimiento",
+            "tag": "Agroecología",
+            "title": "Talleres Agroecológicos",
             "items": [
-              "Identificación de especies",
-              "Recolección de semillas"
+              "Huerta y Cultivos Orgánicos",
+              "Cocina Saludable y Regenerativa",
+              "Compostaje y Reciclaje",
+              "Botiquín Natural"
             ]
           },
           {
-            "tag": "Sustentabilidad",
-            "title": "Energías Limpias",
+            "tag": "Naturaleza",
+            "title": "Aventura y Naturaleza",
             "items": [
-              "Horno solar",
-              "Gestión de residuos"
+              "Exploración de Arroyos y Ríos",
+              "Senderismo y Aventura de Montaña",
+              "Reconocimiento de Plantas y mundo mineral",
+              "Avistaje de Aves",
+              "Conservación de Biodiversidad"
+            ]
+          },
+          {
+            "tag": "Arte",
+            "title": "Arte y Expresión",
+            "items": [
+              "Arte Natural y Reciclaje",
+              "Artes Escénicas y Teatro",
+              "Música y Expresión Corporal",
+              "Fogones Culturales"
             ]
           }
         ]
@@ -777,7 +802,7 @@
         "strengthen_title": "Fortalecer el grupo",
         "strengthen_text": "Cada actividad está diseñada para trabajar la confianza, la comunicación y el trabajo en equipo. Los chicos vuelven con lazos más fuertes.",
         "reforest_title": "Plantamos juntos",
-        "reforest_text": "Cada grupo que visita el Mágico planta al menos un árbol. Una acción concreta de regeneración que los chicos se llevan en el corazón.",
+        "reforest_text": "Durante todo el año estamos reforestando el lugar y ya superamos los 15.000 árboles plantados. Venir a Mágico Ensueño también aporta de forma directa a este gran objetivo ambiental. El 10% de tu inversión se destina a reforestar tabaquillos y restaurar las sierras.",
         "footer_text": "Acceso para micros y vehículos escolares hasta la entrada del lugar.",
         "safety_items": [
           {
@@ -1981,54 +2006,79 @@
       },
       "dirigida_a": {
         "title": "Who is it for?",
-        "subtitle": "Adaptable programs according to educational level.",
+        "subtitle": "An adaptable experience for all educational levels and objectives.",
         "items": [
           {
             "num": "01",
-            "title": "Primary Schools",
-            "text": "Playful approach and sensory discovery."
+            "title": "Schools and Teachers",
+            "text": "Schools, teachers, principals, and coordinators organizing educational field trips and school camps with a formative and comprehensive approach."
           },
           {
             "num": "02",
-            "title": "High Schools",
-            "text": "Autonomy challenges and deep environmental awareness."
+            "title": "Educational Proposal",
+            "text": "We work with both primary and secondary levels, adapting each program to the age, educational stage, and group objectives."
           }
         ]
       },
       "diferencial": {
-        "title": "Why choose us",
-        "subtitle": "More than a graduation trip, a journey of awareness.",
+        "title": "What makes our proposal different?",
+        "subtitle": "A unique approach that combines the power of the natural environment with methodologies that leave a lasting mark.",
         "items": [
           {
             "num": "01",
-            "title": "Protected Environment",
-            "text": "Private nature reserve with security and expert guides."
+            "title": "Natural Setting",
+            "text": "Privileged natural environment, immersed in mountains and native forests for safe exploration."
           },
           {
             "num": "02",
-            "title": "Own Pedagogy",
-            "text": "Activities designed to strengthen the group and the bond with the land."
+            "title": "Experiential Learning",
+            "text": "Playful and experiential methodology that invites learning purely through experience and reflection."
+          },
+          {
+            "num": "03",
+            "title": "Teamwork and Connection",
+            "text": "We foster teamwork, curiosity, critical thinking, and connection."
+          },
+          {
+            "num": "04",
+            "title": "Active Sustainability",
+            "text": "Firm commitment to active sustainability, composting, and environmental care."
           }
         ]
       },
       "catalogo": {
-        "title": "Our Modules",
-        "subtitle": "Choose the workshops that best fit your institutional project.",
+        "title": "Activity Catalog",
+        "subtitle": "We design each day to fit your group, because we know no two schools are alike. We combine adventure, earth, and expression.",
         "modules": [
           {
-            "tag": "Nature",
-            "title": "Botany & Recognition",
+            "tag": "Agroecology",
+            "title": "Agroecological Workshops",
             "items": [
-              "Species identification",
-              "Seed collection"
+              "Organic Garden and Crops",
+              "Healthy and Regenerative Cooking",
+              "Composting and Recycling",
+              "Natural Medicine Garden"
             ]
           },
           {
-            "tag": "Sustainability",
-            "title": "Clean Energies",
+            "tag": "Nature",
+            "title": "Adventure and Nature",
             "items": [
-              "Solar oven",
-              "Waste management"
+              "Exploring Streams and Rivers",
+              "Hiking and Mountain Adventure",
+              "Plant and Mineral World Recognition",
+              "Bird Watching",
+              "Biodiversity Conservation"
+            ]
+          },
+          {
+            "tag": "Art",
+            "title": "Art and Expression",
+            "items": [
+              "Natural Art and Recycling",
+              "Performing Arts and Theater",
+              "Music and Body Expression",
+              "Cultural Bonfire Gatherings"
             ]
           }
         ]
@@ -2073,7 +2123,7 @@
         "strengthen_title": "Strengthen the group",
         "strengthen_text": "Every activity is designed to work on trust, communication, and teamwork. Students return with stronger bonds.",
         "reforest_title": "We plant together",
-        "reforest_text": "Every group that visits Magico plants at least one tree. A concrete act of regeneration that students carry in their hearts.",
+        "reforest_text": "Throughout the year we are reforesting the land and have already planted over 15,000 trees. Visiting Mágico Ensueño directly contributes to this great environmental goal. 10% of your investment goes to reforesting tabaquillos and restoring the sierras.",
         "footer_text": "Road access for coaches and school vehicles right to the entrance of the property.",
         "safety_items": [
           {
