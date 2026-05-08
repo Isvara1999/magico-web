@@ -54,8 +54,8 @@ root.render(
               <Route path="/achala-viva" element={<AchalaViva />} />
               <Route path="/el-vuelo-del-condor" element={<VueloDelCondor />} />
               <Route path="/estadia" element={<Estadia />} />
-              <Route path="/terminos" element={<TerminosYCondiciones />} />
-              <Route path="/privacidad" element={<PoliticaPrivacidad />} />
+              <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />
+              <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

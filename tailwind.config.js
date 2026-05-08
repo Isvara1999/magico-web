@@ -35,7 +35,10 @@ export default {
       },
       boxShadow: {
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-      }
+      },
+      animation: {
+        'spin-slow': 'spin 15s linear infinite',
+      },
     }
   },
   plugins: [],
