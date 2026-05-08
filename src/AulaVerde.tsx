@@ -131,9 +131,7 @@ const AulaVerdeContent: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div data-reveal className="flex flex-col justify-center">
-              <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10">
-                {t.aula_verde.invitation.title}
-              </h2>
+              <h2 className="text-2xl md:text-4xl serif-title brand-green mb-8 md:mb-10" dangerouslySetInnerHTML={{ __html: t.aula_verde.invitation.title }} />
               <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                 {t.aula_verde.invitation.text1}
               </p>
