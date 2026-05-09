@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { DownloadSimple, CheckCircle, FilePdf, CircleNotch } from '@phosphor-icons/react';
 import { pdf } from '@react-pdf/renderer';
 import DossierAulaVerde from './pdf/DossierAulaVerde';
@@ -8,6 +8,19 @@ const AulaVerdeLeadMagnet: React.FC = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    sectionRef.current.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   // Form submission handler to prevent default and use Netlify AJAX (or standard form action)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,7 +64,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-brand relative overflow-hidden text-white">
+    <section ref={sectionRef} className="py-20 md:py-32 px-6 bg-brand relative overflow-hidden text-white">
       {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>

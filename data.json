@@ -829,43 +829,43 @@
         "subtitle": "Tres formatos adaptables al tamaño de tu grupo y los objetivos de tu proyecto educativo.",
         "cards": [
           {
-            "title": "Jornada de Día",
-            "price": "A consultar",
-            "unit": "por persona",
-            "tag": "Mínimo 20 personas",
+            "title": "Eco-Campamento Base",
+            "price": "$85.000",
+            "unit": "por alumno",
+            "tag": "Mínimo 20 alumnos",
             "badge": null,
             "features": [
-              "Actividades de medio día o día completo",
-              "Almuerzo incluido",
+              "2 noches de campamento en Los Gigantes",
+              "Pensión completa (3 comidas por día)",
               "Talleres a elección del catálogo",
-              "Guía pedagógico durante toda la jornada",
+              "Guía pedagógico durante toda la estadía",
               "Transporte no incluido"
             ],
-            "btn": "Consultar precio"
+            "btn": "Consultar disponibilidad"
           },
           {
-            "title": "Campamento 2 Noches",
-            "price": "A consultar",
-            "unit": "por persona",
-            "tag": "Mínimo 20 personas",
-            "badge": "MÁS ELEGIDO",
+            "title": "Inmersión Educativa",
+            "price": "$125.000",
+            "unit": "por alumno",
+            "tag": "Mínimo 20 alumnos",
+            "badge": "MÁS ELEGIDA",
             "features": [
-              "2 noches de alojamiento grupal",
+              "3 noches de inmersión en la naturaleza",
               "Pensión completa (4 comidas)",
-              "Programa completo de actividades",
+              "Programa pedagógico completo",
               "Guía pedagógico 24 horas",
               "Plantación de árbol nativo incluida"
             ],
-            "btn": "Consultar precio"
+            "btn": "Reservar mi lugar"
           },
           {
-            "title": "Residencia Educativa",
-            "price": "A consultar",
-            "unit": "por persona",
-            "tag": "3 a 5 noches",
+            "title": "Proyecto a Medida",
+            "price": "Personalizado",
+            "unit": null,
+            "tag": "Desde 3 hasta 7 noches",
             "badge": null,
             "features": [
-              "Programa personalizado completo",
+              "Programa y duración a tu medida",
               "Pensión completa todo incluido",
               "Equipo pedagógico dedicado",
               "Documentación para el colegio",
@@ -874,7 +874,7 @@
             "btn": "Armar propuesta"
           }
         ],
-        "note": "Los precios se calculan según el tamaño del grupo, los módulos elegidos y la duración. Pedinos un presupuesto sin cargo.",
+        "note": "Los precios son referenciales y pueden variar según el tamaño del grupo y los módulos elegidos. Pedinos un presupuesto sin cargo.",
         "global_btn": "SOLICITAR PRESUPUESTO GRATUITO"
       },
       "testimonios": {
@@ -2150,43 +2150,43 @@
         "subtitle": "Three adaptable formats for the size of your group and the goals of your educational project.",
         "cards": [
           {
-            "title": "Day Trip",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "Minimum 20 people",
+            "title": "Eco-Base Camp",
+            "price": "$85,000",
+            "unit": "per student",
+            "tag": "Minimum 20 students",
             "badge": null,
             "features": [
-              "Half-day or full-day activities",
-              "Lunch included",
+              "2 nights camping at Los Gigantes",
+              "Full board (3 meals per day)",
               "Workshops of your choice from the catalog",
-              "Pedagogical guide throughout the session",
+              "Pedagogical guide throughout the stay",
               "Transport not included"
             ],
-            "btn": "Ask for price"
+            "btn": "Check availability"
           },
           {
-            "title": "2-Night Camp",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "Minimum 20 people",
+            "title": "Educational Immersion",
+            "price": "$125,000",
+            "unit": "per student",
+            "tag": "Minimum 20 students",
             "badge": "MOST POPULAR",
             "features": [
-              "2 nights of group accommodation",
+              "3 nights immersed in nature",
               "Full board (4 meals)",
-              "Full activity program",
+              "Full educational program",
               "Pedagogical guide 24 hours",
               "Native tree planting included"
             ],
-            "btn": "Ask for price"
+            "btn": "Reserve my spot"
           },
           {
-            "title": "Educational Residency",
-            "price": "On request",
-            "unit": "per person",
-            "tag": "3 to 5 nights",
+            "title": "Custom Project",
+            "price": "Custom",
+            "unit": null,
+            "tag": "3 to 7 nights",
             "badge": null,
             "features": [
-              "Fully personalized program",
+              "Program and duration tailored to you",
               "All-inclusive full board",
               "Dedicated educational team",
               "Documentation for school records",
@@ -2195,7 +2195,7 @@
             "btn": "Build a proposal"
           }
         ],
-        "note": "Prices are calculated based on group size, chosen modules, and duration. Request a free quote.",
+        "note": "Prices are indicative and may vary based on group size and chosen modules. Request a free quote.",
         "global_btn": "REQUEST FREE QUOTE"
       },
       "testimonios": {
