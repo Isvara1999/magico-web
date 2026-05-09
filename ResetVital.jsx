@@ -215,59 +215,61 @@ export default function ResetVitalApp() {
       `}</style>
 
       {/* --- HERO HEADER --- */}
-      <header className="relative h-[92vh] min-h-[600px] flex flex-col items-center justify-center text-center overflow-hidden print:h-auto print:py-10 print:pb-0" style={{ pageBreakAfter: 'always' }}>
+      <header className="relative h-[92vh] min-h-[580px] flex flex-col items-center justify-center text-center overflow-hidden print:h-auto print:py-12" style={{ pageBreakAfter: 'always' }}>
+
+        {/* Background */}
         <div className="absolute inset-0 z-0 no-print">
-          <img src={IMAGES.hero} className="w-full h-full object-cover scale-110 transition-transform duration-[8s] ease-out" alt="Cielo estrellado montaña" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70"></div>
-          <div className="absolute inset-0 bg-[#005333]/20 mix-blend-overlay"></div>
-          {/* Vignette lateral */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+          <img src={IMAGES.hero} className="w-full h-full object-cover" alt="" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/65"></div>
+          <div className="absolute inset-0 bg-[#005333]/15 mix-blend-overlay"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center">
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-2xl mx-auto px-6 flex flex-col items-center text-white print:text-[#1a1a1a]">
+
+          {/* Logo blanco arriba */}
+          <img
+            src="/uploads/logo blanco.svg"
+            alt="Mágico Ensueño"
+            className="h-12 md:h-14 w-auto object-contain opacity-80 mb-8 drop-shadow-lg print:hidden"
+          />
+          <img
+            src="/uploads/logo negro.svg"
+            alt="Mágico Ensueño"
+            className="hidden print:block h-12 w-auto object-contain mb-6"
+          />
+
           {/* Badge */}
-          <div className="hero-animate inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl print:border-stone-800 print:text-stone-800">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+            <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A8971C] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A8971C]"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#A8971C]"></span>
             </span>
-            <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-white/85">Retiro Autogestivo · Mágico Ensueño</span>
+            <span className="text-[10px] tracking-[0.28em] uppercase font-bold text-white/80">Retiro Autogestivo</span>
           </div>
 
-          {/* Main title */}
-          <h1 className="hero-animate-2 font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 drop-shadow-2xl print:text-[#005333] leading-[0.9] w-full">
-            Desconectar<br/>para<br/>Reconectar
+          {/* Título principal */}
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-xl leading-[1.08] mb-5">
+            Desconectar<br/>para Reconectar
           </h1>
 
           {/* Divider */}
-          <div className="hero-animate-3 flex items-center gap-4 mb-6">
-            <div className="h-px w-14 bg-gradient-to-r from-transparent via-[#A8971C]/70 to-[#A8971C]"></div>
-            <Star size={12} className="text-[#A8971C]" fill="#A8971C" />
-            <div className="h-px w-14 bg-gradient-to-l from-transparent via-[#A8971C]/70 to-[#A8971C]"></div>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="h-px w-16 bg-[#A8971C]/50"></div>
+            <Star size={11} className="text-[#A8971C]" fill="#A8971C" />
+            <div className="h-px w-16 bg-[#A8971C]/50"></div>
           </div>
 
-          {/* Subtitle + Logo */}
-          <div className="hero-animate-3 flex flex-col items-center gap-4">
-            <p className="text-base md:text-lg font-serif tracking-[0.35em] text-[#A8971C] uppercase print:text-[#A8971C]">
-              Reset Vital
-            </p>
-            <img
-              src="/uploads/logo blanco.svg"
-              alt="Mágico Ensueño"
-              className="h-16 md:h-20 lg:h-24 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity drop-shadow-xl print:hidden"
-            />
-            <img
-              src="/uploads/logo negro.svg"
-              alt="Mágico Ensueño"
-              className="hidden print:block h-14 w-auto object-contain mt-2"
-            />
-          </div>
+          {/* Label */}
+          <p className="text-[11px] tracking-[0.45em] uppercase font-bold text-[#A8971C]">
+            Reset Vital
+          </p>
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 no-print flex flex-col items-center gap-2 opacity-50">
-          <span className="text-[9px] tracking-[0.3em] uppercase text-white font-bold">Comenzar</span>
-          <ChevronDown size={18} className="text-white animate-bounce" />
+        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 no-print text-white/40 flex flex-col items-center gap-1.5">
+          <span className="text-[8px] tracking-[0.35em] uppercase font-bold">Comenzar</span>
+          <ChevronDown size={16} className="animate-bounce" />
         </div>
       </header>
 
