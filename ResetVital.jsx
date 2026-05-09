@@ -67,47 +67,55 @@ const MediaButton = ({ type, title, link, color }) => {
 
 const DayCard = ({ dayNumber, title, subtitle, icon: Icon, color, image, children, isOpen, onClick }) => {
   return (
-    <div className={`mb-8 print:mb-4 print:block ${isOpen ? 'scale-100' : 'scale-100'}`} style={{ pageBreakBefore: 'always' }}>
-      
+    <div className="mb-10 print:mb-4 print:block" style={{ pageBreakBefore: 'always' }}>
+
       {/* HEADER CARD */}
       <button
         onClick={onClick}
-        className="w-full relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 text-left print:shadow-none print:border-b print:rounded-none break-inside-avoid cursor-pointer z-20 touch-manipulation active:scale-[0.99] group"
+        className="w-full relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 text-left print:shadow-none print:border-b print:rounded-none break-inside-avoid cursor-pointer z-20 touch-manipulation active:scale-[0.99] group"
       >
-        {/* Background Image with Overlay */}
+        {/* Background Image with layered overlay */}
         <div className="absolute inset-0 z-0">
-          <img src={image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div className="absolute inset-0 opacity-40 transition-opacity duration-300" style={{ backgroundColor: color, mixBlendMode: 'multiply' }}></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <img src={image} alt="" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+          <div className="absolute inset-0 opacity-55" style={{ backgroundColor: color, mixBlendMode: 'multiply' }}></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15"></div>
         </div>
 
-        <div className="relative z-10 p-6 flex items-end justify-between min-h-[140px]">
+        {/* Ghost day number — decorative */}
+        <div className="absolute right-3 bottom-0 font-serif leading-none text-white/[0.07] font-bold select-none pointer-events-none z-10 tabular-nums" style={{ fontSize: 'clamp(100px, 20vw, 180px)' }} aria-hidden="true">
+          {dayNumber}
+        </div>
+
+        <div className="relative z-10 px-8 py-9 md:px-12 md:py-11 flex items-end justify-between min-h-[200px] md:min-h-[240px]">
           <div>
-            <div className="flex items-center gap-2 text-white/80 font-sans text-xs font-bold tracking-[0.2em] uppercase mb-1">
-              <span className="w-6 h-px bg-white/50"></span>
-              Día {dayNumber}
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-5 h-px bg-white/40"></span>
+              <span className="rv-section-title text-white/50">Día {dayNumber}</span>
             </div>
-            <h3 className="font-serif text-3xl text-white leading-none mb-1 shadow-black drop-shadow-md">
+            <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-none mb-2 drop-shadow-xl tracking-wide">
               {title}
             </h3>
-            <p className="text-white/90 font-sans text-sm font-medium">
+            <p className="text-white/65 font-sans text-sm font-light tracking-widest uppercase">
               {subtitle}
             </p>
           </div>
-          
-          {/* FLECHA CON EFECTO GLASS MEJORADO */}
-          <div 
-            className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-500 no-print shadow-lg border border-white/30 backdrop-blur-xl ${isOpen ? 'rotate-180 bg-white' : 'bg-white/20 group-hover:bg-white/30'}`} 
-            style={{ color: isOpen ? color : 'white' }}
+
+          {/* TOGGLE BUTTON */}
+          <div
+            className={`w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-500 no-print shadow-xl border border-white/20 backdrop-blur-xl flex-shrink-0 ml-4 ${isOpen ? 'rotate-180' : 'bg-white/15 group-hover:bg-white/25'}`}
+            style={{ backgroundColor: isOpen ? color : undefined }}
           >
-            <ChevronDown size={24} />
+            <ChevronDown size={20} />
           </div>
         </div>
       </button>
 
       {/* CONTENT (Accordion) */}
-      <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-white rounded-b-2xl shadow-md border-x border-b border-stone-100 print:max-h-none print:opacity-100 print:shadow-none print:border-none ${isOpen ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="p-6 md:p-8 space-y-6 relative">
+      <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-white rounded-b-2xl shadow-xl border-x border-b border-stone-100 print:max-h-none print:opacity-100 print:shadow-none print:border-none ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        {/* Color accent strip */}
+        <div className="h-[3px]" style={{ background: `linear-gradient(to right, ${color}, ${color}60, transparent)` }}></div>
+        <div className="p-6 md:p-10 space-y-8 relative">
           <PortalBackground color={color} />
           <div className="relative z-10 text-stone-700 font-sans leading-relaxed text-left">
             {children}
@@ -169,10 +177,16 @@ export default function ResetVitalApp() {
         <Header />
         <div className="min-h-screen font-sans bg-[#FDFBF7] selection:bg-[#A8971C] selection:text-white print:bg-white">
       <style>{`
-        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-serif { font-family: 'Marcellus', 'Georgia', serif; }
         .font-sans { font-family: 'Nunito', sans-serif; }
         .animate-spin-slow { animation: spin 60s linear infinite; }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .rv-quote { font-family: 'Marcellus', Georgia, serif; font-style: italic; }
+        .rv-section-title { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; font-weight: 700; }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-animate { animation: fadeSlideUp 0.9s ease forwards; }
+        .hero-animate-2 { animation: fadeSlideUp 0.9s 0.2s ease both; }
+        .hero-animate-3 { animation: fadeSlideUp 0.9s 0.4s ease both; }
         
         @media print {
           .no-print { display: none !important; }
@@ -201,51 +215,59 @@ export default function ResetVitalApp() {
       `}</style>
 
       {/* --- HERO HEADER --- */}
-      <header className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center text-center overflow-hidden pb-20 md:pb-28 lg:pb-32 lg:pt-24 print:h-auto print:py-10 print:pb-0" style={{ pageBreakAfter: 'always' }}>
+      <header className="relative h-[92vh] min-h-[600px] flex flex-col items-center justify-center text-center overflow-hidden print:h-auto print:py-10 print:pb-0" style={{ pageBreakAfter: 'always' }}>
         <div className="absolute inset-0 z-0 no-print">
-          <img src={IMAGES.hero} className="w-full h-full object-cover scale-[1.15] md:scale-[1.20] transition-transform duration-1000" alt="Cielo estrellado montaña" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-[#005333]/30 mix-blend-overlay"></div>
+          <img src={IMAGES.hero} className="w-full h-full object-cover scale-110 transition-transform duration-[8s] ease-out" alt="Cielo estrellado montaña" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70"></div>
+          <div className="absolute inset-0 bg-[#005333]/20 mix-blend-overlay"></div>
+          {/* Vignette lateral */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-center h-full">
-          <div className="w-full flex flex-col items-center text-white print:text-black lg:gap-4">
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 lg:mb-6 shadow-2xl print:border-stone-800 print:text-stone-800 transition-transform hover:scale-105 duration-700">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A8971C] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A8971C]"></span>
-              </span>
-              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/90">Retiro Autogestivo</span>
-            </div>
-            
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 lg:mb-8 tracking-tight drop-shadow-2xl print:text-[#005333] leading-[0.95] lg:leading-[0.9] w-full max-w-5xl">
-              Desconectar<br/>para Reconectar
-            </h1>
-            
-            <div className="flex items-center gap-4 opacity-60 mb-4 lg:mb-8">
-               <div className="h-px w-16 bg-gradient-to-r from-transparent via-white to-transparent"></div>
-               <Star size={14} className="text-[#A8971C]" fill="#A8971C" />
-               <div className="h-px w-16 bg-gradient-to-r from-transparent via-white to-transparent"></div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3">
-              <p className="text-lg md:text-xl lg:text-2xl font-serif tracking-[0.2em] text-[#FDFBF7] print:text-[#A8971C]">
-                RESET VITAL
-              </p>
-              {/* Logo Blanco para pantalla */}
-              <img 
-                src="/uploads/logo blanco.svg" 
-                alt="Mágico Ensueño" 
-                className="h-20 md:h-24 lg:h-28 w-auto object-contain mt-2 opacity-90 hover:opacity-100 transition-opacity drop-shadow-lg print:hidden" 
-              />
-              {/* Logo Negro para impresión */}
-              <img 
-                src="/uploads/logo negro.svg" 
-                alt="Mágico Ensueño" 
-                className="hidden print:block h-16 w-auto object-contain mt-4" 
-              />
-            </div>
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center">
+          {/* Badge */}
+          <div className="hero-animate inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl print:border-stone-800 print:text-stone-800">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A8971C] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A8971C]"></span>
+            </span>
+            <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-white/85">Retiro Autogestivo · Mágico Ensueño</span>
           </div>
+
+          {/* Main title */}
+          <h1 className="hero-animate-2 font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 drop-shadow-2xl print:text-[#005333] leading-[0.9] w-full">
+            Desconectar<br/>para<br/>Reconectar
+          </h1>
+
+          {/* Divider */}
+          <div className="hero-animate-3 flex items-center gap-4 mb-6">
+            <div className="h-px w-14 bg-gradient-to-r from-transparent via-[#A8971C]/70 to-[#A8971C]"></div>
+            <Star size={12} className="text-[#A8971C]" fill="#A8971C" />
+            <div className="h-px w-14 bg-gradient-to-l from-transparent via-[#A8971C]/70 to-[#A8971C]"></div>
+          </div>
+
+          {/* Subtitle + Logo */}
+          <div className="hero-animate-3 flex flex-col items-center gap-4">
+            <p className="text-base md:text-lg font-serif tracking-[0.35em] text-[#A8971C] uppercase print:text-[#A8971C]">
+              Reset Vital
+            </p>
+            <img
+              src="/uploads/logo blanco.svg"
+              alt="Mágico Ensueño"
+              className="h-16 md:h-20 lg:h-24 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity drop-shadow-xl print:hidden"
+            />
+            <img
+              src="/uploads/logo negro.svg"
+              alt="Mágico Ensueño"
+              className="hidden print:block h-14 w-auto object-contain mt-2"
+            />
+          </div>
+        </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 no-print flex flex-col items-center gap-2 opacity-50">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-white font-bold">Comenzar</span>
+          <ChevronDown size={18} className="text-white animate-bounce" />
         </div>
       </header>
 
@@ -813,69 +835,75 @@ export default function ResetVitalApp() {
         </DayCard>
 
         {/* --- TARJETA FINAL "PARA LLEVARTE" --- */}
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl shadow-stone-200/50 mt-20 mb-20 relative overflow-hidden text-center break-inside-avoid border border-stone-100 print:shadow-none print:border print:border-stone-200" style={{ pageBreakBefore: 'always' }}>
-             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
-             <PortalBackground color={BRAND.gold} />
-             
-             <div className="relative z-10 max-w-2xl mx-auto">
-                 <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-orange-100">
-                     <Heart size={32} className="text-[#AA3E11]" strokeWidth={1.5} />
-                 </div>
-                 
-                 <h2 className="font-serif text-4xl text-[#005333] mb-8 tracking-wide">Para llevarte</h2>
-                 
-                 <div className="prose prose-lg mx-auto mb-10 text-stone-600 leading-relaxed font-sans">
-                     <p className="mb-4">No hace falta tener todo resuelto. A veces alcanza con elegir un poco mejor.</p>
-                     <p>El portal se cierra, pero algo queda abierto en vos.</p>
-                 </div>
-                 
-                 <div className="w-16 h-px bg-[#A8971C]/30 mx-auto mb-10"></div>
-                 
-                 <div className="space-y-4 mb-12">
-                    <p className="font-serif text-2xl md:text-3xl italic text-[#005333] leading-tight">
-                        Este es un camino de Vida.
-                    </p>
-                    <p className="font-serif text-2xl md:text-3xl italic text-[#005333]/80 leading-tight">
-                        Sos creador/a de tu realidad.
-                    </p>
-                 </div>
+        <div className="bg-[#005333] rounded-2xl mt-20 mb-20 relative overflow-hidden text-center break-inside-avoid shadow-2xl print:shadow-none print:border print:border-stone-200 print:bg-white" style={{ pageBreakBefore: 'always' }}>
+          <PortalBackground color={BRAND.gold} />
+          {/* Glow orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#A8971C]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                 <div className="inline-block px-6 py-2 rounded-full bg-stone-50 border border-stone-200">
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#A8971C]">
-                        ¡No te olvides!
-                    </p>
-                 </div>
-             </div>
+          <div className="relative z-10 max-w-2xl mx-auto px-8 py-16 md:py-24">
+            <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20">
+              <Heart size={28} className="text-[#A8971C]" strokeWidth={1.5} />
+            </div>
+
+            <p className="rv-section-title text-[#A8971C]/60 mb-4">Cierre del viaje</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-8 print:text-[#005333]">Para llevarte</h2>
+
+            <div className="text-white/70 text-base md:text-lg leading-relaxed font-sans mb-10 max-w-md mx-auto">
+              <p className="mb-3">No hace falta tener todo resuelto.</p>
+              <p>A veces alcanza con elegir un poco mejor.</p>
+            </div>
+
+            <div className="w-12 h-px bg-[#A8971C]/40 mx-auto mb-10"></div>
+
+            <div className="space-y-3 mb-12">
+              <p className="font-serif text-2xl md:text-3xl italic text-[#A8971C] leading-tight">
+                Este es un camino de Vida.
+              </p>
+              <p className="font-serif text-2xl md:text-3xl italic text-white/60 leading-tight">
+                Sos creador/a de tu realidad.
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <Star size={12} className="text-[#A8971C]" fill="#A8971C" />
+              <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#A8971C]">
+                El portal queda abierto en vos
+              </p>
+              <Star size={12} className="text-[#A8971C]" fill="#A8971C" />
+            </div>
+          </div>
         </div>
 
         {/* --- MAPA DEL LUGAR --- */}
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl shadow-stone-200/50 mt-12 mb-20 relative overflow-hidden text-center break-inside-avoid border border-stone-100 print:shadow-none print:border print:border-stone-200" style={{ pageBreakBefore: 'always' }}>
-             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
-             
-             <h2 className="font-serif text-3xl text-[#005333] mb-8 tracking-wide">Mapa del Lugar</h2>
-             
-             <div className="relative group cursor-zoom-in max-w-4xl mx-auto" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
-                 <img 
-                     src="/uploads/mapa_magico.webp" 
-                     alt="Mapa de Mágico Ensueño" 
-                     className="w-full h-auto rounded-lg shadow-md transition-transform duration-300 group-hover:scale-[1.01]" 
-                 />
-                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10 rounded-lg">
-                     <span className="bg-white/90 text-[#005333] px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm flex items-center gap-2">
-                         <Sparkles size={16} /> Ver Ampliado
-                     </span>
-                 </div>
-             </div>
+        <div className="bg-white rounded-2xl shadow-xl shadow-stone-200/50 mt-8 mb-24 relative overflow-hidden break-inside-avoid border border-stone-100 print:shadow-none print:border print:border-stone-200" style={{ pageBreakBefore: 'always' }}>
+          <div className="h-1 bg-gradient-to-r from-[#005333] via-[#A8971C] to-[#AA3E11]"></div>
+          <div className="p-8 md:p-12 text-center">
+            <p className="rv-section-title text-[#005333]/40 mb-2">Orientación</p>
+            <h2 className="font-serif text-3xl text-[#005333] mb-8 tracking-wide">Mapa del Lugar</h2>
 
-             <div className="mt-8 flex justify-center gap-4">
-                 <a 
-                     href="/uploads/mapa_magico.webp" 
-                     download="Mapa_Magico_Ensueno.webp"
-                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#005333] text-white rounded-full hover:bg-[#003822] transition-colors text-sm font-bold uppercase tracking-widest shadow-lg"
-                 >
-                     <Download size={18} /> Descargar Mapa
-                 </a>
-             </div>
+            <div className="relative group cursor-zoom-in max-w-4xl mx-auto rounded-xl overflow-hidden border border-stone-100 shadow-md" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
+              <img
+                src="/uploads/mapa_magico.webp"
+                alt="Mapa de Mágico Ensueño"
+                className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/15 rounded-xl">
+                <span className="bg-white/90 text-[#005333] px-5 py-2.5 rounded-full text-sm font-bold shadow-xl backdrop-blur-sm flex items-center gap-2">
+                  <Sparkles size={15} /> Ver ampliado
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <a
+                href="/uploads/mapa_magico.webp"
+                download="Mapa_Magico_Ensueno.webp"
+                className="inline-flex items-center gap-2 px-7 py-3 bg-[#005333] text-white rounded-full hover:bg-[#003d26] transition-colors text-xs font-bold uppercase tracking-widest shadow-lg"
+              >
+                <Download size={16} /> Descargar Mapa
+              </a>
+            </div>
+          </div>
         </div>
 
       </main>
