@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon, StarIcon, DiamondIcon } from '@phosphor-icons/react';
+import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon, StarIcon, DiamondIcon, RecycleIcon } from '@phosphor-icons/react';
 
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
@@ -271,6 +271,41 @@ const AulaVerdeContent: React.FC = () => {
               </p>
             </div>
           )}
+
+          {/* ====== ECONOMÍA CIRCULAR ====== */}
+          {t.aula_verde.catalogo.circular_economy && (() => {
+            const ce = t.aula_verde.catalogo.circular_economy;
+            return (
+              <div className="mt-14 md:mt-20 rounded-2xl bg-[#005333]/[0.04] border border-[#005333]/10 p-8 md:p-12" data-reveal>
+                {/* Header */}
+                <div className="flex items-center gap-2 mb-3">
+                  <RecycleIcon weight="light" className="w-5 h-5 text-[#005333]/50" aria-hidden="true" />
+                  <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">{ce.tag}</p>
+                </div>
+                <h3 className="text-2xl md:text-3xl serif-title brand-green mb-3">{ce.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed font-light max-w-2xl mb-8">{ce.description}</p>
+
+                {/* Las 9 Rs */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 divide-[#E8E4D9]">
+                  {ce.rs.map((item: any, i: number) => (
+                    <div key={i} className={`py-4 sm:py-5 flex items-start gap-3 ${i % 3 < 2 ? 'sm:pr-6 sm:border-r sm:border-[#E8E4D9]' : 'sm:pl-0'} ${i % 3 === 1 ? 'sm:px-6' : ''} ${i % 3 === 2 ? 'sm:pl-6' : ''}`}>
+                      <span className="text-[10px] font-extrabold tracking-widest uppercase text-white bg-[#005333] rounded px-1.5 py-0.5 flex-shrink-0 mt-0.5">{item.r.slice(0, 2)}</span>
+                      <div>
+                        <span className="text-[#005333] font-semibold text-sm">{item.r}</span>
+                        <span className="text-gray-500 font-light text-sm"> {item.text}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Nota honesta "cómo lo vivimos" */}
+                <div className="mt-8 pt-8 border-t border-[#005333]/10">
+                  <p className="text-xs font-bold uppercase tracking-widest brand-green mb-2 opacity-60">{ce.practice_title}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed font-light italic max-w-3xl">{ce.practice_text}</p>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
