@@ -684,8 +684,8 @@
       },
       "invitation": {
         "title": "El aprendizaje ocurre <span class='italic text-gold'>afuera</span>",
-        "text1": "Aula Verde es nuestra propuesta para instituciones educativas que buscan una experiencia de aprendizaje vivencial.",
-        "text2": "Transformamos el campamento tradicional en una inmersión pedagógica en la naturaleza, donde el respeto por el ecosistema es el eje central.",
+        "text1": "Cinco días en las sierras de Córdoba donde las clases ocurren afuera. Tus alumnos van a aprender tocando, haciendo, descubriendo — no escuchando.",
+        "text2": "Biología real en campo abierto. Astronomía bajo un cielo sin contaminación lumínica. Geología, ecología, expresión y sustentabilidad. Todo diseñado con objetivos pedagógicos claros y especialistas en cada área.",
         "video_title": "Aula Verde — Experiencia educativa en Los Gigantes"
       },
       "dirigida_a": {
@@ -738,61 +738,61 @@
             "tag": "Agroecología",
             "title": "Talleres Agroecológicos",
             "items": [
-              "Huerta y Cultivos Orgánicos",
-              "Cocina Saludable y Regenerativa",
-              "Compostaje y Reciclaje",
-              "Botiquín Natural"
+              "Sembrar y cosechar con tus propias manos",
+              "Cocinar con lo que da la tierra — recetas reales, sabores nuevos",
+              "Transformar residuos orgánicos en abono vivo",
+              "Armar tu propio botiquín con plantas del lugar"
             ]
           },
           {
             "tag": "Naturaleza",
             "title": "Aventura y Naturaleza",
             "items": [
-              "Exploración de Arroyos y Ríos",
-              "Senderismo y Aventura de Montaña",
-              "Reconocimiento de Plantas y mundo mineral",
-              "Avistaje de Aves",
-              "Conservación de Biodiversidad"
+              "Explorar arroyos y descubrir lo que vive en ellos",
+              "Subir la montaña y leer el paisaje como un mapa",
+              "Aprender a reconocer qué planta es cuál y para qué sirve",
+              "Escuchar, buscar y registrar aves en su hábitat",
+              "Entender por qué la biodiversidad de este lugar es única"
             ]
           },
           {
             "tag": "Arte",
             "title": "Arte y Expresión",
             "items": [
-              "Arte Natural y Reciclaje",
-              "Artes Escénicas y Teatro",
-              "Música y Expresión Corporal",
-              "Fogones Culturales"
+              "Crear con materiales que recogés en el camino",
+              "Meterte en la historia a través del teatro",
+              "Expresarte con la voz, el cuerpo y el ritmo",
+              "Compartir alrededor del fuego — relatos, canciones, cultura"
             ]
           },
           {
             "tag": "Astronomía",
             "title": "Astronomía y Cielo Nocturno",
             "items": [
-              "Observación de Estrellas y Constelaciones",
-              "Historia del Uso de los Astros en el Desarrollo Humano",
-              "Dimensionando el Sistema Solar",
-              "El Cielo como Mapa y Guía Cultural"
+              "Ver la Vía Láctea sin contaminación lumínica — por primera vez",
+              "Cómo las estrellas guiaron civilizaciones enteras",
+              "Dimensionar el sistema solar de formas que el libro no puede mostrar",
+              "Leer el cielo como lo hacían nuestros ancestros"
             ]
           },
           {
             "tag": "Ciencias Naturales",
             "title": "Flora y Fauna de Pampa de Achala",
             "items": [
-              "Reconocimiento e Identificación de Plantas Nativas",
-              "Propiedades Medicinales de la Flora Local",
-              "Biodiversidad y Ecología de Altura",
-              "Fauna Silvestre y Avistaje"
+              "Identificar plantas nativas que probablemente nunca viste",
+              "Qué propiedades medicinales tienen y cómo se usan",
+              "Fauna silvestre de altura: quiénes son y cómo conviven",
+              "Por qué la Pampa de Achala es un ecosistema tan especial"
             ]
           },
           {
             "tag": "Geología",
             "title": "Ciencias de la Tierra",
             "items": [
-              "Formaciones Geológicas de las Sierras Grandes",
-              "Reconocimiento de Minerales y Rocas",
-              "Historia Geológica de Pampa de Achala",
-              "Fósiles y Registros del Tiempo Profundo"
+              "¿De qué está hecha la montaña que estás pisando?",
+              "Reconocer minerales y rocas con tus propias manos",
+              "500 millones de años de historia bajo tus pies",
+              "Fósiles y lo que nos cuentan sobre el tiempo profundo"
             ]
           }
         ],
@@ -1088,6 +1088,32 @@
             }
           ]
         }
+      },
+      "vocacional": {
+        "tag": "Descubrimiento y vocación",
+        "title": "¿Y si esto define tu camino?",
+        "subtitle": "Muchos chicos llegan sin saber muy bien por qué van. Algunos se van con una pista de adónde quieren llegar.",
+        "items": [
+          {
+            "area": "Biología & Ecología",
+            "text": "Un alumno identifica su primera planta medicinal nativa, aprende su nombre científico y entiende cómo interactúa con el ecosistema. Algunos de esos alumnos terminan estudiando biología, veterinaria o agronomía."
+          },
+          {
+            "area": "Geología & Ciencias de la Tierra",
+            "text": "Toca una roca de 500 millones de años. Escucha cómo se formaron las sierras que está pisando. De repente, el tiempo geológico deja de ser un número abstracto en un libro."
+          },
+          {
+            "area": "Astronomía & Física",
+            "text": "Ver la Vía Láctea por primera vez sin contaminación lumínica cambia algo. Entender cómo las civilizaciones usaron las estrellas para navegar y sembrar conecta la ciencia con la historia de una manera que el aula no puede replicar."
+          },
+          {
+            "area": "Medio Ambiente & Economía Circular",
+            "text": "Planta un árbol nativo y entiende por qué esa especie importa. Aprende qué pasa con los residuos en un entorno sin sistema de recolección. La sustentabilidad pasa de concepto a decisión concreta."
+          }
+        ],
+        "ai_title": "Lo que la IA no puede enseñar",
+        "ai_text": "En un mundo donde la inteligencia artificial automatiza cada vez más tareas cognitivas, las habilidades que más van a valer son las que requieren presencia, criterio y contacto con la realidad. Saber leer un ecosistema. Tomar decisiones en campo. Trabajar en equipo bajo condiciones reales. Conectar con procesos que no se pueden simular en una pantalla.",
+        "ai_note": "Geología, biología, ecología, astronomía, gastronomía saludable y economía circular son algunas de las áreas con mayor proyección profesional en los próximos 20 años. Aula Verde los expone a todas ellas — en una semana."
       }
     },
     "vuelo_condor": {
@@ -2113,8 +2139,8 @@
       },
       "invitation": {
         "title": "Learning happens <span class='italic text-gold'>outside</span>",
-        "text1": "Aula Verde is our proposal for educational institutions looking for an experiential learning experience.",
-        "text2": "We transform the traditional camp into a pedagogical immersion in nature, where respect for the ecosystem is the central axis.",
+        "text1": "Five days in the Córdoba mountains where class happens outside. Your students will learn by touching, doing, discovering — not just listening.",
+        "text2": "Real biology in open fields. Astronomy under a sky free of light pollution. Geology, ecology, expression and sustainability. All designed with clear learning objectives and specialists in every area.",
         "video_title": "Aula Verde — Educational experience in Los Gigantes"
       },
       "dirigida_a": {
@@ -2167,61 +2193,61 @@
             "tag": "Agroecology",
             "title": "Agroecological Workshops",
             "items": [
-              "Organic Garden and Crops",
-              "Healthy and Regenerative Cooking",
-              "Composting and Recycling",
-              "Natural Medicine Garden"
+              "Sow and harvest with your own hands",
+              "Cook with what the land provides — real recipes, new flavors",
+              "Transform organic waste into living compost",
+              "Build your own first-aid kit with local plants"
             ]
           },
           {
             "tag": "Nature",
             "title": "Adventure and Nature",
             "items": [
-              "Exploring Streams and Rivers",
-              "Hiking and Mountain Adventure",
-              "Plant and Mineral World Recognition",
-              "Bird Watching",
-              "Biodiversity Conservation"
+              "Explore streams and discover what lives in them",
+              "Climb the mountain and read the landscape like a map",
+              "Learn to recognize which plant is which and what it's used for",
+              "Listen for, search for and record birds in their habitat",
+              "Understand why the biodiversity of this place is unique"
             ]
           },
           {
             "tag": "Art",
             "title": "Art and Expression",
             "items": [
-              "Natural Art and Recycling",
-              "Performing Arts and Theater",
-              "Music and Body Expression",
-              "Cultural Bonfire Gatherings"
+              "Create with materials gathered along the way",
+              "Step into history through theater",
+              "Express yourself with voice, body and rhythm",
+              "Share around the fire — stories, songs, culture"
             ]
           },
           {
             "tag": "Astronomy",
             "title": "Astronomy & Night Sky",
             "items": [
-              "Stargazing and Constellation Mapping",
-              "History of Stars in Human Development",
-              "Understanding the Solar System",
-              "The Sky as Map and Cultural Guide"
+              "See the Milky Way without light pollution — for the first time",
+              "How the stars guided entire civilizations",
+              "Scale the solar system in ways a textbook never could",
+              "Read the sky as our ancestors did"
             ]
           },
           {
             "tag": "Natural Sciences",
             "title": "Flora & Fauna of Pampa de Achala",
             "items": [
-              "Identification of Native Plants",
-              "Medicinal Properties of Local Flora",
-              "High-altitude Biodiversity and Ecology",
-              "Wildlife and Bird Watching"
+              "Identify native plants you have probably never seen",
+              "Their medicinal properties and how they are used",
+              "High-altitude wildlife: who they are and how they coexist",
+              "Why Pampa de Achala is such a special ecosystem"
             ]
           },
           {
             "tag": "Geology",
             "title": "Earth Sciences",
             "items": [
-              "Geological Formations of the Sierras Grandes",
-              "Minerals and Rocks Recognition",
-              "Geological History of Pampa de Achala",
-              "Fossils and Records of Deep Time"
+              "What is the mountain you are standing on made of?",
+              "Recognize minerals and rocks with your own hands",
+              "500 million years of history beneath your feet",
+              "Fossils and what they tell us about deep time"
             ]
           }
         ],
@@ -2517,6 +2543,32 @@
             }
           ]
         }
+      },
+      "vocacional": {
+        "tag": "Discovery & Vocation",
+        "title": "What if this shapes your path?",
+        "subtitle": "Many students arrive not quite sure why they're going. Some leave with a clue about where they want to go.",
+        "items": [
+          {
+            "area": "Biology & Ecology",
+            "text": "A student identifies their first native medicinal plant, learns its scientific name and understands how it interacts with the ecosystem. Some of those students end up studying biology, veterinary science or agronomy."
+          },
+          {
+            "area": "Geology & Earth Sciences",
+            "text": "They touch a 500-million-year-old rock. They hear how the mountains they're standing on were formed. Suddenly, geological time stops being an abstract number in a textbook."
+          },
+          {
+            "area": "Astronomy & Physics",
+            "text": "Seeing the Milky Way for the first time without light pollution changes something. Understanding how civilizations used stars to navigate and farm connects science with history in a way the classroom cannot replicate."
+          },
+          {
+            "area": "Environment & Circular Economy",
+            "text": "They plant a native tree and understand why that species matters. They learn what happens to waste in an environment without a collection system. Sustainability shifts from concept to concrete decision."
+          }
+        ],
+        "ai_title": "What AI cannot teach",
+        "ai_text": "In a world where artificial intelligence automates more and more cognitive tasks, the skills that will matter most are those that require presence, judgment and contact with reality. Knowing how to read an ecosystem. Making decisions in the field. Working as a team under real conditions. Connecting with processes that cannot be simulated on a screen.",
+        "ai_note": "Geology, biology, ecology, astronomy, healthy gastronomy and circular economy are some of the fastest-growing professional areas over the next 20 years. Aula Verde exposes students to all of them — in one week."
       }
     },
     "vuelo_condor": {
