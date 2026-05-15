@@ -1111,11 +1111,19 @@
           {
             "area": "Medio Ambiente & Economía Circular",
             "text": "Planta un árbol nativo y entiende por qué esa especie importa. Aprende qué pasa con los residuos en un entorno sin sistema de recolección. La sustentabilidad pasa de concepto a decisión concreta."
+          },
+          {
+            "area": "Arte & Expresión",
+            "text": "Crear con materiales del entorno, actuar alrededor del fuego o componer algo con los sonidos del arroyo no es relleno entre actividades. Es el momento donde muchos chicos descubren que tienen algo para decir — y una forma de decirlo. Esa chispa suele aparecer lejos del aula."
+          },
+          {
+            "area": "Integración & Trabajo en Equipo",
+            "text": "Preparar una comida para 40 personas, armar un campamento bajo la lluvia o resolver cómo cruzar un arroyo sin mojarse: nadie lo hace solo. Cinco días de desafíos reales consolidan vínculos y habilidades de colaboración que el aula tarda meses en construir."
           }
         ],
         "ai_title": "Lo que la IA no puede enseñar",
-        "ai_text": "En un mundo donde la inteligencia artificial automatiza cada vez más tareas cognitivas, las habilidades que más van a valer son las que requieren presencia, criterio y contacto con la realidad. Saber leer un ecosistema. Tomar decisiones en campo. Trabajar en equipo bajo condiciones reales. Conectar con procesos que no se pueden simular en una pantalla.",
-        "ai_note": "Geología, biología, ecología, astronomía, gastronomía saludable y economía circular son algunas de las áreas con mayor proyección profesional en los próximos 20 años. Aula Verde los expone a todas ellas — en una semana."
+        "ai_text": "En un mundo donde la inteligencia artificial automatiza cada vez más tareas cognitivas, las habilidades que más van a valer son las que requieren presencia, criterio y contacto con la realidad. Leer un ecosistema. Tomar decisiones en campo. Trabajar en equipo bajo presión real. Crear, observar y resolver sin un algoritmo que lo haga por vos. Esas habilidades no las entrega ninguna app — y se desarrollan exactamente aquí.",
+        "ai_note": "Las competencias que se trabajan en Aula Verde — observación científica, resolución de problemas, trabajo en equipo, expresión creativa y conciencia ambiental — son transferibles a casi cualquier entorno laboral del siglo XXI: investigación, diseño, gastronomía, educación, conservación o trabajo en otros ecosistemas naturales del planeta. No es solo un campamento. Es una semana que amplía el mapa de lo que es posible."
       }
     },
     "vuelo_condor": {
@@ -2568,11 +2576,19 @@
           {
             "area": "Environment & Circular Economy",
             "text": "They plant a native tree and understand why that species matters. They learn what happens to waste in an environment without a collection system. Sustainability shifts from concept to concrete decision."
+          },
+          {
+            "area": "Art & Expression",
+            "text": "Creating with materials found along the path, performing around the fire or composing something from the sounds of a stream — this is not filler between activities. It is the moment where many students discover they have something to say, and a way to say it. That spark tends to appear far from the classroom."
+          },
+          {
+            "area": "Integration & Teamwork",
+            "text": "Cooking a meal for 40 people, setting up camp in the rain or figuring out how to cross a stream without getting wet — nobody does it alone. Five days of real shared challenges build bonds and collaboration skills that a classroom takes months to develop."
           }
         ],
         "ai_title": "What AI cannot teach",
-        "ai_text": "In a world where artificial intelligence automates more and more cognitive tasks, the skills that will matter most are those that require presence, judgment and contact with reality. Knowing how to read an ecosystem. Making decisions in the field. Working as a team under real conditions. Connecting with processes that cannot be simulated on a screen.",
-        "ai_note": "Geology, biology, ecology, astronomy, healthy gastronomy and circular economy are some of the fastest-growing professional areas over the next 20 years. Aula Verde exposes students to all of them — in one week."
+        "ai_text": "In a world where artificial intelligence automates more and more cognitive tasks, the skills that will matter most are those requiring presence, judgment and contact with reality. Reading an ecosystem. Making decisions in the field. Working under real pressure as a team. Creating, observing and solving without an algorithm doing it for you. Those skills don't come from any app — and they're developed exactly here.",
+        "ai_note": "The competencies developed in Aula Verde — scientific observation, problem-solving, teamwork, creative expression and environmental awareness — transfer to almost any 21st-century work environment: research, design, gastronomy, education, conservation or work in other natural ecosystems around the planet. It's not just a camp. It's a week that expands the map of what's possible."
       }
     },
     "vuelo_condor": {
