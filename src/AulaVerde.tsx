@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon } from '@phosphor-icons/react';
+import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon, StarIcon, DiamondIcon } from '@phosphor-icons/react';
 
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
@@ -117,7 +117,7 @@ const AulaVerdeContent: React.FC = () => {
 
   const TARGET_AUDIENCE_ICONS = [ChalkboardTeacherIcon, UsersThreeIcon];
   const DIFFERENTIATOR_ICONS = [MountainsIcon, LeafIcon, UsersThreeIcon, PlantIcon];
-  const CATALOG_ICONS = [PlantIcon, MountainsIcon, PaletteIcon];
+  const CATALOG_ICONS = [PlantIcon, MountainsIcon, PaletteIcon, StarIcon, LeafIcon, DiamondIcon];
 
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">
@@ -232,9 +232,21 @@ const AulaVerdeContent: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-0 divide-y md:divide-y-0 divide-[#E8E4D9]">
             {t.aula_verde.catalogo.modules.map((module: any, mIdx: number) => {
-              const Icon = CATALOG_ICONS[mIdx];
+              const Icon = CATALOG_ICONS[mIdx % CATALOG_ICONS.length];
+              const col = mIdx % 3;
+              const isSecondRow = mIdx >= 3;
               return (
-                <div key={mIdx} data-reveal data-delay={String(mIdx)} className={`py-8 md:py-0 ${mIdx < 2 ? 'md:border-r md:border-[#E8E4D9] md:pr-10' : 'md:pl-10'} ${mIdx === 1 ? 'md:px-10' : ''}`}>
+                <div
+                  key={mIdx}
+                  data-reveal
+                  data-delay={String(col)}
+                  className={[
+                    'py-8 md:py-0',
+                    col < 2 ? 'md:border-r md:border-[#E8E4D9] md:pr-10' : 'md:pl-10',
+                    col === 1 ? 'md:px-10' : '',
+                    isSecondRow ? 'md:pt-12 md:border-t md:border-[#E8E4D9]' : '',
+                  ].join(' ')}
+                >
                   <div className="flex items-center gap-2 mb-3">
                     <Icon weight="light" className="w-5 h-5 text-[#005333]/40" aria-hidden="true" />
                     <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">{module.tag}</p>
@@ -249,6 +261,16 @@ const AulaVerdeContent: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Nota equipo profesional */}
+          {t.aula_verde.catalogo.team_note && (
+            <div className="mt-12 md:mt-16 pt-8 border-t border-[#E8E4D9] flex items-start gap-4">
+              <UsersThreeIcon weight="light" className="w-5 h-5 text-[#005333]/40 flex-shrink-0 mt-0.5" aria-hidden="true" />
+              <p className="text-gray-500 text-sm leading-relaxed font-light">
+                {t.aula_verde.catalogo.team_note}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

@@ -764,8 +764,39 @@
               "Música y Expresión Corporal",
               "Fogones Culturales"
             ]
+          },
+          {
+            "tag": "Astronomía",
+            "title": "Astroturismo y Cielo Nocturno",
+            "items": [
+              "Observación de Estrellas y Constelaciones",
+              "Historia del Uso de los Astros en el Desarrollo Humano",
+              "Dimensionando el Sistema Solar",
+              "El Cielo como Mapa y Guía Cultural"
+            ]
+          },
+          {
+            "tag": "Ciencias Naturales",
+            "title": "Flora y Fauna de Pampa de Achala",
+            "items": [
+              "Reconocimiento e Identificación de Plantas Nativas",
+              "Propiedades Medicinales de la Flora Local",
+              "Biodiversidad y Ecología de Altura",
+              "Fauna Silvestre y Avistaje"
+            ]
+          },
+          {
+            "tag": "Geología",
+            "title": "Ciencias de la Tierra",
+            "items": [
+              "Formaciones Geológicas de las Sierras Grandes",
+              "Reconocimiento de Minerales y Rocas",
+              "Historia Geológica de Pampa de Achala",
+              "Fósiles y Registros del Tiempo Profundo"
+            ]
           }
-        ]
+        ],
+        "team_note": "Contamos con un equipo de profesionales especializados en cada área: biólogos, geólogos, terapeutas y guías con formación específica y recorridos propios en cada disciplina, para acompañar cada experiencia con profundidad y autenticidad."
       },
       "hero": {
         "title": "Aula Verde",
@@ -2080,8 +2111,39 @@
               "Music and Body Expression",
               "Cultural Bonfire Gatherings"
             ]
+          },
+          {
+            "tag": "Astronomy",
+            "title": "Astrotourism & Night Sky",
+            "items": [
+              "Stargazing and Constellation Mapping",
+              "History of Stars in Human Development",
+              "Understanding the Solar System",
+              "The Sky as Map and Cultural Guide"
+            ]
+          },
+          {
+            "tag": "Natural Sciences",
+            "title": "Flora & Fauna of Pampa de Achala",
+            "items": [
+              "Identification of Native Plants",
+              "Medicinal Properties of Local Flora",
+              "High-altitude Biodiversity and Ecology",
+              "Wildlife and Bird Watching"
+            ]
+          },
+          {
+            "tag": "Geology",
+            "title": "Earth Sciences",
+            "items": [
+              "Geological Formations of the Sierras Grandes",
+              "Minerals and Rocks Recognition",
+              "Geological History of Pampa de Achala",
+              "Fossils and Records of Deep Time"
+            ]
           }
-        ]
+        ],
+        "team_note": "We work with a team of specialists in each field — biologists, geologists, therapists and guides with specific training and their own paths in each discipline, to accompany every experience with depth and authenticity."
       },
       "cta_final": {
         "title": "Take your school to the mountains",
