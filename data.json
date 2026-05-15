@@ -689,44 +689,44 @@
         "video_title": "Aula Verde — Experiencia educativa en Los Gigantes"
       },
       "dirigida_a": {
-        "title": "¿A quién está dirigida?",
-        "subtitle": "Una experiencia adaptable para todos los niveles y objetivos educativos.",
+        "title": "¿Para quién es Aula Verde?",
+        "subtitle": "Para primaria y secundaria. Y también para el docente o papá que quiere presentarlo — y necesita que todo esté en orden para que lo aprueben.",
         "items": [
           {
             "num": "01",
-            "title": "Escuelas y Docentes",
-            "text": "A escuelas, docentes, directivos y coordinadores que organizan salidas educativas y campamentos escolares y grupales con un enfoque formativo e integral."
+            "title": "Escuelas de primaria y secundaria",
+            "text": "Trabajamos desde 4to grado de primaria hasta 5to año de secundaria. Adaptamos cada módulo según la edad y etapa del grupo: mismas sierras, distinto nivel de profundidad. Programa pedagógico por escrito incluido."
           },
           {
             "num": "02",
-            "title": "Propuesta Pedagógica",
-            "text": "Trabajamos tanto con nivel primario como secundario, adaptando cada programa a la edad, etapa educativa y objetivos del grupo."
+            "title": "Docentes y papás que quieren proponerlo",
+            "text": "Si lo viste y querés llevarlo a la dirección de tu escuela, te ayudamos. Tenemos un dossier con objetivos de aprendizaje, perfil del equipo, documentación de seguridad y todo lo que suelen pedir las instituciones — listo para presentar."
           }
         ]
       },
       "diferencial": {
-        "title": "¿Qué hace diferente a nuestra propuesta?",
-        "subtitle": "Un enfoque único que combina la fuerza del entorno natural con metodologías que dejan huella.",
+        "title": "¿Por qué Aula Verde funciona?",
+        "subtitle": "Cuatro cosas que no encontrás en otros campamentos educativos.",
         "items": [
           {
             "num": "01",
-            "title": "Entorno Natural",
-            "text": "Entorno natural privilegiado, inmerso en montañas y bosques nativos para explorar con seguridad."
+            "title": "Entorno real, no simulado",
+            "text": "Los Gigantes y Pampa de Achala tienen ecosistemas que no existen en ningún libro. Los alumnos aprenden con geólogos, biólogos y astrónomos — en el campo, sin intermediarios."
           },
           {
             "num": "02",
-            "title": "Aprendizaje Vivencial",
-            "text": "Metodología lúdica y vivencial, que invita a aprender puramente desde la experiencia y reflexión."
+            "title": "Aprendizaje que deja huella",
+            "text": "No es una excursión temática ni una clase con paisaje. Es inmersión completa: hacer, tocar, equivocarse, descubrir. El conocimiento queda porque fue vivido, no escuchado."
           },
           {
             "num": "03",
-            "title": "Vínculo y Comunidad",
-            "text": "Fomentamos el trabajo en equipo, la curiosidad, el pensamiento crítico y la conexión."
+            "title": "Especialistas en cada área",
+            "text": "Cada módulo lo conduce un profesional de esa disciplina: biólogos, geólogos, astrónomos, chefs de cocina saludable. No generalistas con guión — especialistas con pasión."
           },
           {
             "num": "04",
-            "title": "Sustentabilidad Activa",
-            "text": "Firme compromiso con la sustentabilidad activa, el compostaje y el cuidado del ambiente."
+            "title": "Sustentabilidad que se practica",
+            "text": "Economía circular real durante toda la estadía. Los alumnos no aprenden sobre sustentabilidad en un papel — la viven y entienden por qué importa desde adentro."
           }
         ]
       },
@@ -923,7 +923,7 @@
             "btn": "Armar propuesta"
           }
         ],
-        "note": "Los precios son referenciales y pueden variar según el tamaño del grupo y los módulos elegidos. Pedinos un presupuesto sin cargo.",
+        "note": "Los valores son orientativos y se ajustan según el tamaño del grupo y los módulos elegidos. Cada propuesta es a medida — sin cargo.",
         "global_btn": "SOLICITAR PRESUPUESTO GRATUITO"
       },
       "testimonios": {
@@ -983,12 +983,20 @@
           {
             "question": "¿Qué documentación necesitamos para la salida educativa?",
             "answer": "Preparamos toda la documentación que el colegio necesite: programa detallado, seguro de responsabilidad civil, certificaciones del equipo y protocolos de seguridad."
+          },
+          {
+            "question": "¿Cómo lo presento ante la dirección de la escuela?",
+            "answer": "Te enviamos un dossier pedagógico completo con objetivos de aprendizaje por módulo, perfil del equipo profesional, protocolos de seguridad y la documentación que suelen solicitar las instituciones. Muchos docentes y papás lo usan directamente para la presentación ante la dirección."
+          },
+          {
+            "question": "¿Con cuánta anticipación hay que planificar el viaje?",
+            "answer": "Recomendamos coordinar con al menos 30 días de anticipación para ajustar el programa, confirmar el número de alumnos y preparar la documentación. Para fechas de temporada alta (octubre–noviembre y marzo–abril) conviene reservar antes — las plazas se llenan rápido."
           }
         ]
       },
       "cta_final": {
         "title": "Llevá tu escuela a la montaña",
-        "subtitle": "Escribinos para recibir el dossier informativo y coordinar una visita sin cargo.",
+        "subtitle": "Completá el formulario con tus datos y en menos de 24 hs te enviamos la propuesta pedagógica completa — lista para presentar en tu institución.",
         "btn": "SOLICITAR DOSSIER"
       },
       "video_closing": {
@@ -2144,44 +2152,44 @@
         "video_title": "Aula Verde — Educational experience in Los Gigantes"
       },
       "dirigida_a": {
-        "title": "Who is it for?",
-        "subtitle": "An adaptable experience for all educational levels and objectives.",
+        "title": "Who is Aula Verde for?",
+        "subtitle": "For primary and secondary school. And also for the teacher or parent who wants to pitch it — and needs everything in order to get it approved.",
         "items": [
           {
             "num": "01",
-            "title": "Schools and Teachers",
-            "text": "Schools, teachers, principals, and coordinators organizing educational field trips and school camps with a formative and comprehensive approach."
+            "title": "Primary and secondary schools",
+            "text": "We work from 4th grade primary through 5th year secondary. Each module is adapted to the age and stage of the group: same mountains, different depth. Written pedagogical program included."
           },
           {
             "num": "02",
-            "title": "Educational Proposal",
-            "text": "We work with both primary and secondary levels, adapting each program to the age, educational stage, and group objectives."
+            "title": "Teachers and parents who want to propose it",
+            "text": "If you saw this and want to take it to your school's management, we help you. We have a dossier with learning objectives, team profiles, safety documentation and everything institutions typically request — ready to present."
           }
         ]
       },
       "diferencial": {
-        "title": "What makes our proposal different?",
-        "subtitle": "A unique approach that combines the power of the natural environment with methodologies that leave a lasting mark.",
+        "title": "Why does Aula Verde work?",
+        "subtitle": "Four things you won't find at other educational camps.",
         "items": [
           {
             "num": "01",
-            "title": "Natural Setting",
-            "text": "Privileged natural environment, immersed in mountains and native forests for safe exploration."
+            "title": "Real environment, not simulated",
+            "text": "Los Gigantes and Pampa de Achala have ecosystems that don't exist in any textbook. Students learn with geologists, biologists and astronomers — in the field, with no intermediaries."
           },
           {
             "num": "02",
-            "title": "Experiential Learning",
-            "text": "Playful and experiential methodology that invites learning purely through experience and reflection."
+            "title": "Learning that sticks",
+            "text": "It's not a themed excursion or a class with a view. It's full immersion: doing, touching, getting it wrong, discovering. Knowledge sticks because it was lived, not just heard."
           },
           {
             "num": "03",
-            "title": "Teamwork and Connection",
-            "text": "We foster teamwork, curiosity, critical thinking, and connection."
+            "title": "Specialists in every area",
+            "text": "Each module is led by a professional in that discipline: biologists, geologists, astronomers, healthy-cooking chefs. Not generalists with a script — specialists with passion."
           },
           {
             "num": "04",
-            "title": "Active Sustainability",
-            "text": "Firm commitment to active sustainability, composting, and environmental care."
+            "title": "Sustainability in practice",
+            "text": "Real circular economy throughout the entire stay. Students don't learn about sustainability on paper — they live it and understand why it matters from the inside."
           }
         ]
       },
@@ -2273,7 +2281,7 @@
       },
       "cta_final": {
         "title": "Take your school to the mountains",
-        "subtitle": "Write to us to receive the informational dossier and coordinate a visit.",
+        "subtitle": "Fill in the form and within 24 hours we'll send you the complete pedagogical proposal — ready to present to your institution.",
         "btn": "Request Dossier"
       },
       "hero": {
@@ -2383,7 +2391,7 @@
             "btn": "Build a proposal"
           }
         ],
-        "note": "Prices are indicative and may vary based on group size and chosen modules. Request a free quote.",
+        "note": "Prices are indicative and adjusted based on group size and chosen modules. Every proposal is tailored — at no cost.",
         "global_btn": "REQUEST FREE QUOTE"
       },
       "testimonios": {
@@ -2443,6 +2451,14 @@
           {
             "question": "What documentation do we need for the educational outing?",
             "answer": "We prepare all the documentation the school needs: detailed program, civil liability insurance, team certifications, and safety protocols."
+          },
+          {
+            "question": "How do I present this to the school's management?",
+            "answer": "We send you a complete pedagogical dossier with learning objectives by module, professional team profiles, safety protocols and the documentation institutions typically request. Many teachers and parents use it directly for their presentation to management."
+          },
+          {
+            "question": "How far in advance do we need to plan the trip?",
+            "answer": "We recommend coordinating at least 30 days in advance to adjust the program, confirm the number of students and prepare documentation. For peak season dates (October–November and March–April) it's worth booking earlier — spots fill up fast."
           }
         ]
       },
