@@ -283,18 +283,15 @@ const AulaVerdeContent: React.FC = () => {
                   <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">{ce.tag}</p>
                 </div>
                 <h3 className="text-2xl md:text-3xl serif-title brand-green mb-3">{ce.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed font-light max-w-2xl mb-8">{ce.description}</p>
+                <p className="text-gray-500 text-sm leading-relaxed font-light max-w-2xl mb-6">{ce.intro}</p>
 
-                {/* Las 9 Rs */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 divide-[#E8E4D9]">
-                  {ce.rs.map((item: any, i: number) => (
-                    <div key={i} className={`py-4 sm:py-5 flex items-start gap-3 ${i % 3 < 2 ? 'sm:pr-6 sm:border-r sm:border-[#E8E4D9]' : 'sm:pl-0'} ${i % 3 === 1 ? 'sm:px-6' : ''} ${i % 3 === 2 ? 'sm:pl-6' : ''}`}>
-                      <span className="text-[10px] font-extrabold tracking-widest uppercase text-white bg-[#005333] rounded px-1.5 py-0.5 flex-shrink-0 mt-0.5">{item.r.slice(0, 2)}</span>
-                      <div>
-                        <span className="text-[#005333] font-semibold text-sm">{item.r}</span>
-                        <span className="text-gray-500 font-light text-sm"> {item.text}</span>
-                      </div>
-                    </div>
+                {/* Las 9 Rs — tags compactos */}
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {ce.rs.map((r: string, i: number) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-[#005333]/15 rounded-full text-xs">
+                      <span className="font-extrabold text-[#005333]">{r.slice(0, 2)}</span>
+                      <span className="text-gray-500 font-light">{r.slice(2)}</span>
+                    </span>
                   ))}
                 </div>
 

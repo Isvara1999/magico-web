@@ -799,48 +799,21 @@
         "team_note": "Contamos con un equipo de profesionales especializados en cada área: biólogos, geólogos, terapeutas y guías con formación específica y recorridos propios en cada disciplina, para acompañar cada experiencia con profundidad y autenticidad.",
         "circular_economy": {
           "tag": "Economía Circular",
-          "title": "Las 9 R’s de la Economía Circular",
-          "description": "Un taller vivencial para entender, debatir y aplicar los principios de la economía circular en el entorno cotidiano.",
+          "title": "Las 9 R's de la Economía Circular",
+          "intro": "Un taller práctico donde los alumnos aprenden a pensar y actuar desde los principios de la economía circular aplicados a la vida cotidiana.",
           "rs": [
-            {
-              "r": "Rechazar",
-              "text": "aquello que no necesitamos"
-            },
-            {
-              "r": "Reducir",
-              "text": "nuestro consumo"
-            },
-            {
-              "r": "Reutilizar",
-              "text": "o reusar productos en buen estado desechados por otro consumidor"
-            },
-            {
-              "r": "Reparar",
-              "text": "para alargar la vida de un producto"
-            },
-            {
-              "r": "Restaurar",
-              "text": "un producto antiguo para modernizarlo"
-            },
-            {
-              "r": "Remanufacturar",
-              "text": "aquello que necesitamos, manual o mecánicamente"
-            },
-            {
-              "r": "Rediseñar",
-              "text": "con criterios de sostenibilidad y diseño ecológico"
-            },
-            {
-              "r": "Reciclar",
-              "text": "la materia prima para crear nuevos productos"
-            },
-            {
-              "r": "Recuperar",
-              "text": "materiales con incineración para generar energía"
-            }
+            "Rechazar",
+            "Reducir",
+            "Reutilizar",
+            "Reparar",
+            "Restaurar",
+            "Remanufacturar",
+            "Rediseñar",
+            "Reciclar",
+            "Recuperar"
           ],
           "practice_title": "Cómo lo vivimos en Mágico Ensueño",
-          "practice_text": "Seguimos trabajando para integrar estos principios en cada aspecto de nuestra operación: desde el compostaje y el uso de energía solar hasta la construcción con materiales recuperados. Todavía no es perfecto y estamos en proceso. Pero eso es parte de lo que queremos transmitir: la economía circular no es un destino, es un camino de mejora continua."
+          "practice_text": "Integramos estos principios en nuestra operación diaria: compostaje, energía solar y materiales recuperados. Todavía estamos en proceso, y eso también lo transmitimos: la economía circular es un camino de mejora continua, no un destino."
         }
       },
       "hero": {
@@ -2191,48 +2164,21 @@
         "team_note": "We work with a team of specialists in each field — biologists, geologists, therapists and guides with specific training and their own paths in each discipline, to accompany every experience with depth and authenticity.",
         "circular_economy": {
           "tag": "Circular Economy",
-          "title": "The 9 R’s of Circular Economy",
-          "description": "A hands-on workshop to understand, discuss and apply circular economy principles in everyday contexts.",
+          "title": "The 9 R's of Circular Economy",
+          "intro": "A hands-on workshop where students learn to think and act from circular economy principles applied to everyday life.",
           "rs": [
-            {
-              "r": "Refuse",
-              "text": "what we don’t need"
-            },
-            {
-              "r": "Reduce",
-              "text": "our consumption"
-            },
-            {
-              "r": "Reuse",
-              "text": "products in good condition discarded by others"
-            },
-            {
-              "r": "Repair",
-              "text": "to extend the life of a product"
-            },
-            {
-              "r": "Restore",
-              "text": "an old product to bring it up to date"
-            },
-            {
-              "r": "Remanufacture",
-              "text": "what we need, manually or mechanically"
-            },
-            {
-              "r": "Redesign",
-              "text": "with sustainability and ecological design criteria"
-            },
-            {
-              "r": "Recycle",
-              "text": "raw materials to create new products"
-            },
-            {
-              "r": "Recover",
-              "text": "materials through incineration to generate energy"
-            }
+            "Refuse",
+            "Reduce",
+            "Reuse",
+            "Repair",
+            "Restore",
+            "Remanufacture",
+            "Redesign",
+            "Recycle",
+            "Recover"
           ],
           "practice_title": "How we live it at Mágico Ensueño",
-          "practice_text": "We are continuously working to integrate these principles into every aspect of our operation — from composting and solar energy to construction with recovered materials. It is not perfect yet and we are still improving. That is part of what we want to pass on: circular economy is not a destination, it is a path of continuous improvement."
+          "practice_text": "We integrate these principles into our daily operation: composting, solar energy and recovered materials. We are still on the path ourselves, and that is part of what we teach: circular economy is a continuous improvement journey, not a destination."
         }
       },
       "cta_final": {
