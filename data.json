@@ -1024,6 +1024,70 @@
           "text": "Tus datos fueron recibidos. Estamos preparando el material (en tu dispositivo debería haber comenzado la descarga).",
           "btn": "Volver"
         }
+      },
+      "beneficios": {
+        "title": "Una experiencia que beneficia a todos",
+        "subtitle": "Desde el alumno que planta su primer árbol hasta la institución que busca una salida educativa que deja huella.",
+        "alumnos": {
+          "label": "Para los alumnos",
+          "title": "¿Qué se llevan los chicos?",
+          "items": [
+            {
+              "title": "Aprendizaje que se recuerda",
+              "text": "Vivir una experiencia es más poderoso que leerla. Los contenidos se incorporan cuando se viven, no cuando se estudian."
+            },
+            {
+              "title": "Confianza y autonomía",
+              "text": "Superar desafíos en la naturaleza construye una seguridad personal que el aula difícilmente puede generar."
+            },
+            {
+              "title": "Vínculos más fuertes",
+              "text": "El grupo se une de una manera única. Los docentes lo notan en el clima del aula al volver: menos conflictos, más cooperación."
+            },
+            {
+              "title": "Conexión con el entorno",
+              "text": "Salir de las pantallas y reencontrarse con la naturaleza, el cuerpo y los sentidos. Una experiencia que recalibra."
+            },
+            {
+              "title": "Consciencia ambiental real",
+              "text": "Plantan árboles, hacen compost y conocen el ecosistema. No como concepto abstracto: como experiencia concreta."
+            },
+            {
+              "title": "Curiosidad científica activada",
+              "text": "Geología, biología, astronomía y economía circular aplicadas en el territorio vivo de Pampa de Achala."
+            }
+          ]
+        },
+        "instituciones": {
+          "label": "Para la institución",
+          "title": "¿Qué gana la escuela?",
+          "items": [
+            {
+              "title": "Enriquecimiento curricular",
+              "text": "Complementa los contenidos de ciencias naturales, geografía y formación ética con experiencia vivencial en terreno."
+            },
+            {
+              "title": "Diferenciación institucional",
+              "text": "Una propuesta educativa que las familias reconocen y valoran a la hora de elegir escuela. Una salida que vale la pena."
+            },
+            {
+              "title": "Cohesión grupal medible",
+              "text": "El 90% de los docentes reporta mejoras en el clima del aula al regresar. Una inversión que rinde todo el año."
+            },
+            {
+              "title": "Documentación institucional completa",
+              "text": "Programa detallado, seguro de responsabilidad civil, certificaciones del equipo y protocolos escolares listos para el expediente."
+            },
+            {
+              "title": "Logística sin complicaciones",
+              "text": "Nos encargamos del programa, los guías, la alimentación y los materiales. La escuela solo organiza el transporte."
+            },
+            {
+              "title": "Confianza de las familias",
+              "text": "Las familias ven compromiso real con una educación integral. El 80% de las instituciones que nos visitan vuelven al año siguiente."
+            }
+          ]
+        }
       }
     },
     "vuelo_condor": {
@@ -2388,6 +2452,70 @@
           "title": "Done, sent!",
           "text": "Your details were received. We are preparing the material (the download should have started on your device).",
           "btn": "Download again"
+        }
+      },
+      "beneficios": {
+        "title": "An experience that benefits everyone",
+        "subtitle": "From the student who plants their first tree to the institution looking for an educational experience that leaves a mark.",
+        "alumnos": {
+          "label": "For students",
+          "title": "What do the kids take home?",
+          "items": [
+            {
+              "title": "Learning that stays",
+              "text": "Living an experience is more powerful than reading about it. Content is absorbed when it is lived, not studied."
+            },
+            {
+              "title": "Confidence and autonomy",
+              "text": "Facing challenges in nature builds personal confidence that the classroom can rarely generate."
+            },
+            {
+              "title": "Stronger bonds",
+              "text": "The group comes together in a unique way. Teachers notice it in the classroom atmosphere when they return: less conflict, more cooperation."
+            },
+            {
+              "title": "Connection with the environment",
+              "text": "Stepping away from screens and reconnecting with nature, the body and the senses. An experience that recalibrates."
+            },
+            {
+              "title": "Real environmental awareness",
+              "text": "They plant trees, make compost and learn the ecosystem. Not as an abstract concept: as a concrete experience."
+            },
+            {
+              "title": "Scientific curiosity ignited",
+              "text": "Geology, biology, astronomy and circular economy applied in the living territory of Pampa de Achala."
+            }
+          ]
+        },
+        "instituciones": {
+          "label": "For the institution",
+          "title": "What does the school gain?",
+          "items": [
+            {
+              "title": "Curriculum enrichment",
+              "text": "Complements natural sciences, geography and civic education with hands-on field experience."
+            },
+            {
+              "title": "Institutional differentiation",
+              "text": "An educational offering that families recognize and value when choosing a school. A trip worth doing."
+            },
+            {
+              "title": "Measurable group cohesion",
+              "text": "90% of teachers report improvements in classroom climate upon return. An investment that pays off all year."
+            },
+            {
+              "title": "Complete institutional documentation",
+              "text": "Detailed program, liability insurance, team certifications and school protocols ready for records."
+            },
+            {
+              "title": "Logistics handled",
+              "text": "We manage the program, guides, meals and materials. The school only organizes transport."
+            },
+            {
+              "title": "Family trust",
+              "text": "Families see a genuine commitment to holistic education. 80% of institutions that visit return the following year."
+            }
+          ]
         }
       }
     },

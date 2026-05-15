@@ -218,6 +218,60 @@ const AulaVerdeContent: React.FC = () => {
         </div>
       </section>
 
+      {/* ====== BENEFICIOS ALUMNOS + INSTITUCIONES ====== */}
+      <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
+        <div className="max-w-5xl mx-auto">
+          <h2 data-reveal className="text-3xl md:text-5xl serif-title brand-green mb-5" style={{ lineHeight: '1.1' }}>
+            {t.aula_verde.beneficios.title}
+          </h2>
+          <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl font-light mb-12 md:mb-16">
+            {t.aula_verde.beneficios.subtitle}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
+
+            {/* ALUMNOS */}
+            <div data-reveal className="bg-white rounded-2xl p-8 md:p-10 border border-[#E8E4D9]">
+              <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green mb-3">{t.aula_verde.beneficios.alumnos.label}</p>
+              <h3 className="text-2xl md:text-3xl serif-title brand-green mb-8">{t.aula_verde.beneficios.alumnos.title}</h3>
+              <div className="divide-y divide-[#F0EDE5]">
+                {t.aula_verde.beneficios.alumnos.items.map((item: any, i: number) => (
+                  <div key={i} className="py-4 flex items-start gap-4">
+                    <span className="w-5 h-5 rounded-full bg-[#005333]/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#005333]"></span>
+                    </span>
+                    <div>
+                      <p className="font-semibold text-sm text-gray-800 mb-0.5">{item.title}</p>
+                      <p className="text-gray-500 text-sm font-light leading-relaxed">{item.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* INSTITUCIONES */}
+            <div data-reveal data-delay="1" className="bg-[#005333] rounded-2xl p-8 md:p-10 text-white">
+              <p className="font-medium uppercase tracking-[0.2em] text-[11px] text-white/50 mb-3">{t.aula_verde.beneficios.instituciones.label}</p>
+              <h3 className="text-2xl md:text-3xl serif-title text-white mb-8">{t.aula_verde.beneficios.instituciones.title}</h3>
+              <div className="divide-y divide-white/10">
+                {t.aula_verde.beneficios.instituciones.items.map((item: any, i: number) => (
+                  <div key={i} className="py-4 flex items-start gap-4">
+                    <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
+                    </span>
+                    <div>
+                      <p className="font-semibold text-sm text-white mb-0.5">{item.title}</p>
+                      <p className="text-white/60 text-sm font-light leading-relaxed">{item.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ====== CATÁLOGO DE ACTIVIDADES ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
