@@ -174,24 +174,6 @@
       "link": "",
       "cards": [
         {
-          "date": "13-15 JUNIO (¡NUEVA FECHA!)",
-          "title": "Familion",
-          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
-          "btn": "Ver Más",
-          "image": "/uploads/portada familion.webp",
-          "link": "/familion",
-          "pdfLink": ""
-        },
-        {
-          "date": "9 Y 10 DE MAYO",
-          "title": "Achala Viva",
-          "desc": "Una exploración guiada que incluye astroturismo, avistaje de aves y fotografía de naturaleza.",
-          "btn": "Ver Más",
-          "image": "/uploads/img_6948.webp",
-          "link": "/achala-viva",
-          "pdfLink": ""
-        },
-        {
           "date": "23 AL 25 DE MAYO",
           "title": "Habitar la Transformación",
           "desc": "Retiro de montaña centrado en Eneagrama y prácticas corporales para pasar de la personalidad a la esencia.",
@@ -200,21 +182,30 @@
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
-          "date": "29, 30 Y 31 DE MAYO",
+          "date": "13-15 JUNIO",
+          "title": "Familion",
+          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
+          "btn": "Ver Más",
+          "image": "/uploads/portada familion.webp",
+          "link": "/familion",
+          "pdfLink": ""
+        },
+        {
+          "date": "26 AL 28 DE JUNIO",
+          "title": "Las Hijas de Venus — Edición Invierno",
+          "desc": "Círculo de mujeres. El placer como brújula. La presencia como medicina. El encuentro como acto sagrado y potenciador.",
+          "btn": "Consultar",
+          "image": "/uploads/danza.webp",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Las%20Hijas%20de%20Venus%20-%20Edicion%20Invierno.%20%F0%9F%93%85"
+        },
+        {
+          "date": "24, 25 Y 26 DE JULIO",
           "title": "Gondorbows",
           "desc": "Experiencia vivencial y práctica en arquería intuitiva y meditativa para trabajar el foco y la intención en la naturaleza.",
           "btn": "Ver Más",
           "image": "/uploads/tirando.jpg",
           "link": "/gondorbows",
           "pdfLink": ""
-        },
-        {
-          "date": "26 AL 28 DE JUNIO",
-          "title": "Las Hijas de Venus - Edición Invierno",
-          "desc": "Círculo de mujeres. El placer como brújula. La presencia como medicina. El encuentro como acto sagrado y potenciador.",
-          "btn": "Consultar",
-          "image": "/uploads/danza.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Las%20Hijas%20de%20Venus%20-%20Edicion%20Invierno.%20%F0%9F%93%85"
         },
         {
           "date": "RECURRENTE",
@@ -1668,15 +1659,6 @@
           "pdfLink": ""
         },
         {
-          "date": "MAY 9 - 10",
-          "title": "Achala Viva",
-          "desc": "A guided exploration that includes astrotourism, bird watching, and nature photography.",
-          "btn": "See More",
-          "image": "/uploads/img_6948.webp",
-          "link": "/achala-viva",
-          "pdfLink": ""
-        },
-        {
           "date": "MAY 23 - 25",
           "title": "Habitar la Transformación",
           "desc": "Mountain retreat focused on Enneagram and body practices to shift from personality to essence.",
@@ -1685,7 +1667,7 @@
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
-          "date": "MAY 29 - 31",
+          "date": "JULY 24, 25 & 26",
           "title": "Gondorbows",
           "desc": "Experiential and practical experience in intuitive and meditative archery to work on focus and intention in nature.",
           "btn": "See More",

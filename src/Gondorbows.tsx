@@ -81,6 +81,8 @@ const Gondorbows: React.FC = () => {
           "@type": "Event",
           "name": "Gondorbows — Retiro de Arquería Ancestral en Los Gigantes",
           "description": "3 días de retiro inmersivo: construí tu propio arco de arquería tradicional con materiales naturales guiado por Gondor Bows. Todo incluido. No requiere experiencia previa.",
+          "startDate": "2026-07-24",
+          "endDate": "2026-07-26",
           "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
