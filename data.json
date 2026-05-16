@@ -182,6 +182,15 @@
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
+          "title": "Gondorbows",
+          "desc": "Experiencia vivencial y práctica en arquería intuitiva y meditativa para trabajar el foco y la intención en la naturaleza.",
+          "btn": "Ver Más",
+          "image": "/uploads/tirando.jpg",
+          "link": "/gondorbows",
+          "pdfLink": "",
+          "date": "29 AL 31 DE MAYO"
+        },
+        {
           "date": "13-15 JUNIO",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
@@ -199,13 +208,13 @@
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Las%20Hijas%20de%20Venus%20-%20Edicion%20Invierno.%20%F0%9F%93%85"
         },
         {
-          "date": "24, 25 Y 26 DE JULIO",
           "title": "Gondorbows",
           "desc": "Experiencia vivencial y práctica en arquería intuitiva y meditativa para trabajar el foco y la intención en la naturaleza.",
           "btn": "Ver Más",
           "image": "/uploads/tirando.jpg",
           "link": "/gondorbows",
-          "pdfLink": ""
+          "pdfLink": "",
+          "date": "24, 25 Y 26 DE JULIO"
         },
         {
           "date": "PRÓXIMA FECHA",
