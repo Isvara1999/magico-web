@@ -423,29 +423,6 @@ const AulaVerdeContent: React.FC = () => {
         </div>
       </section>
 
-      {/* ====== VIDEO DESPEDIDA ====== */}
-      <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 data-reveal className="text-2xl md:text-3xl serif-title brand-green mb-8 md:mb-10">{t.aula_verde.video_closing.title}</h2>
-          <p className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">{t.aula_verde.video_closing.text}</p>
-          <div className="flex justify-center">
-            <div className="video-aspect w-full max-w-[12rem] sm:max-w-[13rem] md:max-w-[15rem] bg-white rounded-3xl border-2 border-[#D4AF37]/50 overflow-hidden shadow-2xl">
-              <iframe
-                width="360"
-                height="640"
-                src="https://www.youtube-nocookie.com/embed/_p6dA0v2Fcs"
-                title={t.aula_verde.video_closing.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                allowFullScreen
-                loading="lazy"
-                className="w-full h-full rounded-3xl"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
 
       <div className="bg-[#005333]/5 text-[#005333]/60 text-center text-xs py-3 border-t border-[#005333]/10">

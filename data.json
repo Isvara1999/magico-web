@@ -990,8 +990,8 @@
       },
       "cta_final": {
         "title": "Llevá tu escuela a la montaña",
-        "subtitle": "Completá el formulario con tus datos y en menos de 24 hs te enviamos la propuesta pedagógica completa — lista para presentar en tu institución.",
-        "btn": "SOLICITAR DOSSIER"
+        "subtitle": "Escribinos por WhatsApp y coordinamos una consulta sin cargo. En menos de 24 hs te respondemos con todo lo que necesitás para presentarlo en tu institución.",
+        "btn": "HABLAR CON EL EQUIPO"
       },
       "video_closing": {
         "title": "Una experiencia que se lleva en el corazón",
@@ -1073,8 +1073,8 @@
               "text": "Una propuesta educativa que las familias reconocen y valoran a la hora de elegir escuela. Una salida que vale la pena."
             },
             {
-              "title": "Cohesión grupal medible",
-              "text": "El 90% de los docentes reporta mejoras en el clima del aula al regresar. Una inversión que rinde todo el año."
+              "title": "Cohesión y clima de aula",
+              "text": "La evidencia científica en educación al aire libre muestra que las experiencias en naturaleza mejoran la cooperación, reducen conflictos y fortalecen el vínculo grupal — efectos que persisten al volver al aula."
             },
             {
               "title": "Documentación institucional completa",
@@ -1086,7 +1086,7 @@
             },
             {
               "title": "Confianza de las familias",
-              "text": "Las familias ven compromiso real con una educación integral. El 80% de las instituciones que nos visitan vuelven al año siguiente."
+              "text": "Las familias valoran una escuela que entiende que el aprendizaje no termina entre cuatro paredes. Las instituciones que eligen Aula Verde vuelven — y muchas traen a otros grupos del mismo colegio."
             }
           ]
         }
@@ -2283,8 +2283,8 @@
       },
       "cta_final": {
         "title": "Take your school to the mountains",
-        "subtitle": "Fill in the form and within 24 hours we'll send you the complete pedagogical proposal — ready to present to your institution.",
-        "btn": "Request Dossier"
+        "subtitle": "Message us on WhatsApp and we'll arrange a free consultation. Within 24 hours we'll get back to you with everything you need to present it at your institution.",
+        "btn": "TALK TO THE TEAM"
       },
       "hero": {
         "title": "Green Classroom",
@@ -2538,8 +2538,8 @@
               "text": "An educational offering that families recognize and value when choosing a school. A trip worth doing."
             },
             {
-              "title": "Measurable group cohesion",
-              "text": "90% of teachers report improvements in classroom climate upon return. An investment that pays off all year."
+              "title": "Group cohesion and classroom climate",
+              "text": "Scientific evidence in outdoor education shows that nature-based experiences improve cooperation, reduce conflict and strengthen group bonds — effects that persist when students return to the classroom."
             },
             {
               "title": "Complete institutional documentation",
@@ -2551,7 +2551,7 @@
             },
             {
               "title": "Family trust",
-              "text": "Families see a genuine commitment to holistic education. 80% of institutions that visit return the following year."
+              "text": "Families value a school that understands learning doesn't end between four walls. Institutions that choose Aula Verde come back — and many bring other groups from the same school."
             }
           ]
         }
