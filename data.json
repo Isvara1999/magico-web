@@ -680,7 +680,7 @@
     "aula_verde": {
       "seo": {
         "title": "Aula Verde — Campamentos Educativos en Córdoba | Mágico Ensueño",
-        "description": "Programas de inmersión en la naturaleza para escuelas e instituciones en Los Gigantes."
+        "description": "Campamentos educativos en Los Gigantes, Córdoba. Biología, geología, astronomía y sustentabilidad con especialistas en campo abierto. Para escuelas de primaria y secundaria."
       },
       "invitation": {
         "title": "El aprendizaje ocurre <span class='italic text-gold'>afuera</span>",
@@ -732,7 +732,7 @@
       },
       "catalogo": {
         "title": "Catálogo de Actividades",
-        "subtitle": "Diseñamos cada jornada a la medida de tu grupo, porque sabemos que ninguna escuela es igual. Combinamos aventura, tierra y expresión.",
+        "subtitle": "Seis áreas temáticas, cada una conducida por un especialista. Elegís los módulos que mejor encajan con los objetivos de tu grupo — y armamos el programa a medida.",
         "modules": [
           {
             "tag": "Agroecología",
@@ -818,16 +818,16 @@
       },
       "hero": {
         "title": "Aula Verde",
-        "subtitle": "Programas educativos en la naturaleza",
+        "subtitle": "Campamentos educativos · Sierras de Córdoba",
         "tagline": "Donde el aula no tiene paredes.",
-        "description": "Cinco días en las sierras de Córdoba donde los alumnos aprenden biología, geología, astronomía y sustentabilidad — con especialistas, en campo abierto, sin paredes.",
+        "description": "Cinco días en las sierras de Córdoba donde los alumnos aprenden biología, geología, astronomía y sustentabilidad — con especialistas, en campo abierto.",
         "cta_budget": "SOLICITAR PRESUPUESTO",
         "cta_facilities": "Ver las instalaciones",
         "stat_open": "Inscripciones abiertas 2026",
         "stat_location": "Los Gigantes, Sierras de Córdoba"
       },
       "magico": {
-        "wa_query": "Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Magico Ensueno para mi institucion.",
+        "wa_query": "¡Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Mágico Ensueño para mi institución.",
         "title": "Mágico Ensueño",
         "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un espacio con más de 25 años de historia que ha recibido instituciones educativas de toda Argentina.",
         "infra_title": "Infraestructura para grupos",
@@ -880,7 +880,7 @@
           {
             "title": "Eco-Campamento Base",
             "price": "$85.000",
-            "unit": "por alumno",
+            "unit": "por alumno · pesos argentinos",
             "tag": "Mínimo 20 alumnos",
             "badge": null,
             "features": [
@@ -895,7 +895,7 @@
           {
             "title": "Inmersión Educativa",
             "price": "$125.000",
-            "unit": "por alumno",
+            "unit": "por alumno · pesos argentinos",
             "tag": "Mínimo 20 alumnos",
             "badge": "MÁS ELEGIDA",
             "features": [
@@ -923,7 +923,7 @@
             "btn": "Armar propuesta"
           }
         ],
-        "note": "Los valores son orientativos y se ajustan según el tamaño del grupo y los módulos elegidos. Cada propuesta es a medida — sin cargo.",
+        "note": "Los valores son en pesos argentinos (ARS), orientativos y se ajustan según el tamaño del grupo y los módulos elegidos. Cada propuesta es a medida — sin cargo.",
         "global_btn": "SOLICITAR PRESUPUESTO GRATUITO"
       },
       "testimonios": {
@@ -2156,7 +2156,7 @@
     "aula_verde": {
       "seo": {
         "title": "Aula Verde — Educational Camps in Cordoba | Magico Ensueno",
-        "description": "Nature immersion programs for schools and institutions in Los Gigantes."
+        "description": "Educational camps in Los Gigantes, Córdoba. Biology, geology, astronomy and sustainability with specialists in open country. For primary and secondary schools."
       },
       "invitation": {
         "title": "Learning happens <span class='italic text-gold'>outside</span>",
@@ -2208,7 +2208,7 @@
       },
       "catalogo": {
         "title": "Activity Catalog",
-        "subtitle": "We design each day to fit your group, because we know no two schools are alike. We combine adventure, earth, and expression.",
+        "subtitle": "Six thematic areas, each led by a specialist. You choose the modules that best fit your group's goals — and we build the programme around them.",
         "modules": [
           {
             "tag": "Agroecology",
@@ -2299,16 +2299,16 @@
       },
       "hero": {
         "title": "Green Classroom",
-        "subtitle": "Educational programs in nature",
+        "subtitle": "Educational camps · Sierras de Córdoba",
         "tagline": "Where the classroom has no walls.",
-        "description": "Five days in the mountains of Córdoba where students learn biology, geology, astronomy and sustainability — with specialists, in open country, no walls.",
+        "description": "Five days in the mountains of Córdoba where students learn biology, geology, astronomy and sustainability — with specialists, in open country.",
         "cta_budget": "REQUEST A QUOTE",
         "cta_facilities": "View facilities",
         "stat_open": "Enrolments open 2026",
         "stat_location": "Los Gigantes, Cordoba Mountains"
       },
       "magico": {
-        "wa_query": "Hi! I come from the Aula Verde website and want to ask about educational programs at Magico Ensueno for my institution.",
+        "wa_query": "Hi! I'm coming from the Aula Verde website and would like to ask about the educational programmes at Mágico Ensueño for my institution.",
         "title": "Magico Ensueno",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
         "infra_title": "Infrastructure for groups",
@@ -2361,7 +2361,7 @@
           {
             "title": "Eco-Base Camp",
             "price": "$85,000",
-            "unit": "per student",
+            "unit": "per student · Argentine pesos",
             "tag": "Minimum 20 students",
             "badge": null,
             "features": [
@@ -2376,7 +2376,7 @@
           {
             "title": "Educational Immersion",
             "price": "$125,000",
-            "unit": "per student",
+            "unit": "per student · Argentine pesos",
             "tag": "Minimum 20 students",
             "badge": "MOST POPULAR",
             "features": [
@@ -2404,7 +2404,7 @@
             "btn": "Build a proposal"
           }
         ],
-        "note": "Prices are indicative and adjusted based on group size and chosen modules. Every proposal is tailored — at no cost.",
+        "note": "Prices are in Argentine pesos (ARS), indicative and adjusted based on group size and chosen modules. Every proposal is tailored — at no cost.",
         "global_btn": "REQUEST FREE QUOTE"
       },
       "testimonios": {

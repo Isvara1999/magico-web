@@ -218,6 +218,44 @@ const AulaVerdeContent: React.FC = () => {
         </div>
       </section>
 
+      {/* ====== ¿Y SI ESTO DEFINE TU CAMINO? ====== */}
+      {t.aula_verde.vocacional && (() => {
+        const v = t.aula_verde.vocacional;
+        return (
+          <section className="py-16 md:py-28 px-6 bg-[#005333] text-white overflow-hidden relative">
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/[0.03] pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#D4AF37]/[0.06] pointer-events-none" />
+            <div className="max-w-5xl mx-auto relative z-10">
+
+              {/* Header */}
+              <div data-reveal className="mb-12 md:mb-16">
+                <p className="font-medium uppercase tracking-[0.2em] text-[11px] text-[#D4AF37] mb-4">{v.tag}</p>
+                <h2 className="text-3xl md:text-5xl serif-title text-white mb-5" style={{ lineHeight: '1.1' }}>{v.title}</h2>
+                <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl font-light">{v.subtitle}</p>
+              </div>
+
+              {/* Discovery stories grid 2×2 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                {v.items.map((item: any, i: number) => (
+                  <div key={i} data-reveal data-delay={String(i + 1)} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 md:p-8">
+                    <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">{item.area}</p>
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed font-light">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* AI callout */}
+              <div data-reveal className="rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/[0.07] p-8 md:p-10">
+                <p className="text-[#D4AF37] font-bold text-sm uppercase tracking-widest mb-3">{v.ai_title}</p>
+                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-5">{v.ai_text}</p>
+                <p className="text-white/50 text-sm leading-relaxed italic border-t border-white/10 pt-5">{v.ai_note}</p>
+              </div>
+
+            </div>
+          </section>
+        );
+      })()}
+
       {/* ====== BENEFICIOS ALUMNOS + INSTITUCIONES ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#FAF9F5]">
         <div className="max-w-5xl mx-auto">
@@ -271,44 +309,6 @@ const AulaVerdeContent: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* ====== ¿Y SI ESTO DEFINE TU CAMINO? ====== */}
-      {t.aula_verde.vocacional && (() => {
-        const v = t.aula_verde.vocacional;
-        return (
-          <section className="py-16 md:py-28 px-6 bg-[#005333] text-white overflow-hidden relative">
-            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/[0.03] pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#D4AF37]/[0.06] pointer-events-none" />
-            <div className="max-w-5xl mx-auto relative z-10">
-
-              {/* Header */}
-              <div data-reveal className="mb-12 md:mb-16">
-                <p className="font-medium uppercase tracking-[0.2em] text-[11px] text-[#D4AF37] mb-4">{v.tag}</p>
-                <h2 className="text-3xl md:text-5xl serif-title text-white mb-5" style={{ lineHeight: '1.1' }}>{v.title}</h2>
-                <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl font-light">{v.subtitle}</p>
-              </div>
-
-              {/* Discovery stories grid 2×2 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                {v.items.map((item: any, i: number) => (
-                  <div key={i} data-reveal data-delay={String(i + 1)} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 md:p-8">
-                    <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">{item.area}</p>
-                    <p className="text-white/80 text-sm md:text-base leading-relaxed font-light">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* AI callout */}
-              <div data-reveal className="rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/[0.07] p-8 md:p-10">
-                <p className="text-[#D4AF37] font-bold text-sm uppercase tracking-widest mb-3">{v.ai_title}</p>
-                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-5">{v.ai_text}</p>
-                <p className="text-white/50 text-sm leading-relaxed italic border-t border-white/10 pt-5">{v.ai_note}</p>
-              </div>
-
-            </div>
-          </section>
-        );
-      })()}
 
       {/* ====== CATÁLOGO DE ACTIVIDADES ====== */}
       <section className="py-16 md:py-24 px-6 bg-white">
