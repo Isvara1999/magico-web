@@ -322,32 +322,40 @@ const AulaVerdeContent: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-0 divide-y md:divide-y-0 divide-[#E8E4D9]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {t.aula_verde.catalogo.modules.map((module: any, mIdx: number) => {
               const Icon = CATALOG_ICONS[mIdx % CATALOG_ICONS.length];
-              const col = mIdx % 3;
-              const isSecondRow = mIdx >= 3;
               return (
                 <div
                   key={mIdx}
                   data-reveal
-                  data-delay={String(col)}
-                  className={[
-                    'py-8 md:py-0',
-                    col < 2 ? 'md:border-r md:border-[#E8E4D9] md:pr-10' : 'md:pl-10',
-                    col === 1 ? 'md:px-10' : '',
-                    isSecondRow ? 'md:pt-12 md:border-t md:border-[#E8E4D9]' : '',
-                  ].join(' ')}
+                  data-delay={String(mIdx % 3)}
+                  className="group bg-white rounded-2xl border border-[#E8E4D9] shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-[#D4AF37]/50 transition-all duration-300 overflow-hidden flex flex-col cursor-default"
                 >
-                  <div className="flex items-center gap-2 mb-3">
-                    <Icon weight="light" className="w-5 h-5 text-[#005333]/40" aria-hidden="true" />
-                    <p className="font-medium uppercase tracking-[0.2em] text-[11px] brand-green">{module.tag}</p>
-                  </div>
-                  <h3 className="text-xl md:text-2xl serif-title brand-green mb-6">{module.title}</h3>
-                  <div className="divide-y divide-[#EDEBE3]">
-                    {module.items.map((item: string, i: number) => (
-                      <p key={i} className="py-3 text-gray-600 font-light text-sm leading-relaxed">{item}</p>
-                    ))}
+                  {/* Barra acento superior */}
+                  <div className="h-[3px] bg-gradient-to-r from-[#D4AF37] to-[#D4AF37]/20 group-hover:to-[#D4AF37]/70 transition-all duration-300" />
+
+                  <div className="p-7 md:p-8 flex flex-col flex-grow">
+                    {/* Ícono + tag */}
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-xl bg-[#005333]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4AF37]/15 transition-colors duration-300">
+                        <Icon weight="light" className="w-5 h-5 text-[#005333]" aria-hidden="true" />
+                      </div>
+                      <p className="font-bold uppercase tracking-[0.18em] text-[10px] text-[#D4AF37]">{module.tag}</p>
+                    </div>
+
+                    {/* Título */}
+                    <h3 className="text-lg md:text-xl serif-title brand-green mb-5 leading-snug">{module.title}</h3>
+
+                    {/* Actividades */}
+                    <ul className="space-y-3 flex-grow">
+                      {module.items.map((item: string, i: number) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] flex-shrink-0 mt-[7px]" />
+                          <span className="text-gray-500 font-light text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               );
