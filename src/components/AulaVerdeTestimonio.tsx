@@ -134,11 +134,14 @@ const AulaVerdeTestimonio: React.FC = () => {
 
       {/* SECTION TIRA DE LOGOS */}
       <div className="w-full relative z-10">
-        <div className="max-w-4xl mx-auto px-6 text-center mb-10" data-reveal>
+        <div className="max-w-2xl mx-auto px-6 text-center mb-10" data-reveal>
           <h3 className="text-xl md:text-2xl lg:text-3xl font-serif text-brand mb-3">
             {t.aula_verde.testimonios.institutions_title}
           </h3>
-          <div className="w-16 md:w-24 h-1 bg-gold mx-auto rounded-full opacity-60"></div>
+          <div className="w-16 md:w-24 h-1 bg-gold mx-auto rounded-full opacity-60 mb-4"></div>
+          <p className="text-gray-500 text-sm leading-relaxed font-light">
+            {t.aula_verde.testimonios.institutions_note}
+          </p>
         </div>
 
         {/* Logos fijos sin carrusel y a color */}

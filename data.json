@@ -929,17 +929,10 @@
       "testimonios": {
         "title": "Instituciones que nos eligieron",
         "subtitle": "La voz de quienes ya vivieron el Aula Verde",
-        "institutions_title": "Instituciones que nos eligieron",
+        "institutions_title": "Escuelas, clubes y organizaciones que nos eligieron",
         "items": [
           {
-            "text": "La experiencia superó nuestras expectativas. Los chicos volvieron transformados. La metodología de Mágico Ensueño conecta con el aprendizaje experiencial que buscamos como escuela Waldorf.",
-            "name": "Cinthia B.",
-            "role": "Docente",
-            "extra_role": "Escuela Waldorf El Trigal",
-            "audio_src": null
-          },
-          {
-            "text": "Organizamos el viaje de egresados acá y fue la mejor decisión. Los chicos terminaron llorando en el fogón de cierre porque no querían irse. Eso lo dice todo.",
+            "text": "Organizamos una salida con más de 200 chicos y chicas y fue la mejor decisión que tomamos. Terminaron llorando en el fogón de cierre porque no querían irse. Eso lo dice todo.",
             "name": "Marcelo G.",
             "role": "Coordinador educativo",
             "extra_role": "Institución Hebraica",
@@ -961,8 +954,16 @@
             "extra_role": "Colegio Racing Club de Córdoba",
             "audio_src": "/audios/testimonio-alejandro.mp3",
             "audio_text": "Escuchá el audio completo de Alejandro"
+          },
+          {
+            "text": "La experiencia superó nuestras expectativas. Los chicos volvieron transformados. La metodología de Mágico Ensueño conecta con el aprendizaje experiencial que buscamos como escuela Waldorf.",
+            "name": "Cinthia B.",
+            "role": "Docente",
+            "extra_role": "Escuela Waldorf El Trigal",
+            "audio_src": null
           }
-        ]
+        ],
+        "institutions_note": "Trabajamos con instituciones educativas y también con clubes deportivos y organizaciones comunitarias que traen a niños y jóvenes a vivir experiencias en la naturaleza."
       },
       "faq": {
         "title": "Preguntas Frecuentes",
@@ -2409,17 +2410,10 @@
       "testimonios": {
         "title": "Institutions that chose us",
         "subtitle": "The voices of those who lived the Aula Verde experience",
-        "institutions_title": "Institutions that chose us",
+        "institutions_title": "Schools, clubs and organisations that chose us",
         "items": [
           {
-            "text": "The experience exceeded our expectations. The kids came back transformed. Mágico Ensueño's methodology connects with the experiential learning we seek as a Waldorf school.",
-            "name": "Cinthia B.",
-            "role": "Teacher",
-            "extra_role": "Escuela Waldorf El Trigal",
-            "audio_src": null
-          },
-          {
-            "text": "We organised the graduation trip here and it was the best decision. The kids ended up crying at the closing campfire because they didn't want to leave. That says it all.",
+            "text": "We organised a trip with over 200 boys and girls and it was the best decision we made. They ended up crying at the closing campfire because they didn't want to leave. That says it all.",
             "name": "Marcelo G.",
             "role": "Educational coordinator",
             "extra_role": "Institución Hebraica",
@@ -2441,8 +2435,16 @@
             "extra_role": "Colegio Racing Club de Córdoba",
             "audio_src": "/audios/testimonio-alejandro.mp3",
             "audio_text": "Listen to Alejandro's full audio"
+          },
+          {
+            "text": "The experience exceeded our expectations. The kids came back transformed. Mágico Ensueño's methodology connects with the experiential learning we seek as a Waldorf school.",
+            "name": "Cinthia B.",
+            "role": "Teacher",
+            "extra_role": "Escuela Waldorf El Trigal",
+            "audio_src": null
           }
-        ]
+        ],
+        "institutions_note": "We work with educational institutions and also with sports clubs and community organisations that bring children and young people to experience nature."
       },
       "faq": {
         "title": "Frequently Asked Questions",
