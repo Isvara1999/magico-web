@@ -14,13 +14,6 @@ const AulaVerdeTestimonio: React.FC = () => {
     setCurrentIndex((prev) => (prev === t.aula_verde.testimonios.items.length - 1 ? 0 : prev + 1));
   };
 
-  const audioSources = [
-    '/audios/testimonio-alejandro.mp3',
-    '/audios/testimonio-marcelo.mp3',
-    null,
-    '/audios/testimonio-fede.mp3'
-  ];
-
   return (
     <section className="py-16 md:py-24 px-6 w-full bg-slate-50 relative overflow-hidden">
       {/* Elemento de fondo decorativo */}
@@ -83,14 +76,14 @@ const AulaVerdeTestimonio: React.FC = () => {
                           </div>
 
                           {/* Reproductor de Audio */}
-                          {audioSources[idx] && (
+                          {testimonio.audio_src && (
                             <div className="mt-8 bg-brand/5 p-4 md:p-5 rounded-2xl border border-brand/10 hover:border-brand/20 transition-colors w-full max-w-lg">
                               <p className="text-brand font-semibold mb-3 flex items-center gap-2 text-sm md:text-base">
                                 <Headphones weight="fill" className="w-6 h-6 text-gold" />
                                 <span>{testimonio.audio_text}</span>
                               </p>
                               <audio controls className="w-full outline-none opacity-90 transition-opacity">
-                                <source src={audioSources[idx]!} type="audio/mpeg" />
+                                <source src={testimonio.audio_src} type="audio/mpeg" />
                                 Tu navegador no soporta el elemento de audio.
                               </audio>
                             </div>

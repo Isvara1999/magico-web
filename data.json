@@ -936,13 +936,14 @@
             "name": "Cinthia B.",
             "role": "Docente",
             "extra_role": "Escuela Waldorf El Trigal",
-            "audio_text": "Escuchá el audio de Alejandro"
+            "audio_src": null
           },
           {
             "text": "Organizamos el viaje de egresados acá y fue la mejor decisión. Los chicos terminaron llorando en el fogón de cierre porque no querían irse. Eso lo dice todo.",
             "name": "Marcelo G.",
             "role": "Coordinador educativo",
             "extra_role": "Institución Hebraica",
+            "audio_src": "/audios/testimonio-marcelo.mp3",
             "audio_text": "Escuchá el audio de Marcelo"
           },
           {
@@ -950,7 +951,16 @@
             "name": "Federico T.",
             "role": "Director",
             "extra_role": "Colegio Racing Club de Córdoba",
+            "audio_src": "/audios/testimonio-fede.mp3",
             "audio_text": "Escuchá el audio de Fede"
+          },
+          {
+            "text": "Llegar al Mágico fue recibir un regalo del cielo antes de tocar el suelo. Pasamos de la resistencia del ritmo de la ciudad a una conexión tan profunda que al final nadie quería irse. Nos fuimos con el alma ensanchada, sabiendo que una parte nuestra se queda para siempre en este rincón del Mágico.",
+            "name": "Alejandro",
+            "role": "Docente coordinador",
+            "extra_role": "Colegio Racing Club de Córdoba",
+            "audio_src": "/audios/testimonio-alejandro.mp3",
+            "audio_text": "Escuchá el audio completo de Alejandro"
           }
         ]
       },
@@ -2402,25 +2412,35 @@
         "institutions_title": "Institutions that chose us",
         "items": [
           {
-            "text": "The experience exceeded our expectations. The kids came back transformed. The methodology at Magico Ensueno connects with the experiential learning we seek as a Waldorf school.",
+            "text": "The experience exceeded our expectations. The kids came back transformed. Mágico Ensueño's methodology connects with the experiential learning we seek as a Waldorf school.",
             "name": "Cinthia B.",
             "role": "Teacher",
-            "extra_role": "Waldorf School El Trigal",
-            "audio_text": "Listen to Alejandro's audio"
+            "extra_role": "Escuela Waldorf El Trigal",
+            "audio_src": null
           },
           {
-            "text": "We organized the graduation trip here and it was the best decision. The kids ended up crying at the closing bonfire because they did not want to leave. That says it all.",
+            "text": "We organised the graduation trip here and it was the best decision. The kids ended up crying at the closing campfire because they didn't want to leave. That says it all.",
             "name": "Marcelo G.",
             "role": "Educational coordinator",
-            "extra_role": "Hebraica Institution",
+            "extra_role": "Institución Hebraica",
+            "audio_src": "/audios/testimonio-marcelo.mp3",
             "audio_text": "Listen to Marcelo's audio"
           },
           {
-            "text": "The Magico Ensueno team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
+            "text": "The Mágico Ensueño team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
             "name": "Federico T.",
             "role": "Director",
-            "extra_role": "Racing Club de Cordoba School",
+            "extra_role": "Colegio Racing Club de Córdoba",
+            "audio_src": "/audios/testimonio-fede.mp3",
             "audio_text": "Listen to Fede's audio"
+          },
+          {
+            "text": "Arriving at the Mágico was receiving a gift from the sky before touching the ground. We moved from the resistance of city pace to a connection so deep that in the end nobody wanted to leave. We left with our souls expanded, knowing that a part of us stays forever in this corner of the Mágico.",
+            "name": "Alejandro",
+            "role": "Coordinating teacher",
+            "extra_role": "Colegio Racing Club de Córdoba",
+            "audio_src": "/audios/testimonio-alejandro.mp3",
+            "audio_text": "Listen to Alejandro's full audio"
           }
         ]
       },
