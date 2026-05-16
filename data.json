@@ -208,6 +208,16 @@
           "pdfLink": ""
         },
         {
+          "date": "PRÓXIMA FECHA",
+          "title": "Achala Viva",
+          "desc": "Una exploración guiada que incluye astroturismo, avistaje de aves y fotografía de naturaleza.",
+          "btn": "Anotarme",
+          "tag": "PRONTO",
+          "image": "/uploads/img_6948.webp",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20anotarme%20para%20la%20pr%C3%B3xima%20fecha%20de%20Achala%20Viva.%20%F0%9F%93%85",
+          "pdfLink": ""
+        },
+        {
           "date": "RECURRENTE",
           "title": "Temazcal",
           "desc": "Fines de semana (Consultar fechas específicas).",
@@ -411,7 +421,7 @@
         "dates": "13-15 JUNIO · Los Gigantes, Córdoba",
         "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con talleres, fogones y momentos que se quedan para siempre.",
         "cta_join": "RESERVAR MI LUGAR",
-        "cta_details": "Ver detalles"
+        "cta_details": "Ver en la Agenda"
       },
       "invitation": {
         "title": "Un espacio para <span class='italic text-gold'>vincularse</span>",
@@ -1875,7 +1885,7 @@
         "dates": "MAY 1-3 · JUN 13-15 · Los Gigantes, Córdoba",
         "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with workshops, bonfires, and moments that last forever.",
         "cta_join": "BOOK MY SPOT",
-        "cta_details": "View details"
+        "cta_details": "View in Calendar"
       },
       "invitation": {
         "title": "A space to <span class='italic text-gold'>bond</span>",

@@ -46,7 +46,7 @@ const FamilionHero: React.FC = () => {
           <a href="#precios" className="btn-gold inline-flex items-center justify-center">
             {t.familion.hero.cta_join}
           </a>
-          <a href="#comodidad" className="btn-glass inline-flex items-center justify-center">
+          <a href="/#eventos" className="btn-glass inline-flex items-center justify-center">
             {t.familion.hero.cta_details}
           </a>
         </div>
