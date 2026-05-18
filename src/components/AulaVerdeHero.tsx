@@ -76,7 +76,7 @@ const AulaVerdeHero: React.FC = () => {
         {t.aula_verde.hero.disciplines && (
           <div className="flex flex-col items-center gap-3 mb-8 md:mb-12 px-4">
             {/* Pilar central */}
-            <span className="text-[11px] uppercase tracking-[0.25em] font-semibold px-5 py-2 rounded-full border border-brand-gold/60 text-brand-gold bg-brand-gold/10 backdrop-blur-sm">
+            <span className="text-[11px] uppercase tracking-[0.25em] font-semibold px-5 py-2 rounded-full border border-white/40 text-white bg-white/10 backdrop-blur-sm">
               {(t.aula_verde.hero.disciplines as string[])[0]}
             </span>
             {/* Áreas derivadas */}
