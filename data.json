@@ -114,7 +114,7 @@
     "schools": {
       "tag": "Para Instituciones",
       "title": "Aulas Verdes",
-      "description": "El aprendizaje ocurre afuera. Programas de inmersión en la naturaleza, viajes de egresados alternativos y convivencias para escuelas e instituciones.",
+      "description": "El aprendizaje ocurre afuera. Programas de inmersión en la naturaleza donde los alumnos desarrollan liderazgo, inteligencia emocional, finanzas y ciencias — con especialistas, en campo abierto.",
       "btn": "Ver Propuesta para Escuelas",
       "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
       "link": "/escuelas"
@@ -745,6 +745,16 @@
         "subtitle": "Seis áreas temáticas, cada una conducida por un especialista. Elegís los módulos que mejor encajan con los objetivos de tu grupo — y armamos el programa a medida.",
         "modules": [
           {
+            "tag": "Liderazgo",
+            "title": "Liderazgo & Desarrollo Personal",
+            "items": [
+              "Reconocer tu estilo de liderazgo a través de dinámicas reales en grupo",
+              "Gestión básica de finanzas: ahorro, toma de decisiones y valor del dinero",
+              "Inteligencia emocional: identificar, regular y comunicar lo que sentís bajo presión",
+              "Resolver conflictos con herramientas concretas — sin evasión ni escalada"
+            ]
+          },
+          {
             "tag": "Agroecología",
             "title": "Talleres Agroecológicos",
             "items": [
@@ -804,16 +814,6 @@
               "500 millones de años de historia bajo tus pies",
               "Fósiles y lo que nos cuentan sobre el tiempo profundo"
             ]
-          },
-          {
-            "tag": "Liderazgo",
-            "title": "Liderazgo & Desarrollo Personal",
-            "items": [
-              "Reconocer tu estilo de liderazgo a través de dinámicas reales en grupo",
-              "Gestión básica de finanzas: ahorro, toma de decisiones y valor del dinero",
-              "Inteligencia emocional: identificar, regular y comunicar lo que sentís bajo presión",
-              "Resolver conflictos con herramientas concretas — sin evasión ni escalada"
-            ]
           }
         ],
         "team_note": "Contamos con un equipo de profesionales especializados en cada área: biólogos, geólogos, terapeutas y guías con formación específica y recorridos propios en cada disciplina, para acompañar cada experiencia con profundidad y autenticidad.",
@@ -840,11 +840,19 @@
         "title": "Aula Verde",
         "subtitle": "Campamentos educativos · Sierras de Córdoba",
         "tagline": "Donde el aula no tiene paredes.",
-        "description": "Cinco días en las sierras de Córdoba donde los alumnos aprenden biología, geología, astronomía y sustentabilidad — con especialistas, en campo abierto.",
+        "description": "Cinco días en las sierras de Córdoba donde los alumnos desarrollan liderazgo, inteligencia emocional y habilidades científicas — con especialistas, en campo abierto.",
         "cta_budget": "SOLICITAR PRESUPUESTO",
         "cta_facilities": "Ver las instalaciones",
         "stat_open": "Inscripciones abiertas 2026",
-        "stat_location": "Los Gigantes, Sierras de Córdoba"
+        "stat_location": "Los Gigantes, Sierras de Córdoba",
+        "disciplines": [
+          "Liderazgo",
+          "Inteligencia Emocional",
+          "Finanzas",
+          "Astronomía",
+          "Naturaleza",
+          "Arte"
+        ]
       },
       "magico": {
         "wa_query": "¡Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Mágico Ensueño para mi institución.",
@@ -1623,7 +1631,7 @@
     "schools": {
       "tag": "For Institutions",
       "title": "Green Classrooms",
-      "description": "Learning happens outside. Nature immersion programs, alternative graduation trips, and retreats for schools and institutions.",
+      "description": "Learning happens outside. Nature immersion programs where students develop leadership, emotional intelligence, finance and science — with specialists, in the open field.",
       "btn": "View Proposal",
       "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
       "link": "/escuelas"
@@ -2226,6 +2234,16 @@
         "subtitle": "Six thematic areas, each led by a specialist. You choose the modules that best fit your group's goals — and we build the programme around them.",
         "modules": [
           {
+            "tag": "Leadership",
+            "title": "Leadership & Personal Development",
+            "items": [
+              "Discover your leadership style through real group dynamics",
+              "Basic financial literacy: saving, decision-making and the value of money",
+              "Emotional intelligence: identify, regulate and communicate emotions under pressure",
+              "Resolve conflicts with practical tools — no avoidance, no escalation"
+            ]
+          },
+          {
             "tag": "Agroecology",
             "title": "Agroecological Workshops",
             "items": [
@@ -2285,16 +2303,6 @@
               "500 million years of history beneath your feet",
               "Fossils and what they tell us about deep time"
             ]
-          },
-          {
-            "tag": "Leadership",
-            "title": "Leadership & Personal Development",
-            "items": [
-              "Discover your leadership style through real group dynamics",
-              "Basic financial literacy: saving, decision-making and the value of money",
-              "Emotional intelligence: identify, regulate and communicate emotions under pressure",
-              "Resolve conflicts with practical tools — no avoidance, no escalation"
-            ]
           }
         ],
         "team_note": "We work with a team of specialists in each field — biologists, geologists, therapists and guides with specific training and their own paths in each discipline, to accompany every experience with depth and authenticity.",
@@ -2326,11 +2334,19 @@
         "title": "Green Classroom",
         "subtitle": "Educational camps · Sierras de Córdoba",
         "tagline": "Where the classroom has no walls.",
-        "description": "Five days in the mountains of Córdoba where students learn biology, geology, astronomy and sustainability — with specialists, in open country.",
+        "description": "Five days in the Córdoba mountains where students develop leadership, emotional intelligence and scientific skills — with specialists, in the open field.",
         "cta_budget": "REQUEST A QUOTE",
         "cta_facilities": "View facilities",
         "stat_open": "Enrolments open 2026",
-        "stat_location": "Los Gigantes, Cordoba Mountains"
+        "stat_location": "Los Gigantes, Cordoba Mountains",
+        "disciplines": [
+          "Leadership",
+          "Emotional Intelligence",
+          "Finance",
+          "Astronomy",
+          "Nature",
+          "Art"
+        ]
       },
       "magico": {
         "wa_query": "Hi! I'm coming from the Aula Verde website and would like to ask about the educational programmes at Mágico Ensueño for my institution.",

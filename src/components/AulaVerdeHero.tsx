@@ -68,9 +68,23 @@ const AulaVerdeHero: React.FC = () => {
         </p>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-xl mx-auto mb-8 md:mb-12 leading-relaxed drop-shadow-sm">
+        <p className="text-sm sm:text-base md:text-lg text-white/80 font-light max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed drop-shadow-sm">
           {t.aula_verde.hero.description}
         </p>
+
+        {/* Discipline pills */}
+        {t.aula_verde.hero.disciplines && (
+          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12 px-4">
+            {(t.aula_verde.hero.disciplines as string[]).map((d: string, i: number) => (
+              <span
+                key={i}
+                className="text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1.5 rounded-full border border-white/20 text-white/70 bg-white/5 backdrop-blur-sm"
+              >
+                {d}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Custom Premium Buttons */}
         <div className="hero-cta flex flex-col sm:flex-row gap-5 justify-center items-center w-full px-4 mb-12 md:mb-16">
