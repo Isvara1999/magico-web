@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon, StarIcon, DiamondIcon, RecycleIcon } from '@phosphor-icons/react';
+import { UsersThreeIcon, PlantIcon, LeafIcon, MountainsIcon, PaletteIcon, ChalkboardTeacherIcon, StarIcon, DiamondIcon, RecycleIcon, BrainIcon } from '@phosphor-icons/react';
 
 import AulaVerdeHero from './components/AulaVerdeHero';
 import AulaVerdeMagico from './components/AulaVerdeMagico';
@@ -117,7 +117,7 @@ const AulaVerdeContent: React.FC = () => {
 
   const TARGET_AUDIENCE_ICONS = [ChalkboardTeacherIcon, UsersThreeIcon];
   const DIFFERENTIATOR_ICONS = [MountainsIcon, LeafIcon, UsersThreeIcon, PlantIcon];
-  const CATALOG_ICONS = [PlantIcon, MountainsIcon, PaletteIcon, StarIcon, LeafIcon, DiamondIcon];
+  const CATALOG_ICONS = [PlantIcon, MountainsIcon, PaletteIcon, StarIcon, LeafIcon, DiamondIcon, BrainIcon];
 
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">

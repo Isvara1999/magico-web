@@ -804,6 +804,16 @@
               "500 millones de años de historia bajo tus pies",
               "Fósiles y lo que nos cuentan sobre el tiempo profundo"
             ]
+          },
+          {
+            "tag": "Liderazgo",
+            "title": "Liderazgo & Desarrollo Personal",
+            "items": [
+              "Reconocer tu estilo de liderazgo a través de dinámicas reales en grupo",
+              "Gestión básica de finanzas: ahorro, toma de decisiones y valor del dinero",
+              "Inteligencia emocional: identificar, regular y comunicar lo que sentís bajo presión",
+              "Resolver conflictos con herramientas concretas — sin evasión ni escalada"
+            ]
           }
         ],
         "team_note": "Contamos con un equipo de profesionales especializados en cada área: biólogos, geólogos, terapeutas y guías con formación específica y recorridos propios en cada disciplina, para acompañar cada experiencia con profundidad y autenticidad.",
@@ -1140,6 +1150,10 @@
           {
             "area": "Integración & Trabajo en Equipo",
             "text": "Preparar una comida para 40 personas, armar un campamento bajo la lluvia o resolver cómo cruzar un arroyo sin mojarse: nadie lo hace solo. Cinco días de desafíos reales consolidan vínculos y habilidades de colaboración que el aula tarda meses en construir."
+          },
+          {
+            "area": "Liderazgo & Inteligencia Emocional",
+            "text": "Un chico que aprende a leer sus emociones y a conducir un equipo en campo está desarrollando las habilidades más demandadas del mercado laboral. Liderazgo, empatía y criterio financiero se practican en situaciones reales — no en simulacros de aula."
           }
         ],
         "ai_title": "Lo que la IA no puede enseñar",
@@ -2271,6 +2285,16 @@
               "500 million years of history beneath your feet",
               "Fossils and what they tell us about deep time"
             ]
+          },
+          {
+            "tag": "Leadership",
+            "title": "Leadership & Personal Development",
+            "items": [
+              "Discover your leadership style through real group dynamics",
+              "Basic financial literacy: saving, decision-making and the value of money",
+              "Emotional intelligence: identify, regulate and communicate emotions under pressure",
+              "Resolve conflicts with practical tools — no avoidance, no escalation"
+            ]
           }
         ],
         "team_note": "We work with a team of specialists in each field — biologists, geologists, therapists and guides with specific training and their own paths in each discipline, to accompany every experience with depth and authenticity.",
@@ -2607,6 +2631,10 @@
           {
             "area": "Integration & Teamwork",
             "text": "Cooking a meal for 40 people, setting up camp in the rain or figuring out how to cross a stream without getting wet — nobody does it alone. Five days of real shared challenges build bonds and collaboration skills that a classroom takes months to develop."
+          },
+          {
+            "area": "Leadership & Emotional Intelligence",
+            "text": "A student who learns to read their emotions and lead a team in the field is developing the most in-demand skills in today's labor market. Leadership, empathy and financial judgment are practiced in real situations — not classroom simulations."
           }
         ],
         "ai_title": "What AI cannot teach",
