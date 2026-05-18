@@ -694,8 +694,8 @@
       },
       "invitation": {
         "title": "El aprendizaje ocurre <span class='italic text-gold'>afuera</span>",
-        "text1": "El aprendizaje más profundo nace del asombro y el disfrute. Cinco días diseñados con mucho cuidado para que cada alumno viva plenamente su experiencia de ser humano — en contacto con la naturaleza, con otros y consigo mismo.",
-        "text2": "Biología, astronomía, geología, liderazgo, inteligencia emocional y arte. No como materias — como herramientas para que cada chico descubra algo nuevo de sí mismo y del mundo que habita.",
+        "text1": "El aprendizaje más profundo nace del asombro. Cinco días diseñados con cuidado para que cada niño y adolescente viva plenamente — en contacto con la naturaleza, con otros y consigo mismo.",
+        "text2": "Ciencias, liderazgo, inteligencia emocional y arte. No como materias — como herramientas para que cada chico descubra algo nuevo de sí mismo.",
         "video_title": "Aula Verde — Experiencia educativa en Los Gigantes"
       },
       "dirigida_a": {
@@ -720,8 +720,8 @@
         "items": [
           {
             "num": "01",
-            "title": "El alumno como centro",
-            "text": "Todo en Aula Verde parte del alumno: su curiosidad, su bienestar, su disfrute. Las actividades, los especialistas y la naturaleza son herramientas al servicio de una experiencia profundamente humana. Cuidamos a cada chico como individuo — no como parte de un grupo."
+            "title": "Las infancias y adolescencias en el centro",
+            "text": "Todo en Aula Verde parte de cada niño y adolescente: su curiosidad, su bienestar, su disfrute. Las actividades y la naturaleza son herramientas al servicio de su desarrollo. Cuidamos a cada chico como individuo."
           },
           {
             "num": "02",
@@ -844,8 +844,8 @@
       "hero": {
         "title": "Aula Verde",
         "subtitle": "Campamentos educativos · Sierras de Córdoba",
-        "tagline": "La experiencia de ser humano, en el centro de todo.",
-        "description": "Cinco días en las sierras de Córdoba donde cada actividad está diseñada desde el alumno: su curiosidad, su disfrute, su asombro. La naturaleza, las ciencias, el liderazgo y el arte son las herramientas. El ser humano es el fin.",
+        "tagline": "Infancias y adolescencias en el centro de todo.",
+        "description": "Cinco días en las sierras de Córdoba diseñados desde cada niño y adolescente: su curiosidad, su disfrute, su asombro. La naturaleza, las ciencias y el liderazgo son las herramientas.",
         "cta_budget": "SOLICITAR PRESUPUESTO",
         "cta_facilities": "Ver las instalaciones",
         "stat_open": "Inscripciones abiertas 2026",
@@ -1034,7 +1034,7 @@
       },
       "cta_final": {
         "title": "Llevá tu escuela a la montaña",
-        "subtitle": "Escribinos por WhatsApp y coordinamos una consulta sin cargo. En menos de 24 hs te respondemos con todo lo que necesitás para presentarlo en tu institución. Porque cada chico merece vivir esto al menos una vez.",
+        "subtitle": "Escribinos por WhatsApp y coordinamos una consulta sin cargo. Respondemos en menos de 24 hs con todo lo que necesitás para presentarlo en tu institución.",
         "btn": "HABLAR CON EL EQUIPO"
       },
       "video_closing": {
@@ -2188,8 +2188,8 @@
       },
       "invitation": {
         "title": "Learning happens <span class='italic text-gold'>outside</span>",
-        "text1": "The deepest learning comes from wonder and enjoyment. Five carefully designed days for every student to fully live their human experience — in contact with nature, with others and with themselves.",
-        "text2": "Biology, astronomy, geology, leadership, emotional intelligence and art. Not as subjects — as tools for each student to discover something new about themselves and the world they inhabit.",
+        "text1": "The deepest learning comes from wonder. Five carefully designed days for every child and adolescent to live fully — in contact with nature, with others and with themselves.",
+        "text2": "Science, leadership, emotional intelligence and art. Not as subjects — as tools for each student to discover something new about themselves.",
         "video_title": "Aula Verde — Educational experience in Los Gigantes"
       },
       "dirigida_a": {
@@ -2214,8 +2214,8 @@
         "items": [
           {
             "num": "01",
-            "title": "The student at the center",
-            "text": "Everything in Aula Verde starts from the student: their curiosity, their wellbeing, their enjoyment. Activities, specialists and nature are tools serving a deeply human experience. We care for each student as an individual — not as part of a group."
+            "title": "Children and adolescents at the center",
+            "text": "Everything in Aula Verde starts from each child and adolescent: their curiosity, their wellbeing, their joy. Activities and nature are tools serving their development. We care for each student as an individual."
           },
           {
             "num": "02",
@@ -2337,14 +2337,14 @@
       },
       "cta_final": {
         "title": "Take your school to the mountains",
-        "subtitle": "Message us on WhatsApp and we'll arrange a free consultation. We'll respond within 24 hours with everything you need to present it to your institution. Because every student deserves to live this at least once.",
+        "subtitle": "Message us on WhatsApp and we'll arrange a free consultation. We respond within 24 hours with everything you need to present it to your institution.",
         "btn": "TALK TO THE TEAM"
       },
       "hero": {
         "title": "Green Classroom",
         "subtitle": "Educational camps · Sierras de Córdoba",
-        "tagline": "The experience of being human, at the center of everything.",
-        "description": "Five days in the Córdoba mountains where every activity is designed around the student: their curiosity, their joy, their wonder. Nature, science, leadership and art are the tools. The human being is the purpose.",
+        "tagline": "Children and adolescents at the center of everything.",
+        "description": "Five days in the Córdoba mountains designed around each child and adolescent: their curiosity, their joy, their wonder. Nature, science and leadership are the tools.",
         "cta_budget": "REQUEST A QUOTE",
         "cta_facilities": "View facilities",
         "stat_open": "Enrolments open 2026",
