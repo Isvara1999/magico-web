@@ -839,19 +839,19 @@
       "hero": {
         "title": "Aula Verde",
         "subtitle": "Campamentos educativos · Sierras de Córdoba",
-        "tagline": "Donde el aula no tiene paredes.",
-        "description": "Cinco días en las sierras de Córdoba donde los alumnos desarrollan liderazgo, inteligencia emocional y habilidades científicas — con especialistas, en campo abierto.",
+        "tagline": "La naturaleza como punto de partida.",
+        "description": "Cinco días en las sierras de Córdoba donde el contacto con la naturaleza despierta lo científico, lo creativo y lo humano en cada alumno.",
         "cta_budget": "SOLICITAR PRESUPUESTO",
         "cta_facilities": "Ver las instalaciones",
         "stat_open": "Inscripciones abiertas 2026",
         "stat_location": "Los Gigantes, Sierras de Córdoba",
         "disciplines": [
+          "Naturaleza & Ecosistemas",
           "Liderazgo",
           "Inteligencia Emocional",
           "Finanzas",
-          "Astronomía",
-          "Naturaleza",
-          "Arte"
+          "Ciencias",
+          "Arte & Expresión"
         ]
       },
       "magico": {
@@ -2333,19 +2333,19 @@
       "hero": {
         "title": "Green Classroom",
         "subtitle": "Educational camps · Sierras de Córdoba",
-        "tagline": "Where the classroom has no walls.",
-        "description": "Five days in the Córdoba mountains where students develop leadership, emotional intelligence and scientific skills — with specialists, in the open field.",
+        "tagline": "Nature as a starting point.",
+        "description": "Five days in the Córdoba mountains where contact with nature awakens the scientific, creative and human potential in every student.",
         "cta_budget": "REQUEST A QUOTE",
         "cta_facilities": "View facilities",
         "stat_open": "Enrolments open 2026",
         "stat_location": "Los Gigantes, Cordoba Mountains",
         "disciplines": [
+          "Nature & Ecosystems",
           "Leadership",
           "Emotional Intelligence",
           "Finance",
-          "Astronomy",
-          "Nature",
-          "Art"
+          "Science",
+          "Art & Expression"
         ]
       },
       "magico": {

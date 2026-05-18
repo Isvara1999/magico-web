@@ -74,15 +74,22 @@ const AulaVerdeHero: React.FC = () => {
 
         {/* Discipline pills */}
         {t.aula_verde.hero.disciplines && (
-          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12 px-4">
-            {(t.aula_verde.hero.disciplines as string[]).map((d: string, i: number) => (
-              <span
-                key={i}
-                className="text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1.5 rounded-full border border-white/20 text-white/70 bg-white/5 backdrop-blur-sm"
-              >
-                {d}
-              </span>
-            ))}
+          <div className="flex flex-col items-center gap-3 mb-8 md:mb-12 px-4">
+            {/* Pilar central */}
+            <span className="text-[11px] uppercase tracking-[0.25em] font-semibold px-5 py-2 rounded-full border border-brand-gold/60 text-brand-gold bg-brand-gold/10 backdrop-blur-sm">
+              {(t.aula_verde.hero.disciplines as string[])[0]}
+            </span>
+            {/* Áreas derivadas */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {(t.aula_verde.hero.disciplines as string[]).slice(1).map((d: string, i: number) => (
+                <span
+                  key={i}
+                  className="text-[10px] uppercase tracking-[0.18em] font-medium px-3 py-1.5 rounded-full border border-white/15 text-white/55 bg-white/5 backdrop-blur-sm"
+                >
+                  {d}
+                </span>
+              ))}
+            </div>
           </div>
         )}
 
