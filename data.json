@@ -246,8 +246,8 @@
     },
     "hero": {
       "title": "Te invita a Ser",
-      "subtitle": "Estadías, retiros y cocina de autor en una granja regenerativa. Sierras Grandes de Córdoba.",
-      "tag": "25+ AÑOS · GRANJA REGENERATIVA · SIERRAS DE CÓRDOBA",
+      "subtitle": "Comunidad y Filosofía del Buen Vivir. Eco-centro y co-living de montaña para emprendedores, artistas y creadores. Experiencias de alto impacto.",
+      "tag": "ECO-CENTRO · EXPERIENCIAS DE ALTO IMPACTO · CO-LIVING",
       "btnBook": "RESERVAR AHORA",
       "btnRetreat": "ORGANIZAR RETIRO",
       "stats_years": "+15.000 Árboles Plantados",
@@ -1464,9 +1464,9 @@
       "cta_label": "Consultar",
       "profiles": [
         {
-          "title": "El nómade digital",
-          "desc": "Trabajás remoto y querés un lugar con WiFi real, silencio y conexión humana auténtica. Starlink + naturaleza + comunidad.",
-          "wa": "Hola! Me interesa el coworking con alojamiento para trabajo remoto en Mágico Ensueño. ¿Tienen disponibilidad?"
+          "title": "Emprendedores y Creativos",
+          "desc": "Para nómades digitales, artistas, músicos, escritores y emprendedores que buscan un entorno de concentración real, conectividad Starlink y una comunidad que inspire.",
+          "wa": "Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Mágico Ensueño 💻"
         },
         {
           "title": "El profesional en burnout",
@@ -1484,9 +1484,9 @@
           "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Mágico Ensueño. ¿Podemos hablar?"
         },
         {
-          "title": "La familia",
-          "desc": "Buscan desconectar de las pantallas y reconectar entre ustedes. Espacios amplios, naturaleza segura y aventuras compartidas en la montaña.",
-          "wa": "Hola! Queremos ir en familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?"
+          "title": "Grupos y Familias",
+          "desc": "Para tu grupo de amigos y amigas, o grupos familiares que incluyen a tu tío, abuelos, padres e hijos. Buscan desconectar de las pantallas y reconectar en la montaña.",
+          "wa": "Hola! Queremos ir en grupo o familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?"
         },
         {
           "title": "El ciudadano del mundo",
@@ -1741,8 +1741,8 @@
     },
     "hero": {
       "title": "Invites You to Be",
-      "subtitle": "Stays, retreats and artisan cuisine on a regenerative farm. Sierras Grandes, Córdoba.",
-      "tag": "25+ YEARS · REGENERATIVE FARM · CÓRDOBA MOUNTAINS",
+      "subtitle": "Community and the Philosophy of Good Living. Eco-center and mountain co-living for entrepreneurs, artists, and creators. High-impact experiences.",
+      "tag": "ECO-CENTER · HIGH-IMPACT EXPERIENCES · CO-LIVING",
       "btnBook": "BOOK NOW",
       "btnRetreat": "ORGANIZE RETREAT",
       "stats_years": "+15,000 Trees Planted",
@@ -2960,9 +2960,9 @@
       "cta_label": "Ask us",
       "profiles": [
         {
-          "title": "The digital nomad",
-          "desc": "You work remotely and want a place with real WiFi, silence and authentic human connection. Starlink + nature + community.",
-          "wa": "Hi! I am interested in co-working accommodation for remote work at Mágico Ensueño. Do you have availability?"
+          "title": "Entrepreneurs & Creatives",
+          "desc": "For digital nomads, artists, musicians, writers, and entrepreneurs seeking a real focus environment, Starlink connectivity, and an inspiring community.",
+          "wa": "Hi! I am an entrepreneur/creative and want to inquire about co-living at Mágico Ensueño 💻"
         },
         {
           "title": "The burned-out professional",
@@ -2980,9 +2980,9 @@
           "wa": "Hi! I am interested in learning more about retreats and co-living at Mágico Ensueño. Can we talk?"
         },
         {
-          "title": "The family",
-          "desc": "Looking to disconnect from screens and reconnect with each other. Ample spaces, safe nature and shared adventures in the mountains.",
-          "wa": "Hi! We want to go as a family to Mágico Ensueño. What accommodation options do you have?"
+          "title": "Groups & Families",
+          "desc": "For your group of friends or extended family (grandparents, parents, children, uncles). Looking to disconnect from screens and reconnect in the mountains.",
+          "wa": "Hi! We want to go as a group or family to Mágico Ensueño. What accommodation options do you have?"
         },
         {
           "title": "The world citizen",

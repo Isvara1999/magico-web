@@ -32,14 +32,13 @@ const Hero: React.FC = () => (
     <div className="absolute inset-0 bg-gradient-to-t from-[#002d1a]/90 via-[#002d1a]/30 to-transparent" />
     <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-16 md:pb-24">
       <p className="text-gold/80 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">
-        ESTADÍAS · RESET VITAL · COWORKING · COLIVING
+        COMUNIDAD · ECO-CENTRO · EXPERIENCIAS DE ALTO IMPACTO
       </p>
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-5 drop-shadow-xl font-light max-w-3xl">
-        Tu semana en<br />la montaña
+        Filosofía del<br />Buen Vivir
       </h1>
       <p className="text-white/75 text-base md:text-lg font-light max-w-xl mb-8 leading-relaxed">
-        Desconectate del ruido, reconectate con lo esencial. Alojamiento desde $40.000/noche
-        con ropa blanca y Reset Vital. Pensión completa (3 comidas) desde $95.000/noche.
+        Eco-centro & Alojamiento de Montaña. Co-living diseñado para emprendedores, artistas, músicos, escritores y creativos. Desconectate del ruido y reconectate con lo esencial desde $40.000/noche.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
         <a
@@ -268,9 +267,9 @@ const RitmoDeLaSemana: React.FC = () => (
 const AVATARES = [
   {
     icon: <Laptop className="w-6 h-6" weight="duotone" />,
-    perfil: 'El nómade digital',
-    desc: 'Trabajás desde cualquier lugar pero la ciudad te agota. Buscás un entorno de concentración real, conectividad confiable y belleza que inspire. Starlink + montaña = tu oficina soñada.',
-    wa: WA('Hola! Soy nómade digital y quiero consultar sobre coworking en Mágico Ensueño 💻'),
+    perfil: 'Emprendedores y Creativos',
+    desc: 'Nómades, emprendedores, artistas, músicos y escritores. Buscás un entorno de concentración real, conectividad Starlink y comunidad que inspire.',
+    wa: WA('Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Mágico Ensueño 💻'),
   },
   {
     icon: <ChartLineUp className="w-6 h-6" weight="duotone" />,
@@ -292,9 +291,9 @@ const AVATARES = [
   },
   {
     icon: <UsersThree className="w-6 h-6" weight="duotone" />,
-    perfil: 'La familia',
-    desc: 'Buscan desconectar de las pantallas y reconectar entre ustedes. Espacios amplios, naturaleza segura y aventuras compartidas en la montaña.',
-    wa: WA('Hola! Queremos ir en familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?'),
+    perfil: 'Grupos y Familias',
+    desc: 'Para tu grupo de amigos y amigas, o grupos familiares que incluyen a tu tío, abuelos, padres e hijos. Buscan desconectar de las pantallas y reconectar en la montaña.',
+    wa: WA('Hola! Queremos ir en grupo o familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?'),
   },
   {
     icon: <Globe className="w-6 h-6" weight="duotone" />,
