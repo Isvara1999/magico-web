@@ -174,23 +174,6 @@
       "link": "",
       "cards": [
         {
-          "date": "23 AL 25 DE MAYO",
-          "title": "Habitar la Transformación",
-          "desc": "Retiro de montaña centrado en Eneagrama y prácticas corporales para pasar de la personalidad a la esencia.",
-          "btn": "Consultar",
-          "image": "/uploads/hero(2).webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
-        },
-        {
-          "title": "Gondorbows",
-          "desc": "Experiencia vivencial y práctica en arquería intuitiva y meditativa para trabajar el foco y la intención en la naturaleza.",
-          "btn": "Ver Más",
-          "image": "/uploads/tirando.jpg",
-          "link": "/gondorbows",
-          "pdfLink": "",
-          "date": "29 AL 31 DE MAYO"
-        },
-        {
           "date": "13-15 JUNIO",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
@@ -1179,6 +1162,12 @@
         "title": "El Vuelo del Cóndor — Un viaje iniciático en Perú | Mágico Ensueño",
         "description": "7 días para elevar tu consciencia en el Valle Sagrado de los Incas. Del 22 al 29 de Julio."
       },
+      "video": {
+        "title": "El Llamado de los Andes",
+        "subtitle": "Presentación Oficial",
+        "quote": "Hay momentos en la vida de un hombre en que el camino ya recorrido deja de ser suficiente. No porque haya fallado — sino porque es hora de ir más profundo para volar más alto.",
+        "location": "Valle Sagrado de los Incas · 7 días · Julio 2026"
+      },
       "hero": {
         "dates": "22 al 29 de Julio, 2026",
         "title": "El Vuelo del Cóndor",
@@ -1333,7 +1322,7 @@
           {
             "nombre": "Gustavo Torras",
             "foto": "/uploads/vuelo-condor/Toti.webp",
-            "desc": "Buscador y Facilitador de ceremonias con plantas maestras y rituales ancestrales. Terapeuta Sonoro, Regresiones y Caminante del danzar de la vida."
+            "desc": "Buscador y Facilitador de Kambo y rituales ancestrales. Terapeuta Sonoro, Constelaciones Familiares, Regresiones y Caminante del danzar de la vida."
           },
           {
             "nombre": "Diego Epelman Hodara",
@@ -1703,14 +1692,6 @@
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
           "pdfLink": ""
-        },
-        {
-          "date": "MAY 23 - 25",
-          "title": "Habitar la Transformación",
-          "desc": "Mountain retreat focused on Enneagram and body practices to shift from personality to essence.",
-          "btn": "Inquire",
-          "image": "/uploads/hero(2).webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Habitar%20la%20Transformaci%C3%B3n.%20%F0%9F%93%85"
         },
         {
           "date": "JULY 24, 25 & 26",
@@ -2672,6 +2653,12 @@
       "seo": {
         "title": "The Flight of the Condor — An initiatory journey in Peru | Magico Ensueno",
         "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From July 22 to 29."
+      },
+      "video": {
+        "title": "The Call of the Andes",
+        "subtitle": "Official Presentation",
+        "quote": "There are moments in a man's life when the path already traveled is no longer enough. Not because he has failed — but because it is time to go deeper to fly higher.",
+        "location": "Sacred Valley of the Incas · 7 days · July 2026"
       },
       "hero": {
         "dates": "July 22 to 29, 2026",

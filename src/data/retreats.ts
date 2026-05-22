@@ -28,7 +28,7 @@ export const RETREATS_DATA = {
   gondorbows: {
     price: 640000,
     currency: 'ARS',
-    dates: '29 al 31 de Mayo · 24, 25 y 26 de Julio',
+    dates: '24, 25 y 26 de Julio',
     message: '¡Hola Fausto! Terminé de leer todo sobre el retiro de Gondorbows y no me lo quiero perder. Me comunico para coordinar la seña y asegurar mi lugar. 🌲✨',
   }
 };
