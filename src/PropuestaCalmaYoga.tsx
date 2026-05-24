@@ -116,6 +116,14 @@ const Countdown: React.FC<{ expiresAt: Date }> = ({ expiresAt }) => {
   );
 };
 
+const ESPACIO_IMGS = [
+  { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', alt: 'Experiencia grupal' },
+  { src: '/uploads/469742031_941240881439467_8316347989568757415_n.webp', alt: 'Experiencia grupal' },
+  { src: '/uploads/domos_2.jpg', alt: 'Domos geodésicos' },
+  { src: '/uploads/refu.webp', alt: 'Eco-Refugio' },
+  { src: '/uploads/dji_0074.webp', alt: 'Vista aérea Mágico Ensueño' },
+];
+
 const PropuestaCalmaYoga: React.FC = () => {
   const [expiresAt] = useState(() => {
     const d = new Date();
@@ -137,6 +145,11 @@ const PropuestaCalmaYoga: React.FC = () => {
   }, []);
 
   const totalSeguidores = '54.4K';
+  const [espacioIdx, setEspacioIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setEspacioIdx(i => (i + 1) % ESPACIO_IMGS.length), 1400);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <div className="bg-[#FDFBF7] text-[#2A1708] overflow-x-hidden">
@@ -226,7 +239,7 @@ const PropuestaCalmaYoga: React.FC = () => {
               { label: 'Qué queremos lograr', text: 'Repartir responsabilidades, disfrutar del proceso, multiplicar el impacto y celebrar el resultado en equipo.', bg: '#005333', labelColor: 'rgba(255,255,255,0.8)', textColor: 'rgba(255,255,255,0.9)' },
             ].map((item) => (
               <div key={item.label} className="flex-1 rounded-2xl p-8 text-left shadow-md" style={{ backgroundColor: item.bg }}>
-                <p className="text-base font-bold mb-4" style={{ color: item.labelColor }}>
+                <p className="text-2xl font-bold mb-4" style={{ color: item.labelColor }}>
                   {item.label}
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: item.textColor }}>{item.text}</p>
@@ -319,7 +332,7 @@ const PropuestaCalmaYoga: React.FC = () => {
 
             <div className="border rounded-2xl p-8" style={{ borderColor: '#00533322', backgroundColor: '#00533308' }}>
               <p className="text-base font-bold mb-6" style={{ color: '#005333' }}>
-                Nuestro aporte · Kintu + Pueblo Mágico
+                Nuestro aporte · Kintu & Pueblo Mágico
               </p>
               <ul className="space-y-4">
                 {[
@@ -471,7 +484,7 @@ const PropuestaCalmaYoga: React.FC = () => {
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             <div data-reveal>
-              <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-5 font-bold">EL ENTORNO POTENCIA LA EXPERIENCIA</p>
+              <p className="text-sm tracking-[0.3em] uppercase text-gold mb-5 font-bold">EL ENTORNO POTENCIA LA EXPERIENCIA</p>
               <h2 className="text-3xl md:text-4xl serif-title text-white mb-6 leading-tight">
                 Pueblo Mágico,<br />Sierras Grandes
               </h2>
@@ -493,11 +506,49 @@ const PropuestaCalmaYoga: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <div className="grid grid-cols-2 gap-3" data-reveal data-delay="1">
-              <img src={img('/uploads/469280911_444096748740233_2818770490495002077_n.webp', 450)} alt="Experiencia grupal" className="rounded-xl aspect-square object-cover" loading="lazy" />
-              <img src={img('/uploads/469742031_941240881439467_8316347989568757415_n.webp', 450)} alt="Experiencia grupal" className="rounded-xl aspect-square object-cover mt-8" loading="lazy" />
-              <img src={img('/uploads/refu.webp', 450)} alt="Eco-Refugio" className="rounded-xl aspect-square object-cover -mt-8" loading="lazy" />
-              <img src={img('/uploads/dji_0074.webp', 450)} alt="Vista aérea Mágico Ensueño" className="rounded-xl aspect-square object-cover" loading="lazy" />
+            {/* Carrusel */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl" data-reveal data-delay="1">
+              <div className="aspect-[4/3] relative">
+                {ESPACIO_IMGS.map((im, i) => (
+                  <img
+                    key={im.src}
+                    src={img(im.src, 900)}
+                    alt={im.alt}
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                    style={{ opacity: i === espacioIdx ? 1 : 0 }}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+              {/* Flechas */}
+              <button
+                onClick={() => setEspacioIdx(i => (i - 1 + ESPACIO_IMGS.length) % ESPACIO_IMGS.length)}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                style={{ backgroundColor: 'rgba(0,0,0,0.45)', color: '#fff' }}
+                aria-label="Anterior"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setEspacioIdx(i => (i + 1) % ESPACIO_IMGS.length)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                style={{ backgroundColor: 'rgba(0,0,0,0.45)', color: '#fff' }}
+                aria-label="Siguiente"
+              >
+                ›
+              </button>
+              {/* Puntos de navegación */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                {ESPACIO_IMGS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setEspacioIdx(i)}
+                    className="w-2 h-2 rounded-full transition-all duration-300"
+                    style={{ backgroundColor: i === espacioIdx ? '#D4AF37' : 'rgba(255,255,255,0.4)', transform: i === espacioIdx ? 'scale(1.3)' : 'scale(1)' }}
+                    aria-label={`Imagen ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
