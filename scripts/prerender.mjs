@@ -73,6 +73,13 @@ const ROUTES = [
     image: 'https://experienciamagico.com/uploads/temazcal.webp',
     canonical: 'https://experienciamagico.com/el-vuelo-del-condor',
   },
+  {
+    path: '/propuesta/calma-magico',
+    title: 'Calma Salvaje — Una propuesta de Mágico Ensueño para Calma Yoga',
+    description: 'Retiro residencial de yoga en las Sierras Grandes de Córdoba. 3 días, hasta 30 personas. Mágico Ensueño + Calma Yoga.',
+    image: 'https://experienciamagico.com/uploads/campoentero.webp',
+    canonical: 'https://experienciamagico.com/propuesta/calma-magico',
+  },
 ];
 
 if (!existsSync(DIST)) {

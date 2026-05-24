@@ -13,4 +13,5 @@ export const ROUTES = {
   VUELO_CONDOR: '/el-vuelo-del-condor',
   TERMINOS: '/terminos-y-condiciones',
   PRIVACIDAD: '/politica-de-privacidad',
+  PROPUESTA_CALMA_YOGA: '/propuesta/calma-magico',
 };
