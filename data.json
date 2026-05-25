@@ -411,7 +411,7 @@
         "subtitle": "Un encuentro para volver a lo esencial en familia.",
         "btn": "Consultar Próxima Fecha",
         "dates": "13-15 JUNIO · Los Gigantes, Córdoba",
-        "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con talleres, fogones y momentos que se quedan para siempre.",
+        "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con experiencias, fogones y momentos que se quedan para siempre en el Corazón.",
         "cta_join": "RESERVAR MI LUGAR",
         "cta_details": "Ver en la Agenda"
       },
@@ -443,12 +443,16 @@
         "subtitle": "Valores por grupo familiar. Incluye alojamiento, todas las comidas y actividades.",
         "items": [
           {
-            "name": "Adulto",
-            "price": "120.000"
+            "name": "Camping",
+            "price": "650.000"
           },
           {
-            "name": "Niño (4 a 12 años)",
-            "price": "60.000"
+            "name": "Eco-Refugio premium",
+            "price": "950.000"
+          },
+          {
+            "name": "Domo Privado",
+            "price": "1.150.000"
           }
         ],
         "btn": "RESERVAR LUGAR",
@@ -461,31 +465,31 @@
         "cards": {
           "camping": {
             "title": "Camping",
-            "text": "Por persona · Traé tu propia carpa o alquilá la nuestra"
+            "text": "Por grupo familiar · Traé tu propia carpa o alquilá la nuestra"
           },
           "refugio": {
-            "title": "Eco-Refugio y Domos",
-            "text": "Por persona · Alojamiento compartido en habitaciones"
+            "title": "Eco-Refugio premium",
+            "text": "Por grupo familiar · Alojamiento en habitaciones compartidas"
           },
           "privado": {
             "title": "Domo Privado",
-            "text": "Por persona · Domo exclusivo para tu grupo familiar"
+            "text": "Por grupo familiar · Domo exclusivo para tu grupo familiar"
           }
         },
         "includes": {
           "title": "¿Qué incluye tu inversión?",
           "items": [
-            "Alojamiento (viernes noche a lunes mediodía)",
-            "Pensión completa: 6 comidas (desayunos, almuerzos y cenas)",
-            "Todos los talleres y actividades del programa",
+            "Alojamiento completo con ropa blanca, toalla y toallon individual + Biocosmetica.",
+            "Pensión completa: (Desayunos, almuerzos, meriendas y cenas)",
+            "Equipo Anfitrión para acompañar al grupo durante toda la experiencia",
             "Uso libre de la reserva de 200 hectáreas",
-            "Fogón nocturno con cuentos y canciones",
+            "Fogones nocturnos y otras dinámicas",
             "Guía Reset Vital PDF de regalo"
           ]
         },
         "exchange": {
-          "title": "Beneficios especiales",
-          "text": "10% OFF viniendo de a dos familias. 10% OFF para ex-alumnos o referidos. Los descuentos no son acumulables."
+          "title": "Opcionales y Beneficios",
+          "text": "Agrega la noche del Viernes 12 por solo $250.000 para toda la familia con todo incluido. Grupo familiar hasta 4 integrantes. Consulta promociones y modalidades por grupo."
         },
         "footer": "Financiación disponible · Seña del 50% para reservar. El programa puede ajustarse según las condiciones climáticas."
       },
@@ -526,8 +530,8 @@
           },
           {
             "num": "02",
-            "title": "Energía 100% Solar",
-            "text": "Toda la energía del lugar proviene del sol. Un ejemplo viviente de que es posible vivir en armonía con la naturaleza sin renunciar al confort."
+            "title": "Energías Renovable y Diseño Bioclimático",
+            "text": "La mayoría de lo que utilizamos se produce aquí y todo esta diseñado para una experiencia confortable con calefacción en todos los espacios. Agua Caliente 24 hs y WIFI satelital disponible."
           },
           {
             "num": "03",
@@ -569,52 +573,58 @@
       },
       "cronograma": {
         "tag": "PROGRAMA",
-        "title": "3 días para volver a lo esencial",
+        "title": "3 a 4 días para volver a lo esencial",
         "dates": [
           "13-15 JUNIO · ÚLTIMOS CUPOS"
         ],
         "days": [
           {
             "num": "01",
-            "tag": "DÍA 1 · SÁBADO",
-            "title": "Llegada y Apertura",
+            "tag": "DÍA 1 · VIERNES",
+            "title": "Bienvenida general",
             "items": [
-              "10:00 — Bienvenida e instalación en el lugar",
-              "12:30 — Almuerzo comunitario · primer encuentro del grupo",
-              "14:30 — Taller de Huerta para familias",
-              "17:00 — Caminata de reconocimiento por la reserva",
-              "19:30 — Cena · cocina regenerativa compartida",
-              "21:00 — Fogón de bienvenida · cuentos y canciones bajo las estrellas"
+              "Dinámicas para conocernos y disfrutar en la naturaleza",
+              "Cena Grupal & Fogón"
             ]
           },
           {
             "num": "02",
-            "tag": "DÍA 2 · DOMINGO",
-            "title": "Inmersión y Magia",
+            "tag": "DÍA 2 · SÁBADO",
+            "title": "Bienvenida a los que se suman",
             "items": [
-              "08:00 — Desayuno con la montaña",
-              "09:30 — Taller de Cocina en Familia",
-              "11:00 — Exploración libre por la reserva",
-              "13:00 — Almuerzo · espacios de descanso y juego libre",
-              "15:30 — Ceremonia de Gratitud · integración familiar",
-              "17:00 — Actividades artísticas y creativas",
-              "19:30 — Cena de gala familiar"
+              "Almuerzo",
+              "Círculos de juego",
+              "Atardecer Mágico & Fuego",
+              "Cena Grupal"
             ]
           },
           {
             "num": "03",
-            "tag": "DÍA 3 · LUNES",
-            "title": "Cierre y Regreso",
+            "tag": "DÍA 3 · DOMINGO",
+            "title": "Inmersión y Juego",
             "items": [
-              "08:00 — Desayuno de cierre",
-              "09:30 — Círculo de cierre · palabras y regalos de la experiencia",
-              "11:00 — Tiempo libre para fotos y despedidas",
-              "12:00 — Almuerzo de despedida",
-              "13:00 — Retorno a casa con el corazón lleno"
+              "Desayuno",
+              "Ceremonia de Temazcal",
+              "Juegos en la naturaleza",
+              "Almuerzo - Cocina Familiar",
+              "Meditación en Movimiento",
+              "Cena Grupal"
+            ]
+          },
+          {
+            "num": "04",
+            "tag": "DÍA 4 · LUNES",
+            "title": "Cierre y Despedida",
+            "items": [
+              "Desayuno",
+              "Yoga & Meditación (Adultos)",
+              "Taller de Arte Natural y Cocina para niños",
+              "Almuerzo",
+              "Actividad de Cierre & Despedida"
             ]
           }
         ],
-        "footer": "El programa puede ajustarse según las condiciones climáticas y las necesidades del grupo."
+        "footer": "La experiencia es comunitaria y colaborativa, la Co-creamos entre todas y todos. La intención se que el compartir sea muy disfrutable y organico en todo momento por lo cual todas las actividades son flexibles y sujetas al sentir de toda al tribu en cada momento."
       },
       "testimonials": {
         "title": "Familias que vivieron la experiencia",
@@ -643,10 +653,10 @@
       },
       "magico": {
         "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Magico Ensueno en Los Gigantes.",
-        "title": "Mágico Ensueño",
+        "title": "Pueblo Mágico",
         "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía.",
         "video_title": "Mágico Ensueño — Experiencia en la Montaña",
-        "benefits_title": "Por qué Mágico Ensueño",
+        "benefits_title": "Por qué Pueblo Mágico",
         "benefits": [
           {
             "title": "200 hectáreas de naturaleza pura.",
@@ -1685,7 +1695,7 @@
       "link": "",
       "cards": [
         {
-          "date": "MAY 1-3 (LAST 2 SPOTS!)\nJUNE 13-15 (NEW DATE!)",
+          "date": "JUN 13-15",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
           "btn": "See More",
@@ -1739,7 +1749,7 @@
       "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "nextEvent": {
-        "label": "FAMILION · MAY 1–3 · LAST 2 SPOTS!",
+        "label": "FAMILION · JUN 13–15 · LAST SPOTS!",
         "link": "/familion"
       }
     },
@@ -1899,8 +1909,8 @@
         "title": "Familion",
         "subtitle": "An encounter to return to the essentials as a family.",
         "btn": "Check Next Date",
-        "dates": "MAY 1-3 · JUN 13-15 · Los Gigantes, Córdoba",
-        "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with workshops, bonfires, and moments that last forever.",
+      "dates": "JUN 13-15 · Los Gigantes, Córdoba",
+      "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with experiences, bonfires, and moments that last forever in the Heart.",
         "cta_join": "BOOK MY SPOT",
         "cta_details": "View in Calendar"
       },
@@ -1932,51 +1942,53 @@
         "subtitle": "Values per family group. Includes accommodation, all meals and activities.",
         "items": [
           {
-            "name": "Adult",
-            "price": "120,000"
+          "name": "Camping",
+          "price": "650,000"
           },
           {
-            "name": "Child (4 to 12 years old)",
-            "price": "60,000"
+          "name": "Eco-Shelter premium",
+          "price": "950,000"
+        },
+        {
+          "name": "Private Dome",
+          "price": "1,150,000"
           }
         ],
         "btn": "BOOK SPOT",
         "editions": [
-          "1ST EDITION",
-          "2ND EDITION"
+        "NEXT EDITION"
         ],
         "spots": [
-          "LAST 2 SPOTS!",
-          "NEW DATE OPEN!"
+        "LAST SPOTS!"
         ],
         "cards": {
           "camping": {
             "title": "Camping",
-            "text": "Per person · Bring your own tent or rent ours"
+          "text": "Per family group · Bring your own tent or rent ours"
           },
           "refugio": {
-            "title": "Eco-Shelter & Domes",
-            "text": "Per person · Shared accommodation in rooms"
+          "title": "Eco-Shelter premium",
+          "text": "Per family group · Accommodation in shared rooms"
           },
           "privado": {
             "title": "Private Dome",
-            "text": "Per person · Exclusive dome for your family group"
+          "text": "Per family group · Exclusive dome for your family group"
           }
         },
         "includes": {
           "title": "What does your investment include?",
           "items": [
-            "Accommodation (Friday night to Monday midday)",
-            "Full board: 6 meals (breakfasts, lunches, and dinners)",
-            "All workshops and program activities",
+          "Full accommodation with bed linen, towel and individual bath towel + Biocosmetics.",
+          "Full board: (Breakfasts, lunches, snacks and dinners)",
+          "Host Team to accompany the group throughout the experience",
             "Free use of the 200-hectare reserve",
-            "Night bonfire with stories and songs",
+          "Night bonfires and other dynamics",
             "Reset Vital PDF guide as a gift"
           ]
         },
         "exchange": {
-          "title": "Special benefits",
-          "text": "10% OFF when coming with another family. 10% OFF for alumni or referrals. Discounts cannot be combined."
+        "title": "Optionals and Benefits",
+        "text": "Add Friday 12th night for just $250,000 for the whole family all-inclusive. Family group up to 4 members. Consult promotions and modalities per group."
         },
         "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
       },
@@ -2017,8 +2029,8 @@
           },
           {
             "num": "02",
-            "title": "100% Solar Energy",
-            "text": "All energy comes from the sun. A living example that it is possible to live in harmony with nature without sacrificing comfort."
+          "title": "Renewable Energies and Bioclimatic Design",
+          "text": "Most of what we use is produced here and everything is designed for a comfortable experience with heating in all spaces. 24h Hot Water and satellite WIFI available."
           },
           {
             "num": "03",
@@ -2060,53 +2072,58 @@
       },
       "cronograma": {
         "tag": "PROGRAM",
-        "title": "3 days to return to the essentials",
+        "title": "3 to 4 days to return to the essentials",
         "dates": [
-          "MAY 1-3 · LAST 2 SPOTS!",
-          "JUNE 13-15 · NEW DATE"
+          "JUN 13-15 · LAST SPOTS"
         ],
         "days": [
           {
             "num": "01",
-            "tag": "DAY 1 · SATURDAY",
-            "title": "Arrival & Opening",
+            "tag": "DAY 1 · FRIDAY",
+            "title": "General welcome",
             "items": [
-              "10:00 — Welcome and settling in",
-              "12:30 — Community lunch · first group gathering",
-              "14:30 — Family Orchard Workshop",
-              "17:00 — Guided nature walk through the reserve",
-              "19:30 — Dinner · shared regenerative cuisine",
-              "21:00 — Welcome bonfire · stories and songs under the stars"
+              "Dynamics to get to know each other and enjoy nature",
+              "Group Dinner & Bonfire"
             ]
           },
           {
             "num": "02",
-            "tag": "DAY 2 · SUNDAY",
-            "title": "Immersion & Magic",
+            "tag": "DAY 2 · SATURDAY",
+            "title": "Welcome to those joining",
             "items": [
-              "08:00 — Breakfast with the mountain",
-              "09:30 — Family Cooking Workshop",
-              "11:00 — Free exploration of the reserve",
-              "13:00 — Lunch · rest and free play",
-              "15:30 — Gratitude Ceremony · family integration",
-              "17:00 — Artistic and creative activities",
-              "19:30 — Family gala dinner"
+              "Lunch",
+              "Play circles",
+              "Magic Sunset & Fire",
+              "Group Dinner"
             ]
           },
           {
             "num": "03",
-            "tag": "DAY 3 · MONDAY",
-            "title": "Closing & Return",
+            "tag": "DAY 3 · SUNDAY",
+            "title": "Immersion & Play",
             "items": [
-              "08:00 — Closing breakfast",
-              "09:30 — Closing circle · words and gifts of the experience",
-              "11:00 — Free time for photos and farewells",
-              "12:00 — Farewell lunch",
-              "13:00 — Return home with a full heart"
+              "Breakfast",
+              "Temazcal Ceremony",
+              "Games in nature",
+              "Lunch - Family Cooking",
+              "Movement Meditation",
+              "Group Dinner"
+            ]
+          },
+          {
+            "num": "04",
+            "tag": "DAY 4 · MONDAY",
+            "title": "Closing & Farewell",
+            "items": [
+              "Breakfast",
+              "Yoga & Meditation (Adults)",
+              "Natural Art and Cooking Workshop for children",
+              "Lunch",
+              "Closing Activity & Farewell"
             ]
           }
         ],
-        "footer": "The program may be adjusted based on weather and the group's needs."
+        "footer": "The experience is community-based and collaborative, we Co-create it together. The intention is for sharing to be very enjoyable and organic at all times, so all activities are flexible and subject to the feeling of the whole tribe in every moment."
       },
       "testimonials": {
         "title": "Families who lived the experience",
@@ -2135,10 +2152,10 @@
       },
       "magico": {
         "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Magico Ensueno in Los Gigantes.",
-        "title": "Magico Ensueno",
+        "title": "Pueblo Magico",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
         "video_title": "Magico Ensueno — Mountain Experience",
-        "benefits_title": "Why Magico Ensueno",
+        "benefits_title": "Why Pueblo Magico",
         "benefits": [
           {
             "title": "200 hectares of pure nature.",

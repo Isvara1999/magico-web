@@ -116,7 +116,7 @@ const FamilionContent: React.FC = () => {
   }, []);
 
   const PILAR_ICONS = [UsersThreeIcon, LeafIcon, ForkKnifeIcon, StarIcon];
-  const CRONO_ICONS = [CampfireIcon, SunIcon, MoonIcon];
+  const CRONO_ICONS = [CampfireIcon, SunIcon, MoonIcon, StarIcon];
 
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">
