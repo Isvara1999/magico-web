@@ -482,7 +482,7 @@
             "Alojamiento completo con ropa blanca, toalla y toallon individual + Biocosmetica.",
             "Pensión completa: (Desayunos, almuerzos, meriendas y cenas)",
             "Equipo Anfitrión para acompañar al grupo durante toda la experiencia",
-            "Uso libre de la reserva de 200 hectáreas",
+              "Uso libre de la reserva de más de 200 hectáreas",
             "Fogones nocturnos y otras dinámicas",
             "Guía Reset Vital PDF de regalo"
           ]
@@ -521,7 +521,7 @@
       },
       "eco_center": {
         "title": "Un eco-centro vivo en la montaña",
-        "subtitle": "Mágico Ensueño es mucho más que un lugar: es una comunidad viva donde la naturaleza y las personas se encuentran en equilibrio.",
+          "subtitle": "Pueblo Mágico es mucho más que un lugar: es una comunidad viva donde la naturaleza y las personas se encuentran en equilibrio.",
         "items": [
           {
             "num": "01",
@@ -652,10 +652,10 @@
         "text": "Este es el ritual de gratitud por los alimentos que las familias vivieron en el Familion. Un momento simple y profundo que resume la esencia de lo que proponemos."
       },
       "magico": {
-        "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Magico Ensueno en Los Gigantes.",
+          "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Pueblo Magico en Los Gigantes.",
         "title": "Pueblo Mágico",
         "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía.",
-        "video_title": "Mágico Ensueño — Experiencia en la Montaña",
+          "video_title": "Pueblo Mágico — Experiencia en la Montaña",
         "benefits_title": "Por qué Pueblo Mágico",
         "benefits": [
           {
@@ -675,7 +675,7 @@
         "investment_text": "El 10% de cada Familion va directo a la restauración del monte nativo con plantación de tabaquillos. Al venir, sos parte de algo más grande.",
         "investment_quote": "Venir al Mágico no solo te regenera a vos, regenera a la montaña.",
         "footer_text": "Acceso para todo tipo de vehículos hasta la puerta del lugar.",
-        "map_alt": "Mapa de Mágico Ensueño - Los Gigantes, Córdoba",
+          "map_alt": "Mapa de Pueblo Mágico - Los Gigantes, Córdoba",
         "map_download": "Descargar Mapa",
         "map_consult": "Consultar ubicación"
       }
@@ -1981,7 +1981,7 @@
           "Full accommodation with bed linen, towel and individual bath towel + Biocosmetics.",
           "Full board: (Breakfasts, lunches, snacks and dinners)",
           "Host Team to accompany the group throughout the experience",
-            "Free use of the 200-hectare reserve",
+              "Free use of the reserve of over 200 hectares",
           "Night bonfires and other dynamics",
             "Reset Vital PDF guide as a gift"
           ]
@@ -2020,7 +2020,7 @@
       },
       "eco_center": {
         "title": "A living eco-center in the mountains",
-        "subtitle": "Magico Ensueno is much more than a place: it is a living community where nature and people find balance.",
+          "subtitle": "Pueblo Magico is much more than a place: it is a living community where nature and people find balance.",
         "items": [
           {
             "num": "01",
@@ -2151,10 +2151,10 @@
         "text": "This is the gratitude ritual for the food that families experienced at Familion. A simple and profound moment that captures the essence of what we offer."
       },
       "magico": {
-        "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Magico Ensueno in Los Gigantes.",
+          "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Pueblo Magico in Los Gigantes.",
         "title": "Pueblo Magico",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
-        "video_title": "Magico Ensueno — Mountain Experience",
+          "video_title": "Pueblo Magico — Mountain Experience",
         "benefits_title": "Why Pueblo Magico",
         "benefits": [
           {
@@ -2174,7 +2174,7 @@
         "investment_text": "10% of every Familion goes directly to native forest restoration by planting tabaquillo trees. By coming, you are part of something larger.",
         "investment_quote": "Coming to the Magico does not only regenerate you, it regenerates the mountain.",
         "footer_text": "Road access for all vehicle types right to the door of the property.",
-        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+          "map_alt": "Map of Pueblo Magico - Los Gigantes, Cordoba",
         "map_download": "Download Map",
         "map_consult": "Ask about location"
       }

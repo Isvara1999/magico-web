@@ -23,10 +23,10 @@ const FamilionPrecios: React.FC = () => {
       
       {/* Fechas Alert */}
       <div className="max-w-2xl mx-auto mb-10 flex flex-col md:flex-row gap-4 justify-center items-center">
-        {RETREATS_DATA.familion.dates.map((date: string, i: number) => (
+        {t.familion.cronograma.dates.map((date: string, i: number) => (
           <div key={i} className={`bg-white/10 border ${i === 0 ? 'border-brand-gold/30' : 'border-white/20'} rounded-2xl px-6 py-4 flex-1 w-full md:w-auto`}>
             <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t.familion.precios.editions[i] || "EDICIÓN"}</p>
-            <p className="text-lg serif-title font-bold text-white">{date}</p>
+            <p className="text-lg serif-title font-bold text-white">{date.split('·')[0].trim()}</p>
             <p className="text-xs font-bold text-[#D4AF37] mt-1">{t.familion.precios.spots[i] || "¡CUPOS LIMITADOS!"}</p>
           </div>
         ))}
@@ -37,21 +37,21 @@ const FamilionPrecios: React.FC = () => {
           {/* Camping */}
           <div className="p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border border-white/20 shadow-inner bg-[#003d26]">
             <h3 className="serif-title text-lg md:text-xl font-bold text-white mb-3">{t.familion.precios.cards.camping.title}</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>${RETREATS_DATA.familion.prices.camping.toLocaleString('es-AR')}</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>${t.familion.precios.items[0].price}</p>
             <p className="text-white/80 text-sm md:text-base">{t.familion.precios.cards.camping.text}</p>
           </div>
 
           {/* Eco-Refugio y Domos - Destacado */}
           <div className="relative p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-white shadow-xl overflow-hidden">
             <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#005333' }}>{t.familion.precios.cards.refugio.title}</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>${RETREATS_DATA.familion.prices.refugio.toLocaleString('es-AR')}</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#D4AF37' }}>${t.familion.precios.items[1].price}</p>
             <p className="text-sm md:text-base leading-relaxed break-words" style={{ color: '#005333' }}>{t.familion.precios.cards.refugio.text}</p>
           </div>
 
           {/* Domo Privado */}
           <div className="relative p-6 md:p-8 rounded-2xl flex flex-col justify-center text-center min-h-[200px] md:min-h-[240px] lg:min-h-[260px] border-2 border-[#D4AF37] bg-[#002e1c] shadow-xl overflow-hidden">
             <h3 className="serif-title text-lg md:text-xl font-bold mb-3" style={{ color: '#D4AF37' }}>{t.familion.precios.cards.privado.title}</h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#ffffff' }}>${RETREATS_DATA.familion.prices.domoPrivado.toLocaleString('es-AR')}</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl serif-title font-extrabold tracking-tight mb-3" style={{ color: '#ffffff' }}>${t.familion.precios.items[2].price}</p>
             <p className="text-white/80 text-sm md:text-base leading-relaxed break-words">{t.familion.precios.cards.privado.text}</p>
           </div>
         </div>
