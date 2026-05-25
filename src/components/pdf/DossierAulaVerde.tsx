@@ -186,7 +186,7 @@ const DossierAulaVerde = () => (
       </View>
 
       <View style={styles.quoteBox} wrap={false}>
-        <Text style={styles.quoteText}>"A los chicos les costó soltar la inercia de la ciudad, pero su resistencia se rindió ante la naturaleza. Tuvimos desde juegos en el barro hasta la profundidad de un fogón donde la palabra circuló de otra manera. Nos hicieron sentir familia."</Text>
+        <Text style={styles.quoteText}>"A los chicos les costó soltar la inercia de la ciudad, pero su resistencia se rindió ante la naturaleza. Tuvimos Desde juegos en el barro hasta la profundidad de un fogón donde la palabra circuló de otra manera. Nos hicieron sentir familia."</Text>
         <Text style={styles.quoteAuthor}>— Alejandro, Coordinador Gral. de Campamentos (Racing de Cba.)</Text>
       </View>
 

@@ -23,8 +23,8 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 - **Perfil:** https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9
 
 ## Precios orientativos
-- **Alojamiento base:** desde $40.000 ARS por noche (incluye ropa blanca, biocosmética y guía Reset Vital PDF)
-- **Pensión completa:** desde $95.000 ARS por noche (+ desayuno, almuerzo y cena)
+- **Alojamiento base:** Desde $40.000 ARS por noche (incluye ropa blanca, biocosmética y guía Reset Vital PDF)
+- **Pensión completa:** Desde $95.000 ARS por noche (+ desayuno, almuerzo y cena)
 - **Descuento días de semana:** 20% de descuento lunes a jueves no feriados (alojamiento $32.000 / pensión completa $76.000)
 - Los precios varían por temporada, tipo de alojamiento y paquete. Consultar disponibilidad y precio definitivo por WhatsApp.
 - **Moneda:** Pesos argentinos (ARS). Se acepta efectivo, transferencia bancaria, tarjeta de crédito y débito.
@@ -95,7 +95,7 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 - **Ubicación**: Paraje Cuchilla Nevada, Ojo de Agua, Pedanía La Candelaria, Departamento Cruz del Eje, Sierras Grandes, Córdoba, Argentina
 
 ## Para llegar
-El paraje se encuentra a aproximadamente 90-100 km de la ciudad de Córdoba. Acceso por Ruta Provincial 28 desde Villa Carlos Paz hacia Los Gigantes / área de Cuchilla Nevada. Se recomienda vehículo con buena altura. El equipo puede coordinar traslados desde Córdoba capital.
+El paraje se encuentra a aproximadamente 90-100 km de la ciudad de Córdoba. Acceso por Ruta Provincial 28 Desde Villa Carlos Paz hacia Los Gigantes / área de Cuchilla Nevada. Se recomienda vehículo con buena altura. El equipo puede coordinar traslados Desde Córdoba capital.
 
 ## Sobre este archivo
 Este archivo sigue el estándar llms.txt (https://llmstxt.org/) para facilitar el acceso de inteligencias artificiales al contenido público del sitio. El contenido es público y puede ser indexado y utilizado por modelos de lenguaje para responder consultas sobre Mágico Ensueño.

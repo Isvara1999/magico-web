@@ -98,7 +98,7 @@ const Gondorbows: React.FC = () => {
         {
           "@type": "Course",
           "name": "Construcción de Arco Tradicional — Gondorbows",
-          "description": "Taller práctico de 3 días para construir un arco de alto rendimiento desde cero usando técnicas ancestrales. Multinivel: apto para principiantes y avanzados.",
+          "description": "Taller práctico de 3 días para construir un arco de alto rendimiento Desde cero usando técnicas ancestrales. Multinivel: apto para principiantes y avanzados.",
           "provider": { "@type": "Organization", "name": "Gondor Bows" },
           "coursePrerequisites": "No requiere experiencia previa",
           "educationalLevel": "Multinivel"
@@ -210,7 +210,7 @@ const Gondorbows: React.FC = () => {
 
             <div className="divide-y divide-gray-200/70 mt-2 md:mt-12">
               {([
-                { icon: Target, title: 'Taller Exclusivo de Arquería', desc: 'Todos los materiales, herramientas y la guía directa de Gondorbows para construir tu arco desde cero.' },
+                { icon: Target, title: 'Taller Exclusivo de Arquería', desc: 'Todos los materiales, herramientas y la guía directa de Gondorbows para construir tu arco Desde cero.' },
                 { icon: House,  title: 'Alojamiento Inmersivo',        desc: 'Eco-refugio premium y domos geodésicos en bosque nativo. Ropa blanca, bio-cosmética, agua caliente 24 h y WiFi.' },
                 { icon: ForkKnife, title: 'Pensión Completa',          desc: 'Gastronomía de estación, abundante y riquísima. Todas las comidas incluidas para que no pienses en nada más.' },
               ] as { icon: React.ComponentType<any>; title: string; desc: string }[]).map(({ icon: Icon, title, desc }) => (

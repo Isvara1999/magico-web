@@ -8,7 +8,7 @@ export const RETREATS_DATA = {
     currency: 'USD',
     dates: '22 al 29 de Julio',
     location: 'Valle Sagrado, Perú',
-    message: "¡Hola! Vengo desde la web y me interesa el viaje iniciático 'El Vuelo del Cóndor' en Perú. ✨",
+    message: "¡Hola! Vengo Desde la web y me interesa el viaje iniciático 'El Vuelo del Cóndor' en Perú. ✨",
   },
   familion: {
     prices: {

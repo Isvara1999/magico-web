@@ -2,9 +2,9 @@ import React from 'react';
 import { img } from '../lib/img';
 
 const KINTU_PARAGRAPHS = [
-  "KINTU es una productora de experiencias transformadoras que diseña viajes y procesos con corazón y propósito.",
+  "KINTU es Es una productora pionera en experiencias transformadoras que diseña viajes y procesos con corazón y propósito.",
   "Creamos espacios para que las personas reconecten con su potencial, expandan su mirada y generen cambios reales en su vida.",
-  "Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia.",
+  "Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace Desde la intención, el cuidado y la coherencia.",
   "Nos basamos en la filosofía del Buen Vivir, integrando bienestar personal, comunidad y conexión con la naturaleza.",
   "Estamos co-creando una red que conecta y visibiliza proyectos y organizaciones que están dando forma a una nueva manera de habitar el mundo.",
 ];

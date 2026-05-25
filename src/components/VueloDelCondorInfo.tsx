@@ -8,7 +8,7 @@ const VueloDelCondorInfo: React.FC = () => {
       <section id="experiencia" className="py-16 md:py-24 px-6 bg-white mt-16 md:mt-24" style={{ paddingBottom: 'max(6rem, 90px)' }}>
         <div className="max-w-5xl mx-auto pt-8">
           <h2 className="text-3xl md:text-5xl serif-title brand-green text-center mb-10 md:mb-16">
-            De ver más allá. De recordar quién sos desde un lugar más profundo.
+            De ver más allá. De recordar quién sos Desde un lugar más profundo.
           </h2>
 
           <div className="flex flex-col">

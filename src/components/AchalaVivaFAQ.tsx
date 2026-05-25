@@ -5,7 +5,7 @@ const faqs = [
   {
     Icon: MagnifyingGlassIcon,
     question: "¿Necesito tener conocimientos previos o equipo profesional?",
-    answer: "No hace falta experiencia previa. La propuesta es multinivel y está pensada para que aprendas desde cero o profundices tus conocimientos. Solo necesitás curiosidad. Si tenés binoculares o cámara de fotos, traelos, pero no son excluyentes para disfrutar."
+    answer: "No hace falta experiencia previa. La propuesta es multinivel y está pensada para que aprendas Desde cero o profundices tus conocimientos. Solo necesitás curiosidad. Si tenés binoculares o cámara de fotos, traelos, pero no son excluyentes para disfrutar."
   },
   {
     Icon: PersonSimpleHikeIcon,
@@ -25,7 +25,7 @@ const faqs = [
   {
     Icon: CarIcon,
     question: "¿Se puede llegar en vehículo normal o auto bajo?",
-    answer: "Sí, el camino de acceso de ripio (aprox. 30km desde Tanti) está mantenido y es apto para vehículos estándar. Al momento de confirmar tu reserva, te enviamos las indicaciones precisas y el punto GPS para que llegues sin problemas."
+    answer: "Sí, el camino de acceso de ripio (aprox. 50km Desde Tanti) está mantenido y es apto para vehículos estándar. Al momento de confirmar tu reserva, te enviamos las indicaciones precisas y el punto GPS para que llegues sin problemas."
   }
 ];
 

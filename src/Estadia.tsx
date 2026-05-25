@@ -38,7 +38,7 @@ const Hero: React.FC = () => (
         Filosofía del<br />Buen Vivir
       </h1>
       <p className="text-white/75 text-base md:text-lg font-light max-w-xl mb-8 leading-relaxed">
-        Eco-centro & Alojamiento de Montaña. Co-living diseñado para emprendedores, artistas, músicos, escritores y creativos. Desconectate del ruido y reconectate con lo esencial desde $40.000/noche.
+        Eco-centro & Alojamiento de Montaña. Co-living diseñado para emprendedores, artistas, músicos, escritores y creativos. Desconectate del ruido y reconectate con lo esencial Desde $40.000/noche.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
         <a
@@ -176,7 +176,7 @@ const Alojamientos: React.FC = () => (
       <div className="mt-10 text-center bg-white rounded-2xl p-6 border border-brand/5 shadow-sm">
         <CurrencyCircleDollar className="w-8 h-8 text-gold mx-auto mb-3" weight="duotone" />
         <p className="text-brand font-serif text-xl mb-1">Desde <strong className="text-gold">$32.000</strong> por persona / noche</p>
-        <p className="text-dark/50 text-xs font-light">Alojamiento desde $40.000/noche · Pensión completa (3 comidas) desde $95.000/noche · 20% dto. Lun–Jue no feriados</p>
+        <p className="text-dark/50 text-xs font-light">Alojamiento Desde $40.000/noche · Pensión completa (3 comidas) Desde $95.000/noche · 20% dto. Lun–Jue no feriados</p>
       </div>
     </div>
   </section>
@@ -409,7 +409,7 @@ const FAQS = [
   {
     Icon: MapPinIcon,
     q: '¿Cómo llego?',
-    a: 'El paraje está a unos 90-100 km de Córdoba Capital. Acceso por Ruta Provincial 28 desde Villa Carlos Paz. Se recomienda vehículo con buena altura. También podemos coordinar traslado desde la ciudad.',
+    a: 'El paraje está a unos 90-100 km de Córdoba Capital. Acceso por Ruta Provincial 28 Desde Villa Carlos Paz. Se recomienda vehículo con buena altura. También podemos coordinar traslado Desde la ciudad.',
   },
   {
     Icon: ClockIcon,

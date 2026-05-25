@@ -55,7 +55,7 @@ const ROUTES = [
   {
     path: '/estadia',
     title: 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño',
-    description: 'Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $40.000/noche (ropa blanca + Reset Vital). Pensión completa desde $95.000. 20% dto. lun–jue.',
+    description: 'Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $40.000/noche (ropa blanca + Reset Vital). Pensión completa Desde $95.000. 20% dto. lun–jue.',
     image: 'https://experienciamagico.com/uploads/campoentero.webp',
     canonical: 'https://experienciamagico.com/estadia',
   },

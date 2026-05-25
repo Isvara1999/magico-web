@@ -187,7 +187,7 @@ export const PoliticaPrivacidad: React.FC = () => {
             </li>
           </ul>
           <p>
-            Podés rechazar o limitar las cookies desde la configuración de tu navegador o mediante herramientas de exclusión publicitaria como{' '}
+            Podés rechazar o limitar las cookies Desde la configuración de tu navegador o mediante herramientas de exclusión publicitaria como{' '}
             <a href="https://www.youronlinechoices.com/es/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
               Your Online Choices
             </a>.

@@ -92,7 +92,7 @@ export const TerminosYCondiciones: React.FC = () => {
             El sitio web <em>experienciamagico.com</em> es un canal informativo. No cuenta con carrito de compras ni pasarela de pago en línea. La información publicada tiene por fin describir las experiencias, alojamientos y retiros que ofrece Mágico Ensueño.
           </p>
           <p>
-            El contrato de reserva o prestación de servicio se perfecciona desde que el/la consumidor/a confirma la aceptación de la propuesta remitida por WhatsApp o correo electrónico, y el prestador confirma la disponibilidad.
+            El contrato de reserva o prestación de servicio se perfecciona Desde que el/la consumidor/a confirma la aceptación de la propuesta remitida por WhatsApp o correo electrónico, y el prestador confirma la disponibilidad.
           </p>
           <p>
             Toda la información básica del proveedor y de los servicios es previa y fácilmente accesible en el sitio, conforme a la Resolución 270/2020 de la Secretaría de Comercio Interior.

@@ -583,7 +583,7 @@ export default function ResetVitalApp() {
         >
           <div className="text-center mb-8">
              <Star className="mx-auto text-[#A8971C] mb-2 animate-pulse" size={24} />
-             <p className="text-sm text-stone-600 mb-2">Un nuevo día que invita a ordenar desde adentro.</p>
+             <p className="text-sm text-stone-600 mb-2">Un nuevo día que invita a ordenar Desde adentro.</p>
              <p className="text-lg font-serif italic text-[#A8971C]">
                 "Lo que fue emergiendo empieza a decantar y acomodarse solo."
              </p>
@@ -660,7 +660,7 @@ export default function ResetVitalApp() {
           <div className="mb-8 pl-4 border-l-4 border-[#0099D1]">
              <p className="text-sm text-stone-600 mb-2">Este día abre una nueva capa. Después de escuchar y ordenar, llega el momento de elegir conscientemente.</p>
              <p className="text-lg font-serif italic text-[#0099D1] mb-2">
-                "No desde la exigencia. Desde la coherencia."
+                "No Desde la exigencia. Desde la coherencia."
              </p>
              <p className="text-sm text-stone-500">
                 Elegir qué sí. Elegir qué no. Elegir cómo querés vivir lo que viene.
