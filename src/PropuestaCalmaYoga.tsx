@@ -70,7 +70,7 @@ const EXPERIENCES = [
 ];
 
 const COSTS = [
-  { concepto: 'Hospedaje (2 noches)', quien: 'Mágico Ensueño', tipo: 'fijo' },
+  { concepto: 'Hospedaje', quien: 'Mágico Ensueño', tipo: 'fijo' },
   { concepto: 'Gastronomía completa', quien: 'Mágico Ensueño', tipo: 'fijo' },
   { concepto: 'Espacio y salones', quien: 'Mágico Ensueño', tipo: 'fijo' },
   { concepto: 'Estrategia y copy', quien: 'Kintu', tipo: 'variable' },
@@ -116,6 +116,52 @@ const Countdown: React.FC<{ expiresAt: Date }> = ({ expiresAt }) => {
   );
 };
 
+const DESTINOS = [
+  { nombre: 'Patagonia', tag: 'Argentina', foto: 'https://images.pexels.com/photos/28410690/pexels-photo-28410690.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Talampaya', tag: 'Argentina', foto: 'https://images.pexels.com/photos/7973834/pexels-photo-7973834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Valle Sagrado', tag: 'Perú', foto: 'https://images.pexels.com/photos/259967/pexels-photo-259967.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Selva Peruana', tag: 'Perú', foto: 'https://images.pexels.com/photos/36302293/pexels-photo-36302293.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Costa Peruana', tag: 'Perú', foto: 'https://images.pexels.com/photos/16997935/pexels-photo-16997935.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Colombia', tag: 'Sudamérica', foto: 'https://images.pexels.com/photos/35211242/pexels-photo-35211242.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Costa Rica', tag: 'Centroamérica', foto: 'https://images.pexels.com/photos/6198925/pexels-photo-6198925.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Brasil', tag: 'Sudamérica', foto: 'https://images.pexels.com/photos/35660580/pexels-photo-35660580.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'México', tag: 'Mesoamérica', foto: 'https://images.pexels.com/photos/11447571/pexels-photo-11447571.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center' },
+  { nombre: 'Cataratas del Iguazú', tag: 'Argentina · Brasil', foto: 'https://images.pexels.com/photos/8242961/pexels-photo-8242961.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center 40%' },
+  { nombre: 'Bali', tag: 'Indonesia', foto: 'https://images.pexels.com/photos/19137460/pexels-photo-19137460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center center', portrait: true },
+  { nombre: 'India', tag: 'Asia', foto: 'https://images.pexels.com/photos/31203531/pexels-photo-31203531.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop', pos: 'center 30%', portrait: true },
+  { nombre: 'Valle de los Lisos', tag: 'Córdoba, Argentina', foto: 'https://s0.wklcdn.com/image_121/3652082/91090363/93504330Master.jpg', pos: 'center center' },
+  { nombre: 'Los Gigantes', tag: 'Córdoba, Argentina', foto: 'https://larocax.tur.ar/wp-content/uploads/2024/01/20220620_091049-scaled.jpg', pos: 'center center' },
+];
+
+type Destino = typeof DESTINOS[0];
+type Slide = { type: 'single'; d: Destino } | { type: 'pair'; d1: Destino; d2: Destino };
+
+const SLIDES: Slide[] = (() => {
+  const slides: Slide[] = [];
+  let i = 0;
+  while (i < DESTINOS.length) {
+    if (DESTINOS[i].portrait && i + 1 < DESTINOS.length && DESTINOS[i + 1].portrait) {
+      slides.push({ type: 'pair', d1: DESTINOS[i], d2: DESTINOS[i + 1] });
+      i += 2;
+    } else {
+      slides.push({ type: 'single', d: DESTINOS[i] });
+      i++;
+    }
+  }
+  return slides;
+})();
+
+// Base DESTINOS index for each slide (for desktop grid)
+const SLIDE_BASE: number[] = (() => {
+  const bases: number[] = [];
+  let acc = 0;
+  for (const s of SLIDES) {
+    bases.push(acc);
+    acc += s.type === 'pair' ? 2 : 1;
+  }
+  return bases;
+})();
+
 const ESPACIO_IMGS = [
   { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', alt: 'Experiencia grupal' },
   { src: '/uploads/469742031_941240881439467_8316347989568757415_n.webp', alt: 'Experiencia grupal' },
@@ -148,6 +194,12 @@ const PropuestaCalmaYoga: React.FC = () => {
   const [espacioIdx, setEspacioIdx] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setEspacioIdx(i => (i + 1) % ESPACIO_IMGS.length), 1400);
+    return () => clearInterval(t);
+  }, []);
+
+  const [slideIdx, setSlideIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setSlideIdx(i => (i + 1) % SLIDES.length), 1100);
     return () => clearInterval(t);
   }, []);
 
@@ -190,18 +242,17 @@ const PropuestaCalmaYoga: React.FC = () => {
             <span style={{ color: '#D4AF37' }}>{PROSPECT.nombre}!</span>
           </h1>
           <p className="text-white/75 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-            Esta es una invitación a unir potencial para co-crear una{' '}
-            <strong className="text-white">experiencia Integral de Alto Impacto</strong>{' '}
-            para tu comunidad "{PROSPECT.comunidad}", en el corazón de las Sierras Grandes de Córdoba.
+            Esta es una oportunidad para potenciarnos y co-crear{' '}
+            <strong className="text-white">Experiencias Integrales de Alto Impacto</strong>{' '}
+            para tu comunidad "{PROSPECT.comunidad}"
           </p>
 
           {/* Stats en pills */}
           <div className="flex flex-wrap gap-3">
             {[
-              { valor: '3', label: 'días' },
-              { valor: '30', label: 'personas' },
-              { valor: '+15', label: 'años produciendo retiros' },
-              { valor: '10%', label: 'inversión mínima', gold: true },
+              { valor: 'Desde 3', label: 'días' },
+              { valor: '+15', label: 'años produciendo' },
+              { valor: 'Inversión Mínima', label: '', gold: true },
             ].map((s) => (
               <div
                 key={s.label}
@@ -225,13 +276,13 @@ const PropuestaCalmaYoga: React.FC = () => {
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center" data-reveal>
           <p className="inline-block bg-[#005333] text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold shadow-sm">
-            ¿Quiénes somos?
+            ¿Quien produce?
           </p>
           <h2 className="text-3xl md:text-4xl serif-title mb-6" style={{ color: '#005333' }}>
-            Somos Kintu & Pueblo Mágico
+            Somos Kintu
           </h2>
           <p className="text-[#4A3220] text-base md:text-xl leading-relaxed mb-6 max-w-2xl mx-auto">
-            La productora de <strong>Eventos Conscientes & experiencias de Alto Impacto,</strong> nuestro objetivo es co-crear alianzas junto a referentes de bienestar que tienen comunidades consolidadas — listas para potenciar en conjunto.
+            Una productora pionera en <strong>Eventos Conscientes & Experiencias de Alto Impacto.</strong> nuestro objetivo es co-crear alianzas junto a referentes de bienestar que tienen comunidades consolidadas — listas para potenciar en conjunto.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center mt-10" data-reveal data-delay="1">
             {[
@@ -254,17 +305,73 @@ const PropuestaCalmaYoga: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16" data-reveal>
             <p className="inline-block bg-[#005333] text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold shadow-sm">
-              Ejemplo de experiencia para {PROSPECT.comunidad}
+              Ejemplos de experiencias para {PROSPECT.comunidad}
             </p>
             <h2 className="text-3xl md:text-5xl serif-title mb-4 leading-tight" style={{ color: '#005333' }}>
-              Retiro "Calma Mágica"
+              Experiencias de Calma
             </h2>
             <p className="text-[#6B4A33] text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-              Tres días para sostener la práctica profunda en un lugar que ya respira lo que vos enseñás.
+               El formato lo elegimos juntas — y a más días, más impacto real en tu comunidad y mejores números para vos.
             </p>
             <p className="text-[#8B6347] text-sm mt-3 tracking-wide">
-              Viernes a domingo · Grupo íntimo · Hasta 30 personas
+              Grupo íntimo · Desde 3 hasta +7 días
             </p>
+          </div>
+
+          {/* Pregunta previa */}
+          <div className="text-center mb-10" data-reveal>
+            <p className="text-3xl md:text-4xl serif-title" style={{ color: '#005333' }}>¿Por dónde empezamos?</p>
+          </div>
+
+          {/* Formatos disponibles */}
+          <div className="grid md:grid-cols-3 gap-4 mb-14" data-reveal data-delay="1">
+            {/* Tarjeta 1 — punto de entrada, no el foco */}
+            <div className="rounded-2xl p-7 border text-left" style={{ borderColor: '#E5DDD5', backgroundColor: '#FDFBF7' }}>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#A0866E' }}>Retiros</p>
+              <p className="text-xl font-bold serif-title mb-3" style={{ color: '#6B4A33' }}>3 días · 2 noches</p>
+              <p className="text-[#8B6347] text-sm leading-relaxed mb-5">
+                El formato más frecuente del mercado. Ideal para dar el primer paso y testear la alianza con tu comunidad.
+              </p>
+              <div className="border-t pt-4 space-y-1.5" style={{ borderColor: '#E5DDD5' }}>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#A0866E' }}>— Impacto breve en la comunidad</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#A0866E' }}>— Mercado saturado, más competencia</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#A0866E' }}>— Ticket más bajo, margen ajustado</p>
+              </div>
+            </div>
+
+            {/* Tarjeta 2 — recomendada */}
+            <div className="rounded-2xl p-7 border text-left relative" style={{ borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' }}>
+              <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: '#005333', color: '#D4AF37' }}>
+                Recomendado
+              </span>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#005333' }}>Inmersión profunda</p>
+              <p className="text-xl font-bold serif-title mb-3" style={{ color: '#005333' }}>4 a 6 días</p>
+              <p className="text-[#3D2516] text-sm leading-relaxed mb-5">
+                La práctica se instala y la comunidad se teje de verdad. El impacto dura semanas y genera conversación orgánica en redes.
+              </p>
+              <div className="border-t pt-4 space-y-1.5" style={{ borderColor: 'rgba(0,83,51,0.15)' }}>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Mayor flujo económico por participante</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Mucho menos competencia en el mercado</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Contenido y recuerdo que duran semanas</p>
+              </div>
+            </div>
+
+            {/* Tarjeta 3 — máximo impacto */}
+            <div className="rounded-2xl p-7 border text-left relative" style={{ borderColor: 'rgba(212,175,55,0.45)', backgroundColor: 'rgba(212,175,55,0.05)' }}>
+              <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#8B6A00' }}>
+                Máximo impacto
+              </span>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>Viaje con propósito</p>
+              <p className="text-xl font-bold serif-title mb-3" style={{ color: '#4A3210' }}>+7 días</p>
+              <p className="text-[#3D2516] text-sm leading-relaxed mb-5">
+                Una experiencia que tu comunidad recuerda y comparte por años. El formato que construye vínculo real y posiciona tu marca a otro nivel.
+              </p>
+              <div className="border-t pt-4 space-y-1.5" style={{ borderColor: 'rgba(212,175,55,0.25)' }}>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#8B6A00' }}>— Ticket premium, mejor margen</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#8B6A00' }}>— Casi sin competencia en el mercado</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#8B6A00' }}>— Transformación real, vínculo duradero</p>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -317,10 +424,10 @@ const PropuestaCalmaYoga: React.FC = () => {
               </p>
               <ul className="space-y-4">
                 {[
-                  'Tu comunidad consolidada y confianza ganada',
+                  'Comunidad consolidada y trayectorias',
                   'Diseño y dictado de clases y talleres',
-                  'convocatoria del retiro a tu comunidad',
-                  'Tu presencia, tu práctica, tu energía',
+                  'Convocatoria al retiro,experiencia o viaje a tu comunidad',
+                  'Tu presencia, tu práctica, tu energía, tu camino',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[#3D2516] text-base leading-relaxed">
                     <span className="mt-1 flex-shrink-0 text-amber-400">◆</span>
@@ -337,10 +444,11 @@ const PropuestaCalmaYoga: React.FC = () => {
               <ul className="space-y-4">
                 {[
                   'El espacio, el hospedaje y la gastronomía completa',
+                  'Diseño y anfitrionazgo de la experiencia junto con vos y tu equipo',
                   'Estrategia de lanzamiento en redes sociales',
                   'Copy, guiones y piezas visuales para comunicación',
                   'Publicaciones en formato colaborativo',
-                  'Logística integral: inscripciones, coordinación y comunicación',
+                  'Logística integral: inscripciones, coordinación y comunicación integral',
                   'Tecnología, IA y project management de punta a punta',
                   'Creación y entrega de un grupo de WhatsApp con todos los participantes previo al retiro',
                 ].map((item) => (
@@ -349,19 +457,30 @@ const PropuestaCalmaYoga: React.FC = () => {
                     {item}
                   </li>
                 ))}
-                {/* Ítem opcional destacado */}
+                {/* Opcionales */}
                 <li className="flex items-start gap-3 mt-5 pt-5 border-t" style={{ borderColor: 'rgba(0,83,51,0.12)' }}>
                   <span className="mt-1 flex-shrink-0 text-amber-500">✦</span>
                   <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-semibold text-[#2A1708]">Registro audiovisual del retiro</span>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-base font-semibold text-[#2A1708]">Opcionales que elevan la experiencia</span>
                       <span className="text-[10px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#B8960A' }}>
                         Opcional
                       </span>
                     </div>
-                    <p className="text-sm text-[#6B4A33] leading-relaxed">
-                      Cobertura foto y video del retiro para que los participantes se lleven un recuerdo y vos tengas contenido de calidad para tus redes y próximas experiencias.
+                    <p className="text-sm text-[#6B4A33] leading-relaxed mb-3">
+                      Contamos con un equipo de especialistas en múltiples disciplinas que pueden potenciar y complementar tu experiencia.
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Registro audiovisual', 'Ceremonia de temazcal', 'Armonizaciones sonoras', 'Clases y talleres especializados', 'y más...'].map((opt) => (
+                        <span
+                          key={opt}
+                          className="text-[11px] px-3 py-1 rounded-full border font-medium"
+                          style={{ borderColor: 'rgba(212,175,55,0.3)', color: '#6B4A33', backgroundColor: 'rgba(212,175,55,0.06)' }}
+                        >
+                          {opt}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -431,11 +550,11 @@ const PropuestaCalmaYoga: React.FC = () => {
                 </div>
               ))}
 
-              {/* Tu inversión mínima */}
+              {/* Tu Inversión Mínima */}
               <div className="px-6 py-5" style={{ backgroundColor: 'rgba(212,175,55,0.08)', borderTop: '2px solid rgba(212,175,55,0.3)' }}>
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="text-base font-bold text-[#2A1708]">Tu inversión mínima para el lanzamiento</span>
+                    <span className="text-base font-bold text-[#2A1708]">Tu Inversión Mínima para el lanzamiento</span>
                     <p className="text-sm text-[#6B4A33] mt-1.5 max-w-xs leading-relaxed">
                       Para cubrir producción, campaña y coordinar el lanzamiento necesitamos al menos el <strong>10% del objetivo mínimo de inscripciones</strong>. No es un costo fijo — es un adelanto que se descuenta de tu parte de las ganancias.
                     </p>
@@ -486,18 +605,18 @@ const PropuestaCalmaYoga: React.FC = () => {
             <div data-reveal>
               <p className="text-sm tracking-[0.3em] uppercase text-gold mb-5 font-bold">EL ENTORNO POTENCIA LA EXPERIENCIA</p>
               <h2 className="text-3xl md:text-4xl serif-title text-white mb-6 leading-tight">
-                Pueblo Mágico,<br />Sierras Grandes
+                Pueblo Mágico, <span style={{ color: '#D4AF37' }}>Nuestra Sede</span>
               </h2>
               <p className="text-white/65 text-base leading-relaxed mb-8">
-                Un eco-centro de  montaña con 20 años de historia a las puertas del macizo Los Gigantes, ubicado a 50 km de Tanti. Este espacio ya respira lo que vos enseñás.
+                Un eco-centro de  montaña a las puertas del macizo Los Gigantes, ubicado a 50 km de Tanti. Este espacio ya respira lo que vos enseñás donde anfitrionamos experiencias transformadoras hace más de 20 años.
               </p>
               <ul className="space-y-3">
                 {[
                   'Domos geodésicos y eco-centro en Sierras Grandes',
                   'Pensión completa — Alimentación Natural & Regenerativa',
                   'Salón panorámico, explanadas abiertas, espacios comunes y comedor',
-                  'Senderos en Los Gigantes · Fogón · Cielos limpios',
-                  'A 100 km de Córdoba Capital',
+                  'Senderos en la Montaña · Fogón · Accesos al Río · Cielos limpios',
+                  'A solo 90 km de Córdoba Capital - Acceso para todo tipo de vehiculos',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-white/65 text-sm leading-relaxed">
                     <span className="text-gold flex-shrink-0 mt-0.5">—</span>
@@ -505,6 +624,9 @@ const PropuestaCalmaYoga: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              <p className="text-white/40 text-sm leading-relaxed mt-7 italic">
+                Mientras la idea crece, podemos organizar experiencias en otros destinos de Argentina y el mundo.
+              </p>
             </div>
             {/* Carrusel */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl" data-reveal data-delay="1">
@@ -549,6 +671,106 @@ const PropuestaCalmaYoga: React.FC = () => {
                   />
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Destinos posibles */}
+          <div className="mt-16 border-t pt-14" style={{ borderColor: 'rgba(255,255,255,0.1)' }} data-reveal data-delay="2">
+            <p className="text-center text-[10px] tracking-[0.35em] uppercase font-semibold mb-8" style={{ color: 'rgba(212,175,55,0.6)' }}>
+              Otros destinos posibles
+            </p>
+
+            {/* Carrusel mobile — single o par de verticales */}
+            {(() => {
+              const slide = SLIDES[slideIdx];
+              return (
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-5 md:hidden">
+                  <div className="aspect-[16/9] relative">
+                    {slide.type === 'single' ? (
+                      <>
+                        <img src={slide.d.foto} alt={slide.d.nombre}
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: slide.d.pos }} loading="lazy" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 px-6 pb-6">
+                          <span className="text-[10px] tracking-[0.3em] uppercase font-semibold" style={{ color: 'rgba(212,175,55,0.8)' }}>{slide.d.tag}</span>
+                          <p className="text-2xl font-bold serif-title text-white mt-1">{slide.d.nombre}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="flex h-full">
+                        {([slide.d1, slide.d2] as Destino[]).map((d, pi) => (
+                          <div key={d.nombre} className="flex-1 relative overflow-hidden">
+                            <img src={d.foto} alt={d.nombre}
+                              className="w-full h-full object-cover"
+                              style={{ objectPosition: d.pos }} loading="lazy" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                            <div className="absolute bottom-0 left-0 px-3 pb-4">
+                              <span className="text-[9px] tracking-widest uppercase font-semibold block" style={{ color: 'rgba(212,175,55,0.8)' }}>{d.tag}</span>
+                              <p className="text-sm font-bold serif-title text-white leading-tight">{d.nombre}</p>
+                            </div>
+                            {pi === 0 && <div className="absolute right-0 top-0 bottom-0 w-px" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <button onClick={() => setSlideIdx(i => (i - 1 + SLIDES.length) % SLIDES.length)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                    style={{ backgroundColor: 'rgba(0,0,0,0.45)', color: '#fff' }} aria-label="Anterior destino">‹</button>
+                  <button onClick={() => setSlideIdx(i => (i + 1) % SLIDES.length)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                    style={{ backgroundColor: 'rgba(0,0,0,0.45)', color: '#fff' }} aria-label="Siguiente destino">›</button>
+                </div>
+              );
+            })()}
+
+            {/* Grid desktop — 4 tarjetas simultáneas rotando */}
+            <div className="hidden md:grid md:grid-cols-4 gap-3 mb-5">
+              {Array.from({ length: 4 }, (_, i) => {
+                const d = DESTINOS[(SLIDE_BASE[slideIdx] + i) % DESTINOS.length];
+                return (
+                  <button
+                    key={`${slideIdx}-${i}`}
+                    onClick={() => setSlideIdx((slideIdx + 1) % SLIDES.length)}
+                    className="relative rounded-xl overflow-hidden shadow-lg text-left w-full"
+                  >
+                    <div className="aspect-[3/4] relative">
+                      <img src={d.foto} alt={d.nombre} className="w-full h-full object-cover" style={{ objectPosition: d.pos }} loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                      <div className="absolute bottom-0 left-0 px-4 pb-4">
+                        <span className="text-[9px] tracking-widest uppercase font-semibold block" style={{ color: 'rgba(212,175,55,0.85)' }}>{d.tag}</span>
+                        <p className="text-base font-bold serif-title text-white leading-tight">{d.nombre}</p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mb-10">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSlideIdx(i)}
+                  className="w-2 h-2 rounded-full transition-all duration-300"
+                  style={{ backgroundColor: i === slideIdx ? '#D4AF37' : 'rgba(255,255,255,0.3)', transform: i === slideIdx ? 'scale(1.4)' : 'scale(1)' }}
+                  aria-label={`Slide ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <div className="text-center">
+              <a
+                href="https://calendly.com/somoskintuproducciones/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border rounded-full text-sm font-semibold px-8 py-3 transition-colors hover:bg-gold/10"
+                style={{ borderColor: 'rgba(212,175,55,0.4)', color: '#D4AF37' }}
+              >
+                Consultar por más opciones
+              </a>
             </div>
           </div>
         </div>
@@ -628,31 +850,40 @@ const PropuestaCalmaYoga: React.FC = () => {
             <p className="text-[#8B6347] text-sm mt-3">Tres simples pasos.</p>
           </div>
 
-          <div data-reveal data-delay="1">
+          <div className="flex flex-col gap-0" data-reveal data-delay="1">
             {[
               {
-                n: '01',
-                title: 'Reunion virtual de alineación.',
-                desc: 'Una reunion para conocernos y alinearnos en la propuesta.',
+                n: '1',
+                title: 'Check In virtual',
+                desc: 'Una reunión para conocernos y alinearnos en la propuesta.',
               },
               {
-                n: '02',
+                n: '2',
                 title: 'Fecha y cupo',
                 desc: 'Definimos juntas el fin de semana, el tamaño del grupo y los números del modelo compartido.',
               },
               {
-                n: '03',
+                n: '3',
                 title: 'Lanzamiento conjunto',
-                desc: 'Activamos producción, comunicación, convocatoria y sobretodo disfrutar del proceso.',
+                desc: 'Activamos producción, comunicación y convocatoria — con el eje principal de disfrutar el proceso.',
               },
             ].map((step, i) => (
-              <div key={step.n} className="flex gap-8 py-8 border-b border-stone-200 last:border-0">
-                <div className="flex-shrink-0 pt-1">
-                  <span className="font-mono text-[10px] tracking-widest" style={{ color: '#00533340' }}>{step.n}</span>
-                  {i < 2 && <div className="w-px mx-auto mt-2" style={{ height: '2.5rem', backgroundColor: '#D4AF3730' }} />}
+              <div key={step.n} className="flex gap-6 relative">
+                {/* Columna izquierda: círculo + línea */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold serif-title flex-shrink-0 z-10"
+                    style={{ backgroundColor: '#005333', color: '#D4AF37' }}
+                  >
+                    {step.n}
+                  </div>
+                  {i < 2 && (
+                    <div className="w-px flex-1 my-1" style={{ backgroundColor: 'rgba(0,83,51,0.15)', minHeight: '2.5rem' }} />
+                  )}
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg serif-title mb-2" style={{ color: '#005333' }}>{step.title}</h3>
+                {/* Contenido */}
+                <div className="flex-1 pb-10">
+                  <h3 className="text-xl serif-title mb-2 mt-2.5" style={{ color: '#005333' }}>{step.title}</h3>
                   <p className="text-[#6B4A33] text-base leading-relaxed">{step.desc}</p>
                 </div>
               </div>
