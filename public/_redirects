@@ -1,3 +1,6 @@
+# Redirect ruta vieja de Reset Vital (usuarios con PWA instalada antes del cambio)
+/reset-vital-5-d    /reset-vital    301
+
 # SPA fallback: serve index.html for any path that has no static file on disk.
 # Netlify skips this rule when a prerendered file already exists (e.g. /familion/index.html).
 /*    /index.html   200
