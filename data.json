@@ -651,6 +651,36 @@
         "title": "Una familia, una experiencia transformadora",
         "text": "Este es el ritual de gratitud por los alimentos que las familias vivieron en el Familion. Un momento simple y profundo que resume la esencia de lo que proponemos."
       },
+      "recetario": {
+        "badge": "Recetario gratuito",
+        "title": "La cocina también es un abrazo",
+        "subtitle": "Las recetas que preparamos en Familión. Sabores que nacen del fuego compartido, de la huerta y de las manos que cocinan juntas en la montaña.",
+        "items": [
+          "Recetas con ingredientes de estación",
+          "Platos que preparamos en el ecocentro",
+          "Para cocinar en familia, con calma",
+          "PDF descargable, tuyo para siempre"
+        ],
+        "form": {
+          "title": "Recibí el recetario gratis",
+          "subtitle": "Completá tus datos y la descarga empieza al instante.",
+          "label_nombre": "Nombre",
+          "placeholder_nombre": "Tu nombre",
+          "label_email": "Email",
+          "label_whatsapp": "WhatsApp",
+          "placeholder_whatsapp": "+54 9 ...",
+          "whatsapp_optional": "(opcional)",
+          "btn": "Descargar recetario",
+          "btn_loading": "Preparando...",
+          "footer": "Sin spam. Solo recetas y amor."
+        },
+        "success": {
+          "title": "¡Gracias!",
+          "text": "Tu descarga comenzó automáticamente. Si no inicia, usá los botones de abajo.",
+          "btn_view": "Ver recetario",
+          "btn_download": "Descargar de nuevo"
+        }
+      },
       "magico": {
           "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Pueblo Magico en Los Gigantes.",
         "title": "Pueblo Mágico",
@@ -2149,6 +2179,36 @@
       "video_closing": {
         "title": "A family, a transformative experience",
         "text": "This is the gratitude ritual for the food that families experienced at Familion. A simple and profound moment that captures the essence of what we offer."
+      },
+      "recetario": {
+        "badge": "Free cookbook",
+        "title": "Cooking is also a hug",
+        "subtitle": "The recipes we prepare at Familión. Flavors born from shared fire, from the garden, and from hands cooking together in the mountain.",
+        "items": [
+          "Recipes with seasonal ingredients",
+          "Dishes we prepare at the eco-center",
+          "For cooking as a family, with calm",
+          "Downloadable PDF, yours forever"
+        ],
+        "form": {
+          "title": "Get the free cookbook",
+          "subtitle": "Fill in your details and the download starts instantly.",
+          "label_nombre": "Name",
+          "placeholder_nombre": "Your name",
+          "label_email": "Email",
+          "label_whatsapp": "WhatsApp",
+          "placeholder_whatsapp": "+54 9 ...",
+          "whatsapp_optional": "(optional)",
+          "btn": "Download cookbook",
+          "btn_loading": "Preparing...",
+          "footer": "No spam. Just recipes and love."
+        },
+        "success": {
+          "title": "Thank you!",
+          "text": "Your download started automatically. If it doesn't, use the buttons below.",
+          "btn_view": "View cookbook",
+          "btn_download": "Download again"
+        }
       },
       "magico": {
           "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Pueblo Magico in Los Gigantes.",

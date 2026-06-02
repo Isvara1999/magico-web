@@ -8,6 +8,7 @@ import FamilionHero from './components/FamilionHero';
 import FamilionMagico from './components/FamilionMagico';
 import FamilionPrecios from './components/FamilionPrecios';
 import FamilionFAQ from './components/FamilionFAQ';
+import FamilionRecetario from './components/FamilionRecetario';
 import { WA_MAGICO, SITE_URL } from './data/config';
 import { ROUTES } from './routes';
 
@@ -328,6 +329,7 @@ const FamilionContent: React.FC = () => {
       <FamilionMagico />
       <FamilionPrecios />
       <FamilionFAQ />
+      <FamilionRecetario />
 
       {/* ====== CTA FINAL ====== */}
       <section className="py-16 md:py-24 px-6 bg-[#005333]/[0.04]">
