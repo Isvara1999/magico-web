@@ -80,6 +80,13 @@ const ROUTES = [
     image: 'https://experienciamagico.com/uploads/campoentero.webp',
     canonical: 'https://experienciamagico.com/propuesta/calma-magico',
   },
+  {
+    path: '/organizamos-tu-experiencia',
+    title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Mágico Ensueño',
+    description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',
+    image: 'https://experienciamagico.com/uploads/dji_0074.webp',
+    canonical: 'https://experienciamagico.com/organizamos-tu-experiencia',
+  },
 ];
 
 if (!existsSync(DIST)) {

@@ -14,4 +14,5 @@ export const ROUTES = {
   TERMINOS: '/terminos-y-condiciones',
   PRIVACIDAD: '/politica-de-privacidad',
   PROPUESTA_CALMA_YOGA: '/propuesta/calma-magico',
+  ORGANIZA_EXPERIENCIA: '/organizamos-tu-experiencia',
 };
