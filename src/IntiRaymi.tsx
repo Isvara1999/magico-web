@@ -5,8 +5,8 @@ import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa el Inti Raymi del 20 y 21 de junio. ¿Me pueden dar más info?')}`;
-const WA_RESERVA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar mi lugar para el Inti Raymi del 20 y 21 de junio. ¿Cómo procedo?')}`;
+const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa el Festival de Solsticio del 20 y 21 de junio. ¿Me pueden dar más info?')}`;
+const WA_RESERVA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar mi lugar para el Festival de Solsticio del 20 y 21 de junio. ¿Cómo procedo?')}`;
 
 const C = {
   green: '#005333',
@@ -54,7 +54,7 @@ const Countdown: React.FC = () => {
 const IntiRaymi: React.FC = () => {
 
   useEffect(() => {
-    document.title = 'Inti Raymi — Solsticio de Invierno · 20 y 21 de Junio · Mágico Ensueño';
+    document.title = 'Festival de Solsticio de Invierno · 20 y 21 de Junio · Mágico Ensueño';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -71,9 +71,8 @@ const IntiRaymi: React.FC = () => {
 
       {/* ── HERO ── */}
       <section
-        className="relative flex items-end overflow-hidden"
+        className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden"
         style={{
-          minHeight: 'min(100vh, 100svh)',
           backgroundImage: `url(${img('/uploads/fogon_nocturno.png', 1800)})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -84,7 +83,7 @@ const IntiRaymi: React.FC = () => {
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pb-32 md:pb-0 pt-32 md:pt-20">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="px-4 py-1.5 rounded-full text-[10px] tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70">
               20 y 21 de junio · Los Gigantes, Córdoba
@@ -97,13 +96,12 @@ const IntiRaymi: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-white/50 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">Celebración del</p>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl serif-title leading-none mb-4 text-white">
-            Inti<br />
-            <span style={{ color: C.gold }}>Raymi</span>
+          <p className="text-white/50 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">Festival Consciente</p>
+          <h1 className="text-6xl md:text-7xl serif-title leading-none mb-4 text-white">
+            Solsticio<br /> <span style={{ color: C.gold }}>De Invierno</span>
           </h1>
-          <p className="text-white/65 text-base md:text-lg leading-relaxed max-w-lg mt-5 mb-10">
-            Dos días para celebrar el renacimiento de la luz atravesando la noche más larga del año.
+          <p className="text-white/65 text-base md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-5 mb-10">
+            Dos días para celebrar el renacimiento de la luz atravesando la noche más larga del año, honrando la antigua tradición del Inti Raymi.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
@@ -143,11 +141,11 @@ const IntiRaymi: React.FC = () => {
             <span style={{ color: C.gold }}>Volvemos al Sol."</span>
           </blockquote>
           <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-            No es un festival. No es un retiro.<br />
-            <strong className="text-white/85">Es un espacio vivo</strong> para encontrarnos a celebrar y disfrutar el comienzo de un nuevo ciclo.
+            Un festival consciente pensado para todo público, donde habrá uno o más fuegos prendidos ininterrumpidamente durante todo el evento.<br />
+            <strong className="text-white/85">Un espacio vivo</strong> para encontrarnos a celebrar, hacer networking orgánico y disfrutar el comienzo de un nuevo ciclo en la naturaleza.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {['Abierto a todo público', 'Toda la familia bienvenida', 'Sin experiencia previa', 'Podés venir un día o el fin de semana'].map(tag => (
+            {['Abierto a todo público', 'Fuego ininterrumpido', 'Networking orgánico', 'Toda la familia bienvenida'].map(tag => (
               <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
                 style={{ borderColor: 'rgba(212,175,55,0.3)', color: 'rgba(255,255,255,0.6)', backgroundColor: 'rgba(212,175,55,0.06)' }}>
                 {tag}
@@ -202,17 +200,17 @@ const IntiRaymi: React.FC = () => {
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
                   <Sun size={18} color="#8B6A00" />
                 </div>
-                <p className="font-bold text-base" style={{ color: '#7A5C00' }}>Para coaches, artistas y emprendedores</p>
+                <p className="font-bold text-base" style={{ color: '#7A5C00' }}>Para emprendedores, creadores y líderes</p>
               </div>
               <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
                 Quienes acompañan a otros, crean y lideran también necesitan recargar. Las mejores ideas, decisiones y proyectos nacen desde un lugar de claridad y presencia — no desde el agotamiento.
               </p>
               <ul className="space-y-2">
                 {[
-                  'Coaches, mentores y facilitadores que necesitan soltar el rol',
-                  'Artistas y creativos que buscan inspiración y comunidad',
                   'Emprendedores y empresarios que quieren reconectar con el propósito',
-                  'Líderes que saben que cuidarse es parte del trabajo',
+                  'Networking orgánico con invitados especiales y referentes',
+                  'Artistas, creativos y creadores de contenido buscando inspiración',
+                  'Líderes, coaches y facilitadores que necesitan soltar el rol',
                 ].map(i => (
                   <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
                     <span className="mt-1 flex-shrink-0" style={{ color: '#8B6A00' }}>—</span>{i}
@@ -391,7 +389,7 @@ const IntiRaymi: React.FC = () => {
 
             {/* Acantonamiento */}
             <div className="rounded-2xl p-7 border text-left" style={{ borderColor: 'rgba(212,175,55,0.4)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>Experiencia completa</p>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>Pase fin de semana</p>
               <p className="text-3xl font-bold serif-title mb-1" style={{ color: '#4A3210' }}>$140.000</p>
               <p className="text-xs mb-5" style={{ color: '#8B6A00' }}>por persona · con acantonamiento</p>
               <ul className="space-y-2 mb-7">
