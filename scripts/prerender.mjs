@@ -81,6 +81,13 @@ const ROUTES = [
     canonical: 'https://experienciamagico.com/propuesta/calma-magico',
   },
   {
+    path: '/inti-raymi',
+    title: 'Inti Raymi — Celebración del Solsticio de Invierno · 20 y 21 de Junio | Mágico Ensueño',
+    description: 'Dos días para celebrar el renacimiento de la luz. Temazcal, fuego, danza, canto y naturaleza en las Sierras Grandes de Córdoba. 20 y 21 de junio.',
+    image: 'https://experienciamagico.com/uploads/fogon_nocturno.png',
+    canonical: 'https://experienciamagico.com/inti-raymi',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Mágico Ensueño',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',

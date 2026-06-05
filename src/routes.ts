@@ -15,4 +15,6 @@ export const ROUTES = {
   PRIVACIDAD: '/politica-de-privacidad',
   PROPUESTA_CALMA_YOGA: '/propuesta/calma-magico',
   ORGANIZA_EXPERIENCIA: '/organizamos-tu-experiencia',
+  INTI_RAYMI: '/inti-raymi',
+  PROPUESTA_NICO_GRUPE: '/propuesta/nico-grupe',
 };
