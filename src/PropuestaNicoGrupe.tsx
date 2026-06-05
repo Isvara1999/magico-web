@@ -316,7 +316,7 @@ const PropuestaNicoGrupe: React.FC = () => {
               La propuesta
             </p>
             <h2 className="text-3xl md:text-5xl serif-title mb-4 leading-tight" style={{ color: '#005333' }}>
-              Retiro en Mágico Ensueño
+              Retiro en Pueblo Mágico
             </h2>
             <p className="text-[#6B4A33] text-base md:text-lg max-w-xl mx-auto leading-relaxed">
               La propuesta concreta es co-crear tu retiro en nuestra sede de Los Gigantes, Córdoba — en una de estas dos opciones. Después podemos ir por mucho más.
@@ -434,7 +434,7 @@ const PropuestaNicoGrupe: React.FC = () => {
                       <span className="text-[10px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#B8960A' }}>Opcional</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {['Registro audiovisual', 'Temazcal', 'Armonizaciones sonoras', 'Cabalgatas', 'Astroturismo', 'y más...'].map(opt => (
+                      {['Registro audiovisual', 'Temazcal', 'Armonizaciones sonoras', 'Cabalgatas', 'Astroturismo', 'Conciencia corporal', 'Respiración & pranayama', 'Yoga', 'Workshop de Innovación aplicada', 'y más...'].map(opt => (
                         <span key={opt} className="text-[11px] px-3 py-1 rounded-full border font-medium" style={{ borderColor: 'rgba(212,175,55,0.3)', color: '#6B4A33', backgroundColor: 'rgba(212,175,55,0.06)' }}>
                           {opt}
                         </span>
@@ -455,26 +455,17 @@ const PropuestaNicoGrupe: React.FC = () => {
             </div>
 
             {/* INVERSIÓN INICIAL — callout */}
-            <div className="rounded-2xl p-7 mb-8" style={{ backgroundColor: 'rgba(212,175,55,0.07)', border: '1px solid rgba(212,175,55,0.3)' }}>
-              <p className="font-bold text-lg text-[#2A1708] mb-2">Inversión inicial de compromiso</p>
-              <p className="text-sm leading-relaxed text-[#6B4A33] mb-4">
-                Para activar la alianza, se requiere un <strong className="text-[#2A1708]">porcentaje inicial sobre el 50% de los costos fijos y variables proyectados</strong>. Este aporte no es un gasto — se registra como parte de tu participación en la estructura de costos y se descuenta del ajuste final en el reparto de ganancias.
-              </p>
-              <div className="grid sm:grid-cols-3 gap-3">
-                {[
-                  { label: 'Sobre qué se calcula', value: '50% de costos fijos + variables' },
-                  { label: 'Cuándo se paga', value: 'Al confirmar la alianza' },
-                  { label: 'Qué pasa después', value: 'Se imputa al cierre como costo compartido' },
-                ].map(item => (
-                  <div key={item.label} className="rounded-xl p-4 bg-white border" style={{ borderColor: 'rgba(212,175,55,0.25)' }}>
-                    <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: '#8B6347' }}>{item.label}</p>
-                    <p className="text-sm font-semibold text-[#2A1708]">{item.value}</p>
-                  </div>
-                ))}
+            <div className="rounded-2xl p-7 mb-8 flex items-center justify-between gap-6" style={{ backgroundColor: 'rgba(212,175,55,0.07)', border: '1px solid rgba(212,175,55,0.3)' }}>
+              <div>
+                <p className="font-bold text-lg text-[#2A1708] mb-1">Tu inversión inicial</p>
+                <p className="text-sm leading-relaxed text-[#6B4A33]">
+                  El 50% de los costos fijos de lanzamiento ({fmt(TOTAL_FIJOS / 2)} ARS). Se imputa al cierre como parte de tu participación en los costos fijos del evento.
+                </p>
               </div>
-              <p className="text-xs mt-4 italic" style={{ color: '#8B6347' }}>
-                El porcentaje exacto se define en la reunión de alineamiento según el escenario elegido.
-              </p>
+              <div className="text-right flex-shrink-0">
+                <p className="text-3xl font-bold serif-title" style={{ color: '#D4AF37' }}>{fmt(TOTAL_FIJOS / 2)}</p>
+                <p className="text-[10px] tracking-widest uppercase mt-0.5" style={{ color: '#8B6347' }}>50% de costos fijos</p>
+              </div>
             </div>
 
             {/* COSTOS FIJOS — tabla */}
