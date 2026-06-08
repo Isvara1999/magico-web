@@ -47,12 +47,12 @@ const ACCOUNTS = [
 
 const EXPERIENCES = [
   {
-    title: 'Inmersión de Propósito',
-    desc: 'Retiro intensivo para salir del piloto automático. Silencio, naturaleza y herramientas concretas para diseñar la vida que querés.',
+    title: 'Inmersión Estoica',
+    desc: 'Retiro intensivo para salir del piloto automático. Silencio, naturaleza y herramientas de la filosofía estoica para diseñar la vida que querés.',
     imgSrc: '/uploads/img_6948.webp',
   },
   {
-    title: 'Keynote en la Montaña',
+    title: 'Charla en la Montaña',
     desc: 'Una charla o jornada en un entorno que amplifica el mensaje. La naturaleza como escenario para transformar vidas.',
     imgSrc: '/uploads/dji_0074.webp',
   },
@@ -68,41 +68,55 @@ const EXPERIENCES = [
   },
 ];
 
-// ─── Costos fijos reales ───────────────────────────────────────────────────────
-const FIXED_COSTS = [
-  { concepto: 'Producción audiovisual pre-retiro (Filmmaker)',  monto: 150000 },
-  { concepto: 'Edición y postproducción',                       monto: 120000 },
-  { concepto: 'Landing page de conversión',                     monto:  80000 },
-  { concepto: 'Diseño gráfico (historias, flyers, dossier)',    monto:  10000 },
-  { concepto: 'Gestión de pauta (Trafficker)',                  monto: 120000 },
-  { concepto: 'Inversión publicitaria (Meta Ads)',              monto: 150000 },
-  { concepto: 'Logística y movilidad',                          monto:  25000 },
-];
-const TOTAL_FIJOS = 655000;
+// ─── Tabla de costos por categoría ────────────────────────────────────────────
+type CostRow = { label: string; detail?: string; monto?: number; tipo: 'fijo' | 'variable' | 'opcional' | 'señal' };
+type CostCat = { cat: string; accent: string; rows: CostRow[] };
 
-// ─── Opciones de retiro ────────────────────────────────────────────────────────
-type Opcion = {
-  label: string;
-  duracion: string;
-  ticket: number;
-  costo_var: number;
-  scenarios: number[];
-  recomendado?: boolean;
-};
-const OPCIONES: Opcion[] = [
+const COST_TABLE: CostCat[] = [
   {
-    label: 'Opción A',
-    duracion: '2 noches · 3 días',
-    ticket: 650000,
-    costo_var: 190000,
-    scenarios: [12, 20, 30],
+    cat: 'Lugar',
+    accent: '#005333',
+    rows: [
+      { label: 'Reserva / Señal Mágico Ensueño', detail: 'Valor de 3 participantes (para señar fecha y lugar)', monto: 1080000, tipo: 'señal' },
+      { label: 'Alojamiento (3 noches × $120.000/n)', detail: 'Por persona', monto: 360000, tipo: 'variable' },
+    ],
   },
   {
-    label: 'Opción B',
-    duracion: '3 noches · 4 días',
+    cat: 'Producción',
+    accent: '#AA3E11',
+    rows: [
+      { label: 'Jornada de grabación pre-retiro (Filmmaker)', detail: 'Contenido orgánico y pauta publicitaria para convocatoria', monto: 150000, tipo: 'fijo' },
+      { label: 'Edición de reels (6 a 8 reels)',                monto: 250000, tipo: 'fijo' },
+      { label: 'Landing page de conversión',                    monto:  80000, tipo: 'fijo' },
+      { label: 'Diseño gráfico (historias, flyers)',            monto: 120000, tipo: 'fijo' },
+      { label: 'Gestión de pauta (Trafficker)',     detail: '(Opcional)', monto: 120000, tipo: 'opcional' },
+      { label: 'Inversión publicitaria (Meta Ads)', detail: '(Opcional)', monto: 850000, tipo: 'opcional' },
+    ],
+  },
+  {
+    cat: 'Actividades',
+    accent: '#8B6A00',
+    rows: [
+      { label: 'Temazcal', detail: 'Por persona', monto: 35000, tipo: 'variable' },
+      { label: 'Armonización sonora con baños de gong', detail: 'Por persona', monto: 35000, tipo: 'variable' },
+    ],
+  },
+];
+
+// Para proyecciones: costos fijos de producción (incluyendo pauta y ads)
+const PROD_FIXED = 1570000;   // 150k + 250k + 80k + 120k + 120k + 850k
+const TOTAL_FIJOS = PROD_FIXED;  // usado en el cálculo de escenarios
+// Nota: la señal ($1,080k) es anticipo del alojamiento, no costo adicional
+
+// ─── Opción única ──────────────────────────────────────────────────────────────
+type Opcion = { label: string; duracion: string; ticket: number; costo_var: number; scenarios: number[]; recomendado?: boolean; };
+const OPCIONES: Opcion[] = [
+  {
+    label: 'Inmersión Estoica en Mágico Ensueño',
+    duracion: '4 días · 3 noches',
     ticket: 850000,
-    costo_var: 285000,
-    scenarios: [12, 20, 30],
+    costo_var: 430000,   // $360k alojamiento + $35k temazcal + $35k armonización por persona
+    scenarios: [12, 20, 28],
     recomendado: true,
   },
 ];
@@ -257,8 +271,8 @@ const PropuestaNicoGrupe: React.FC = () => {
           </h1>
           <p className="text-white/75 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
             Esta es una oportunidad para potenciarnos y co-crear{' '}
-            <strong className="text-white">Experiencias Integrales de Alto Impacto</strong>{' '}
-            para tu comunidad "{PROSPECT.comunidad}"
+            <strong className="text-white">Experiencias Integrales de Alto Impacto basadas en la filosofía estoica</strong>{' '}
+            para la comunidad de "{PROSPECT.comunidad}"
           </p>
           <div className="flex flex-wrap gap-3">
             {[
@@ -323,34 +337,20 @@ const PropuestaNicoGrupe: React.FC = () => {
             </p>
           </div>
 
-          {/* Las 2 opciones reales de Mágico */}
-          <div className="grid md:grid-cols-2 gap-5 mb-14" data-reveal data-delay="1">
-            {/* Opción A */}
-            <div className="rounded-2xl p-8 border text-left" style={{ borderColor: '#E5DDD5', backgroundColor: '#FDFBF7' }}>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#A0866E' }}>Opción A · Retiro</p>
-              <p className="text-2xl font-bold serif-title mb-1" style={{ color: '#6B4A33' }}>3 días · 2 noches</p>
-              <p className="text-xl font-bold serif-title mb-4" style={{ color: '#D4AF37' }}>{fmt(OPCIONES[0].ticket)} ARS</p>
-              <p className="text-[#8B6347] text-sm leading-relaxed mb-5">
-                El formato de entrada. Ideal para dar el primer paso y testear la alianza con tu comunidad. Costo operativo por persona: <strong>{fmt(OPCIONES[0].costo_var)} ARS</strong>.
-              </p>
-              <div className="border-t pt-4 space-y-1.5" style={{ borderColor: '#E5DDD5' }}>
-                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#A0866E' }}>— Ticket accesible, máxima convocatoria</p>
-                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#A0866E' }}>— Ideal para primera experiencia presencial</p>
-              </div>
-            </div>
-            {/* Opción B */}
-            <div className="rounded-2xl p-8 border text-left relative" style={{ borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' }}>
+          <div className="max-w-2xl mx-auto mb-14" data-reveal data-delay="1">
+            {/* Opción Única */}
+            <div className="rounded-2xl p-8 border text-left relative shadow-sm" style={{ borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' }}>
               <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: '#005333', color: '#D4AF37' }}>
-                Recomendado
+                Propuesta Central
               </span>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#005333' }}>Opción B · Inmersión</p>
-              <p className="text-2xl font-bold serif-title mb-1" style={{ color: '#005333' }}>4 días · 3 noches</p>
-              <p className="text-xl font-bold serif-title mb-4" style={{ color: '#D4AF37' }}>{fmt(OPCIONES[1].ticket)} ARS</p>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#005333' }}>Opción Única · Inmersión Estoica</p>
+              <p className="text-2xl font-bold serif-title mb-1" style={{ color: '#005333' }}>{OPCIONES[0].duracion}</p>
+              <p className="text-xl font-bold serif-title mb-4" style={{ color: '#D4AF37' }}>{fmt(OPCIONES[0].ticket)} ARS</p>
               <p className="text-[#3D2516] text-sm leading-relaxed mb-5">
-                La práctica se instala y el grupo se teje de verdad. Costo operativo por persona: <strong>{fmt(OPCIONES[1].costo_var)} ARS</strong>. Margen y tiempo de transformación reales.
+                La práctica se instala y el grupo se teje de verdad bajo la filosofía estoica. Costo operativo por persona: <strong>{fmt(OPCIONES[0].costo_var)} ARS</strong>. Margen y tiempo de transformación reales.
               </p>
               <div className="border-t pt-4 space-y-1.5" style={{ borderColor: 'rgba(0,83,51,0.15)' }}>
-                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Mayor flujo económico y mejor margen</p>
+                <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Profundidad vivencial garantizada</p>
                 <p className="text-[10px] font-semibold tracking-wide" style={{ color: '#005333' }}>— Impacto que dura semanas en tu comunidad</p>
               </div>
             </div>
@@ -434,7 +434,7 @@ const PropuestaNicoGrupe: React.FC = () => {
                       <span className="text-[10px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#B8960A' }}>Opcional</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {['Registro audiovisual', 'Temazcal', 'Armonizaciones sonoras', 'Cabalgatas', 'Astroturismo', 'Conciencia corporal', 'Respiración & pranayama', 'Yoga', 'Workshop de Innovación aplicada', 'y más...'].map(opt => (
+                      {['Registro audiovisual', 'Temazcal', 'Armonización sonora con baños de gong', 'Cabalgatas', 'Astroturismo', 'Conciencia corporal', 'Respiración & pranayama', 'Yoga', 'Workshop de Innovación aplicada', 'y más...'].map(opt => (
                         <span key={opt} className="text-[11px] px-3 py-1 rounded-full border font-medium" style={{ borderColor: 'rgba(212,175,55,0.3)', color: '#6B4A33', backgroundColor: 'rgba(212,175,55,0.06)' }}>
                           {opt}
                         </span>
@@ -470,24 +470,35 @@ const PropuestaNicoGrupe: React.FC = () => {
 
             {/* COSTOS FIJOS — tabla */}
             <div className="border rounded-2xl overflow-hidden mb-8" style={{ borderColor: '#00533318' }}>
-              <div className="flex items-center justify-between bg-brand-green text-white px-6 py-3">
-                <span className="text-[10px] tracking-widest uppercase text-white/60">Costos fijos de lanzamiento — absorbidos por la productora</span>
-                <span className="text-sm font-bold text-white/90">{fmt(TOTAL_FIJOS)} ARS</span>
+              <div className="bg-[#005333] text-white px-6 py-3">
+                <span className="text-[10px] tracking-widest uppercase text-white/90 font-bold">Desglose de Costos del Evento</span>
               </div>
-              {FIXED_COSTS.map((row, i) => (
-                <div key={row.concepto} className={`flex items-center justify-between px-6 py-3.5 border-b ${i % 2 === 0 ? 'bg-white' : 'bg-amber-50/20'}`} style={{ borderColor: '#00533310' }}>
-                  <span className="text-sm text-[#3D2516]">{row.concepto}</span>
-                  <span className="text-sm font-semibold text-right flex-shrink-0 ml-4" style={{ color: '#005333' }}>{fmt(row.monto)}</span>
+              {COST_TABLE.map(cat => (
+                <div key={cat.cat}>
+                  <div className="px-6 py-2 bg-gray-50 border-b border-t text-xs font-bold uppercase tracking-wider text-gray-500" style={{ borderColor: '#00533310' }}>
+                    {cat.cat}
+                  </div>
+                  {cat.rows.map(row => (
+                    <div key={row.label} className={`flex items-center justify-between px-6 py-3.5 border-b ${row.tipo === 'opcional' ? 'opacity-90 bg-white' : 'bg-white'}`} style={{ borderColor: '#00533310' }}>
+                      <div>
+                        <span className="text-sm text-[#3D2516] block">{row.label}</span>
+                        {row.detail && <span className="text-xs text-[#8B6347]">{row.detail}</span>}
+                      </div>
+                      <span className="text-sm font-semibold text-right flex-shrink-0 ml-4" style={{ color: '#005333' }}>
+                        {row.monto ? fmt(row.monto) : 'A cotizar'}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               ))}
-              <div className="flex items-center justify-between px-6 py-4" style={{ backgroundColor: 'rgba(212,175,55,0.08)', borderTop: '2px solid rgba(212,175,55,0.3)' }}>
-                <span className="font-bold text-[#2A1708]">Total costos fijos</span>
+              <div className="flex items-center justify-between px-6 py-4 bg-amber-50/40" style={{ borderTop: '2px solid rgba(212,175,55,0.3)' }}>
+                <span className="font-bold text-[#2A1708]">Total costos fijos de producción compartidos</span>
                 <span className="text-xl font-bold serif-title" style={{ color: '#D4AF37' }}>{fmt(TOTAL_FIJOS)}</span>
               </div>
             </div>
 
-            {/* PROYECCIONES — las dos opciones */}
-            <div className="grid md:grid-cols-2 gap-5 mb-8">
+            {/* PROYECCIONES — opción única */}
+            <div className="max-w-3xl mx-auto mb-8">
               {OPCIONES.map(op => {
                 return (
                   <div key={op.label} className="rounded-2xl overflow-hidden border relative" style={{ borderColor: op.recomendado ? 'rgba(0,83,51,0.4)' : '#E5DDD5' }}>
@@ -540,7 +551,7 @@ const PropuestaNicoGrupe: React.FC = () => {
 
             {/* DISTRIBUCIÓN */}
             <div className="border rounded-2xl overflow-hidden" style={{ borderColor: '#00533318' }}>
-              <div className="grid grid-cols-2 bg-brand-green text-white px-6 py-3">
+              <div className="grid grid-cols-2 bg-[#005333] text-white px-6 py-3">
                 <span className="text-[10px] tracking-widest uppercase text-white/60">Distribución de ganancias limpias</span>
                 <span className="text-[10px] tracking-widest uppercase text-white/60 text-right">%</span>
               </div>
