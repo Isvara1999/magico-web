@@ -15,7 +15,7 @@ const VueloDelCondorHero: React.FC = () => {
         <picture>
           <source media="(orientation: portrait)" srcSet="/uploads/vuelo-condor/hero-mobile.webp" />
           <img
-            src={img('/uploads/vuelo-del-condor-hero.png', 1920)}
+            src={img('/uploads/vuelo-del-condor-hero.webp', 1920)}
             alt="El Vuelo del Cóndor — Valle Sagrado, Perú"
             fetchPriority="high"
             loading="eager"

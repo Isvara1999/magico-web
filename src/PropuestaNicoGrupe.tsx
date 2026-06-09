@@ -59,7 +59,7 @@ const EXPERIENCES = [
   {
     title: 'Mastermind Weekend',
     desc: 'Fin de semana intensivo para tu comunidad más comprometida. Trabajo en grupos, fogón y conexión real.',
-    imgSrc: '/uploads/fogon_nocturno.png',
+    imgSrc: '/uploads/fogon_nocturno.webp',
   },
   {
     title: 'Caminata de Visión',
@@ -253,7 +253,7 @@ const PropuestaNicoGrupe: React.FC = () => {
       {/* HERO */}
       <section className="relative min-h-screen pt-14 flex items-end overflow-hidden">
         <img
-          src={img('/uploads/yoga_salon.jpg', 1800)}
+          src={img('/uploads/yoga_salon.webp', 1800)}
           alt="Mágico Ensueño — Sierras Grandes"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"

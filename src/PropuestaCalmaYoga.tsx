@@ -65,7 +65,7 @@ const EXPERIENCES = [
   {
     title: 'Fogón & estrellas',
     desc: 'Cierre nocturno alrededor del fuego, bajo uno de los cielos más estrellados y puros del país.',
-    imgSrc: '/uploads/fogon_nocturno.png',
+    imgSrc: '/uploads/fogon_nocturno.webp',
   },
 ];
 
@@ -224,7 +224,7 @@ const PropuestaCalmaYoga: React.FC = () => {
       <section className="relative min-h-screen pt-14 flex items-end overflow-hidden">
         {/* Foto de fondo */}
         <img
-          src={img('/uploads/yoga_salon.jpg', 1800)}
+          src={img('/uploads/yoga_salon.webp', 1800)}
           alt="Mágico Ensueño — Sierras Grandes"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"

@@ -73,7 +73,7 @@ const IntiRaymi: React.FC = () => {
       <section
         className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden"
         style={{
-          backgroundImage: `url(${img('/uploads/fogon_nocturno.png', 1800)})`,
+          backgroundImage: `url(${img('/uploads/fogon_nocturno.webp', 1800)})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -560,7 +560,7 @@ const IntiRaymi: React.FC = () => {
       {/* ── CTA FINAL ── */}
       <section
         className="py-28 md:py-40 px-6 text-white text-center relative overflow-hidden"
-        style={{ backgroundImage: `url(${img('/uploads/fogon_nocturno.png', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: `url(${img('/uploads/fogon_nocturno.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(10,20,12,0.88)' }} />
         <div className="max-w-2xl mx-auto relative z-10" data-reveal>
