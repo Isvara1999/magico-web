@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from '@phosphor-icons/react';
 
-const DATA_FISCAL_URL = '/uploads/f960.pdf';
+const DATA_FISCAL_URL = '/uploads/F960.pdf';
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="mb-10">
