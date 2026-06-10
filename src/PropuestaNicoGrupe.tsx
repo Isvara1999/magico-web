@@ -167,6 +167,7 @@ const DESTINOS = [
   { nombre: 'Cataratas del Iguazú',tag: 'Argentina · Brasil', foto: 'https://images.pexels.com/photos/8242961/pexels-photo-8242961.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop', pos: 'center 40%' },
   { nombre: 'Bali',                tag: 'Indonesia',          foto: 'https://images.pexels.com/photos/19137460/pexels-photo-19137460.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop', pos: 'center center', portrait: true },
   { nombre: 'India',               tag: 'Asia',               foto: 'https://images.pexels.com/photos/31203531/pexels-photo-31203531.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop', pos: 'center 30%', portrait: true },
+  { nombre: 'Valle de los Lisos',  tag: 'Córdoba, Argentina', foto: 'https://s0.wklcdn.com/image_121/3652082/91090363/93504330Master.jpg', pos: 'center center' },
   { nombre: 'Los Gigantes',        tag: 'Córdoba, Argentina', foto: 'https://larocax.tur.ar/wp-content/uploads/2024/01/20220620_091049-scaled.jpg', pos: 'center center' },
 ];
 type Destino = typeof DESTINOS[0];
