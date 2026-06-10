@@ -94,6 +94,12 @@ const IntiRaymi: React.FC = () => {
             >
               Solsticio de Invierno
             </span>
+            <span
+              className="px-3 py-1.5 rounded-full text-[10px] tracking-widest uppercase font-bold"
+              style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
+            >
+              Día del Padre · 21 de Junio
+            </span>
           </div>
 
           <p className="text-white/50 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">Festival Consciente</p>
@@ -101,7 +107,7 @@ const IntiRaymi: React.FC = () => {
             Solsticio<br /> <span style={{ color: C.gold }}>De Invierno</span>
           </h1>
           <p className="text-white/65 text-base md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-5 mb-10">
-            Dos días para celebrar el renacimiento de la luz atravesando la noche más larga del año, honrando la antigua tradición del Inti Raymi.
+            Dos días para celebrar el renacimiento de la luz atravesando la noche más larga del año, honrando la antigua tradición del Inti Raymi. El 21 de junio es el Día del Padre — una excusa perfecta para celebrarlo en la montaña, juntos.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
