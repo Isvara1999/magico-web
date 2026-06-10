@@ -183,6 +183,15 @@
           "pdfLink": ""
         },
         {
+          "date": "20 Y 21 DE JUNIO",
+          "title": "Inti Raymi · Solsticio de Invierno",
+          "desc": "Festival consciente en la montaña para atravesar la noche más larga del año honrando la antigua tradición del Inti Raymi. El 21 de junio es también el Día del Padre — una excusa perfecta para celebrarlo juntos en Los Gigantes.",
+          "btn": "Ver Más",
+          "image": "/uploads/fogon_nocturno.webp",
+          "link": "/inti-raymi",
+          "pdfLink": ""
+        },
+        {
           "date": "26 AL 28 DE JUNIO",
           "title": "Las Hijas de Venus — Edición Invierno",
           "desc": "Círculo de mujeres. El placer como brújula. La presencia como medicina. El encuentro como acto sagrado y potenciador.",
@@ -1731,6 +1740,15 @@
           "btn": "See More",
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
+          "pdfLink": ""
+        },
+        {
+          "date": "JUN 20 & 21",
+          "title": "Inti Raymi · Winter Solstice",
+          "desc": "A conscious festival in the mountains to cross the longest night of the year honoring the ancient Inti Raymi tradition. June 21st is also Father's Day — the perfect excuse to celebrate together in Los Gigantes.",
+          "btn": "See More",
+          "image": "/uploads/fogon_nocturno.webp",
+          "link": "/inti-raymi",
           "pdfLink": ""
         },
         {
