@@ -77,7 +77,7 @@ const COST_TABLE: CostCat[] = [
     cat: 'Lugar',
     accent: '#005333',
     rows: [
-      { label: 'Reserva / Señal Mágico Ensueño', detail: 'Valor de 3 participantes (para señar fecha y lugar)', monto: 1080000, tipo: 'señal' },
+      { label: 'Reserva / Seña Pueblo Mágico', detail: 'Valor de 3 participantes (para señar fecha y lugar)', monto: 1080000, tipo: 'señal' },
       { label: 'Alojamiento (3 noches × $120.000/n)', detail: 'Por persona', monto: 360000, tipo: 'variable' },
     ],
   },
@@ -522,11 +522,11 @@ const PropuestaNicoGrupe: React.FC = () => {
 
                     {/* Tabla de escenarios */}
                     <div className="divide-y" style={{ borderColor: '#00533310' }}>
-                      <div className="grid grid-cols-4 px-5 py-2" style={{ backgroundColor: op.recomendado ? 'rgba(0,83,51,0.04)' : 'rgba(0,0,0,0.02)' }}>
-                        <span className="text-[10px] uppercase tracking-wider text-[#8B6347]">Personas</span>
-                        <span className="text-[10px] uppercase tracking-wider text-[#8B6347] text-right">Ingreso</span>
-                        <span className="text-[10px] uppercase tracking-wider text-[#8B6347] text-right">Utilidad</span>
-                        <span className="text-[10px] uppercase tracking-wider text-right font-bold" style={{ color: op.recomendado ? '#005333' : '#8B6347' }}>Tu 50%</span>
+                      <div className="grid grid-cols-4 px-3 md:px-5 py-2" style={{ backgroundColor: op.recomendado ? 'rgba(0,83,51,0.04)' : 'rgba(0,0,0,0.02)' }}>
+                        <span className="text-[9px] md:text-[10px] uppercase tracking-normal md:tracking-wider text-[#8B6347]">Personas</span>
+                        <span className="text-[9px] md:text-[10px] uppercase tracking-normal md:tracking-wider text-[#8B6347] text-right">Ingreso</span>
+                        <span className="text-[9px] md:text-[10px] uppercase tracking-normal md:tracking-wider text-[#8B6347] text-right">Utilidad</span>
+                        <span className="text-[9px] md:text-[10px] uppercase tracking-normal md:tracking-wider text-right font-bold" style={{ color: op.recomendado ? '#005333' : '#8B6347' }}>Tu 50%</span>
                       </div>
                       {op.scenarios.map((n, si) => {
                         const ingreso = n * op.ticket;
@@ -535,12 +535,12 @@ const PropuestaNicoGrupe: React.FC = () => {
                         const ganancia = utilidad / 2;
                         const isBest = si === op.scenarios.length - 1;
                         return (
-                          <div key={n} className={`grid grid-cols-4 px-5 py-3.5 items-center ${isBest ? '' : ''}`}
+                          <div key={n} className="grid grid-cols-4 px-3 md:px-5 py-3 md:py-3.5 items-center"
                             style={{ backgroundColor: isBest ? (op.recomendado ? 'rgba(0,83,51,0.05)' : 'rgba(212,175,55,0.05)') : 'white' }}>
-                            <span className="font-bold text-[#2A1708]">{n}</span>
-                            <span className="text-sm text-right text-[#6B4A33]">{fmt(ingreso)}</span>
-                            <span className="text-sm text-right text-[#6B4A33]">{fmt(utilidad)}</span>
-                            <span className="text-sm font-bold text-right" style={{ color: op.recomendado ? '#005333' : '#8B6A00' }}>{fmt(ganancia)}</span>
+                            <span className="font-bold text-sm md:text-base text-[#2A1708]">{n}</span>
+                            <span className="text-[11px] md:text-sm text-right text-[#6B4A33]">{fmt(ingreso)}</span>
+                            <span className="text-[11px] md:text-sm text-right text-[#6B4A33]">{fmt(utilidad)}</span>
+                            <span className="text-[11px] md:text-sm font-bold text-right" style={{ color: op.recomendado ? '#005333' : '#8B6A00' }}>{fmt(ganancia)}</span>
                           </div>
                         );
                       })}
