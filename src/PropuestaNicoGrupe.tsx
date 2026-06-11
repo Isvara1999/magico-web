@@ -556,12 +556,17 @@ const PropuestaNicoGrupe: React.FC = () => {
                 <span className="text-[10px] tracking-widest uppercase text-white/60">Distribución de ganancias limpias</span>
                 <span className="text-[10px] tracking-widest uppercase text-white/60 text-right">%</span>
               </div>
-              <div className="grid grid-cols-2 px-6 py-4 items-center bg-amber-50/40 border-b" style={{ borderColor: '#00533310' }}>
-                <div>
-                  <span className="text-base font-semibold text-[#2A1708]">{PROSPECT.comunidad} (vos)</span>
-                  <p className="text-sm text-[#8B6347] mt-0.5">Tu comunidad, tu convocatoria, tu metodología</p>
+              <div className="px-6 py-4 bg-amber-50/40 border-b" style={{ borderColor: '#00533310' }}>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-base font-semibold text-[#2A1708]">{PROSPECT.comunidad} + equipo facilitador</span>
+                    <p className="text-sm text-[#8B6347] mt-0.5">Tu comunidad, tu convocatoria, tu metodología</p>
+                  </div>
+                  <span className="text-3xl font-bold serif-title flex-shrink-0" style={{ color: '#D4AF37' }}>50%</span>
                 </div>
-                <span className="text-3xl font-bold serif-title text-right" style={{ color: '#D4AF37' }}>50%</span>
+                <p className="text-xs text-[#8B6347]/70 mt-2 pt-2 border-t" style={{ borderColor: '#00533310' }}>
+                  Este 50% se reparte entre vos y tu equipo facilitador. Si venís solo, es tuyo íntegro. Si sumás co-facilitadores, acordás internamente cómo dividirlo.
+                </p>
               </div>
               <div className="grid grid-cols-2 px-6 py-4 items-center bg-white">
                 <div>
