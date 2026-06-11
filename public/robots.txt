@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /admin
+Disallow: /reset-vital
 
 # AI assistants and LLM crawlers — public content is open for indexing
 User-agent: GPTBot

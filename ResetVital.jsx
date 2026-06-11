@@ -133,6 +133,14 @@ export default function ResetVitalApp() {
   const [isOfflineInfoOpen, setIsOfflineInfoOpen] = useState(false);
 
   useEffect(() => {
+    // Impedir indexación de contenido pago
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    if (!metaRobots) { metaRobots = document.createElement('meta'); metaRobots.setAttribute('name', 'robots'); document.head.appendChild(metaRobots); }
+    metaRobots.setAttribute('content', 'noindex, nofollow');
+    return () => metaRobots?.setAttribute('content', 'index, follow');
+  }, []);
+
+  useEffect(() => {
     // Detectar si la app ya está instalada/abierta en modo standalone
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       setIsStandalone(true);
