@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { canInstall, onInstallReady, promptInstall as pwaPromptInstall } from './src/lib/pwa';
 import { 
   ChevronDown, ChevronUp, Music, Video, Wind, Sun, 
   Feather, Anchor, Heart, Info, Coffee, BookOpen, Compass, Star, 
@@ -128,7 +129,7 @@ const DayCard = ({ dayNumber, title, subtitle, icon: Icon, color, image, childre
 // --- MAIN APP ---
 export default function ResetVitalApp() {
   const [openDay, setOpenDay] = useState(0); 
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [installReady, setInstallReady] = useState(canInstall());
   const [isStandalone, setIsStandalone] = useState(false);
   const [isOfflineInfoOpen, setIsOfflineInfoOpen] = useState(false);
 
@@ -141,33 +142,17 @@ export default function ResetVitalApp() {
   }, []);
 
   useEffect(() => {
-    // Detectar si la app ya está instalada/abierta en modo standalone
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       setIsStandalone(true);
     }
-
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    const unsub = onInstallReady(() => setInstallReady(true));
+    return unsub;
   }, []);
 
-  const handleInstall = () => {
-    // Rastreo de Pixel: Intento de instalación
-    if (window.fbq) {
-      window.fbq('track', 'Lead', { content_name: 'App Install Intent' });
-    }
-
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          setDeferredPrompt(null);
-        }
-      });
-    } else {
+  const handleInstall = async () => {
+    if (window.fbq) window.fbq('track', 'Lead', { content_name: 'App Install Intent' });
+    const accepted = await pwaPromptInstall();
+    if (!accepted && !canInstall()) {
       alert("📱 Para Celulares (Android/iOS):\n1. Abrí el menú del navegador (⋮ o botón compartir).\n2. Seleccioná 'Agregar a la pantalla principal' o 'Instalar aplicación'.\n\n💻 Para PC/Notebook:\n1. Buscá el ícono de instalar (⊕ o 🖥️) en la barra de direcciones.\n2. O andá al menú > Guardar y compartir > Instalar página...\n\n✨ IMPORTANTE: Una vez descargada, podrás ingresar a este mismo enlace incluso sin conexión a internet.");
     }
   };
@@ -346,12 +331,12 @@ export default function ResetVitalApp() {
                       <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOfflineInfoOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
                           <div className="p-4 pt-0 text-sm text-stone-600 border-t border-stone-200/50">
                               <div className="space-y-4 pt-4">
-                                  {deferredPrompt ? (
-                                     <button 
+                                  {installReady ? (
+                                     <button
                                         onClick={handleInstall}
                                         className="w-full py-3 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#8a330e] transition-colors shadow-md flex items-center justify-center gap-2"
                                     >
-                                        <Download size={16} /> Instalar App Ahora
+                                        <Download size={16} /> Descargar Reset Vital
                                     </button>
                                   ) : (
                                     <>
@@ -928,7 +913,7 @@ export default function ResetVitalApp() {
         >
           <Download size={24} />
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-bold pl-0 group-hover:pl-2">
-            {deferredPrompt ? 'Instalar App' : 'Descargar'}
+            {installReady ? 'Descargar Reset Vital' : 'Descargar'}
           </span>
         </button>
       )}
