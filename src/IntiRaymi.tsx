@@ -71,7 +71,7 @@ const IntiRaymi: React.FC = () => {
 
       {/* ── HERO ── */}
       <section
-        className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden"
+        className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${img('/uploads/fogon_nocturno.webp', 1800)})`,
           backgroundSize: 'cover',
@@ -83,34 +83,35 @@ const IntiRaymi: React.FC = () => {
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pb-32 md:pb-0 pt-32 md:pt-20">
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="px-4 py-1.5 rounded-full text-[10px] tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70">
-              20 y 21 de junio · Los Gigantes, Córdoba
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 mb-4">
+            <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
+              <span className="sm:hidden">20-21 Jun · Los Gigantes</span>
+              <span className="hidden sm:inline">20 y 21 de junio · Los Gigantes, Córdoba</span>
             </span>
             <span
-              className="px-3 py-1.5 rounded-full text-[10px] tracking-widest uppercase font-bold"
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
               style={{ backgroundColor: 'rgba(170,62,17,0.5)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
             >
               Solsticio de Invierno
             </span>
             <span
-              className="px-3 py-1.5 rounded-full text-[10px] tracking-widest uppercase font-bold"
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
               style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
             >
               Día del Padre · 21 de Junio
             </span>
           </div>
 
-          <p className="text-white/50 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">Festival Consciente</p>
-          <h1 className="text-6xl md:text-7xl serif-title leading-none mb-4 text-white">
+          <p className="text-white/50 text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 sm:mb-3 font-semibold">Festival Consciente</p>
+          <h1 className="text-5xl md:text-7xl serif-title leading-none mb-4 text-white">
             Solsticio<br /> <span style={{ color: C.gold }}>De Invierno</span>
           </h1>
-          <p className="text-white/65 text-base md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-5 mb-10">
+          <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
             Dos días para celebrar el renacimiento de la luz atravesando la noche más larga del año, honrando la antigua tradición del Inti Raymi. El 21 de junio es el Día del Padre — una excusa perfecta para celebrarlo en la montaña, juntos.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             <a
               href={WA_RESERVA}
               target="_blank"

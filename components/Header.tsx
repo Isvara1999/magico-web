@@ -139,7 +139,7 @@ export const Header: React.FC = () => {
   `;
 
   const logoClasses = `
-    block transition-all duration-300
+    block w-auto transition-all duration-300
     ${isScrolled || isMobileMenuOpen ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
   `;
 
@@ -157,7 +157,7 @@ export const Header: React.FC = () => {
             <img
               src="/uploads/logo negro.svg"
               alt="Mágico Ensueño"
-              width="240"
+              width="65"
               height="65"
               className={logoClasses}
             />
