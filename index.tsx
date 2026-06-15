@@ -17,6 +17,7 @@ import VueloDelCondor from './src/VueloDelCondor';
 const PropuestaCalmaYoga = lazy(() => import('./src/PropuestaCalmaYoga'));
 const OrganizamosTuExperiencia = lazy(() => import('./src/OrganizamosTuExperiencia'));
 const IntiRaymi = lazy(() => import('./src/IntiRaymi'));
+const Despertar = lazy(() => import('./src/Despertar'));
 const PropuestaNicoGrupe = lazy(() => import('./src/PropuestaNicoGrupe'));
 const ResetVitalApp = lazy(() => import('./ResetVital.jsx'));
 const Estadia = lazy(() => import('./src/Estadia'));
@@ -62,6 +63,7 @@ root.render(
               <Route path="/propuesta/calma-magico" element={<PropuestaCalmaYoga />} />
               <Route path="/organizamos-tu-experiencia" element={<OrganizamosTuExperiencia />} />
               <Route path="/inti-raymi" element={<IntiRaymi />} />
+              <Route path="/despertar" element={<Despertar />} />
               <Route path="/propuesta/nico-grupe" element={<PropuestaNicoGrupe />} />
               <Route path="/estadia" element={<Estadia />} />
               <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />

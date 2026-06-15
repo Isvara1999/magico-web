@@ -17,4 +17,5 @@ export const ROUTES = {
   ORGANIZA_EXPERIENCIA: '/organizamos-tu-experiencia',
   INTI_RAYMI: '/inti-raymi',
   PROPUESTA_NICO_GRUPE: '/propuesta/nico-grupe',
+  DESPERTAR: '/despertar',
 };
