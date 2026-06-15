@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flame, Music, Leaf, Heart, Star, Wind, Users, Sun, Moon, Calendar, Compass } from 'lucide-react';
+import { Flame, Music, Leaf, Heart, Star, Users, Sun, Moon, Calendar, Compass, ChevronDown, PawPrint, Instagram, Linkedin, Youtube, type LucideIcon } from 'lucide-react';
 import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
@@ -18,6 +18,117 @@ const C = {
   muted: '#6B4A33',
   faint: '#8B6347',
 };
+
+// ─── Equipo & invitados ─────────────────────────────────────────────────────────
+type SocialLink = { href: string; label: string; Icon: LucideIcon };
+
+type TeamMember = {
+  nombre: string;
+  rol: string;
+  desc: string;
+  photo?: string;
+  Icon?: LucideIcon;
+  links?: SocialLink[];
+};
+
+const TEAM: TeamMember[] = [
+  {
+    photo: '/uploads/Diego_perfil.png',
+    nombre: 'Diego Epelman Hodara',
+    rol: 'Host principal del evento',
+    desc: 'Host principal del evento y del espacio. Dinámicas, círculos y experiencias — sostén energético del grupo.',
+    links: [
+      { href: 'https://www.instagram.com/diegoepel/', label: 'Instagram', Icon: Instagram },
+    ],
+  },
+  {
+    photo: '/uploads/china.jpeg',
+    nombre: 'China Dericia',
+    rol: 'Yoga, canto & consciencia corporal',
+    desc: 'Movimiento consciente para habitar el cuerpo. Va a cantar y guiar una meditación grupal durante el encuentro.',
+    links: [
+      { href: 'https://www.instagram.com/bambu.alquimia.terapeutica/', label: 'Instagram', Icon: Instagram },
+    ],
+  },
+  {
+    photo: '/uploads/luz-candela.jpg',
+    nombre: 'Luz Candela',
+    rol: 'Host de emprendedores/as',
+    desc: 'Creadora de Mujeres Amatistas. Yoga, meditación y pranayama — movimiento consciente para habitar el cuerpo desde adentro.',
+    links: [
+      { href: 'https://www.instagram.com/mujeramatistaa/', label: 'Instagram', Icon: Instagram },
+    ],
+  },
+  {
+    photo: '/uploads/santiago-alzogaray.png',
+    nombre: 'Santiago Alzogaray',
+    rol: 'Ceremonia de Temazcal',
+    desc: 'Conducción del ritual de purificación, uno de los momentos centrales del encuentro.',
+  },
+  {
+    photo: '/uploads/tomas-fossatti.jpg',
+    nombre: 'Tomás Fossatti',
+    rol: 'Host de emprendedores/as',
+    desc: 'Ingeniero, emprendedor y speaker de TEDx. Construye proyectos donde la tecnología y el propósito se encuentran.',
+    links: [
+      { href: 'https://www.youtube.com/watch?v=n1LSi7t5WKs', label: 'Charla TEDx', Icon: Youtube },
+      { href: 'https://www.instagram.com/tomasfossatti_/', label: 'Instagram', Icon: Instagram },
+      { href: 'https://www.linkedin.com/in/tomas-fossatti-ing', label: 'LinkedIn', Icon: Linkedin },
+    ],
+  },
+  {
+    photo: '/uploads/isvara-rojas.jpg',
+    nombre: 'Isvara Rojas Romero',
+    rol: 'Host de emprendedores/as',
+    desc: 'Estratega de Innovación y Growth Engineer. Une el mundo del bienestar con la tecnología.',
+    links: [
+      { href: 'https://www.instagram.com/isvara_strategist/', label: 'Instagram', Icon: Instagram },
+      { href: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/', label: 'LinkedIn', Icon: Linkedin },
+    ],
+  },
+];
+
+// ─── FAQ ───────────────────────────────────────────────────────────────────────
+const FAQ_ICONS: LucideIcon[] = [Star, Calendar, Users, Moon, Flame, Compass, Heart, Leaf, PawPrint];
+
+const FAQS = [
+  {
+    q: '¿Necesito experiencia previa?',
+    a: 'No. Es un encuentro abierto a todo público. Cada persona participa desde su propio lugar, sin importar si es su primera vez.',
+  },
+  {
+    q: '¿Puedo venir solo un día?',
+    a: 'Sí. El pase diario ($60.000) te da acceso a todas las actividades de la jornada que elijas — el 20, el 21 o ambos.',
+  },
+  {
+    q: '¿Es para familias con chicos?',
+    a: 'Sí, toda la familia es bienvenida. Es una celebración colectiva con espíritu comunitario — hay espacio para todas las edades.',
+  },
+  {
+    q: '¿Qué llevo para la pijamada?',
+    a: 'Colchoneta y bolsa de dormir. El salón es calefaccionado. Todas las comidas y actividades están incluidas.',
+  },
+  {
+    q: '¿Los cupos son limitados?',
+    a: 'Sí. Recomendamos reservar con anticipación para asegurar tu lugar y el de tu familia o grupo.',
+  },
+  {
+    q: '¿Cómo llego al lugar?',
+    a: 'Pueblo Mágico queda en Los Gigantes, Córdoba — a 90 km de Córdoba Capital. Acceso para todo tipo de vehículos. Consultanos y te mandamos el mapa.',
+  },
+  {
+    q: '¿Hay descuento para niños?',
+    a: 'Si no ocupan cama, consultanos por WhatsApp — tenemos descuentos para los más chicos.',
+  },
+  {
+    q: '¿Tienen opciones para dietas o alergias?',
+    a: 'Sí, tenemos opciones de comida para todo tipo de dietas y restricciones alimentarias. Contanos tu caso al reservar.',
+  },
+  {
+    q: '¿Puedo llevar a mi mascota?',
+    a: 'Depende — por las características del lugar y los animales silvestres que habitan la reserva, preferimos charlarlo por WhatsApp para coordinarlo y asegurarnos de que sea una buena experiencia para todos.',
+  },
+];
 
 // ─── Countdown ─────────────────────────────────────────────────────────────────
 const Countdown: React.FC = () => {
@@ -52,6 +163,7 @@ const Countdown: React.FC = () => {
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 const IntiRaymi: React.FC = () => {
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   useEffect(() => {
     document.title = 'Festival de Solsticio de Invierno · 20 y 21 de Junio · Mágico Ensueño';
@@ -83,23 +195,23 @@ const IntiRaymi: React.FC = () => {
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0">
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 mb-4">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
             <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
               <span className="sm:hidden">20-21 Jun · Los Gigantes</span>
               <span className="hidden sm:inline">20 y 21 de junio · Los Gigantes, Córdoba</span>
             </span>
             <span
               className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
-              style={{ backgroundColor: 'rgba(170,62,17,0.5)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
-            >
-              Solsticio de Invierno
-            </span>
-            <span
-              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
               style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
             >
               Día del Padre · 21 de Junio
+            </span>
+            <span
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.2)' }}
+            >
+              Para todo público
             </span>
           </div>
 
@@ -125,38 +237,95 @@ const IntiRaymi: React.FC = () => {
               <Countdown />
             </div>
           </div>
+
+          <p className="text-white/40 text-xs sm:text-sm mt-6 max-w-md leading-relaxed">
+            Abierto a todo público, sin experiencia previa. Todas las actividades son una invitación — sumate a las que quieras, nada es obligatorio.
+          </p>
         </div>
       </section>
 
       {/* ── ESENCIA ── */}
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.night }}>
-        <div className="max-w-3xl mx-auto text-center" data-reveal>
-          <div className="flex justify-center gap-5 mb-10">
-            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(170,62,17,0.25)' }}>
-              <Flame size={20} color="#F4A261" />
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <div className="flex justify-center gap-5 mb-10">
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(170,62,17,0.25)' }}>
+                <Flame size={20} color="#F4A261" />
+              </div>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+                <Moon size={20} color="rgba(255,255,255,0.6)" />
+              </div>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.2)' }}>
+                <Sun size={20} color={C.gold} />
+              </div>
             </div>
-            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-              <Moon size={20} color="rgba(255,255,255,0.6)" />
-            </div>
-            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.2)' }}>
-              <Sun size={20} color={C.gold} />
-            </div>
+            <blockquote className="text-2xl md:text-4xl serif-title text-white leading-relaxed mb-4">
+              "Volvemos al fuego.<br />
+              Volvemos al origen.<br />
+              <span style={{ color: C.gold }}>Volvemos al Sol."</span>
+            </blockquote>
+            <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+              El Inti Raymi es una celebración ancestral que honra el regreso del Sol, en la noche más larga del año.
+            </p>
           </div>
-          <blockquote className="text-2xl md:text-4xl serif-title text-white leading-relaxed mb-8">
-            "Volvemos al fuego.<br />
-            Volvemos al origen.<br />
-            <span style={{ color: C.gold }}>Volvemos al Sol."</span>
-          </blockquote>
-          <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-            Un festival consciente pensado para todo público, donde habrá uno o más fuegos prendidos ininterrumpidamente durante todo el evento.<br />
-            <strong className="text-white/85">Un espacio vivo</strong> para encontrarnos a celebrar, hacer networking orgánico y disfrutar el comienzo de un nuevo ciclo en la naturaleza.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {['Abierto a todo público', 'Fuego ininterrumpido', 'Networking orgánico', 'Toda la familia bienvenida'].map(tag => (
+
+          <div className="grid sm:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {[
+              { Icon: Sun, title: 'Nuevo comienzo', desc: 'Soltamos lo viejo y damos la bienvenida a lo nuevo — un recordatorio de que la luz siempre vuelve.' },
+              { Icon: Flame, title: 'Fuego vivo', desc: 'Uno o más fuegos encendidos durante todo el evento, como corazón del encuentro.' },
+              { Icon: Users, title: 'Espacio abierto', desc: 'Festival consciente para celebrar, conocer gente nueva y compartir el comienzo de un nuevo ciclo.' },
+            ].map(({ Icon, title, desc }) => (
+              <div key={title} className="rounded-2xl p-6 border text-center" style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: 'rgba(255,255,255,0.03)' }}>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(212,175,55,0.12)' }}>
+                  <Icon size={18} color={C.gold} />
+                </div>
+                <p className="font-bold text-white mb-2">{title}</p>
+                <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3" data-reveal data-delay="2">
+            {['Abierto a todo público', 'Fuego ininterrumpido', 'Conexiones genuinas', 'Toda la familia bienvenida'].map(tag => (
               <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
                 style={{ borderColor: 'rgba(212,175,55,0.3)', color: 'rgba(255,255,255,0.6)', backgroundColor: 'rgba(212,175,55,0.06)' }}>
                 {tag}
               </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DÍA DEL PADRE ── */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              21 de junio · Día del Padre
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-5 max-w-2xl mx-auto" style={{ color: C.green }}>
+              Que el Día del Padre coincida este año con el Inti Raymi no es casualidad
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: C.muted }}>
+              La energía creadora del sol, como arquetipo paterno, nos invita a revisar nuestra propia biografía y descubrir qué tomar — y qué no — de la figura de nuestro padre.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {[
+              { Icon: Sun, day: 'Sábado · todo el día', title: 'Día de celebración', desc: 'Caminatas, música, baile, mates y río — nos amoldamos al clima, pero seguro la disfrutamos mucho. De noche, fogón: el momento para soltar y entregar al fuego todo lo que ya no queremos seguir cargando.' },
+              { Icon: Heart, day: 'Para todos', title: 'Honrar y agradecer', desc: 'Agradecemos todo lo que nos dieron nuestros padres, con su energía creadora, sus enseñanzas y su sostén como creadores de vida — para ser mejores padres/madres, hijos/as, hermanos/as, amigos/as y compañeros/as.' },
+              { Icon: Compass, day: 'Domingo', title: 'Temazcal & integración', desc: 'El domingo es el día del temazcal: un proceso de integración de todo lo vivido, reforzado con journaling, meditación y caminatas.' },
+            ].map(({ Icon, day, title, desc }) => (
+              <div key={title} className="rounded-2xl p-7 border text-left" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}>
+                  <Icon size={18} color={C.green} />
+                </div>
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>{day}</p>
+                <p className="font-bold text-base mb-2" style={{ color: C.green }}>{title}</p>
+                <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -173,6 +342,9 @@ const IntiRaymi: React.FC = () => {
             <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
               Para quienes buscan reconectar.<br />Y para quienes lideran.
             </h2>
+            <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
+              Un espacio para todo público, sin experiencia previa necesaria — vení como sos.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6" data-reveal data-delay="1">
@@ -193,6 +365,8 @@ const IntiRaymi: React.FC = () => {
                   'Familias que quieren vivir algo distinto juntas',
                   'Quienes nunca fueron a un retiro y quieren empezar',
                   'Los que simplemente quieren un buen fin de semana en la montaña',
+                  'Quienes vienen a ver un partido del Mundial o armar una mesa de truco junto al fuego',
+                  'Quienes buscan meditar, hacer silencio y vivir la experiencia del temazcal',
                 ].map(i => (
                   <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
                     <span className="mt-1 flex-shrink-0" style={{ color: C.green }}>—</span>{i}
@@ -241,6 +415,9 @@ const IntiRaymi: React.FC = () => {
               Cada propuesta es una puerta.<br />
               <span style={{ color: C.green }}>Vos elegís cómo transitarla.</span>
             </h2>
+            <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
+              Nada es obligatorio: son invitaciones abiertas. Sumate a las que te llamen, en el momento que quieras.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5" data-reveal data-delay="1">
@@ -268,6 +445,7 @@ const IntiRaymi: React.FC = () => {
                 border: 'rgba(42,23,8,0.12)',
                 cat: 'Naturaleza & Conocimiento',
                 items: ['Astroturismo — observación del cielo', 'Avistaje de aves', 'Caminatas conscientes', 'Interpretación del territorio'],
+                note: 'walter',
               },
               {
                 Icon: Heart,
@@ -277,7 +455,7 @@ const IntiRaymi: React.FC = () => {
                 cat: 'Bienestar & Integración',
                 items: ['Alimentación consciente', 'Espacios de descanso', 'Integración cuerpo–mente–emociones', 'Programación especial al amanecer y atardecer'],
               },
-            ].map(({ Icon, color, bg, border, cat, items }) => (
+            ].map(({ Icon, color, bg, border, cat, items, note }) => (
               <div key={cat} className="rounded-2xl p-7 border" style={{ backgroundColor: bg, borderColor: border }}>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${color}15` }}>
@@ -288,12 +466,56 @@ const IntiRaymi: React.FC = () => {
                 <ul className="space-y-2.5">
                   {items.map(item => (
                     <li key={item} className="flex items-start gap-2 text-sm leading-relaxed" style={{ color: C.muted }}>
-                      <span className="flex-shrink-0 mt-1" style={{ color }}>◆</span>{item}
+                      <span className="flex-shrink-0 mt-1" style={{ color }}>◆</span>
+                      {item === 'Ceremonia de Temazcal' ? (
+                        <a href="#temazcal" className="underline underline-offset-2 hover:no-underline" style={{ color }}>{item}</a>
+                      ) : item}
                     </li>
                   ))}
                 </ul>
+                {note === 'walter' && (
+                  <p className="text-xs leading-relaxed mt-5 pt-5 border-t" style={{ color: C.muted, borderColor: border }}>
+                    De noche, junto a la fogata, <a href="#walter" className="underline underline-offset-2 font-semibold hover:no-underline" style={{ color }}>Walter Cejas</a> — biólogo e investigador — va a contarnos sobre las estrellas y constelaciones, y guiará el avistaje de aves y la observación de flora y fauna para quienes quieran sumarse.
+                  </p>
+                )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUÉ ES EL TEMAZCAL ── */}
+      <section id="temazcal" className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div data-reveal>
+              <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+                style={{ backgroundColor: C.fire }}>
+                Ceremonia central · Domingo
+              </p>
+              <h2 className="text-3xl md:text-4xl serif-title mb-5" style={{ color: C.dark }}>
+                ¿Qué es el Temazcal?
+              </h2>
+              <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: C.muted }}>
+                Una ceremonia ancestral de purificación y sanación del cuerpo físico, mental, emocional y espiritual — opcional, para quienes la sientan.
+              </p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: C.faint }}>
+                Si tenés alguna condición de salud (presión, embarazo, problemas cardíacos o respiratorios), escribinos por WhatsApp antes de sumarte — te asesoramos para que lo disfrutes con tranquilidad.
+              </p>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+                style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+                Consultar por WhatsApp
+              </a>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
+              <img
+                src={img('/uploads/temazcal.webp', 900)}
+                alt="Ceremonia de Temazcal"
+                className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -312,7 +534,7 @@ const IntiRaymi: React.FC = () => {
               { Icon: Sun,      iconColor: C.gold,                      label: 'Ingreso abierto',        desc: 'Ambos días, todo el día' },
               { Icon: Leaf,     iconColor: 'rgba(100,200,120,0.9)',      label: 'Actividades',            desc: 'Durante toda la jornada' },
               { Icon: Star,     iconColor: 'rgba(255,255,255,0.6)',      label: 'Programación especial',  desc: 'Al amanecer y al atardecer' },
-              { Icon: Flame,    iconColor: '#F4A261',                    label: 'Ceremonia central',      desc: 'Noche del 20 de junio' },
+              { Icon: Flame,    iconColor: '#F4A261',                    label: 'Ceremonia central',      desc: 'Domingo 21 de junio' },
             ].map(({ Icon, iconColor, label, desc }) => (
               <div key={label} className="rounded-2xl p-6 text-center border" style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <div className="flex justify-center mb-3">
@@ -328,104 +550,89 @@ const IntiRaymi: React.FC = () => {
         </div>
       </section>
 
-      {/* ── PRECIOS ── */}
+      {/* ── EQUIPO ── */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
               style={{ backgroundColor: C.green }}>
-              Modalidades de participación
+              Quiénes te acompañan
             </p>
             <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
-              Elegís cómo sumarte
+              Facilitadores e invitados especiales
             </h2>
             <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
-              Podés venir a pasar el día, quedarte todo el fin de semana o sumarte a actividades puntuales.
+              Un equipo y una comunidad de referentes que suman su energía a esta celebración.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
-            {/* Pase diario */}
-            <div className="rounded-2xl p-7 border text-left" style={{ borderColor: '#E5DDD5', backgroundColor: C.cream }}>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#A0866E' }}>Pase por el día</p>
-              <p className="text-3xl font-bold serif-title mb-1" style={{ color: C.dark }}>$60.000</p>
-              <p className="text-xs mb-5" style={{ color: C.faint }}>por persona · un día a elección</p>
-              <ul className="space-y-2 mb-7">
-                {[
-                  'Acceso a todas las actividades del día',
-                  'Llegás y te vas cuando quieras',
-                  'Sin alojamiento ni comidas',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>✓</span>{i}
-                  </li>
-                ))}
-              </ul>
-              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
-                className="block text-center py-3 px-4 rounded-xl border font-bold text-sm transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-                style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
-                Quiero el pase diario
-              </a>
-            </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {TEAM.map(({ photo, Icon, nombre, rol, desc, links }) => (
+              <div key={nombre} className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                {photo ? (
+                  <img src={img(photo, 200)} alt={nombre} className="w-14 h-14 rounded-full object-cover mb-5" loading="lazy" />
+                ) : (
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}>
+                    {Icon && <Icon size={20} color={C.green} />}
+                  </div>
+                )}
+                <p className="font-bold text-base mb-1" style={{ color: C.dark }}>{nombre}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: C.green }}>{rol}</p>
+                <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
+                {links && links.length > 0 && (
+                  <div className="flex items-center gap-2 mt-4">
+                    {links.map(({ href, label, Icon: LinkIcon }) => (
+                      <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                        className="w-8 h-8 rounded-full flex items-center justify-center transition-colors hover:bg-brand-green/10"
+                        style={{ backgroundColor: 'rgba(0,83,51,0.06)' }}>
+                        <LinkIcon size={14} color={C.green} />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
-            {/* Experiencia completa — habitación destacada */}
-            <div className="rounded-2xl p-7 border text-left relative" style={{ borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' }}>
-              <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full"
-                style={{ backgroundColor: C.green, color: C.gold }}>Más cómodo</span>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.green }}>Experiencia completa</p>
-              <p className="text-3xl font-bold serif-title mb-1" style={{ color: C.green }}>$180.000</p>
-              <p className="text-xs mb-5" style={{ color: '#6B4A33' }}>por persona · con habitación compartida</p>
-              <ul className="space-y-2 mb-7">
-                {[
-                  'Todas las actividades ambos días',
-                  'Habitación compartida',
-                  'Ropa blanca, toalla y toallón individual',
-                  'Todas las comidas incluidas',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#3D2516' }}>
-                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>✓</span>{i}
-                  </li>
-                ))}
-              </ul>
-              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
-                className="block text-center py-3 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: C.green }}>
-                Reservar habitación
-              </a>
+          {/* Invitado especial — Walter Cejas */}
+          <div id="walter" className="mt-8 rounded-2xl border overflow-hidden flex flex-col sm:flex-row" data-reveal data-delay="2" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
+            <div className="sm:w-28 md:w-36 flex-shrink-0">
+              <img
+                src={img('/uploads/Walter_E._Cejas.jpg', 400)}
+                alt="Walter Eugenio Cejas"
+                className="w-full h-40 sm:h-full object-cover"
+                loading="lazy"
+              />
             </div>
-
-            {/* Acantonamiento */}
-            <div className="rounded-2xl p-7 border text-left" style={{ borderColor: 'rgba(212,175,55,0.4)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>Pase fin de semana</p>
-              <p className="text-3xl font-bold serif-title mb-1" style={{ color: '#4A3210' }}>$140.000</p>
-              <p className="text-xs mb-5" style={{ color: '#8B6A00' }}>por persona · con acantonamiento</p>
-              <ul className="space-y-2 mb-7">
-                {[
-                  'Todas las actividades ambos días',
-                  'Alojamiento en salón calefaccionado',
-                  'Traer colchoneta y bolsa de dormir',
-                  'Todas las comidas incluidas',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                    <span className="flex-shrink-0 mt-0.5" style={{ color: '#8B6A00' }}>✓</span>{i}
-                  </li>
-                ))}
-              </ul>
-              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
-                className="block text-center py-3 px-4 rounded-xl border font-bold text-sm transition-colors"
-                style={{ borderColor: 'rgba(212,175,55,0.4)', color: '#7A5C00', backgroundColor: 'rgba(212,175,55,0.08)' }}>
-                Reservar acantonamiento
-              </a>
+            <div className="flex flex-col justify-center px-6 py-5 gap-1" style={{ backgroundColor: 'rgba(0,83,51,0.02)' }}>
+              <p className="inline-block text-white px-3 py-1 rounded-full text-[9px] tracking-[0.3em] uppercase font-semibold w-fit mb-1"
+                style={{ backgroundColor: C.fire }}>
+                Invitado especial
+              </p>
+              <p className="font-bold text-base" style={{ color: C.dark }}>Walter Eugenio Cejas</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: C.green }}>Biólogo · Investigador · Vida Silvestre</p>
+              <p className="text-xs leading-relaxed mt-1" style={{ color: C.muted }}>
+                Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. En la fogata nocturna compartirá relatos sobre estrellas y constelaciones, y guiará el avistaje de aves y observación de flora y fauna para quienes quieran sumarse.
+              </p>
             </div>
           </div>
 
-          <p className="text-center text-sm mt-8" style={{ color: C.faint }}>
-            ¿Dudas sobre qué opción elegir?{' '}
-            <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.green }}>
-              Escribinos por WhatsApp
-            </a>{' '}
-            y te ayudamos.
-          </p>
+          <div className="mt-16 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden" data-reveal data-delay="2" style={{ backgroundColor: C.green }}>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[100px] pointer-events-none" style={{ backgroundColor: 'rgba(212,175,55,0.25)' }} />
+            <div className="relative z-10">
+              <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-4" style={{ color: 'rgba(212,175,55,0.8)' }}>Una producción de</p>
+              <h3 className="text-2xl md:text-3xl serif-title text-white mb-4">Kintu</h3>
+              <p className="text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-6 text-white/70">
+                KINTU es una productora pionera en experiencias transformadoras que diseña viajes y procesos con corazón y propósito. Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia.
+              </p>
+              <a href="https://www.instagram.com/somoskintu_/" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-2.5 transition-colors hover:bg-white/10"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: C.gold, border: '1px solid rgba(212,175,55,0.3)' }}>
+                <Instagram size={16} />
+                @somoskintu_
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -454,11 +661,18 @@ const IntiRaymi: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-block mt-7 text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-                style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
-                ¿Cómo llegar? Consultanos
-              </a>
+              <div className="flex flex-wrap items-center gap-3 mt-7">
+                <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+                  ¿Cómo llegar? Consultanos
+                </a>
+                <a href="https://www.instagram.com/pueblomagico__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pueblo Mágico"
+                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-brand-green hover:border-brand-green"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)' }}>
+                  <Instagram size={16} color={C.green} />
+                </a>
+              </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
               <img
@@ -472,94 +686,182 @@ const IntiRaymi: React.FC = () => {
         </div>
       </section>
 
-      {/* ── QUÉ ES EL INTI RAYMI ── */}
-      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.night }}>
-        <div className="max-w-3xl mx-auto text-center" data-reveal>
-          <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-5" style={{ color: 'rgba(212,175,55,0.6)' }}>
-            ¿Qué es el Inti Raymi?
-          </p>
-          <h2 className="text-3xl md:text-4xl serif-title text-white mb-6">
-            Una celebración ancestral<br />que honra el regreso del Sol
-          </h2>
-          <p className="text-base leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.65)' }}>
-            En el corazón del invierno, cuando la noche alcanza su punto máximo, nos reunimos para honrar un nuevo comienzo.
-          </p>
-          <p className="text-base leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.65)' }}>
-            Es un momento de cierre y apertura. De soltar lo viejo y sembrar lo nuevo. Un recordatorio de que, incluso en la oscuridad, <strong className="text-white">la luz siempre vuelve.</strong>
-          </p>
-          <p className="font-serif italic" style={{ color: C.gold }}>
-            Un encuentro abierto a todo público, donde cada persona puede vivir la experiencia a su manera.
+      {/* ── PRECIOS ── */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              Modalidades de participación
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+              Elegís cómo sumarte
+            </h2>
+            <p className="text-base max-w-lg mx-auto mb-3" style={{ color: C.muted }}>
+              Podés venir a pasar el día, quedarte todo el fin de semana o sumarte a actividades puntuales.
+            </p>
+            <p className="text-sm font-bold" style={{ color: '#8B6A00' }}>
+              ✨ Nuevo: pagá en 3 cuotas sin interés
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {/* Pase diario */}
+            <div className="rounded-2xl p-7 border text-left" style={{ borderColor: '#E5DDD5', backgroundColor: C.cream }}>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#A0866E' }}>Pase por el día</p>
+              <p className="text-3xl font-bold serif-title mb-1" style={{ color: C.dark }}>$60.000</p>
+              <p className="text-xs mb-3" style={{ color: C.faint }}>por persona · un día a elección · pagando en efectivo</p>
+              <p className="text-[11px] font-semibold mb-5 inline-block px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>
+                💳 o 3 cuotas sin interés de $24.000
+              </p>
+              <ul className="space-y-2 mb-7">
+                {[
+                  'Acceso a todas las actividades del día',
+                  'Llegás y te vas cuando quieras',
+                  'Sin alojamiento ni comidas',
+                ].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>✓</span>{i}
+                  </li>
+                ))}
+              </ul>
+              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
+                className="block text-center py-3 px-4 rounded-xl border font-bold text-sm transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+                style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+                Quiero el pase diario
+              </a>
+            </div>
+
+            {/* Experiencia completa — habitación destacada */}
+            <div className="rounded-2xl p-7 border text-left relative" style={{ borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' }}>
+              <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full"
+                style={{ backgroundColor: C.green, color: C.gold }}>Más cómodo</span>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.green }}>Experiencia completa</p>
+              <p className="text-3xl font-bold serif-title mb-1" style={{ color: C.green }}>$180.000</p>
+              <p className="text-xs mb-3" style={{ color: '#6B4A33' }}>por persona · con habitación compartida · pagando en efectivo</p>
+              <p className="text-[11px] font-semibold mb-5 inline-block px-2.5 py-1 rounded-full" style={{ backgroundColor: C.gold, color: C.green }}>
+                💳 o 3 cuotas sin interés de $72.000
+              </p>
+              <ul className="space-y-2 mb-7">
+                {[
+                  'Todas las actividades ambos días',
+                  'Habitación compartida',
+                  'Ropa blanca, toalla y toallón individual',
+                  'Todas las comidas incluidas',
+                ].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#3D2516' }}>
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>✓</span>{i}
+                  </li>
+                ))}
+              </ul>
+              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
+                className="block text-center py-3 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: C.green }}>
+                Reservar habitación
+              </a>
+            </div>
+
+            {/* Pijamada */}
+            <div className="rounded-2xl p-7 border text-left" style={{ borderColor: 'rgba(212,175,55,0.4)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
+              <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: '#8B6A00' }}>Pijamada</p>
+              <p className="text-3xl font-bold serif-title mb-1" style={{ color: '#4A3210' }}>$140.000</p>
+              <p className="text-xs mb-3" style={{ color: '#8B6A00' }}>por persona · pijamada en el salón · pagando en efectivo</p>
+              <p className="text-[11px] font-semibold mb-5 inline-block px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: C.green }}>
+                💳 o 3 cuotas sin interés de $56.000
+              </p>
+              <ul className="space-y-2 mb-7">
+                {[
+                  'Todas las actividades ambos días',
+                  'Dormís en nuestro salón principal, sobre colchón o colchoneta (cada uno trae la suya)',
+                  'El resto, igual que la experiencia completa',
+                  'Todas las comidas incluidas',
+                ].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: '#8B6A00' }}>✓</span>{i}
+                  </li>
+                ))}
+              </ul>
+              <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
+                className="block text-center py-3 px-4 rounded-xl border font-bold text-sm transition-colors"
+                style={{ borderColor: 'rgba(212,175,55,0.4)', color: '#7A5C00', backgroundColor: 'rgba(212,175,55,0.08)' }}>
+                Reservar pijamada
+              </a>
+            </div>
+          </div>
+
+          <p className="text-center text-sm mt-8" style={{ color: C.faint }}>
+            ¿Dudas sobre qué opción elegir?{' '}
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.green }}>
+              Escribinos por WhatsApp
+            </a>{' '}
+            y te ayudamos.
           </p>
         </div>
       </section>
 
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-5 gap-12 items-start">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              Preguntas frecuentes
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+              Todo lo que necesitás saber
+            </h2>
+            <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
+              ¿Quedó alguna duda? Escribinos por WhatsApp y te respondemos al momento.
+            </p>
+          </div>
 
-            {/* Left — título */}
-            <div className="md:col-span-2" data-reveal>
-              <p className="inline-block text-white px-3 py-1.5 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-                style={{ backgroundColor: C.green }}>
-                Preguntas
-              </p>
-              <h2 className="text-3xl md:text-4xl serif-title leading-tight mb-5" style={{ color: C.green }}>
-                Todo lo que necesitás saber
-              </h2>
-              <p className="text-sm leading-relaxed mb-7" style={{ color: C.muted }}>
-                ¿Quedó alguna duda? Escribinos por WhatsApp y te respondemos al momento.
-              </p>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold border rounded-full px-5 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-                style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
-                Escribirnos
-              </a>
-            </div>
-
-            {/* Right — preguntas como cards */}
-            <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4" data-reveal data-delay="1">
-              {[
-                {
-                  n: '01',
-                  q: '¿Necesito experiencia previa?',
-                  a: 'No. Es un encuentro abierto a todo público. Cada persona participa desde su propio lugar, sin importar si es su primera vez.',
-                },
-                {
-                  n: '02',
-                  q: '¿Puedo venir solo un día?',
-                  a: 'Sí. El pase diario ($60.000) te da acceso a todas las actividades de la jornada que elijas — el 20, el 21 o ambos.',
-                },
-                {
-                  n: '03',
-                  q: '¿Es para familias con chicos?',
-                  a: 'Sí, toda la familia es bienvenida. Es una celebración colectiva con espíritu comunitario — hay espacio para todas las edades.',
-                },
-                {
-                  n: '04',
-                  q: '¿Qué llevo para el acantonamiento?',
-                  a: 'Colchoneta y bolsa de dormir. El salón es calefaccionado. Todas las comidas y actividades están incluidas.',
-                },
-                {
-                  n: '05',
-                  q: '¿Los cupos son limitados?',
-                  a: 'Sí. Recomendamos reservar con anticipación para asegurar tu lugar y el de tu familia o grupo.',
-                },
-                {
-                  n: '06',
-                  q: '¿Cómo llego al lugar?',
-                  a: 'Pueblo Mágico queda en Los Gigantes, Córdoba — a 90 km de Córdoba Capital. Acceso para todo tipo de vehículos. Consultanos y te mandamos el mapa.',
-                },
-              ].map(({ n, q, a }) => (
-                <div key={n} className="rounded-2xl p-6 border bg-white" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
-                  <span className="block text-4xl font-bold serif-title leading-none mb-3"
-                    style={{ color: 'rgba(0,83,51,0.08)' }}>{n}</span>
-                  <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: C.dark }}>{q}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>{a}</p>
+          <div className="space-y-3 md:space-y-4" data-reveal data-delay="1">
+            {FAQS.map(({ q, a }, index) => {
+              const isActive = activeFaq === index;
+              const Icon = FAQ_ICONS[index % FAQ_ICONS.length];
+              return (
+                <div key={q} className="rounded-2xl border bg-white overflow-hidden transition-colors duration-300"
+                  style={{ borderColor: isActive ? C.gold : 'rgba(0,83,51,0.1)', boxShadow: isActive ? '0 4px 16px rgba(0,0,0,0.05)' : 'none' }}>
+                  <button
+                    className="w-full text-left px-6 py-5 md:px-8 md:py-6 flex items-center gap-4 focus:outline-none"
+                    onClick={() => setActiveFaq(isActive ? null : index)}
+                    aria-expanded={isActive}
+                  >
+                    <span className="flex-shrink-0 transition-colors duration-300" style={{ color: isActive ? C.green : 'rgba(0,83,51,0.3)' }}>
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="flex-1 font-bold text-sm md:text-base leading-snug transition-colors duration-300" style={{ color: isActive ? C.green : C.dark }}>
+                      {q}
+                    </h3>
+                    <span
+                      className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-transform duration-300"
+                      style={{ backgroundColor: isActive ? C.green : 'rgba(0,83,51,0.06)', color: isActive ? C.gold : C.green, transform: isActive ? 'rotate(180deg)' : 'none' }}
+                    >
+                      <ChevronDown size={16} />
+                    </span>
+                  </button>
+                  <div
+                    className="transition-all duration-500 ease-in-out overflow-hidden"
+                    style={{ display: 'grid', gridTemplateRows: isActive ? '1fr' : '0fr', opacity: isActive ? 1 : 0 }}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="pl-[3.75rem] pr-6 md:pl-[4.5rem] md:pr-8 pb-6 md:pb-7 pt-1">
+                        <div className="w-full h-px mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }} />
+                        <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{a}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
+          </div>
 
+          <div className="text-center mt-10" data-reveal data-delay="2">
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold border rounded-full px-5 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+              style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+              Escribirnos
+            </a>
           </div>
         </div>
       </section>
