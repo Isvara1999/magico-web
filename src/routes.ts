@@ -18,4 +18,5 @@ export const ROUTES = {
   INTI_RAYMI: '/inti-raymi',
   PROPUESTA_NICO_GRUPE: '/propuesta/nico-grupe',
   DESPERTAR: '/despertar',
+  WINTER_CAMP: '/winter-camp',
 };

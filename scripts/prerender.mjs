@@ -94,6 +94,13 @@ const ROUTES = [
     image: 'https://experienciamagico.com/uploads/dji_0074.webp',
     canonical: 'https://experienciamagico.com/organizamos-tu-experiencia',
   },
+  {
+    path: '/winter-camp',
+    title: 'Winter Camp — Vacaciones de Invierno en Pueblo Mágico | Mágico Ensueño',
+    description: 'Estadía libre todo julio 2026, con pensión completa desde $65.000 por noche. Fuego, comunidad y cronograma de actividades en la montaña. Para familias y emprendedores. Los Gigantes, Córdoba.',
+    image: 'https://experienciamagico.com/uploads/fogon_nocturno.webp',
+    canonical: 'https://experienciamagico.com/winter-camp',
+  },
 ];
 
 if (!existsSync(DIST)) {
