@@ -140,20 +140,20 @@ const FAQS = [
 
 // ─── Carrusel de fotos de invierno ─────────────────────────────────────────────
 const CAROUSEL = [
-  { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.jpg', caption: 'Vista aérea del complejo nevado' },
+  { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp', caption: 'Vista aérea del complejo nevado' },
   { src: '/uploads/yoga_salon.webp',                                    caption: 'El salón · Yoga, movimiento y dinámicas' },
-  { src: '/uploads/Invierno/20250629_132707.jpg',                       caption: 'Refugio de piedra bajo la nieve' },
+  { src: '/uploads/Invierno/20250629_132707.webp',                       caption: 'Refugio de piedra bajo la nieve' },
   { src: '/uploads/coworking.webp',                                     caption: 'Espacio de coworking · WiFi Starlink' },
-  { src: '/uploads/Invierno/20250629_135046.jpg',                       caption: 'Ventanal con vistas a la sierra' },
+  { src: '/uploads/Invierno/20250629_135046.webp',                       caption: 'Ventanal con vistas a la sierra' },
   { src: '/uploads/habitaciones.webp',                                  caption: 'Habitaciones · Ropa blanca y toallón incluidos' },
-  { src: '/uploads/Invierno/20250629_152354.jpg',                       caption: 'Camino rural hacia el horizonte helado' },
+  { src: '/uploads/Invierno/20250629_152354.webp',                       caption: 'Camino rural hacia el horizonte helado' },
   { src: '/uploads/domos.webp',                                         caption: 'Domos geodésicos · Glamping de montaña' },
-  { src: '/uploads/Invierno/20250629_164200.jpg',                       caption: 'Pino solitario bajo la cencellada' },
+  { src: '/uploads/Invierno/20250629_164200.webp',                       caption: 'Pino solitario bajo la cencellada' },
   { src: '/uploads/mesadas.webp',                                       caption: 'La cocina · Pensión completa con 3 comidas' },
-  { src: '/uploads/Invierno/20250628_181834.jpg',                       caption: 'Ocaso tras la pirca de piedra' },
+  { src: '/uploads/Invierno/20250628_181834.webp',                       caption: 'Ocaso tras la pirca de piedra' },
   { src: '/uploads/botica.webp',                                        caption: 'La botica · Plantas y remedios de la sierra' },
-  { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.jpg',  caption: 'Los tres domos geodésicos nevados' },
-  { src: '/uploads/Invierno/20250627_222558.jpg',                       caption: 'Lluvia de estrellas en la montaña' },
+  { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp',  caption: 'Los tres domos geodésicos nevados' },
+  { src: '/uploads/Invierno/20250627_222558.webp',                       caption: 'Lluvia de estrellas en la montaña' },
 ];
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
@@ -186,7 +186,7 @@ const WinterCamp: React.FC = () => {
       <section
         className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden"
         style={{
-          backgroundImage: `url('/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.jpg')`,
+          backgroundImage: `url('/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -740,7 +740,7 @@ const WinterCamp: React.FC = () => {
       <section
         className="py-20 md:py-28 px-6 relative overflow-hidden"
         style={{
-          backgroundImage: `url('/uploads/Invierno/20250627_222558.jpg')`,
+          backgroundImage: `url('/uploads/Invierno/20250627_222558.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -830,10 +830,10 @@ const WinterCamp: React.FC = () => {
           {/* Grid de fotos aéreas del lugar nevado */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-12" data-reveal data-delay="2">
             {[
-              { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.jpg', alt: 'Vista aérea general nevada' },
-              { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.jpg', alt: 'Los tres domos geodésicos' },
-              { src: '/uploads/Invierno/DJI_20250629140027_0170_D_CHAPA2025.jpg', alt: 'Refugio principal con fogón nevado' },
-              { src: '/uploads/Invierno/DJI_20250629140004_0168_D_CHAPA2025.jpg', alt: 'Detalle de los domos en invierno' },
+              { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp', alt: 'Vista aérea general nevada' },
+              { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp', alt: 'Los tres domos geodésicos' },
+              { src: '/uploads/Invierno/DJI_20250629140027_0170_D_CHAPA2025.webp', alt: 'Refugio principal con fogón nevado' },
+              { src: '/uploads/Invierno/DJI_20250629140004_0168_D_CHAPA2025.webp', alt: 'Detalle de los domos en invierno' },
             ].map(({ src, alt }) => (
               <div key={src} className="rounded-xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
                 <img
@@ -1060,7 +1060,7 @@ const WinterCamp: React.FC = () => {
       <section
         className="py-20 md:py-28 px-6 relative overflow-hidden"
         style={{
-          backgroundImage: `url('/uploads/Invierno/20250629_132707.jpg')`,
+          backgroundImage: `url('/uploads/Invierno/20250629_132707.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 30%',
         }}
@@ -1093,7 +1093,7 @@ const WinterCamp: React.FC = () => {
       {/* ── CTA FINAL ── */}
       <section
         className="py-28 md:py-40 px-6 text-white text-center relative overflow-hidden"
-        style={{ backgroundImage: `url('/uploads/Invierno/20250628_180306.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center 40%' }}
+        style={{ backgroundImage: `url('/uploads/Invierno/20250628_180306.webp')`, backgroundSize: 'cover', backgroundPosition: 'center 40%' }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(6,12,20,0.88)' }} />
         <div className="max-w-2xl mx-auto relative z-10" data-reveal>
