@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Flame, Snowflake, Users, Heart, Star, Compass, ChevronDown, ChevronLeft, ChevronRight, Instagram,
   Mountain, Briefcase, Network, Home, Wifi, Droplet, Sparkles,
-  Footprints, PawPrint, TrendingDown, CalendarDays, Utensils,
+  Footprints, PawPrint, TrendingDown, CalendarDays, Utensils, Smartphone,
   type LucideIcon,
 } from 'lucide-react';
 import { img } from './lib/img';
@@ -26,11 +26,36 @@ const C = {
 };
 
 // ─── Precios ────────────────────────────────────────────────────────────────────
-type PriceTier = { noches: string; precio: string; porNoche: string; cuotas: string; ahorro?: string };
+// Efectivo = precio real. Cuotas = efectivo × 1.2 (precio lista).
+// Comunicación: "pagás menos en efectivo" no "cuotas cuestan más".
+type PriceTier = { noches: string; efectivo: string; porNoche: string; listaTotal: string; cuotas: string; ahorroEfectivo: string; ahorroNoches?: string };
 const PRECIOS: PriceTier[] = [
-  { noches: '1 noche',  precio: '$90.000',  porNoche: '$90.000 por noche', cuotas: '3 cuotas sin interés de $30.000' },
-  { noches: '2 noches', precio: '$160.000', porNoche: '$80.000 por noche', cuotas: '3 cuotas sin interés de $54.000', ahorro: 'Ahorrás $10.000 por noche' },
-  { noches: '3 noches', precio: '$190.000', porNoche: '$63.000 por noche', cuotas: '3 cuotas sin interés de $64.000', ahorro: 'Ahorrás $27.000 por noche' },
+  {
+    noches: '1 noche',
+    efectivo: '$90.000',
+    porNoche: '$90.000 por noche',
+    listaTotal: '$108.000',
+    cuotas: '3 cuotas de $36.000',
+    ahorroEfectivo: 'Ahorrás $18.000 pagando al contado',
+  },
+  {
+    noches: '2 noches',
+    efectivo: '$160.000',
+    porNoche: '$80.000 por noche',
+    listaTotal: '$192.000',
+    cuotas: '3 cuotas de $64.000',
+    ahorroEfectivo: 'Ahorrás $32.000 pagando al contado',
+    ahorroNoches: 'Ahorrás $10.000 por noche vs 1 noche',
+  },
+  {
+    noches: '3+ noches',
+    efectivo: '$190.000',
+    porNoche: '$63.000 por noche',
+    listaTotal: '$228.000',
+    cuotas: '3 cuotas de $76.000',
+    ahorroEfectivo: 'Ahorrás $38.000 pagando al contado',
+    ahorroNoches: 'Ahorrás $27.000 por noche vs 1 noche',
+  },
 ];
 
 // ─── Equipo ─────────────────────────────────────────────────────────────────────
@@ -167,7 +192,7 @@ const WinterCamp: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    document.title = 'Winter Camp · Vacaciones de Invierno en Pueblo Mágico · Mágico Ensueño';
+    document.title = 'Winter Camp · Vacaciones de Invierno en Pueblo Mágico · Pueblo Mágico';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -255,7 +280,7 @@ const WinterCamp: React.FC = () => {
             Winter <span style={{ color: C.gold }}>Camp</span>
           </h1>
           <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
-            Durante todo el mes de julio abrimos nuestro eco-centro en el corazón de la montaña para compartir el invierno en comunidad, con fuego, presencia y conexión. Llegás y te vas cuando quieras, con pensión completa desde $63.000 por noche.
+            Durante todo el mes de julio abrimos nuestro eco-centro en el corazón de la montaña para compartir el invierno en comunidad, con fuego, presencia y conexión. Llegás y te vas cuando quieras, con pensión completa desde $63.000 por noche en efectivo.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -278,6 +303,16 @@ const WinterCamp: React.FC = () => {
           </p>
         </div>
       </section>
+
+      {/* ── URGENCIA ── */}
+      <div className="px-6 py-3 text-center" style={{ backgroundColor: '#AA3E11' }}>
+        <p className="text-white text-xs sm:text-sm font-semibold leading-relaxed">
+          Julio ya empezó · El camp está activo desde el 1° de julio · Solo 20 personas al mismo tiempo en el espacio ·{' '}
+          <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+            Consultá disponibilidad →
+          </a>
+        </p>
+      </div>
 
       {/* ── EL LLAMADO ── */}
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.night }}>
@@ -303,63 +338,202 @@ const WinterCamp: React.FC = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl p-7 border text-center max-w-2xl mx-auto" data-reveal data-delay="1" style={{ borderColor: 'rgba(46,110,142,0.18)', backgroundColor: 'rgba(255,255,255,0.6)' }}>
-            <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-              Somos <span style={{ color: '#8B6A00' }} className="font-semibold">Diego</span>, <span style={{ color: '#8B6A00' }} className="font-semibold">China</span> y una gran familia que habitamos este espacio con propósito. No solo facilitamos experiencias: co-creamos con quienes van llegando encuentros reales, humanos, auténticos y transformadores.
+          <div className="mt-12" data-reveal data-delay="1">
+            <p className="text-center text-[10px] tracking-[0.4em] uppercase font-semibold mb-6" style={{ color: '#8B6A00' }}>
+              Anfitriones y guardianes del espacio
             </p>
+            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              {TEAM.slice(0, 2).map(({ photo, nombre, rol, desc, instagram }) => (
+                <div key={nombre} className="flex items-start gap-4 rounded-2xl p-5 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(255,255,255,0.72)' }}>
+                  <img src={img(photo, 120)} alt={nombre} className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
+                  <div>
+                    <p className="font-bold text-sm mb-0.5" style={{ color: C.dark }}>{nombre}</p>
+                    <p className="text-xs font-semibold mb-2" style={{ color: C.green }}>{rol}</p>
+                    <p className="text-xs leading-relaxed mb-2" style={{ color: C.muted }}>{desc}</p>
+                    {instagram && (
+                      <a href={instagram} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium"
+                        style={{ color: C.green }}>
+                        <Instagram size={11} /> Instagram
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PARA QUIÉN ES ── */}
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              ¿Esto es para mí?
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.dark }}>
+              Hay un lugar para vos<br />en la montaña este julio
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-10" data-reveal data-delay="1">
+            {/* Familias */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+                <Home size={18} color={C.green} />
+              </div>
+              <p className="font-bold text-base mb-2" style={{ color: C.green }}>Familias</p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
+                Vacaciones de invierno distintas: chicos en libertad, grandes presentes, sin pantallas y con actividades para todas las edades.
+              </p>
+              <ul className="space-y-1.5">
+                {['Niños que juegan en la montaña y aprenden', 'Tiempo real en familia, sin distracciones', 'Cocina casera incluida — sin organizar nada', 'Comunidad de familias que piensa igual que vos'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
+                    <span className="mt-0.5 flex-shrink-0" style={{ color: C.green }}>✓</span>{i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Solos / parejas */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(46,110,142,0.12)' }}>
+                <Compass size={18} color={C.ice} />
+              </div>
+              <p className="font-bold text-base mb-2" style={{ color: C.ice }}>Solos o en pareja</p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
+                No necesitás venir con grupo. Llegás solo y te vas con vínculos reales. El Winter Camp es una comunidad que se arma en el momento.
+              </p>
+              <ul className="space-y-1.5">
+                {['Reset profundo: silencio, fuego y naturaleza', 'Personas con valores afines con quienes conectar', 'Nómades: WiFi Starlink + coworking en la sierra', 'Llegás y te vas cuando quieras, sin paquete fijo'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
+                    <span className="mt-0.5 flex-shrink-0" style={{ color: C.ice }}>✓</span>{i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* No es para vos si... */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(107,128,144,0.2)', backgroundColor: 'rgba(107,128,144,0.04)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(107,128,144,0.1)' }}>
+                <Snowflake size={18} color={C.faint} />
+              </div>
+              <p className="font-bold text-base mb-2" style={{ color: C.muted }}>No es para vos si...</p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.faint }}>
+                Preferimos ser honestos. Winter Camp no es un hotel, ni un spa, ni un all-inclusive convencional.
+              </p>
+              <ul className="space-y-1.5">
+                {['Buscás lujo y servicios de resort', 'No querés compartir espacios con otros', 'Necesitás wi-fi ilimitado para videollamadas todo el día', 'Las montañas y el silencio te generan ansiedad'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.faint }}>
+                    <span className="mt-0.5 flex-shrink-0">✗</span>{i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center" data-reveal data-delay="2">
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+              className="inline-block border font-semibold text-sm py-3 px-8 rounded-full transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+              style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+              ¿Tengo dudas? Consultá sin compromiso →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOGATA ── */}
+      <section className="py-16 md:py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+          <div className="flex-1 order-2 md:order-1" data-reveal>
+            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6" style={{ color: C.fire }}>
+              La tribu se reúne al caer la noche
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title leading-snug mb-6" style={{ color: C.dark }}>
+              El frío nos acerca.<br />El fuego nos une.
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
+              Cada noche en Pueblo Mágico termina alrededor de una fogata bajo las estrellas. Guitarras, historias, mate caliente y el chisporroteo de la leña de monte. No hay nada más cálido que compartir el fuego en la montaña.
+            </p>
+            <a
+              href={WA_INFO}
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-opacity hover:opacity-90"
+              style={{ backgroundColor: C.gold, color: '#fff' }}
+            >
+              Quiero ir →
+            </a>
+          </div>
+          <div className="flex-shrink-0 w-64 md:w-72 lg:w-80 order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
+            <img
+              src="/uploads/Invierno/fogata-vertical.jpeg"
+              alt="Fogata nocturna en la montaña"
+              className="w-full block"
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
 
       {/* ── GALERÍA DE INVIERNO ── */}
-      <section className="relative overflow-hidden" style={{ height: '72vh', minHeight: '400px', maxHeight: '680px' }}>
-        {CAROUSEL.map((photo, i) => (
-          <div
-            key={photo.src}
-            className="absolute inset-0 transition-opacity duration-700"
-            style={{
-              backgroundImage: `url('${photo.src}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              opacity: i === carouselIdx ? 1 : 0,
-            }}
-          />
-        ))}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,15,22,0.72) 0%, rgba(8,15,22,0.08) 55%)' }} />
-
-        <button
-          onClick={() => setCarouselIdx(i => (i - 1 + CAROUSEL.length) % CAROUSEL.length)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-          style={{ backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}
-          aria-label="Foto anterior"
-        >
-          <ChevronLeft size={20} color="white" />
-        </button>
-        <button
-          onClick={() => setCarouselIdx(i => (i + 1) % CAROUSEL.length)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-          style={{ backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}
-          aria-label="Foto siguiente"
-        >
-          <ChevronRight size={20} color="white" />
-        </button>
-
-        <div className="absolute bottom-6 left-0 right-0 z-10 text-center">
-          <p className="text-white/65 text-xs mb-3 tracking-wide">{CAROUSEL[carouselIdx].caption}</p>
-          <div className="flex justify-center gap-2">
-            {CAROUSEL.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCarouselIdx(i)}
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: i === carouselIdx ? '18px' : '6px',
-                  height: '6px',
-                  backgroundColor: i === carouselIdx ? C.gold : 'rgba(255,255,255,0.35)',
-                }}
-                aria-label={`Foto ${i + 1}`}
+      <section className="py-8 px-6 bg-white">
+        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg relative" style={{ height: '68vh', minHeight: '380px', maxHeight: '640px' }}>
+          {CAROUSEL.map((photo, i) => (
+            <div
+              key={photo.src}
+              className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center"
+              style={{
+                backgroundColor: '#F5F5F0',
+                opacity: i === carouselIdx ? 1 : 0,
+              }}
+            >
+              <img
+                src={photo.src}
+                alt={photo.caption}
+                className="w-full h-full"
+                style={{ objectFit: 'contain' }}
+                loading={i === 0 ? 'eager' : 'lazy'}
               />
-            ))}
+            </div>
+          ))}
+
+          <button
+            onClick={() => setCarouselIdx(i => (i - 1 + CAROUSEL.length) % CAROUSEL.length)}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+            style={{ backgroundColor: 'rgba(0,0,0,0.12)', backdropFilter: 'blur(4px)' }}
+            aria-label="Foto anterior"
+          >
+            <ChevronLeft size={20} color={C.dark} />
+          </button>
+          <button
+            onClick={() => setCarouselIdx(i => (i + 1) % CAROUSEL.length)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+            style={{ backgroundColor: 'rgba(0,0,0,0.12)', backdropFilter: 'blur(4px)' }}
+            aria-label="Foto siguiente"
+          >
+            <ChevronRight size={20} color={C.dark} />
+          </button>
+
+          <div className="absolute bottom-5 left-0 right-0 z-10 text-center">
+            <p className="text-xs mb-3 tracking-wide" style={{ color: 'rgba(26,43,60,0.55)' }}>{CAROUSEL[carouselIdx].caption}</p>
+            <div className="flex justify-center gap-2">
+              {CAROUSEL.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCarouselIdx(i)}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === carouselIdx ? '18px' : '6px',
+                    height: '6px',
+                    backgroundColor: i === carouselIdx ? C.gold : 'rgba(0,0,0,0.2)',
+                  }}
+                  aria-label={`Foto ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -402,129 +576,101 @@ const WinterCamp: React.FC = () => {
           <p className="text-center serif-title text-xl md:text-2xl mt-14" style={{ color: C.green }} data-reveal data-delay="2">
             El frío no es un límite. <span style={{ color: C.gold }}>Es parte del viaje.</span>
           </p>
-        </div>
-      </section>
 
-      {/* ── PARA QUIÉN ES ── */}
-      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#EEF5FA' }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14" data-reveal>
-            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.green }}>
-              ¿Para quién es?
-            </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
-              Para familias en vacaciones.<br />Y para quienes lideran y crean.
-            </h2>
-            <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
-              Para quienes necesitan frenar, reconectar y sienten el llamado de la montaña.
-            </p>
-          </div>
+          {/* Programa incluido */}
+          <div className="mt-14 space-y-6 max-w-4xl mx-auto" data-reveal data-delay="3">
 
-          <div className="grid md:grid-cols-3 gap-6" data-reveal data-delay="1">
-            {/* Familias */}
-            <div className="rounded-2xl p-8 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
-                  <Home size={18} color={C.green} />
+            {/* Reset Vital — app autoguiada */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.2)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+                <div className="flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm" style={{ backgroundColor: C.green }}>
+                    <Smartphone size={24} color="white" />
+                  </div>
                 </div>
-                <p className="font-bold text-base" style={{ color: C.green }}>Para familias</p>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <p className="font-bold text-base" style={{ color: C.green }}>Reset Vital</p>
+                    <span className="text-[9px] tracking-widest uppercase font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.1)', color: C.green }}>App incluida</span>
+                    <span className="text-[9px] tracking-widest uppercase font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: C.green }}>Offline + Online</span>
+                  </div>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
+                    Retiro autoguiado disponible en tu teléfono desde que llegás — sin horarios impuestos, a tu ritmo. Funciona sin conexión para que nada te saque de la experiencia.
+                  </p>
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-1.5">
+                    {['Meditaciones guiadas', 'Journaling y escritura', 'Caminatas conscientes', 'Rituales de conexión con la naturaleza', 'Respiraciones y técnicas de relajación', 'Guía de plantas y bienestar de la sierra'].map(a => (
+                      <div key={a} className="flex items-start gap-2">
+                        <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />
+                        <p className="text-xs" style={{ color: C.dark }}>{a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                Vacaciones de invierno para que grandes y chicos habiten juntos la montaña, compartan tiempo de calidad y creen recuerdos reales.
-              </p>
-              <ul className="space-y-2">
-                {[
-                  'Familias que quieren vivir vacaciones distintas',
-                  'Quienes buscan reconectar con sus hijos lejos de pantallas',
-                  'Espacios y momentos para la creatividad',
-                  'Actividades para compartir en comunidad',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                    <span className="mt-1 flex-shrink-0" style={{ color: C.green }}>—</span>{i}
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            {/* Emprendedores / líderes */}
-            <div className="rounded-2xl p-8 border" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
-                  <Briefcase size={18} color="#8B6A00" />
-                </div>
-                <p className="font-bold text-base" style={{ color: '#7A5C00' }}>Para emprendedores y líderes</p>
+            {/* Actividades con facilitadores */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
+              <div className="flex items-center gap-2 mb-3">
+                <CalendarDays size={16} color={C.ice} />
+                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: C.ice }}>Actividades con facilitadores · según agenda y grupo</p>
               </div>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                Un espacio para soltar el rol, recargar energía y conectar con otros que también crean y lideran. Las mejores ideas nacen desde la claridad, no desde el agotamiento.
+              <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>
+                Dependiendo de las fechas y el grupo que se forme, el equipo de facilitadores organiza actividades compartidas. Consultanos qué hay disponible cuando planeás tu llegada.
               </p>
-              <ul className="space-y-2">
-                {[
-                  'Emprendedores que buscan reconectar con su propósito',
-                  'Networking orgánico junto al fuego, sin formalidad corporativa',
-                  'Espacio para pensar, crear y desconectar del ritmo de la ciudad',
-                  'Comunidad de personas con caminos y proyectos afines',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                    <span className="mt-1 flex-shrink-0" style={{ color: '#8B6A00' }}>—</span>{i}
-                  </li>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
+                {['Yoga y movimiento consciente', 'Círculos de palabra', 'Armonizaciones sonoras', 'Fogones y encuentros nocturnos', 'Caminatas guiadas en la montaña', 'Espacios para infancias y juego'].map(a => (
+                  <div key={a} className="flex items-start gap-2">
+                    <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.ice }} />
+                    <p className="text-xs" style={{ color: C.dark }}>{a}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                className="inline-block text-xs font-semibold border rounded-full px-4 py-2 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+                style={{ borderColor: 'rgba(46,110,142,0.3)', color: C.ice }}>
+                Consultar agenda disponible →
+              </a>
             </div>
 
-            {/* Solo / comunidad */}
-            <div className="rounded-2xl p-8 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(46,110,142,0.12)' }}>
-                  <Compass size={18} color={C.ice} />
-                </div>
-                <p className="font-bold text-base" style={{ color: C.ice }}>Para quienes vienen solos</p>
+            {/* Actividades extra */}
+            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
+              <div className="flex items-center gap-2 mb-3">
+                <CalendarDays size={16} color="#8B6A00" />
+                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: '#8B6A00' }}>Actividades extra · a contratar · consultar agenda</p>
               </div>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                No necesitás venir con grupo ni con familia. El Winter Camp es una comunidad que se arma en el momento — llegás solo y te vas con vínculos reales.
+              <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>
+                Experiencias con costo aparte que podés sumar a tu estadía. Se coordinan con anticipación según disponibilidad.
               </p>
-              <ul className="space-y-2">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
                 {[
-                  'Personas que buscan un reset profundo sin compromisos',
-                  'Quienes quieren conocer gente con valores afines',
-                  'Viajeros internos que necesitan silencio y presencia',
-                  'Nómades digitales: naturaleza + conexión + WiFi Starlink',
-                ].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                    <span className="mt-1 flex-shrink-0" style={{ color: C.ice }}>—</span>{i}
-                  </li>
+                  { Icon: Footprints, title: 'Trekking con guías' },
+                  { Icon: PawPrint, title: 'Cabalgatas' },
+                  { Icon: Heart, title: 'Masajes y terapias' },
+                  { Icon: Compass, title: 'Sesiones 1 a 1' },
+                ].map(({ Icon, title }) => (
+                  <div key={title} className="flex items-center gap-2">
+                    <Icon size={13} color="#8B6A00" />
+                    <p className="text-xs font-medium" style={{ color: C.dark }}>{title}</p>
+                  </div>
                 ))}
-              </ul>
+                {/* Temazcal — con link a sección */}
+                <div className="flex items-center gap-2 col-span-2 pt-2 border-t mt-1" style={{ borderColor: 'rgba(139,106,0,0.15)' }}>
+                  <Flame size={13} color="#8B6A00" />
+                  <p className="text-xs font-semibold" style={{ color: C.dark }}>Temazcal · ceremonia ancestral</p>
+                  <a href="#temazcal"
+                    className="ml-auto text-[10px] font-bold underline"
+                    style={{ color: '#8B6A00' }}>
+                    Ver más ↓
+                  </a>
+                </div>
+              </div>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                className="inline-block text-xs font-semibold border rounded-full px-4 py-2"
+                style={{ borderColor: 'rgba(139,106,0,0.3)', color: '#7A5C00' }}>
+                Consultar disponibilidad →
+              </a>
             </div>
-          </div>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-3" data-reveal data-delay="2">
-            {['Para quienes necesitan bajar un cambio', 'Para quienes buscan reconectar y disfrutar', 'Para quienes sienten el llamado de la montaña', 'Para quienes quieren compartir en comunidad'].map(tag => (
-              <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
-                style={{ borderColor: 'rgba(0,83,51,0.2)', color: C.muted, backgroundColor: 'rgba(0,83,51,0.03)' }}>
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA INTERMEDIO ── */}
-      <section className="py-14 px-6 bg-white">
-        <div className="max-w-lg mx-auto text-center" data-reveal>
-          <p className="text-base mb-6 font-serif italic" style={{ color: C.muted }}>
-            ¿Ya sentís el llamado?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer"
-              className="btn-gold text-sm py-3 px-7 inline-block">
-              Reservar mi lugar
-            </a>
-            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-              className="inline-block border font-semibold text-sm py-3 px-7 rounded-full transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-              style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
-              Tengo preguntas
-            </a>
           </div>
         </div>
       </section>
@@ -536,24 +682,38 @@ const WinterCamp: React.FC = () => {
             <div data-reveal>
               <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
                 style={{ backgroundColor: C.fire }}>
-                La cocina
+                Alimentación
               </p>
               <h2 className="text-3xl md:text-4xl serif-title mb-5" style={{ color: C.dark }}>
-                La alimentación es parte esencial de la experiencia
+                Comida casera, nutritiva<br />y hecha con amor
               </h2>
-              <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: C.muted }}>
-                Comidas caseras, riquísimas y nutritivas, pensadas para acompañar el invierno y sostener el cuerpo calentito en la montaña. Pensión completa con 3 comidas por día.
+              <p className="text-base leading-relaxed mb-4" style={{ color: C.muted }}>
+                En Pueblo Mágico, la alimentación es parte esencial de la experiencia. Cada plato es preparado con ingredientes frescos, locales y de estación — comida real que nutre el cuerpo y calienta el alma en el frío de la montaña.
               </p>
+              <div className="grid grid-cols-2 gap-2 mb-5">
+                {['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por nuestro equipo', 'Adaptable a necesidades especiales'].map(item => (
+                  <div key={item} className="flex items-start gap-2">
+                    <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />
+                    <p className="text-xs" style={{ color: C.dark }}>{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl p-4 mb-5" style={{ backgroundColor: 'rgba(0,83,51,0.04)', border: '1px solid rgba(0,83,51,0.1)' }}>
+                <p className="text-xs font-semibold mb-1" style={{ color: C.green }}>Comedor de uso libre · Cocina común</p>
+                <p className="text-xs leading-relaxed" style={{ color: C.faint }}>
+                  El comedor está disponible para todos los huéspedes con hornallas, bacha, vajilla y utensilios para calentar agua, preparar tés o cocinar algo simple. La cocina del equipo es privada — allí preparamos tus 3 comidas diarias para que vos no tengas que preocuparte por nada.
+                </p>
+              </div>
               <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
                 className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
                 style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
-                Consultar por WhatsApp
+                Consultar menú y necesidades especiales
               </a>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
               <img
                 src={img('/uploads/469731807_3987061274856806_2943773444767775905_n.jpg', 900)}
-                alt="Cocina de Pueblo Mágico"
+                alt="Comida casera en Pueblo Mágico"
                 className="w-full aspect-[4/3] object-cover"
                 loading="lazy"
               />
@@ -562,83 +722,9 @@ const WinterCamp: React.FC = () => {
         </div>
       </section>
 
-      {/* ── RESET VITAL ── */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14" data-reveal>
-            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.green }}>
-              Reset Vital
-            </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
-              Tu programa de bienestar incluido
-            </h2>
-            <p className="text-base max-w-xl mx-auto mb-3" style={{ color: C.muted }}>
-              Con tu participación accedés a nuestro programa de bienestar autoguiado para potenciar tu estadía. Una guía para acompañarte con prácticas simples de conexión, movimiento, respiración y presencia.
-            </p>
-            <p className="text-sm font-medium" style={{ color: C.faint }}>
-              A tu ritmo. Sin exigencias. Vos creás tu propia experiencia.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-0 max-w-2xl mx-auto" data-reveal data-delay="1">
-            {[
-              'Yoga y movimiento consciente',
-              'Círculos de palabra',
-              'Armonizaciones sonoras',
-              'Ceremonias (Temazcal y rituales)',
-              'Caminatas en la naturaleza',
-              'Juegos y espacios para infancias',
-              'Meditaciones en movimiento',
-            ].map(title => (
-              <div key={title} className="flex items-center gap-3 py-3 border-b"
-                style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
-                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />
-                <p className="text-sm" style={{ color: C.dark }}>{title}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-sm mt-8 mb-4" style={{ color: C.faint }}>
-            Durante tu estadía habrá dinámicas sucediendo a las cuales te podés sumar cada vez que sientas.
-          </p>
-          <p className="text-center text-xs mb-14" style={{ color: C.faint }}>
-            Cada propuesta está acompañada por personas reales, con vocación y camino.
-          </p>
-
-          {/* Actividades extra a contratar */}
-          <div className="rounded-2xl p-8 md:p-10 border" data-reveal data-delay="2" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-            <div className="flex items-center gap-3 mb-3">
-              <CalendarDays size={18} color="#8B6A00" />
-              <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: '#8B6A00' }}>Actividades extra · a contratar</p>
-            </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: C.muted }}>
-              Además del cronograma incluido, podés sumar actividades guiadas con costo aparte, según fechas y disponibilidad.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-6">
-              {[
-                { Icon: Footprints, title: 'Trekking con guías' },
-                { Icon: PawPrint, title: 'Cabalgatas' },
-                { Icon: Heart, title: 'Masajes' },
-                { Icon: Compass, title: 'Sesiones 1 a 1 y mentorías' },
-              ].map(({ Icon, title }) => (
-                <div key={title} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
-                  <Icon size={18} color="#8B6A00" />
-                  <p className="text-sm font-medium" style={{ color: C.dark }}>{title}</p>
-                </div>
-              ))}
-            </div>
-            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-              className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors"
-              style={{ borderColor: 'rgba(139,106,0,0.3)', color: '#7A5C00', backgroundColor: 'white' }}>
-              Consultar fechas y disponibilidad
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ── TEMAZCAL ── */}
       <section
+        id="temazcal"
         className="py-24 md:py-36 px-6 relative overflow-hidden"
         style={{
           backgroundImage: `url('/uploads/temazcal.webp')`,
@@ -736,33 +822,6 @@ const WinterCamp: React.FC = () => {
         </div>
       </section>
 
-      {/* ── EL FUEGO Y LA TRIBU (MUNDIAL) ── */}
-      <section
-        className="py-20 md:py-28 px-6 relative overflow-hidden"
-        style={{
-          backgroundImage: `url('/uploads/Invierno/20250627_222558.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,8,18,0.88) 0%, rgba(4,8,18,0.82) 100%)' }} />
-        <div className="max-w-4xl mx-auto text-center relative z-10" data-reveal>
-          <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-            style={{ backgroundColor: C.fire }}>
-            El fuego y la tribu
-          </p>
-          <h2 className="text-3xl md:text-4xl serif-title mb-5 text-white">
-            Este invierno jugamos todos para el mismo equipo
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-4" style={{ color: 'rgba(255,255,255,0.72)' }}>
-            Si te gusta el Mundial habrá espacio para ver los partidos, alentar juntos a Argentina, celebrar cada gol alrededor del fuego y compartir la experiencia en un contexto hermosísimo.
-          </p>
-          <p className="font-serif italic text-lg" style={{ color: C.gold }}>
-            Porque cuando el frío aprieta, si jugamos juntos ganamos todos.
-          </p>
-        </div>
-      </section>
-
       {/* ── EL LUGAR ── */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
@@ -827,59 +886,28 @@ const WinterCamp: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid de fotos aéreas del lugar nevado */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-12" data-reveal data-delay="2">
-            {[
-              { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp', alt: 'Vista aérea general nevada' },
-              { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp', alt: 'Los tres domos geodésicos' },
-              { src: '/uploads/Invierno/DJI_20250629140027_0170_D_CHAPA2025.webp', alt: 'Refugio principal con fogón nevado' },
-              { src: '/uploads/Invierno/DJI_20250629140004_0168_D_CHAPA2025.webp', alt: 'Detalle de los domos en invierno' },
-            ].map(({ src, alt }) => (
-              <div key={src} className="rounded-xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
-                <img
-                  src={img(src, 600)}
-                  alt={alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── LOS ESPACIOS ── */}
-      <section className="py-16 md:py-20 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-[10px] tracking-[0.4em] uppercase font-semibold mb-3" style={{ color: C.green }}>
-            Conocé los espacios
-          </p>
-          <h3 className="text-center text-2xl md:text-3xl serif-title mb-10" style={{ color: C.dark }}>
-            El lugar por dentro
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4" data-reveal>
-            {[
-              { src: '/uploads/yoga_salon.webp',    label: 'El Salón',          desc: 'Yoga · círculos · dinámicas' },
-              { src: '/uploads/coworking.webp',     label: 'Coworking',         desc: 'WiFi Starlink · mesas de trabajo' },
-              { src: '/uploads/habitaciones.webp',  label: 'Habitaciones',      desc: 'Ropa blanca · toallón · calidez' },
-              { src: '/uploads/domos.webp',         label: 'Domos Geodésicos',  desc: 'Glamping · inmersión en la naturaleza' },
-              { src: '/uploads/mesadas.webp',       label: 'La Cocina',         desc: 'Pensión completa · 3 comidas por día' },
-              { src: '/uploads/botica.webp',        label: 'La Botica',         desc: 'Plantas medicinales de la sierra' },
-            ].map(({ src, label, desc }) => (
-              <div key={src} className="group relative rounded-2xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
-                <img
-                  src={img(src, 600)}
-                  alt={label}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.75) 0%, transparent 55%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-white text-xs font-bold tracking-wide mb-0.5">{label}</p>
-                  <p className="text-white/60 text-[10px]">{desc}</p>
+          {/* Fotos del lugar — aéreas e interiores */}
+          <div className="mt-12" data-reveal data-delay="2">
+            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6 text-center" style={{ color: C.green }}>El lugar por dentro</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                { src: '/uploads/yoga_salon.webp',                                    label: 'El Salón',         desc: 'Yoga · círculos · dinámicas' },
+                { src: '/uploads/coworking.webp',                                     label: 'Coworking · Coliving', desc: 'WiFi Starlink · mesas de trabajo · convivencia' },
+                { src: '/uploads/habitaciones.webp',                                  label: 'Habitaciones',     desc: 'Ropa blanca · toallón · calidez' },
+                { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp', label: 'Domos Geodésicos', desc: 'Glamping en la montaña nevada' },
+                { src: '/uploads/mesadas.webp',                                       label: 'Cocina común',     desc: 'Hornallas, bacha y comedor compartidos' },
+                { src: '/uploads/botica.webp',                                        label: 'La Botica',        desc: 'Plantas medicinales de la sierra' },
+              ].map(({ src, label, desc }) => (
+                <div key={src} className="group relative rounded-xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
+                  <img src={img(src, 600)} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.72) 0%, transparent 55%)' }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-white text-xs font-bold mb-0.5">{label}</p>
+                    <p className="text-white/55 text-[10px]">{desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -896,6 +924,58 @@ const WinterCamp: React.FC = () => {
         </div>
       </section>
 
+      {/* ── TESTIMONIOS ── */}
+      <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.dark }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-4" style={{ color: C.gold }}>
+              Quienes ya vivieron la experiencia
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title text-white mb-3">Lo que dicen quienes estuvieron</h2>
+            <a href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border transition-colors hover:bg-white/10"
+              style={{ borderColor: 'rgba(212,175,55,0.3)' }}>
+              <span className="text-sm" style={{ color: '#F4C27A' }}>★★★★★</span>
+              <span className="text-white/65 text-xs font-semibold">5.0 · 64 reseñas en Google Maps</span>
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {[
+              {
+                text: 'Fue el mejor fin de semana que pasamos juntos como familia en mucho tiempo. Mis hijos no querían volver a casa. Yo tampoco.',
+                name: 'Tefi',
+                rol: 'Mamá · Familia completa',
+              },
+              {
+                text: 'La conexión que logramos entre nosotros fue increíble. Volvimos diferentes. La montaña nos regaló presencia de verdad.',
+                name: 'Lucas y Sofi',
+                rol: 'Pareja',
+              },
+              {
+                text: 'Lo más importante: el amor y la entrega de todo el equipo, y la capacidad de sentirte uno con la naturaleza. Una experiencia que no se olvida.',
+                name: 'Julieta C.',
+                rol: 'Huéspeda',
+              },
+            ].map(({ text, name, rol }) => (
+              <div key={name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.06)' }}>
+                <p className="text-2xl mb-4 leading-none" style={{ color: C.gold }}>"</p>
+                <p className="text-sm md:text-base leading-relaxed mb-6 text-white/80 italic">{text}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: C.green }}>
+                    {name[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">{name}</p>
+                    <p className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>{rol}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TU ESTADÍA / PRECIOS ── */}
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#EEF5FA' }}>
         <div className="max-w-5xl mx-auto">
@@ -908,11 +988,15 @@ const WinterCamp: React.FC = () => {
               No vendemos alojamiento.<br />Compartimos experiencias y mucho más.
             </h2>
             <p className="text-base max-w-xl mx-auto mb-3" style={{ color: C.muted }}>
-              Llegás y te vas cuando quieras. Todas las modalidades incluyen pensión completa, alojamiento y el programa de actividades. Desde $63.000 por noche para una experiencia all inclusive en la montaña.
+              Llegás y te vas cuando quieras. Todas las modalidades incluyen pensión completa, alojamiento y el programa de actividades. Desde $63.000 por noche en efectivo — experiencia all inclusive en la montaña.
             </p>
-            <p className="text-sm font-bold flex items-center justify-center gap-1.5" style={{ color: '#8B6A00' }}>
+            <p className="text-sm font-bold flex items-center justify-center gap-1.5 mb-4" style={{ color: '#8B6A00' }}>
               <TrendingDown size={16} /> Cuantas más noches te quedás, más barata sale cada una
             </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(170,62,17,0.1)', color: C.fire }}>
+              <span className="w-2 h-2 rounded-full animate-pulse inline-block" style={{ backgroundColor: C.fire }} />
+              Julio ya empezó · Quedan pocos lugares disponibles · Reservá esta semana y llegás en días
+            </div>
           </div>
 
           {/* Incluye — antes de los precios para mostrar valor primero */}
@@ -938,7 +1022,7 @@ const WinterCamp: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
-            {PRECIOS.map(({ noches, precio, porNoche, cuotas, ahorro }, idx) => {
+            {PRECIOS.map(({ noches, efectivo, porNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
               const isBest = idx === PRECIOS.length - 1;
               return (
               <div key={noches} className="rounded-2xl p-7 border text-left relative"
@@ -949,36 +1033,50 @@ const WinterCamp: React.FC = () => {
                   <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full"
                     style={{ backgroundColor: C.green, color: C.gold }}>Mejor precio</span>
                 )}
-                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: isBest ? C.green : '#A0866E' }}>
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-3" style={{ color: isBest ? C.green : '#A0866E' }}>
                   {noches}
                 </p>
-                <p className="text-3xl font-bold serif-title mb-1" style={{ color: isBest ? C.green : C.dark }}>
-                  {precio}
+
+                {/* Cuotas — precio lista (ancla) */}
+                <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.faint }}>
+                  En cuotas
                 </p>
-                <p className="text-xs mb-3" style={{ color: C.faint }}>{porNoche} · en efectivo</p>
-                <p className="text-[11px] font-semibold mb-4 inline-block px-2.5 py-1 rounded-full"
+                <p className="text-[11px] font-semibold mb-1 inline-block px-2.5 py-1 rounded-full"
                   style={isBest
                     ? { backgroundColor: C.gold, color: C.green }
                     : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>
                   {cuotas}
                 </p>
-                {ahorro && (
-                  <div>
-                    <p className="text-[11px] font-semibold inline-flex items-center gap-1 px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: isBest ? C.green : '#8B6A00' }}>
-                      <TrendingDown size={12} /> {ahorro}
+                <p className="text-[10px] mb-4 line-through" style={{ color: C.faint }}>Total {listaTotal}</p>
+
+                {/* Efectivo — precio real con descuento */}
+                <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
+                  <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.green }}>
+                    Efectivo · 1 solo pago
+                  </p>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <p className="text-3xl font-bold serif-title" style={{ color: isBest ? C.green : C.dark }}>
+                      {efectivo}
                     </p>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.12)', color: C.green }}>
+                      −20%
+                    </span>
                   </div>
-                )}
+                  <p className="text-xs mb-3" style={{ color: C.faint }}>{porNoche}</p>
+                  <p className="text-[11px] font-semibold inline-flex items-center gap-1 px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: isBest ? C.green : '#8B6A00' }}>
+                    <TrendingDown size={12} /> {ahorroEfectivo}
+                  </p>
+                  {ahorroNoches && (
+                    <p className="text-[10px] mt-2" style={{ color: C.faint }}>{ahorroNoches}</p>
+                  )}
+                </div>
               </div>
               );
             })}
           </div>
 
-          <p className="text-center text-sm mt-4" style={{ color: C.faint }}>
-            Consulta promociones y descuentos para familias y grupos.
-          </p>
-          <p className="text-center text-sm mt-2 font-semibold" style={{ color: '#8B6A00' }}>
-            Cuotas sin interés disponibles — consultanos por WhatsApp.
+          <p className="text-center text-xs mt-4" style={{ color: C.faint }}>
+            Efectivo / transferencia en 1 pago: precio con 20% de descuento. En cuotas: precio lista sin recargo financiero.
           </p>
 
           <div className="text-center mt-10" data-reveal data-delay="3">
