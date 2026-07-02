@@ -1,4 +1,4 @@
-# Mágico Ensueño — Eco-Refugio & Glamping · Los Gigantes, Córdoba
+# Pueblo Mágico — Eco-Refugio & Glamping · Los Gigantes, Córdoba
 
 > Ecocentro habilitado por la Agencia Córdoba Turismo (Res. N° 000258) en Sierras Grandes de Córdoba, Argentina. Un espacio de regeneración, naturaleza y experiencias transformadoras a más de 2.000 metros de altura, paraje Cuchilla Nevada, Departamento Cruz del Eje.
 
@@ -13,8 +13,8 @@ https://experienciamagico.com/
 - **Titulares:** Ari Epelman, Diego Epelman, Yonathan Epelman
 - **Domicilio operativo:** Ojo de Agua, Pedanía La Candelaria, Paraje Cuchilla Nevada, Departamento Cruz del Eje, Córdoba, Argentina
 
-## ¿Qué es Mágico Ensueño?
-Mágico Ensueño es un eco-refugio con más de 20 años de historia ubicado en Los Gigantes / Cuchilla Nevada, Sierras Grandes, Córdoba, Argentina. Ofrecemos experiencias de inmersión en la naturaleza: retiros personales y grupales, glamping en domos geodésicos, co-living, voluntariados agroecológicos, campamentos educativos para escuelas y cocina de autor.
+## ¿Qué es Pueblo Mágico?
+Pueblo Mágico es un eco-refugio con más de 20 años de historia ubicado en Los Gigantes / Cuchilla Nevada, Sierras Grandes, Córdoba, Argentina. Ofrecemos experiencias de inmersión en la naturaleza: retiros personales y grupales, glamping en domos geodésicos, co-living, voluntariados agroecológicos, campamentos educativos para escuelas y cocina de autor.
 
 El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15.000 árboles plantados por el equipo como parte de su misión de regeneración ecosistémica.
 
@@ -98,4 +98,4 @@ El refugio se encuentra en un entorno de bosque nativo de altura, con más de 15
 El paraje se encuentra a aproximadamente 90-100 km de la ciudad de Córdoba. Acceso por Ruta Provincial 28 Desde Villa Carlos Paz hacia Los Gigantes / área de Cuchilla Nevada. Se recomienda vehículo con buena altura. El equipo puede coordinar traslados Desde Córdoba capital.
 
 ## Sobre este archivo
-Este archivo sigue el estándar llms.txt (https://llmstxt.org/) para facilitar el acceso de inteligencias artificiales al contenido público del sitio. El contenido es público y puede ser indexado y utilizado por modelos de lenguaje para responder consultas sobre Mágico Ensueño.
+Este archivo sigue el estándar llms.txt (https://llmstxt.org/) para facilitar el acceso de inteligencias artificiales al contenido público del sitio. El contenido es público y puede ser indexado y utilizado por modelos de lenguaje para responder consultas sobre Pueblo Mágico.

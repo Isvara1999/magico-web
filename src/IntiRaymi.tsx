@@ -166,7 +166,7 @@ const IntiRaymi: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   useEffect(() => {
-    document.title = 'Festival de Solsticio de Invierno · 20 y 21 de Junio · Mágico Ensueño';
+    document.title = 'Festival de Solsticio de Invierno · 20 y 21 de Junio · Pueblo Mágico';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -677,7 +677,7 @@ const IntiRaymi: React.FC = () => {
             <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
               <img
                 src={img('/uploads/dji_0074.webp', 900)}
-                alt="Vista aérea de Mágico Ensueño"
+                alt="Vista aérea de Pueblo Mágico"
                 className="w-full aspect-[4/3] object-cover"
                 loading="lazy"
               />

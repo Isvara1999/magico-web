@@ -4,7 +4,7 @@ import { WA_MAGICO } from '../data/config';
 
 const AchalaVivaMagico: React.FC = () => {
   const consultLink = "https://wa.me/" + WA_MAGICO + "?text=" +
-    encodeURIComponent("¡Hola! Estoy organizando mi viaje para el retiro de Achala Viva y quería consultar bien la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️🗺️");
+    encodeURIComponent("¡Hola! Estoy organizando mi viaje para el retiro de Achala Viva y quería consultar bien la ubicación y cómo llegar a Pueblo Mágico en Los Gigantes. ⛰️🗺️");
 
   return (
     <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-green text-white rounded-3xl relative overflow-hidden mt-16 md:mt-24 mx-2 md:mx-0">
@@ -12,7 +12,7 @@ const AchalaVivaMagico: React.FC = () => {
     <div className="absolute inset-0 rounded-3xl backdrop-blur-sm pointer-events-none"></div>
     <div className="max-w-5xl mx-auto px-4 relative z-10">
       <div className="p-8 md:p-12 bg-white/5 backdrop-blur-sm rounded-3xl">
-        <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-10 text-center">Mágico Ensueño</h2>
+        <h2 className="text-3xl md:text-5xl serif-title mb-8 md:mb-10 text-center">Pueblo Mágico</h2>
         
           <div className="max-w-3xl mx-auto mb-10">
           <p className="text-white/95 text-base md:text-lg leading-relaxed text-center">
@@ -27,14 +27,14 @@ const AchalaVivaMagico: React.FC = () => {
               {/* Poster as fallback when iframe is blocked (Brave) */}
               <img
                 src="/uploads/img_6948.webp"
-                alt="Mágico Ensueño — Experiencia en la Montaña"
+                alt="Pueblo Mágico — Experiencia en la Montaña"
                 className="absolute inset-0 w-full h-full object-cover opacity-70"
                 loading="lazy"
               />
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
-                title="Mágico Ensueño - Experiencia en la Montaña"
+                title="Pueblo Mágico - Experiencia en la Montaña"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -72,7 +72,7 @@ const AchalaVivaMagico: React.FC = () => {
       {/* Mapa del Lugar */}
       <div className="mt-8 max-w-4xl mx-auto text-center">
         <div className="relative group cursor-zoom-in mb-12" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
-          <img src="/uploads/mapa_magico.webp" alt="Mapa de Mágico Ensueño - Los Gigantes" loading="lazy" className="w-full rounded-2xl shadow-lg" />
+          <img src="/uploads/mapa_magico.webp" alt="Mapa de Pueblo Mágico - Los Gigantes" loading="lazy" className="w-full rounded-2xl shadow-lg" />
           <div className="mt-12 mb-16 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30">
             <a href="/uploads/mapa_magico.webp" download="Mapa_Magico_Ensueno.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
             <a href={consultLink} className="btn-gold inline-block w-full sm:w-auto text-center">Consultar ubicación</a>

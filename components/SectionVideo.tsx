@@ -76,7 +76,7 @@ export const SectionVideo: React.FC = () => {
                 <iframe
                   className="absolute inset-0 w-full h-full"
                   src={getEmbedUrl(t.video.videoUrl)}
-                  title="Video de Mágico Ensueño"
+                  title="Video de Pueblo Mágico"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

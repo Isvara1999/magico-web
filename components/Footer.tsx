@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-6">
             <img
               src="/uploads/logo negro.svg"
-              alt="Mágico Ensueño"
+              alt="Pueblo Mágico"
               width="160"
               height="40"
               className="h-10 opacity-90"

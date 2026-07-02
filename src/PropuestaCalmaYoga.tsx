@@ -28,7 +28,7 @@ const ACCOUNTS = [
   },
   {
     handle: '@pueblomagico__',
-    nombre: 'Mágico Ensueño',
+    nombre: 'Pueblo Mágico',
     seguidores: '15K',
     desc: 'El espacio — una comunidad que busca experiencias transformadoras en la naturaleza',
     color: '#005333',
@@ -70,9 +70,9 @@ const EXPERIENCES = [
 ];
 
 const COSTS = [
-  { concepto: 'Hospedaje', quien: 'Mágico Ensueño', tipo: 'fijo' },
-  { concepto: 'Gastronomía completa', quien: 'Mágico Ensueño', tipo: 'fijo' },
-  { concepto: 'Espacio y salones', quien: 'Mágico Ensueño', tipo: 'fijo' },
+  { concepto: 'Hospedaje', quien: 'Pueblo Mágico', tipo: 'fijo' },
+  { concepto: 'Gastronomía completa', quien: 'Pueblo Mágico', tipo: 'fijo' },
+  { concepto: 'Espacio y salones', quien: 'Pueblo Mágico', tipo: 'fijo' },
   { concepto: 'Estrategia y copy', quien: 'Kintu', tipo: 'variable' },
   { concepto: 'Piezas visuales', quien: 'Kintu', tipo: 'variable' },
   { concepto: 'Inscripciones y logística', quien: 'Kintu', tipo: 'variable' },
@@ -167,7 +167,7 @@ const ESPACIO_IMGS = [
   { src: '/uploads/469742031_941240881439467_8316347989568757415_n.webp', alt: 'Experiencia grupal' },
   { src: '/uploads/domos_2.jpg', alt: 'Domos geodésicos' },
   { src: '/uploads/refu.webp', alt: 'Eco-Refugio' },
-  { src: '/uploads/dji_0074.webp', alt: 'Vista aérea Mágico Ensueño' },
+  { src: '/uploads/dji_0074.webp', alt: 'Vista aérea Pueblo Mágico' },
 ];
 
 const PropuestaCalmaYoga: React.FC = () => {
@@ -210,7 +210,7 @@ const PropuestaCalmaYoga: React.FC = () => {
       <div className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 backdrop-blur-md" style={{ backgroundColor: '#AA3E11' }}>
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
-            <img src="/uploads/logo blanco.svg" alt="Mágico Ensueño" className="h-6 w-auto flex-shrink-0" />
+            <img src="/uploads/logo blanco.svg" alt="Pueblo Mágico" className="h-6 w-auto flex-shrink-0" />
             <div className="w-px h-4 bg-white/20 hidden sm:block flex-shrink-0" />
             <span className="text-white/50 text-[10px] tracking-widest uppercase hidden sm:block truncate">
               Propuesta personalizada · {PROSPECT.comunidad}
@@ -225,7 +225,7 @@ const PropuestaCalmaYoga: React.FC = () => {
         {/* Foto de fondo */}
         <img
           src={img('/uploads/yoga_salon.webp', 1800)}
-          alt="Mágico Ensueño — Sierras Grandes"
+          alt="Pueblo Mágico — Sierras Grandes"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
         />
@@ -582,7 +582,7 @@ const PropuestaCalmaYoga: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 px-6 py-4 items-center bg-white border-b" style={{ borderColor: '#00533310' }}>
                 <div>
-                  <span className="text-base font-semibold text-[#2A1708]">Kintu + Mágico Ensueño</span>
+                  <span className="text-base font-semibold text-[#2A1708]">Kintu + Pueblo Mágico</span>
                   <p className="text-sm text-[#8B6347] mt-0.5">Producción + espacio + logística</p>
                 </div>
                 <span className="text-3xl font-bold serif-title text-right" style={{ color: '#005333' }}>50%</span>

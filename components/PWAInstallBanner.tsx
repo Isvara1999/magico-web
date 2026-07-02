@@ -50,7 +50,7 @@ export const PWAInstallBanner: React.FC = () => {
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-white font-bold text-sm leading-tight">Instalá la App</p>
-          <p className="text-white/60 text-[11px] leading-tight">Mágico Ensueño · Acceso offline</p>
+          <p className="text-white/60 text-[11px] leading-tight">Pueblo Mágico · Acceso offline</p>
         </div>
         <button
           onClick={handleInstall}

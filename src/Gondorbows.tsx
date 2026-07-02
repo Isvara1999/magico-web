@@ -85,9 +85,9 @@ const Gondorbows: React.FC = () => {
           "endDate": "2026-07-26",
           "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-          "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
+          "location": { "@type": "Place", "name": "Pueblo Mágico", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
           "organizer": [
-            { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+            { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://www.experienciamagico.com" },
             { "@type": "Organization", "name": "Gondor Bows", "foundingDate": "2015", "description": "Organización dedicada a recuperar el arte ancestral de la arquería tradicional." }
           ],
           "offers": { "@type": "Offer", "url": URL, "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "description": "Todo incluido: materiales, alojamiento y gastronomía completa. 10% OFF viniendo de a dos." },
@@ -302,7 +302,7 @@ const Gondorbows: React.FC = () => {
               {
                 num: '01', day: 'Viernes', title: 'Llegada & Preparación',
                 items: [
-                  'Recepción y acomodación en Mágico Ensueño',
+                  'Recepción y acomodación en Pueblo Mágico',
                   'Introducción a la tecnología primitiva',
                   'Selección del vástago de madera',
                   'Primer desbaste del arco',
@@ -426,7 +426,7 @@ const Gondorbows: React.FC = () => {
         </div>
       </section>
 
-      {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
+      {/* ====== Pueblo Mágico - UBICACIÓN ====== */}
       <GondorbowsMagico />
 
       {/* ====== PRECIOS ====== */}

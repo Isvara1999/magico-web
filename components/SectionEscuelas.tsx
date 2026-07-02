@@ -26,7 +26,7 @@ export const SectionEscuelas: React.FC = () => {
                 />
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/R5c5r9dNR_M?autoplay=1&mute=1&controls=0&loop=1&playlist=R5c5r9dNR_M&modestbranding=1&showinfo=0&vq=hd1080&playsinline=1"
-                  title="Video de Aula Verde — Mágico Ensueño"
+                  title="Video de Aula Verde — Pueblo Mágico"
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
                   loading="lazy"

@@ -8,7 +8,7 @@ export const NotFound: React.FC = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    document.title = '404 — Página no encontrada | Mágico Ensueño';
+    document.title = '404 — Página no encontrada | Pueblo Mágico';
     window.scrollTo(0, 0);
   }, []);
 

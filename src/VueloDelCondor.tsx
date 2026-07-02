@@ -81,7 +81,7 @@ const VueloDelCondorContent: React.FC = () => {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Mágico Ensueño",
+        "name": "Pueblo Mágico",
         "url": SITE_URL
       },
       "offers": {

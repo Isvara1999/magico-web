@@ -12,7 +12,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 
 export const TerminosYCondiciones: React.FC = () => {
   useEffect(() => {
-    document.title = 'Términos y Condiciones — Mágico Ensueño';
+    document.title = 'Términos y Condiciones — Pueblo Mágico';
     window.scrollTo(0, 0);
   }, []);
 
@@ -33,7 +33,7 @@ export const TerminosYCondiciones: React.FC = () => {
           <span className="text-gray-200">|</span>
           <img
             src="/uploads/logo negro.svg"
-            alt="Mágico Ensueño"
+            alt="Pueblo Mágico"
             className="h-7 opacity-80"
           />
         </div>
@@ -59,7 +59,7 @@ export const TerminosYCondiciones: React.FC = () => {
             <strong>Razón social:</strong> HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA
           </p>
           <p>
-            <strong>Nombre comercial:</strong> Mágico Ensueño — Eco-Refugio & Glamping
+            <strong>Nombre comercial:</strong> Pueblo Mágico — Eco-Refugio & Glamping
           </p>
           <p>
             <strong>Domicilio legal:</strong> Calle Aconquija 635, Villa Allende, Departamento Colón, Provincia de Córdoba, República Argentina.
@@ -89,7 +89,7 @@ export const TerminosYCondiciones: React.FC = () => {
 
         <Section title="2. Naturaleza de la relación y del sitio web">
           <p>
-            El sitio web <em>experienciamagico.com</em> es un canal informativo. No cuenta con carrito de compras ni pasarela de pago en línea. La información publicada tiene por fin describir las experiencias, alojamientos y retiros que ofrece Mágico Ensueño.
+            El sitio web <em>experienciamagico.com</em> es un canal informativo. No cuenta con carrito de compras ni pasarela de pago en línea. La información publicada tiene por fin describir las experiencias, alojamientos y retiros que ofrece Pueblo Mágico.
           </p>
           <p>
             El contrato de reserva o prestación de servicio se perfecciona Desde que el/la consumidor/a confirma la aceptación de la propuesta remitida por WhatsApp o correo electrónico, y el prestador confirma la disponibilidad.
@@ -171,7 +171,7 @@ export const TerminosYCondiciones: React.FC = () => {
 
         <Section title="7. Normativa turística — Ley 25.997 y provincia de Córdoba">
           <p>
-            Mágico Ensueño opera conforme a la Ley Nacional de Turismo N° 25.997 y su reglamentación, así como a la normativa provincial y municipal de hospedaje turístico de la Provincia de Córdoba.
+            Pueblo Mágico opera conforme a la Ley Nacional de Turismo N° 25.997 y su reglamentación, así como a la normativa provincial y municipal de hospedaje turístico de la Provincia de Córdoba.
           </p>
           <p>
             <strong>Inscripción ante autoridad de turismo:</strong> Resolución N° 000258 — Agencia Córdoba Turismo (14 ABR 2025). Clase: Alojamiento Alternativo. 3 Habitaciones Compartidas, 3 Domos, 1 Yurta — 48 plazas.

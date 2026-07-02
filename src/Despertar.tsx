@@ -162,7 +162,7 @@ const Despertar: React.FC = () => {
   const [openDay, setOpenDay] = useState<number | null>(0);
 
   useEffect(() => {
-    document.title = 'DESPERTAR — Retiro de 4 días · 9 al 12 de Octubre · Mágico Ensueño';
+    document.title = 'DESPERTAR — Retiro de 4 días · 9 al 12 de Octubre · Pueblo Mágico';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }

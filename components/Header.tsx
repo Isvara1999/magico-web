@@ -156,7 +156,7 @@ export const Header: React.FC = () => {
           }}>
             <img
               src="/uploads/logo negro.svg"
-              alt="Mágico Ensueño"
+              alt="Pueblo Mágico"
               width="65"
               height="65"
               className={logoClasses}

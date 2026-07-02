@@ -10,11 +10,11 @@ const BENEFICIOS = [
 const GondorbowsMagico: React.FC = () => {
   const consultLink =
     'https://wa.me/' + WA_GONDOR + '?text=' +
-    encodeURIComponent('¡Hola Fausto! Estoy organizando mi viaje para el retiro de Gondorbows y quería consultar la ubicación y cómo llegar a Mágico Ensueño en Los Gigantes. ⛰️');
+    encodeURIComponent('¡Hola Fausto! Estoy organizando mi viaje para el retiro de Gondorbows y quería consultar la ubicación y cómo llegar a Pueblo Mágico en Los Gigantes. ⛰️');
 
   return (
     <>
-      {/* ── Mágico Ensueño: ubicación ── */}
+      {/* ── Pueblo Mágico: ubicación ── */}
       <section className="py-20 md:py-32 px-6 bg-brand text-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
@@ -23,7 +23,7 @@ const GondorbowsMagico: React.FC = () => {
             <div>
               <p className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-5">El lugar</p>
               <h2 className="text-4xl md:text-5xl serif-title text-white leading-[1.05] mb-6">
-                Mágico Ensueño
+                Pueblo Mágico
               </h2>
               <p className="text-white/70 text-base md:text-lg leading-relaxed mb-10" style={{ maxWidth: '44ch' }}>
                 En el corazón de <span className="text-gold font-semibold">Los Gigantes, Córdoba</span>, a 1 h de Tanti y 1:30 h de Villa Carlos Paz. La montaña habla en silencio; la comunidad que te acompaña lo dice todo.
@@ -56,7 +56,7 @@ const GondorbowsMagico: React.FC = () => {
                   <iframe
                     className="w-full h-full"
                     src="https://www.youtube-nocookie.com/embed/hxE7Ksy7IsY?autoplay=1&mute=1&loop=1&playlist=hxE7Ksy7IsY"
-                    title="Mágico Ensueño — La montaña"
+                    title="Pueblo Mágico — La montaña"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

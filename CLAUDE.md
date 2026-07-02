@@ -1,4 +1,4 @@
-# Mágico Ensueño — magico-ensueno
+# Pueblo Mágico — magico-ensueno
 
 ## Commands
 ```

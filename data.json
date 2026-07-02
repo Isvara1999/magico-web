@@ -3,7 +3,7 @@
     "experiences": {
       "tag": "En Mágico",
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
-      "intro_p1": "En Mágico Ensueño, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
+      "intro_p1": "En Pueblo Mágico, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
       "intro_p2": "Ya recibimos viajeros de todo el mundo. Somos el destino ideal para quienes buscan un <b>Coworking con alma</b> o un retiro personal autoguiado: el <b>Reset Vital</b>.",
       "badge_accommodation": "Alojamiento",
       "card_extra_text": "También podés solo alojarte si querés.",
@@ -58,7 +58,7 @@
     },
     "volunteer": {
       "title": "Un refugio <span class='italic text-green'>internacional</span>",
-      "description": "Recibimos voluntarios y viajeros de todo el mundo. La energía de Mágico Ensueño se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
+      "description": "Recibimos voluntarios y viajeros de todo el mundo. La energía de Pueblo Mágico se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
       "btn": "POSTULARME",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -88,7 +88,7 @@
     "retreats": {
       "tag": "Experiencias Grupales",
       "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
-      "description": "Abrimos el espacio, el equipo y la energía de Mágico Ensueño para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
+      "description": "Abrimos el espacio, el equipo y la energía de Pueblo Mágico para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
       "btn": "ORGANIZAR RETIRO",
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
@@ -122,7 +122,7 @@
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
-      "p1": "Mágico Ensueño es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, llevamos más de 25 años construyendo este espacio. Hoy es un refugio internacional que ha recibido a viajeros de todo el mundo, siendo un hogar para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
+      "p1": "Pueblo Mágico es mucho más que un lugar; es una experiencia para habitar con todos los sentidos, donde la naturaleza marca el ritmo. Ubicado en el corazón de las Sierras Grandes, llevamos más de 25 años construyendo este espacio. Hoy es un refugio internacional que ha recibido a viajeros de todo el mundo, siendo un hogar para el descanso, la conexión y el Buen Vivir, en armonía con la naturaleza y la vida en comunidad.",
       "p2": "Combinamos colaboración genuina, bienestar y un enfoque regenerativo en cada acción que realizamos. Cada árbol plantado y cada plato servido cuentan una historia de amor, cuidado y respeto por la Tierra y el ecosistema que nos sostiene.",
       "link": "Nuestra manera de Ser y Hacer",
       "image": "/uploads/dji_0074.webp",
@@ -398,7 +398,7 @@
           "href": "/escuelas"
         }
       ],
-      "copyright": "Mágico Ensueño Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
+      "copyright": "Pueblo Mágico Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Hecho con respeto a la montaña"
     },
     "cookieBanner": {
@@ -411,7 +411,7 @@
     },
     "familion": {
       "seo": {
-        "title": "Familión — Experiencias en Familia · Los Gigantes, Córdoba | Mágico Ensueño",
+        "title": "Familión — Experiencias en Familia · Los Gigantes, Córdoba | Pueblo Mágico",
         "description": "3 días de desconexión urbana y reconexión familiar en la montaña. Talleres, caminatas y vida silvestre para todas las edades."
       },
       "hero": {
@@ -721,7 +721,7 @@
     },
     "aula_verde": {
       "seo": {
-        "title": "Aula Verde — Campamentos Educativos en Córdoba | Mágico Ensueño",
+        "title": "Aula Verde — Campamentos Educativos en Córdoba | Pueblo Mágico",
         "description": "Campamentos educativos en Los Gigantes, Córdoba. Biología, geología, astronomía y sustentabilidad con especialistas en campo abierto. Para escuelas de primaria y secundaria."
       },
       "invitation": {
@@ -869,7 +869,7 @@
             "Reciclar",
             "Recuperar"
           ],
-          "practice_title": "Cómo lo vivimos en Mágico Ensueño",
+          "practice_title": "Cómo lo vivimos en Pueblo Mágico",
           "practice_text": "Integramos estos principios en nuestra operación diaria: compostaje, energía solar y materiales recuperados. Todavía estamos en proceso, y eso también lo transmitimos: la economía circular es un camino de mejora continua, no un destino."
         }
       },
@@ -892,12 +892,12 @@
         ]
       },
       "magico": {
-        "wa_query": "¡Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Mágico Ensueño para mi institución.",
-        "title": "Mágico Ensueño",
+        "wa_query": "¡Hola! Vengo de la web de Aula Verde y quiero consultar sobre los programas educativos en Pueblo Mágico para mi institución.",
+        "title": "Pueblo Mágico",
         "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un espacio con más de 25 años de historia que ha recibido instituciones educativas de toda Argentina.",
         "infra_title": "Infraestructura para grupos",
         "infra_text": "Salón principal para 60 personas, cocina equipada, dormitorios grupales, sanitarios con agua caliente y espacios al aire libre para todas las actividades del programa.",
-        "video_title": "Mágico Ensueño — Experiencia en la Montaña",
+        "video_title": "Pueblo Mágico — Experiencia en la Montaña",
         "benefits_title": "Por qué las escuelas nos eligen",
         "benefits": [
           {
@@ -916,7 +916,7 @@
         "strengthen_title": "Fortalecer el grupo",
         "strengthen_text": "Cada actividad está diseñada para trabajar la confianza, la comunicación y el trabajo en equipo. Los chicos vuelven con lazos más fuertes.",
         "reforest_title": "Plantamos juntos",
-        "reforest_text": "Durante todo el año estamos reforestando el lugar y ya superamos los 15.000 árboles plantados. Venir a Mágico Ensueño también aporta de forma directa a este gran objetivo ambiental. El 10% de tu inversión se destina a reforestar tabaquillos y restaurar las sierras.",
+        "reforest_text": "Durante todo el año estamos reforestando el lugar y ya superamos los 15.000 árboles plantados. Venir a Pueblo Mágico también aporta de forma directa a este gran objetivo ambiental. El 10% de tu inversión se destina a reforestar tabaquillos y restaurar las sierras.",
         "footer_text": "Acceso para micros y vehículos escolares hasta la entrada del lugar.",
         "safety_items": [
           {
@@ -934,7 +934,7 @@
         ],
         "gallery_title": "La experiencia en imágenes",
         "gallery_subtitle": "Grupos que ya vivieron el Aula Verde en Los Gigantes",
-        "map_alt": "Mapa de Mágico Ensueño - Los Gigantes, Córdoba",
+        "map_alt": "Mapa de Pueblo Mágico - Los Gigantes, Córdoba",
         "map_download": "Descargar Mapa",
         "map_consult": "Consultar ubicación"
       },
@@ -1005,7 +1005,7 @@
             "audio_text": "Escuchá el audio de Marcelo"
           },
           {
-            "text": "El equipo de Mágico Ensueño es profesional y cálido a la vez. Se adaptaron a todos nuestros requerimientos institucionales y el programa fue impecable.",
+            "text": "El equipo de Pueblo Mágico es profesional y cálido a la vez. Se adaptaron a todos nuestros requerimientos institucionales y el programa fue impecable.",
             "name": "Federico T.",
             "role": "Director",
             "extra_role": "Colegio Racing Club de Córdoba",
@@ -1021,7 +1021,7 @@
             "audio_text": "Escuchá el audio completo de Alejandro"
           },
           {
-            "text": "La experiencia superó nuestras expectativas. Los chicos volvieron transformados. La metodología de Mágico Ensueño conecta con el aprendizaje experiencial que buscamos como escuela Waldorf.",
+            "text": "La experiencia superó nuestras expectativas. Los chicos volvieron transformados. La metodología de Pueblo Mágico conecta con el aprendizaje experiencial que buscamos como escuela Waldorf.",
             "name": "Cinthia B.",
             "role": "Docente",
             "extra_role": "Escuela Waldorf El Trigal",
@@ -1078,7 +1078,7 @@
         "title": "¿Necesitás compartirlo con la directora o tu equipo?",
         "subtitle": "Sabemos que organizar la salida requiere que varias personas lo aprueben. Por eso diseñamos una presentación institucional lista para enviar por WhatsApp o mail.",
         "items": [
-          "<strong>Quiénes somos:</strong> La visión detrás de Mágico Ensueño y nuestra reserva en Los Gigantes.",
+          "<strong>Quiénes somos:</strong> La visión detrás de Pueblo Mágico y nuestra reserva en Los Gigantes.",
           "<strong>Cronograma tipo:</strong> Cómo se estructura el Día 1, Día 2, actividades guiadas y tiempos libres.",
           "<strong>Qué incluye:</strong> Detalles de gastronomía, infraestructura, y personal a cargo (no incluye precios, para garantizar flexibilidad según el grupo)."
         ],
@@ -1208,7 +1208,7 @@
     },
     "vuelo_condor": {
       "seo": {
-        "title": "El Vuelo del Cóndor — Un viaje iniciático en Perú | Mágico Ensueño",
+        "title": "El Vuelo del Cóndor — Un viaje iniciático en Perú | Pueblo Mágico",
         "description": "7 días para elevar tu consciencia en el Valle Sagrado de los Incas. Del 22 al 29 de Julio."
       },
       "video": {
@@ -1504,32 +1504,32 @@
         {
           "title": "Emprendedores y Creativos",
           "desc": "Para nómades digitales, artistas, músicos, escritores y emprendedores que buscan un entorno de concentración real, conectividad Starlink y una comunidad que inspire.",
-          "wa": "Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Mágico Ensueño 💻"
+          "wa": "Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Pueblo Mágico 💻"
         },
         {
           "title": "El profesional en burnout",
           "desc": "Necesitás salir del ruido urbano y resetear. Comida real, montaña, silencio y espacios para volver a vos.",
-          "wa": "Hola! Busco un retiro de descanso en Mágico Ensueño. ¿Cuándo tienen disponibilidad?"
+          "wa": "Hola! Busco un retiro de descanso en Pueblo Mágico. ¿Cuándo tienen disponibilidad?"
         },
         {
           "title": "La pareja",
           "desc": "Buscan una escapada romántica diferente. Domo geodésico, cielo estrellado, fogón y cocina de autor en la montaña.",
-          "wa": "Hola! Queremos ir en pareja a Mágico Ensueño. ¿Tienen domos disponibles y cuál es el precio?"
+          "wa": "Hola! Queremos ir en pareja a Pueblo Mágico. ¿Tienen domos disponibles y cuál es el precio?"
         },
         {
           "title": "El buscador en tránsito",
           "desc": "Estás en un momento de transformación y buscás comunidad, propósito y un espacio que acompañe el proceso.",
-          "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Mágico Ensueño. ¿Podemos hablar?"
+          "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Pueblo Mágico. ¿Podemos hablar?"
         },
         {
           "title": "Grupos y Familias",
           "desc": "Para tu grupo de amigos y amigas, o grupos familiares que incluyen a tu tío, abuelos, padres e hijos. Buscan desconectar de las pantallas y reconectar en la montaña.",
-          "wa": "Hola! Queremos ir en grupo o familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?"
+          "wa": "Hola! Queremos ir en grupo o familia a Pueblo Mágico. ¿Qué opciones de alojamiento tienen?"
         },
         {
           "title": "El ciudadano del mundo",
           "desc": "Buscás nutrirte de otras culturas sin tomarte un avión. Disfrutás de compartir un fogón con viajeros y voluntarios de todas partes del mundo.",
-          "wa": "Hola! Me encanta la vibra internacional de Mágico Ensueño. ¿Qué opciones de estadía tienen?"
+          "wa": "Hola! Me encanta la vibra internacional de Pueblo Mágico. ¿Qué opciones de estadía tienen?"
         }
       ]
     },
@@ -1546,7 +1546,7 @@
         },
         {
           "q": "¿Necesito experiencia previa en retiros o meditación?",
-          "a": "Para nada. Mágico Ensueño no es un centro de meditación formal — es un ecocentro vivo donde cada persona encuentra su propio ritmo. Podés venir a trabajar remoto, descansar, explorar la naturaleza o simplemente estar."
+          "a": "Para nada. Pueblo Mágico no es un centro de meditación formal — es un ecocentro vivo donde cada persona encuentra su propio ritmo. Podés venir a trabajar remoto, descansar, explorar la naturaleza o simplemente estar."
         },
         {
           "q": "¿Hay señal o internet en la montaña?",
@@ -1563,7 +1563,7 @@
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
-      "intro_p1": "At Mágico Ensueño, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
+      "intro_p1": "At Pueblo Mágico, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
       "intro_p2": "We have already hosted travelers from all over the world. We are the ideal destination for those seeking a <b>Coworking with soul</b> or a self-guided personal retreat: the <b>Reset Vital</b>.",
       "badge_accommodation": "Accommodation",
       "card_extra_text": "You can also just book accommodation if you wish.",
@@ -1618,7 +1618,7 @@
     },
     "volunteer": {
       "title": "An <span class='italic text-green'>international</span> haven",
-      "description": "We receive volunteers and travelers from all over the world. The energy of Mágico Ensueño is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
+      "description": "We receive volunteers and travelers from all over the world. The energy of Pueblo Mágico is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
       "btn": "Apply",
       "image": "/uploads/voluntarios.webp",
       "link": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
@@ -1648,7 +1648,7 @@
     "retreats": {
       "tag": "Group Experiences",
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
-      "description": "We open the space, the team and the energy of Mágico Ensueño to Co-create retreats, gatherings and days in deep contact with nature.",
+      "description": "We open the space, the team and the energy of Pueblo Mágico to Co-create retreats, gatherings and days in deep contact with nature.",
       "btn": "Organize Retreat",
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "list": [
@@ -1682,7 +1682,7 @@
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Mágico Ensueño is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
+      "p1": "Pueblo Mágico is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
       "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
       "link": "Our way of Being and Doing",
       "image": "/uploads/dji_0074.webp",
@@ -1936,7 +1936,7 @@
           "href": "/escuelas"
         }
       ],
-      "copyright": "Mágico Ensueño Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
+      "copyright": "Pueblo Mágico Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
       "madeBy": "Made with respect for the mountain"
     },
     "cookieBanner": {
@@ -2407,7 +2407,7 @@
             "Recycle",
             "Recover"
           ],
-          "practice_title": "How we live it at Mágico Ensueño",
+          "practice_title": "How we live it at Pueblo Mágico",
           "practice_text": "We integrate these principles into our daily operation: composting, solar energy and recovered materials. We are still on the path ourselves, and that is part of what we teach: circular economy is a continuous improvement journey, not a destination."
         }
       },
@@ -2435,7 +2435,7 @@
         ]
       },
       "magico": {
-        "wa_query": "Hi! I'm coming from the Aula Verde website and would like to ask about the educational programmes at Mágico Ensueño for my institution.",
+        "wa_query": "Hi! I'm coming from the Aula Verde website and would like to ask about the educational programmes at Pueblo Mágico for my institution.",
         "title": "Magico Ensueno",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
         "infra_title": "Infrastructure for groups",
@@ -2459,7 +2459,7 @@
         "strengthen_title": "Strengthen the group",
         "strengthen_text": "Every activity is designed to work on trust, communication, and teamwork. Students return with stronger bonds.",
         "reforest_title": "We plant together",
-        "reforest_text": "Throughout the year we are reforesting the land and have already planted over 15,000 trees. Visiting Mágico Ensueño directly contributes to this great environmental goal. 10% of your investment goes to reforesting tabaquillos and restoring the sierras.",
+        "reforest_text": "Throughout the year we are reforesting the land and have already planted over 15,000 trees. Visiting Pueblo Mágico directly contributes to this great environmental goal. 10% of your investment goes to reforesting tabaquillos and restoring the sierras.",
         "footer_text": "Road access for coaches and school vehicles right to the entrance of the property.",
         "safety_items": [
           {
@@ -2548,7 +2548,7 @@
             "audio_text": "Listen to Marcelo's audio"
           },
           {
-            "text": "The Mágico Ensueño team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
+            "text": "The Pueblo Mágico team is professional and warm at the same time. They adapted to all our institutional requirements and the program was impeccable.",
             "name": "Federico T.",
             "role": "Director",
             "extra_role": "Colegio Racing Club de Córdoba",
@@ -2564,7 +2564,7 @@
             "audio_text": "Listen to Alejandro's full audio"
           },
           {
-            "text": "The experience exceeded our expectations. The kids came back transformed. Mágico Ensueño's methodology connects with the experiential learning we seek as a Waldorf school.",
+            "text": "The experience exceeded our expectations. The kids came back transformed. Pueblo Mágico's methodology connects with the experiential learning we seek as a Waldorf school.",
             "name": "Cinthia B.",
             "role": "Teacher",
             "extra_role": "Escuela Waldorf El Trigal",
@@ -2616,7 +2616,7 @@
         "title": "Need to share it with the principal or your team?",
         "subtitle": "We know that organizing the trip requires approval from multiple people. That is why we designed an institutional presentation ready to send by WhatsApp or email.",
         "items": [
-          "<strong>Who we are:</strong> The vision behind Mágico Ensueño and our nature reserve in Los Gigantes.",
+          "<strong>Who we are:</strong> The vision behind Pueblo Mágico and our nature reserve in Los Gigantes.",
           "<strong>Sample schedule:</strong> How Day 1 and Day 2 are structured — guided activities and free time.",
           "<strong>What is included:</strong> Dining, infrastructure, and staff details (no prices, to allow flexibility per group)."
         ],
@@ -3044,32 +3044,32 @@
         {
           "title": "Entrepreneurs & Creatives",
           "desc": "For digital nomads, artists, musicians, writers, and entrepreneurs seeking a real focus environment, Starlink connectivity, and an inspiring community.",
-          "wa": "Hi! I am an entrepreneur/creative and want to inquire about co-living at Mágico Ensueño 💻"
+          "wa": "Hi! I am an entrepreneur/creative and want to inquire about co-living at Pueblo Mágico 💻"
         },
         {
           "title": "The burned-out professional",
           "desc": "You need to escape the urban noise and reset. Real food, mountain air, silence and space to return to yourself.",
-          "wa": "Hi! I am looking for a rest retreat at Mágico Ensueño. When do you have availability?"
+          "wa": "Hi! I am looking for a rest retreat at Pueblo Mágico. When do you have availability?"
         },
         {
           "title": "The couple",
           "desc": "Looking for a different romantic getaway. Geodesic dome, starry sky, firepit and gourmet cooking in the mountains.",
-          "wa": "Hi! We want to go as a couple to Mágico Ensueño. Do you have domes available and what is the price?"
+          "wa": "Hi! We want to go as a couple to Pueblo Mágico. Do you have domes available and what is the price?"
         },
         {
           "title": "The seeker in transition",
           "desc": "You are in a moment of transformation and looking for community, purpose and a space that supports the process.",
-          "wa": "Hi! I am interested in learning more about retreats and co-living at Mágico Ensueño. Can we talk?"
+          "wa": "Hi! I am interested in learning more about retreats and co-living at Pueblo Mágico. Can we talk?"
         },
         {
           "title": "Groups & Families",
           "desc": "For your group of friends or extended family (grandparents, parents, children, uncles). Looking to disconnect from screens and reconnect in the mountains.",
-          "wa": "Hi! We want to go as a group or family to Mágico Ensueño. What accommodation options do you have?"
+          "wa": "Hi! We want to go as a group or family to Pueblo Mágico. What accommodation options do you have?"
         },
         {
           "title": "The world citizen",
           "desc": "You want to absorb other cultures without boarding a plane. You enjoy sharing a firepit with travelers and volunteers from all over the world.",
-          "wa": "Hi! I love the international vibe at Mágico Ensueño. What stay options do you have?"
+          "wa": "Hi! I love the international vibe at Pueblo Mágico. What stay options do you have?"
         }
       ]
     },
@@ -3086,7 +3086,7 @@
         },
         {
           "q": "Do I need prior experience with retreats or meditation?",
-          "a": "Not at all. Mágico Ensueño is not a formal meditation center — it is a living eco-center where each person finds their own rhythm. You can come to work remotely, rest, explore nature or simply be."
+          "a": "Not at all. Pueblo Mágico is not a formal meditation center — it is a living eco-center where each person finds their own rhythm. You can come to work remotely, rest, explore nature or simply be."
         },
         {
           "q": "Is there signal or internet in the mountains?",

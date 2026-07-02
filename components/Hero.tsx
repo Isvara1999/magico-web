@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
         <div className="mb-5 md:mb-7">
           <img
             src="/uploads/logo negro.svg"
-            alt="Mágico Ensueño"
+            alt="Pueblo Mágico"
             width="900"
             height="900"
             className="h-16 md:h-22 w-auto mx-auto brightness-0 invert opacity-95 drop-shadow-2xl"

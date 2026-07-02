@@ -7,7 +7,7 @@ const INCLUYE = [
   'Gastronomía completa (pensión completa)',
   'Todas las herramientas y materiales',
   'Guía experta durante todo el proceso',
-  'Alojamiento 3 noches en Mágico Ensueño',
+  'Alojamiento 3 noches en Pueblo Mágico',
   'Experiencia inmersiva en la sierra',
 ];
 

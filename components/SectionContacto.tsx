@@ -127,7 +127,7 @@ export const SectionContacto = () => {
                 <a href="/terminos-y-condiciones" target="_blank" className="text-brand hover:underline">Términos y Condiciones</a>{' '}
                 y la{' '}
                 <a href="/politica-de-privacidad" target="_blank" className="text-brand hover:underline">Política de Privacidad</a>.
-                Autorizo a Mágico Ensueño a contactarme por WhatsApp o email con información sobre disponibilidad, ofertas y novedades.
+                Autorizo a Pueblo Mágico a contactarme por WhatsApp o email con información sobre disponibilidad, ofertas y novedades.
               </span>
             </label>
 

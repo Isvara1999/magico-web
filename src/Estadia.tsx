@@ -17,14 +17,14 @@ import { ROUTES } from './routes';
 const WA = (msg: string) =>
   `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
 
-const WA_ESTADIA = WA('Hola! Vengo de la web y quiero consultar una estadía en Mágico Ensueño ✨');
+const WA_ESTADIA = WA('Hola! Vengo de la web y quiero consultar una estadía en Pueblo Mágico ✨');
 
 // ── Sección Hero ─────────────────────────────────────────────────────────────
 const Hero: React.FC = () => (
   <section className="relative h-[92vh] min-h-[600px] w-full flex items-end overflow-hidden">
     <img
       src="/uploads/hero-estadia.webp"
-      alt="Mágico Ensueño — vista del campo"
+      alt="Pueblo Mágico — vista del campo"
       className="absolute inset-0 w-full h-full object-cover object-center"
       fetchPriority="high"
       decoding="async"
@@ -103,7 +103,7 @@ const ALOJAMIENTOS = [
     desc: 'Dormir dentro de una esfera geométrica en plena montaña. Ventanas panorámicas al cielo, cama matrimonial, ropa blanca incluida. La experiencia de glamping más completa del refugio.',
     image: '/uploads/domos.webp',
     details: ['Programa Reset Vital', 'Cama matrimonial', 'Ropa blanca y toallas', 'Vista panorámica', 'Para 1 o 2 personas'],
-    wa: WA('Hola! Quiero consultar disponibilidad de un Domo Geodésico en Mágico Ensueño ✨'),
+    wa: WA('Hola! Quiero consultar disponibilidad de un Domo Geodésico en Pueblo Mágico ✨'),
   },
   {
     name: 'Habitación Compartida',
@@ -112,7 +112,7 @@ const ALOJAMIENTOS = [
     desc: 'Espacios compartidos diseñados para fomentar la comunidad. Ideal para viajeros solos que quieren conectar con otras personas en un entorno de co-living genuino.',
     image: '/uploads/habitaciones.webp',
     details: ['Programa Reset Vital', 'Camas individuales', 'Baño compartido', 'Ambiente comunitario', 'Opción más accesible'],
-    wa: WA('Hola! Quiero consultar disponibilidad en las Habitaciones Compartidas de Mágico Ensueño 🏡'),
+    wa: WA('Hola! Quiero consultar disponibilidad en las Habitaciones Compartidas de Pueblo Mágico 🏡'),
   },
   {
     name: 'Camping',
@@ -121,7 +121,7 @@ const ALOJAMIENTOS = [
     desc: 'Instalá tu carpa en pleno campo y dormí bajo las estrellas de los Gigantes. Para quienes buscan la experiencia más cruda y auténtica de la montaña. Duchas calientes y baños disponibles.',
     image: '/uploads/exterior.webp',
     details: ['Programa Reset Vital', 'Traé tu carpa', 'Duchas calientes y baños', 'Fogón comunitario', 'La más económica'],
-    wa: WA('Hola! Quiero consultar sobre el camping en Mágico Ensueño ⛺'),
+    wa: WA('Hola! Quiero consultar sobre el camping en Pueblo Mágico ⛺'),
   },
 ];
 
@@ -223,7 +223,7 @@ const RitmoDeLaSemana: React.FC = () => (
         <div data-reveal data-delay="3" className="relative group rounded-3xl overflow-hidden shadow-lg hidden lg:block">
           <img 
             src="/uploads/coworking.webp" 
-            alt="Área de coworking y trabajo remoto en Mágico Ensueño" 
+            alt="Área de coworking y trabajo remoto en Pueblo Mágico" 
             className="w-full h-full object-cover aspect-[4/5] group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
@@ -269,37 +269,37 @@ const AVATARES = [
     icon: <Laptop className="w-6 h-6" weight="duotone" />,
     perfil: 'Emprendedores y Creativos',
     desc: 'Nómades, emprendedores, artistas, músicos y escritores. Buscás un entorno de concentración real, conectividad Starlink y comunidad que inspire.',
-    wa: WA('Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Mágico Ensueño 💻'),
+    wa: WA('Hola! Soy emprendedor/creativo y quiero consultar sobre el co-living en Pueblo Mágico 💻'),
   },
   {
     icon: <ChartLineUp className="w-6 h-6" weight="duotone" />,
     perfil: 'El profesional en burnout',
     desc: 'Necesitás parar. No un spa de fin de semana: algo que te resetee de verdad. El Reset Vital te da herramientas concretas para bajar el ritmo y volver con claridad.',
-    wa: WA('Hola! Necesito un reset y quiero saber más sobre las estadías en Mágico Ensueño 🌿'),
+    wa: WA('Hola! Necesito un reset y quiero saber más sobre las estadías en Pueblo Mágico 🌿'),
   },
   {
     icon: <HeartStraight className="w-6 h-6" weight="duotone" />,
     perfil: 'La pareja',
     desc: 'Querés reconectar sin distracciones. Comida rica, paisaje brutal, intimidad. Sin itinerario forzado, sin actividades grupales si no querés. Solo tiempo de calidad juntos.',
-    wa: WA('Hola! Somos una pareja y queremos consultar una estadía en Mágico Ensueño 💚'),
+    wa: WA('Hola! Somos una pareja y queremos consultar una estadía en Pueblo Mágico 💚'),
   },
   {
     icon: <Compass className="w-6 h-6" weight="duotone" />,
     perfil: 'El buscador en tránsito',
     desc: 'Estás en un momento de cambio y necesitás espacio para escucharte. El silencio de la montaña, las caminatas y las herramientas del Reset Vital te acompañan en el proceso.',
-    wa: WA('Hola! Estoy en un momento de búsqueda personal y me interesa una estadía en Mágico Ensueño 🧭'),
+    wa: WA('Hola! Estoy en un momento de búsqueda personal y me interesa una estadía en Pueblo Mágico 🧭'),
   },
   {
     icon: <UsersThree className="w-6 h-6" weight="duotone" />,
     perfil: 'Grupos y Familias',
     desc: 'Para tu grupo de amigos y amigas, o grupos familiares que incluyen a tu tío, abuelos, padres e hijos. Buscan desconectar de las pantallas y reconectar en la montaña.',
-    wa: WA('Hola! Queremos ir en grupo o familia a Mágico Ensueño. ¿Qué opciones de alojamiento tienen?'),
+    wa: WA('Hola! Queremos ir en grupo o familia a Pueblo Mágico. ¿Qué opciones de alojamiento tienen?'),
   },
   {
     icon: <Globe className="w-6 h-6" weight="duotone" />,
     perfil: 'El ciudadano del mundo',
     desc: 'Buscás nutrirte de otras culturas sin tomarte un avión. Disfrutás de compartir un fogón con viajeros y voluntarios de todas partes del mundo.',
-    wa: WA('Hola! Me encanta la vibra internacional de Mágico Ensueño. ¿Qué opciones de estadía tienen?'),
+    wa: WA('Hola! Me encanta la vibra internacional de Pueblo Mágico. ¿Qué opciones de estadía tienen?'),
   },
 ];
 
@@ -516,7 +516,7 @@ const CTAFinal: React.FC = () => (
           Escribinos por WhatsApp y en menos de 24 horas te damos disponibilidad, precios y cualquier consulta que tengas.
         </p>
         <p className="text-dark/40 text-xs mb-8 font-light">
-          Mágico Ensueño · Habilitación Agencia Córdoba Turismo N° 000258 · CUIT 30-71875586-3
+          Pueblo Mágico · Habilitación Agencia Córdoba Turismo N° 000258 · CUIT 30-71875586-3
         </p>
         <a
           href={WA_ESTADIA}
@@ -541,7 +541,7 @@ const CTAFinal: React.FC = () => (
 // ── Página principal ──────────────────────────────────────────────────────────
 const Estadia: React.FC = () => {
   useEffect(() => {
-    const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Mágico Ensueño';
+    const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Pueblo Mágico';
     const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $${ESTADIA_PRICES.base.toLocaleString('es-AR')}/noche.`;
     const URL = SITE_URL + ROUTES.ESTADIA;
     const IMG = `${SITE_URL}/uploads/campoentero.webp`;
@@ -585,7 +585,7 @@ const Estadia: React.FC = () => {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'LodgingBusiness',
-      'name': 'Mágico Ensueño — Estadías & Glamping',
+      'name': 'Pueblo Mágico — Estadías & Glamping',
       'description': DESC,
       'url': URL,
       'image': IMG,

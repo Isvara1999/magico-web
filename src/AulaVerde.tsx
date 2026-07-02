@@ -72,12 +72,12 @@ const AulaVerdeContent: React.FC = () => {
         {
           "@type": "EducationalOccupationalProgram",
           "name": TITLE,
-          "provider": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+          "provider": { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://www.experienciamagico.com" },
           "description": DESC,
           "serviceType": language === 'es' ? "Campamento educativo" : "Educational camp",
           "areaServed": { "@type": "Country", "name": "Argentina" },
           "url": URL,
-          "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } }
+          "location": { "@type": "Place", "name": "Pueblo Mágico", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } }
         },
         {
           "@type": "FAQPage",

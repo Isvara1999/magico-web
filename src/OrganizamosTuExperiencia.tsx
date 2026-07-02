@@ -20,7 +20,7 @@ const C = {
 };
 
 const WA_HREF = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(
-  '¡Hola! Me gustaría explorar la posibilidad de organizar una experiencia con Mágico Ensueño. ¿Podemos hablar?'
+  '¡Hola! Me gustaría explorar la posibilidad de organizar una experiencia con Pueblo Mágico. ¿Podemos hablar?'
 )}`;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -168,7 +168,7 @@ const ACCOUNTS = [
   },
   {
     handle: '@pueblomagico__',
-    nombre: 'Mágico Ensueño',
+    nombre: 'Pueblo Mágico',
     seguidores: '15K',
     desc: 'El espacio — una comunidad que busca experiencias transformadoras en la naturaleza.',
     color: C.green,
@@ -226,8 +226,8 @@ const SLIDE_BASE: number[] = (() => {
 
 // ─── Space photo carousel ──────────────────────────────────────────────────────
 const SPACE_IMGS = [
-  { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', alt: 'Experiencia grupal en Mágico Ensueño' },
-  { src: '/uploads/dji_0074.webp',   alt: 'Vista aérea Mágico Ensueño' },
+  { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', alt: 'Experiencia grupal en Pueblo Mágico' },
+  { src: '/uploads/dji_0074.webp',   alt: 'Vista aérea Pueblo Mágico' },
   { src: '/uploads/domos_2.jpg',     alt: 'Domos geodésicos' },
   { src: '/uploads/refu.webp',       alt: 'Eco-Refugio' },
   { src: '/uploads/exterior.webp',   alt: 'Exterior del eco-centro' },
@@ -239,7 +239,7 @@ const OrganizamosTuExperiencia: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
 
   useEffect(() => {
-    document.title = 'Organizamos tu Experiencia — Mágico Ensueño';
+    document.title = 'Organizamos tu Experiencia — Pueblo Mágico';
     const obs = new IntersectionObserver(
       (entries) => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -269,7 +269,7 @@ const OrganizamosTuExperiencia: React.FC = () => {
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <img
           src={img('/uploads/dji_0074.webp', 1800)}
-          alt="Mágico Ensueño — Sierras Grandes de Córdoba"
+          alt="Pueblo Mágico — Sierras Grandes de Córdoba"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
         />
@@ -681,7 +681,7 @@ const OrganizamosTuExperiencia: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 px-6 py-4 items-center bg-white">
                 <div>
-                  <span className="text-base font-semibold" style={{ color: C.dark }}>Kintu + Mágico Ensueño</span>
+                  <span className="text-base font-semibold" style={{ color: C.dark }}>Kintu + Pueblo Mágico</span>
                   <p className="text-sm mt-0.5" style={{ color: C.faint }}>Producción + espacio + logística</p>
                 </div>
                 <span className="text-xl font-bold serif-title text-right italic" style={{ color: C.green }}>A acordar</span>

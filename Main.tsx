@@ -42,7 +42,7 @@ const Main: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const TITLE = 'Mágico Ensueño — Eco‑Refugio & Glamping · Los Gigantes, Córdoba';
+    const TITLE = 'Pueblo Mágico — Eco‑Refugio & Glamping · Los Gigantes, Córdoba';
     const DESC  = 'Ecocentro en Sierras Grandes de Córdoba: retiros, co-living, glamping en domos geodésicos, voluntariados y cocina de autor. 20 años regenerando la montaña.';
     const URL   = SITE_URL + ROUTES.HOME;
     const IMG   = `${SITE_URL}/uploads/img_6948.webp`;
@@ -92,7 +92,7 @@ const Main: React.FC = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": ["LodgingBusiness", "TouristAttraction"],
-      "name": "Mágico Ensueño",
+      "name": "Pueblo Mágico",
       "description": DESC,
       "url": URL,
       "image": IMG,

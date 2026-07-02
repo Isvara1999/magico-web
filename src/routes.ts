@@ -19,4 +19,5 @@ export const ROUTES = {
   PROPUESTA_NICO_GRUPE: '/propuesta/nico-grupe',
   DESPERTAR: '/despertar',
   WINTER_CAMP: '/winter-camp',
+  WINTER_REDIRECTION: '/winter-redirection',
 };

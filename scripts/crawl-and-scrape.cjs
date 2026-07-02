@@ -170,7 +170,7 @@ async function main() {
   await browser.close();
 
   // --- BUILD MARKDOWN ---
-  let md = `# Contenido Web — Mágico Ensueño\n`;
+  let md = `# Contenido Web — Pueblo Mágico\n`;
   md += `> Extraído el ${new Date().toLocaleDateString('es-AR')} Desde ${BASE_URL}\n\n`;
   md += `## URLs rastreadas\n\n`;
   md += urlList.map(u => `- ${u}`).join('\n') + '\n\n---\n\n';

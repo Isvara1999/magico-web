@@ -78,7 +78,7 @@ const DossierAulaVerde = () => (
       
       {/* Footer Fijo que se imprimirá en todas las hojas que el PDF genere */}
       <View fixed style={styles.footer}>
-        <Text style={styles.footerText}>Mágico Ensueño | Dossier Aula Verde</Text>
+        <Text style={styles.footerText}>Pueblo Mágico | Dossier Aula Verde</Text>
         <Text style={styles.footerText} render={({ pageNumber, totalPages }) => `Página ${pageNumber} de ${totalPages}`} />
       </View>
 
@@ -92,7 +92,7 @@ const DossierAulaVerde = () => (
 
       <Text style={styles.sectionTitle}>¿Quiénes Somos?</Text>
       <Text style={styles.text}>
-        Mágico Ensueño es un eco-refugio premium en Sierras Grandes, concebido para brindar experiencias vivenciales desconectadas de las pantallas y 100% integradas a la naturaleza, enfocadas en el aprendizaje dinámico y el desarrollo personal grupal.
+        Pueblo Mágico es un eco-refugio premium en Sierras Grandes, concebido para brindar experiencias vivenciales desconectadas de las pantallas y 100% integradas a la naturaleza, enfocadas en el aprendizaje dinámico y el desarrollo personal grupal.
       </Text>
 
       <Text style={styles.sectionTitle}>Nuestra Propuesta Diferencial</Text>
@@ -157,7 +157,7 @@ const DossierAulaVerde = () => (
       </View>
 
       <Text style={styles.sectionTitle}>Confían en Nosotros</Text>
-      <Text style={styles.text}>Un reflejo del amor y la dedicación que todo el equipo de Mágico Ensueño pone en cada visita educacional. Algunas instituciones que nos eligen:</Text>
+      <Text style={styles.text}>Un reflejo del amor y la dedicación que todo el equipo de Pueblo Mágico pone en cada visita educacional. Algunas instituciones que nos eligen:</Text>
       
       <View style={styles.institutionsFlexBox}>
         <View style={styles.institutionLogoBox}>

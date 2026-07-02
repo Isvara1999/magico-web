@@ -12,8 +12,8 @@ export default defineConfig({
       injectRegister: null,
       includeAssets: ['favicon.svg', 'robots.txt'],
       manifest: {
-        name: 'Mágico Ensueño',
-        short_name: 'Mágico Ensueño',
+        name: 'Pueblo Mágico',
+        short_name: 'Pueblo Mágico',
         description: 'Ecocentro en Sierras Grandes de Córdoba: retiros, glamping, campamentos educativos y voluntariados en la montaña.',
         theme_color: '#FDFBF7',
         background_color: '#FDFBF7',

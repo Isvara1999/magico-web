@@ -36,7 +36,7 @@ export const SectionNosotros: React.FC = () => {
               <div className="rounded-xl overflow-hidden shadow-md relative aspect-[4/3]">
                 <img
                   src={images[currentIndex]}
-                  alt="Vista Mágico Ensueño"
+                  alt="Vista Pueblo Mágico"
                   className="w-full h-full object-cover transition-[transform,opacity] duration-500"
                   loading="lazy"
                 />

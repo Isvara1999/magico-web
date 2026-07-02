@@ -86,8 +86,8 @@ const AchalaViva: React.FC = () => {
       "description": "Retiro de inmersión total de 2 días en la Sierra de Achala. Astroturismo, avistaje de aves con guía biológica, fotografía en la naturaleza y descanso en eco-refugio.",
       "startDate": "2026-05-09",
       "endDate": "2026-05-10",
-      "location": { "@type": "Place", "name": "Mágico Ensueño", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
-      "organizer": { "@type": "Organization", "name": "Mágico Ensueño", "url": "https://www.experienciamagico.com" },
+      "location": { "@type": "Place", "name": "Pueblo Mágico", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
+      "organizer": { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://www.experienciamagico.com" },
       "performer": { "@type": "Person", "name": "Walter Eugenio Cejas", "jobTitle": "Biólogo e investigador de vida silvestre", "description": "Guía experto en biodiversidad de la Sierra de Achala, astroturismo y avistaje de aves." },
       "offers": { "@type": "Offer", "price": "150000", "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "url": URL },
       "image": IMG,
@@ -313,7 +313,7 @@ const AchalaViva: React.FC = () => {
               </div>
               <div className="divide-y divide-[#EDEBE3] md:pl-12">
                 {[
-                  "Recepción y acomodación en Mágico Ensueño",
+                  "Recepción y acomodación en Pueblo Mágico",
                   "Almuerzo de bienvenida",
                   "Taller de Fotografía en la naturaleza",
                   "Charla–taller de Astroturismo y Ecoturismo",
@@ -424,7 +424,7 @@ const AchalaViva: React.FC = () => {
         </div>
       </section>
 
-      {/* ====== MÁGICO ENSUEÑO - UBICACIÓN ====== */}
+      {/* ====== Pueblo Mágico - UBICACIÓN ====== */}
       <AchalaVivaMagico />
 
       {/* ====== PRECIOS ====== */}

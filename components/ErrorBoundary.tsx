@@ -18,7 +18,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#F9F8F4', padding: '2rem', textAlign: 'center' }}>
-          <img src="/uploads/logo negro.svg" alt="Mágico Ensueño" style={{ height: 40, marginBottom: 32, opacity: 0.7 }} />
+          <img src="/uploads/logo negro.svg" alt="Pueblo Mágico" style={{ height: 40, marginBottom: 32, opacity: 0.7 }} />
           <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.5rem', color: '#005333', marginBottom: 8 }}>
             Algo salió mal
           </p>

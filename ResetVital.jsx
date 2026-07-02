@@ -221,12 +221,12 @@ export default function ResetVitalApp() {
           {/* Logo blanco arriba */}
           <img
             src="/uploads/logo blanco.svg"
-            alt="Mágico Ensueño"
+            alt="Pueblo Mágico"
             className="h-12 md:h-14 w-auto object-contain opacity-80 mb-8 drop-shadow-lg print:hidden"
           />
           <img
             src="/uploads/logo negro.svg"
-            alt="Mágico Ensueño"
+            alt="Pueblo Mágico"
             className="hidden print:block h-12 w-auto object-contain mb-6"
           />
 
@@ -877,7 +877,7 @@ export default function ResetVitalApp() {
             <div className="relative group cursor-zoom-in max-w-4xl mx-auto rounded-xl overflow-hidden border border-stone-100 shadow-md" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
               <img
                 src="/uploads/mapa_magico.webp"
-                alt="Mapa de Mágico Ensueño"
+                alt="Mapa de Pueblo Mágico"
                 className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/15 rounded-xl">

@@ -11,7 +11,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 
 export const PoliticaPrivacidad: React.FC = () => {
   useEffect(() => {
-    document.title = 'Política de Privacidad — Mágico Ensueño';
+    document.title = 'Política de Privacidad — Pueblo Mágico';
     window.scrollTo(0, 0);
   }, []);
 
@@ -32,7 +32,7 @@ export const PoliticaPrivacidad: React.FC = () => {
           <span className="text-gray-200">|</span>
           <img
             src="/uploads/logo negro.svg"
-            alt="Mágico Ensueño"
+            alt="Pueblo Mágico"
             className="h-7 opacity-80"
           />
         </div>
@@ -58,7 +58,7 @@ export const PoliticaPrivacidad: React.FC = () => {
             <strong>Razón social:</strong> HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA
           </p>
           <p>
-            <strong>Nombre comercial:</strong> Mágico Ensueño — Eco-Refugio & Glamping
+            <strong>Nombre comercial:</strong> Pueblo Mágico — Eco-Refugio & Glamping
           </p>
           <p>
             <strong>CUIT:</strong> 30-71875586-3
