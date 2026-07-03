@@ -65,7 +65,7 @@ const ANFITRIONES: TeamMember[] = [
     photo: '/uploads/Diego_perfil.png',
     nombre: 'Diego Epelman Hodara',
     rol: 'Anfitrión del espacio',
-    desc: 'Host principal de Pueblo Mágico. Crea el clima de confianza, escucha y apertura desde el que todo lo demás es posible.',
+    desc: 'Fundador del Pueblo Mágico. Crea el clima de confianza, escucha y apertura desde el que todo lo demás es posible.',
     instagram: 'https://www.instagram.com/diegoepel/',
     tag: 'Anfitrión',
   },

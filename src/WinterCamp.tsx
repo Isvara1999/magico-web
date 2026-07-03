@@ -59,29 +59,17 @@ const PRECIOS: PriceTier[] = [
 ];
 
 // ─── Equipo ─────────────────────────────────────────────────────────────────────
-type TeamMember = { photo: string; nombre: string; rol: string; desc: string; instagram?: string; linkedin?: string };
+type TeamMember = { photo: string; nombre: string; rol: string; desc: string; instagram?: string; linkedin?: string; tags?: string[] };
 
 const TEAM: TeamMember[] = [
   {
-    photo: '/uploads/Diego_perfil.png',
-    nombre: 'Diego Epelman Hodara',
-    rol: 'Host principal de Pueblo Mágico',
-    desc: 'Emprendedor, Facilitador & Guía de Dinámicas de Alto Impacto. Sostén energético del Winter Camp desde los fogones, los círculos y la presencia.',
-    instagram: 'https://www.instagram.com/diegoepel/',
-  },
-  {
-    photo: '/uploads/china.jpeg',
-    nombre: 'China Dericia',
-    rol: 'Anfitriona del Pueblo',
-    desc: 'Profe de Yoga & Facilitadora de Movimiento Consciente. Consciencia corporal, meditaciones y canto — guía el cuerpo y la energía del grupo.',
-    instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
-  },
-  {
-    photo: '/uploads/tomas-bergallo.jpg',
-    nombre: 'Tomás Bergallo',
-    rol: 'Consciencia corporal & masajes',
-    desc: 'Creador de espacios de bienestar. Acompaña procesos de relajación y reconexión a través del contacto, la risa y el abrazo.',
-    instagram: 'https://www.instagram.com/tomas.bergallo/',
+    photo: '/uploads/isvara-rojas.jpg',
+    nombre: 'Isvara Rojas Romero',
+    rol: 'Host de emprendedores y creativos',
+    desc: 'Estratega polímata y Growth Engineer. Conecta la innovación tecnológica y el diseño de vanguardia con filosofías ancestrales de la Tierra. Guía a creativos en la creación de arquitecturas de conversión y negocios soberanos desde la acción real.',
+    instagram: 'https://www.instagram.com/isvara_strategist/',
+    linkedin: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/',
+    tags: ['KINTU', 'PUEBLO MÁGICO'],
   },
   {
     photo: '/uploads/luz-candela.jpg',
@@ -89,34 +77,16 @@ const TEAM: TeamMember[] = [
     rol: 'Mentora de emprendedores/as & profesionales',
     desc: 'Coach Integral & Mentora de Marcas Personales. Creadora de la Comunidad Mujeres Amatistas. Instructora de Yoga, meditación y pranayamas.',
     instagram: 'https://www.instagram.com/mujeramatistaa/',
-  },
-  {
-    photo: '/uploads/santiago-alzogaray.png',
-    nombre: 'Santiago Alzogaray',
-    rol: 'Ceremonia de Temazcal',
-    desc: 'Conducción del ritual de purificación, uno de los momentos centrales del Winter Camp.',
+    tags: ['KINTU', 'PUEBLO MÁGICO'],
   },
   {
     photo: '/uploads/tomas-fossatti.jpg',
     nombre: 'Tomás Fossatti',
     rol: 'Host de emprendedores/as',
-    desc: 'Ingeniero, emprendedor y speaker de TEDx. Construye proyectos donde la tecnología y el propósito se encuentran.',
+    desc: 'Ingeniero en innovación y desarrollo, emprendedor y speaker de TEDx. Product Engineer R&D y AI builder. Construye sistemas agénticos recursivos en la intersección de la tecnología y el propósito.',
     instagram: 'https://www.instagram.com/tomasfossatti_/',
     linkedin: 'https://www.linkedin.com/in/tomas-fossatti-ing',
-  },
-  {
-    photo: '/uploads/isvara-rojas.jpg',
-    nombre: 'Isvara Rojas Romero',
-    rol: 'Host de emprendedores/as',
-    desc: 'Estratega de Innovación y Growth Engineer. Une el mundo del bienestar con la tecnología.',
-    instagram: 'https://www.instagram.com/isvara_strategist/',
-    linkedin: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/',
-  },
-  {
-    photo: '/uploads/Walter_E._Cejas.jpg',
-    nombre: 'Walter Eugenio Cejas',
-    rol: 'Biólogo · Investigador · Vida Silvestre',
-    desc: 'Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. Guía avistaje de aves, flora y fauna en la montaña.',
+    tags: ['KINTU', 'PUEBLO MÁGICO'],
   },
   {
     photo: '/uploads/nicole-rosignoli.webp',
@@ -124,6 +94,45 @@ const TEAM: TeamMember[] = [
     rol: 'Psicología · Gestalt · Salud Cíclica',
     desc: 'Licenciada en Psicología (UNC). Acompaña desde el enfoque gestáltico y la salud cíclica, integrando plantas medicinales, movimiento corporal y círculos de mujeres.',
     instagram: 'https://www.instagram.com/thematriiz/',
+    tags: ['PUEBLO MÁGICO'],
+  },
+  {
+    photo: '/uploads/tomas-bergallo.jpg',
+    nombre: 'Tomás Bergallo',
+    rol: 'Consciencia corporal & masajes',
+    desc: 'Creador de espacios de bienestar. Acompaña procesos de relajación y reconexión a través del contacto, la risa y el abrazo.',
+    instagram: 'https://www.instagram.com/tomas.bergallo/',
+    tags: ['ESPECIALISTA'],
+  },
+  {
+    photo: '/uploads/santiago-alzogaray.png',
+    nombre: 'Santiago Alzogaray',
+    rol: 'Ceremonia de Temazcal',
+    desc: 'Conducción del ritual de purificación, uno de los momentos centrales del Winter Camp.',
+    tags: ['ESPECIALISTA'],
+  },
+  {
+    photo: '/uploads/Walter_E._Cejas.jpg',
+    nombre: 'Walter Eugenio Cejas',
+    rol: 'Biólogo · Investigador · Vida Silvestre',
+    desc: 'Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. Guía avistaje de aves, flora y fauna en la montaña.',
+    tags: ['ESPECIALISTA'],
+  },
+  {
+    photo: '/uploads/Diego_perfil.png',
+    nombre: 'Diego Epelman Hodara',
+    rol: 'Fundador de Pueblo Mágico',
+    desc: 'Emprendedor, Facilitador & Guía de Dinámicas de Alto Impacto. Sostén energético del Winter Camp desde los fogones, los círculos y la presencia.',
+    instagram: 'https://www.instagram.com/diegoepel/',
+    tags: ['KINTU', 'PUEBLO MÁGICO'],
+  },
+  {
+    photo: '/uploads/china.jpeg',
+    nombre: 'China Dericia',
+    rol: 'Anfitriona del Pueblo',
+    desc: 'Profe de Yoga & Facilitadora de Movimiento Consciente. Consciencia corporal, meditaciones y canto — guía el cuerpo y la energía del grupo.',
+    instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
+    tags: ['PUEBLO MÁGICO'],
   },
 ];
 
@@ -285,8 +294,12 @@ const WinterCamp: React.FC = () => {
             Durante todo el mes de julio abrimos nuestro eco-centro en el corazón de la montaña para compartir el invierno en comunidad, alrededor del fuego, en plena presencia y conexión. Venís y te vas cuando quieras. Pensión completa desde $63.000 por noche en efectivo.
           </p>
 
-          <p className="text-white/45 text-xs sm:text-sm mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
+          <p className="text-white/45 text-xs sm:text-sm mb-3 md:mb-5 max-w-lg md:max-w-2xl leading-relaxed">
             Exclusivo para disfrutar las vacaciones en familia y para emprendedores, artistas y creativos que buscan frenar, inspirarse, enfocarse y compartir momentos de calidad en comunidad. Tenemos un cronograma de actividades para que te sumes a la que quieras, a tu ritmo.
+          </p>
+          <p className="text-white/55 text-xs sm:text-sm italic mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
+            Para los que esperaron todo el año que llegara el frío.<br />
+            Y para los que lo están viviendo muy adentro.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -333,7 +346,7 @@ const WinterCamp: React.FC = () => {
             </p>
             <blockquote className="text-2xl md:text-4xl serif-title leading-relaxed mb-4" style={{ color: C.dark }}>
               El invierno no es solamente una pausa.<br />
-              <span style={{ color: '#8B6A00' }}>Es un portal hacia tu creatividad.</span>
+              <span style={{ color: '#8B6A00' }}>Es un portal hacia vos.</span>
             </blockquote>
             <p className="text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
               La naturaleza se aquieta, el frío invita a ir hacia adentro y el fuego vuelve a reunirnos. En Pueblo Mágico creemos que este es un tiempo para bajar un cambio, reconectar con la alegría de estar vivos y recordar lo esencial: <strong style={{ color: C.dark }}>SER</strong>. Por eso abrimos las puertas de nuestro hogar… y de nuestra familia.
@@ -341,11 +354,14 @@ const WinterCamp: React.FC = () => {
           </div>
 
           <div className="mt-12" data-reveal data-delay="1">
-            <p className="text-center text-[10px] tracking-[0.4em] uppercase font-semibold mb-6" style={{ color: '#8B6A00' }}>
-              Anfitriones y guardianes del espacio
+            <p className="text-center text-[10px] tracking-[0.4em] uppercase font-semibold mb-3" style={{ color: '#8B6A00' }}>
+              Los guardianes del Pueblo
+            </p>
+            <p className="text-center text-sm leading-relaxed max-w-lg mx-auto mb-6" style={{ color: C.muted }}>
+              Diego y China no son anfitriones de temporada. Viven acá, todo el año. Son los primeros habitantes permanentes de Pueblo Mágico.
             </p>
             <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-              {TEAM.slice(0, 2).map(({ photo, nombre, rol, desc, instagram }) => (
+              {TEAM.filter(m => m.nombre === 'Diego Epelman Hodara' || m.nombre === 'China Dericia').map(({ photo, nombre, rol, desc, instagram }) => (
                 <div key={nombre} className="flex items-start gap-4 rounded-2xl p-5 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(255,255,255,0.72)' }}>
                   <img src={img(photo, 120)} alt={nombre} className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
                   <div>
@@ -378,6 +394,9 @@ const WinterCamp: React.FC = () => {
             <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.dark }}>
               La montaña te espera<br />si te identificás con alguna de estas opciones
             </h2>
+            <p className="text-sm md:text-base leading-relaxed max-w-xl mx-auto mt-4" style={{ color: C.muted }}>
+              Tanto si amás el invierno y querés vivirlo al máximo, como si estás atravesando un momento de proceso y necesitás pausa, comunidad y naturaleza — acá hay un lugar para vos.
+            </p>
           </div>
 
           {/* 4 cards positivas — grid 2×2 */}
@@ -447,7 +466,13 @@ const WinterCamp: React.FC = () => {
                 Si sentís que necesitás inspiración, re-conexión con tu propósito o hacer hiperfoco, las condiciones del Pueblo son ideales: contamos con internet y espacios amplios para crear tu burbuja creativa, avanzar en tus metas y también hacer networking. Aplica también para socios y equipos.
               </p>
               <ul className="space-y-1.5">
-                {['Silencio de montaña que trae claridad y revela oportunidades', 'Caminatas conscientes para oxigenar las ideas y alinearte con tu propósito', 'Starlink: el mejor internet disponible', 'Comida casera, rica y saludable para recargar energía'].map(i => (
+                {[
+                  'Silencio de montaña que trae claridad y revela oportunidades',
+                  'Caminatas conscientes para oxigenar las ideas y alinearte con tu propósito',
+                  'Starlink: el mejor internet disponible',
+                  'Comida casera, rica y saludable para recargar energía',
+                  'Mentoría en movimiento: Espacios orgánicos con el equipo del Pueblo Mágico o Kintu (Isvara, Luz, Tomi, Diego, China, Nicole) entre otros miembros según disponibilidad para desbloquear tus proyectos, ordenar tus ideas de negocio y pasar de la planificación a la acción real.',
+                ].map(i => (
                   <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
                     <span className="mt-0.5 flex-shrink-0" style={{ color: '#8B6A00' }}>✓</span>{i}
                   </li>
@@ -487,18 +512,52 @@ const WinterCamp: React.FC = () => {
         </div>
       </section>
 
+      {/* ── FAMILIA ── */}
+      <section
+        className="py-20 md:py-28 px-6 relative overflow-hidden"
+        style={{
+          backgroundImage: `url('/uploads/Invierno/20250629_132707.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+        }}
+      >
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,83,51,0.88)' }} />
+        <div className="max-w-4xl mx-auto text-center relative z-10" data-reveal>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[100px] pointer-events-none" style={{ backgroundColor: 'rgba(212,175,55,0.2)' }} />
+          <div className="relative z-10">
+            <div className="flex justify-center mb-6">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
+                <Heart size={22} color={C.gold} />
+              </div>
+            </div>
+            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-5" style={{ color: 'rgba(212,175,55,0.8)' }}>
+              Familia
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title text-white mb-5">
+              Creemos en la familia como base, refugio y medicina
+            </h2>
+            <p className="text-base leading-relaxed max-w-xl mx-auto mb-6 text-white/70">
+              Por eso diseñamos esta experiencia para que grandes y chicos puedan habitar juntos la montaña, compartir tiempo de calidad y crear recuerdos reales.
+            </p>
+            <p className="font-serif italic text-lg" style={{ color: C.gold }}>
+              Acá la familia no es un segmento. Es el corazón.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOGATA ── */}
-      <section className="py-16 md:py-20 px-6 bg-white">
+      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: '#FDF7F0' }}>
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className="flex-1 order-2 md:order-1" data-reveal>
             <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6" style={{ color: C.fire }}>
-              La tribu se reúne al caer la noche
+              El ritual del Pueblo
             </p>
             <h2 className="text-3xl md:text-4xl serif-title leading-snug mb-6" style={{ color: C.dark }}>
               El frío nos acerca.<br />El fuego nos une.
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
-              En Pueblo Mágico tenemos un ritual: cada noche nos reunimos para concluir y agradecer nuestro día alrededor de una fogata, bajo la luna y las estrellas. Nos fundimos entre guitarras, tambores, historias, silencio, algo calentito, y el chisporroteo de la leña de monte nativo. No hay nada más cálido y placentero que compartir un fogón en la simpleza de una noche en la montaña.
+              La fogata es el corazón del Pueblo — y tiene muchas formas. A veces es una noche entera de guitarras, tambores y leña de monte nativo bajo las estrellas. Otras veces es un grupo chico adentro del salón, con algo calentito y una charla que dura hasta tarde. El formato cambia según el clima, el grupo y el momento. Pero la invitación es siempre la misma: parar, juntarse y estar presentes. Hay muy pocos rituales más simples y más poderosos que ese.
             </p>
             <a
               href={WA_INFO}
@@ -525,20 +584,20 @@ const WinterCamp: React.FC = () => {
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.dark }}>
         <div className="max-w-4xl mx-auto text-center" data-reveal>
           <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6" style={{ color: C.gold }}>
-            Una experiencia transformadora de verdad
+            El antes y el después
           </p>
           <h2 className="text-2xl md:text-4xl serif-title text-white leading-snug mb-4">
-            Winter Camp es una invitación a experimentar<br />la montaña desde un nuevo lugar.
+            Llegás siendo una persona.<br />Te vas siendo otra.
           </h2>
           <p className="text-base md:text-lg mb-14 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            No venís solo a alojarte en un lugar lindo… venís a ser parte de una experiencia transformadora de verdad.
+            Cada estadía deja una marca. Estas son algunas de las transformaciones que vivieron quienes estuvieron en Pueblo Mágico.
           </p>
           <div className="grid sm:grid-cols-2 gap-4 text-left" data-reveal data-delay="1">
             {[
-              { antes: 'Llegás siendo una persona', despues: 'te vas siendo otra.' },
+              { antes: 'Venís muy mental', despues: 'te vas más conectado/a con tu cuerpo.' },
               { antes: 'Venís estresado/a', despues: 'te vas recargado/a.' },
               { antes: 'Venís con bloqueos creativos', despues: 'te vas lleno/a de inspiración.' },
-              { antes: 'Venís muy mental', despues: 'te vas más conectado/a con tu cuerpo.' },
+              { antes: 'Llegás huyendo del malestar', despues: 'te vas aprendiendo a navegarlo.' },
             ].map(({ antes, despues }) => (
               <div key={antes} className="rounded-2xl p-5 border flex items-start gap-4" style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <div className="flex-shrink-0 w-1 self-stretch rounded-full" style={{ backgroundColor: C.gold }} />
@@ -632,7 +691,7 @@ const WinterCamp: React.FC = () => {
             {[
               { Icon: Flame, title: 'Fogones y espacios de encuentro', desc: 'Espacios de encuentro alrededor del fuego, todos los días.' },
               { Icon: Flame, title: 'Ceremonias ancestrales y Temazcal', desc: 'Rituales en la naturaleza: Temazcal y otras ceremonias de purificación y conexión.' },
-              { Icon: Mountain, title: 'Caminatas conscientes', desc: 'Recorridos por la montaña, a tu ritmo y con presencia.' },
+              { Icon: Footprints, title: 'Caminatas y running en la montaña', desc: 'Recorridos conscientes y circuitos de 5k / 10k+ — disponibles todos los días para moverse a tu ritmo.' },
               { Icon: Heart, title: 'Descanso, introspección y relajación', desc: 'Espacios para frenar, relajarte y mirar hacia adentro.' },
               { Icon: Users, title: 'Actividades en comunidad', desc: 'Círculos de palabra, armonizaciones sonoras y dinámicas compartidas para generar vínculos reales.' },
               { Icon: Star, title: 'Experiencias para todas las edades', desc: 'Yoga, movimiento consciente y juegos para infancias — algo para cada uno.' },
@@ -719,7 +778,6 @@ const WinterCamp: React.FC = () => {
               <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
                 {[
                   { Icon: Footprints, title: 'Trekking con guías' },
-                  { Icon: Footprints, title: 'Circuitos de running · 5k / 10k+' },
                   { Icon: PawPrint, title: 'Cabalgatas' },
                   { Icon: Heart, title: 'Masajes y terapias' },
                   { Icon: Compass, title: 'Sesiones 1 a 1' },
@@ -848,7 +906,7 @@ const WinterCamp: React.FC = () => {
       </section>
 
       {/* ── EQUIPO ── */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F0F7F4' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
@@ -859,14 +917,30 @@ const WinterCamp: React.FC = () => {
               El equipo del Winter Camp
             </h2>
             <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
-              Las personas que sostienen el espacio, los fogones y las dinámicas de cada día.
+              Facilitadores y guardianes que sostienen la experiencia. Nos cruzaremos con ellos alrededor del fuego en diferentes momentos del mes, según el cronograma y las fechas de tu estadía.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5" data-reveal data-delay="1">
-            {TEAM.map(({ photo, nombre, rol, desc, instagram, linkedin }) => (
+            {TEAM.map(({ photo, nombre, rol, desc, instagram, linkedin, tags }) => (
               <div key={nombre} className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-                <img src={img(photo, 200)} alt={nombre} className="w-14 h-14 rounded-full object-cover mb-5" loading="lazy" />
+                <img src={img(photo, 200)} alt={nombre} className="w-14 h-14 rounded-full object-cover mb-4" loading="lazy" />
+                {tags && tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {tags.map(tag => (
+                      <span key={tag} className="text-[8px] font-bold tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border"
+                        style={
+                          tag === 'KINTU'
+                            ? { backgroundColor: 'rgba(212,175,55,0.1)', color: '#8B6A00', borderColor: 'rgba(212,175,55,0.3)' }
+                            : tag === 'PUEBLO MÁGICO'
+                            ? { backgroundColor: 'rgba(0,83,51,0.07)', color: C.green, borderColor: 'rgba(0,83,51,0.2)' }
+                            : { backgroundColor: 'rgba(46,110,142,0.07)', color: C.ice, borderColor: 'rgba(46,110,142,0.2)' }
+                        }>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <p className="font-bold text-base mb-1" style={{ color: C.dark }}>{nombre}</p>
                 <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: C.green }}>{rol}</p>
                 <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
@@ -899,7 +973,7 @@ const WinterCamp: React.FC = () => {
               <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-4" style={{ color: 'rgba(212,175,55,0.8)' }}>Una coproducción de</p>
               <h3 className="text-2xl md:text-3xl serif-title text-white mb-4">Pueblo Mágico × Kintu</h3>
               <p className="text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-6 text-white/70">
-                KINTU es una productora pionera en experiencias transformadoras que diseña viajes y procesos con corazón y propósito. Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia.
+                KINTU es un equipo y una productora pionera en experiencias transformadoras integrada por Isvara, Diego, Tomi y Luz, que diseña viajes y procesos con corazón y propósito. Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia. Cada retiro y dinámica en este Winter Camp tiene el propósito de acompañarte a habitar una vida más activa, consciente y conectada con lo esencial.
               </p>
               <a href="https://www.instagram.com/somoskintu_/" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-2.5 transition-colors hover:bg-white/10"
@@ -913,7 +987,7 @@ const WinterCamp: React.FC = () => {
       </section>
 
       {/* ── EL LUGAR ── */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.night }}>
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div data-reveal>
@@ -1244,37 +1318,26 @@ const WinterCamp: React.FC = () => {
         </div>
       </section>
 
-      {/* ── FAMILIA ── */}
+      {/* ── FILOSOFÍA INVIERNO ── */}
       <section
-        className="py-20 md:py-28 px-6 relative overflow-hidden"
+        className="py-24 md:py-36 px-6 relative overflow-hidden"
         style={{
-          backgroundImage: `url('/uploads/Invierno/20250629_132707.webp')`,
+          backgroundImage: `url('/uploads/Invierno/20250627_222558.webp')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,83,51,0.88)' }} />
-        <div className="max-w-4xl mx-auto text-center relative z-10" data-reveal>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[100px] pointer-events-none" style={{ backgroundColor: 'rgba(212,175,55,0.2)' }} />
-          <div className="relative z-10">
-            <div className="flex justify-center mb-6">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
-                <Heart size={22} color={C.gold} />
-              </div>
-            </div>
-            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-5" style={{ color: 'rgba(212,175,55,0.8)' }}>
-              Familia
-            </p>
-            <h2 className="text-3xl md:text-4xl serif-title text-white mb-5">
-              Creemos en la familia como base, refugio y medicina
-            </h2>
-            <p className="text-base leading-relaxed max-w-xl mx-auto mb-6 text-white/70">
-              Por eso diseñamos esta experiencia para que grandes y chicos puedan habitar juntos la montaña, compartir tiempo de calidad y crear recuerdos reales.
-            </p>
-            <p className="font-serif italic text-lg" style={{ color: C.gold }}>
-              Acá la familia no es un segmento. Es el corazón.
-            </p>
-          </div>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,8,22,0.92) 0%, rgba(4,8,22,0.88) 100%)' }} />
+        <div className="max-w-3xl mx-auto text-center relative z-10" data-reveal>
+          <p className="text-lg md:text-xl font-light leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            El invierno, aunque no parezca, sí es para todos.
+          </p>
+          <p className="text-3xl md:text-5xl serif-title text-white leading-snug mb-8">
+            Perderte es igual de importante<br />que encontrarte.
+          </p>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            Viniste a vivir el invierno.<br />El invierno vino a enseñarte algo.
+          </p>
         </div>
       </section>
 
@@ -1301,6 +1364,9 @@ const WinterCamp: React.FC = () => {
           </p>
           <p className="font-serif italic mb-4" style={{ color: C.gold }}>
             El viaje es reconectar con vos, con gente linda y con todo lo que está bien.
+          </p>
+          <p className="text-sm italic mb-8" style={{ color: 'rgba(255,255,255,0.45)' }}>
+            Venís por el invierno. Pero también viene el invierno por vos.
           </p>
           <p className="text-base font-semibold mb-10 text-white/80">
             Te esperamos en Pueblo Mágico.

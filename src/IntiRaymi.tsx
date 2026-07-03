@@ -623,7 +623,7 @@ const IntiRaymi: React.FC = () => {
               <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-4" style={{ color: 'rgba(212,175,55,0.8)' }}>Una producción de</p>
               <h3 className="text-2xl md:text-3xl serif-title text-white mb-4">Kintu</h3>
               <p className="text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-6 text-white/70">
-                KINTU es una productora pionera en experiencias transformadoras que diseña viajes y procesos con corazón y propósito. Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia.
+                KINTU es un equipo y una productora pionera en experiencias transformadoras integrada por Isvara, Diego, Tomi y Luz, que diseña viajes y procesos con corazón y propósito. Inspirada en la cosmovisión andina —donde el kintu es una ofrenda—, cada experiencia nace desde la intención, el cuidado y la coherencia. Cada retiro y dinámica en este Winter Camp tiene el propósito de acompañarte a habitar una vida más activa, consciente y conectada con lo esencial.
               </p>
               <a href="https://www.instagram.com/somoskintu_/" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-2.5 transition-colors hover:bg-white/10"
