@@ -296,7 +296,7 @@ const WinterRedirection: React.FC = () => {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
             <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70">
-              Julio 2026 · Los Gigantes, Córdoba
+              Invierno 2026 · julio · agosto · septiembre
             </span>
             <span className="inline-block px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold"
               style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}>
@@ -317,7 +317,7 @@ const WinterRedirection: React.FC = () => {
             Un mes para ver el mapa completo cuando el ruido del día a día tapa la perspectiva.
           </p>
           <p className="text-white/45 text-xs sm:text-sm mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
-            Todo julio en la montaña. Llegás y te vas cuando quieras. Pensión completa desde $63.000 por noche en efectivo.
+            Todo el invierno en la montaña. Llegás y te vas cuando quieras. Pensión completa desde $63.000 por noche en efectivo.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -518,7 +518,7 @@ const WinterRedirection: React.FC = () => {
             const CARDS = [
               { title: 'Conexión real', color: C.gold, border: 'rgba(212,175,55,0.2)', bg: 'rgba(212,175,55,0.05)', desc: 'Las personas que comparten el espacio vienen con distintas habilidades, industrias y etapas de empresa. En el mismo retiro podés encontrar socios, colegas, clientes — o los tres.' },
               { title: 'Modelos regenerativos', color: '#7EC8E3', border: 'rgba(46,110,142,0.25)', bg: 'rgba(46,110,142,0.06)', desc: 'Pueblo Mágico no solo habla de negocio regenerativo — lo aplica y lo sigue mejorando. Vas a estar inmerso en un entorno donde esos modelos funcionan, y eso te va a dar más data que cualquier curso.' },
-              { title: 'El salto de primavera', color: '#6EE7B7', border: 'rgba(0,83,51,0.3)', bg: 'rgba(0,83,51,0.1)', desc: 'Julio en la montaña no es una pausa. Es el sprint invisible que nadie ve hasta que en septiembre y diciembre tu negocio avanza mientras los demás recién empiezan a pensar qué hacer.' },
+              { title: 'El salto de primavera', color: '#6EE7B7', border: 'rgba(0,83,51,0.3)', bg: 'rgba(0,83,51,0.1)', desc: 'El invierno en la montaña no es una pausa. Es el sprint invisible que nadie ve hasta que en octubre y diciembre tu negocio avanza mientras los demás recién empiezan a pensar qué hacer.' },
             ];
             return (
               <>
