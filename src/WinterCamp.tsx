@@ -1369,6 +1369,27 @@ const WinterCamp: React.FC = () => {
             Efectivo / transferencia en 1 pago: precio con 20% de descuento. En cuotas: precio lista sin recargo financiero.
           </p>
 
+          {/* Tarifas niños */}
+          <div className="mt-6 max-w-sm mx-auto rounded-2xl px-6 py-5 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifas para niños</p>
+            <ul className="space-y-1.5">
+              {[
+                { rango: '0 a 3 años', desc: 'Sin cargo', note: 'si no ocupan cama' },
+                { rango: '4 a 7 años', desc: '30% OFF' },
+                { rango: '8 a 12 años', desc: '15% OFF' },
+                { rango: '13 años o más', desc: 'Tarifa completa' },
+              ].map(({ rango, desc, note }) => (
+                <li key={rango} className="flex items-center justify-between text-xs">
+                  <span style={{ color: C.muted }}>{rango}</span>
+                  <span className="flex items-center gap-1">
+                    <span className="font-semibold" style={{ color: C.dark }}>{desc}</span>
+                    {note && <span style={{ color: C.faint }}>· {note}</span>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="text-center mt-10" data-reveal data-delay="3">
             <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-4 px-8 inline-block">
               Reservar mi estadía
