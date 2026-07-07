@@ -657,7 +657,11 @@ const WinterRedirection: React.FC = () => {
                 <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color={C.ice} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.ice }}>Según agenda y grupo</p></div>
                 <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Con facilitadores</p>
                 <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Sesiones y dinámicas según las fechas y el grupo. Consultanos antes de llegar.</p>
-                <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos', 'Invitados especiales en julio'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                <div className="border-t mt-3 pt-3 mb-3" style={{ borderColor: 'rgba(46,110,142,0.15)' }}>
+                  <p className="text-[9px] uppercase tracking-widest font-bold mb-2" style={{ color: C.ice }}>Actividades · guía fauna y flora</p>
+                  <ul className="space-y-1">{['Avistaje de aves', 'Flora y fauna nativa', 'Trekking naturalista'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                </div>
                 <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: C.ice }}>Consultar agenda →</a>
               </div>
               <div className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(212,175,55,0.25)', backgroundColor: 'rgba(212,175,55,0.03)' }}>
@@ -683,7 +687,11 @@ const WinterRedirection: React.FC = () => {
               <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color={C.ice} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.ice }}>Según agenda y grupo</p></div>
               <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Con facilitadores</p>
               <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Sesiones y dinámicas según las fechas y el grupo. Consultanos antes de llegar.</p>
-              <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos', 'Invitados especiales en julio'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+              <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                <div className="border-t mt-3 pt-3 mb-3" style={{ borderColor: 'rgba(46,110,142,0.15)' }}>
+                  <p className="text-[9px] uppercase tracking-widest font-bold mb-2" style={{ color: C.ice }}>Actividades · guía fauna y flora</p>
+                  <ul className="space-y-1">{['Avistaje de aves', 'Flora y fauna nativa', 'Trekking naturalista'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                </div>
               <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: C.ice }}>Consultar agenda →</a>
             </div>
             <div className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(212,175,55,0.25)', backgroundColor: 'rgba(212,175,55,0.03)' }}>
@@ -889,30 +897,6 @@ const WinterRedirection: React.FC = () => {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Walter — Facilitador de actividades en la naturaleza */}
-          <div className="mt-8" data-reveal data-delay="3">
-            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6 text-center" style={{ color: C.ice }}>
-              Facilitador de actividades en la naturaleza
-            </p>
-            <div className="max-w-lg mx-auto rounded-2xl p-6 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(255,255,255,0.75)' }}>
-              <div className="flex items-start gap-4">
-                <img src={img('/uploads/Walter_E._Cejas.jpg', 160)} alt="Walter Eugenio Cejas" className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
-                <div className="flex-1">
-                  <p className="font-bold text-base mb-0.5" style={{ color: C.dark }}>Walter Eugenio Cejas</p>
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: C.ice }}>Biólogo · Investigador · Vida Silvestre</p>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. Guía avistaje de aves, flora y fauna — el entorno como maestro.</p>
-                  <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                    {['Avistaje de aves autóctonas', 'Flora nativa de la sierra', 'Fauna y ecosistema de altura', 'Trekking naturalista', 'Interpretación del paisaje', 'Biodiversidad en invierno'].map(a => (
-                      <li key={a} className="flex items-center gap-1.5 text-xs" style={{ color: C.muted }}>
-                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: C.ice }} />{a}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
 
