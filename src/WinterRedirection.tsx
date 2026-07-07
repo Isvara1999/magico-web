@@ -3,7 +3,7 @@ import {
   Flame, Snowflake, Users, Heart, Star, Compass, ChevronLeft, ChevronRight, Instagram, Linkedin,
   Mountain, Briefcase, Network, Wifi, Sparkles,
   Footprints, PawPrint, TrendingDown, CalendarDays, Utensils, Smartphone,
-  Zap, Droplets, Map, FlaskConical,
+  Zap, Droplets, Map, FlaskConical, Brain, Megaphone, Bot,
   type LucideIcon,
 } from 'lucide-react';
 import { img } from './lib/img';
@@ -200,6 +200,7 @@ const WinterRedirection: React.FC = () => {
   const [carouselIdx, setCarouselIdx] = useState(0);
   const [lugarIdx, setLugarIdx] = useState(0);
 
+  const pilaresRef   = useRef<HTMLDivElement>(null);
   const fluxRef      = useRef<HTMLDivElement>(null);
   const paraQuienRef = useRef<HTMLDivElement>(null);
   const mientrasRef  = useRef<HTMLDivElement>(null);
@@ -207,6 +208,7 @@ const WinterRedirection: React.FC = () => {
   const testiRef     = useRef<HTMLDivElement>(null);
   const preciosRef   = useRef<HTMLDivElement>(null);
 
+  const [pilaresPaused,   setPilaresPaused]   = useState(false);
   const [fluxPaused,      setFluxPaused]      = useState(false);
   const [paraQuienPaused, setParaQuienPaused] = useState(false);
   const [mientrasPaused,  setMientrasPaused]  = useState(false);
@@ -230,6 +232,7 @@ const WinterRedirection: React.FC = () => {
     el.scrollTo({ left: el.scrollLeft + slideW > maxScroll + 1 ? 0 : el.scrollLeft + slideW, behavior: 'smooth' });
   };
 
+  useEffect(() => { const t = setInterval(() => advanceSnap(pilaresRef,   pilaresPaused),   5500); return () => clearInterval(t); }, [pilaresPaused]);
   useEffect(() => { const t = setInterval(() => advanceSnap(fluxRef,      fluxPaused),      3600); return () => clearInterval(t); }, [fluxPaused]);
   useEffect(() => { const t = setInterval(() => advanceSnap(paraQuienRef, paraQuienPaused), 4000); return () => clearInterval(t); }, [paraQuienPaused]);
   useEffect(() => { const t = setInterval(() => advanceSnap(mientrasRef,  mientrasPaused),  4200); return () => clearInterval(t); }, [mientrasPaused]);
@@ -627,6 +630,83 @@ const WinterRedirection: React.FC = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── TRES PILARES ── */}
+      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.dark }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14" data-reveal>
+            <p className="text-[9px] tracking-[0.4em] uppercase font-semibold mb-4" style={{ color: C.gold }}>Contenido · Kintu × Pueblo Mágico</p>
+            <h2 className="text-3xl md:text-4xl serif-title text-white mb-4">
+              Tres ejes. Un mes.<br />Tu próxima versión.
+            </h2>
+            <p className="text-sm max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              El Winter Redirection no es un retiro genérico. Tiene contenido específico diseñado para emprendedores en tres ejes concretos.
+            </p>
+          </div>
+
+          {(() => {
+            const PILARES = [
+              {
+                Icon: Brain,
+                kicker: 'Pilar 1',
+                title: 'Mentalidad de crecimiento',
+                desc: 'De la supervivencia a la expansión. Reconocés y reconfigurás las creencias que te frenan para tomar decisiones desde la claridad.',
+                items: ['Creencias limitantes y cómo reconfigurarlas', 'Toma de decisiones bajo incertidumbre', 'Resiliencia emprendedora', 'Propósito como brújula estratégica'],
+              },
+              {
+                Icon: Megaphone,
+                kicker: 'Pilar 2',
+                title: 'Comunicación & Growth',
+                desc: 'Marketing con propósito, alianzas reales y redes que potencian. Comunicás lo que hacés con claridad y construís desde la autenticidad.',
+                items: ['Marketing con propósito y sin ruido', 'Alianzas estratégicas y comunidades', 'Posicionamiento auténtico', 'Redes sociales como canal de impacto'],
+              },
+              {
+                Icon: Bot,
+                kicker: 'Pilar 3',
+                title: 'Productos & Servicios con IA',
+                desc: 'Diseño de productos y servicios potenciados por IA para modelos de negocio regenerativos y con propósito real.',
+                items: ['Desarrollo de productos con IA', 'Modelos de negocio regenerativos', 'Propuesta de valor diferenciada', 'Arquitecturas de conversión soberanas'],
+              },
+            ];
+            const Card = ({ Icon, kicker, title, desc, items }: typeof PILARES[0]) => (
+              <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
+                  <Icon size={20} color={C.gold} />
+                </div>
+                <p className="text-[9px] tracking-[0.3em] uppercase font-semibold mb-2" style={{ color: C.gold }}>{kicker}</p>
+                <h3 className="text-xl serif-title text-white mb-3">{title}</h3>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.55)' }}>{desc}</p>
+                <ul className="space-y-2">
+                  {items.map(a => (
+                    <li key={a} className="flex items-start gap-2 text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: C.gold }}>→</span>{a}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+            return (
+              <>
+                <div className="md:hidden -mx-6" data-reveal data-delay="1">
+                  <div ref={pilaresRef} onTouchStart={() => setPilaresPaused(true)}
+                    className="flex gap-3 overflow-x-auto pb-3 px-6"
+                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    {PILARES.map(p => (
+                      <div key={p.title} className="flex-shrink-0" style={{ width: '85%', scrollSnapAlign: 'start' }}>
+                        <Card {...p} />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[10px] text-center mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>Deslizá para ver más →</p>
+                </div>
+                <div className="hidden md:grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+                  {PILARES.map(p => <Card key={p.title} {...p} />)}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
