@@ -190,6 +190,7 @@ const CAROUSEL = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const WinterRedirection: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [temazcalOpen, setTemazcalOpen] = useState(false);
   const [carouselIdx, setCarouselIdx] = useState(0);
   const [lugarIdx, setLugarIdx] = useState(0);
 
@@ -822,6 +823,33 @@ const WinterRedirection: React.FC = () => {
         </div>
       </section>
 
+      {/* ── TRANSFORMACIÓN ── */}
+      <section className="py-20 md:py-28 px-6 relative overflow-hidden"
+        style={{ backgroundImage: `url('/uploads/Invierno/20250629_132707.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ background: 'rgba(4,10,20,0.84)' }} />
+        <div className="max-w-4xl mx-auto text-center relative z-10" data-reveal>
+          <h2 className="text-2xl md:text-4xl serif-title text-white leading-snug mb-10">
+            Llegás siendo una persona.<br />Te vas siendo otra.
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4 text-left" data-reveal data-delay="1">
+            {[
+              { antes: 'Venís con proyectos trabados',          despues: 'te vas con el próximo paso claro.' },
+              { antes: 'Venís agotado/a del modo reactivo',     despues: 'te vas recargado/a y en modo estratégico.' },
+              { antes: 'Venís con bloqueos creativos',          despues: 'te vas lleno/a de ideas frescas.' },
+              { antes: 'Venís desconectado/a de tu propósito',  despues: 'te vas reconectado/a con lo que importa.' },
+            ].map(({ antes, despues }) => (
+              <div key={antes} className="rounded-2xl p-5 border flex items-start gap-4" style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                <div className="flex-shrink-0 w-1 self-stretch rounded-full" style={{ backgroundColor: C.gold }} />
+                <div>
+                  <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>{antes}…</p>
+                  <p className="text-base font-semibold text-white">{despues}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── ALIMENTACIÓN ── */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
@@ -861,22 +889,44 @@ const WinterRedirection: React.FC = () => {
       </section>
 
       {/* ── TEMAZCAL ── */}
-      <section id="temazcal" className="py-24 md:py-36 px-6 relative overflow-hidden"
+      <section id="temazcal" className="relative overflow-hidden"
         style={{ backgroundImage: `url('/uploads/temazcal.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,8,18,0.9) 0%, rgba(4,8,18,0.85) 100%)' }} />
-        <div className="max-w-4xl mx-auto relative z-10 text-center" data-reveal>
-          <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-5" style={{ color: C.gold }}>Ceremonia ancestral · actividad extra</p>
-          <h2 className="text-4xl md:text-6xl serif-title text-white mb-6 leading-tight">Temazcal</h2>
-          <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">
-            El temazcal es una ceremonia de purificación y renacimiento. Calor, vapor, oscuridad y silencio — un ritual que limpia lo que el cuerpo acumula y abre lo que el alma necesita liberar.
-          </p>
-          <p className="text-sm leading-relaxed max-w-xl mx-auto mb-10 text-white/55">
-            Conducido por <span className="font-semibold text-white/85">Santiago Alzogaray</span>. Un espacio sagrado donde la comunidad se reúne alrededor del fuego para transpirar juntos, pedir y agradecer en la montaña.
-          </p>
-          <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-            className="inline-block border border-white/30 text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors">
-            Consultar disponibilidad y fecha
-          </a>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,8,18,0.92) 0%, rgba(4,8,18,0.88) 100%)' }} />
+        {/* Collapsed header — always visible */}
+        <button
+          onClick={() => setTemazcalOpen(o => !o)}
+          className="relative z-10 w-full flex items-center justify-between px-6 py-7 text-left"
+          aria-expanded={temazcalOpen}
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-2xl md:text-3xl">🔥</span>
+            <div>
+              <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-0.5" style={{ color: C.gold }}>Ceremonia ancestral · actividad extra</p>
+              <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Temazcal</h2>
+            </div>
+          </div>
+          <span className="text-white/60 text-2xl transition-transform duration-300 flex-shrink-0"
+            style={{ transform: temazcalOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+            ↓
+          </span>
+        </button>
+        {/* Expandable content */}
+        <div
+          className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out"
+          style={{ maxHeight: temazcalOpen ? '600px' : '0px', opacity: temazcalOpen ? 1 : 0 }}
+        >
+          <div className="px-6 pb-12 pt-2 max-w-4xl mx-auto text-center">
+            <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">
+              El temazcal es una ceremonia de purificación y renacimiento. Calor, vapor, oscuridad y silencio — un ritual que limpia lo que el cuerpo acumula y abre lo que el alma necesita liberar.
+            </p>
+            <p className="text-sm leading-relaxed max-w-xl mx-auto mb-10 text-white/55">
+              Conducido por <span className="font-semibold text-white/85">Santiago Alzogaray</span>. Un espacio sagrado donde la comunidad se reúne alrededor del fuego para transpirar juntos, pedir y agradecer en la montaña.
+            </p>
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+              className="inline-block border border-white/30 text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors">
+              Consultar disponibilidad y fecha
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1137,7 +1187,7 @@ const WinterRedirection: React.FC = () => {
           {/* Incluye */}
           <div className="mb-12 rounded-2xl p-8 md:p-10 border" data-reveal style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'white' }}>
             <p className="text-[10px] tracking-widest uppercase font-semibold mb-6 text-center" style={{ color: C.green }}>Todo esto incluye tu estadía</p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {[
                 { Icon: Utensils,   label: 'Pensión completa · 3 comidas por día' },
                 { Icon: Smartphone, label: 'Reset Vital para emprendedores (app)' },
@@ -1284,6 +1334,23 @@ const WinterRedirection: React.FC = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ── FILOSOFÍA INVIERNO ── */}
+      <section className="py-24 md:py-36 px-6 relative overflow-hidden"
+        style={{ backgroundImage: `url('/uploads/Invierno/20250627_222558.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ background: 'rgba(4,10,20,0.78)' }} />
+        <div className="max-w-3xl mx-auto text-center relative z-10" data-reveal>
+          <p className="text-lg md:text-xl font-light leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            El invierno, aunque no parezca, sí es para vos.
+          </p>
+          <p className="text-3xl md:text-5xl serif-title text-white leading-snug mb-8">
+            Perderte es igual de importante<br />que encontrarte.
+          </p>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            Viniste a reorientar tu rumbo.<br />La montaña vino a ayudarte.
+          </p>
         </div>
       </section>
 
