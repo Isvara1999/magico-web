@@ -142,7 +142,7 @@ const FAQ_ICONS: LucideIcon[] = [Snowflake, Star, Users, Heart, Flame, Compass, 
 const FAQS = [
   {
     q: '¿Puedo elegir cualquier día para llegar?',
-    a: 'Sí, es estadía libre dentro del 1 al 31 de julio: llegás y te vas el día que quieras. Durante tu estadía vas a encontrar un cronograma de actividades sucediendo, al que te podés sumar cuando quieras.',
+    a: 'Sí, es estadía libre durante julio, agosto o septiembre 2026: llegás y te vas el día que quieras. Durante tu estadía vas a encontrar un cronograma de actividades sucediendo, al que te podés sumar cuando quieras.',
   },
   {
     q: '¿El trekking con guías o las cabalgatas están incluidos?',
@@ -322,7 +322,7 @@ const WinterCamp: React.FC = () => {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
             <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
-              1 al 31 de julio 2026
+              Invierno 2026 · julio · agosto · septiembre
             </span>
             <span
               className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
@@ -1145,7 +1145,7 @@ const WinterCamp: React.FC = () => {
             Cómo funciona
           </p>
           <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-            No reservás un paquete cerrado: reservás las noches que quieras dentro del 1 al 31 de julio. Vos elegís cuándo llegar y cuándo irte, y mientras estás en Pueblo Mágico tenés pensión completa y el cronograma de actividades disponible para sumarte cuando quieras. Por eso el precio se calcula <strong style={{ color: C.dark }}>por noche</strong> — y cuantas más noches te quedás, más baja el valor de cada una.
+            No reservás un paquete cerrado: reservás las noches que quieras durante julio, agosto o septiembre 2026. Vos elegís cuándo llegar y cuándo irte, y mientras estás en Pueblo Mágico tenés pensión completa y el cronograma de actividades disponible para sumarte cuando quieras. Por eso el precio se calcula <strong style={{ color: C.dark }}>por noche</strong> — y cuantas más noches te quedás, más baja el valor de cada una.
           </p>
         </div>
       </section>
@@ -1260,7 +1260,7 @@ const WinterCamp: React.FC = () => {
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(170,62,17,0.1)', color: C.fire }}>
               <span className="w-2 h-2 rounded-full animate-pulse inline-block" style={{ backgroundColor: C.fire }} />
-              Julio ya empezó · Quedan pocos lugares disponibles · Reservá esta semana y llegás en días
+              ⚡ Precios promocionales de invierno · vigentes en julio · pueden subir en agosto
             </div>
           </div>
 
@@ -1369,9 +1369,9 @@ const WinterCamp: React.FC = () => {
             Efectivo / transferencia en 1 pago: precio con 20% de descuento. En cuotas: precio lista sin recargo financiero.
           </p>
 
-          {/* Tarifas niños */}
+          {/* Tarifa infancias */}
           <div className="mt-6 max-w-sm mx-auto rounded-2xl px-6 py-5 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifas para niños</p>
+            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifa para infancias</p>
             <ul className="space-y-1.5">
               {[
                 { rango: '0 a 3 años', desc: 'Sin cargo', note: 'si no ocupan cama' },

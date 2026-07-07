@@ -117,7 +117,7 @@ const FAQS = [
     a: 'Pueblo Mágico queda en Los Gigantes, Córdoba — a 90 km de Córdoba Capital. Acceso para todo tipo de vehículos. Consultanos y te mandamos el mapa.',
   },
   {
-    q: '¿Hay descuento para niños?',
+    q: '¿Hay descuento para infancias?',
     a: 'Si no ocupan cama, consultanos por WhatsApp — tenemos descuentos para los más chicos.',
   },
   {

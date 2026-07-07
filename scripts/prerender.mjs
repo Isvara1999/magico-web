@@ -97,14 +97,14 @@ const ROUTES = [
   {
     path: '/winter-camp',
     title: 'Winter Camp — Vacaciones de Invierno en Pueblo Mágico | Pueblo Mágico',
-    description: 'Estadía libre todo julio 2026, desde $63.000 por noche (3+ noches en efectivo). Pensión completa, temazcal, fogones y comunidad en la montaña nevada. Para familias y emprendedores. Los Gigantes, Córdoba.',
+    description: 'Estadía libre todo el invierno 2026 (julio, agosto y septiembre), desde $63.000 por noche (3+ noches en efectivo). Precios promocionales de invierno. Pensión completa, temazcal, fogones y comunidad en la montaña nevada. Para familias y emprendedores. Los Gigantes, Córdoba.',
     image: 'https://experienciamagico.com/uploads/fogon_nocturno.webp',
     canonical: 'https://experienciamagico.com/winter-camp',
   },
   {
     path: '/winter-redirection',
-    title: 'Winter Redirection — Emprendedores en la Montaña · Julio 2026 | Pueblo Mágico',
-    description: 'Un mes en la montaña para emprendedores y líderes que necesitan claridad, perspectiva e inteligencia colectiva. De VUCA a FLUX. Economía de la sabiduría. Desde $63.000 por noche en efectivo. Los Gigantes, Córdoba.',
+    title: 'Winter Redirection — Emprendedores en la Montaña · Invierno 2026 | Pueblo Mágico',
+    description: 'Julio, agosto o septiembre en la montaña para emprendedores y líderes que necesitan claridad y perspectiva. Precios promocionales de invierno. Desde $63.000 por noche en efectivo. Los Gigantes, Córdoba.',
     image: 'https://experienciamagico.com/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp',
     canonical: 'https://experienciamagico.com/winter-redirection',
   },
@@ -146,7 +146,7 @@ function buildJsonLD(route) {
         "url": route.canonical,
         "image": route.image,
         "startDate": "2026-07-01",
-        "endDate": "2026-07-31",
+        "endDate": "2026-09-30",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
@@ -176,7 +176,7 @@ function buildJsonLD(route) {
         "url": route.canonical,
         "image": route.image,
         "startDate": "2026-07-01",
-        "endDate": "2026-07-31",
+        "endDate": "2026-09-30",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {

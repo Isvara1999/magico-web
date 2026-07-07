@@ -141,8 +141,8 @@ const FAQ_ICONS: LucideIcon[] = [Snowflake, Star, Users, Heart, Flame, Compass, 
 
 const FAQS = [
   {
-    q: '¿Puedo elegir cualquier día de julio para llegar?',
-    a: 'Sí. Estadía libre dentro del 1 al 31 de julio: llegás y te vas cuando quieras. El contenido del Reset Vital para emprendedores está disponible desde el primer día, y las actividades con facilitadores se coordinan por agenda.',
+    q: '¿Puedo elegir cualquier día para llegar?',
+    a: 'Sí. Estadía libre durante julio, agosto o septiembre 2026: llegás y te vas cuando quieras. El contenido del Reset Vital para emprendedores está disponible desde el primer día, y las actividades con facilitadores se coordinan por agenda.',
   },
   {
     q: '¿Qué incluye la estadía?',
@@ -158,7 +158,7 @@ const FAQS = [
   },
   {
     q: '¿Cuándo van a estar los invitados especiales?',
-    a: 'Las fechas de invitados especiales se van confirmando durante julio. Escribinos y te avisamos cuándo hay sesiones programadas para que puedas planificar tu estadía alrededor de esas fechas.',
+    a: 'Las fechas de invitados especiales se van confirmando durante el invierno. Escribinos y te avisamos cuándo hay sesiones programadas para que puedas planificar tu estadía alrededor de esas fechas.',
   },
   {
     q: '¿Tengo que participar de todas las actividades?',
@@ -1099,7 +1099,7 @@ const WinterRedirection: React.FC = () => {
         <div className="max-w-2xl mx-auto text-center" data-reveal>
           <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.faint }}>Cómo funciona</p>
           <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-            No es un paquete cerrado ni un evento con agenda fija. Reservás las noches que quieras dentro del 1 al 31 de julio, llegás cuando podés y te vas cuando necesitás. Mientras estás, tenés pensión completa, el Reset Vital para emprendedores disponible, y el cronograma de actividades al que sumarte cuando quieras. El precio se calcula <strong style={{ color: C.dark }}>por noche</strong> — cuantas más noches, más baja el costo de cada una.
+            No es un paquete cerrado ni un evento con agenda fija. Reservás las noches que quieras durante julio, agosto o septiembre 2026, llegás cuando podés y te vas cuando necesitás. Mientras estás, tenés pensión completa, el Reset Vital para emprendedores disponible, y el cronograma de actividades al que sumarte cuando quieras. El precio se calcula <strong style={{ color: C.dark }}>por noche</strong> — cuantas más noches, más baja el costo de cada una.
           </p>
         </div>
       </section>
@@ -1178,7 +1178,7 @@ const WinterRedirection: React.FC = () => {
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(170,62,17,0.1)', color: C.fire }}>
               <span className="w-2 h-2 rounded-full animate-pulse inline-block" style={{ backgroundColor: C.fire }} />
-              Julio ya empezó · Quedan pocos lugares · Reservá esta semana y llegás en días
+              ⚡ Precios promocionales de invierno · vigentes en julio · pueden subir en agosto
             </div>
           </div>
 
@@ -1271,9 +1271,9 @@ const WinterRedirection: React.FC = () => {
             Efectivo / transferencia en 1 pago: precio con 20% de descuento. En cuotas: precio lista sin recargo financiero.
           </p>
 
-          {/* Tarifas niños */}
+          {/* Tarifa infancias */}
           <div className="mt-6 max-w-sm mx-auto rounded-2xl px-6 py-5 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifas para niños</p>
+            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifa para infancias</p>
             <ul className="space-y-1.5">
               {[
                 { rango: '0 a 3 años', desc: 'Sin cargo', note: 'si no ocupan cama' },
