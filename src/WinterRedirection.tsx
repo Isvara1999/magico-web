@@ -402,22 +402,6 @@ const WinterRedirection: React.FC = () => {
             );
           })()}
 
-          <div className="grid sm:grid-cols-2 gap-5" data-reveal data-delay="2">
-            {[
-              { Icon: Network,   title: 'Inteligencia colectiva', desc: 'La claridad sobre tu negocio muchas veces viene de la conversación con otros. Hablar con emprendedores de distintos contextos te ayuda a encontrar diferencias de mercado, mejorar tu pitch para clientes o inversores, y ver oportunidades que desde adentro no se ven.' },
-              { Icon: Users,     title: 'Comunidades como activo', desc: 'El consumidor no compra más productos. Compra pertenencia. Construir comunidad alrededor de tu marca ya no es opcional: es la estrategia que sostiene el crecimiento sin depender de la publicidad paga.' },
-              { Icon: Sparkles,  title: 'Omnicanalidad: la venta es solo el inicio', desc: 'La experiencia del usuario no termina cuando cobrás — ahí empieza. Lo que hacés en el post-venta, los canales que habitás y cómo seguís presente define si tenés clientes o comunidad.' },
-              { Icon: Compass,   title: 'Auto-valoración · Ikigai · Propósito', desc: 'Sin ego en el camino, encontrás desde dónde comunicar y crear con propósito real. Herramientas como el Ikigai te ayudan a identificar el punto de intersección entre lo que amás, lo que sabés hacer, lo que el mundo necesita y lo que puede sostenerte.' },
-            ].map(({ Icon, title, desc }) => (
-              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: 'rgba(255,255,255,0.04)' }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: `rgba(212,175,55,0.15)` }}>
-                  <Icon size={18} color={C.gold} />
-                </div>
-                <p className="font-bold text-sm mb-2 text-white">{title}</p>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -656,170 +640,63 @@ const WinterRedirection: React.FC = () => {
             </p>
           </div>
 
-          {(() => {
-            const EXP = [
-              { Icon: Flame,    title: 'Fogones y círculos nocturnos',     desc: 'Conversaciones que no suceden en Zoom. Emprendedores alrededor del fuego, sin agenda fija.' },
-              { Icon: Mountain, title: 'Caminatas y pensamiento en movimiento', desc: 'El silencio de la montaña revela oportunidades que el ruido cotidiano tapa. Las ideas más importantes aparecen cuando el cuerpo se mueve y la mente baja la guardia.' },
-              { Icon: Network,  title: 'Networking e inteligencia colectiva', desc: 'La comunidad que se forma es parte del valor. Podés encontrar socios, colegas y clientes — y mejorar tu pitch sin proponértelo, en la conversación correcta.' },
-              { Icon: Wifi,     title: 'Coworking · Coliving · Starlink',   desc: 'WiFi satelital, mesas de trabajo y espacios amplios. El entorno ideal para crear tu burbuja creativa, hacer hiperfoco y avanzar en tus proyectos mientras recargás.' },
-              { Icon: Heart,    title: 'Descanso profundo',                 desc: 'El cuerpo procesa lo que la mente no puede sola. Dormir bien, comer bien y moverse cambia todo.' },
-              { Icon: Star,     title: 'Invitados especiales',              desc: 'Emprendedores y referentes que comparten su experiencia en fechas especiales durante julio. Próximamente.' },
-            ];
-            return (
-              <>
-                <div className="md:hidden -mx-6 mb-14" data-reveal data-delay="1">
-                  <div ref={expCardsRef} onTouchStart={() => setExpPaused(true)}
-                    className="flex gap-3 overflow-x-auto pb-3 px-6"
-                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
-                    {EXP.map(({ Icon, title, desc }) => (
-                      <div key={title} className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '78%', scrollSnapAlign: 'start', borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-                        <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}><Icon size={18} color={C.green} /></div>
-                        <p className="font-bold text-base mb-2" style={{ color: C.dark }}>{title}</p>
-                        <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[10px] text-center" style={{ color: C.faint }}>Deslizá para ver más →</p>
-                </div>
-                <div className="hidden md:grid md:grid-cols-3 gap-5 mb-14" data-reveal data-delay="1">
-                  {EXP.map(({ Icon, title, desc }) => (
-                    <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-                      <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}><Icon size={18} color={C.green} /></div>
-                      <p className="font-bold text-base mb-2" style={{ color: C.dark }}>{title}</p>
-                      <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </>
-            );
-          })()}
+          {/* Mobile: carrusel 3 tarjetas */}
+          <div className="md:hidden -mx-6 mt-12" data-reveal data-delay="1">
+            <div ref={expCardsRef} onTouchStart={() => setExpPaused(true)}
+              className="flex gap-3 overflow-x-auto pb-3 px-6"
+              style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+              <div className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(0,83,51,0.2)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <div className="flex items-center gap-2 mb-1"><Smartphone size={13} color={C.green} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.green }}>Siempre incluido</p></div>
+                <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Reset Vital · Emprendedores</p>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Guía autoguiada en tu teléfono. Contenido específico para FLUX. Sin horarios. Funciona offline.</p>
+                <ul className="space-y-1">{['Navegando el entorno FLUX', 'Inteligencia colectiva', 'Modelos de negocio regenerativos', 'Ikigai y propósito', 'Meditaciones para líderes', 'Journaling estratégico'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.green }} />{a}</li>))}</ul>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
+                <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color={C.ice} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.ice }}>Según agenda y grupo</p></div>
+                <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Con facilitadores</p>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Sesiones y dinámicas según las fechas y el grupo. Consultanos antes de llegar.</p>
+                <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos', 'Invitados especiales en julio'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+                <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: C.ice }}>Consultar agenda →</a>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(212,175,55,0.25)', backgroundColor: 'rgba(212,175,55,0.03)' }}>
+                <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color="#8B6A00" /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: '#8B6A00' }}>A contratar aparte</p></div>
+                <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Actividades extra</p>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Con costo adicional. Se coordinan con anticipación.</p>
+                <ul className="space-y-1 mb-4">{[{ Icon: Footprints, t: 'Trekking con guías' }, { Icon: Zap, t: 'Running · 5k / 10k+' }, { Icon: PawPrint, t: 'Cabalgatas' }, { Icon: Heart, t: 'Masajes y terapias' }, { Icon: Flame, t: 'Temazcal ceremonial' }].map(({ Icon, t }) => (<li key={t} className="flex items-center gap-1.5 text-xs" style={{ color: C.muted }}><Icon size={11} color="#8B6A00" />{t}</li>))}</ul>
+                <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: '#8B6A00' }}>Consultar disponibilidad →</a>
+              </div>
+            </div>
+            <p className="text-[10px] text-center" style={{ color: C.faint }}>Deslizá para ver más →</p>
+          </div>
+
+          {/* Desktop: 3 columnas */}
+          <div className="hidden md:grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-14" data-reveal data-delay="1">
+            <div className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.2)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+              <div className="flex items-center gap-2 mb-1"><Smartphone size={13} color={C.green} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.green }}>Siempre incluido</p></div>
+              <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Reset Vital · Emprendedores</p>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Guía autoguiada en tu teléfono. Contenido específico para FLUX. Sin horarios. Funciona offline.</p>
+              <ul className="space-y-1">{['Navegando el entorno FLUX', 'Inteligencia colectiva', 'Modelos de negocio regenerativos', 'Ikigai y propósito', 'Meditaciones para líderes', 'Journaling estratégico'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.green }} />{a}</li>))}</ul>
+            </div>
+            <div className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
+              <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color={C.ice} /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: C.ice }}>Según agenda y grupo</p></div>
+              <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Con facilitadores</p>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Sesiones y dinámicas según las fechas y el grupo. Consultanos antes de llegar.</p>
+              <ul className="space-y-1 mb-4">{['Círculos de emprendedores', 'Claridad estratégica', 'Inteligencia colectiva', 'Yoga y movimiento consciente', 'Fogones nocturnos', 'Invitados especiales en julio'].map(a => (<li key={a} className="flex items-start gap-1.5 text-xs" style={{ color: C.muted }}><span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: C.ice }} />{a}</li>))}</ul>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: C.ice }}>Consultar agenda →</a>
+            </div>
+            <div className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(212,175,55,0.25)', backgroundColor: 'rgba(212,175,55,0.03)' }}>
+              <div className="flex items-center gap-2 mb-1"><CalendarDays size={13} color="#8B6A00" /><p className="text-[9px] tracking-widest uppercase font-bold" style={{ color: '#8B6A00' }}>A contratar aparte</p></div>
+              <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Actividades extra</p>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>Con costo adicional. Se coordinan con anticipación.</p>
+              <ul className="space-y-1 mb-4">{[{ Icon: Footprints, t: 'Trekking con guías' }, { Icon: Zap, t: 'Running · 5k / 10k+' }, { Icon: PawPrint, t: 'Cabalgatas' }, { Icon: Heart, t: 'Masajes y terapias' }, { Icon: Flame, t: 'Temazcal ceremonial' }].map(({ Icon, t }) => (<li key={t} className="flex items-center gap-1.5 text-xs" style={{ color: C.muted }}><Icon size={11} color="#8B6A00" />{t}</li>))}</ul>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline" style={{ color: '#8B6A00' }}>Consultar disponibilidad →</a>
+            </div>
+          </div>
 
           <p className="text-center serif-title text-xl md:text-2xl mt-6" style={{ color: C.green }} data-reveal data-delay="2">
             El frío no detiene. <span style={{ color: C.gold }}>Clarifica.</span>
           </p>
 
-          {/* Contenido / Actividades */}
-          <div className="mt-14 space-y-6 max-w-4xl mx-auto" data-reveal data-delay="3">
-
-            {/* Reset Vital para emprendedores */}
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.2)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
-              <div className="flex flex-col sm:flex-row sm:items-start gap-5">
-                <div className="flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm" style={{ backgroundColor: C.green }}>
-                    <Smartphone size={24} color="white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <p className="font-bold text-base" style={{ color: C.green }}>Reset Vital · Edición Emprendedores</p>
-                    <span className="text-[9px] tracking-widest uppercase font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.1)', color: C.green }}>App incluida</span>
-                    <span className="text-[9px] tracking-widest uppercase font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: C.green }}>Offline + Online</span>
-                  </div>
-                  <p className="text-sm leading-relaxed mb-2" style={{ color: C.muted }}>
-                    Una guía autoguiada disponible en tu teléfono desde que llegás. Contenido específico para emprendedores navegando el entorno FLUX — a tu ritmo, sin horarios impuestos. Funciona sin conexión.
-                  </p>
-                  <p className="text-xs leading-relaxed mb-4 italic" style={{ color: C.faint }}>
-                    Cada módulo incluye contenido, preguntas de reflexión y accionables concretos para ayudarte a tomar acción en esa dirección.
-                  </p>
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-1.5">
-                    {[
-                      'Navegando el entorno FLUX', 'De la economía del conocimiento a la sabiduría',
-                      'Inteligencia colectiva y comunidades', 'Omnicanalidad y post-venta como experiencia',
-                      'Auto-valoración sin ego', 'Ikigai y propósito como brújula',
-                      'Modelos de negocio regenerativos', 'Claridad estratégica y pitch efectivo',
-                      'Meditaciones guiadas para líderes', 'Journaling y escritura consciente',
-                    ].map(a => (
-                      <div key={a} className="flex items-start gap-2">
-                        <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />
-                        <p className="text-xs" style={{ color: C.dark }}>{a}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Actividades con facilitadores */}
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <CalendarDays size={16} color={C.ice} />
-                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: C.ice }}>Actividades con facilitadores · según agenda y grupo</p>
-              </div>
-              <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>
-                Según las fechas y el grupo que se forme, los facilitadores organizan dinámicas y sesiones. Consultanos qué hay disponible cuando planeás llegar.
-              </p>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
-                {['Círculos de emprendedores', 'Sesiones de claridad estratégica', 'Ikigai y herramientas de propósito', 'Dinámicas de inteligencia colectiva', 'Modelos de negocio regenerativos', 'Yoga y movimiento consciente', 'Armonizaciones sonoras', 'Meditaciones y respiración'].map(a => (
-                  <div key={a} className="flex items-start gap-2">
-                    <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.ice }} />
-                    <p className="text-xs" style={{ color: C.dark }}>{a}</p>
-                  </div>
-                ))}
-              </div>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-block text-xs font-semibold border rounded-full px-4 py-2 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-                style={{ borderColor: 'rgba(46,110,142,0.3)', color: C.ice }}>
-                Consultar agenda disponible →
-              </a>
-            </div>
-
-            {/* Invitado especial */}
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <Star size={16} color="#8B6A00" />
-                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: '#8B6A00' }}>Invitados especiales · fechas a confirmar</p>
-              </div>
-              <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>
-                Durante julio vamos a recibir emprendedores y referentes que comparten su experiencia navegando el entorno FLUX. Sesiones abiertas para todos los huéspedes del Winter Redirection.
-              </p>
-              <div className="flex items-center gap-3 p-4 rounded-xl mb-4" style={{ backgroundColor: 'rgba(212,175,55,0.08)' }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(212,175,55,0.2)' }}>
-                  <Star size={16} color="#8B6A00" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold" style={{ color: C.dark }}>Próximamente</p>
-                  <p className="text-xs" style={{ color: C.faint }}>Emprendedores y referentes en fechas especiales de julio</p>
-                </div>
-              </div>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-block text-xs font-semibold border rounded-full px-4 py-2"
-                style={{ borderColor: 'rgba(139,106,0,0.3)', color: '#7A5C00' }}>
-                Avisame cuando confirmen fechas →
-              </a>
-            </div>
-
-            {/* Actividades extra */}
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(107,128,144,0.15)', backgroundColor: 'rgba(107,128,144,0.03)' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <CalendarDays size={16} color={C.faint} />
-                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: C.faint }}>Actividades extra · a contratar · consultar agenda</p>
-              </div>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
-                {[
-                  { Icon: Footprints, title: 'Trekking con guías' },
-                  { Icon: Zap,        title: 'Circuitos de running · 5k / 10k+' },
-                  { Icon: PawPrint,   title: 'Cabalgatas' },
-                  { Icon: Heart,      title: 'Masajes y terapias' },
-                  { Icon: Compass,    title: 'Sesiones 1 a 1' },
-                ].map(({ Icon, title }) => (
-                  <div key={title} className="flex items-center gap-2">
-                    <Icon size={13} color={C.faint} />
-                    <p className="text-xs font-medium" style={{ color: C.dark }}>{title}</p>
-                  </div>
-                ))}
-                <div className="flex items-center gap-2 col-span-2 pt-2 border-t mt-1" style={{ borderColor: 'rgba(107,128,144,0.15)' }}>
-                  <Flame size={13} color="#8B6A00" />
-                  <p className="text-xs font-semibold" style={{ color: C.dark }}>Temazcal · ceremonia ancestral</p>
-                  <a href="#temazcal" className="ml-auto text-[10px] font-bold underline" style={{ color: '#8B6A00' }}>Ver más ↓</a>
-                </div>
-              </div>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-block text-xs font-semibold border rounded-full px-4 py-2"
-                style={{ borderColor: 'rgba(107,128,144,0.3)', color: C.faint }}>
-                Consultar disponibilidad →
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -969,7 +846,7 @@ const WinterRedirection: React.FC = () => {
               Facilitadores de contenido emprendedor
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {FACILITADORES.map(({ photo, nombre, rol, desc, instagram, linkedin }) => (
+              {FACILITADORES.slice(0, 4).map(({ photo, nombre, rol, desc, instagram, linkedin }) => (
                 <div key={nombre} className="rounded-2xl p-5 border text-center" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(255,255,255,0.8)' }}>
                   <img src={img(photo, 160)} alt={nombre} className="w-16 h-16 rounded-full object-cover mx-auto mb-3" loading="lazy" />
                   <p className="font-bold text-sm mb-0.5" style={{ color: C.dark }}>{nombre}</p>
@@ -995,27 +872,6 @@ const WinterRedirection: React.FC = () => {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Invitado especial placeholder */}
-          <div data-reveal data-delay="3">
-            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6 text-center" style={{ color: '#8B6A00' }}>
-              Invitado especial · próximamente
-            </p>
-            <div className="max-w-sm mx-auto rounded-2xl p-6 border text-center" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
-              <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,55,0.15)', border: '2px dashed rgba(212,175,55,0.4)' }}>
-                <Star size={24} color="#8B6A00" />
-              </div>
-              <p className="font-bold text-sm mb-1" style={{ color: C.dark }}>Referente emprendedor</p>
-              <p className="text-xs leading-relaxed mb-3" style={{ color: C.faint }}>
-                Emprendedores y líderes que comparten su experiencia navegando el entorno FLUX. Fechas a confirmar durante julio.
-              </p>
-              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                className="inline-block text-xs font-semibold border rounded-full px-4 py-2"
-                style={{ borderColor: 'rgba(139,106,0,0.3)', color: '#7A5C00' }}>
-                Avisame cuando confirmen →
-              </a>
             </div>
           </div>
 
