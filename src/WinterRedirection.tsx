@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Flame, Snowflake, Users, Heart, Star, Compass, ChevronLeft, ChevronRight, Instagram, Linkedin,
   Mountain, Briefcase, Network, Wifi, Sparkles,
@@ -191,11 +191,44 @@ const CAROUSEL = [
 const WinterRedirection: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [carouselIdx, setCarouselIdx] = useState(0);
+  const [lugarIdx, setLugarIdx] = useState(0);
+
+  const fluxRef      = useRef<HTMLDivElement>(null);
+  const paraQuienRef = useRef<HTMLDivElement>(null);
+  const mientrasRef  = useRef<HTMLDivElement>(null);
+  const expCardsRef  = useRef<HTMLDivElement>(null);
+  const testiRef     = useRef<HTMLDivElement>(null);
+  const preciosRef   = useRef<HTMLDivElement>(null);
+
+  const [fluxPaused,      setFluxPaused]      = useState(false);
+  const [paraQuienPaused, setParaQuienPaused] = useState(false);
+  const [mientrasPaused,  setMientrasPaused]  = useState(false);
+  const [expPaused,       setExpPaused]       = useState(false);
+  const [testiPaused,     setTestiPaused]     = useState(false);
+  const [preciosPaused,   setPreciosPaused]   = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setCarouselIdx(i => (i + 1) % CAROUSEL.length), 4500);
     return () => clearInterval(t);
   }, []);
+
+  const advanceSnap = (ref: React.RefObject<HTMLDivElement | null>, paused: boolean) => {
+    if (paused) return;
+    const el = ref.current;
+    if (!el) return;
+    const first = el.firstElementChild as HTMLElement | null;
+    if (!first) return;
+    const slideW = first.offsetWidth + 12;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    el.scrollTo({ left: el.scrollLeft + slideW > maxScroll + 1 ? 0 : el.scrollLeft + slideW, behavior: 'smooth' });
+  };
+
+  useEffect(() => { const t = setInterval(() => advanceSnap(fluxRef,      fluxPaused),      3600); return () => clearInterval(t); }, [fluxPaused]);
+  useEffect(() => { const t = setInterval(() => advanceSnap(paraQuienRef, paraQuienPaused), 4000); return () => clearInterval(t); }, [paraQuienPaused]);
+  useEffect(() => { const t = setInterval(() => advanceSnap(mientrasRef,  mientrasPaused),  4200); return () => clearInterval(t); }, [mientrasPaused]);
+  useEffect(() => { const t = setInterval(() => advanceSnap(expCardsRef,  expPaused),       4400); return () => clearInterval(t); }, [expPaused]);
+  useEffect(() => { const t = setInterval(() => advanceSnap(testiRef,     testiPaused),     3500); return () => clearInterval(t); }, [testiPaused]);
+  useEffect(() => { const t = setInterval(() => advanceSnap(preciosRef,   preciosPaused),   4600); return () => clearInterval(t); }, [preciosPaused]);
 
   useEffect(() => {
     document.title = 'Winter Redirection · Emprendedores en la Montaña · Pueblo Mágico';
@@ -265,14 +298,16 @@ const WinterRedirection: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-white/50 text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 sm:mb-3 font-semibold">Pueblo Mágico · Invierno 2026</p>
           <h1 className="text-5xl md:text-7xl serif-title leading-none mb-2 text-white">
             Winter <span style={{ color: C.gold }}>Redirection</span>
           </h1>
-          <p className="text-white/50 text-base md:text-xl tracking-wide italic serif-title mb-6 md:mb-8">No es frenar. Es redirigir.</p>
+          <p className="text-white/50 text-base md:text-xl tracking-wide italic serif-title mb-4 md:mb-6">No es frenar. Es redirigir.</p>
 
-          <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mb-6 md:mb-10">
-            El mercado cambia más rápido de lo que se puede planear. Los líderes que avanzan son los que saben cuándo soltar el volante un momento para ver el mapa completo. Un mes en la montaña: claridad, inteligencia colectiva y el espacio para construir desde otro lugar. Desde $63.000 por noche en efectivo.
+          <p className="text-white/80 text-base md:text-xl italic mb-4 leading-relaxed max-w-lg md:max-w-2xl">
+            Un mes para ver el mapa completo cuando el ruido del día a día tapa la perspectiva.
+          </p>
+          <p className="text-white/45 text-xs sm:text-sm mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
+            Todo julio en la montaña. Llegás y te vas cuando quieras. Pensión completa desde $63.000 por noche en efectivo.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -312,31 +347,59 @@ const WinterRedirection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-14" data-reveal data-delay="1">
-            {[
+          {/* Mobile: carrusel FLUX */}
+          {(() => {
+            const FLUX = [
               { Icon: Zap,         letra: 'F', palabra: 'Rápido',       color: '#E05C97', items: ['Todo se acelera', 'Decisiones inmediatas', 'Cambio exponencial'] },
               { Icon: Droplets,    letra: 'L', palabra: 'Líquido',      color: '#2E6E8E', items: ['Estructuras flexibles', 'Adaptación constante', 'Colaboración abierta'] },
               { Icon: Map,         letra: 'U', palabra: 'Inexplorado',  color: '#D4AF37', items: ['No hay mapas claros', 'Avanzamos sin guías', 'La incertidumbre es la norma'] },
               { Icon: FlaskConical,letra: 'X', palabra: 'Experimental', color: '#7C5CBF', items: ['Probar + aprender', 'Fallos como insumo', 'Innovación continua'] },
-            ].map(({ Icon, letra, palabra, color, items }) => (
-              <div key={letra} className="rounded-2xl p-6 border" style={{ borderColor: `${color}30`, backgroundColor: `${color}10` }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl font-black serif-title" style={{ color }}>{letra}</span>
-                  <div>
-                    <Icon size={16} color={color} />
-                    <p className="text-xs font-bold mt-0.5" style={{ color }}>{palabra}</p>
+            ];
+            return (
+              <>
+                <div className="md:hidden -mx-6 mb-14" data-reveal data-delay="1">
+                  <div ref={fluxRef} onTouchStart={() => setFluxPaused(true)}
+                    className="flex gap-3 overflow-x-auto pb-3 px-6"
+                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    {FLUX.map(({ Icon, letra, palabra, color, items }) => (
+                      <div key={letra} className="flex-shrink-0 rounded-2xl p-6 border"
+                        style={{ width: '72%', scrollSnapAlign: 'start', borderColor: `${color}30`, backgroundColor: `${color}10` }}>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-3xl font-black serif-title" style={{ color }}>{letra}</span>
+                          <div><Icon size={16} color={color} /><p className="text-xs font-bold mt-0.5" style={{ color }}>{palabra}</p></div>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {items.map(i => (
+                            <li key={i} className="flex items-start gap-2 text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                              <span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: color }} />{i}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
+                  <p className="text-[10px] text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>Deslizá para ver más →</p>
                 </div>
-                <ul className="space-y-1.5">
-                  {items.map(i => (
-                    <li key={i} className="flex items-start gap-2 text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                      <span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: color }} />{i}
-                    </li>
+                <div className="hidden md:grid md:grid-cols-4 gap-4 mb-14" data-reveal data-delay="1">
+                  {FLUX.map(({ Icon, letra, palabra, color, items }) => (
+                    <div key={letra} className="rounded-2xl p-6 border" style={{ borderColor: `${color}30`, backgroundColor: `${color}10` }}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-3xl font-black serif-title" style={{ color }}>{letra}</span>
+                        <div><Icon size={16} color={color} /><p className="text-xs font-bold mt-0.5" style={{ color }}>{palabra}</p></div>
+                      </div>
+                      <ul className="space-y-1.5">
+                        {items.map(i => (
+                          <li key={i} className="flex items-start gap-2 text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                            <span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: color }} />{i}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+                </div>
+              </>
+            );
+          })()}
 
           <div className="grid sm:grid-cols-2 gap-5" data-reveal data-delay="2">
             {[
@@ -370,56 +433,64 @@ const WinterRedirection: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 mb-10" data-reveal data-delay="1">
+          {/* Mobile: carrusel para quién es */}
+          <div className="md:hidden -mx-6 mb-10" data-reveal data-delay="1">
+            <div ref={paraQuienRef} onTouchStart={() => setParaQuienPaused(true)}
+              className="flex gap-3 overflow-x-auto pb-3 px-6"
+              style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+              <div className="flex-shrink-0 rounded-2xl p-7 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}><Briefcase size={18} color={C.green} /></div>
+                <p className="font-bold text-base mb-2" style={{ color: C.green }}>Emprendedores</p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Estás construyendo algo propio y necesitás claridad, perspectiva y energía renovada para el próximo ciclo.</p>
+                <ul className="space-y-1.5">{['Founders que necesitan salir del día a día', 'Claridad estratégica lejos del ruido', 'Conexión con otros que entienden el camino', 'Tiempo para pensar sin culpa'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}><span className="mt-0.5 flex-shrink-0" style={{ color: C.green }}>✓</span>{i}</li>
+                ))}</ul>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl p-7 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(46,110,142,0.12)' }}><Network size={18} color={C.ice} /></div>
+                <p className="font-bold text-base mb-2" style={{ color: C.ice }}>Dueños de negocio con equipo</p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Venís solo o con tu equipo/socio. No como empresa — como personas que eligieron reconectar juntas.</p>
+                <ul className="space-y-1.5">{['Equipos pequeños que necesitan resintonizarse', 'Socios que quieren pensar en perspectiva', 'Líderes que necesitan recargar para volver a dar', 'WiFi Starlink para no desconectarse del todo'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}><span className="mt-0.5 flex-shrink-0" style={{ color: C.ice }}>✓</span>{i}</li>
+                ))}</ul>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl p-7 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: 'rgba(107,128,144,0.2)', backgroundColor: 'rgba(107,128,144,0.04)' }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(107,128,144,0.1)' }}><Snowflake size={18} color={C.faint} /></div>
+                <p className="font-bold text-base mb-2" style={{ color: C.muted }}>No es para vos si...</p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: C.faint }}>Preferimos ser honestos para que la experiencia sea la correcta.</p>
+                <ul className="space-y-1.5">{['Buscás un evento de networking masivo', 'Necesitás PowerPoints y sala de conferencias', 'Querés delegar tu bienestar a un spa de lujo', 'El silencio y la naturaleza te generan ansiedad'].map(i => (
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.faint }}><span className="mt-0.5 flex-shrink-0">✗</span>{i}</li>
+                ))}</ul>
+              </div>
+            </div>
+            <p className="text-[10px] text-center" style={{ color: C.faint }}>Deslizá para ver más →</p>
+          </div>
+
+          {/* Desktop: 3 cols */}
+          <div className="hidden md:grid md:grid-cols-3 gap-5 mb-10" data-reveal data-delay="1">
             <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
-                <Briefcase size={18} color={C.green} />
-              </div>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}><Briefcase size={18} color={C.green} /></div>
               <p className="font-bold text-base mb-2" style={{ color: C.green }}>Emprendedores</p>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
-                Estás construyendo algo propio y necesitás claridad, perspectiva y energía renovada para el próximo ciclo.
-              </p>
-              <ul className="space-y-1.5">
-                {['Founders que necesitan salir del día a día', 'Claridad estratégica lejos del ruido', 'Conexión con otros que entienden el camino', 'Tiempo para pensar sin culpa'].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
-                    <span className="mt-0.5 flex-shrink-0" style={{ color: C.green }}>✓</span>{i}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Estás construyendo algo propio y necesitás claridad, perspectiva y energía renovada para el próximo ciclo.</p>
+              <ul className="space-y-1.5">{['Founders que necesitan salir del día a día', 'Claridad estratégica lejos del ruido', 'Conexión con otros que entienden el camino', 'Tiempo para pensar sin culpa'].map(i => (
+                <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}><span className="mt-0.5 flex-shrink-0" style={{ color: C.green }}>✓</span>{i}</li>
+              ))}</ul>
             </div>
-
             <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(46,110,142,0.03)' }}>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(46,110,142,0.12)' }}>
-                <Network size={18} color={C.ice} />
-              </div>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(46,110,142,0.12)' }}><Network size={18} color={C.ice} /></div>
               <p className="font-bold text-base mb-2" style={{ color: C.ice }}>Dueños de negocio con equipo</p>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
-                Venís solo o con tu equipo/socio. No como empresa — como personas que eligieron reconectar juntas.
-              </p>
-              <ul className="space-y-1.5">
-                {['Equipos pequeños que necesitan resintonizarse', 'Socios que quieren pensar en perspectiva', 'Líderes que necesitan recargar para volver a dar', 'WiFi Starlink para no desconectarse del todo'].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
-                    <span className="mt-0.5 flex-shrink-0" style={{ color: C.ice }}>✓</span>{i}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Venís solo o con tu equipo/socio. No como empresa — como personas que eligieron reconectar juntas.</p>
+              <ul className="space-y-1.5">{['Equipos pequeños que necesitan resintonizarse', 'Socios que quieren pensar en perspectiva', 'Líderes que necesitan recargar para volver a dar', 'WiFi Starlink para no desconectarse del todo'].map(i => (
+                <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}><span className="mt-0.5 flex-shrink-0" style={{ color: C.ice }}>✓</span>{i}</li>
+              ))}</ul>
             </div>
-
             <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(107,128,144,0.2)', backgroundColor: 'rgba(107,128,144,0.04)' }}>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(107,128,144,0.1)' }}>
-                <Snowflake size={18} color={C.faint} />
-              </div>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(107,128,144,0.1)' }}><Snowflake size={18} color={C.faint} /></div>
               <p className="font-bold text-base mb-2" style={{ color: C.muted }}>No es para vos si...</p>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: C.faint }}>
-                Preferimos ser honestos para que la experiencia sea la correcta.
-              </p>
-              <ul className="space-y-1.5">
-                {['Buscás un evento de networking masivo', 'Necesitás PowerPoints y sala de conferencias', 'Querés delegar tu bienestar a un spa de lujo', 'El silencio y la naturaleza te generan ansiedad'].map(i => (
-                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.faint }}>
-                    <span className="mt-0.5 flex-shrink-0">✗</span>{i}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: C.faint }}>Preferimos ser honestos para que la experiencia sea la correcta.</p>
+              <ul className="space-y-1.5">{['Buscás un evento de networking masivo', 'Necesitás PowerPoints y sala de conferencias', 'Querés delegar tu bienestar a un spa de lujo', 'El silencio y la naturaleza te generan ansiedad'].map(i => (
+                <li key={i} className="flex items-start gap-2 text-xs" style={{ color: C.faint }}><span className="mt-0.5 flex-shrink-0">✗</span>{i}</li>
+              ))}</ul>
             </div>
           </div>
 
@@ -448,26 +519,39 @@ const WinterRedirection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-5 mb-14" data-reveal data-delay="1">
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(212,175,55,0.2)', backgroundColor: 'rgba(212,175,55,0.05)' }}>
-              <p className="text-3xl serif-title font-bold mb-3" style={{ color: C.gold }}>Conexión real</p>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                Las personas que comparten el espacio vienen con distintas habilidades, industrias y etapas de empresa. En el mismo retiro podés encontrar socios, colegas, clientes — o los tres.
-              </p>
-            </div>
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(46,110,142,0.25)', backgroundColor: 'rgba(46,110,142,0.06)' }}>
-              <p className="text-3xl serif-title font-bold mb-3" style={{ color: '#7EC8E3' }}>Modelos regenerativos</p>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                Pueblo Mágico no solo habla de negocio regenerativo — lo aplica y lo sigue mejorando. Vas a estar inmerso en un entorno donde esos modelos funcionan, y eso te va a dar más data que cualquier curso.
-              </p>
-            </div>
-            <div className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.3)', backgroundColor: 'rgba(0,83,51,0.1)' }}>
-              <p className="text-3xl serif-title font-bold mb-3" style={{ color: '#6EE7B7' }}>El salto de primavera</p>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                Julio en la montaña no es una pausa. Es el sprint invisible que nadie ve hasta que en septiembre y diciembre tu negocio avanza mientras los demás recién empiezan a pensar qué hacer.
-              </p>
-            </div>
-          </div>
+          {/* Mobile: carrusel "mientras todos frenan" */}
+          {(() => {
+            const CARDS = [
+              { title: 'Conexión real', color: C.gold, border: 'rgba(212,175,55,0.2)', bg: 'rgba(212,175,55,0.05)', desc: 'Las personas que comparten el espacio vienen con distintas habilidades, industrias y etapas de empresa. En el mismo retiro podés encontrar socios, colegas, clientes — o los tres.' },
+              { title: 'Modelos regenerativos', color: '#7EC8E3', border: 'rgba(46,110,142,0.25)', bg: 'rgba(46,110,142,0.06)', desc: 'Pueblo Mágico no solo habla de negocio regenerativo — lo aplica y lo sigue mejorando. Vas a estar inmerso en un entorno donde esos modelos funcionan, y eso te va a dar más data que cualquier curso.' },
+              { title: 'El salto de primavera', color: '#6EE7B7', border: 'rgba(0,83,51,0.3)', bg: 'rgba(0,83,51,0.1)', desc: 'Julio en la montaña no es una pausa. Es el sprint invisible que nadie ve hasta que en septiembre y diciembre tu negocio avanza mientras los demás recién empiezan a pensar qué hacer.' },
+            ];
+            return (
+              <>
+                <div className="md:hidden -mx-6 mb-14" data-reveal data-delay="1">
+                  <div ref={mientrasRef} onTouchStart={() => setMientrasPaused(true)}
+                    className="flex gap-3 overflow-x-auto pb-3 px-6"
+                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    {CARDS.map(({ title, color, border, bg, desc }) => (
+                      <div key={title} className="flex-shrink-0 rounded-2xl p-7 border" style={{ width: '82%', scrollSnapAlign: 'start', borderColor: border, backgroundColor: bg }}>
+                        <p className="text-3xl serif-title font-bold mb-3" style={{ color }}>{title}</p>
+                        <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>{desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[10px] text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>Deslizá para ver más →</p>
+                </div>
+                <div className="hidden md:grid md:grid-cols-3 gap-5 mb-14" data-reveal data-delay="1">
+                  {CARDS.map(({ title, color, border, bg, desc }) => (
+                    <div key={title} className="rounded-2xl p-7 border" style={{ borderColor: border, backgroundColor: bg }}>
+                      <p className="text-3xl serif-title font-bold mb-3" style={{ color }}>{title}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
 
           <div className="rounded-2xl p-8 md:p-10 border" data-reveal data-delay="2"
             style={{ borderColor: 'rgba(212,175,55,0.2)', backgroundColor: 'rgba(212,175,55,0.05)' }}>
@@ -571,24 +655,43 @@ const WinterRedirection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 mb-14" data-reveal data-delay="1">
-            {[
+          {(() => {
+            const EXP = [
               { Icon: Flame,    title: 'Fogones y círculos nocturnos',     desc: 'Conversaciones que no suceden en Zoom. Emprendedores alrededor del fuego, sin agenda fija.' },
               { Icon: Mountain, title: 'Caminatas y pensamiento en movimiento', desc: 'El silencio de la montaña revela oportunidades que el ruido cotidiano tapa. Las ideas más importantes aparecen cuando el cuerpo se mueve y la mente baja la guardia.' },
               { Icon: Network,  title: 'Networking e inteligencia colectiva', desc: 'La comunidad que se forma es parte del valor. Podés encontrar socios, colegas y clientes — y mejorar tu pitch sin proponértelo, en la conversación correcta.' },
               { Icon: Wifi,     title: 'Coworking · Coliving · Starlink',   desc: 'WiFi satelital, mesas de trabajo y espacios amplios. El entorno ideal para crear tu burbuja creativa, hacer hiperfoco y avanzar en tus proyectos mientras recargás.' },
               { Icon: Heart,    title: 'Descanso profundo',                 desc: 'El cuerpo procesa lo que la mente no puede sola. Dormir bien, comer bien y moverse cambia todo.' },
               { Icon: Star,     title: 'Invitados especiales',              desc: 'Emprendedores y referentes que comparten su experiencia en fechas especiales durante julio. Próximamente.' },
-            ].map(({ Icon, title, desc }) => (
-              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}>
-                  <Icon size={18} color={C.green} />
+            ];
+            return (
+              <>
+                <div className="md:hidden -mx-6 mb-14" data-reveal data-delay="1">
+                  <div ref={expCardsRef} onTouchStart={() => setExpPaused(true)}
+                    className="flex gap-3 overflow-x-auto pb-3 px-6"
+                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    {EXP.map(({ Icon, title, desc }) => (
+                      <div key={title} className="flex-shrink-0 rounded-2xl p-6 border" style={{ width: '78%', scrollSnapAlign: 'start', borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                        <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}><Icon size={18} color={C.green} /></div>
+                        <p className="font-bold text-base mb-2" style={{ color: C.dark }}>{title}</p>
+                        <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[10px] text-center" style={{ color: C.faint }}>Deslizá para ver más →</p>
                 </div>
-                <p className="font-bold text-base mb-2" style={{ color: C.dark }}>{title}</p>
-                <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
-              </div>
-            ))}
-          </div>
+                <div className="hidden md:grid md:grid-cols-3 gap-5 mb-14" data-reveal data-delay="1">
+                  {EXP.map(({ Icon, title, desc }) => (
+                    <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                      <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }}><Icon size={18} color={C.green} /></div>
+                      <p className="font-bold text-base mb-2" style={{ color: C.dark }}>{title}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
 
           <p className="text-center serif-title text-xl md:text-2xl mt-6" style={{ color: C.green }} data-reveal data-delay="2">
             El frío no detiene. <span style={{ color: C.gold }}>Clarifica.</span>
@@ -888,25 +991,58 @@ const WinterRedirection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3" data-reveal data-delay="1">
-            {[
+          {(() => {
+            const LUGAR = [
               { src: '/uploads/coworking.webp',                                    label: 'Coworking · Coliving',   desc: 'WiFi Starlink · mesas de trabajo · convivencia' },
               { src: '/uploads/yoga_salon.webp',                                   label: 'El Salón',               desc: 'Dinámicas, círculos y presentaciones' },
               { src: '/uploads/habitaciones.webp',                                 label: 'Habitaciones',           desc: 'Ropa blanca · toallón · calidez' },
               { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp', label: 'Domos Geodésicos',       desc: 'Glamping en la montaña nevada' },
               { src: '/uploads/mesadas.webp',                                      label: 'Cocina común',           desc: 'Comedor compartido · hornallas · bacha' },
               { src: '/uploads/botica.webp',                                       label: 'La Botica',              desc: 'Plantas medicinales de la sierra' },
-            ].map(({ src, label, desc }) => (
-              <div key={src} className="group relative rounded-xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
-                <img src={img(src, 600)} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,20,40,0.75) 0%, transparent 55%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-white text-xs font-bold">{label}</p>
-                  <p className="text-white/65 text-[10px]">{desc}</p>
+            ];
+            return (
+              <>
+                {/* Mobile: carrusel JS */}
+                <div className="md:hidden" data-reveal data-delay="1">
+                  <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                    {LUGAR.map(({ src, label }, i) => (
+                      <div key={src} className="absolute inset-0 transition-opacity duration-500" style={{ opacity: lugarIdx === i ? 1 : 0, pointerEvents: lugarIdx === i ? 'auto' : 'none' }}>
+                        <img src={img(src, 900)} alt={label} className="w-full h-full object-cover" loading="lazy" />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)' }} />
+                        <p className="absolute bottom-3 left-4 text-white text-xs font-bold">{label}</p>
+                      </div>
+                    ))}
+                    <button onClick={() => setLugarIdx(i => (i - 1 + LUGAR.length) % LUGAR.length)}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"
+                      style={{ background: 'rgba(0,0,0,0.45)' }} aria-label="Anterior">‹</button>
+                    <button onClick={() => setLugarIdx(i => (i + 1) % LUGAR.length)}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"
+                      style={{ background: 'rgba(0,0,0,0.45)' }} aria-label="Siguiente">›</button>
+                  </div>
+                  <div className="flex justify-center gap-1.5 mt-2">
+                    {LUGAR.map((_, i) => (
+                      <button key={i} onClick={() => setLugarIdx(i)}
+                        className="w-1.5 h-1.5 rounded-full transition-colors"
+                        style={{ background: lugarIdx === i ? C.green : 'rgba(0,0,0,0.2)' }} aria-label={`Foto ${i + 1}`} />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+                {/* Desktop: grid */}
+                <div className="hidden md:grid md:grid-cols-3 gap-3" data-reveal data-delay="1">
+                  {LUGAR.map(({ src, label, desc }) => (
+                    <div key={src} className="group relative rounded-xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
+                      <img src={img(src, 600)} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,20,40,0.75) 0%, transparent 55%)' }} />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-white text-xs font-bold">{label}</p>
+                        <p className="text-white/65 text-[10px]">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
@@ -933,27 +1069,47 @@ const WinterRedirection: React.FC = () => {
               <span className="text-white/65 text-xs font-semibold">5.0 · 64 reseñas en Google Maps</span>
             </a>
           </div>
-          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
-            {[
+          {(() => {
+            const TESTIS = [
               { text: 'Salí con más claridad de la que entré. No fue un retiro, fue una redirección real. Volví con decisiones tomadas que venía postergando hace meses.', name: 'Marcos D.', rol: 'Founder · Huésped' },
               { text: 'Lo más poderoso fue la conversación de fogón con otros emprendedores. Eso no se reproduce en ninguna conferencia ni mastermind online.', name: 'Julieta C.', rol: 'Emprendedora · Huéspeda' },
               { text: 'El equipo, el lugar y la comida crean un contexto donde la mente baja la guardia y el cuerpo descansa de verdad. Eso es lo que permite ver con claridad.', name: 'Sofía R.', rol: 'Dueña de negocio' },
-            ].map(({ text, name, rol }) => (
-              <div key={name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.06)' }}>
+            ];
+            const Card = ({ text, name, rol }: typeof TESTIS[0]) => (
+              <div className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.06)' }}>
                 <p className="text-2xl mb-4 leading-none" style={{ color: C.gold }}>"</p>
-                <p className="text-sm md:text-base leading-relaxed mb-6 text-white/80 italic">{text}</p>
+                <p className="text-sm leading-relaxed mb-6 text-white/80 italic">{text}</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: C.green }}>
-                    {name[0]}
-                  </div>
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: C.green }}>{name[0]}</div>
                   <div>
                     <p className="text-sm font-bold text-white">{name}</p>
                     <p className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>{rol}</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+            return (
+              <>
+                {/* Mobile: carrusel auto-play */}
+                <div className="md:hidden -mx-6" data-reveal data-delay="1">
+                  <div ref={testiRef} onTouchStart={() => setTestiPaused(true)}
+                    className="flex gap-3 overflow-x-auto pb-3 px-6"
+                    style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    {TESTIS.map(t => (
+                      <div key={t.name} style={{ width: '88%', flexShrink: 0, scrollSnapAlign: 'start' }}>
+                        <Card {...t} />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[10px] text-center mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Deslizá para ver más →</p>
+                </div>
+                {/* Desktop: 3 cols */}
+                <div className="hidden md:grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+                  {TESTIS.map(t => <Card key={t.name} {...t} />)}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
@@ -1000,22 +1156,51 @@ const WinterRedirection: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+          {/* Mobile: carrusel precios */}
+          <div className="md:hidden -mx-6" data-reveal data-delay="1">
+            <div ref={preciosRef} onTouchStart={() => setPreciosPaused(true)}
+              className="flex gap-3 overflow-x-auto pb-3 px-6"
+              style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+              {PRECIOS.map(({ noches, efectivo, porNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
+                const isBest = idx === PRECIOS.length - 1;
+                return (
+                  <div key={noches} className="flex-shrink-0 rounded-2xl p-7 border text-left relative"
+                    style={{ width: '82%', scrollSnapAlign: 'start', ...(isBest ? { borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' } : { borderColor: '#E5DDD5', backgroundColor: 'white' }) }}>
+                    {isBest && <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: C.green, color: C.gold }}>Mejor precio</span>}
+                    <p className="text-[10px] tracking-widest uppercase font-semibold mb-3" style={{ color: isBest ? C.green : '#A0866E' }}>{noches}</p>
+                    <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.faint }}>En cuotas</p>
+                    <p className="text-[11px] font-semibold mb-1 inline-block px-2.5 py-1 rounded-full" style={isBest ? { backgroundColor: C.gold, color: C.green } : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>{cuotas}</p>
+                    <p className="text-[10px] mb-4 line-through" style={{ color: C.faint }}>Total {listaTotal}</p>
+                    <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
+                      <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.green }}>Efectivo · 1 solo pago</p>
+                      <div className="flex items-baseline gap-2 mb-1">
+                        <p className="text-3xl font-bold serif-title" style={{ color: isBest ? C.green : C.dark }}>{efectivo}</p>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.12)', color: C.green }}>−20%</span>
+                      </div>
+                      <p className="text-xs mb-3" style={{ color: C.faint }}>{porNoche}</p>
+                      <p className="text-[11px] font-semibold inline-flex items-center gap-1 px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: isBest ? C.green : '#8B6A00' }}>
+                        <TrendingDown size={12} /> {ahorroEfectivo}
+                      </p>
+                      {ahorroNoches && <p className="text-[10px] mt-2" style={{ color: C.faint }}>{ahorroNoches}</p>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-[10px] text-center mt-1" style={{ color: C.faint }}>Deslizá para comparar precios →</p>
+          </div>
+
+          {/* Desktop: 3 cols */}
+          <div className="hidden md:grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
             {PRECIOS.map(({ noches, efectivo, porNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
               const isBest = idx === PRECIOS.length - 1;
               return (
                 <div key={noches} className="rounded-2xl p-7 border text-left relative"
                   style={isBest ? { borderColor: 'rgba(0,83,51,0.35)', backgroundColor: 'rgba(0,83,51,0.05)' } : { borderColor: '#E5DDD5', backgroundColor: 'white' }}>
-                  {isBest && (
-                    <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full"
-                      style={{ backgroundColor: C.green, color: C.gold }}>Mejor precio</span>
-                  )}
+                  {isBest && <span className="absolute top-4 right-4 text-[9px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full" style={{ backgroundColor: C.green, color: C.gold }}>Mejor precio</span>}
                   <p className="text-[10px] tracking-widest uppercase font-semibold mb-3" style={{ color: isBest ? C.green : '#A0866E' }}>{noches}</p>
                   <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.faint }}>En cuotas</p>
-                  <p className="text-[11px] font-semibold mb-1 inline-block px-2.5 py-1 rounded-full"
-                    style={isBest ? { backgroundColor: C.gold, color: C.green } : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>
-                    {cuotas}
-                  </p>
+                  <p className="text-[11px] font-semibold mb-1 inline-block px-2.5 py-1 rounded-full" style={isBest ? { backgroundColor: C.gold, color: C.green } : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>{cuotas}</p>
                   <p className="text-[10px] mb-4 line-through" style={{ color: C.faint }}>Total {listaTotal}</p>
                   <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
                     <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.green }}>Efectivo · 1 solo pago</p>
