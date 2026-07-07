@@ -58,7 +58,7 @@ const PRECIOS: PriceTier[] = [
 ];
 
 // ─── Equipo ──────────────────────────────────────────────────────────────────
-type TeamMember = { photo: string; nombre: string; rol: string; desc: string; instagram?: string; linkedin?: string; tag?: string };
+type TeamMember = { photo: string; nombre: string; rol: string; desc: string; instagram?: string; linkedin?: string; tag?: string; tags?: string[] };
 
 const ANFITRIONES: TeamMember[] = [
   {
@@ -91,10 +91,11 @@ const FACILITADORES: TeamMember[] = [
   {
     photo: '/uploads/isvara-rojas.jpg',
     nombre: 'Isvara Rojas Romero',
-    rol: 'Innovación · Growth · Bienestar organizacional',
-    desc: 'Estratega de Innovación y Growth Engineer. Acompaña equipos y fundadores a navegar el entorno FLUX desde la inteligencia colectiva y el bienestar como ventaja competitiva.',
+    rol: 'Host de emprendedores y creativos',
+    desc: 'Estratega polímata y Growth Engineer. Conecta la innovación tecnológica y el diseño de vanguardia con filosofías ancestrales de la Tierra. Guía a creativos en la creación de arquitecturas de conversión y negocios soberanos desde la acción real.',
     instagram: 'https://www.instagram.com/isvara_strategist/',
     linkedin: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/',
+    tags: ['KINTU', 'PUEBLO MÁGICO'],
   },
   {
     photo: '/uploads/luz-candela.jpg',
@@ -191,6 +192,7 @@ const CAROUSEL = [
 const WinterRedirection: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [temazcalOpen, setTemazcalOpen] = useState(false);
+  const [alimentacionOpen, setAlimentacionOpen] = useState(false);
   const [carouselIdx, setCarouselIdx] = useState(0);
   const [lugarIdx, setLugarIdx] = useState(0);
 
@@ -728,38 +730,39 @@ const WinterRedirection: React.FC = () => {
       </section>
 
       {/* ── ALIMENTACIÓN ── */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div data-reveal>
-              <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-                style={{ backgroundColor: C.fire }}>
-                Alimentación
-              </p>
-              <h2 className="text-3xl md:text-4xl serif-title mb-5" style={{ color: C.dark }}>
-                Comida casera, real, nutritiva<br />y regenerativa
-              </h2>
-              <p className="text-base leading-relaxed mb-4" style={{ color: C.muted }}>
-                En Pueblo Mágico, la alimentación es parte de la experiencia. Cada plato se prepara con ingredientes frescos, locales y de estación — comida real que regenera el cuerpo, calienta el alma y sostiene la energía que necesitás para pensar con claridad y crear desde un lugar genuino.
-              </p>
-              <div className="grid grid-cols-2 gap-2 mb-5">
-                {['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por nuestro equipo', 'Adaptable a necesidades especiales'].map(item => (
-                  <div key={item} className="flex items-start gap-2">
-                    <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />
-                    <p className="text-xs" style={{ color: C.dark }}>{item}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-xl p-4 mb-5" style={{ backgroundColor: 'rgba(0,83,51,0.04)', border: '1px solid rgba(0,83,51,0.1)' }}>
-                <p className="text-xs font-semibold mb-1" style={{ color: C.green }}>Comedor de uso libre · Cocina común</p>
-                <p className="text-xs leading-relaxed" style={{ color: C.faint }}>
-                  El comedor está disponible con hornallas, bacha, vajilla y utensilios para calentar agua, preparar tés o cocinar algo simple. La cocina del equipo es privada — allí preparamos tus 3 comidas diarias.
-                </p>
+      <section className="relative overflow-hidden"
+        style={{ backgroundImage: `url('/uploads/469731807_3987061274856806_2943773444767775905_n.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,10,20,0.91) 0%, rgba(4,10,20,0.86) 100%)' }} />
+        <button onClick={() => setAlimentacionOpen(o => !o)} className="relative z-10 w-full py-7" aria-expanded={alimentacionOpen}>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <span className="text-2xl md:text-3xl">🌿</span>
+              <div className="text-left">
+                <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.gold }}>Pensión completa · 3 comidas · incluido</p>
+                <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Alimentación</h2>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
-              <img src={img('/uploads/469731807_3987061274856806_2943773444767775905_n.jpg', 900)}
-                alt="Comida en Mágico Ensueño" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+            <span className="text-white/60 text-2xl transition-transform duration-300 flex-shrink-0"
+              style={{ transform: alimentacionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+          </div>
+        </button>
+        <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out"
+          style={{ maxHeight: alimentacionOpen ? '600px' : '0px', opacity: alimentacionOpen ? 1 : 0 }}>
+          <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto">
+            <p className="text-base leading-relaxed mb-6 text-white/75">
+              En Pueblo Mágico, la alimentación es parte de la experiencia. Cada plato se prepara con ingredientes frescos, locales y de estación — comida real que regenera el cuerpo, calienta el alma y sostiene la energía que necesitás para pensar con claridad.
+            </p>
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por nuestro equipo', 'Adaptable a necesidades especiales'].map(item => (
+                <div key={item} className="flex items-start gap-2">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} />
+                  <p className="text-xs text-white/70">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl p-4 max-w-lg" style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.14)' }}>
+              <p className="text-xs font-semibold mb-1 text-white/90">Comedor de uso libre · Cocina común</p>
+              <p className="text-xs leading-relaxed text-white/55">El comedor está disponible con hornallas, bacha, vajilla y utensilios. La cocina del equipo es privada — allí preparamos tus 3 comidas diarias.</p>
             </div>
           </div>
         </div>
@@ -772,27 +775,29 @@ const WinterRedirection: React.FC = () => {
         {/* Collapsed header — always visible */}
         <button
           onClick={() => setTemazcalOpen(o => !o)}
-          className="relative z-10 w-full flex items-center justify-between px-6 py-7 text-left"
+          className="relative z-10 w-full py-7"
           aria-expanded={temazcalOpen}
         >
-          <div className="flex items-center gap-4">
-            <span className="text-2xl md:text-3xl">🔥</span>
-            <div>
-              <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-0.5" style={{ color: C.gold }}>Ceremonia ancestral · actividad extra</p>
-              <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Temazcal</h2>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <span className="text-2xl md:text-3xl">🔥</span>
+              <div className="text-left">
+                <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.gold }}>Ceremonia ancestral · actividad extra</p>
+                <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Temazcal</h2>
+              </div>
             </div>
+            <span className="text-white/60 text-2xl transition-transform duration-300 flex-shrink-0"
+              style={{ transform: temazcalOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+              ↓
+            </span>
           </div>
-          <span className="text-white/60 text-2xl transition-transform duration-300 flex-shrink-0"
-            style={{ transform: temazcalOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-            ↓
-          </span>
         </button>
         {/* Expandable content */}
         <div
           className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out"
           style={{ maxHeight: temazcalOpen ? '600px' : '0px', opacity: temazcalOpen ? 1 : 0 }}
         >
-          <div className="px-6 pb-12 pt-2 max-w-4xl mx-auto text-center">
+          <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto text-center">
             <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">
               El temazcal es una ceremonia de purificación y renacimiento. Calor, vapor, oscuridad y silencio — un ritual que limpia lo que el cuerpo acumula y abre lo que el alma necesita liberar.
             </p>
@@ -845,33 +850,69 @@ const WinterRedirection: React.FC = () => {
             <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6 text-center" style={{ color: C.green }}>
               Facilitadores de contenido emprendedor
             </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {FACILITADORES.slice(0, 4).map(({ photo, nombre, rol, desc, instagram, linkedin }) => (
-                <div key={nombre} className="rounded-2xl p-5 border text-center" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(255,255,255,0.8)' }}>
-                  <img src={img(photo, 160)} alt={nombre} className="w-16 h-16 rounded-full object-cover mx-auto mb-3" loading="lazy" />
-                  <p className="font-bold text-sm mb-0.5" style={{ color: C.dark }}>{nombre}</p>
-                  <p className="text-[10px] font-semibold mb-2 leading-tight" style={{ color: C.green }}>{rol}</p>
-                  <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted }}>{desc}</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {FACILITADORES.slice(0, 3).map(({ photo, nombre, rol, desc, instagram, linkedin, tags }) => (
+                <div key={nombre} className="rounded-2xl p-7 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                  <img src={img(photo, 200)} alt={nombre} className="w-14 h-14 rounded-full object-cover mb-4" loading="lazy" />
+                  {tags && tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {tags.map(tag => (
+                        <span key={tag} className="text-[8px] font-bold tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border"
+                          style={tag === 'KINTU'
+                            ? { backgroundColor: 'rgba(212,175,55,0.1)', color: '#8B6A00', borderColor: 'rgba(212,175,55,0.3)' }
+                            : { backgroundColor: 'rgba(0,83,51,0.07)', color: C.green, borderColor: 'rgba(0,83,51,0.2)' }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="font-bold text-base mb-1" style={{ color: C.dark }}>{nombre}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: C.green }}>{rol}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{desc}</p>
                   {(instagram || linkedin) && (
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex gap-2 mt-4">
                       {instagram && (
                         <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${nombre}`}
-                          className="inline-flex items-center justify-center w-7 h-7 rounded-full transition-colors hover:bg-brand-green/10"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-colors hover:bg-brand-green/10"
                           style={{ backgroundColor: 'rgba(0,83,51,0.06)' }}>
-                          <Instagram size={13} color={C.green} />
+                          <Instagram size={14} color={C.green} />
                         </a>
                       )}
                       {linkedin && (
                         <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${nombre}`}
-                          className="inline-flex items-center justify-center w-7 h-7 rounded-full transition-colors hover:bg-brand-green/10"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-colors hover:bg-brand-green/10"
                           style={{ backgroundColor: 'rgba(0,83,51,0.06)' }}>
-                          <Linkedin size={13} color={C.green} />
+                          <Linkedin size={14} color={C.green} />
                         </a>
                       )}
                     </div>
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Walter — Facilitador de actividades en la naturaleza */}
+          <div className="mt-8" data-reveal data-delay="3">
+            <p className="text-[10px] tracking-[0.4em] uppercase font-semibold mb-6 text-center" style={{ color: C.ice }}>
+              Facilitador de actividades en la naturaleza
+            </p>
+            <div className="max-w-lg mx-auto rounded-2xl p-6 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(255,255,255,0.75)' }}>
+              <div className="flex items-start gap-4">
+                <img src={img('/uploads/Walter_E._Cejas.jpg', 160)} alt="Walter Eugenio Cejas" className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
+                <div className="flex-1">
+                  <p className="font-bold text-base mb-0.5" style={{ color: C.dark }}>Walter Eugenio Cejas</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: C.ice }}>Biólogo · Investigador · Vida Silvestre</p>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. Guía avistaje de aves, flora y fauna — el entorno como maestro.</p>
+                  <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                    {['Avistaje de aves autóctonas', 'Flora nativa de la sierra', 'Fauna y ecosistema de altura', 'Trekking naturalista', 'Interpretación del paisaje', 'Biodiversidad en invierno'].map(a => (
+                      <li key={a} className="flex items-center gap-1.5 text-xs" style={{ color: C.muted }}>
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: C.ice }} />{a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -899,52 +940,73 @@ const WinterRedirection: React.FC = () => {
 
           {(() => {
             const LUGAR = [
-              { src: '/uploads/coworking.webp',                                    label: 'Coworking · Coliving',   desc: 'WiFi Starlink · mesas de trabajo · convivencia' },
-              { src: '/uploads/yoga_salon.webp',                                   label: 'El Salón',               desc: 'Dinámicas, círculos y presentaciones' },
-              { src: '/uploads/habitaciones.webp',                                 label: 'Habitaciones',           desc: 'Ropa blanca · toallón · calidez' },
-              { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp', label: 'Domos Geodésicos',       desc: 'Glamping en la montaña nevada' },
-              { src: '/uploads/mesadas.webp',                                      label: 'Cocina común',           desc: 'Comedor compartido · hornallas · bacha' },
-              { src: '/uploads/botica.webp',                                       label: 'La Botica',              desc: 'Plantas medicinales de la sierra' },
+              { src: '/uploads/yoga_salon.webp',                                    label: 'El Salón',           desc: 'Yoga · círculos · dinámicas' },
+              { src: '/uploads/coworking.webp',                                     label: 'Coworking',          desc: 'WiFi Starlink · mesas de trabajo' },
+              { src: '/uploads/habitaciones.webp',                                  label: 'Habitaciones',       desc: 'Ropa blanca · toallón · calidez' },
+              { src: '/uploads/Invierno/DJI_20250629140041_0171_D_CHAPA2025.webp',  label: 'Domos Geodésicos',   desc: 'Glamping en la montaña nevada' },
+              { src: '/uploads/mesadas.webp',                                       label: 'Cocina común',       desc: 'Hornallas · comedor compartido' },
+              { src: '/uploads/botica.webp',                                        label: 'La Botica',          desc: 'Plantas medicinales de la sierra' },
             ];
+            const total = LUGAR.length + 1;
             return (
               <>
-                {/* Mobile: carrusel JS */}
-                <div className="md:hidden" data-reveal data-delay="1">
+                {/* Mobile: carrusel JS — slide 0 = video, 1-6 = fotos */}
+                <div className="mt-10 md:hidden" data-reveal data-delay="1">
                   <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                    <div className="absolute inset-0 transition-opacity duration-500"
+                      style={{ opacity: lugarIdx === 0 ? 1 : 0, pointerEvents: lugarIdx === 0 ? 'auto' : 'none', background: '#000' }}>
+                      {lugarIdx === 0 && (
+                        <iframe src="https://www.youtube.com/embed/QPNxc5Nh8es?rel=0&modestbranding=1"
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen title="Pueblo Mágico" />
+                      )}
+                    </div>
                     {LUGAR.map(({ src, label }, i) => (
-                      <div key={src} className="absolute inset-0 transition-opacity duration-500" style={{ opacity: lugarIdx === i ? 1 : 0, pointerEvents: lugarIdx === i ? 'auto' : 'none' }}>
+                      <div key={src} className="absolute inset-0 transition-opacity duration-500"
+                        style={{ opacity: lugarIdx === i + 1 ? 1 : 0, pointerEvents: lugarIdx === i + 1 ? 'auto' : 'none' }}>
                         <img src={img(src, 900)} alt={label} className="w-full h-full object-cover" loading="lazy" />
                         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)' }} />
                         <p className="absolute bottom-3 left-4 text-white text-xs font-bold">{label}</p>
                       </div>
                     ))}
-                    <button onClick={() => setLugarIdx(i => (i - 1 + LUGAR.length) % LUGAR.length)}
+                    <button onClick={() => setLugarIdx(i => (i - 1 + total) % total)}
                       className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"
                       style={{ background: 'rgba(0,0,0,0.45)' }} aria-label="Anterior">‹</button>
-                    <button onClick={() => setLugarIdx(i => (i + 1) % LUGAR.length)}
+                    <button onClick={() => setLugarIdx(i => (i + 1) % total)}
                       className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"
                       style={{ background: 'rgba(0,0,0,0.45)' }} aria-label="Siguiente">›</button>
                   </div>
                   <div className="flex justify-center gap-1.5 mt-2">
-                    {LUGAR.map((_, i) => (
+                    {Array.from({ length: total }).map((_, i) => (
                       <button key={i} onClick={() => setLugarIdx(i)}
                         className="w-1.5 h-1.5 rounded-full transition-colors"
-                        style={{ background: lugarIdx === i ? C.green : 'rgba(0,0,0,0.2)' }} aria-label={`Foto ${i + 1}`} />
+                        style={{ background: lugarIdx === i ? C.green : 'rgba(0,0,0,0.2)' }} aria-label={`Slide ${i + 1}`} />
                     ))}
                   </div>
                 </div>
-                {/* Desktop: grid */}
-                <div className="hidden md:grid md:grid-cols-3 gap-3" data-reveal data-delay="1">
-                  {LUGAR.map(({ src, label, desc }) => (
-                    <div key={src} className="group relative rounded-xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
-                      <img src={img(src, 600)} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,20,40,0.75) 0%, transparent 55%)' }} />
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <p className="text-white text-xs font-bold">{label}</p>
-                        <p className="text-white/65 text-[10px]">{desc}</p>
-                      </div>
+                {/* Desktop: video izq + grid fotos der */}
+                <div className="hidden md:grid md:grid-cols-2 gap-12 items-start mt-12" data-reveal data-delay="1">
+                  <div className="rounded-2xl overflow-hidden shadow-xl">
+                    <div className="aspect-video">
+                      <iframe src="https://www.youtube.com/embed/ktzVcAs-74c?rel=0&modestbranding=1"
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen title="Pueblo Mágico" />
                     </div>
-                  ))}
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {LUGAR.map(({ src, label, desc }) => (
+                      <div key={src} className="group relative rounded-xl overflow-hidden shadow-sm" style={{ aspectRatio: '4/3' }}>
+                        <img src={img(src, 600)} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.72) 0%, transparent 55%)' }} />
+                        <div className="absolute bottom-0 left-0 right-0 p-3">
+                          <p className="text-white text-xs font-bold mb-0.5">{label}</p>
+                          <p className="text-white/55 text-[10px]">{desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </>
             );
