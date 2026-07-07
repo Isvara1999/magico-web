@@ -1334,7 +1334,7 @@ const WinterRedirection: React.FC = () => {
                   {[
                     'Descuento grupal desde 2 personas',
                     'Coordinamos el calendario juntos',
-                    'Un domo exclusivo para el grupo',
+                    'Domo exclusivo para el equipo (a partir de 7 personas)',
                     'Actividades y experiencias en conjunto',
                   ].map(b => (
                     <li key={b} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
