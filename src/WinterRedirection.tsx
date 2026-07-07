@@ -68,6 +68,7 @@ const ANFITRIONES: TeamMember[] = [
     desc: 'Fundador del Pueblo Mágico. Crea el clima de confianza, escucha y apertura desde el que todo lo demás es posible.',
     instagram: 'https://www.instagram.com/diegoepel/',
     tag: 'Anfitrión',
+    tags: ['PUEBLO MÁGICO', 'KINTU'],
   },
   {
     photo: '/uploads/china.jpeg',
@@ -76,6 +77,7 @@ const ANFITRIONES: TeamMember[] = [
     desc: 'Sostiene el cuerpo y la energía del grupo. Guía prácticas de movimiento, canto y meditación para que la mente pueda soltar y el cuerpo procesar.',
     instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
     tag: 'Anfitriona',
+    tags: ['PUEBLO MÁGICO'],
   },
 ];
 
@@ -87,6 +89,7 @@ const FACILITADORES: TeamMember[] = [
     desc: 'Ingeniero, emprendedor y speaker de TEDx. Navega la intersección entre tecnología, impacto y propósito. Facilita dinámicas de claridad estratégica para emprendedores.',
     instagram: 'https://www.instagram.com/tomasfossatti_/',
     linkedin: 'https://www.linkedin.com/in/tomas-fossatti-ing',
+    tags: ['KINTU'],
   },
   {
     photo: '/uploads/isvara-rojas.jpg',
@@ -103,6 +106,7 @@ const FACILITADORES: TeamMember[] = [
     rol: 'Liderazgo femenino · Bienestar & Consciencia',
     desc: 'Creadora de Mujeres Amatistas. Acompaña líderes y emprendedoras a reconectar con su propósito desde el cuerpo, la intuición y la comunidad.',
     instagram: 'https://www.instagram.com/mujeramatistaa/',
+    tags: ['KINTU'],
   },
   {
     photo: '/uploads/Walter_E._Cejas.jpg',
@@ -834,10 +838,22 @@ const WinterRedirection: React.FC = () => {
               Anfitriones y guardianes del espacio
             </p>
             <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-              {ANFITRIONES.map(({ photo, nombre, rol, desc, instagram }) => (
+              {ANFITRIONES.map(({ photo, nombre, rol, desc, instagram, tags }) => (
                 <div key={nombre} className="flex items-start gap-4 rounded-2xl p-5 border" style={{ borderColor: 'rgba(46,110,142,0.2)', backgroundColor: 'rgba(255,255,255,0.72)' }}>
                   <img src={img(photo, 120)} alt={nombre} className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
                   <div>
+                    {tags && tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {tags.map(tag => (
+                          <span key={tag} className="text-[8px] font-bold tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border"
+                            style={tag === 'KINTU'
+                              ? { backgroundColor: 'rgba(212,175,55,0.1)', color: '#8B6A00', borderColor: 'rgba(212,175,55,0.3)' }
+                              : { backgroundColor: 'rgba(0,83,51,0.07)', color: C.green, borderColor: 'rgba(0,83,51,0.2)' }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <p className="font-bold text-sm mb-0.5" style={{ color: C.dark }}>{nombre}</p>
                     <p className="text-xs font-semibold mb-2" style={{ color: C.green }}>{rol}</p>
                     <p className="text-xs leading-relaxed mb-2" style={{ color: C.muted }}>{desc}</p>
