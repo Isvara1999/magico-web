@@ -1271,9 +1271,9 @@ const WinterRedirection: React.FC = () => {
             Efectivo / transferencia en 1 pago: precio con 20% de descuento. En cuotas: precio lista sin recargo financiero.
           </p>
 
-          {/* Tarifa infancias */}
+          {/* Tarifa niños */}
           <div className="mt-6 max-w-sm mx-auto rounded-2xl px-6 py-5 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
-            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifa para infancias</p>
+            <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: C.green }}>Tarifa para niños</p>
             <ul className="space-y-1.5">
               {[
                 { rango: '0 a 3 años', desc: 'Sin cargo', note: 'si no ocupan cama' },
@@ -1291,6 +1291,70 @@ const WinterRedirection: React.FC = () => {
               ))}
             </ul>
           </div>
+          {/* ── Planes especiales ── */}
+          <div className="mt-12" data-reveal data-delay="2">
+            <p className="text-center text-[10px] tracking-widest uppercase font-bold mb-6" style={{ color: C.muted }}>Planes especiales · invierno 2026</p>
+            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              {/* Membresía */}
+              <div className="rounded-2xl p-6 border flex flex-col gap-4" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.green }}>Membresía de invierno</p>
+                  <p className="text-sm font-semibold" style={{ color: C.dark }}>Para emprendedores &amp; nómadas digitales</p>
+                </div>
+                <ul className="space-y-1.5 flex-1">
+                  {[
+                    'Precio especial por todo el invierno',
+                    'Prioridad en actividades y espacios',
+                    'Comunidad activa de fundadores',
+                    'Flexibilidad de fechas dentro del período',
+                  ].map(b => (
+                    <li key={b} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
+                      <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold" style={{ backgroundColor: 'rgba(0,83,51,0.1)', color: C.green }}>✓</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={`https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa la membresía de invierno para emprendedores. ¿Cómo funciona?')}`}
+                  target="_blank" rel="noopener noreferrer"
+                  className="text-xs font-semibold text-center py-3 px-4 rounded-xl transition-colors"
+                  style={{ backgroundColor: C.green, color: 'white' }}
+                >
+                  Consultar membresía →
+                </a>
+              </div>
+
+              {/* Equipos */}
+              <div className="rounded-2xl p-6 border flex flex-col gap-4" style={{ borderColor: 'rgba(212,175,55,0.25)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: '#8B6A00' }}>Descuento para equipos</p>
+                  <p className="text-sm font-semibold" style={{ color: C.dark }}>Para dueños de negocio que vienen con su equipo</p>
+                </div>
+                <ul className="space-y-1.5 flex-1">
+                  {[
+                    'Descuento grupal desde 2 personas',
+                    'Coordinamos el calendario juntos',
+                    'Un domo exclusivo para el grupo',
+                    'Actividades y experiencias en conjunto',
+                  ].map(b => (
+                    <li key={b} className="flex items-start gap-2 text-xs" style={{ color: C.muted }}>
+                      <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#8B6A00' }}>✓</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={`https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero venir con mi equipo al Winter Redirection. ¿Cómo funciona el descuento grupal?')}`}
+                  target="_blank" rel="noopener noreferrer"
+                  className="text-xs font-semibold text-center py-3 px-4 rounded-xl transition-colors"
+                  style={{ backgroundColor: C.gold, color: 'white' }}
+                >
+                  Consultar descuento grupal →
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mt-10" data-reveal data-delay="3">
             <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-4 px-8 inline-block">
               Reservar mi lugar
