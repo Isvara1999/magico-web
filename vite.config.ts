@@ -35,9 +35,9 @@ export default defineConfig({
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MiB
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,ico,png,svg}'],
         globIgnores: ['**/uploads/**'],
-        navigateFallback: '/index.html',
+        navigateFallback: null,
         runtimeCaching: [
           {
             // Guardar imágenes de Unsplash para verlas offline
