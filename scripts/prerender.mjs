@@ -97,7 +97,7 @@ const ROUTES = [
   {
     path: '/winter-camp',
     title: 'Winter Camp — Vacaciones de Invierno en Pueblo Mágico | Pueblo Mágico',
-    description: 'Estadía libre todo julio 2026, con pensión completa desde $65.000 por noche. Fuego, comunidad y cronograma de actividades en la montaña. Para familias y emprendedores. Los Gigantes, Córdoba.',
+    description: 'Estadía libre todo julio 2026, desde $63.000 por noche (3+ noches en efectivo). Pensión completa, temazcal, fogones y comunidad en la montaña nevada. Para familias y emprendedores. Los Gigantes, Córdoba.',
     image: 'https://experienciamagico.com/uploads/fogon_nocturno.webp',
     canonical: 'https://experienciamagico.com/winter-camp',
   },
@@ -119,6 +119,85 @@ if (!existsSync(DIST)) {
 console.log('\nPhase 1: Meta tag injection...');
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
+// ─── Per-route JSON-LD builder ───────────────────────────────────────────────
+function buildJsonLD(route) {
+  const base = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Pueblo Mágico",
+    "url": "https://experienciamagico.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Los Gigantes",
+      "addressRegion": "Córdoba",
+      "addressCountry": "AR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -31.5, "longitude": -64.7 }
+  };
+
+  if (route.path === '/winter-camp') {
+    return `<script type="application/ld+json">${JSON.stringify([
+      base,
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Winter Camp · Vacaciones de Invierno 2026",
+        "description": route.description,
+        "url": route.canonical,
+        "image": route.image,
+        "startDate": "2026-07-01",
+        "endDate": "2026-07-31",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Pueblo Mágico",
+          "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" },
+          "geo": { "@type": "GeoCoordinates", "latitude": -31.5, "longitude": -64.7 }
+        },
+        "organizer": { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://experienciamagico.com" },
+        "offers": [
+          { "@type": "Offer", "name": "1 noche", "price": "90000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "2 noches", "price": "160000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "3+ noches", "price": "190000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" }
+        ]
+      }
+    ])}</script>`;
+  }
+
+  if (route.path === '/winter-redirection') {
+    return `<script type="application/ld+json">${JSON.stringify([
+      base,
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Winter Redirection · Emprendedores en la Montaña 2026",
+        "description": route.description,
+        "url": route.canonical,
+        "image": route.image,
+        "startDate": "2026-07-01",
+        "endDate": "2026-07-31",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Pueblo Mágico",
+          "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" },
+          "geo": { "@type": "GeoCoordinates", "latitude": -31.5, "longitude": -64.7 }
+        },
+        "organizer": { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://experienciamagico.com" },
+        "offers": [
+          { "@type": "Offer", "name": "1 noche", "price": "90000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "2 noches", "price": "160000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "3+ noches", "price": "190000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" }
+        ]
+      }
+    ])}</script>`;
+  }
+
+  return `<script type="application/ld+json">${JSON.stringify(base)}</script>`;
+}
+
 for (const route of ROUTES) {
   const seoBlock = [
     `  <meta property="og:title" content="${route.title}" />`,
@@ -134,12 +213,18 @@ for (const route of ROUTES) {
     `  <meta name="twitter:description" content="${route.description}" />`,
     `  <meta name="twitter:image" content="${route.image}" />`,
     `  <link rel="canonical" href="${route.canonical}" />`,
+    `  <meta name="geo.region" content="AR-X" />`,
+    `  <meta name="geo.placename" content="Los Gigantes, Córdoba, Argentina" />`,
+    `  <meta name="geo.position" content="-31.5;-64.7" />`,
+    `  <meta name="ICBM" content="-31.5, -64.7" />`,
   ].join('\n');
+
+  const jsonLD = buildJsonLD(route);
 
   const html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${route.title}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${route.description}" />`)
-    .replace('</head>', `${seoBlock}\n</head>`);
+    .replace('</head>', `${seoBlock}\n  ${jsonLD}\n</head>`);
 
   if (route.path === '/') {
     writeFileSync(join(DIST, 'index.html'), html);

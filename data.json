@@ -174,6 +174,15 @@
       "link": "",
       "cards": [
         {
+          "date": "TODO JULIO 2026",
+          "title": "Winter Camp · Vacaciones de Invierno",
+          "desc": "Estadía libre todo julio en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $63.000 por noche en efectivo.",
+          "btn": "Ver más",
+          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
+          "link": "/winter-camp",
+          "pdfLink": ""
+        },
+        {
           "date": "13-15 JUNIO",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
@@ -255,8 +264,8 @@
       "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20saber%20m%C3%A1s%20sobre%20las%20experiencias%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "nextEvent": {
-        "label": "FAMILION · 13–15 JUNIO · ¡ULTIMOS CUPOS!",
-        "link": "/familion"
+        "label": "WINTER CAMP · TODO JULIO · ¡RESERVÁ TU LUGAR!",
+        "link": "/winter-camp"
       }
     },
     "video": {
@@ -304,6 +313,14 @@
             {
               "label": "El Vuelo del Cóndor",
               "href": "/el-vuelo-del-condor"
+            },
+            {
+              "label": "❄ Winter Camp",
+              "href": "/winter-camp"
+            },
+            {
+              "label": "⚡ Winter Redirection",
+              "href": "/winter-redirection"
             }
           ]
         },
@@ -491,7 +508,7 @@
             "Alojamiento completo con ropa blanca, toalla y toallon individual + Biocosmetica.",
             "Pensión completa: (Desayunos, almuerzos, meriendas y cenas)",
             "Equipo Anfitrión para acompañar al grupo durante toda la experiencia",
-              "Uso libre de la reserva de más de 200 hectáreas",
+            "Uso libre de la reserva de más de 200 hectáreas",
             "Fogones nocturnos y otras dinámicas",
             "Guía Reset Vital PDF de regalo"
           ]
@@ -530,7 +547,7 @@
       },
       "eco_center": {
         "title": "Un eco-centro vivo en la montaña",
-          "subtitle": "Pueblo Mágico es mucho más que un lugar: es una comunidad viva donde la naturaleza y las personas se encuentran en equilibrio.",
+        "subtitle": "Pueblo Mágico es mucho más que un lugar: es una comunidad viva donde la naturaleza y las personas se encuentran en equilibrio.",
         "items": [
           {
             "num": "01",
@@ -691,10 +708,10 @@
         }
       },
       "magico": {
-          "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Pueblo Magico en Los Gigantes.",
+        "wa_query": "Hola! Vengo de la landing de Familion y quiero consultar sobre la ubicacion y como llegar a Pueblo Magico en Los Gigantes.",
         "title": "Pueblo Mágico",
         "description": "En el corazón de Los Gigantes, Córdoba, a solo 1h de Tanti y 1:30h de Villa Carlos Paz. Un lugar donde la naturaleza marca el ritmo, la montaña habla en silencio, y una comunidad que acompaña se encuentran en perfecta armonía.",
-          "video_title": "Pueblo Mágico — Experiencia en la Montaña",
+        "video_title": "Pueblo Mágico — Experiencia en la Montaña",
         "benefits_title": "Por qué Pueblo Mágico",
         "benefits": [
           {
@@ -714,7 +731,7 @@
         "investment_text": "El 10% de cada Familion va directo a la restauración del monte nativo con plantación de tabaquillos. Al venir, sos parte de algo más grande.",
         "investment_quote": "Venir al Mágico no solo te regenera a vos, regenera a la montaña.",
         "footer_text": "Acceso para todo tipo de vehículos hasta la puerta del lugar.",
-          "map_alt": "Mapa de Pueblo Mágico - Los Gigantes, Córdoba",
+        "map_alt": "Mapa de Pueblo Mágico - Los Gigantes, Córdoba",
         "map_download": "Descargar Mapa",
         "map_consult": "Consultar ubicación"
       }
@@ -1734,6 +1751,15 @@
       "link": "",
       "cards": [
         {
+          "date": "ALL JULY 2026",
+          "title": "Winter Camp · Mountain Retreat",
+          "desc": "Open stay all July in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $63,000 per night cash.",
+          "btn": "See More",
+          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
+          "link": "/winter-camp",
+          "pdfLink": ""
+        },
+        {
           "date": "JUN 13-15",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
@@ -1797,8 +1823,8 @@
       "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
       "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
       "nextEvent": {
-        "label": "FAMILION · JUN 13–15 · LAST SPOTS!",
-        "link": "/familion"
+        "label": "WINTER CAMP · ALL JULY · BOOK YOUR SPOT!",
+        "link": "/winter-camp"
       }
     },
     "video": {
@@ -1846,6 +1872,14 @@
             {
               "label": "The Condor's Flight",
               "href": "/el-vuelo-del-condor"
+            },
+            {
+              "label": "❄ Winter Camp",
+              "href": "/winter-camp"
+            },
+            {
+              "label": "⚡ Winter Redirection",
+              "href": "/winter-redirection"
             }
           ]
         },
@@ -1957,8 +1991,8 @@
         "title": "Familion",
         "subtitle": "An encounter to return to the essentials as a family.",
         "btn": "Check Next Date",
-      "dates": "JUN 13-15 · Los Gigantes, Córdoba",
-      "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with experiences, bonfires, and moments that last forever in the Heart.",
+        "dates": "JUN 13-15 · Los Gigantes, Córdoba",
+        "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with experiences, bonfires, and moments that last forever in the Heart.",
         "cta_join": "BOOK MY SPOT",
         "cta_details": "View in Calendar"
       },
@@ -1990,53 +2024,53 @@
         "subtitle": "Values per family group. Includes accommodation, all meals and activities.",
         "items": [
           {
-          "name": "Camping",
-          "price": "650,000"
+            "name": "Camping",
+            "price": "650,000"
           },
           {
-          "name": "Eco-Shelter premium",
-          "price": "950,000"
-        },
-        {
-          "name": "Private Dome",
-          "price": "1,150,000"
+            "name": "Eco-Shelter premium",
+            "price": "950,000"
+          },
+          {
+            "name": "Private Dome",
+            "price": "1,150,000"
           }
         ],
         "btn": "BOOK SPOT",
         "editions": [
-        "NEXT EDITION"
+          "NEXT EDITION"
         ],
         "spots": [
-        "LAST SPOTS!"
+          "LAST SPOTS!"
         ],
         "cards": {
           "camping": {
             "title": "Camping",
-          "text": "Per family group · Bring your own tent or rent ours"
+            "text": "Per family group · Bring your own tent or rent ours"
           },
           "refugio": {
-          "title": "Eco-Shelter premium",
-          "text": "Per family group · Accommodation in shared rooms"
+            "title": "Eco-Shelter premium",
+            "text": "Per family group · Accommodation in shared rooms"
           },
           "privado": {
             "title": "Private Dome",
-          "text": "Per family group · Exclusive dome for your family group"
+            "text": "Per family group · Exclusive dome for your family group"
           }
         },
         "includes": {
           "title": "What does your investment include?",
           "items": [
-          "Full accommodation with bed linen, towel and individual bath towel + Biocosmetics.",
-          "Full board: (Breakfasts, lunches, snacks and dinners)",
-          "Host Team to accompany the group throughout the experience",
-              "Free use of the reserve of over 200 hectares",
-          "Night bonfires and other dynamics",
+            "Full accommodation with bed linen, towel and individual bath towel + Biocosmetics.",
+            "Full board: (Breakfasts, lunches, snacks and dinners)",
+            "Host Team to accompany the group throughout the experience",
+            "Free use of the reserve of over 200 hectares",
+            "Night bonfires and other dynamics",
             "Reset Vital PDF guide as a gift"
           ]
         },
         "exchange": {
-        "title": "Optionals and Benefits",
-        "text": "Add Friday 12th night for just $250,000 for the whole family all-inclusive. Family group up to 4 members. Consult promotions and modalities per group."
+          "title": "Optionals and Benefits",
+          "text": "Add Friday 12th night for just $250,000 for the whole family all-inclusive. Family group up to 4 members. Consult promotions and modalities per group."
         },
         "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
       },
@@ -2068,7 +2102,7 @@
       },
       "eco_center": {
         "title": "A living eco-center in the mountains",
-          "subtitle": "Pueblo Magico is much more than a place: it is a living community where nature and people find balance.",
+        "subtitle": "Pueblo Magico is much more than a place: it is a living community where nature and people find balance.",
         "items": [
           {
             "num": "01",
@@ -2077,8 +2111,8 @@
           },
           {
             "num": "02",
-          "title": "Renewable Energies and Bioclimatic Design",
-          "text": "Most of what we use is produced here and everything is designed for a comfortable experience with heating in all spaces. 24h Hot Water and satellite WIFI available."
+            "title": "Renewable Energies and Bioclimatic Design",
+            "text": "Most of what we use is produced here and everything is designed for a comfortable experience with heating in all spaces. 24h Hot Water and satellite WIFI available."
           },
           {
             "num": "03",
@@ -2229,10 +2263,10 @@
         }
       },
       "magico": {
-          "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Pueblo Magico in Los Gigantes.",
+        "wa_query": "Hi! I come from the Familion landing page and want to ask about the location and how to get to Pueblo Magico in Los Gigantes.",
         "title": "Pueblo Magico",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A place where nature sets the rhythm, the mountain speaks in silence, and a welcoming community are in perfect harmony.",
-          "video_title": "Pueblo Magico — Mountain Experience",
+        "video_title": "Pueblo Magico — Mountain Experience",
         "benefits_title": "Why Pueblo Magico",
         "benefits": [
           {
@@ -2252,7 +2286,7 @@
         "investment_text": "10% of every Familion goes directly to native forest restoration by planting tabaquillo trees. By coming, you are part of something larger.",
         "investment_quote": "Coming to the Magico does not only regenerate you, it regenerates the mountain.",
         "footer_text": "Road access for all vehicle types right to the door of the property.",
-          "map_alt": "Map of Pueblo Magico - Los Gigantes, Cordoba",
+        "map_alt": "Map of Pueblo Magico - Los Gigantes, Cordoba",
         "map_download": "Download Map",
         "map_consult": "Ask about location"
       }
