@@ -108,6 +108,13 @@ const ROUTES = [
     image: 'https://experienciamagico.com/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp',
     canonical: 'https://experienciamagico.com/winter-redirection',
   },
+  {
+    path: '/reservas',
+    title: 'Reservá tu estadía · Invierno 2026 | Pueblo Mágico',
+    description: 'Reservá tu lugar en Pueblo Mágico para el invierno 2026 — julio, agosto o septiembre. 30 camas disponibles por día, sin fechas bloqueadas. Seleccioná tus fechas y confirmá por WhatsApp.',
+    image: 'https://experienciamagico.com/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp',
+    canonical: 'https://experienciamagico.com/reservas',
+  },
 ];
 
 if (!existsSync(DIST)) {

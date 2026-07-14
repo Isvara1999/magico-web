@@ -20,4 +20,5 @@ export const ROUTES = {
   DESPERTAR: '/despertar',
   WINTER_CAMP: '/winter-camp',
   WINTER_REDIRECTION: '/winter-redirection',
+  RESERVAS: '/reservas',
 };
