@@ -44,13 +44,24 @@ function nightsBetween(a: string, b: string) {
   return Math.round((new Date(b).getTime() - new Date(a).getTime()) / 86_400_000);
 }
 
-function getDayStatus(iso: string): 'available' | 'blocked' {
+const TODAY = new Date().toISOString().slice(0, 10);
+
+function getInitialMonthIdx() {
+  const idx = MONTHS.findIndex(m => {
+    const lastDay = toISO(m.year, m.month, new Date(m.year, m.month, 0).getDate());
+    return lastDay >= TODAY;
+  });
+  return idx >= 0 ? idx : 0;
+}
+
+function getDayStatus(iso: string): 'available' | 'blocked' | 'past' {
+  if (iso < TODAY) return 'past';
   if (BLOCKED_DATES.includes(iso)) return 'blocked';
   return 'available';
 }
 
 export default function Reservas() {
-  const [monthIdx, setMonthIdx]     = useState(0);
+  const [monthIdx, setMonthIdx]     = useState(() => getInitialMonthIdx());
   const [startDate, setStartDate]   = useState<string | null>(null);
   const [endDate, setEndDate]       = useState<string | null>(null);
   const [pickingEnd, setPickingEnd] = useState(false);
@@ -64,7 +75,7 @@ export default function Reservas() {
 
   const handleDayClick = useCallback((iso: string) => {
     const status = getDayStatus(iso);
-    if (status === 'blocked') return;
+    if (status === 'blocked' || status === 'past') return;
 
     if (!pickingEnd || !startDate) {
       setStartDate(iso);
@@ -84,6 +95,7 @@ export default function Reservas() {
   function dayClass(iso: string): string {
     const status = getDayStatus(iso);
     if (status === 'blocked') return 'blocked';
+    if (status === 'past') return 'past';
     if (startDate && endDate) {
       if (iso === startDate) return 'sel-start';
       if (iso === endDate)   return 'sel-end';
@@ -112,8 +124,8 @@ export default function Reservas() {
       <Header />
 
       {/* ── Hero / Booking bar ── */}
-      <section style={{ backgroundColor: C.dark, paddingTop: 0 }}>
-        <div className="max-w-5xl mx-auto px-4 py-10 md:py-14">
+      <section style={{ backgroundColor: C.dark }}>
+        <div className="max-w-5xl mx-auto px-4 pt-36 md:pt-40 pb-10 md:pb-14">
           <p className="text-[10px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: 'rgba(212,175,55,0.7)' }}>
             Invierno 2026 · julio · agosto · septiembre
           </p>
@@ -256,6 +268,7 @@ export default function Reservas() {
                   const iso = toISO(m.year, m.month, day);
                   const cls = dayClass(iso);
                   const isBlocked = cls === 'blocked';
+                  const isPast    = cls === 'past';
                   const isStart   = cls === 'sel-start' || cls === 'sel-single';
                   const isEnd     = cls === 'sel-end' || cls === 'sel-single';
                   const isRange   = cls === 'in-range';
@@ -267,7 +280,9 @@ export default function Reservas() {
                   let cursor = 'pointer';
                   let opacity = 1;
 
-                  if (isBlocked) {
+                  if (isPast) {
+                    bg = 'transparent'; color = '#94a3b8'; cursor = 'default'; opacity = 0.3;
+                  } else if (isBlocked) {
                     bg = '#f1f5f9'; color = '#cbd5e1'; cursor = 'not-allowed'; opacity = 0.5;
                   } else if (isStart || isEnd) {
                     bg = C.green; color = 'white'; border = C.green;
@@ -291,7 +306,7 @@ export default function Reservas() {
                       }}
                     >
                       <span>{day}</span>
-                      {!isBlocked && (
+                      {!isBlocked && !isPast && (
                         <span
                           className="block mt-0.5"
                           style={{ width: 4, height: 4, borderRadius: '50%', background: isStart || isEnd ? 'rgba(255,255,255,0.7)' : C.green }}
