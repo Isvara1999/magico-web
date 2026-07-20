@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flame, Leaf, Heart, Star, Users, Sun, Moon, Mountain, Sprout, Calendar, Compass, ChevronDown, Instagram, Linkedin, Home, Handshake, Sparkles, Utensils, Minus, Plus, type LucideIcon } from 'lucide-react';
+import { Flame, Leaf, Heart, Star, Users, Sun, Moon, Mountain, Sprout, Calendar, Compass, ChevronDown, Instagram, Linkedin, Home, Handshake, Sparkles, Utensils, type LucideIcon } from 'lucide-react';
 import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
@@ -97,12 +97,16 @@ const FAQS = [
     a: 'No. Es un encuentro abierto a todo público. Cada persona participa desde su propio lugar, sin importar si es su primera vez en un ritual o retiro.',
   },
   {
-    q: '¿Cómo funcionan los precios por noche?',
-    a: 'Cada noche estándar (viernes, sábado o una noche extra) cuesta $65.000 en Experiencia completa o $40.000 en Pijamada. La noche del domingo —la de la Ofrenda a la Pachamama y el Temazcal— tiene un cargo extra de $30.000 ($95.000 y $70.000 respectivamente), ya que incluye la ceremonia central del festival. Combinás hasta 4 noches en total con nuestra calculadora de precios.',
+    q: '¿Cuál es la diferencia entre Experiencia completa y Pijamada?',
+    a: 'Experiencia completa incluye cama en domo o refugio compartido. Pijamada es sin cama: dormís en nuestro salón principal sobre tu propio colchón o colchoneta. El resto —comidas y actividades— es igual en ambas.',
   },
   {
-    q: '¿Puedo venir solo un día?',
-    a: 'Sí. El pase diario cuesta $60.000 para cualquier jornada, y $90.000 para el domingo, que incluye la ceremonia de ofrenda a la Pachamama y el Temazcal.',
+    q: '¿Cómo funcionan los precios?',
+    a: 'En Experiencia completa: 1 noche $60.000, 2 noches $120.000, 3 noches (festival completo, ya incluye la Ofrenda + Temazcal) $190.000. En Pijamada: 1 noche $40.000, 2 noches $80.000 (incluye cualquier día, incluida la Ofrenda), 3 noches (festival completo) $120.000. Si tu estadía no incluye el domingo, podés sumar la noche de la Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000.',
+  },
+  {
+    q: '¿Puedo venir solo el domingo, sin quedarme a dormir?',
+    a: 'Sí. Podés sumarte solo a la ceremonia de Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000 — como toda ofrenda, este encuentro también se sostiene por el intercambio, y ese aporte está muy por debajo de lo que representa. No incluye comida, pero podés consultarnos por opciones caseras y nutritivas aparte.',
   },
   {
     q: '¿En qué consiste la ceremonia de ofrenda a la Pachamama?',
@@ -163,35 +167,50 @@ const Countdown: React.FC = () => {
 // ─── Precios ────────────────────────────────────────────────────────────────────
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
+// El aporte de la Ofrenda + Temazcal es un mínimo sugerido, no un precio fijo —
+// se ofrenda desde la voluntad; este número solo sostiene la logística del ritual.
+const APORTE_OFRENDA = 30000;
+
 type Modalidad = 'completa' | 'pijamada' | 'dia';
 
-type ModalidadTier = {
-  key: Modalidad;
+type NocheOpcion = {
+  noches: number;
   label: string;
+  precio: number;
+  ofrendaIncluida: boolean;
+};
+
+type HospedajeTier = {
+  key: 'completa' | 'pijamada';
+  label: string;
+  subtitle: string;
   headColor: string;
   bgColor: string;
   borderColor: string;
-  precioEstandar: number;
-  precioOfrenda: number;
   items: string[];
+  opciones: NocheOpcion[];
   nota: string;
   cta: string;
 };
 
-const MODALIDADES: ModalidadTier[] = [
+const HOSPEDAJE_TIERS: HospedajeTier[] = [
   {
     key: 'completa',
     label: 'Experiencia completa',
+    subtitle: 'Con cama, en domo o refugio compartido',
     headColor: C.green,
     bgColor: 'rgba(0,83,51,0.05)',
     borderColor: 'rgba(0,83,51,0.35)',
-    precioEstandar: 65000,
-    precioOfrenda: 95000,
     items: [
       'Acceso a todas las actividades durante tu estadía',
-      'Habitación compartida (domo o eco-refugio)',
+      'Cama en domo o refugio compartido',
       'Ropa blanca, toalla y toallón individual',
       'Todas las comidas incluidas',
+    ],
+    opciones: [
+      { noches: 1, label: '1 noche', precio: 60000, ofrendaIncluida: false },
+      { noches: 2, label: '2 noches', precio: 120000, ofrendaIncluida: false },
+      { noches: 3, label: '3 noches · Festival completo', precio: 190000, ofrendaIncluida: true },
     ],
     nota: 'Recomendada para vivir el proceso completo',
     cta: 'Reservar habitación',
@@ -199,35 +218,23 @@ const MODALIDADES: ModalidadTier[] = [
   {
     key: 'pijamada',
     label: 'Pijamada',
+    subtitle: 'Sin cama — traés tu colchón o colchoneta, dormís en el salón',
     headColor: '#8B6A00',
     bgColor: 'rgba(212,175,55,0.04)',
     borderColor: 'rgba(212,175,55,0.4)',
-    precioEstandar: 40000,
-    precioOfrenda: 70000,
     items: [
       'Acceso a todas las actividades durante tu estadía',
-      'Dormís en nuestro salón principal (traés tu colchón o colchoneta)',
+      'Sin cama — dormís en el salón (traés tu colchón o colchoneta)',
       'Espacio cálido y compartido',
       'Todas las comidas incluidas',
     ],
+    opciones: [
+      { noches: 1, label: '1 noche', precio: 40000, ofrendaIncluida: false },
+      { noches: 2, label: '2 noches', precio: 80000, ofrendaIncluida: true },
+      { noches: 3, label: '3 noches · Festival completo', precio: 120000, ofrendaIncluida: true },
+    ],
     nota: 'Ideal si querés venir con presupuesto más accesible',
     cta: 'Reservar pijamada',
-  },
-  {
-    key: 'dia',
-    label: 'Pase por el día',
-    headColor: '#A0866E',
-    bgColor: C.cream,
-    borderColor: '#E5DDD5',
-    precioEstandar: 60000,
-    precioOfrenda: 90000,
-    items: [
-      'Acceso a todas las actividades del día',
-      'Llegás y te vas cuando quieras',
-      'Sin alojamiento ni comidas',
-    ],
-    nota: 'Perfecto si querés conocer la experiencia',
-    cta: 'Quiero el pase diario',
   },
 ];
 
@@ -241,9 +248,8 @@ const PachamamaFest: React.FC = () => {
   const [showStickyBar, setShowStickyBar] = useState(false);
 
   const [modalidad, setModalidad] = useState<Modalidad>('completa');
-  const [nochesEstandar, setNochesEstandar] = useState(2);
-  const [incluyeOfrenda, setIncluyeOfrenda] = useState(true);
-  const [esOfrendaDia, setEsOfrendaDia] = useState(false);
+  const [nochesSeleccion, setNochesSeleccion] = useState(3);
+  const [incluyeOfrendaExtra, setIncluyeOfrendaExtra] = useState(false);
 
   useEffect(() => {
     document.title = 'Pachamama Fest · 14 al 17 de Agosto · Pueblo Mágico';
@@ -268,19 +274,22 @@ const PachamamaFest: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const tier = MODALIDADES.find(m => m.key === modalidad)!;
-  const totalNoches = nochesEstandar + (incluyeOfrenda ? 1 : 0);
+  const tier = modalidad !== 'dia' ? HOSPEDAJE_TIERS.find(t => t.key === modalidad)! : null;
+  const opcion = tier ? tier.opciones.find(o => o.noches === nochesSeleccion)! : null;
+
   const totalEfectivo = modalidad === 'dia'
-    ? (esOfrendaDia ? tier.precioOfrenda : tier.precioEstandar)
-    : nochesEstandar * tier.precioEstandar + (incluyeOfrenda ? tier.precioOfrenda : 0);
+    ? APORTE_OFRENDA
+    : opcion!.precio + (!opcion!.ofrendaIncluida && incluyeOfrendaExtra ? APORTE_OFRENDA : 0);
   const totalCuotas = totalEfectivo * 1.2;
   const cuotaMensual = totalCuotas / 3;
-  const seleccionValida = modalidad === 'dia' || totalNoches > 0;
 
   const detalleSeleccion = modalidad === 'dia'
-    ? (esOfrendaDia ? 'el domingo (Ofrenda + Temazcal)' : 'un día a elección')
-    : `${nochesEstandar} noche${nochesEstandar !== 1 ? 's' : ''} estándar${incluyeOfrenda ? ' + la noche de la Ofrenda (domingo)' : ''}`;
-  const waMsgCalc = `¡Hola! Quiero reservar en el Pachamama Fest.\n\n${tier.label}\n${detalleSeleccion}\nTotal: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n\n¿Cómo sigo?`;
+    ? 'Domingo · Ofrenda + Temazcal'
+    : `${opcion!.label}${opcion!.ofrendaIncluida ? ' · incluye la Ofrenda + Temazcal' : incluyeOfrendaExtra ? ' + la Ofrenda + Temazcal' : ''}`;
+  const etiquetaModalidad = modalidad === 'dia' ? 'Pase del día · Ofrenda + Temazcal' : tier!.label;
+  const waMsgCalc = modalidad === 'dia'
+    ? `¡Hola! Quiero sumarme al Pachamama Fest el domingo (Ofrenda + Temazcal).\n\nAporte: ${fmt(APORTE_OFRENDA)}\n\n¿Cómo sigo?`
+    : `¡Hola! Quiero reservar en el Pachamama Fest.\n\n${etiquetaModalidad}\n${detalleSeleccion}\nTotal: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n\n¿Cómo sigo?`;
   const waCalcUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(waMsgCalc)}`;
 
   return (
@@ -301,7 +310,7 @@ const PachamamaFest: React.FC = () => {
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-20 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
             <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
               <span className="sm:hidden">14-17 Ago · Los Gigantes</span>
@@ -327,6 +336,10 @@ const PachamamaFest: React.FC = () => {
           </h1>
           <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
             Una experiencia en la montaña para honrar a la Tierra, agradecer, soltar y abrir un nuevo ciclo celebrando la vida a lo grande. Vení a vivir el finde largo en comunidad, ritual, música y conexión profunda en las Sierras Grandes de Córdoba.
+          </p>
+
+          <p className="text-sm sm:text-base font-semibold mb-3" style={{ color: C.gold }}>
+            Desde $30.000
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -356,8 +369,10 @@ const PachamamaFest: React.FC = () => {
       </section>
 
       {/* ── ESENCIA ── */}
-      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: C.night }}>
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden"
+        style={{ backgroundImage: `url(${img('/uploads/pachamama-cielo-estrellado.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15,26,18,0.86)' }} />
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center mb-12" data-reveal>
             <div className="flex justify-center gap-5 mb-10">
               <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(0,83,51,0.25)' }}>
@@ -534,13 +549,39 @@ const PachamamaFest: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
-              <img
-                src={img('/uploads/dji_0074.webp', 900)}
-                alt="Vista aérea de Pueblo Mágico"
-                className="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-              />
+            <div className="grid grid-cols-2 gap-3" data-reveal data-delay="1">
+              <div className="rounded-2xl overflow-hidden shadow-xl col-span-2">
+                <img
+                  src={img('/uploads/dji_0074.webp', 900)}
+                  alt="Vista aérea de Pueblo Mágico"
+                  className="w-full aspect-[16/9] object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={img('/uploads/yoga_salon.webp', 600)}
+                  alt="El salón · círculos y ceremonias"
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={img('/uploads/hero-estadia.webp', 600)}
+                  alt="El refugio de piedra al atardecer"
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg col-span-2">
+                <img
+                  src={img('/uploads/domos_2.jpg', 900)}
+                  alt="Domos geodésicos de Pueblo Mágico"
+                  className="w-full aspect-[16/9] object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -730,9 +771,15 @@ const PachamamaFest: React.FC = () => {
                 "Pachamama" no significa literalmente "Madre Tierra" — eso es <span className="font-semibold text-white/90">Allpamama</span> (allpa = tierra/suelo). "Pacha" es un concepto más amplio: mundo, cosmos, espacio-tiempo. Pachamama es la Madre Cósmica que sostiene y da vida a todo lo que existe; en su manifestación terrenal se la reconoce como Allpamama.
               </p>
             </div>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-8 text-white/75">
+            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">
               La ofrenda —también llamada pago o despacho— es un acto de reciprocidad: se agradece por todo lo recibido y se devuelve algo a cambio, honrando el principio de la ayni. Se preparan elementos simbólicos —hojas de coca, granos, flores, dulces, sahumerios— que se entregan a la tierra con intención y gratitud.
             </p>
+            <div className="inline-flex items-center gap-4 rounded-2xl px-6 py-4 mb-8" style={{ backgroundColor: 'rgba(157,0,94,0.12)', border: '1px solid rgba(157,0,94,0.3)' }}>
+              <p className="text-3xl font-bold serif-title flex-shrink-0" style={{ color: C.primavera }}>$30.000</p>
+              <p className="text-xs leading-relaxed text-left max-w-xs text-white/70">
+                Aporte mínimo sugerido. Sumarte a esta ceremonia no tiene un precio fijo — se sostiene por intercambio y voluntad, la misma lógica de la propia ofrenda. Si podés dar más, es bienvenido.
+              </p>
+            </div>
 
             <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
 
@@ -743,10 +790,47 @@ const PachamamaFest: React.FC = () => {
             <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8 text-white/55">
               Conducido por <span className="font-semibold text-white/85">Santiago Alzogaray</span>. Si tenés alguna condición de salud (presión, embarazo, problemas cardíacos o respiratorios), escribinos antes de sumarte — te asesoramos para que lo disfrutes con tranquilidad.
             </p>
-            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-              className="inline-block border border-white/30 text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors">
-              Consultar por WhatsApp
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="#precios"
+                className="inline-block text-sm font-semibold px-8 py-3 rounded-full transition-opacity hover:opacity-90"
+                style={{ backgroundColor: C.primavera, color: 'white' }}>
+                Quiero sumarme ese día
+              </a>
+              <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                className="inline-block border border-white/30 text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors">
+                Consultar por WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RESEÑAS · VALIDACIÓN SOCIAL ── */}
+      <section className="py-16 md:py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10" data-reveal>
+            <a href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5 transition-colors hover:bg-black/5"
+              style={{ borderColor: 'rgba(0,83,51,0.25)' }}>
+              <span className="text-sm" style={{ color: C.gold }}>★★★★★</span>
+              <span className="text-xs font-semibold" style={{ color: C.muted }}>5.0 · 64 reseñas en Google Maps</span>
             </a>
+            <h2 className="text-2xl md:text-3xl serif-title mt-5" style={{ color: C.green }}>
+              Lo que dicen quienes ya vivieron Mágico
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {[
+              { text: 'Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.', name: 'Sofía R.', rol: 'Viajera' },
+              { text: 'Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.', name: 'Marcos D.', rol: 'Huésped' },
+              { text: 'Lo más importante: el amor y la entrega de todo el equipo, y la capacidad de sentirte uno con la naturaleza.', name: 'Julieta C.', rol: 'Facilitadora' },
+            ].map(t => (
+              <div key={t.name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <p className="text-sm italic leading-relaxed mb-4" style={{ color: C.muted }}>"{t.text}"</p>
+                <p className="font-bold text-sm" style={{ color: C.dark }}>{t.name}</p>
+                <p className="text-xs" style={{ color: C.faint }}>{t.rol}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -770,105 +854,124 @@ const PachamamaFest: React.FC = () => {
           <div data-reveal data-delay="1">
             {/* Paso 1: modalidad */}
             <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>1. Elegí tu modalidad</p>
-            <div className="grid grid-cols-3 gap-2 mb-5">
-              {MODALIDADES.map(m => {
+            <div className="grid grid-cols-3 gap-2 mb-2">
+              {[
+                { key: 'completa' as const, label: 'Experiencia completa', desde: 60000, headColor: C.green, bgColor: 'rgba(0,83,51,0.05)' },
+                { key: 'pijamada' as const, label: 'Pijamada', desde: 40000, headColor: '#8B6A00', bgColor: 'rgba(212,175,55,0.04)' },
+                { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_OFRENDA, headColor: C.primavera, bgColor: 'rgba(157,0,94,0.05)' },
+              ].map(m => {
                 const active = modalidad === m.key;
                 return (
                   <button key={m.key} onClick={() => setModalidad(m.key)}
                     className="rounded-xl px-2 py-3 border text-center transition-colors"
                     style={{ borderColor: active ? m.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bgColor : 'white' }}>
                     <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: active ? m.headColor : C.dark }}>{m.label}</p>
-                    <p className="text-[10px]" style={{ color: C.faint }}>desde {fmt(m.precioEstandar)}</p>
+                    <p className="text-[10px]" style={{ color: C.faint }}>desde {fmt(m.desde)}</p>
                   </button>
                 );
               })}
             </div>
-
-            {/* Paso 2: noches / día */}
-            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>
-              2. {modalidad === 'dia' ? 'Elegí el día' : 'Elegí tus noches'}
+            <p className="text-xs mb-5" style={{ color: C.faint }}>
+              {modalidad === 'completa' && 'Con cama, en domo o refugio compartido.'}
+              {modalidad === 'pijamada' && 'Sin cama — traés tu colchón o colchoneta, dormís en el salón.'}
+              {modalidad === 'dia' && 'Sin alojamiento — vení solo el domingo, a vivir la ceremonia.'}
             </p>
-            <div className="flex flex-col gap-2.5 mb-6">
-              {modalidad !== 'dia' && (
-                <div className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'white' }}>
-                  <div>
-                    <p className="text-sm font-semibold" style={{ color: C.dark }}>Noches estándar</p>
-                    <p className="text-xs" style={{ color: C.faint }}>viernes, sábado + 1 noche extra · {fmt(tier.precioEstandar)}/noche</p>
-                  </div>
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <button onClick={() => setNochesEstandar(n => Math.max(0, n - 1))} disabled={nochesEstandar <= 0}
-                      className="w-8 h-8 rounded-full flex items-center justify-center disabled:opacity-30 transition-opacity"
-                      style={{ backgroundColor: 'rgba(0,83,51,0.08)' }} aria-label="Reducir noches">
-                      <Minus size={14} color={C.green} />
-                    </button>
-                    <span className="font-bold text-lg w-5 text-center tabular-nums" style={{ color: C.dark }}>{nochesEstandar}</span>
-                    <button onClick={() => setNochesEstandar(n => Math.min(3, n + 1))} disabled={nochesEstandar >= 3}
-                      className="w-8 h-8 rounded-full flex items-center justify-center disabled:opacity-30 transition-opacity"
-                      style={{ backgroundColor: 'rgba(0,83,51,0.12)' }} aria-label="Aumentar noches">
-                      <Plus size={14} color={C.green} />
-                    </button>
-                  </div>
-                </div>
-              )}
 
-              <button
-                onClick={() => modalidad === 'dia' ? setEsOfrendaDia(o => !o) : setIncluyeOfrenda(o => !o)}
-                className="w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 border transition-colors"
-                style={{
-                  borderColor: (modalidad === 'dia' ? esOfrendaDia : incluyeOfrenda) ? 'rgba(157,0,94,0.4)' : 'rgba(0,83,51,0.15)',
-                  backgroundColor: (modalidad === 'dia' ? esOfrendaDia : incluyeOfrenda) ? 'rgba(157,0,94,0.08)' : 'white',
-                }}
-              >
-                <span className="text-left">
-                  <span className="block text-sm font-semibold" style={{ color: (modalidad === 'dia' ? esOfrendaDia : incluyeOfrenda) ? C.primavera : C.dark }}>
-                    {modalidad === 'dia' ? '¿Es el domingo?' : 'Incluir la noche de la Ofrenda'}
-                  </span>
-                  <span className="block text-xs" style={{ color: C.faint }}>
-                    domingo · Ofrenda + Temazcal · +{fmt(tier.precioOfrenda - tier.precioEstandar)}
-                  </span>
-                </span>
-                <span className="flex-shrink-0 w-11 h-6 rounded-full relative transition-colors"
-                  style={{ backgroundColor: (modalidad === 'dia' ? esOfrendaDia : incluyeOfrenda) ? C.primavera : '#E5DDD5' }}>
-                  <span className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
-                    style={{ left: (modalidad === 'dia' ? esOfrendaDia : incluyeOfrenda) ? '22px' : '2px' }} />
-                </span>
-              </button>
-            </div>
+            {modalidad !== 'dia' ? (
+              <>
+                {/* Paso 2: noches */}
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2. Elegí tus noches</p>
+                <div className="grid grid-cols-3 gap-2 mb-2.5">
+                  {tier!.opciones.map(o => {
+                    const active = nochesSeleccion === o.noches;
+                    return (
+                      <button key={o.noches} onClick={() => setNochesSeleccion(o.noches)}
+                        className="rounded-xl px-2 py-3 border text-center transition-colors"
+                        style={{ borderColor: active ? tier!.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? tier!.bgColor : 'white' }}>
+                        <p className="text-[11px] font-bold leading-tight" style={{ color: active ? tier!.headColor : C.dark }}>
+                          {o.noches} noche{o.noches !== 1 ? 's' : ''}
+                        </p>
+                        <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>{fmt(o.precio)}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+                {opcion!.ofrendaIncluida && (
+                  <p className="text-[11px] font-semibold mb-6" style={{ color: C.primavera }}>{opcion!.label} — incluye la Ofrenda + Temazcal, sin cargo extra.</p>
+                )}
+
+                {!opcion!.ofrendaIncluida && (
+                  <button
+                    onClick={() => setIncluyeOfrendaExtra(o => !o)}
+                    className="w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 border transition-colors mb-6"
+                    style={{
+                      borderColor: incluyeOfrendaExtra ? 'rgba(157,0,94,0.4)' : 'rgba(0,83,51,0.15)',
+                      backgroundColor: incluyeOfrendaExtra ? 'rgba(157,0,94,0.08)' : 'white',
+                    }}
+                  >
+                    <span className="text-left">
+                      <span className="block text-sm font-semibold" style={{ color: incluyeOfrendaExtra ? C.primavera : C.dark }}>
+                        Sumar la noche de la Ofrenda + Temazcal
+                      </span>
+                      <span className="block text-xs" style={{ color: C.faint }}>
+                        domingo · + aporte mínimo sugerido {fmt(APORTE_OFRENDA)}
+                      </span>
+                    </span>
+                    <span className="flex-shrink-0 w-11 h-6 rounded-full relative transition-colors"
+                      style={{ backgroundColor: incluyeOfrendaExtra ? C.primavera : '#E5DDD5' }}>
+                      <span className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
+                        style={{ left: incluyeOfrendaExtra ? '22px' : '2px' }} />
+                    </span>
+                  </button>
+                )}
+              </>
+            ) : (
+              <div className="rounded-xl px-4 py-3 border mb-6" style={{ borderColor: 'rgba(157,0,94,0.25)', backgroundColor: 'rgba(157,0,94,0.05)' }}>
+                <p className="text-sm font-semibold" style={{ color: C.primavera }}>Domingo · Ofrenda a la Pachamama + Temazcal</p>
+                <p className="text-xs mt-1" style={{ color: C.faint }}>
+                  Como toda ofrenda, este encuentro se sostiene también por el intercambio. {fmt(APORTE_OFRENDA)} es el aporte mínimo para que la ceremonia pueda seguir sucediendo — muy por debajo de lo que representa. Si sentís que podés dar más, sumá lo que tu corazón disponga.
+                </p>
+              </div>
+            )}
 
             {/* Paso 3: resultado */}
-            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>3. Tu precio</p>
-            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: tier.bgColor, border: `1px solid ${tier.borderColor}` }}>
-              {seleccionValida ? (
-                <>
-                  <div className="flex items-end justify-between gap-3 mb-1">
-                    <div>
-                      <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: tier.headColor }}>{tier.label}</p>
-                      <p className="text-xs" style={{ color: C.faint }}>{detalleSeleccion}</p>
-                    </div>
-                    <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: tier.headColor }}>{fmt(totalEfectivo)}</p>
-                  </div>
-                  <p className="text-xs mb-5" style={{ color: C.faint }}>o 3 cuotas de {fmt(cuotaMensual)}</p>
-
-                  <ul className="space-y-2 mb-5">
-                    {tier.items.map(i => (
-                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                        <span className="flex-shrink-0 mt-0.5" style={{ color: tier.headColor }}>✓</span>{i}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-xs mb-4" style={{ color: C.faint }}>{tier.nota}</p>
-
-                  <a href={waCalcUrl} target="_blank" rel="noopener noreferrer"
-                    className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: tier.headColor }}>
-                    {tier.cta}
-                  </a>
-                </>
-              ) : (
-                <p className="text-sm text-center py-6" style={{ color: C.muted }}>
-                  Elegí al menos una noche para ver el precio.
-                </p>
+            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>3. {modalidad === 'dia' ? 'Tu aporte' : 'Tu precio'}</p>
+            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: modalidad === 'dia' ? 'rgba(157,0,94,0.05)' : tier!.bgColor, border: `1px solid ${modalidad === 'dia' ? 'rgba(157,0,94,0.3)' : tier!.borderColor}` }}>
+              <div className="flex items-end justify-between gap-3 mb-1">
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{etiquetaModalidad}</p>
+                  <p className="text-xs" style={{ color: C.faint }}>{detalleSeleccion}</p>
+                </div>
+                <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{fmt(totalEfectivo)}</p>
+              </div>
+              {modalidad !== 'dia' && (
+                <p className="text-xs mb-5" style={{ color: C.faint }}>o 3 cuotas de {fmt(cuotaMensual)}</p>
               )}
+
+              {modalidad === 'dia' ? (
+                <ul className="space-y-2 mb-5 mt-4">
+                  {['Acceso a la ceremonia de Ofrenda + Temazcal', 'Sin alojamiento ni comida incluida', 'Podés consultar por comidas caseras y nutritivas aparte'].map(i => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: C.primavera }}>✓</span>{i}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="space-y-2 mb-5">
+                  {tier!.items.map(i => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: tier!.headColor }}>✓</span>{i}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="text-xs mb-4" style={{ color: C.faint }}>{modalidad === 'dia' ? 'Perfecto si querés vivir la ceremonia sin quedarte a dormir' : tier!.nota}</p>
+
+              <a href={waCalcUrl} target="_blank" rel="noopener noreferrer"
+                className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: modalidad === 'dia' ? C.primavera : tier!.headColor }}>
+                {modalidad === 'dia' ? 'Quiero sumarme ese día' : tier!.cta}
+              </a>
             </div>
           </div>
 
@@ -906,7 +1009,7 @@ const PachamamaFest: React.FC = () => {
                 <div key={q} className="rounded-2xl border bg-white overflow-hidden transition-colors duration-300"
                   style={{ borderColor: isActive ? C.gold : 'rgba(0,83,51,0.1)', boxShadow: isActive ? '0 4px 16px rgba(0,0,0,0.05)' : 'none' }}>
                   <button
-                    className="w-full text-left px-6 py-5 md:px-8 md:py-6 flex items-center gap-4 focus:outline-none"
+                    className="w-full text-left px-4 py-3.5 md:px-8 md:py-6 flex items-center gap-3 md:gap-4 focus:outline-none"
                     onClick={() => setActiveFaq(isActive ? null : index)}
                     aria-expanded={isActive}
                   >
@@ -928,7 +1031,7 @@ const PachamamaFest: React.FC = () => {
                     style={{ display: 'grid', gridTemplateRows: isActive ? '1fr' : '0fr', opacity: isActive ? 1 : 0 }}
                   >
                     <div className="min-h-0 overflow-hidden">
-                      <div className="pl-[3.75rem] pr-6 md:pl-[4.5rem] md:pr-8 pb-6 md:pb-7 pt-1">
+                      <div className="pl-12 pr-4 md:pl-[4.5rem] md:pr-8 pb-4 md:pb-7 pt-1">
                         <div className="w-full h-px mb-4" style={{ backgroundColor: 'rgba(0,83,51,0.08)' }} />
                         <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{a}</p>
                       </div>
@@ -952,7 +1055,7 @@ const PachamamaFest: React.FC = () => {
       {/* ── CTA FINAL ── */}
       <section
         className="py-28 md:py-40 px-6 text-white text-center relative overflow-hidden"
-        style={{ backgroundImage: `url(${img('/uploads/fogon_nocturno.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: `url(${img('/uploads/pachamama-fogon-grupo-cielo.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center bottom' }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(10,20,12,0.88)' }} />
         <div className="max-w-2xl mx-auto relative z-10" data-reveal>
@@ -985,6 +1088,21 @@ const PachamamaFest: React.FC = () => {
           </p>
         </div>
       </section>
+
+      {/* ── BARRA FIJA MOBILE ── */}
+      <div
+        className={`lg:hidden fixed bottom-0 left-0 right-0 z-[998] px-4 pt-3 transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{
+          paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))',
+          backgroundColor: 'rgba(15,26,18,0.97)',
+          borderTop: '1px solid rgba(212,175,55,0.25)',
+          backdropFilter: 'blur(8px)',
+        }}
+      >
+        <a href={WA_RESERVA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-3 w-full text-center block">
+          Reservar mi lugar
+        </a>
+      </div>
 
       <Footer />
     </div>
