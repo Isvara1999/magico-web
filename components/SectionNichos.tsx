@@ -22,12 +22,12 @@ export const SectionNichos: React.FC = () => {
       external: false,
     },
     {
-      tag:   'Grupos & Organizaciones',
-      title: 'Retiros Grupales',
+      tag:   t.retreats.tag as string,
+      title: (t.retreats as any).shortTitle as string,
       desc:  t.retreats.description as string,
       image: (t.retreats.images[0] as any).image,
       href:  t.retreats.link as string,
-      cta:   'Organizar retiro',
+      cta:   (t.retreats as any).shortCta as string,
       external: true,
     },
     {
@@ -40,8 +40,8 @@ export const SectionNichos: React.FC = () => {
       external: false,
     },
     {
-      tag:   'Comunidad Internacional',
-      title: 'Voluntariados',
+      tag:   (t.volunteer as any).tag as string,
+      title: (t.volunteer as any).shortTitle as string,
       desc:  (t.volunteer.description as string).slice(0, 160) + '…',
       image: t.volunteer.image as string,
       href:  t.volunteer.link as string,
@@ -59,22 +59,22 @@ export const SectionNichos: React.FC = () => {
 
           <div data-reveal className="text-center mb-12">
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand/50 mb-3">
-              Más experiencias
+              {(t as any).nichos.eyebrow}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-brand">
-              Otros caminos en Mágico
+              {(t as any).nichos.title}
             </h2>
           </div>
 
           <div className="relative">
             <button onClick={() => scroll('left')}
               className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -ml-2"
-              aria-label="Anterior">
+              aria-label={t.ui.prev}>
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button onClick={() => scroll('right')}
               className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -mr-2"
-              aria-label="Siguiente">
+              aria-label={t.ui.next}>
               <ChevronRight className="w-5 h-5" />
             </button>
 
@@ -100,7 +100,7 @@ export const SectionNichos: React.FC = () => {
               ))}
             </div>
           </div>
-          <p className="md:hidden text-[10px] text-center text-brand/30 mt-2">Deslizá para ver más →</p>
+          <p className="md:hidden text-[10px] text-center text-brand/30 mt-2">{t.ui.swipeMore}</p>
         </div>
       </section>
     </>

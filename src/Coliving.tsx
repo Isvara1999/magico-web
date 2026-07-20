@@ -49,7 +49,7 @@ const Hero: React.FC = () => (
     <div className="absolute inset-0 bg-gradient-to-t from-[#002d1a]/95 via-[#002d1a]/50 to-[#002d1a]/10" />
     <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-16 md:pb-24">
       <p className="text-gold/80 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">
-        Coliving Mágico · Bienestar &amp; Estilo de Vida
+        Coliving Mágico (estadías largas) · Bienestar &amp; Estilo de Vida
       </p>
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-5 drop-shadow-xl font-light max-w-3xl">
         Un espacio para vivir,<br />trabajar y reconectar
@@ -306,7 +306,7 @@ const Alimentacion: React.FC = () => (
 );
 
 // ── Equipo ─────────────────────────────────────────────────────────────────────
-const EQUIPO = [
+const ANFITRIONES = [
   {
     photo: '/uploads/Diego_perfil.png',
     nombre: 'Diego Epelman Hodara',
@@ -321,6 +321,9 @@ const EQUIPO = [
     desc: 'Sostiene el cuerpo y la energía de quienes conviven en el espacio. Guía prácticas de movimiento, canto y meditación.',
     instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
   },
+];
+
+const EQUIPO = [
   {
     photo: '/uploads/isvara-rojas.jpg',
     nombre: 'Isvara Rojas Romero',
@@ -336,11 +339,11 @@ const EQUIPO = [
     instagram: 'https://www.instagram.com/mujeramatistaa/',
   },
   {
-    photo: '/uploads/tomas-bergallo.jpg',
-    nombre: 'Tomás Bergallo',
-    rol: 'Potenciador de regeneración · Consciencia corporal',
-    desc: 'El cuerpo es el primer capital de quien construye algo propio. Tomás trabaja la capacidad de regeneración interna — contacto, movimiento y bienestar corporal — para que lo que recuperás acá se refleje en vos y en tus proyectos.',
-    instagram: 'https://www.instagram.com/tomas.bergallo/',
+    photo: '/uploads/tomas-fossatti.jpg',
+    nombre: 'Tomás Fossatti',
+    rol: 'Emprendimiento & Tecnología · Propósito',
+    desc: 'Ingeniero, emprendedor y speaker de TEDx. Navega la intersección entre tecnología, impacto y propósito. Facilita dinámicas de claridad estratégica para emprendedores.',
+    instagram: 'https://www.instagram.com/tomasfossatti_/',
   },
   {
     photo: '/uploads/nicole-rosignoli.webp',
@@ -349,34 +352,82 @@ const EQUIPO = [
     desc: 'Licenciada en Psicología (UNC). Acompaña desde el enfoque gestáltico y la salud cíclica, integrando plantas medicinales, movimiento corporal y círculos de mujeres.',
     instagram: 'https://www.instagram.com/thematriiz/',
   },
+  {
+    photo: '/uploads/tomas-bergallo.jpg',
+    nombre: 'Tomás Bergallo',
+    rol: 'Potenciador de regeneración · Consciencia corporal',
+    desc: 'El cuerpo es el primer capital de quien construye algo propio. Tomás trabaja la capacidad de regeneración interna — contacto, movimiento y bienestar corporal — para que lo que recuperás acá se refleje en vos y en tus proyectos.',
+    instagram: 'https://www.instagram.com/tomas.bergallo/',
+  },
+  {
+    photo: '/uploads/santiago-alzogaray.png',
+    nombre: 'Santiago Alzogaray',
+    rol: 'Ceremonia de Temazcal',
+    desc: 'Conduce el ritual de purificación y renacimiento. Un espacio sagrado de calor, vapor y silencio donde la comunidad se reúne alrededor del fuego — disponible como actividad extra durante tu estadía.',
+  },
 ];
 
-const Equipo: React.FC = () => (
-  <section className="py-20 bg-bone">
-    <div className="max-w-5xl mx-auto px-6">
-      <div data-reveal className="text-center mb-12">
-        <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">Quiénes te acompañan</p>
-        <h2 className="text-3xl md:text-4xl font-serif text-brand">No estás solo en el proceso</h2>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        {EQUIPO.map((m, i) => (
-          <div key={i} data-reveal data-delay={`${i + 1}` as any} className="bg-white rounded-2xl p-6 border border-brand/5 shadow-sm text-center">
-            <img src={m.photo} alt={m.nombre} loading="lazy"
-              className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-gold/30" />
-            <h3 className="font-serif text-brand text-base mb-0.5">{m.nombre}</h3>
-            <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-3">{m.rol}</p>
-            <p className="text-dark/60 text-xs leading-relaxed mb-4">{m.desc}</p>
-            {m.instagram && (
-              <a href={m.instagram} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-bone text-brand hover:bg-brand hover:text-white transition-colors">
-                <InstagramLogo className="w-4 h-4" weight="fill" />
-              </a>
-            )}
+// Acordeón genérico para las tarjetas de personas
+type Persona = { photo: string; nombre: string; rol: string; desc: string; instagram?: string };
+const PersonasAccordion: React.FC<{ tag: string; titulo: string; intro: string; personas: Persona[] }> = ({ tag, titulo, intro, personas }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="bg-bone border-t border-brand/5">
+      <button onClick={() => setOpen(o => !o)} aria-expanded={open}
+        className="w-full py-8 hover:bg-brand/5 transition-colors">
+        <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+          <div className="text-left">
+            <p className="text-brand font-bold tracking-widest uppercase text-xs mb-1">{tag}</p>
+            <h2 className="text-2xl md:text-3xl font-serif text-brand">{titulo}</h2>
           </div>
-        ))}
+          <span className={`w-8 h-8 flex-shrink-0 rounded-full bg-white flex items-center justify-center text-brand transition-transform duration-300 ${open ? 'rotate-180' : ''}`}>
+            <CaretDownIcon weight="bold" className="w-3.5 h-3.5" />
+          </span>
+        </div>
+      </button>
+      <div className="overflow-hidden transition-all duration-500 ease-in-out"
+        style={{ maxHeight: open ? '1600px' : '0px', opacity: open ? 1 : 0 }}>
+        <div className="max-w-5xl mx-auto px-6 pb-16">
+          <p className="text-dark/60 text-sm leading-relaxed max-w-lg mb-6">{intro}</p>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {personas.map((m, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-brand/5 shadow-sm text-center">
+                <img src={m.photo} alt={m.nombre} loading="lazy"
+                  className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-gold/30" />
+                <h3 className="font-serif text-brand text-base mb-0.5">{m.nombre}</h3>
+                <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-3">{m.rol}</p>
+                <p className="text-dark/60 text-xs leading-relaxed mb-4">{m.desc}</p>
+                {m.instagram && (
+                  <a href={m.instagram} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-bone text-brand hover:bg-brand hover:text-white transition-colors">
+                    <InstagramLogo className="w-4 h-4" weight="fill" />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  );
+};
+
+const Anfitriones: React.FC = () => (
+  <PersonasAccordion
+    tag="Los guardianes del espacio"
+    titulo="Anfitriones de Pueblo Mágico"
+    intro="Diego y China no son anfitriones de temporada. Viven acá, todo el año."
+    personas={ANFITRIONES}
+  />
+);
+
+const Equipo: React.FC = () => (
+  <PersonasAccordion
+    tag="Quiénes te acompañan"
+    titulo="No estás solo en el proceso"
+    intro="Facilitadores que suman su energía y su oficio a tu estadía en distintos momentos del proceso."
+    personas={EQUIPO}
+  />
 );
 
 // ── La experiencia ────────────────────────────────────────────────────────────
@@ -726,7 +777,7 @@ const ParaQuienEs: React.FC = () => (
 // ── FAQ ───────────────────────────────────────────────────────────────────────
 const FAQS = [
   { Icon: HouseIcon, q: '¿Qué incluye el precio?', a: 'Alojamiento con ropa blanca y toallón, biocosmética en las duchas, todas las comidas caseras (desayuno, almuerzo y cena), el Programa Reset Vital, acceso a todo el predio y WiFi satelital.' },
-  { Icon: ClockIcon, q: '¿Las actividades del Reset Vital están todas incluidas?', a: 'El programa base está incluido en todos los formatos. El precio cubre la noche y las comidas — si durante tu estadía coincide una actividad especial, evento, excursión o retiro puntual en el predio, se paga la diferencia aparte.' },
+  { Icon: ClockIcon, q: '¿Las actividades del Reset Vital están todas incluidas?', a: 'El programa base está incluido en todos los formatos. El precio cubre la noche y las comidas — actividades puntuales como caminatas guiadas, trekking, cabalgatas, temazcal o ceremonias ancestrales, y cualquier evento, excursión o retiro que coincida con tu estadía, se pagan aparte según la actividad.' },
   { Icon: CalendarIcon, q: '¿Puedo entrar y salir cuando quiera durante el Pase Mensual?', a: 'Sí. Podés subir y bajar de la montaña cuando lo necesites. Para volver a subir, avisanos con 24 horas de anticipación — así preparamos todo (cama y comidas) y confirmamos disponibilidad.' },
   { Icon: CalendarIcon, q: '¿Puedo combinar días de trabajo remoto con la rutina de bienestar?', a: 'Sí, es justamente la idea. No hay horarios obligatorios: tenés espacios cómodos y conexión para trabajar, y podés sumarte a las prácticas de bienestar cuando quieras.' },
   { Icon: CaretDownIcon, q: '¿Cómo reservo mi lugar?', a: 'Los cupos son limitados para cuidar la experiencia. Escribinos por WhatsApp contándonos qué formato te interesa y te confirmamos disponibilidad.' },
@@ -929,15 +980,16 @@ const Coliving: React.FC = () => {
           <Inclusiones />
           <Galeria />
           <LaExperiencia />
+          <ParaQuienEs />
           <PorQueFunciona />
           <MomentoIdeas />
           <Alimentacion />
+          <Anfitriones />
           <Equipo />
           <Posicionamiento />
-          <Formatos />
           <Testimonios />
           <GuiaFoco />
-          <ParaQuienEs />
+          <Formatos />
           <FAQ />
           <PermisoDescanso />
           <CTAFinal />

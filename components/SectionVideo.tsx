@@ -76,7 +76,7 @@ export const SectionVideo: React.FC = () => {
                 <iframe
                   className="absolute inset-0 w-full h-full"
                   src={getEmbedUrl(t.video.videoUrl)}
-                  title="Video de Pueblo Mágico"
+                  title={t.ui.videoTitle}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -99,7 +99,7 @@ export const SectionVideo: React.FC = () => {
               <button
                 onClick={() => setIsMuted(!isMuted)}
                 className="absolute bottom-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2.5 rounded-full border border-white/20 text-white hover:bg-black/60 transition-colors shadow-lg"
-                aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+                aria-label={isMuted ? t.ui.turnOnSound : t.ui.mute}
               >
                 {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
               </button>

@@ -10,7 +10,7 @@ export const SectionFAQ: React.FC = () => {
   const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
   const { t } = useLanguage();
   const faq = t.faq;
-  const waUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('Hola! Tengo una pregunta sobre Pueblo Mágico.')}`;
+  const waUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(faq.waMessage)}`;
 
   return (
     <>

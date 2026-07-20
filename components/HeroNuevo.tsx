@@ -1,13 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Tree, UsersThree, Mountains } from '@phosphor-icons/react';
+import { Tree, UsersThree, Mountains, CaretDown } from '@phosphor-icons/react';
 import { BookingWidget, G } from './BookingWidget';
+
+const WinterExperiencesMenu: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+  const { t } = useLanguage();
+  const data = (t.hero as any).winterExperiences;
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
+  }, [open]);
+
+  if (!data) return null;
+
+  return (
+    <div ref={ref} style={{ position: 'relative' }}>
+      <button onClick={() => setOpen(o => !o)}
+        style={{ display: 'flex', alignItems: 'center', gap: compact ? 6 : 8, background: 'rgba(212,175,55,0.2)', border: '1px solid rgba(212,175,55,0.4)', borderRadius: 999, padding: compact ? '5px 12px' : '6px 14px', cursor: 'pointer' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
+        <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: compact ? 11 : 12, fontWeight: 700, letterSpacing: compact ? '0.2em' : '0.25em', textTransform: 'uppercase' }}>{data.label}</span>
+        <CaretDown size={compact ? 10 : 11} weight="bold" color="rgba(255,255,255,0.8)" style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
+      </button>
+      {open && (
+        <div style={{ position: 'absolute', top: 'calc(100% + 8px)', left: 0, zIndex: 30, minWidth: 250, background: 'white', borderRadius: 14, overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
+          {data.options.map((opt: any, i: number) => (
+            <a key={opt.link} href={opt.link}
+              style={{ display: 'block', padding: '12px 16px', textDecoration: 'none', borderBottom: i < data.options.length - 1 ? '1px solid rgba(0,83,51,0.08)' : 'none' }}>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: 13, color: G.green }}>{opt.label}</p>
+              <p style={{ margin: '2px 0 0', fontSize: 11, color: '#4A6070' }}>{opt.sub}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const HeroNuevo: React.FC = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const images   = (t.hero as any).bgImages || [t.hero.bgImage];
-  const nextEvent = (t.hero as any).nextEvent;
+  const colivingBadge = (t.hero as any).colivingBadge;
 
   useEffect(() => {
     if (images.length <= 1) return;
@@ -30,7 +70,7 @@ export const HeroNuevo: React.FC = () => {
   );
 
   return (
-    <section id="heroSec" style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
+    <section id="heroHome" style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
       {Background}
 
       {/* ═══════════════════════════════════════════════════════
@@ -69,10 +109,10 @@ export const HeroNuevo: React.FC = () => {
         <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.45)' }}>
           <div style={{ background: G.green, padding: '11px 16px 9px' }}>
             <p style={{ fontSize: 10, letterSpacing: '0.35em', textTransform: 'uppercase', fontWeight: 700, color: 'rgba(212,175,55,0.85)', marginBottom: 3 }}>
-              INVIERNO 2026
+              {(t.hero as any).reservationKicker}
             </p>
             <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, fontWeight: 400, color: 'white', margin: 0 }}>
-              Verificar disponibilidad
+              {(t.hero as any).reservationCta}
             </p>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.97)' }}>
@@ -86,11 +126,11 @@ export const HeroNuevo: React.FC = () => {
             <span style={{ color: '#fde047', fontSize: 13 }}>★★★★★</span>
             <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 12 }}>{(t.hero as any).stats_google}</span>
           </div>
-          {nextEvent && (
-            <a href={nextEvent.link}
-              style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(212,175,55,0.15)', border: '1px solid rgba(212,175,55,0.35)', borderRadius: 999, padding: '5px 12px', textDecoration: 'none' }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
-              <span style={{ color: 'rgba(255,255,255,0.90)', fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' }}>{nextEvent.label}</span>
+          <WinterExperiencesMenu compact />
+          {colivingBadge && (
+            <a href={colivingBadge.link}
+              style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: 999, padding: '5px 12px', textDecoration: 'none' }}>
+              <span style={{ color: 'rgba(255,255,255,0.90)', fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' }}>{colivingBadge.label}</span>
             </a>
           )}
           <a href={(t.hero as any).retreatLink}
@@ -147,11 +187,11 @@ export const HeroNuevo: React.FC = () => {
 
           {/* Trust chips */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-            {nextEvent && (
-              <a href={nextEvent.link}
-                style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(212,175,55,0.2)', border: '1px solid rgba(212,175,55,0.4)', borderRadius: 999, padding: '6px 14px', textDecoration: 'none' }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
-                <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: 12, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{nextEvent.label}</span>
+            <WinterExperiencesMenu />
+            {colivingBadge && (
+              <a href={colivingBadge.link}
+                style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: 999, padding: '6px 14px', textDecoration: 'none' }}>
+                <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: 12, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{colivingBadge.label}</span>
               </a>
             )}
             <a href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9" target="_blank" rel="noopener noreferrer"
@@ -180,7 +220,7 @@ export const HeroNuevo: React.FC = () => {
           <div style={{ width: '100%', borderRadius: 22, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.18)' }}>
             <div style={{ background: G.green, padding: '18px 20px 16px' }}>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 21, fontWeight: 400, color: 'white', lineHeight: 1.25, margin: 0 }}>
-                Reserva tu experiencia inolvidable en la montaña
+                {(t.hero as any).reservationTitle}
               </h2>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.96)' }}>

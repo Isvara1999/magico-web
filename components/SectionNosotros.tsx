@@ -36,25 +36,25 @@ export const SectionNosotros: React.FC = () => {
               <div className="rounded-xl overflow-hidden shadow-md relative aspect-[4/3]">
                 <img
                   src={images[currentIndex]}
-                  alt="Vista Pueblo Mágico"
+                  alt={t.about.tag as string}
                   className="w-full h-full object-cover transition-[transform,opacity] duration-500"
                   loading="lazy"
                 />
-                
+
                 {/* Flechas de Navegación (Solo visibles en hover) */}
                 {images.length > 1 && (
                   <>
-                    <button 
+                    <button
                       onClick={prev}
                       className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full text-brand shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white hover:scale-110"
-                      aria-label="Anterior"
+                      aria-label={t.ui.prev}
                     >
                       <ChevronLeft className="w-5 h-5" />
                     </button>
-                    <button 
+                    <button
                       onClick={next}
                       className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full text-brand shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white hover:scale-110"
-                      aria-label="Siguiente"
+                      aria-label={t.ui.next}
                     >
                       <ChevronRight className="w-5 h-5" />
                     </button>

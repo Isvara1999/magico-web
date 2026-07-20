@@ -6,12 +6,12 @@ export const SectionComoLlegar: React.FC = () => {
 
   return (
     <section id="como-llegar" className="py-24 bg-white border-t border-brand/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center mb-12">
         <div className="order-2 md:order-1">
           <div className="rounded-xl overflow-hidden shadow-lg h-80 md:h-[500px]">
             <img
               src={t.location.image}
-              alt="Camino a la montaña"
+              alt={(t.location as any).imageAlt}
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
@@ -43,6 +43,17 @@ export const SectionComoLlegar: React.FC = () => {
               {t.location.btnTransfer}
             </a>
           </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="rounded-xl overflow-hidden shadow-lg h-80 md:h-[420px]">
+          <iframe
+            src="https://www.google.com/maps?q=-31.2510838,-64.8159577&z=15&output=embed"
+            title={(t.location as any).mapIframeTitle}
+            className="w-full h-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </section>

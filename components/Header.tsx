@@ -168,7 +168,7 @@ export const Header: React.FC = () => {
         <button
           onClick={toggleMobileMenu}
           className="lg:hidden relative z-[1200] p-2 focus:outline-none"
-          aria-label="Toggle Menu"
+          aria-label={t.ui.toggleMenu}
         >
           {isMobileMenuOpen ? (
             <X className="w-6 h-6 text-dark" />

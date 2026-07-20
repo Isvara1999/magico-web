@@ -123,11 +123,11 @@ export const SectionContacto = () => {
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-brand accent-brand flex-shrink-0 cursor-pointer"
               />
               <span className="text-xs text-dark/60 leading-relaxed">
-                Acepto los{' '}
-                <a href="/terminos-y-condiciones" target="_blank" className="text-brand hover:underline">Términos y Condiciones</a>{' '}
-                y la{' '}
-                <a href="/politica-de-privacidad" target="_blank" className="text-brand hover:underline">Política de Privacidad</a>.
-                Autorizo a Pueblo Mágico a contactarme por WhatsApp o email con información sobre disponibilidad, ofertas y novedades.
+                {t.contact.consent.prefix}{' '}
+                <a href="/terminos-y-condiciones" target="_blank" className="text-brand hover:underline">{t.contact.consent.termsLink}</a>{' '}
+                {t.contact.consent.middle}{' '}
+                <a href="/politica-de-privacidad" target="_blank" className="text-brand hover:underline">{t.contact.consent.privacyLink}</a>.
+                {' '}{t.contact.consent.suffix}
               </span>
             </label>
 
@@ -144,11 +144,11 @@ export const SectionContacto = () => {
               >
                 {status === 'submitting' ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin" /> Enviando...
+                    <Loader2 className="w-4 h-4 animate-spin" /> {t.contact.status.sending}
                   </>
                 ) : status === 'success' ? (
                   <>
-                    <CheckCircle className="w-4 h-4" /> ¡Enviado!
+                    <CheckCircle className="w-4 h-4" /> {t.contact.status.sent}
                   </>
                 ) : (
                   t.contact.btn
@@ -157,12 +157,12 @@ export const SectionContacto = () => {
 
               {status === 'success' && (
                 <p className="text-green-600 text-sm animate-fadeIn font-medium">
-                  Gracias por escribirnos. Te responderemos a la brevedad.
+                  {t.contact.status.successMsg}
                 </p>
               )}
               {status === 'error' && (
                 <p className="text-red-500 text-sm animate-fadeIn flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4" /> Hubo un error al enviar. Por favor intenta de nuevo.
+                  <AlertCircle className="w-4 h-4" /> {t.contact.status.errorMsg}
                 </p>
               )}
             </div>

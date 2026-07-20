@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useLocation } from 'react-router-dom';
 import { InstagramLogo, WhatsappLogo, FacebookLogo, MapPin, Envelope, Phone } from '@phosphor-icons/react';
 import { SOCIAL_LINKS } from '../src/data/config';
 import { ROUTES } from '../src/routes';
@@ -7,6 +8,8 @@ import { ROUTES } from '../src/routes';
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
+  const location = useLocation();
+  const isHomePage = location.pathname === ROUTES.HOME;
 
   return (
     <footer className="bg-white text-gray-800 py-16 md:py-24 border-t border-gray-100">
@@ -26,13 +29,13 @@ export const Footer: React.FC = () => {
               {t.footer.description}
             </p>
             <div className="flex gap-4">
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Instagram" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label={t.ui.followInstagram} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <InstagramLogo size={20} weight="light" />
               </a>
-              <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Contactanos por WhatsApp" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label={t.ui.contactWhatsapp} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <WhatsappLogo size={20} weight="light" />
               </a>
-              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Seguinos en Facebook" className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label={t.ui.followFacebook} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <FacebookLogo size={20} weight="light" />
               </a>
             </div>
@@ -47,7 +50,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4">
               {t.menu.items.map((item: any, index: number) => (
                 <li key={index}>
-                  <a href={item.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
+                  <a href={item.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.href : item.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
                     {item.label}
                   </a>
@@ -77,13 +80,13 @@ export const Footer: React.FC = () => {
           {/* Contact Column */}
           <div>
             <h3 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
-              Contacto
+              {t.footer.titles.contact}
               <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
             </h3>
             <ul className="space-y-5">
               <li className="flex items-start gap-3 text-gray-600">
                 <MapPin size={18} weight="light" className="text-brand-gold mt-1 flex-shrink-0" />
-                <span className="text-sm font-light leading-relaxed">Los Gigantes, Sierras Grandes,<br/>Córdoba, Argentina</span>
+                <a href={t.location.mapLink} target="_blank" rel="noopener noreferrer" className="text-sm font-light leading-relaxed hover:text-brand-gold transition-colors" dangerouslySetInnerHTML={{ __html: t.footer.address }} />
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <Phone size={18} weight="light" className="text-brand-gold flex-shrink-0" />

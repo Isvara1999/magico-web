@@ -60,19 +60,19 @@ export const SectionExperiencias: React.FC = () => {
         {/* Cards */}
         <div className="text-center mb-6">
           <span className="text-brand/80 font-bold tracking-widest uppercase text-xs">
-            PERSONALIZÁ TU ESTADÍA
+            {(t.experiences as any).personalizeStay}
           </span>
         </div>
 
         <div className="relative">
           <button onClick={() => scroll('left')}
             className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -ml-2"
-            aria-label="Anterior">
+            aria-label={t.ui.prev}>
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button onClick={() => scroll('right')}
             className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -mr-2"
-            aria-label="Siguiente">
+            aria-label={t.ui.next}>
             <ChevronRight className="w-5 h-5" />
           </button>
 
@@ -86,7 +86,7 @@ export const SectionExperiencias: React.FC = () => {
                   {isEcoRefugio && (
                     <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-start pointer-events-none">
                       <div className="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">{(t.experiences as any).badge_accommodation}</div>
-                      <div className="bg-gold text-brand text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">Coworking & Coliving</div>
+                      <div className="bg-gold text-brand text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">{(t.experiences as any).coworkingBadge}</div>
                     </div>
                   )}
                   <div className="relative aspect-video md:aspect-[4/3] overflow-hidden bg-gray-100">
@@ -106,7 +106,7 @@ export const SectionExperiencias: React.FC = () => {
             })}
           </div>
         </div>
-        <p className="md:hidden text-[10px] text-center text-dark/30 mt-2">Deslizá para ver más →</p>
+        <p className="md:hidden text-[10px] text-center text-dark/30 mt-2">{t.ui.swipeMore}</p>
       </div>
     </section>
   );

@@ -1,11 +1,61 @@
 {
   "es": {
+    "booking": {
+      "months": [
+        { "label": "Julio", "short": "Jul" },
+        { "label": "Agosto", "short": "Ago" },
+        { "label": "Septiembre", "short": "Sep" }
+      ],
+      "dayNames": ["L", "M", "X", "J", "V", "S", "D"],
+      "monthAbbr": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+      "selectDates": "Seleccioná tus fechas",
+      "arrival": "Llegada",
+      "departure": "Salida",
+      "tapArrival": "Tocá tu fecha de llegada",
+      "chooseDeparture": "Ahora elegí la salida",
+      "nightWord": "noche",
+      "guestWord": "persona",
+      "guestsLabel": "Personas",
+      "accommodation": "Alojamiento",
+      "domoShort": "Domo",
+      "refugioShort": "Refugio",
+      "domoFull": "Domo geodésico",
+      "refugioFull": "Refugio",
+      "regimen": "Régimen",
+      "fullBoard": "Pensión completa",
+      "breakfastOnly": "Solo desayuno",
+      "clear": "limpiar",
+      "confirmWhatsapp": "Confirmar por WhatsApp",
+      "checkAvailability": "Consultar disponibilidad",
+      "waTemplateWithDates": "¡Hola! Quiero reservar en Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Llegada: {start}\n📅 Salida: {end}\n🌙 {nights} · 👥 {personas}\n\n¿Está disponible?",
+      "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico — invierno 2026. ¿Me pueden dar más info?"
+    },
+    "ui": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "swipeMore": "Deslizá para ver más →",
+      "swipeMoreNoArrow": "Deslizá para ver más",
+      "toggleMenu": "Abrir menú",
+      "closeCookieNotice": "Cerrar aviso de cookies",
+      "followInstagram": "Seguinos en Instagram",
+      "contactWhatsapp": "Contactanos por WhatsApp",
+      "followFacebook": "Seguinos en Facebook",
+      "turnOnSound": "Activar sonido",
+      "mute": "Silenciar",
+      "videoTitle": "Video de Pueblo Mágico"
+    },
+    "nichos": {
+      "eyebrow": "Más experiencias",
+      "title": "Otros caminos en Mágico"
+    },
     "experiences": {
       "tag": "En Mágico",
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
       "intro_p1": "En Pueblo Mágico, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
       "intro_p2": "Ya recibimos viajeros de todo el mundo. Somos el destino ideal para quienes buscan un <b>Coworking con alma</b> o un retiro personal autoguiado: el <b>Reset Vital</b>.",
       "badge_accommodation": "Alojamiento",
+      "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
+      "coworkingBadge": "Coworking & Coliving",
       "card_extra_text": "También podés solo alojarte si querés.",
       "btn": "RESERVAR MI LUGAR",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
@@ -57,6 +107,8 @@
       }
     },
     "volunteer": {
+      "tag": "Comunidad Internacional",
+      "shortTitle": "Voluntariados",
       "title": "Un refugio <span class='italic text-green'>internacional</span>",
       "description": "Recibimos voluntarios y viajeros de todo el mundo. La energía de Pueblo Mágico se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
       "btn": "POSTULARME",
@@ -87,6 +139,8 @@
     },
     "retreats": {
       "tag": "Experiencias Grupales",
+      "shortTitle": "Retiros Grupales",
+      "shortCta": "Organizar Retiro",
       "title": "Crear espacio para <br /><span class='italic text-gold'>lo trascendente.</span>",
       "description": "Abrimos el espacio, el equipo y la energía de Pueblo Mágico para Co-crear retiros, encuentros y jornadas en contacto profundo con la naturaleza.",
       "btn": "ORGANIZAR RETIRO",
@@ -142,6 +196,7 @@
     },
     "testimonials": {
       "title": "Historias de la <span class='text-gold italic'>Montaña</span>",
+      "googleReviews": "· 64 reseñas en Google Maps",
       "items": [
         {
           "id": 1,
@@ -172,6 +227,8 @@
       "btnMap": "Ver en Mapa",
       "btnTransfer": "Coordinar Traslado",
       "image": "/uploads/img_6948.webp",
+      "imageAlt": "Camino a la montaña",
+      "mapIframeTitle": "Ubicación de Pueblo Mágico en el mapa",
       "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
       "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
     },
@@ -188,6 +245,15 @@
           "btn": "Ver más",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
+          "pdfLink": ""
+        },
+        {
+          "date": "INVIERNO 2026 · JUL · AGO · SEP",
+          "title": "Winter Redirection · Emprendedores en la Montaña",
+          "desc": "Un mes para redirigir cuando el ruido del día a día tapa la perspectiva. Contenido específico para emprendedores, dueños de negocio y equipos: mentalidad de crecimiento, comunicación y productos con IA.",
+          "btn": "Ver más",
+          "image": "/uploads/coworking.webp",
+          "link": "/winter-redirection",
           "pdfLink": ""
         },
         {
@@ -251,7 +317,21 @@
       "nextEvent": {
         "label": "WINTER CAMP · INVIERNO 2026 · ¡RESERVÁ TU LUGAR!",
         "link": "/winter-camp"
-      }
+      },
+      "winterExperiences": {
+        "label": "EXPERIENCIAS DE INVIERNO 2026",
+        "options": [
+          { "label": "Winter Camp", "sub": "Familias y viajeros solos", "link": "/winter-camp" },
+          { "label": "Winter Redirection", "sub": "Emprendedores y dueños de negocio", "link": "/winter-redirection" }
+        ]
+      },
+      "colivingBadge": {
+        "label": "CO-LIVING · ESTADÍAS LARGAS",
+        "link": "/coliving"
+      },
+      "reservationKicker": "INVIERNO 2026",
+      "reservationCta": "Verificar disponibilidad",
+      "reservationTitle": "Reserva tu experiencia inolvidable en la montaña"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -358,6 +438,19 @@
         "message": "¿Cómo te gustaría vivir la experiencia?"
       },
       "btn": "Enviar Mensaje",
+      "consent": {
+        "prefix": "Acepto los",
+        "termsLink": "Términos y Condiciones",
+        "middle": "y la",
+        "privacyLink": "Política de Privacidad",
+        "suffix": "Autorizo a Pueblo Mágico a contactarme por WhatsApp o email con información sobre disponibilidad, ofertas y novedades."
+      },
+      "status": {
+        "sending": "Enviando...",
+        "sent": "¡Enviado!",
+        "successMsg": "Gracias por escribirnos. Te responderemos a la brevedad.",
+        "errorMsg": "Hubo un error al enviar. Por favor intenta de nuevo."
+      },
       "labels": {
         "email": "Email",
         "whatsapp": "WhatsApp",
@@ -371,8 +464,10 @@
       "titles": {
         "explore": "Explorar",
         "experiences": "Experiencias",
+        "contact": "Contacto",
         "legal": "Legal"
       },
+      "address": "Los Gigantes, Sierras Grandes,<br/>Córdoba, Argentina",
       "links": {
         "terms": "Términos y Condiciones",
         "privacy": "Políticas de Privacidad",
@@ -1527,6 +1622,7 @@
       "subtitle": "Todo lo que necesitás saber antes de reservar.",
       "footer_text": "¿Tenés otra pregunta?",
       "footer_cta": "Escribinos por WhatsApp",
+      "waMessage": "¡Hola! Tengo una pregunta sobre Pueblo Mágico.",
       "items": [
         {
           "q": "¿Qué incluye el precio de la estadía?",
@@ -1548,12 +1644,62 @@
     }
   },
   "en": {
+    "booking": {
+      "months": [
+        { "label": "July", "short": "Jul" },
+        { "label": "August", "short": "Aug" },
+        { "label": "September", "short": "Sep" }
+      ],
+      "dayNames": ["M", "T", "W", "T", "F", "S", "S"],
+      "monthAbbr": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "selectDates": "Select your dates",
+      "arrival": "Arrival",
+      "departure": "Departure",
+      "tapArrival": "Tap your arrival date",
+      "chooseDeparture": "Now choose your departure",
+      "nightWord": "night",
+      "guestWord": "guest",
+      "guestsLabel": "Guests",
+      "accommodation": "Accommodation",
+      "domoShort": "Dome",
+      "refugioShort": "Lodge",
+      "domoFull": "Geodesic dome",
+      "refugioFull": "Lodge",
+      "regimen": "Meal plan",
+      "fullBoard": "Full board",
+      "breakfastOnly": "Breakfast only",
+      "clear": "clear",
+      "confirmWhatsapp": "Confirm via WhatsApp",
+      "checkAvailability": "Check availability",
+      "waTemplateWithDates": "Hi! I'd like to book at Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Arrival: {start}\n📅 Departure: {end}\n🌙 {nights} · 👥 {personas}\n\nIs it available?",
+      "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico — winter 2026. Could you give me more info?"
+    },
+    "ui": {
+      "prev": "Previous",
+      "next": "Next",
+      "swipeMore": "Swipe to see more →",
+      "swipeMoreNoArrow": "Swipe to see more",
+      "toggleMenu": "Open menu",
+      "closeCookieNotice": "Close cookie notice",
+      "followInstagram": "Follow us on Instagram",
+      "contactWhatsapp": "Contact us on WhatsApp",
+      "followFacebook": "Follow us on Facebook",
+      "turnOnSound": "Unmute",
+      "mute": "Mute",
+      "videoTitle": "Pueblo Mágico Video"
+    },
+    "nichos": {
+      "eyebrow": "More experiences",
+      "title": "Other paths at Mágico"
+    },
     "experiences": {
       "tag": "Mágico Experience",
       "title": "Design your stay",
       "intro_p1": "At Pueblo Mágico, <strong class='text-brand font-medium'>the basics are extraordinary</strong>. Your stay always includes <strong class='text-[#8B6914] font-medium'>Accommodation, Full Board, and the Reset Vital experience</strong>. Discover the deep calm of inhabiting the mountain during the week, the perfect pace for focus, creativity, and presence.",
       "intro_p2": "We have already hosted travelers from all over the world. We are the ideal destination for those seeking a <b>Coworking with soul</b> or a self-guided personal retreat: the <b>Reset Vital</b>.",
       "badge_accommodation": "Accommodation",
+      "personalizeStay": "CUSTOMIZE YOUR STAY",
+      "coworkingBadge": "Coworking & Coliving",
       "card_extra_text": "You can also just book accommodation if you wish.",
       "btn": "Book my spot",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
@@ -1605,6 +1751,8 @@
       }
     },
     "volunteer": {
+      "tag": "International Community",
+      "shortTitle": "Volunteering",
       "title": "An <span class='italic text-green'>international</span> haven",
       "description": "We receive volunteers and travelers from all over the world. The energy of Pueblo Mágico is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
       "btn": "Apply",
@@ -1635,6 +1783,8 @@
     },
     "retreats": {
       "tag": "Group Experiences",
+      "shortTitle": "Group Retreats",
+      "shortCta": "Organize Retreat",
       "title": "Create space for <br /><span class='italic text-gold'>the transcendent.</span>",
       "description": "We open the space, the team and the energy of Pueblo Mágico to Co-create retreats, gatherings and days in deep contact with nature.",
       "btn": "Organize Retreat",
@@ -1690,6 +1840,7 @@
     },
     "testimonials": {
       "title": "Mountain Stories",
+      "googleReviews": "· 64 reviews on Google Maps",
       "items": [
         {
           "id": 1,
@@ -1720,6 +1871,8 @@
       "btnMap": "View on Map",
       "btnTransfer": "Coordinate Transfer",
       "image": "/uploads/img_6948.webp",
+      "imageAlt": "Road to the mountain",
+      "mapIframeTitle": "Pueblo Mágico location on the map",
       "mapLink": "https://maps.app.goo.gl/zsPJMUZtAA9xVzaaA",
       "transferLink": "https://wa.me/5493516765820?text=Hola!%20Necesito%20coordinar%20mi%20traslado%20hacia%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%9A%97"
     },
@@ -1739,12 +1892,31 @@
           "pdfLink": ""
         },
         {
+          "date": "WINTER 2026 · JUL · AUG · SEP",
+          "title": "Winter Redirection · Entrepreneurs in the Mountains",
+          "desc": "A month to redirect when the day-to-day noise blocks your perspective. Specific content for entrepreneurs, business owners and teams: growth mindset, communication and AI-powered products.",
+          "btn": "See More",
+          "image": "/uploads/coworking.webp",
+          "link": "/winter-redirection",
+          "pdfLink": ""
+        },
+        {
           "date": "JUN 13-15",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
           "btn": "See More",
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
+          "pdfLink": ""
+        },
+        {
+          "date": "NEXT DATE",
+          "title": "Achala Viva",
+          "desc": "A guided exploration including stargazing, birdwatching and nature photography.",
+          "btn": "Sign me up",
+          "tag": "SOON",
+          "image": "/uploads/img_6948.webp",
+          "link": "https://wa.me/5493516765820?text=Hi!%20I%20want%20to%20sign%20up%20for%20the%20next%20Achala%20Viva%20date.%20%F0%9F%93%85",
           "pdfLink": ""
         },
         {
@@ -1789,7 +1961,21 @@
       "nextEvent": {
         "label": "WINTER CAMP · WINTER 2026 · BOOK YOUR SPOT!",
         "link": "/winter-camp"
-      }
+      },
+      "winterExperiences": {
+        "label": "WINTER EXPERIENCES 2026",
+        "options": [
+          { "label": "Winter Camp", "sub": "Families & solo travelers", "link": "/winter-camp" },
+          { "label": "Winter Redirection", "sub": "Entrepreneurs & business owners", "link": "/winter-redirection" }
+        ]
+      },
+      "colivingBadge": {
+        "label": "CO-LIVING · LONG STAYS",
+        "link": "/coliving"
+      },
+      "reservationKicker": "WINTER 2026",
+      "reservationCta": "Check availability",
+      "reservationTitle": "Book your unforgettable mountain experience"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -1896,12 +2082,25 @@
         "message": "How would you like to live the experience?"
       },
       "btn": "Send Message",
+      "consent": {
+        "prefix": "I accept the",
+        "termsLink": "Terms & Conditions",
+        "middle": "and the",
+        "privacyLink": "Privacy Policy",
+        "suffix": "I authorize Pueblo Mágico to contact me via WhatsApp or email with information about availability, offers and news."
+      },
+      "status": {
+        "sending": "Sending...",
+        "sent": "Sent!",
+        "successMsg": "Thanks for writing to us. We'll get back to you shortly.",
+        "errorMsg": "There was an error sending your message. Please try again."
+      },
       "labels": {
         "email": "Email",
         "whatsapp": "WhatsApp",
         "social": "Social",
         "phone": "5493516765820",
-        "whatsappLink": "https://wa.me/5493516765820?text=Hola!%20Estoy%20viendo%20la%20web%20de%20M%C3%A1gico%20Ensue%C3%B1o%20y%20tengo%20una%20consulta.%20%F0%9F%8C%BF"
+        "whatsappLink": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF"
       }
     },
     "footer": {
@@ -1909,8 +2108,10 @@
       "titles": {
         "explore": "Explore",
         "experiences": "Experiences",
+        "contact": "Contact",
         "legal": "Legal"
       },
+      "address": "Los Gigantes, Sierras Grandes,<br/>Córdoba, Argentina",
       "links": {
         "terms": "Terms and Conditions",
         "privacy": "Privacy Policy",
@@ -3067,6 +3268,7 @@
       "subtitle": "Everything you need to know before booking.",
       "footer_text": "Have another question?",
       "footer_cta": "Message us on WhatsApp",
+      "waMessage": "Hi! I have a question about Pueblo Mágico.",
       "items": [
         {
           "q": "What does the stay price include?",

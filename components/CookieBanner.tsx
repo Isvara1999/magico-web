@@ -41,7 +41,7 @@ export const CookieBanner: React.FC = () => {
         <button
           onClick={dismiss}
           className="absolute top-4 right-4 text-gray-400 hover:text-brand transition-colors p-1"
-          aria-label="Cerrar aviso de cookies"
+          aria-label={t.ui.closeCookieNotice}
         >
           <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>

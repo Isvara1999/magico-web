@@ -68,13 +68,13 @@ export const SectionParaQuien: React.FC = () => {
           <div className="md:hidden flex justify-between items-center mt-4 px-1">
             <button onClick={() => scroll('left')}
               className="p-2.5 rounded-full bg-white shadow-md text-brand border border-stone-200 hover:border-brand transition-colors"
-              aria-label="Anterior">
+              aria-label={t.ui.prev}>
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <p className="text-[11px] text-center text-gray-400">Deslizá para ver más</p>
+            <p className="text-[11px] text-center text-gray-400">{t.ui.swipeMoreNoArrow}</p>
             <button onClick={() => scroll('right')}
               className="p-2.5 rounded-full bg-white shadow-md text-brand border border-stone-200 hover:border-brand transition-colors"
-              aria-label="Siguiente">
+              aria-label={t.ui.next}>
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

@@ -29,17 +29,17 @@ export const SectionEventos: React.FC = () => {
           </h2>
         </div>
         <div className="relative">
-          <button 
+          <button
             onClick={() => scroll('left')}
             className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -ml-2"
-            aria-label="Anterior"
+            aria-label={t.ui.prev}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button 
+          <button
             onClick={() => scroll('right')}
             className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -mr-2"
-            aria-label="Siguiente"
+            aria-label={t.ui.next}
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -34,21 +34,21 @@ export const SectionTestimonios: React.FC = () => {
           >
             <span className="text-yellow-400 text-base leading-none tracking-tight">★★★★★</span>
             <span className="text-brand font-bold text-sm">5.0</span>
-            <span className="text-dark/50 text-xs font-light">· 64 reseñas en Google Maps</span>
+            <span className="text-dark/50 text-xs font-light">{(t.testimonials as any).googleReviews}</span>
           </a>
         </div>
         <div className="relative">
-          <button 
+          <button
             onClick={() => scroll('left')}
             className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -ml-2"
-            aria-label="Anterior"
+            aria-label={t.ui.prev}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button 
+          <button
             onClick={() => scroll('right')}
             className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -mr-2"
-            aria-label="Siguiente"
+            aria-label={t.ui.next}
           >
             <ChevronRight className="w-5 h-5" />
           </button>
