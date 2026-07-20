@@ -15,4 +15,4 @@ export const MONTHLY_RESERVATIONS: Record<string, number> = {
   '2026-09': 0,
 };
 
-export const PRECIO_NOCHE_ARS = 85_000;
+export const PRECIO_NOCHE_ARS = 50_000; // pensión completa (desayuno: $20.000)

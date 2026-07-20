@@ -22,8 +22,8 @@
           "id": 2,
           "title": "Eco-Refugio & Glamping",
           "description": "Dormir en la montaña como elijas: Domos geodésicos y Eco-Refugio o camping. Confort simple y naturaleza pura.",
-          "ctaText": "VER OPCIONES",
-          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
+          "ctaText": "VER ALOJAMIENTOS",
+          "ctaLink": "/estadia",
           "image": "/uploads/refu.webp"
         },
         {
@@ -119,6 +119,14 @@
       "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
       "link": "/escuelas"
     },
+    "coliving": {
+      "tag": "Bienestar & Estilo de Vida",
+      "title": "Coliving Mágico",
+      "description": "Viví, trabajá y reconectá en la montaña. Estadías largas con pensión completa, wifi satelital y una comunidad que baja el ritmo con vos — desde una semana hasta el mes completo.",
+      "btn": "Consultar Coliving",
+      "image": "/uploads/coworking.webp",
+      "link": "/coliving"
+    },
     "about": {
       "tag": "Nuestra Esencia",
       "title": "Volver al origen <br /> es el <span class='text-gold italic'>verdadero lujo.</span>",
@@ -176,7 +184,7 @@
         {
           "date": "INVIERNO 2026 · JUL · AGO · SEP",
           "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $63.000 por noche en efectivo.",
+          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $40.000/noche pensión completa en efectivo.",
           "btn": "Ver más",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -190,32 +198,6 @@
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
           "pdfLink": ""
-        },
-        {
-          "date": "20 Y 21 DE JUNIO",
-          "title": "Inti Raymi · Solsticio de Invierno",
-          "desc": "Festival consciente en la montaña para atravesar la noche más larga del año honrando la antigua tradición del Inti Raymi. El 21 de junio es también el Día del Padre — una excusa perfecta para celebrarlo juntos en Los Gigantes.",
-          "btn": "Ver Más",
-          "image": "/uploads/fogon_nocturno.webp",
-          "link": "/inti-raymi",
-          "pdfLink": ""
-        },
-        {
-          "date": "26 AL 28 DE JUNIO",
-          "title": "Las Hijas de Venus — Edición Invierno",
-          "desc": "Círculo de mujeres. El placer como brújula. La presencia como medicina. El encuentro como acto sagrado y potenciador.",
-          "btn": "Consultar",
-          "image": "/uploads/danza.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20info%20sobre%20Las%20Hijas%20de%20Venus%20-%20Edicion%20Invierno.%20%F0%9F%93%85"
-        },
-        {
-          "title": "Gondorbows",
-          "desc": "Experiencia vivencial y práctica en arquería intuitiva y meditativa para trabajar el foco y la intención en la naturaleza.",
-          "btn": "Ver Más",
-          "image": "/uploads/tirando.jpg",
-          "link": "/gondorbows",
-          "pdfLink": "",
-          "date": "24, 25 Y 26 DE JULIO"
         },
         {
           "date": "PRÓXIMA FECHA",
@@ -247,13 +229,15 @@
     },
     "hero": {
       "title": "Te invita a Ser",
+      "titleSub": "El mejor refugio de Córdoba Argentina",
       "subtitle": "Comunidad y Filosofía del Buen Vivir. Eco-centro y co-living de montaña para emprendedores, artistas y creadores. Experiencias de alto impacto.",
-      "tag": "ECO-CENTRO · EXPERIENCIAS DE ALTO IMPACTO · CO-LIVING",
-      "btnBook": "RESERVAR AHORA",
+      "tag": "LOS GIGANTES · SIERRAS GRANDES · CÓRDOBA",
+      "btnBook": "AGENDA DE ACTIVIDADES",
       "btnRetreat": "ORGANIZAR RETIRO",
+      "linkComoLlegar": "¿Cómo llegar?",
       "stats_years": "+15.000 Árboles Plantados",
       "stats_trees": "Huéspedes de +20 Países",
-      "stats_sus": "Desde $40.000 / noche",
+      "stats_sus": "Desde $20.000 / noche",
       "stats_google": "5.0★ · 64 reseñas Google",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -261,8 +245,8 @@
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],
-      "bookLink": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20saber%20m%C3%A1s%20sobre%20las%20experiencias%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
-      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+      "bookLink": "#eventos",
+      "retreatLink": "/organizamos-tu-experiencia",
       "nextEvent": {
         "label": "WINTER CAMP · INVIERNO 2026 · ¡RESERVÁ TU LUGAR!",
         "link": "/winter-camp"
@@ -403,12 +387,16 @@
           "href": "/familion"
         },
         {
-          "label": "Achala Viva",
-          "href": "/achala-viva"
+          "label": "❄ Winter Camp",
+          "href": "/winter-camp"
         },
         {
-          "label": "Gondorbows",
-          "href": "/gondorbows"
+          "label": "⚡ Winter Redirection",
+          "href": "/winter-redirection"
+        },
+        {
+          "label": "Achala Viva",
+          "href": "/achala-viva"
         },
         {
           "label": "Aulas Verdes",
@@ -444,7 +432,7 @@
       "invitation": {
         "title": "Un espacio para <span class='italic text-gold'>vincularse</span>",
         "text1": "Familión es una propuesta diseñada para que padres, madres e hijos compartan un tiempo de calidad en un entorno natural único. Lejos de las pantallas y el ruido de la ciudad.",
-        "text2": "Proponemos actividades lúdicas, caminatas suaves y momentos de reflexión que fortalecen los lazos familiares y nos enseñan a convivir en armonía con la tierra.",
+        "text2": "Proponemos actividades, caminatas y momentos compartidos para toda la familia. Algo pasa cuando los chicos llegan a la montaña: se autoconvocan, forman tribu y juegan solos. Los adultos acompañan desde la calma, se turnan entre sí naturalmente, y por primera vez en mucho tiempo también descansan. Todo junto, nunca separado.",
         "video_title": "Familion — Experiencia en familia en Los Gigantes"
       },
       "vivencia": {
@@ -465,59 +453,41 @@
         ]
       },
       "precios": {
-        "title": "Participá del Próximo Encuentro",
-        "subtitle": "Valores por grupo familiar. Incluye alojamiento, todas las comidas y actividades.",
-        "items": [
-          {
-            "name": "Camping",
-            "price": "650.000"
-          },
-          {
-            "name": "Eco-Refugio premium",
-            "price": "950.000"
-          },
-          {
-            "name": "Domo Privado",
-            "price": "1.150.000"
-          }
+        "title": "Precios por persona",
+        "subtitle": "2 noches · pensión completa · todo incluido. Cada integrante tiene su lugar — sin tarifas por familia.",
+        "badge": "Solo por invierno",
+        "adulto_label": "Adultos",
+        "adulto_noche": "50.000",
+        "adulto_efectivo": "100.000",
+        "adulto_lista": "120.000",
+        "adulto_cuotas": "3 cuotas de $40.000",
+        "adulto_ahorro": "Ahorrás $20.000 pagando al contado",
+        "adulto_2n": "2 noches = $100.000 por persona",
+        "por_noche": "por noche · pensión completa",
+        "kids_title": "Tarifa para infancias",
+        "kids_subtitle": "Los más chiquitos son siempre bienvenidos.",
+        "kids": [
+          { "rango": "0 a 3 años", "desc": "Sin cargo", "note": "si no ocupan cama" },
+          { "rango": "4 a 7 años", "desc": "30% OFF", "noche": "35.000", "price": "70.000" },
+          { "rango": "8 a 12 años", "desc": "15% OFF", "noche": "42.500", "price": "85.000" },
+          { "rango": "13 años o más", "desc": "Tarifa adulto" }
         ],
-        "btn": "RESERVAR LUGAR",
-        "editions": [
-          "PRÓXIMA EDICIÓN"
-        ],
-        "spots": [
-          "¡ÚLTIMOS CUPOS!"
-        ],
-        "cards": {
-          "camping": {
-            "title": "Camping",
-            "text": "Por grupo familiar · Traé tu propia carpa o alquilá la nuestra"
-          },
-          "refugio": {
-            "title": "Eco-Refugio premium",
-            "text": "Por grupo familiar · Alojamiento en habitaciones compartidas"
-          },
-          "privado": {
-            "title": "Domo Privado",
-            "text": "Por grupo familiar · Domo exclusivo para tu grupo familiar"
-          }
-        },
+        "editions": ["PRÓXIMA EDICIÓN"],
+        "spots": ["¡ÚLTIMOS CUPOS!"],
         "includes": {
-          "title": "¿Qué incluye tu inversión?",
+          "title": "¿Qué incluye tu lugar?",
           "items": [
-            "Alojamiento completo con ropa blanca, toalla y toallon individual + Biocosmetica.",
-            "Pensión completa: (Desayunos, almuerzos, meriendas y cenas)",
-            "Equipo Anfitrión para acompañar al grupo durante toda la experiencia",
-            "Uso libre de la reserva de más de 200 hectáreas",
-            "Fogones nocturnos y otras dinámicas",
+            "2 noches de alojamiento · ropa de cama, toalla y toallón",
+            "Pensión completa: desayuno, almuerzo, merienda y cena",
+            "Todas las actividades del cronograma",
+            "Equipo anfitrión presente durante toda la experiencia",
+            "Uso libre de 200 hectáreas de reserva natural",
+            "Fogones nocturnos y dinámicas grupales",
             "Guía Reset Vital PDF de regalo"
           ]
         },
-        "exchange": {
-          "title": "Opcionales y Beneficios",
-          "text": "Agrega la noche del Viernes 12 por solo $250.000 para toda la familia con todo incluido. Grupo familiar hasta 4 integrantes. Consulta promociones y modalidades por grupo."
-        },
-        "footer": "Financiación disponible · Seña del 50% para reservar. El programa puede ajustarse según las condiciones climáticas."
+        "btn": "RESERVAR MI LUGAR",
+        "footer": "Seña del 50% para reservar · Financiación disponible · El programa puede ajustarse según el clima."
       },
       "faq": {
         "title": "Preguntas Frecuentes",
@@ -583,7 +553,7 @@
           {
             "num": "02",
             "title": "Naturaleza y Juego",
-            "text": "Los niños (y los adultos) recuperan el juego libre en un entorno seguro y salvaje. Sin pantallas. Sin agenda. Solo la montaña."
+            "text": "Los chicos encuentran tribu y recuperan el juego libre sin que nadie los guíe. Los adultos — entre fogones, charlas y montaña — también juegan. Sin pantallas, sin agenda, todos juntos."
           },
           {
             "num": "03",
@@ -1599,8 +1569,8 @@
           "id": 2,
           "title": "Glamping & Shelter",
           "description": "From Geodesic Domes and Yurts to rooms in our historic house.",
-          "ctaText": "View Options",
-          "ctaLink": "https://wa.me/5493516765820?text=Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20las%20opciones%20de%20Eco-Refugio%20%26%20Glamping.%20%E2%9B%BA",
+          "ctaText": "View Accommodations",
+          "ctaLink": "/estadia",
           "image": "/uploads/refu.webp"
         },
         {
@@ -1696,6 +1666,14 @@
       "image": "/uploads/Aula Verde/IMG-20251120-WA0057.jpg",
       "link": "/escuelas"
     },
+    "coliving": {
+      "tag": "Wellness & Lifestyle",
+      "title": "Coliving Mágico",
+      "description": "Live, work and reconnect in the mountains. Extended stays with full board, satellite wifi and a community that slows down with you — from a week to a full month.",
+      "btn": "Ask about Coliving",
+      "image": "/uploads/coworking.webp",
+      "link": "/coliving"
+    },
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
@@ -1753,7 +1731,7 @@
         {
           "date": "WINTER 2026 · JUL · AUG · SEP",
           "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $63,000 per night cash.",
+          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $40,000/night full board cash.",
           "btn": "See More",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -1766,24 +1744,6 @@
           "btn": "See More",
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
-          "pdfLink": ""
-        },
-        {
-          "date": "JUN 20 & 21",
-          "title": "Inti Raymi · Winter Solstice",
-          "desc": "A conscious festival in the mountains to cross the longest night of the year honoring the ancient Inti Raymi tradition. June 21st is also Father's Day — the perfect excuse to celebrate together in Los Gigantes.",
-          "btn": "See More",
-          "image": "/uploads/fogon_nocturno.webp",
-          "link": "/inti-raymi",
-          "pdfLink": ""
-        },
-        {
-          "date": "JULY 24, 25 & 26",
-          "title": "Gondorbows",
-          "desc": "Experiential and practical experience in intuitive and meditative archery to work on focus and intention in nature.",
-          "btn": "See More",
-          "image": "/uploads/tirando.jpg",
-          "link": "/gondorbows",
           "pdfLink": ""
         },
         {
@@ -1806,13 +1766,15 @@
     },
     "hero": {
       "title": "Invites You to Be",
-      "subtitle": "Community and the Philosophy of Good Living. Eco-center and mountain co-living for entrepreneurs, artists, and creators. High-impact experiences.",
-      "tag": "ECO-CENTER · HIGH-IMPACT EXPERIENCES · CO-LIVING",
-      "btnBook": "BOOK NOW",
+      "titleSub": "The best refuge in Córdoba, Argentina",
+      "subtitle": "Community and Philosophy of Buen Vivir. Mountain eco-center and co-living for entrepreneurs, artists and creators. High-impact experiences.",
+      "tag": "LOS GIGANTES · SIERRAS GRANDES · CÓRDOBA",
+      "btnBook": "ACTIVITY CALENDAR",
       "btnRetreat": "ORGANIZE RETREAT",
+      "linkComoLlegar": "How to get here?",
       "stats_years": "+15,000 Trees Planted",
       "stats_trees": "Guests from +20 Countries",
-      "stats_sus": "From $40,000 / night",
+      "stats_sus": "From $20,000 / night",
       "stats_google": "5.0★ · 64 Google Reviews",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -1820,8 +1782,8 @@
         "/uploads/hero(2).webp",
         "/uploads/hero(3).webp"
       ],
-      "bookLink": "https://wa.me/5493516765820?text=Hi!%20I%20came%20from%20the%20website%20and%20I%27d%20like%20to%20know%20more%20about%20experiences%20at%20M%C3%A1gico%20Ensue%C3%B1o.%20%E2%9C%A8",
-      "retreatLink": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20organizar%20un%20retiro%20en%20M%C3%A1gico%20Ensue%C3%B1o.%20%F0%9F%8F%94%EF%B8%8F",
+      "bookLink": "#eventos",
+      "retreatLink": "/organizamos-tu-experiencia",
       "nextEvent": {
         "label": "WINTER CAMP · WINTER 2026 · BOOK YOUR SPOT!",
         "link": "/winter-camp"
@@ -1954,16 +1916,24 @@
       },
       "experienceLinks": [
         {
+          "label": "Stays & Glamping",
+          "href": "/estadia"
+        },
+        {
           "label": "Familion",
           "href": "/familion"
         },
         {
-          "label": "Achala Viva",
-          "href": "/achala-viva"
+          "label": "❄ Winter Camp",
+          "href": "/winter-camp"
         },
         {
-          "label": "Gondorbows",
-          "href": "/gondorbows"
+          "label": "⚡ Winter Redirection",
+          "href": "/winter-redirection"
+        },
+        {
+          "label": "Achala Viva",
+          "href": "/achala-viva"
         },
         {
           "label": "Green Classrooms",
@@ -1999,7 +1969,7 @@
       "invitation": {
         "title": "A space to <span class='italic text-gold'>bond</span>",
         "text1": "Familion is a proposal designed for parents and children to share quality time in a unique natural environment. Away from screens and city noise.",
-        "text2": "We propose playful activities, gentle walks and moments of reflection that strengthen family ties and teach us to live in harmony with the earth.",
+        "text2": "We propose activities, hikes and shared moments for the whole family. Something happens when kids arrive in the mountains: they find their tribe, explore, and play on their own. Adults accompany from a place of calm, naturally taking turns, and for the first time in a long while — they also get to rest. Together always, never apart.",
         "video_title": "Familion — Family experience in Los Gigantes"
       },
       "vivencia": {
@@ -2020,59 +1990,41 @@
         ]
       },
       "precios": {
-        "title": "Join the Next Encounter",
-        "subtitle": "Values per family group. Includes accommodation, all meals and activities.",
-        "items": [
-          {
-            "name": "Camping",
-            "price": "650,000"
-          },
-          {
-            "name": "Eco-Shelter premium",
-            "price": "950,000"
-          },
-          {
-            "name": "Private Dome",
-            "price": "1,150,000"
-          }
+        "title": "Prices per person",
+        "subtitle": "2 nights · full board · everything included. Each member has their own spot — no family group fees.",
+        "badge": "Winter special",
+        "adulto_label": "Adults",
+        "adulto_noche": "50,000",
+        "adulto_efectivo": "100,000",
+        "adulto_lista": "120,000",
+        "adulto_cuotas": "3 installments of $40,000",
+        "adulto_ahorro": "Save $20,000 paying cash",
+        "adulto_2n": "2 nights = $100,000 per person",
+        "por_noche": "per night · full board",
+        "kids_title": "Children's rates",
+        "kids_subtitle": "Little ones are always welcome.",
+        "kids": [
+          { "rango": "0 to 3 years", "desc": "Free", "note": "if not occupying a bed" },
+          { "rango": "4 to 7 years", "desc": "30% OFF", "noche": "35,000", "price": "70,000" },
+          { "rango": "8 to 12 years", "desc": "15% OFF", "noche": "42,500", "price": "85,000" },
+          { "rango": "13 years or more", "desc": "Adult rate" }
         ],
-        "btn": "BOOK SPOT",
-        "editions": [
-          "NEXT EDITION"
-        ],
-        "spots": [
-          "LAST SPOTS!"
-        ],
-        "cards": {
-          "camping": {
-            "title": "Camping",
-            "text": "Per family group · Bring your own tent or rent ours"
-          },
-          "refugio": {
-            "title": "Eco-Shelter premium",
-            "text": "Per family group · Accommodation in shared rooms"
-          },
-          "privado": {
-            "title": "Private Dome",
-            "text": "Per family group · Exclusive dome for your family group"
-          }
-        },
+        "editions": ["NEXT EDITION"],
+        "spots": ["LAST SPOTS!"],
         "includes": {
-          "title": "What does your investment include?",
+          "title": "What's included?",
           "items": [
-            "Full accommodation with bed linen, towel and individual bath towel + Biocosmetics.",
-            "Full board: (Breakfasts, lunches, snacks and dinners)",
-            "Host Team to accompany the group throughout the experience",
-            "Free use of the reserve of over 200 hectares",
-            "Night bonfires and other dynamics",
+            "2 nights accommodation · bed linen, towel and bath towel",
+            "Full board: breakfast, lunch, snack and dinner",
+            "All activities in the schedule",
+            "Host team present throughout the experience",
+            "Free access to 200-hectare nature reserve",
+            "Night bonfires and group activities",
             "Reset Vital PDF guide as a gift"
           ]
         },
-        "exchange": {
-          "title": "Optionals and Benefits",
-          "text": "Add Friday 12th night for just $250,000 for the whole family all-inclusive. Family group up to 4 members. Consult promotions and modalities per group."
-        },
-        "footer": "Financing available · 50% deposit to book. The program may be adjusted based on weather conditions."
+        "btn": "BOOK MY SPOT",
+        "footer": "50% deposit to book · Financing available · Program may be adjusted based on weather."
       },
       "faq": {
         "title": "Frequently Asked Questions",
@@ -2138,7 +2090,7 @@
           {
             "num": "02",
             "title": "Nature & Play",
-            "text": "Children (and adults) reclaim free play in a safe and wild environment. No screens. No agenda. Just the mountain."
+            "text": "Kids find their tribe and reclaim free play without anyone guiding them. Adults — between bonfires, conversation, and mountain air — also play. No screens, no agenda, everyone together."
           },
           {
             "num": "03",

@@ -28,33 +28,39 @@ const C = {
 // ─── Precios ────────────────────────────────────────────────────────────────────
 // Efectivo = precio real. Cuotas = efectivo × 1.2 (precio lista).
 // Comunicación: "pagás menos en efectivo" no "cuotas cuestan más".
-type PriceTier = { noches: string; efectivo: string; porNoche: string; listaTotal: string; cuotas: string; ahorroEfectivo: string; ahorroNoches?: string };
+type PriceTier = { noches: string; efectivo: string; oldEfectivo: string; porNoche: string; oldPorNoche: string; listaTotal: string; cuotas: string; ahorroEfectivo: string; ahorroNoches?: string };
 const PRECIOS: PriceTier[] = [
   {
     noches: '1 noche',
-    efectivo: '$90.000',
-    porNoche: '$90.000 por noche',
-    listaTotal: '$108.000',
-    cuotas: '3 cuotas de $36.000',
-    ahorroEfectivo: 'Ahorrás $18.000 pagando al contado',
+    efectivo: '$50.000',
+    oldEfectivo: '$90.000',
+    porNoche: '$50.000 por noche',
+    oldPorNoche: 'Antes $90.000/noche',
+    listaTotal: '$60.000',
+    cuotas: '3 cuotas de $20.000',
+    ahorroEfectivo: 'Ahorrás $10.000 pagando al contado',
   },
   {
     noches: '2 noches',
-    efectivo: '$160.000',
-    porNoche: '$80.000 por noche',
-    listaTotal: '$192.000',
-    cuotas: '3 cuotas de $64.000',
-    ahorroEfectivo: 'Ahorrás $32.000 pagando al contado',
-    ahorroNoches: 'Ahorrás $10.000 por noche vs 1 noche',
+    efectivo: '$90.000',
+    oldEfectivo: '$160.000',
+    porNoche: '$45.000 por noche',
+    oldPorNoche: 'Antes $80.000/noche',
+    listaTotal: '$108.000',
+    cuotas: '3 cuotas de $36.000',
+    ahorroEfectivo: 'Ahorrás $18.000 pagando al contado',
+    ahorroNoches: 'Ahorrás $5.000 por noche vs 1 noche',
   },
   {
     noches: '3+ noches',
-    efectivo: '$190.000',
-    porNoche: '$63.000 por noche',
-    listaTotal: '$228.000',
-    cuotas: '3 cuotas de $76.000',
-    ahorroEfectivo: 'Ahorrás $38.000 pagando al contado',
-    ahorroNoches: 'Ahorrás $27.000 por noche vs 1 noche',
+    efectivo: '$120.000',
+    oldEfectivo: '$190.000',
+    porNoche: '$40.000 por noche',
+    oldPorNoche: 'Antes $63.000/noche',
+    listaTotal: '$144.000',
+    cuotas: '3 cuotas de $48.000',
+    ahorroEfectivo: 'Ahorrás $24.000 pagando al contado',
+    ahorroNoches: 'Ahorrás $10.000 por noche vs 1 noche',
   },
 ];
 
@@ -347,7 +353,7 @@ const WinterCamp: React.FC = () => {
             Y para los que lo están viviendo muy adentro.
           </p>
           <p className="text-white/45 text-xs sm:text-sm mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
-            Todo julio en la montaña. Llegás y te vas cuando quieras. Pensión completa desde $63.000 por noche en efectivo.
+            Todo julio en la montaña. Llegás y te vas cuando quieras. Desde $20.000/noche con desayuno · Pensión completa desde $50.000/noche.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -1247,20 +1253,23 @@ const WinterCamp: React.FC = () => {
           <div className="text-center mb-12" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
               style={{ backgroundColor: C.green }}>
-              Tu estadía
+              Solo por invierno
             </p>
             <h2 className="text-2xl md:text-3xl serif-title mb-3 font-bold uppercase tracking-wide" style={{ color: C.green }}>
               No vendemos alojamiento.<br />Compartimos experiencias y mucho más.
             </h2>
-            <p className="text-base max-w-xl mx-auto mb-3" style={{ color: C.muted }}>
-              Llegás y te vas cuando quieras. Todas las modalidades incluyen pensión completa, alojamiento y el programa de actividades. Desde $63.000 por noche en efectivo — experiencia all inclusive en la montaña.
+            <p className="text-base max-w-xl mx-auto mb-4" style={{ color: C.muted }}>
+              Sabemos que te merecés tomarte un descanso de verdad. Nos jugamos en darte los mejores precios y experiencias de la montaña. Vos solo tenés que animarte a venir.
+            </p>
+            <p className="text-sm max-w-lg mx-auto mb-4" style={{ color: C.muted }}>
+              Desde $20.000/noche con desayuno · Pensión completa desde $50.000/noche · Domos compartidos (hasta 7 pers.) · privados desde 4 · baños fuera del domo.
             </p>
             <p className="text-sm font-bold flex items-center justify-center gap-1.5 mb-4" style={{ color: '#8B6A00' }}>
               <TrendingDown size={16} /> Cuantas más noches te quedás, más barata sale cada una
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(170,62,17,0.1)', color: C.fire }}>
               <span className="w-2 h-2 rounded-full animate-pulse inline-block" style={{ backgroundColor: C.fire }} />
-              ⚡ Precios promocionales de invierno · vigentes en julio · pueden subir en agosto
+              ⚡ Precios especiales de invierno · vigentes en julio · pueden subir en agosto
             </div>
           </div>
 
@@ -1291,7 +1300,7 @@ const WinterCamp: React.FC = () => {
             <div ref={preciosRef} onTouchStart={() => setPreciosPaused(true)}
               className="flex gap-3 overflow-x-auto pb-3 px-6"
               style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
-              {PRECIOS.map(({ noches, efectivo, porNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
+              {PRECIOS.map(({ noches, efectivo, oldEfectivo, porNoche, oldPorNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
                 const isBest = idx === PRECIOS.length - 1;
                 return (
                   <div key={noches} className="flex-shrink-0 rounded-2xl p-7 border text-left relative"
@@ -1308,14 +1317,16 @@ const WinterCamp: React.FC = () => {
                       style={isBest ? { backgroundColor: C.gold, color: C.green } : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>
                       {cuotas}
                     </p>
-                    <p className="text-[10px] mb-4 line-through" style={{ color: C.faint }}>Total {listaTotal}</p>
+                    <p className="text-[10px] mb-4 font-semibold" style={{ color: C.muted }}>Total en cuotas: {listaTotal}</p>
                     <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
                       <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.green }}>Efectivo · 1 solo pago</p>
+                      <p className="text-xs line-through mb-0.5" style={{ color: C.faint }}>Antes {oldEfectivo}</p>
                       <div className="flex items-baseline gap-2 mb-1">
                         <p className="text-3xl font-bold serif-title" style={{ color: isBest ? C.green : C.dark }}>{efectivo}</p>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.12)', color: C.green }}>−20%</span>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(170,62,17,0.12)', color: C.fire }}>🌨 invierno</span>
                       </div>
-                      <p className="text-xs mb-3" style={{ color: C.faint }}>{porNoche}</p>
+                      <p className="text-xs mb-0.5" style={{ color: C.muted }}>{porNoche}</p>
+                      <p className="text-[10px] mb-3 line-through" style={{ color: C.faint }}>{oldPorNoche}</p>
                       <p className="text-[11px] font-semibold inline-flex items-center gap-1 px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: isBest ? C.green : '#8B6A00' }}>
                         <TrendingDown size={12} /> {ahorroEfectivo}
                       </p>
@@ -1330,7 +1341,7 @@ const WinterCamp: React.FC = () => {
 
           {/* Desktop: grid 3 columnas */}
           <div className="hidden md:grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
-            {PRECIOS.map(({ noches, efectivo, porNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
+            {PRECIOS.map(({ noches, efectivo, oldEfectivo, porNoche, oldPorNoche, listaTotal, cuotas, ahorroEfectivo, ahorroNoches }, idx) => {
               const isBest = idx === PRECIOS.length - 1;
               return (
               <div key={noches} className="rounded-2xl p-7 border text-left relative"
@@ -1347,14 +1358,16 @@ const WinterCamp: React.FC = () => {
                   style={isBest ? { backgroundColor: C.gold, color: C.green } : { backgroundColor: 'rgba(212,175,55,0.18)', color: '#8B6A00' }}>
                   {cuotas}
                 </p>
-                <p className="text-[10px] mb-4 line-through" style={{ color: C.faint }}>Total {listaTotal}</p>
+                <p className="text-[10px] mb-4 font-semibold" style={{ color: C.muted }}>Total en cuotas: {listaTotal}</p>
                 <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,83,51,0.1)' }}>
                   <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: C.green }}>Efectivo · 1 solo pago</p>
+                  <p className="text-xs line-through mb-0.5" style={{ color: C.faint }}>Antes {oldEfectivo}</p>
                   <div className="flex items-baseline gap-2 mb-1">
                     <p className="text-3xl font-bold serif-title" style={{ color: isBest ? C.green : C.dark }}>{efectivo}</p>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.12)', color: C.green }}>−20%</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(170,62,17,0.12)', color: C.fire }}>🌨 invierno</span>
                   </div>
-                  <p className="text-xs mb-3" style={{ color: C.faint }}>{porNoche}</p>
+                  <p className="text-xs mb-0.5" style={{ color: C.muted }}>{porNoche}</p>
+                  <p className="text-[10px] mb-3 line-through" style={{ color: C.faint }}>{oldPorNoche}</p>
                   <p className="text-[11px] font-semibold inline-flex items-center gap-1 px-2.5 py-1 rounded-full" style={{ backgroundColor: 'rgba(0,83,51,0.08)', color: isBest ? C.green : '#8B6A00' }}>
                     <TrendingDown size={12} /> {ahorroEfectivo}
                   </p>

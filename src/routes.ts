@@ -16,9 +16,12 @@ export const ROUTES = {
   PROPUESTA_CALMA_YOGA: '/propuesta/calma-magico',
   ORGANIZA_EXPERIENCIA: '/organizamos-tu-experiencia',
   INTI_RAYMI: '/inti-raymi',
+  PACHAMAMA_FEST: '/pachamama-fest',
   PROPUESTA_NICO_GRUPE: '/propuesta/nico-grupe',
   DESPERTAR: '/despertar',
   WINTER_CAMP: '/winter-camp',
   WINTER_REDIRECTION: '/winter-redirection',
   RESERVAS: '/reservas',
+  COLIVING: '/coliving',
+  CICLO_VITAL_FEMENINO: '/ciclo-vital-femenino',
 };

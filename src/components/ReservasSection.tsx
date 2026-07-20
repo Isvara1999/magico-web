@@ -58,13 +58,13 @@ function getDayStatus(iso: string): 'available' | 'blocked' | 'past' {
 }
 
 interface Props {
-  /** Fondo de la sección — adaptar al color de la página que lo embebe */
   bgColor?: string;
-  /** Si es true muestra título y eyebrow arriba de la sección */
   showTitle?: boolean;
+  /** Reduce padding y fuerza columna única — para embeber en hero u otros contextos ajustados */
+  compact?: boolean;
 }
 
-export function ReservasSection({ bgColor = C.cream, showTitle = false }: Props) {
+export function ReservasSection({ bgColor = C.cream, showTitle = false, compact = false }: Props) {
   const [monthIdx, setMonthIdx]     = useState(() => getInitialMonthIdx());
   const [startDate, setStartDate]   = useState<string | null>(null);
   const [endDate, setEndDate]       = useState<string | null>(null);
@@ -113,11 +113,11 @@ export function ReservasSection({ bgColor = C.cream, showTitle = false }: Props)
   const clearSelection = () => { setStartDate(null); setEndDate(null); setPickingEnd(false); };
 
   return (
-    <section className="px-4 py-12 md:py-16" style={{ backgroundColor: bgColor }}>
-      <div className="max-w-5xl mx-auto">
+    <section className={compact ? 'px-4 py-5' : 'px-4 py-12 md:py-16'} style={{ backgroundColor: bgColor }}>
+      <div className={compact ? '' : 'max-w-5xl mx-auto'}>
 
         {showTitle && (
-          <div className="text-center mb-10" data-reveal>
+          <div className={`text-center ${compact ? 'mb-4' : 'mb-10'}`} data-reveal>
             <p className="text-[10px] tracking-widest uppercase font-bold mb-3" style={{ color: C.gold }}>
               Invierno 2026 · julio · agosto · septiembre
             </p>
@@ -131,7 +131,7 @@ export function ReservasSection({ bgColor = C.cream, showTitle = false }: Props)
         )}
 
         {/* ── Layout: calendar izq + panel der en desktop; stack en mobile ── */}
-        <div className="flex flex-col md:grid md:grid-cols-[1fr_280px] gap-6 md:gap-8 items-start">
+        <div className={`flex flex-col gap-6 ${compact ? '' : 'md:grid md:grid-cols-[1fr_280px] md:gap-8 md:items-start'}`}>
 
           {/* ── CALENDAR ── */}
           <div className="w-full bg-white rounded-2xl overflow-hidden" style={{ border: `1px solid rgba(0,83,51,0.1)` }}>
@@ -324,7 +324,7 @@ export function ReservasSection({ bgColor = C.cream, showTitle = false }: Props)
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px]" style={{ color: C.faint }}>estimado</p>
+                    <p className="text-[10px]" style={{ color: C.faint }}>estimado pensión completa</p>
                     <p className="text-base font-bold" style={{ color: C.green }}>
                       ${totalPrice.toLocaleString('es-AR')}
                     </p>
@@ -335,7 +335,7 @@ export function ReservasSection({ bgColor = C.cream, showTitle = false }: Props)
                   <span className="flex items-center gap-1"><Users size={11} />{personas} persona{personas > 1 ? 's' : ''}</span>
                 </div>
                 <p className="text-[10px] mb-3" style={{ color: C.faint }}>
-                  Precio con 20% OFF pagando en efectivo · se confirma por WhatsApp
+                  Desayuno: $20.000/noche · Pensión completa: $50.000/noche · se confirma por WhatsApp
                 </p>
                 <a
                   href={waUrl}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { BookingWidget } from '../components/BookingWidget';
 import {
   Bed, ForkKnife, Leaf, WifiHigh, Tree, UsersThree,
   CheckCircle, ArrowRight, Sun, Mountains, Campfire,
@@ -37,9 +38,16 @@ const Hero: React.FC = () => (
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-5 drop-shadow-xl font-light max-w-3xl">
         Filosofía del<br />Buen Vivir
       </h1>
-      <p className="text-white/75 text-base md:text-lg font-light max-w-xl mb-8 leading-relaxed">
-        Eco-centro & Alojamiento de Montaña. Co-living diseñado para emprendedores, artistas, músicos, escritores y creativos. Desconectate del ruido y reconectate con lo esencial Desde $40.000/noche.
+      <p className="text-white/75 text-base font-light max-w-xl mb-5 leading-relaxed">
+        Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $20.000/noche con desayuno.
       </p>
+      <div className="flex flex-wrap gap-2 mb-7">
+        {['Para emprendedores & creativos', 'Parejas', 'Grupos & familias'].map(chip => (
+          <span key={chip} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/25 text-white/70">
+            {chip}
+          </span>
+        ))}
+      </div>
       <div className="flex flex-col sm:flex-row gap-4">
         <a
           href={WA_ESTADIA}
@@ -72,7 +80,7 @@ const Inclusiones: React.FC = () => {
     { icon: <WifiHigh className="w-5 h-5" weight="duotone" />,  label: 'Starlink' },
     { icon: <Mountains className="w-5 h-5" weight="duotone" />, label: 'Espacios naturales' },
     { icon: <Sun className="w-5 h-5" weight="duotone" />,       label: 'Energía solar' },
-    { icon: <ForkKnife className="w-5 h-5" weight="duotone" />, label: '+3 comidas (pensión completa)' },
+    { icon: <ForkKnife className="w-5 h-5" weight="duotone" />, label: 'Desayuno incluido · +Comidas opcionales' },
   ];
 
   return (
@@ -86,7 +94,7 @@ const Inclusiones: React.FC = () => {
         ))}
         <div className="w-full text-center mt-1">
           <span className="text-gold/60 text-[10px] uppercase tracking-widest font-bold">
-            Todo incluido en el precio · Sin sorpresas ocultas
+            $20.000/noche con desayuno · $50.000/noche pensión completa · Sin sorpresas ocultas
           </span>
         </div>
       </div>
@@ -100,24 +108,27 @@ const ALOJAMIENTOS = [
     name: 'Domo Geodésico',
     tag: 'MÁS SOLICITADO',
     tagColor: 'bg-gold text-white',
-    desc: 'Dormir dentro de una esfera geométrica en plena montaña. Ventanas panorámicas al cielo, cama matrimonial, ropa blanca incluida. La experiencia de glamping más completa del refugio.',
+    shortDesc: '7 camas de una plaza · opción matrimonial · exclusivo desde 4 personas',
+    desc: 'Esfera geométrica en plena montaña con ventanas panorámicas al cielo. 7 camas de una plaza — una puede configurarse como matrimonial. Desde 4 personas podés reservar el domo de uso exclusivo. Ropa blanca incluida. Baños compartidos a metros del domo.',
     image: '/uploads/domos.webp',
-    details: ['Programa Reset Vital', 'Cama matrimonial', 'Ropa blanca y toallas', 'Vista panorámica', 'Para 1 o 2 personas'],
+    details: ['7 camas de 1 plaza', 'Opción matrimonial disponible', 'Exclusivo desde 4 personas', 'Ropa blanca incluida', 'Baños compartidos fuera del domo', 'Programa Reset Vital'],
     wa: WA('Hola! Quiero consultar disponibilidad de un Domo Geodésico en Pueblo Mágico ✨'),
   },
   {
     name: 'Habitación Compartida',
     tag: 'COLIVING',
     tagColor: 'bg-bone text-brand border border-brand/20',
-    desc: 'Espacios compartidos diseñados para fomentar la comunidad. Ideal para viajeros solos que quieren conectar con otras personas en un entorno de co-living genuino.',
+    shortDesc: 'Refugio principal · baño compartido · ideal para solos',
+    desc: 'Habitaciones en el refugio principal. Los baños son compartidos (no dentro de las habitaciones, pero sí en el mismo edificio). Ideal para viajeros solos que quieren conectar con otros. Grupos pueden reservar habitaciones o domos de uso exclusivo.',
     image: '/uploads/habitaciones.webp',
-    details: ['Programa Reset Vital', 'Camas individuales', 'Baño compartido', 'Ambiente comunitario', 'Opción más accesible'],
+    details: ['Programa Reset Vital', 'Camas individuales', 'Baño compartido del refugio', 'Grupos: uso exclusivo disponible', 'Opción más accesible'],
     wa: WA('Hola! Quiero consultar disponibilidad en las Habitaciones Compartidas de Pueblo Mágico 🏡'),
   },
   {
     name: 'Camping',
     tag: 'INMERSIÓN TOTAL',
     tagColor: 'bg-bone text-brand border border-brand/20',
+    shortDesc: 'Bajo las estrellas · duchas calientes · fogón comunitario',
     desc: 'Instalá tu carpa en pleno campo y dormí bajo las estrellas de los Gigantes. Para quienes buscan la experiencia más cruda y auténtica de la montaña. Duchas calientes y baños disponibles.',
     image: '/uploads/exterior.webp',
     details: ['Programa Reset Vital', 'Traé tu carpa', 'Duchas calientes y baños', 'Fogón comunitario', 'La más económica'],
@@ -125,62 +136,123 @@ const ALOJAMIENTOS = [
   },
 ];
 
-const Alojamientos: React.FC = () => (
-  <section id="alojamientos" className="py-24 bg-bone">
-    <div className="max-w-7xl mx-auto px-6 lg:px-12">
-      <div data-reveal className="text-center mb-16">
-        <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">Elegí tu espacio</p>
-        <h2 className="text-3xl md:text-5xl font-serif text-brand mb-4">Cómo querés dormir</h2>
-        <p className="text-dark/60 font-light max-w-2xl mx-auto">
-          Tres opciones de alojamiento, pero una misma invitación a la transformación.
-          Ya sea que elijas dormir bajo las estrellas en el camping o en la comodidad de un domo, 
-          <strong className="font-semibold text-brand"> tu estadía incluye siempre el retiro autoguiado Reset Vital</strong>: 
-          acceso a meditaciones guiadas, ejercicios de journaling, caminatas conscientes y herramientas prácticas para bajar el ritmo.
-        </p>
-      </div>
+const Alojamientos: React.FC = () => {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {ALOJAMIENTOS.map((aloj, i) => (
-          <div key={i} data-reveal data-delay={`${(i % 2) + 1}` as any} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand/5 flex flex-col">
-            <div className="relative h-56 overflow-hidden">
-              <img src={aloj.image} alt={aloj.name} className="w-full h-full object-cover" loading="lazy" />
-              <span className={`absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${aloj.tagColor}`}>
-                {aloj.tag}
-              </span>
+  return (
+    <section id="alojamientos" className="py-20 bg-bone">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div data-reveal className="text-center mb-10">
+          <p className="inline-block bg-brand text-white font-bold tracking-widest uppercase text-[10px] px-4 py-2 rounded-full mb-4">Solo por invierno</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-brand mb-2">Elegí tu alojamiento</h2>
+          <p className="text-dark/60 text-sm max-w-md mx-auto">Tres opciones, una misma invitación — todas incluyen el retiro autoguiado Reset Vital.</p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1fr_340px] gap-8 items-start">
+
+          {/* Acordeón de cards + precios */}
+          <div>
+            <div className="space-y-3 mb-5">
+              {ALOJAMIENTOS.map((aloj, i) => (
+                <div key={i}
+                  className="bg-white rounded-2xl border border-brand/5 shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200"
+                  onClick={() => setOpenIdx(openIdx === i ? null : i)}>
+
+                  {/* Fila compacta siempre visible */}
+                  <div className="flex items-stretch">
+                    <div className="w-[130px] flex-shrink-0">
+                      <img src={aloj.image} alt={aloj.name}
+                        className="w-full h-full object-cover"
+                        style={{ minHeight: 88 }} loading="lazy" />
+                    </div>
+                    <div className="flex-1 px-4 py-3 flex items-center justify-between gap-3 min-w-0">
+                      <div className="min-w-0">
+                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1 inline-block ${aloj.tagColor}`}>{aloj.tag}</span>
+                        <h3 className="font-serif text-[17px] text-brand leading-tight">{aloj.name}</h3>
+                        <p className="text-dark/50 text-xs mt-0.5 leading-snug line-clamp-2">{aloj.shortDesc}</p>
+                      </div>
+                      <span className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center bg-bone transition-transform duration-300 ${openIdx === i ? 'rotate-180' : ''}`}>
+                        <CaretDown weight="bold" className="w-3 h-3 text-brand" />
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Contenido expandido */}
+                  {openIdx === i && (
+                    <div className="px-4 pb-4 border-t border-brand/5">
+                      <p className="text-dark/65 text-sm leading-relaxed mt-3 mb-3">{aloj.desc}</p>
+                      <ul className="flex flex-wrap gap-2 mb-4">
+                        {aloj.details.map((d, j) => (
+                          <li key={j} className="flex items-center gap-1.5 text-xs text-dark/60 bg-bone rounded-full px-3 py-1">
+                            <CheckCircle className="w-3.5 h-3.5 text-gold flex-shrink-0" weight="duotone" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={aloj.wa} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 bg-brand text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gold transition-colors w-full">
+                        <WhatsappLogo className="w-4 h-4" weight="fill" />
+                        Consultar por WhatsApp
+                      </a>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="p-6 md:p-8 flex flex-col flex-grow">
-              <h3 className="text-2xl font-serif text-brand mb-3">{aloj.name}</h3>
-              <p className="text-dark/70 text-sm leading-relaxed mb-5 flex-grow">{aloj.desc}</p>
-              <ul className="flex flex-wrap gap-2 mb-6">
-                {aloj.details.map((d, j) => (
-                  <li key={j} className="flex items-center gap-1.5 text-xs text-dark/60 bg-bone rounded-full px-3 py-1">
-                    <CheckCircle className="w-3.5 h-3.5 text-gold flex-shrink-0" weight="duotone" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={aloj.wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gold transition-colors duration-300 w-full"
-              >
-                <WhatsappLogo className="w-4 h-4 flex-shrink-0" weight="fill" />
-                Consultar disponibilidad
-              </a>
+
+            {/* Nota de disponibilidad privada */}
+            <div className="bg-brand/5 border border-brand/10 rounded-2xl px-5 py-4 mb-4 flex gap-3 items-start">
+              <span className="text-gold text-base flex-shrink-0 mt-0.5">✦</span>
+              <p className="text-dark/70 text-sm leading-relaxed">
+                <strong className="text-brand font-semibold">Uso privado disponible</strong> — según las fechas, podés reservar un domo exclusivo o habitaciones privadas en el refugio, tanto para grupos como para personas solas cuando el espacio tiene poca ocupación.{' '}
+                <a href={WA_ESTADIA} target="_blank" rel="noopener noreferrer" className="text-brand font-semibold underline underline-offset-2 hover:text-gold transition-colors">Consultá disponibilidad por WhatsApp.</a>
+              </p>
+            </div>
+
+            {/* Tabla de precios compacta */}
+            <div className="bg-white rounded-2xl p-5 border border-brand/5 shadow-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <CurrencyCircleDollar className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />
+                <p className="text-brand font-serif text-lg">Precios de invierno</p>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
+                  <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Con desayuno</p>
+                  <p className="text-dark/30 text-xs line-through">Antes $40.000</p>
+                  <p className="text-brand text-xl font-serif">$20.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+                </div>
+                <div className="bg-bone rounded-xl px-4 py-3 border border-gold/20 text-center">
+                  <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión completa</p>
+                  <p className="text-dark/30 text-xs line-through">Antes $95.000</p>
+                  <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+                </div>
+              </div>
+              <p className="text-center text-dark/40 text-xs mt-3">⚡ Solo por invierno · sin sorpresas ocultas</p>
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-10 text-center bg-white rounded-2xl p-6 border border-brand/5 shadow-sm">
-        <CurrencyCircleDollar className="w-8 h-8 text-gold mx-auto mb-3" weight="duotone" />
-        <p className="text-brand font-serif text-xl mb-1">Desde <strong className="text-gold">$32.000</strong> por persona / noche</p>
-        <p className="text-dark/50 text-xs font-light">Alojamiento Desde $40.000/noche · Pensión completa (3 comidas) Desde $95.000/noche · 20% dto. Lun–Jue no feriados</p>
+          {/* Widget de reserva sticky — aparece primero en mobile */}
+          <div id="reservar" className="order-first lg:order-none lg:sticky lg:top-24">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-brand/5">
+              <div style={{ background: '#005333', padding: '16px 20px' }}>
+                <p style={{ fontSize: 8, letterSpacing: '0.4em', textTransform: 'uppercase', fontWeight: 700, color: 'rgba(212,175,55,0.85)', marginBottom: 5 }}>
+                  INVIERNO 2026
+                </p>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 18, fontWeight: 400, color: 'white', margin: '0 0 3px' }}>
+                  Verificar disponibilidad
+                </h3>
+                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
+                  y estimar el costo de tu estadía
+                </p>
+              </div>
+              <BookingWidget />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ── Ritmo de la semana ────────────────────────────────────────────────────────
 const RITMO = [
@@ -191,73 +263,27 @@ const RITMO = [
 ];
 
 const RitmoDeLaSemana: React.FC = () => (
-  <section className="py-24 bg-white">
-    <div className="max-w-6xl mx-auto px-6">
-      <div data-reveal className="text-center mb-14 max-w-4xl mx-auto">
-        <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">Reset Vital</p>
-        <h2 className="text-3xl md:text-5xl font-serif text-brand mb-4">Un día en Mágico</h2>
-        <p className="text-dark/60 font-light max-w-lg mx-auto">
-          No hay horarios obligatorios. Esto es una referencia de lo que encontrás disponible.
-          Vos elegís cómo habitarlo.
-        </p>
+  <section className="py-12 bg-white border-t border-brand/5">
+    <div className="max-w-5xl mx-auto px-6">
+      <div data-reveal className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <p className="text-brand font-bold tracking-widest uppercase text-xs mb-1">Reset Vital</p>
+          <h2 className="text-2xl font-serif text-brand">Un día en Mágico</h2>
+        </div>
+        <p className="text-dark/50 text-sm max-w-xs">Sin horarios obligatorios — vos elegís cómo habitarlo.</p>
       </div>
-
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div className="space-y-0 divide-y divide-brand/5">
-          {RITMO.map((item, i) => (
-            <div key={i} data-reveal data-delay={`${i + 1}` as any} className="flex gap-6 py-8">
-              <div className="flex-shrink-0 w-12 flex flex-col items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-bone flex items-center justify-center text-brand">
-                  {item.icon}
-                </div>
-                {i < RITMO.length - 1 && <div className="w-px flex-grow bg-brand/10" />}
-              </div>
-              <div className="pt-1">
-                <p className="text-gold font-bold text-xs uppercase tracking-widest mb-1">{item.hora}</p>
-                <p className="text-dark/70 text-base font-light leading-relaxed">{item.texto}</p>
-              </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {RITMO.map((item, i) => (
+          <div key={i} data-reveal data-delay={`${i + 1}` as any} className="flex gap-3 items-start bg-bone rounded-xl p-4">
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand flex-shrink-0 mt-0.5">
+              {item.icon}
             </div>
-          ))}
-        </div>
-        
-        <div data-reveal data-delay="3" className="relative group rounded-3xl overflow-hidden shadow-lg hidden lg:block">
-          <img 
-            src="/uploads/coworking.webp" 
-            alt="Área de coworking y trabajo remoto en Pueblo Mágico" 
-            className="w-full h-full object-cover aspect-[4/5] group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-transparent to-transparent opacity-80" />
-          <div className="absolute bottom-0 left-0 p-8">
-            <span className="inline-block bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-3">
-              Conectividad Starlink
-            </span>
-            <p className="text-white font-serif text-2xl">Coworking en la montaña</p>
+            <div>
+              <p className="text-gold font-bold text-[10px] uppercase tracking-widest mb-1">{item.hora}</p>
+              <p className="text-dark/65 text-xs leading-relaxed">{item.texto}</p>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div data-reveal className="mt-12 bg-bone border border-gold/20 rounded-2xl p-8 md:p-10 text-center">
-        <span className="inline-block bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5">
-          20% de descuento
-        </span>
-        <h3 className="font-serif text-2xl md:text-3xl text-brand mb-3">Vení de Lunes a Jueves</h3>
-        <p className="text-dark/65 font-light leading-relaxed max-w-xl mx-auto mb-6">
-          Los días de semana (no feriados) tienen precio especial. Más silencio, más privacidad, el entorno ideal para el foco o el descanso profundo.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-          <div className="bg-white rounded-xl px-5 py-3 border border-brand/10 text-center">
-            <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Alojamiento</p>
-            <p className="text-dark/30 text-xs line-through">$40.000</p>
-            <p className="text-brand text-xl font-serif">$32.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
-          </div>
-          <div className="bg-white rounded-xl px-5 py-3 border border-gold/20 text-center">
-            <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión Completa</p>
-            <p className="text-dark/30 text-xs line-through">$95.000</p>
-            <p className="text-gold text-xl font-serif">$76.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
-          </div>
-        </div>
-        <p className="text-dark/40 text-xs">Lunes a jueves · no aplica feriados · sujeto a disponibilidad</p>
+        ))}
       </div>
     </div>
   </section>
@@ -633,8 +659,17 @@ const Estadia: React.FC = () => {
           <Hero />
           <Inclusiones />
           <Alojamientos />
+          {/* Mini CTA puente */}
+          <div style={{ background: '#005333', padding: '24px', textAlign: 'center' }}>
+            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 13, fontFamily: 'Georgia, serif', fontWeight: 400, marginBottom: 12 }}>
+              ¿Tenés dudas? Escribinos y te respondemos en menos de 24 horas.
+            </p>
+            <a href={WA_ESTADIA} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25D366', color: 'white', borderRadius: 999, padding: '10px 24px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none' }}>
+              💬 Consultar por WhatsApp
+            </a>
+          </div>
           <RitmoDeLaSemana />
-          <ParaQuienEs />
           <Testimonios />
           <FAQ />
           <CTAFinal />

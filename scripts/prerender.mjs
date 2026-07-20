@@ -88,6 +88,13 @@ const ROUTES = [
     canonical: 'https://experienciamagico.com/inti-raymi',
   },
   {
+    path: '/pachamama-fest',
+    title: 'Pachamama Fest — Festival Consciente · 14 al 17 de Agosto | Pueblo Mágico',
+    description: 'Finde largo en la montaña para honrar a la Tierra, agradecer y abrir un nuevo ciclo. Ofrenda a la Pachamama, Temazcal, fuego y comunidad en las Sierras Grandes de Córdoba. 14 al 17 de agosto.',
+    image: 'https://experienciamagico.com/uploads/fogon_nocturno.webp',
+    canonical: 'https://experienciamagico.com/pachamama-fest',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',
@@ -114,6 +121,20 @@ const ROUTES = [
     description: 'Reservá tu lugar en Pueblo Mágico para el invierno 2026 — julio, agosto o septiembre. 30 camas disponibles por día, sin fechas bloqueadas. Seleccioná tus fechas y confirmá por WhatsApp.',
     image: 'https://experienciamagico.com/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp',
     canonical: 'https://experienciamagico.com/reservas',
+  },
+  {
+    path: '/coliving',
+    title: 'Coliving Mágico — Vivir, Trabajar y Reconectar · Los Gigantes, Córdoba | Pueblo Mágico',
+    description: 'Coliving en las Sierras de Córdoba para bienestar y estilo de vida. Formatos de 3, 5 y 10 noches, y Pase Libre Mensual desde $180.000. Pensión completa, WiFi satelital y Programa Reset Vital incluidos.',
+    image: 'https://experienciamagico.com/uploads/coworking.webp',
+    canonical: 'https://experienciamagico.com/coliving',
+  },
+  {
+    path: '/ciclo-vital-femenino',
+    title: 'Ciclo Vital Femenino · Capítulo Muerte-Invierno — Encuentro de Mujeres | Pueblo Mágico',
+    description: 'Retiro de mujeres en la montaña. 28, 29 y 30 de Agosto en Los Gigantes, Córdoba. Temazcal, círculo de mujeres, ceremonia de cacao y rituales para transmutar todo lo que no ES.',
+    image: 'https://experienciamagico.com/uploads/Invierno/20250627_222558.webp',
+    canonical: 'https://experienciamagico.com/ciclo-vital-femenino',
   },
 ];
 

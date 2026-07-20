@@ -13,10 +13,12 @@ import Gondorbows from './src/Gondorbows';
 import AulaVerde from './src/AulaVerde';
 import AchalaViva from './src/AchalaViva';
 import VueloDelCondor from './src/VueloDelCondor';
+import CicloVitalFemenino from './src/CicloVitalFemenino';
 
 const PropuestaCalmaYoga = lazy(() => import('./src/PropuestaCalmaYoga'));
 const OrganizamosTuExperiencia = lazy(() => import('./src/OrganizamosTuExperiencia'));
 const IntiRaymi = lazy(() => import('./src/IntiRaymi'));
+const PachamamaFest = lazy(() => import('./src/PachamamaFest'));
 const Despertar = lazy(() => import('./src/Despertar'));
 const WinterCamp = lazy(() => import('./src/WinterCamp'));
 const WinterRedirection = lazy(() => import('./src/WinterRedirection'));
@@ -24,6 +26,7 @@ const Reservas = lazy(() => import('./src/Reservas'));
 const PropuestaNicoGrupe = lazy(() => import('./src/PropuestaNicoGrupe'));
 const ResetVitalApp = lazy(() => import('./ResetVital.jsx'));
 const Estadia = lazy(() => import('./src/Estadia'));
+const Coliving = lazy(() => import('./src/Coliving'));
 const TerminosYCondiciones = lazy(() => import('./src/TerminosYCondiciones'));
 const PoliticaPrivacidad = lazy(() => import('./src/PoliticaPrivacidad'));
 const NotFound = lazy(() => import('./src/NotFound'));
@@ -63,15 +66,18 @@ root.render(
               <Route path="/escuelas" element={<AulaVerde />} />
               <Route path="/achala-viva" element={<AchalaViva />} />
               <Route path="/el-vuelo-del-condor" element={<VueloDelCondor />} />
+              <Route path="/ciclo-vital-femenino" element={<CicloVitalFemenino />} />
               <Route path="/propuesta/calma-magico" element={<PropuestaCalmaYoga />} />
               <Route path="/organizamos-tu-experiencia" element={<OrganizamosTuExperiencia />} />
               <Route path="/inti-raymi" element={<IntiRaymi />} />
+              <Route path="/pachamama-fest" element={<PachamamaFest />} />
               <Route path="/despertar" element={<Despertar />} />
               <Route path="/winter-camp" element={<WinterCamp />} />
               <Route path="/winter-redirection" element={<WinterRedirection />} />
               <Route path="/reservas" element={<Reservas />} />
               <Route path="/propuesta/nico-grupe" element={<PropuestaNicoGrupe />} />
               <Route path="/estadia" element={<Estadia />} />
+              <Route path="/coliving" element={<Coliving />} />
               <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />
               <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
               <Route path="*" element={<NotFound />} />

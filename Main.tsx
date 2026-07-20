@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
+import { HeroNuevo } from './components/HeroNuevo';
 import { SectionNosotros } from './components/SectionNosotros';
 import { SectionPilares } from './components/SectionPilares';
 import { SectionVideo } from './components/SectionVideo';
 import { SectionExperiencias } from './components/SectionExperiencias';
-import { SectionRetiros } from './components/SectionRetiros';
-import { SectionEscuelas } from './components/SectionEscuelas';
-import { SectionVoluntariados } from './components/SectionVoluntariados';
+import { SectionNichos } from './components/SectionNichos';
 import { SectionTestimonios } from './components/SectionTestimonios';
 import { SectionEventos } from './components/SectionEventos';
 import { SectionComoLlegar } from './components/SectionComoLlegar';
@@ -154,18 +152,31 @@ const Main: React.FC = () => {
     <div className="font-sans antialiased selection:bg-brand selection:text-white">
       <Header />
       <main>
-        <Hero />
+        <HeroNuevo />
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionParaQuien /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionExperiencias /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionInclusiones /></div>
+
+        {/* CTA puente → /estadia */}
+        <div style={{ background: '#005333', padding: '28px 24px', textAlign: 'center' }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+            ¿Querés hospedarte?
+          </p>
+          <p style={{ color: 'white', fontSize: 18, fontFamily: 'Georgia, serif', fontWeight: 400, marginBottom: 16 }}>
+            Mirá todos los alojamientos, precios detallados y el retiro Reset Vital incluido
+          </p>
+          <a href="/estadia"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#D4AF37', color: 'white', borderRadius: 999, padding: '12px 28px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none' }}>
+            Ver estadías & glamping →
+          </a>
+        </div>
+
         <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionEventos /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionTestimonios /></div>
         <SectionNosotros />
         <SectionPilares />
         <SectionVideo />
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionExperiencias /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionInclusiones /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionParaQuien /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionTestimonios /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px', isolation: 'isolate' }}><SectionRetiros /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionEscuelas /></div>
-        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1000px', isolation: 'isolate' }}><SectionVoluntariados /></div>
+        <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionNichos /></div>
         <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px', isolation: 'isolate' }}><SectionComoLlegar /></div>
         <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', isolation: 'isolate' }}><SectionFAQ /></div>
         <div style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px', isolation: 'isolate' }}><SectionContacto /></div>

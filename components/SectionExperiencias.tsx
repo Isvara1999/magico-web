@@ -1,36 +1,37 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { BookOpenText, CheckCircle } from '@phosphor-icons/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { marked } from 'marked';
 
 export const SectionExperiencias: React.FC = () => {
   const { t } = useLanguage();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -scrollRef.current.clientWidth * 0.85 : scrollRef.current.clientWidth * 0.85, behavior: 'smooth' });
+  };
 
   return (
-    <section id="experiencias" className="py-24 bg-white">
+    <section id="experiencias" className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <p className="text-brand font-bold tracking-widest uppercase text-xs mb-4">
+        <div className="text-center mb-8">
+          <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">
             {t.experiences.tag}
           </p>
           <h2
             data-reveal
-            className="text-3xl md:text-5xl text-brand mb-6 font-serif"
+            className="text-3xl md:text-4xl text-brand mb-4 font-serif"
             dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.title as string) as string }}
           />
-          <div className="text-dark/70 text-lg max-w-5xl mx-auto leading-relaxed space-y-6">
-            <p dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p1 }} />
-            <p
-              className="font-light"
-              dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p2 }}
-            />
-          </div>
+          <p className="text-dark/65 text-base max-w-2xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: (t.experiences as any).intro_p1 }} />
         </div>
 
-        {/* Reset Vital Section */}
-        <div className="mb-20 bg-bone rounded-2xl p-8 md:p-12 shadow-sm border-l-4 border-[#005333]/20 relative overflow-hidden" data-reveal>
+        {/* Reset Vital */}
+        <div className="mb-10 bg-bone rounded-2xl p-6 md:p-8 shadow-sm border-l-4 border-[#005333]/20 relative overflow-hidden" data-reveal>
           <BookOpenText className="absolute -right-10 -bottom-10 w-64 h-64 text-brand/5 rotate-12" weight="duotone" />
-
           <div className="w-full">
             <span className="text-gold font-bold tracking-widest uppercase text-xs mb-2 block opacity-90">
               {t.experiences.resetVital.subtitle}
@@ -42,7 +43,6 @@ export const SectionExperiencias: React.FC = () => {
               className="text-dark/80 mb-10 font-light leading-relaxed text-lg max-w-4xl [&_strong]:text-[#8B6914] [&_strong]:font-medium"
               dangerouslySetInnerHTML={{ __html: marked.parse(t.experiences.resetVital.description as string) as string }}
             />
-
             <ul className="space-y-6">
               {t.experiences.resetVital.items.map((item: any, idx: number) => (
                 <li key={idx} className="flex flex-col gap-1">
@@ -57,84 +57,56 @@ export const SectionExperiencias: React.FC = () => {
           </div>
         </div>
 
-        {/* Cards Section */}
-        <div className="text-center mb-10">
+        {/* Cards */}
+        <div className="text-center mb-6">
           <span className="text-brand/80 font-bold tracking-widest uppercase text-xs">
             PERSONALIZÁ TU ESTADÍA
           </span>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {t.experiences.cards.map((card: any) => {
-            const isEcoRefugio = card.title?.toString().toLowerCase().includes('eco-refugio') || card.title?.toString().toLowerCase().includes('glamping');
+        <div className="relative">
+          <button onClick={() => scroll('left')}
+            className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -ml-2"
+            aria-label="Anterior">
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button onClick={() => scroll('right')}
+            className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-lg text-brand border border-brand/10 -mr-2"
+            aria-label="Siguiente">
+            <ChevronRight className="w-5 h-5" />
+          </button>
 
-            return (
-              <div key={card.id} className="bg-bone rounded-xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold relative">
-                {isEcoRefugio && (
-                  <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-start pointer-events-none">
-                    <div className="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">
-                      {(t.experiences as any).badge_accommodation}
+          <div ref={scrollRef}
+            className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-8 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
+            {t.experiences.cards.map((card: any) => {
+              const isEcoRefugio = card.title?.toString().toLowerCase().includes('eco-refugio') || card.title?.toString().toLowerCase().includes('glamping');
+              return (
+                <div key={card.id}
+                  className="min-w-[90vw] md:min-w-0 snap-center bg-bone rounded-2xl overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300 border-t-4 border-gold relative flex flex-col h-full">
+                  {isEcoRefugio && (
+                    <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-start pointer-events-none">
+                      <div className="bg-brand text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">{(t.experiences as any).badge_accommodation}</div>
+                      <div className="bg-gold text-brand text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">Coworking & Coliving</div>
                     </div>
-                    <div className="bg-gold text-brand text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md pointer-events-auto">
-                      Coworking & Coliving
-                    </div>
+                  )}
+                  <div className="relative aspect-video md:aspect-[4/3] overflow-hidden bg-gray-100">
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   </div>
-                )}
-                <div className="h-48 overflow-hidden">
-                  <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
+                    <p className="text-dark/70 mb-4 text-sm leading-relaxed flex-grow">{card.description}{isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}</p>
+                    {card.ctaLink?.startsWith('/') ? (
+                      <a href={card.ctaLink} className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">{card.ctaText} →</a>
+                    ) : (
+                      <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">{card.ctaText} →</a>
+                    )}
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
-                  <p className="text-dark/70 mb-4 text-sm leading-relaxed">
-                    {card.description}
-                    {isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}
-                  </p>
-                  <a href={card.ctaLink} target="_blank" rel="noopener noreferrer" className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">
-                    {card.ctaText}
-                  </a>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Weekday Discount */}
-        <div className="mt-20 bg-bone rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-gold/20 shadow-sm">
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <span className="inline-block bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5">
-              20% de descuento
-            </span>
-            <h3 className="text-2xl md:text-4xl font-serif text-brand mb-4 leading-tight">
-              Vení de Lunes a Jueves
-            </h3>
-            <p className="text-dark/65 text-base font-light leading-relaxed mb-8 max-w-xl mx-auto">
-              Los días de semana (no feriados) tienen un precio especial. Más silencio, más privacidad, el entorno ideal para el foco creativo o el descanso profundo.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
-              <div className="bg-white rounded-xl px-6 py-4 border border-brand/10 shadow-sm text-center">
-                <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Alojamiento</p>
-                <p className="text-dark/30 text-sm line-through mb-0.5">$40.000</p>
-                <p className="text-brand text-2xl font-serif font-light">$32.000 <span className="text-sm text-dark/50">/ noche</span></p>
-              </div>
-              <div className="bg-white rounded-xl px-6 py-4 border border-gold/20 shadow-sm text-center">
-                <p className="text-dark/40 text-xs uppercase tracking-widest mb-1">Pensión Completa</p>
-                <p className="text-dark/30 text-sm line-through mb-0.5">$95.000</p>
-                <p className="text-gold text-2xl font-serif font-light">$76.000 <span className="text-sm text-dark/50">/ noche</span></p>
-              </div>
-            </div>
-            <div className="flex flex-wrap justify-center gap-5 text-sm text-dark/60">
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> Lunes a jueves
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> No aplica feriados
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" /> Todo incluido
-              </span>
-            </div>
+              );
+            })}
           </div>
         </div>
+        <p className="md:hidden text-[10px] text-center text-dark/30 mt-2">Deslizá para ver más →</p>
       </div>
     </section>
   );

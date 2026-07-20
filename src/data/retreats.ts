@@ -30,11 +30,38 @@ export const RETREATS_DATA = {
     currency: 'ARS',
     dates: '24, 25 y 26 de Julio',
     message: '¡Hola Fausto! Terminé de leer todo sobre el retiro de Gondorbows y no me lo quiero perder. Me comunico para coordinar la seña y asegurar mi lugar. 🌲✨',
+  },
+  cicloVitalFemenino: {
+    priceSola: 400000,
+    priceAcompanada: 300000,
+    senia: 100000,
+    segundoPago: 100000,
+    segundoPagoFecha: '15 de Agosto',
+    valorReferenciaARS: 900000,
+    currency: 'ARS',
+    dates: '28, 29 y 30 de Agosto',
+    cupos: 21,
+    fechaLimiteInscripcion: '24 de Agosto',
+    message: '¡Hola! Vengo de la web y me interesa el retiro "Ciclo Vital Femenino - Capítulo Muerte-Invierno". Me gustaría reservar mi lugar. ✨',
   }
 };
 
 export const ESTADIA_PRICES = {
-  base: 40000,
-  pensionCompleta: 95000,
-  weekdayDiscount: 0.20, // 20%
+  base: 20000,           // alojamiento + desayuno
+  pensionCompleta: 50000, // + almuerzo y cena
+};
+
+export const COLIVING_PRICES = {
+  currency: 'ARS',
+  formatos: [
+    { noches: 3, precio: 180000, label: '3 noches', desc: 'Una primera aproximación a la experiencia' },
+    { noches: 5, precio: 250000, label: '5 noches', desc: 'Una inmersión breve para desconectar y recargar' },
+    { noches: 10, precio: 350000, label: '10 noches', desc: 'Un proceso más profundo, ideal para integrar hábitos' },
+  ],
+  paseMensual: {
+    precio: 480000,
+    label: 'Pase Libre Mensual',
+    desc: 'La opción más completa para vivir la experiencia en profundidad',
+  },
+  message: 'Hola! Vengo de la web y quiero sumarme a Coliving Mágico ✨',
 };
