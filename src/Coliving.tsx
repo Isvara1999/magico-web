@@ -6,7 +6,8 @@ import {
   House, ForkKnife, Laptop, HeartStraight, Campfire, Drop, Sun,
   WifiHigh, CheckCircle, ArrowRight, Star, WhatsappLogo, Tree, UsersThree,
   CaretDownIcon, HouseIcon, ClockIcon, CalendarIcon, Brain, Sparkle, Moon,
-  Mountains, Bank, DownloadSimple, FilePdf, CircleNotch,
+  Mountains, Bank, DownloadSimple, FilePdf, CircleNotch, InstagramLogo,
+  CaretLeft, CaretRight,
 } from '@phosphor-icons/react';
 import { WA_MAGICO, SITE_URL } from './data/config';
 import { COLIVING_PRICES } from './data/retreats';
@@ -19,9 +20,9 @@ const WA_COLIVING = WA(COLIVING_PRICES.message);
 
 const fmt = (n: number) => n.toLocaleString('es-AR');
 
-// Precio "efectivo/transferencia" = precio de lista (en cuotas) con 20% de descuento
+// Cuotas con tarjeta de crédito = 20% más que efectivo/transferencia
 const pago = (efectivo: number) => {
-  const lista = Math.round(efectivo / 0.8);
+  const lista = Math.round(efectivo * 1.2);
   const cuota = Math.round(lista / 3);
   const ahorro = lista - efectivo;
   return { efectivo, lista, cuota, ahorro };
@@ -31,13 +32,21 @@ const pago = (efectivo: number) => {
 const Hero: React.FC = () => (
   <section className="relative h-[92vh] min-h-[600px] w-full flex items-end overflow-hidden">
     <img
-      src="/uploads/coworking.webp"
+      src="/uploads/coliving-hero-mobile.webp"
       alt="Coliving Mágico — espacio de trabajo y descanso en la naturaleza"
-      className="absolute inset-0 w-full h-full object-cover object-center"
+      className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
       fetchPriority="high"
       decoding="async"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-[#002d1a]/90 via-[#002d1a]/30 to-transparent" />
+    <img
+      src="/uploads/coliving-hero-desktop.webp"
+      alt="Coliving Mágico — espacio de trabajo y descanso en la naturaleza"
+      className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
+      fetchPriority="high"
+      decoding="async"
+    />
+    <div className="absolute inset-0 bg-[#002d1a]/45" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#002d1a]/95 via-[#002d1a]/50 to-[#002d1a]/10" />
     <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-16 md:pb-24">
       <p className="text-gold/80 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">
         Coliving Mágico · Bienestar &amp; Estilo de Vida
@@ -104,7 +113,7 @@ const TuEntorno: React.FC = () => (
         {[
           { icon: <Mountains className="w-6 h-6" weight="duotone" />, big: '200 HAS', small: 'de reserva natural privada' },
           { icon: <Drop className="w-6 h-6" weight="duotone" />, big: 'Ríos & arroyos', small: 'para caminar, descansar y desconectar' },
-          { icon: <Sun className="w-6 h-6" weight="duotone" />, big: 'Atardeceres', small: 'de Los Gigantes, Córdoba' },
+          { icon: <Sun className="w-6 h-6" weight="duotone" />, big: 'Los mejores atardeceres', small: 'de Los Gigantes, Córdoba' },
         ].map((s, i) => (
           <div key={i} className="flex flex-col items-center">
             <div className="w-11 h-11 rounded-full bg-bone flex items-center justify-center text-brand mb-2">{s.icon}</div>
@@ -116,6 +125,9 @@ const TuEntorno: React.FC = () => (
       <p className="text-center text-dark/50 text-sm max-w-xl mx-auto mt-8 leading-relaxed">
         Cambiar de espacio también cambia tu descanso. Y no vas a estar solo: compartís el proceso con personas que están
         en la misma sintonía — buscando foco, calma y una versión más plena de sí mismas.
+      </p>
+      <p className="text-center text-brand font-serif text-base md:text-lg max-w-xl mx-auto mt-6 leading-relaxed">
+        Viniste a desconectar. Vas a terminar conectando más — con vos mismo.
       </p>
     </div>
   </section>
@@ -168,6 +180,205 @@ const PorQueFunciona: React.FC = () => (
   </section>
 );
 
+// ── Galería ────────────────────────────────────────────────────────────────────
+const GALERIA = [
+  { src: '/uploads/coworking.webp',                    caption: 'Coworking · WiFi satelital' },
+  { src: '/uploads/habitaciones.webp',                 caption: 'Habitaciones · Ropa blanca y toallón incluidos' },
+  { src: '/uploads/domos.webp',                        caption: 'Domos geodésicos' },
+  { src: '/uploads/mesadas.webp',                      caption: 'Cocina · Pensión completa · 3 comidas' },
+  { src: '/uploads/yoga_salon.webp',                   caption: 'El salón · Encuentros y círculos de trabajo' },
+  { src: '/uploads/exterior.webp',                     caption: 'El predio · 200 hectáreas' },
+  { src: '/uploads/Invierno/20250629_135046.webp',     caption: 'Ventanal con vistas a la sierra' },
+  { src: '/uploads/Invierno/20250629_152354.webp',     caption: 'Camino rural hacia el horizonte' },
+  { src: '/uploads/Invierno/20250628_181834.webp',     caption: 'Atardecer desde la pirca de piedra' },
+  { src: '/uploads/botica.webp',                       caption: 'La botica · Plantas de la sierra' },
+  { src: '/uploads/Invierno/20250627_222558.webp',     caption: 'Cielo estrellado en la montaña' },
+];
+
+const Galeria: React.FC = () => {
+  const [idx, setIdx] = useState(0);
+  const prev = () => setIdx(i => (i - 1 + GALERIA.length) % GALERIA.length);
+  const next = () => setIdx(i => (i + 1) % GALERIA.length);
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div data-reveal className="text-center mb-10">
+          <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">El espacio</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-brand">Así se vive Coliving Mágico</h2>
+        </div>
+
+        <div data-reveal className="relative rounded-2xl overflow-hidden shadow-lg bg-bone"
+          style={{ height: '62vh', minHeight: '340px', maxHeight: '560px' }}>
+          {GALERIA.map((g, i) => (
+            <div key={g.src} className="absolute inset-0 transition-opacity duration-700"
+              style={{ opacity: i === idx ? 1 : 0 }}>
+              <img src={g.src} alt={g.caption} loading={i === 0 ? 'eager' : 'lazy'}
+                className="w-full h-full object-cover" />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+          <button onClick={prev} aria-label="Foto anterior"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
+            <CaretLeft className="w-5 h-5 text-white" weight="bold" />
+          </button>
+          <button onClick={next} aria-label="Foto siguiente"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
+            <CaretRight className="w-5 h-5 text-white" weight="bold" />
+          </button>
+
+          <div className="absolute bottom-4 left-0 right-0 z-10 text-center px-4">
+            <p className="text-white text-xs font-semibold mb-3 drop-shadow">{GALERIA[idx].caption}</p>
+            <div className="flex justify-center gap-1.5">
+              {GALERIA.map((_, i) => (
+                <button key={i} onClick={() => setIdx(i)} aria-label={`Foto ${i + 1}`}
+                  className="rounded-full transition-all duration-300"
+                  style={{ width: i === idx ? 18 : 6, height: 6, backgroundColor: i === idx ? '#D4AF37' : 'rgba(255,255,255,0.5)' }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ── Momento: dónde nacen las ideas ─────────────────────────────────────────────
+const MomentoIdeas: React.FC = () => (
+  <section className="py-16 md:py-20 bg-white">
+    <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="flex-1 order-2 md:order-1" data-reveal>
+        <p className="text-gold text-[10px] tracking-[0.3em] uppercase font-bold mb-4">Donde nacen las mejores ideas</p>
+        <h2 className="text-2xl md:text-3xl font-serif text-brand leading-snug mb-5">
+          No nacen frente a una pantalla.
+        </h2>
+        <p className="text-dark/60 text-sm md:text-base leading-relaxed">
+          Nacen caminando junto al río, mirando el atardecer sobre Los Gigantes, o en silencio después de una comida compartida.
+          La naturaleza no interrumpe tu foco — lo prepara.
+        </p>
+      </div>
+      <div className="flex-shrink-0 w-64 md:w-72 lg:w-80 order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl" data-reveal data-delay="1">
+        <img src="/uploads/dji_0074.webp" alt="Vista aérea de Pueblo Mágico al atardecer" className="w-full h-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </section>
+);
+
+// ── Posicionamiento (antes de precios) ─────────────────────────────────────────
+const Posicionamiento: React.FC = () => (
+  <section className="py-14 bg-bone">
+    <div className="max-w-2xl mx-auto px-6 text-center" data-reveal>
+      <h2 className="text-2xl md:text-3xl font-serif text-brand leading-snug mb-3">
+        No vendemos noches de hotel.
+      </h2>
+      <p className="text-dark/60 text-sm md:text-base leading-relaxed">
+        Compartimos un espacio real para vivir, trabajar y encontrarte de nuevo — con foco, comunidad y tiempo en la naturaleza.
+        Vos ponés el ritmo.
+      </p>
+    </div>
+  </section>
+);
+
+// ── Alimentación ───────────────────────────────────────────────────────────────
+const Alimentacion: React.FC = () => (
+  <section className="relative overflow-hidden">
+    <img src="/uploads/469731807_3987061274856806_2943773444767775905_n.jpg" alt="Comida casera en Pueblo Mágico"
+      className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,10,20,0.90) 0%, rgba(4,10,20,0.85) 100%)' }} />
+    <div data-reveal className="relative z-10 max-w-3xl mx-auto px-6 py-16 md:py-20 text-center">
+      <p className="text-gold text-[10px] tracking-[0.3em] uppercase font-bold mb-3">Pensión completa · 3 comidas · incluido</p>
+      <h2 className="text-2xl md:text-3xl font-serif text-white mb-5">Alimentación</h2>
+      <p className="text-white/75 text-sm md:text-base leading-relaxed mb-7 max-w-xl mx-auto">
+        Cada plato se prepara con ingredientes frescos, locales y de estación — comida real que regenera el cuerpo, calienta el alma
+        y sostiene la energía que necesitás para pensar con claridad.
+      </p>
+      <div className="grid grid-cols-2 gap-3 max-w-md mx-auto text-left">
+        {['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por el equipo', 'Adaptable a necesidades especiales'].map((d) => (
+          <div key={d} className="flex items-start gap-2">
+            <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gold" />
+            <p className="text-xs text-white/70 leading-snug">{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// ── Equipo ─────────────────────────────────────────────────────────────────────
+const EQUIPO = [
+  {
+    photo: '/uploads/Diego_perfil.png',
+    nombre: 'Diego Epelman Hodara',
+    rol: 'Anfitrión del espacio',
+    desc: 'Fundador de Pueblo Mágico. Crea el clima de confianza, escucha y apertura desde el que todo lo demás es posible.',
+    instagram: 'https://www.instagram.com/diegoepel/',
+  },
+  {
+    photo: '/uploads/china.jpeg',
+    nombre: 'China Dericia',
+    rol: 'Guardiana del espacio',
+    desc: 'Sostiene el cuerpo y la energía de quienes conviven en el espacio. Guía prácticas de movimiento, canto y meditación.',
+    instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
+  },
+  {
+    photo: '/uploads/isvara-rojas.jpg',
+    nombre: 'Isvara Rojas Romero',
+    rol: 'Host de emprendedores y creativos',
+    desc: 'Estratega polímata y Growth Engineer. Acompaña a emprendedores y creativos a construir con foco y criterio real, desde la montaña.',
+    instagram: 'https://www.instagram.com/isvara_strategist/',
+  },
+  {
+    photo: '/uploads/luz-candela.jpg',
+    nombre: 'Luz Candela',
+    rol: 'Liderazgo femenino · Bienestar & Consciencia',
+    desc: 'Creadora de Mujeres Amatistas. Acompaña a reconectar con el propósito desde el cuerpo, la intuición y la comunidad.',
+    instagram: 'https://www.instagram.com/mujeramatistaa/',
+  },
+  {
+    photo: '/uploads/tomas-bergallo.jpg',
+    nombre: 'Tomás Bergallo',
+    rol: 'Potenciador de regeneración · Consciencia corporal',
+    desc: 'El cuerpo es el primer capital de quien construye algo propio. Tomás trabaja la capacidad de regeneración interna — contacto, movimiento y bienestar corporal — para que lo que recuperás acá se refleje en vos y en tus proyectos.',
+    instagram: 'https://www.instagram.com/tomas.bergallo/',
+  },
+  {
+    photo: '/uploads/nicole-rosignoli.webp',
+    nombre: 'Nicole Rosignoli Miranda',
+    rol: 'Psicología · Gestalt · Salud Cíclica',
+    desc: 'Licenciada en Psicología (UNC). Acompaña desde el enfoque gestáltico y la salud cíclica, integrando plantas medicinales, movimiento corporal y círculos de mujeres.',
+    instagram: 'https://www.instagram.com/thematriiz/',
+  },
+];
+
+const Equipo: React.FC = () => (
+  <section className="py-20 bg-bone">
+    <div className="max-w-5xl mx-auto px-6">
+      <div data-reveal className="text-center mb-12">
+        <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">Quiénes te acompañan</p>
+        <h2 className="text-3xl md:text-4xl font-serif text-brand">No estás solo en el proceso</h2>
+      </div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {EQUIPO.map((m, i) => (
+          <div key={i} data-reveal data-delay={`${i + 1}` as any} className="bg-white rounded-2xl p-6 border border-brand/5 shadow-sm text-center">
+            <img src={m.photo} alt={m.nombre} loading="lazy"
+              className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-gold/30" />
+            <h3 className="font-serif text-brand text-base mb-0.5">{m.nombre}</h3>
+            <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-3">{m.rol}</p>
+            <p className="text-dark/60 text-xs leading-relaxed mb-4">{m.desc}</p>
+            {m.instagram && (
+              <a href={m.instagram} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-bone text-brand hover:bg-brand hover:text-white transition-colors">
+                <InstagramLogo className="w-4 h-4" weight="fill" />
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 // ── La experiencia ────────────────────────────────────────────────────────────
 const EXPERIENCIA = [
   { icon: <House className="w-5 h-5" weight="duotone" />,        texto: 'Vivir en un entorno natural y tranquilo' },
@@ -185,6 +396,7 @@ const LaExperiencia: React.FC = () => (
         <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">La experiencia</p>
         <h2 className="text-3xl md:text-4xl font-serif text-brand mb-3">Durante tu estadía vas a poder</h2>
         <p className="text-dark/60 text-sm max-w-lg mx-auto leading-relaxed">
+          Podés venir solo a descansar — está perfecto. Pero eso es apenas el principio: hay mucho más para hacer y vivir en la montaña.
           Una invitación a ordenar tu rutina, recuperar energía y abrirte a nuevas formas de habitar tu día a día.
         </p>
       </div>
@@ -206,12 +418,18 @@ const LaExperiencia: React.FC = () => (
 const Formatos: React.FC = () => (
   <section id="formatos" className="py-20 bg-white">
     <div className="max-w-6xl mx-auto px-6 lg:px-12">
-      <div data-reveal className="text-center mb-12">
+      <div data-reveal className="text-center mb-10">
         <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">Formatos de estadía</p>
-        <h2 className="text-3xl md:text-4xl font-serif text-brand">Elegí tu ritmo</h2>
+        <h2 className="text-3xl md:text-4xl font-serif text-brand mb-4">Elegí tu ritmo</h2>
+        <div className="inline-flex items-center gap-2 bg-bone border border-brand/10 rounded-full px-5 py-2.5">
+          <Sun className="w-4 h-4 text-gold flex-shrink-0" weight="duotone" />
+          <p className="text-brand text-sm">
+            <strong className="font-bold">${fmt(COLIVING_PRICES.precioPorNocheInvierno)}</strong> la noche — precio de temporada de invierno, a la carta
+          </p>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch max-w-4xl mx-auto">
         {COLIVING_PRICES.formatos.map((f, i) => {
           const p = pago(f.precio);
           return (
@@ -224,9 +442,9 @@ const Formatos: React.FC = () => (
               <p className="text-dark/40 text-[11px] mb-3">Efectivo o transferencia</p>
               <div className="bg-white rounded-lg px-3 py-2 mb-4 border border-brand/5">
                 <p className="text-dark/50 text-[11px] leading-snug">
-                  O 3 cuotas de <strong className="text-dark/70">${fmt(p.cuota)}</strong>
+                  O 3 cuotas de <strong className="text-dark/70">${fmt(p.cuota)}</strong> con tarjeta de crédito
                 </p>
-                <p className="text-gold text-[10px] font-semibold mt-0.5">Ahorrás ${fmt(p.ahorro)} en efectivo/transferencia</p>
+                <p className="text-gold text-[10px] font-semibold mt-0.5">Ahorrás ${fmt(p.ahorro)} pagando en efectivo o transferencia</p>
               </div>
               <p className="text-dark/60 text-sm leading-relaxed flex-grow mb-5">{f.desc}</p>
               <a href={WA(`Hola! Vengo de la web y quiero consultar el formato de ${f.label} en Coliving Mágico ✨`)}
@@ -242,7 +460,7 @@ const Formatos: React.FC = () => (
         {(() => {
           const p = pago(COLIVING_PRICES.paseMensual.precio);
           return (
-            <div data-reveal data-delay="4" className="bg-brand text-white rounded-2xl p-6 border border-gold/30 shadow-lg flex flex-col relative lg:col-span-1 md:col-span-2 lg:row-start-1">
+            <div data-reveal data-delay="2" className="bg-brand text-white rounded-2xl p-6 border border-gold/30 shadow-lg flex flex-col relative">
               <span className="absolute -top-3 left-6 bg-gold text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                 Más completo
               </span>
@@ -253,9 +471,9 @@ const Formatos: React.FC = () => (
               <p className="text-white/50 text-[11px] mb-3">Efectivo o transferencia</p>
               <div className="bg-white/10 rounded-lg px-3 py-2 mb-4 border border-white/10">
                 <p className="text-white/70 text-[11px] leading-snug">
-                  O 3 cuotas de <strong className="text-white">${fmt(p.cuota)}</strong>
+                  O 3 cuotas de <strong className="text-white">${fmt(p.cuota)}</strong> con tarjeta de crédito
                 </p>
-                <p className="text-gold text-[10px] font-semibold mt-0.5">Ahorrás ${fmt(p.ahorro)} en efectivo/transferencia</p>
+                <p className="text-gold text-[10px] font-semibold mt-0.5">Ahorrás ${fmt(p.ahorro)} pagando en efectivo o transferencia</p>
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-3">{COLIVING_PRICES.paseMensual.desc}</p>
               <ul className="space-y-1.5 mb-5 flex-grow">
@@ -278,7 +496,13 @@ const Formatos: React.FC = () => (
 
       <p className="text-center text-dark/40 text-xs mt-8 max-w-xl mx-auto leading-relaxed flex items-center justify-center gap-1.5">
         <Bank className="w-3.5 h-3.5 flex-shrink-0" weight="duotone" />
-        Todos los formatos incluyen alojamiento, pensión completa y el Programa Reset Vital. Precio de lista en 3 cuotas — 20% menos pagando en efectivo o transferencia.
+        Todos los formatos incluyen alojamiento, pensión completa y el Programa Reset Vital.
+      </p>
+      <p className="text-center text-dark/40 text-xs mt-2">
+        Entradas y salidas, y actividades especiales fuera del programa base —{' '}
+        <a href="#faq" className="text-brand font-semibold underline underline-offset-2 hover:text-gold transition-colors">
+          ver términos y opciones en las preguntas frecuentes ↓
+        </a>
       </p>
     </div>
   </section>
@@ -472,7 +696,7 @@ const ParaQuienEs: React.FC = () => (
           Sino de vivir unos días —o un mes— de forma más consciente, conectada y equilibrada.
         </p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
         {AVATARES.map((av, i) => (
           <div key={i} data-reveal data-delay={`${i + 1}` as any} className="bg-white rounded-2xl p-6 border border-brand/5 shadow-sm text-center">
             <div className="w-12 h-12 bg-bone rounded-full flex items-center justify-center text-brand mx-auto mb-4">
@@ -482,6 +706,19 @@ const ParaQuienEs: React.FC = () => (
           </div>
         ))}
       </div>
+
+      {/* Anti-persona — honestidad para calificar el lead correcto */}
+      <div data-reveal data-delay="4" className="bg-white/60 border border-dark/10 rounded-2xl p-6 max-w-xl mx-auto text-center">
+        <p className="text-dark/50 font-bold text-xs uppercase tracking-widest mb-3">No es para vos si...</p>
+        <ul className="text-left space-y-1.5 inline-block">
+          {['Buscás un hotel de lujo con servicio de habitación', 'Necesitás la ciudad y el ruido para rendir', 'El silencio y la naturaleza te generan ansiedad'].map((d) => (
+            <li key={d} className="flex items-start gap-2 text-dark/50 text-sm">
+              <span className="mt-0.5 flex-shrink-0">✗</span>
+              {d}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 );
@@ -489,13 +726,14 @@ const ParaQuienEs: React.FC = () => (
 // ── FAQ ───────────────────────────────────────────────────────────────────────
 const FAQS = [
   { Icon: HouseIcon, q: '¿Qué incluye el precio?', a: 'Alojamiento con ropa blanca y toallón, biocosmética en las duchas, todas las comidas caseras (desayuno, almuerzo y cena), el Programa Reset Vital, acceso a todo el predio y WiFi satelital.' },
-  { Icon: ClockIcon, q: '¿Las actividades del Reset Vital están todas incluidas?', a: 'El programa base está incluido en todos los formatos. Algunas experiencias puntuales (talleres especiales, terapias o salidas guiadas) pueden coordinarse como actividades adicionales según disponibilidad.' },
+  { Icon: ClockIcon, q: '¿Las actividades del Reset Vital están todas incluidas?', a: 'El programa base está incluido en todos los formatos. El precio cubre la noche y las comidas — si durante tu estadía coincide una actividad especial, evento, excursión o retiro puntual en el predio, se paga la diferencia aparte.' },
+  { Icon: CalendarIcon, q: '¿Puedo entrar y salir cuando quiera durante el Pase Mensual?', a: 'Sí. Podés subir y bajar de la montaña cuando lo necesites. Para volver a subir, avisanos con 24 horas de anticipación — así preparamos todo (cama y comidas) y confirmamos disponibilidad.' },
   { Icon: CalendarIcon, q: '¿Puedo combinar días de trabajo remoto con la rutina de bienestar?', a: 'Sí, es justamente la idea. No hay horarios obligatorios: tenés espacios cómodos y conexión para trabajar, y podés sumarte a las prácticas de bienestar cuando quieras.' },
   { Icon: CaretDownIcon, q: '¿Cómo reservo mi lugar?', a: 'Los cupos son limitados para cuidar la experiencia. Escribinos por WhatsApp contándonos qué formato te interesa y te confirmamos disponibilidad.' },
 ];
 
 const FAQ: React.FC = () => (
-  <section className="py-20 bg-white">
+  <section id="faq" className="py-20 bg-white">
     <div className="max-w-3xl mx-auto px-6">
       <div data-reveal className="text-center mb-10">
         <p className="text-brand font-bold tracking-widest uppercase text-xs mb-3">Preguntas frecuentes</p>
@@ -519,6 +757,22 @@ const FAQ: React.FC = () => (
   </section>
 );
 
+// ── Permiso para descansar ──────────────────────────────────────────────────────
+const PermisoDescanso: React.FC = () => (
+  <section className="relative overflow-hidden">
+    <img src="/uploads/campoentero.webp" alt="Atardecer en Pueblo Mágico" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+    <div className="absolute inset-0" style={{ background: 'rgba(4,10,20,0.72)' }} />
+    <div data-reveal className="relative z-10 max-w-2xl mx-auto px-6 py-20 md:py-28 text-center">
+      <p className="text-white/50 text-base md:text-lg font-light leading-relaxed mb-5">
+        Viniste a rendir distinto.
+      </p>
+      <p className="text-3xl md:text-5xl font-serif text-white leading-snug">
+        Bajar el ritmo también es avanzar.
+      </p>
+    </div>
+  </section>
+);
+
 // ── CTA Final ─────────────────────────────────────────────────────────────────
 const CTAFinal: React.FC = () => (
   <section className="py-24 bg-bone">
@@ -532,15 +786,25 @@ const CTAFinal: React.FC = () => (
           Cuidamos la experiencia manteniendo pocos lugares disponibles. Si sentís que este espacio es para vos,
           escribinos para conocer disponibilidad y coordinar tu llegada.
         </p>
-        <a
-          href={WA_COLIVING}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-brand text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-gold transition-colors duration-300 shadow-lg"
-        >
-          <WhatsappLogo className="w-5 h-5 flex-shrink-0" weight="fill" />
-          Consultar disponibilidad
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={WA_COLIVING}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 bg-brand text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-gold transition-colors duration-300 shadow-lg"
+          >
+            <WhatsappLogo className="w-5 h-5 flex-shrink-0" weight="fill" />
+            Reservar mi lugar
+          </a>
+          <a
+            href={WA('Hola! Tengo algunas dudas sobre Coliving Mágico antes de reservar ✨')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 border border-brand/30 text-brand px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-brand/5 transition-colors duration-300"
+          >
+            Tengo preguntas
+          </a>
+        </div>
         <p className="mt-6 text-dark/40 text-xs">
           También podés escribirnos a{' '}
           <a href="mailto:experienciamagico@gmail.com" className="hover:text-brand transition-colors underline underline-offset-2">
@@ -663,13 +927,19 @@ const Coliving: React.FC = () => {
           <Hero />
           <TuEntorno />
           <Inclusiones />
+          <Galeria />
           <LaExperiencia />
           <PorQueFunciona />
+          <MomentoIdeas />
+          <Alimentacion />
+          <Equipo />
+          <Posicionamiento />
           <Formatos />
           <Testimonios />
           <GuiaFoco />
           <ParaQuienEs />
           <FAQ />
+          <PermisoDescanso />
           <CTAFinal />
         </main>
         <Footer />

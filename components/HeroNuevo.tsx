@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Tree, UsersThree, CurrencyCircleDollar } from '@phosphor-icons/react';
+import { Tree, UsersThree, Mountains } from '@phosphor-icons/react';
 import { BookingWidget, G } from './BookingWidget';
 
 export const HeroNuevo: React.FC = () => {
@@ -61,6 +61,8 @@ export const HeroNuevo: React.FC = () => {
           <span>{t.hero.stats_years as string}</span>
           <span style={{ color: 'rgba(212,175,55,0.25)' }}>|</span>
           <span>{t.hero.stats_trees as string}</span>
+          <span style={{ color: 'rgba(212,175,55,0.25)' }}>|</span>
+          <span>{(t.hero as any).stats_land}</span>
         </div>
 
         {/* Widget compacto */}
@@ -129,9 +131,9 @@ export const HeroNuevo: React.FC = () => {
           {/* Stats */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 20px', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: '#D4AF37', marginBottom: 20 }}>
             {([
-              { Icon: Tree,                 text: t.hero.stats_years },
-              { Icon: UsersThree,           text: t.hero.stats_trees },
-              { Icon: CurrencyCircleDollar, text: t.hero.stats_sus  },
+              { Icon: Tree,       text: t.hero.stats_years },
+              { Icon: UsersThree, text: t.hero.stats_trees },
+              { Icon: Mountains,  text: (t.hero as any).stats_land },
             ] as const).map(({ Icon, text }, i) => (
               <React.Fragment key={i}>
                 {i > 0 && <span style={{ color: 'rgba(212,175,55,0.2)' }}>|</span>}
@@ -177,30 +179,9 @@ export const HeroNuevo: React.FC = () => {
         <div style={{ width: 370, flexShrink: 0, paddingTop: '7.5rem', paddingBottom: '3rem', paddingLeft: '1.5rem' }}>
           <div style={{ width: '100%', borderRadius: 22, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.18)' }}>
             <div style={{ background: G.green, padding: '18px 20px 16px' }}>
-              <p style={{ fontSize: 10, letterSpacing: '0.35em', textTransform: 'uppercase', fontWeight: 700, color: 'rgba(212,175,55,0.85)', marginBottom: 6 }}>
-                DOMOS GEODÉSICOS · INVIERNO 2026
-              </p>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 21, fontWeight: 400, color: 'white', lineHeight: 1.25, margin: '0 0 5px' }}>
-                Tu refugio en la montaña
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 21, fontWeight: 400, color: 'white', lineHeight: 1.25, margin: 0 }}>
+                Reserva tu experiencia inolvidable en la montaña
               </h2>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.70)', margin: '0 0 8px' }}>
-                Sierras Grandes · Silencio real
-              </p>
-              <p style={{ fontSize: 14, color: 'rgba(212,175,55,0.9)', fontWeight: 700, margin: 0 }}>
-                Desde $20.000 / noche
-              </p>
-              <div style={{ display: 'flex', gap: 14, marginTop: 12 }}>
-                {[
-                  { color: 'rgba(255,255,255,0.3)', label: 'Disponible' },
-                  { color: '#D4AF37', label: 'Seleccionado' },
-                  { color: 'rgba(255,255,255,0.15)', label: 'Ocupado' },
-                ].map(({ color, label }) => (
-                  <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: color, flexShrink: 0 }} />
-                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}>{label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.96)' }}>
               <BookingWidget />

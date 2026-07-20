@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flame, Leaf, Heart, Star, Users, Sun, Moon, Mountain, Sprout, Calendar, Compass, ChevronDown, Instagram, Linkedin, Home, Handshake, Sparkles, Utensils, type LucideIcon } from 'lucide-react';
+import { Flame, Leaf, Heart, Star, Users, Sun, Moon, Mountain, Sprout, Calendar, Compass, ChevronDown, Instagram, Linkedin, Home, Handshake, Sparkles, Utensils, ShieldCheck, type LucideIcon } from 'lucide-react';
 import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
@@ -103,6 +103,10 @@ const FAQS = [
   {
     q: '¿Cómo funcionan los precios?',
     a: 'En Experiencia completa: 1 noche $60.000, 2 noches $120.000, 3 noches (festival completo, ya incluye la Ofrenda + Temazcal) $190.000. En Pijamada: 1 noche $40.000, 2 noches $80.000 (incluye cualquier día, incluida la Ofrenda), 3 noches (festival completo) $120.000. Si tu estadía no incluye el domingo, podés sumar la noche de la Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000.',
+  },
+  {
+    q: '¿Qué pasa si no me gusta la experiencia?',
+    a: 'Te devolvemos tu dinero. Estamos tan seguros de que esta experiencia es transformadora que la pusimos a menos de la mitad de lo que realmente vale — si sentís que no la disfrutaste o que te dejó indiferente, te lo reembolsamos.',
   },
   {
     q: '¿Puedo venir solo el domingo, sin quedarme a dormir?',
@@ -847,7 +851,7 @@ const PachamamaFest: React.FC = () => {
               Armá tu precio
             </h2>
             <p className="text-base max-w-md mx-auto" style={{ color: C.muted }}>
-              Elegí tu modalidad y tus noches — el total se calcula al instante, en efectivo o en 3 cuotas.
+              Elegí tu modalidad y tus noches — el total se calcula al instante, en efectivo o en 3 cuotas con tarjeta de crédito.
             </p>
           </div>
 
@@ -945,7 +949,7 @@ const PachamamaFest: React.FC = () => {
                 <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{fmt(totalEfectivo)}</p>
               </div>
               {modalidad !== 'dia' && (
-                <p className="text-xs mb-5" style={{ color: C.faint }}>o 3 cuotas de {fmt(cuotaMensual)}</p>
+                <p className="text-xs mb-5" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
               )}
 
               {modalidad === 'dia' ? (
@@ -975,8 +979,21 @@ const PachamamaFest: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-center text-sm mt-8" style={{ color: C.faint }}>
-            Precios en efectivo o transferencia. En cuotas: +20%, sin recargo financiero adicional.{' '}
+          <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4" data-reveal
+            style={{ backgroundColor: 'rgba(0,83,51,0.05)', border: '1px solid rgba(0,83,51,0.15)' }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+              <ShieldCheck size={18} color={C.green} />
+            </div>
+            <div>
+              <p className="font-bold text-sm mb-1" style={{ color: C.green }}>Garantía de satisfacción</p>
+              <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                Estamos tan seguros de que esta experiencia es transformadora que la pusimos a menos de la mitad de lo que realmente vale. Si sentís que no la disfrutaste — que te dejó indiferente — te devolvemos tu dinero.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-center text-sm mt-6" style={{ color: C.faint }}>
+            {' '}
             <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.green }}>
               Escribinos por WhatsApp
             </a>{' '}

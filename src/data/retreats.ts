@@ -53,10 +53,10 @@ export const ESTADIA_PRICES = {
 
 export const COLIVING_PRICES = {
   currency: 'ARS',
+  precioPorNocheInvierno: 50000, // temporada de invierno — estadías cortas, a la carta
   formatos: [
-    { noches: 3, precio: 180000, label: '3 noches', desc: 'Una primera aproximación a la experiencia' },
-    { noches: 5, precio: 250000, label: '5 noches', desc: 'Una inmersión breve para desconectar y recargar' },
     { noches: 10, precio: 350000, label: '10 noches', desc: 'Un proceso más profundo, ideal para integrar hábitos' },
+    { noches: 20, precio: 420000, label: '20 noches', desc: 'Estadía extendida para instalar un ritmo y una rutina real de trabajo' },
   ],
   paseMensual: {
     precio: 480000,
