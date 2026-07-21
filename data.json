@@ -42,7 +42,9 @@
       "followFacebook": "Seguinos en Facebook",
       "turnOnSound": "Activar sonido",
       "mute": "Silenciar",
-      "videoTitle": "Video de Pueblo Mágico"
+      "videoTitle": "Video de Pueblo Mágico",
+      "updateAvailable": "Hay una versión nueva del sitio disponible.",
+      "updateNow": "Actualizar"
     },
     "nichos": {
       "eyebrow": "Más experiencias",
@@ -1528,10 +1530,10 @@
       }
     },
     "notFound": {
-      "title": "Un sendero hacia <span class='italic text-gold'>lo desconocido.</span>",
-      "subtitle": "Parece que te has desviado del sendero. Este camino no conduce a ningún refugio, pero te ayudamos a volver al origen.",
+      "title": "Página no encontrada <span class='italic text-gold'>(Error 404)</span>",
+      "subtitle": "El link puede estar roto o la página cambió de lugar. Volvé al inicio o escribinos por WhatsApp y te ayudamos a llegar a donde necesitás.",
       "btnHome": "VOLVER AL INICIO",
-      "btnContact": "RESCATE POR WHATSAPP"
+      "btnContact": "ESCRIBINOS POR WHATSAPP"
     },
     "donations": {
       "text": "Apoyá la restauración de las Sierras Grandes de Córdoba con la plantación de tabaquillos nativos. Cada árbol es un paso hacia el monte nativo que alguna vez fue.",
@@ -1686,7 +1688,9 @@
       "followFacebook": "Follow us on Facebook",
       "turnOnSound": "Unmute",
       "mute": "Mute",
-      "videoTitle": "Pueblo Mágico Video"
+      "videoTitle": "Pueblo Mágico Video",
+      "updateAvailable": "A new version of the site is available.",
+      "updateNow": "Update"
     },
     "nichos": {
       "eyebrow": "More experiences",
@@ -3174,10 +3178,10 @@
       }
     },
     "notFound": {
-      "title": "A path to <span class='italic text-gold'>the unknown.</span>",
-      "subtitle": "It seems you've wandered off the trail. This path doesn't lead to any shelter, but we'll help you find your way back.",
+      "title": "Page not found <span class='italic text-gold'>(Error 404)</span>",
+      "subtitle": "The link may be broken or the page has moved. Head back home or message us on WhatsApp and we'll help you find what you're looking for.",
       "btnHome": "BACK TO HOME",
-      "btnContact": "WHATSAPP RESCUE"
+      "btnContact": "MESSAGE US ON WHATSAPP"
     },
     "donations": {
       "text": "Support the restoration of the Sierras Grandes de Córdoba through native tabaquillo tree planting. Every tree is a step toward the forest it once was.",

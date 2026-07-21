@@ -51,36 +51,6 @@
 </head>
 <body>
 
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="whatsapp" />
-    <textarea name="message"></textarea>
-    <input type="hidden" name="form-name" value="contact" />
-  </form>
-
-  <form name="aula-verde-pdf" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="nombre_apellido" />
-    <input type="text" name="colegio" />
-    <input type="email" name="email" />
-    <input type="tel" name="whatsapp" />
-    <input type="hidden" name="form-name" value="aula-verde-pdf" />
-  </form>
-
-  <form name="familion-recetario" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="nombre" />
-    <input type="email" name="email" />
-    <input type="tel" name="whatsapp" />
-    <input type="hidden" name="form-name" value="familion-recetario" />
-  </form>
-
-  <form name="coliving-guia" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="nombre" />
-    <input type="email" name="email" />
-    <input type="tel" name="whatsapp" />
-    <input type="hidden" name="form-name" value="coliving-guia" />
-  </form>
-
   <div id="root">
     <!--
       Static hero: visible immediately before React mounts.
@@ -138,29 +108,8 @@
       setTimeout(loadClarity, 8000);
     })();
 
-    // Netlify Identity: solo se carga cuando hay tokens OAuth en la URL
-    // (flujo de login del CMS admin). Ahorra ~450ms en el 99% de visitas.
+    // Service Worker PWA
     (function() {
-      var h = window.location.hash;
-      if (h.indexOf('access_token') > -1 || h.indexOf('invite_token') > -1 ||
-          h.indexOf('recovery_token') > -1 || h.indexOf('confirmation_token') > -1) {
-        var s = document.createElement('script');
-        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-        s.onload = function() {
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', function(user) {
-              if (!user) {
-                window.netlifyIdentity.on('login', function() {
-                  document.location.href = '/admin/';
-                });
-              }
-            });
-          }
-        };
-        document.head.appendChild(s);
-      }
-
-      // Service Worker PWA
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/sw.js');

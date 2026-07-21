@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { DownloadSimple, FilePdf, CheckCircle, CircleNotch } from '@phosphor-icons/react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { submitForm } from '../lib/submitForm';
 
 const PDF_URL = '/uploads/Recetarios/recetario-familion.pdf';
 const PDF_FILENAME = 'Recetario-Familion-Magico-Ensueno.pdf';
@@ -36,13 +37,9 @@ const FamilionRecetario: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const body = new URLSearchParams(new FormData(e.target as HTMLFormElement) as any).toString();
+    const data = new FormData(e.target as HTMLFormElement);
     setSending(true);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    }).finally(() => {
+    submitForm('Recetario — Familion', data).finally(() => {
       triggerDownload();
       setSending(false);
       setSubmitted(true);
@@ -92,9 +89,7 @@ const FamilionRecetario: React.FC = () => {
                     <p className="text-gray-400 text-sm">{tr.form.subtitle}</p>
                   </div>
 
-                  <form name="familion-recetario" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
-                    <input type="hidden" name="form-name" value="familion-recetario" />
-
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wider" htmlFor="rec-nombre">
                         {tr.form.label_nombre}

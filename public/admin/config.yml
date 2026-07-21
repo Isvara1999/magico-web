@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Isvara1999/magico-web
   branch: main
+  base_url: https://experienciamagico.com
+  auth_endpoint: auth
 
 # 'editorial_workflow' habilita el sistema de borradores.
 # Esto evita que cada "Guardar" dispare un deploy a producción, ahorrando créditos.

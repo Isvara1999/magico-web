@@ -12,6 +12,7 @@ import {
 import { WA_MAGICO, SITE_URL } from './data/config';
 import { COLIVING_PRICES } from './data/retreats';
 import { ROUTES } from './routes';
+import { submitForm } from './lib/submitForm';
 
 const WA = (msg: string) =>
   `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
@@ -634,13 +635,9 @@ const GuiaFoco: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const body = new URLSearchParams(new FormData(e.target as HTMLFormElement) as any).toString();
+    const data = new FormData(e.target as HTMLFormElement);
     setSending(true);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    }).finally(() => {
+    submitForm('Guía de Foco — Coliving', data).finally(() => {
       triggerDownload();
       setSending(false);
       setSubmitted(true);
@@ -676,8 +673,7 @@ const GuiaFoco: React.FC = () => {
           <div data-reveal data-delay="1" className="relative z-10">
             <div className="bg-white rounded-2xl p-6 shadow-xl">
               {!submitted ? (
-                <form name="coliving-guia" data-netlify="true" onSubmit={handleSubmit} className="space-y-3">
-                  <input type="hidden" name="form-name" value="coliving-guia" />
+                <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
                     <label className="block text-[11px] font-bold text-dark/50 mb-1 uppercase tracking-wider" htmlFor="cg-nombre">Nombre</label>
                     <input required type="text" id="cg-nombre" name="nombre" placeholder="Tu nombre"

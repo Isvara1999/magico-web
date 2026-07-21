@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { marked } from 'marked';
+import { submitForm } from '../src/lib/submitForm';
 
 export const SectionContacto = () => {
   const { t } = useLanguage();
@@ -27,18 +28,7 @@ export const SectionContacto = () => {
     setStatus('submitting');
 
     try {
-      // Codificación de datos para Netlify Forms
-      const data = new URLSearchParams();
-      data.append('form-name', 'contact');
-      Object.entries(formData).forEach(([key, value]) => {
-        data.append(key, String(value));
-      });
-
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data.toString(),
-      });
+      await submitForm('Formulario de Contacto', formData);
 
       setStatus('success');
       setFormData({ name: '', email: '', whatsapp: '', message: '', consent: false });
@@ -64,14 +54,10 @@ export const SectionContacto = () => {
         </div>
 
         <div className="bg-white p-8 md:p-12 rounded-xl shadow-2xl border border-brand/5">
-          <form 
-            className="grid gap-6" 
-            onSubmit={handleSubmit} 
-            name="contact" 
-            data-netlify="true"
+          <form
+            className="grid gap-6"
+            onSubmit={handleSubmit}
           >
-            {/* Campos ocultos necesarios para Netlify Forms en React */}
-            <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="consent" value={formData.consent ? 'si' : 'no'} />
 
             <div className="grid md:grid-cols-2 gap-6">

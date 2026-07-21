@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reset-vital-v7';
+const CACHE_NAME = 'reset-vital-v9';
 
 // Archivos críticos para cachear inmediatamente
 const PRECACHE_URLS = [
@@ -20,18 +20,34 @@ const PRECACHE_URLS = [
   '/uploads/mapa_magico.webp'
 ];
 
-// Instalación: Cachear archivos estáticos
+// Instalación: Cachear archivos estáticos.
+// OJO: no llamamos self.skipWaiting() acá a propósito — el Service Worker
+// nuevo se queda "esperando" hasta que el usuario confirma la actualización
+// desde el banner (ver components/UpdateBanner.tsx), que le manda el mensaje
+// SKIP_WAITING de abajo. Así evitamos reemplazar recursos por debajo de una
+// pestaña que los está usando en ese momento.
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(PRECACHE_URLS))
-      .then(() => self.skipWaiting())
   );
 });
 
-// Activación: Limpiar cachés viejas
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+// Activación: Limpiar cachés viejas (versiones de deploys anteriores)
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys()
+      .then((names) => Promise.all(
+        names.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name))
+      ))
+      .then(() => self.clients.claim())
+  );
 });
 
 // Fetch: Estrategia Híbrida

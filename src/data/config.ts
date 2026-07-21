@@ -9,6 +9,9 @@ export const WA_CICLO_VITAL_FEMENINO = '34621076042';
 
 export const SITE_URL = 'https://experienciamagico.com';
 
+// Reemplaza los envíos de Netlify Forms (no disponible en Cloudflare Pages).
+export const WEB3FORMS_ACCESS_KEY = '05502bcd-b552-47bd-bd01-122f9ab9bc6f';
+
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/magicoensueno',
   facebook: 'https://facebook.com/magicoensueno',

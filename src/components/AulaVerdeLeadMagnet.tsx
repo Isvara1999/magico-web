@@ -3,6 +3,7 @@ import { DownloadSimple, CheckCircle, FilePdf, CircleNotch } from '@phosphor-ico
 import { pdf } from '@react-pdf/renderer';
 import DossierAulaVerde from './pdf/DossierAulaVerde';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { submitForm } from '../lib/submitForm';
 
 const AulaVerdeLeadMagnet: React.FC = () => {
   const { t } = useLanguage();
@@ -22,24 +23,18 @@ const AulaVerdeLeadMagnet: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Form submission handler to prevent default and use Netlify AJAX (or standard form action)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     const myForm = e.target as HTMLFormElement;
     const formData = new FormData(myForm);
 
-    // Mapeo manual para asegurar compatibilidad si fetch falla en algunos entornos
-    const urlEncodedData = new URLSearchParams(formData as any).toString();
-
     setIsGenerating(true);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: urlEncodedData,
-    })
-      .then(async () => {
+    // La captura del lead (email) no debe bloquear la entrega del PDF prometido.
+    submitForm('Dossier PDF — Aula Verde', formData)
+      .catch((error) => console.error("Error al enviar el formulario", error))
+      .finally(async () => {
         try {
           // Generar PDF usando react-pdf/renderer al vuelo
           const blob = await pdf(<DossierAulaVerde />).toBlob();
@@ -56,10 +51,6 @@ const AulaVerdeLeadMagnet: React.FC = () => {
           setIsGenerating(false);
           setSubmitted(true);
         }
-      })
-      .catch((error) => {
-        console.error("Error al enviar el formulario", error);
-        setIsGenerating(false);
       });
   };
 
@@ -109,10 +100,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
                     <p className="text-gray-500 text-sm">{t.aula_verde.lead_magnet.form.subtitle}</p>
                   </div>
 
-                  <form name="aula-verde-pdf" data-netlify="true" onSubmit={handleSubmit} className="space-y-5">
-                    {/* Campos ocultos de netlify */}
-                    <input type="hidden" name="form-name" value="aula-verde-pdf" />
-                    
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-1" htmlFor="nombre_apellido">{t.aula_verde.lead_magnet.form.label_name}</label>
                       <input required type="text" id="nombre_apellido" name="nombre_apellido" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand transition-colors text-gray-800" placeholder={t.aula_verde.lead_magnet.form.placeholder_name} />

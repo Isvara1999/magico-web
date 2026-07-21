@@ -4,6 +4,7 @@ import { StrictMode } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { PWAInstallBanner } from './components/PWAInstallBanner';
+import { UpdateBanner } from './components/UpdateBanner';
 import './src/i18n';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Main from './Main';
@@ -56,6 +57,7 @@ root.render(
       <LanguageProvider>
         <BrowserRouter>
           <ScrollToTop />
+          <UpdateBanner />
           <PWAInstallBanner />
           <Suspense fallback={<PageLoader />}>
             <Routes>
