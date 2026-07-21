@@ -65,16 +65,25 @@ export const Footer: React.FC = () => {
               {t.footer.titles.experiences}
               <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
             </h3>
-            <ul className="space-y-4">
-              {t.footer.experienceLinks.map((link: any, index: number) => (
-                <li key={index}>
-                  <a href={link.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
-                    {link.label}
-                  </a>
-                </li>
+            <div className="space-y-6">
+              {t.footer.experienceGroups.map((group: any, gIndex: number) => (
+                <div key={gIndex}>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-3">
+                    {group.title}
+                  </p>
+                  <ul className="space-y-3">
+                    {group.links.map((link: any, index: number) => (
+                      <li key={index}>
+                        <a href={link.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
+                          <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Contact Column */}

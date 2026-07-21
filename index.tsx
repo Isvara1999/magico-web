@@ -33,8 +33,28 @@ const PoliticaPrivacidad = lazy(() => import('./src/PoliticaPrivacidad'));
 const NotFound = lazy(() => import('./src/NotFound'));
 
 const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      // Navigating to /#section (e.g. a menu/footer link clicked from another
+      // page) — scroll to that section instead of forcing the top of the page.
+      const id = hash.slice(1);
+      const scrollToHash = () => {
+        const el = document.getElementById(id);
+        if (!el) return false;
+        const headerOffset = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, left: 0, behavior: 'instant' });
+        return true;
+      };
+      if (!scrollToHash()) {
+        const raf = requestAnimationFrame(scrollToHash);
+        return () => cancelAnimationFrame(raf);
+      }
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname, hash]);
   return null;
 };
 

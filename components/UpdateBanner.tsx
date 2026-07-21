@@ -7,6 +7,11 @@ export const UpdateBanner: React.FC = () => {
   const { t } = useLanguage();
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
   const reloadingRef = useRef(false);
+  // sw.js calls clients.claim() on activate, which also fires 'controllerchange'
+  // the very first time a page gets claimed by ANY service worker (not just on
+  // real updates). Only reload when WE explicitly asked for the update — never
+  // reload just because a 'controllerchange' event happened.
+  const userTriggeredUpdateRef = useRef(false);
 
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
@@ -37,6 +42,7 @@ export const UpdateBanner: React.FC = () => {
     }, CHECK_INTERVAL_MS);
 
     const onControllerChange = () => {
+      if (!userTriggeredUpdateRef.current) return;
       if (reloadingRef.current) return;
       reloadingRef.current = true;
       window.location.reload();
@@ -65,7 +71,10 @@ export const UpdateBanner: React.FC = () => {
     >
       <span>{t.ui.updateAvailable}</span>
       <button
-        onClick={() => waitingWorker.postMessage({ type: 'SKIP_WAITING' })}
+        onClick={() => {
+          userTriggeredUpdateRef.current = true;
+          waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+        }}
         style={{
           background: '#D4AF37', color: '#005333', fontWeight: 700,
           fontSize: 12, letterSpacing: '0.05em', textTransform: 'uppercase',

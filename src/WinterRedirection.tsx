@@ -185,6 +185,7 @@ const CAROUSEL = [
   { src: '/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp', caption: 'Vista aérea · Los Gigantes nevado' },
   { src: '/uploads/coworking.webp',                                     caption: 'Coworking · Coliving · WiFi Starlink' },
   { src: '/uploads/Invierno/20250629_135046.webp',                       caption: 'Ventanal con vistas a la sierra' },
+  { src: '/uploads/pachamama-interior-ventanales.webp',                  caption: 'Interior · Ventanales a la sierra' },
   { src: '/uploads/yoga_salon.webp',                                    caption: 'El salón · Dinámicas y círculos de trabajo' },
   { src: '/uploads/Invierno/20250629_132707.webp',                       caption: 'Refugio de piedra bajo la nieve' },
   { src: '/uploads/habitaciones.webp',                                  caption: 'Habitaciones · Ropa blanca y toallón incluidos' },

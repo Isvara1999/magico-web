@@ -254,17 +254,35 @@
           "title": "Winter Redirection · Emprendedores en la Montaña",
           "desc": "Un mes para redirigir cuando el ruido del día a día tapa la perspectiva. Contenido específico para emprendedores, dueños de negocio y equipos: mentalidad de crecimiento, comunicación y productos con IA.",
           "btn": "Ver más",
-          "image": "/uploads/coworking.webp",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
           "link": "/winter-redirection",
           "pdfLink": ""
         },
         {
-          "date": "13-15 JUNIO",
+          "date": "14-15 AGOSTO",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
           "btn": "Ver Más",
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
+          "pdfLink": ""
+        },
+        {
+          "date": "14-17 AGOSTO",
+          "title": "Pachamama Fest · Finde Largo en la Montaña",
+          "desc": "Festival consciente para honrar a la Tierra, agradecer y abrir un nuevo ciclo. Fogones, ritual, música y comunidad en las Sierras Grandes. Desde $60.000.",
+          "btn": "Ver más",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "link": "/pachamama-fest",
+          "pdfLink": ""
+        },
+        {
+          "date": "28-30 AGOSTO",
+          "title": "Ciclo Vital Femenino · Encuentro de Mujeres",
+          "desc": "Retiro de mujeres en la montaña para transmutar todo lo que no ES. Círculo de mujeres, temazcal, ceremonia de cacao y rituales de cierre de ciclo.",
+          "btn": "Ver más",
+          "image": "/uploads/bienestar-balance.webp",
+          "link": "/ciclo-vital-femenino",
           "pdfLink": ""
         },
         {
@@ -367,19 +385,11 @@
           "submenu": [
             {
               "label": "Estadías & Glamping",
-              "href": "#experiencias"
+              "href": "/estadia"
             },
             {
-              "label": "Retiros Grupales",
-              "href": "#retiros"
-            },
-            {
-              "label": "Aulas Verdes",
-              "href": "/escuelas"
-            },
-            {
-              "label": "El Vuelo del Cóndor",
-              "href": "/el-vuelo-del-condor"
+              "label": "Coliving",
+              "href": "/coliving"
             },
             {
               "label": "❄ Winter Camp",
@@ -389,7 +399,11 @@
               "label": "⚡ Winter Redirection",
               "href": "/winter-redirection"
             }
-          ]
+          ],
+          "viewAllLink": {
+            "label": "Ver todas las experiencias",
+            "href": "#eventos"
+          }
         },
         {
           "label": "Testimonios",
@@ -475,30 +489,32 @@
         "privacy": "Políticas de Privacidad",
         "faq": "Preguntas Frecuentes"
       },
-      "experienceLinks": [
+      "experienceGroups": [
         {
-          "label": "Estadías & Glamping",
-          "href": "/estadia"
+          "title": "Alojamiento",
+          "links": [
+            { "label": "Estadías & Glamping", "href": "/estadia" },
+            { "label": "Coliving", "href": "/coliving" }
+          ]
         },
         {
-          "label": "Familion",
-          "href": "/familion"
+          "title": "Experiencias con fecha",
+          "links": [
+            { "label": "❄ Winter Camp", "href": "/winter-camp" },
+            { "label": "⚡ Winter Redirection", "href": "/winter-redirection" },
+            { "label": "Pachamama Fest", "href": "/pachamama-fest" },
+            { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
+            { "label": "Familion", "href": "/familion" },
+            { "label": "Achala Viva", "href": "/achala-viva" },
+            { "label": "El Vuelo del Cóndor", "href": "/el-vuelo-del-condor" }
+          ]
         },
         {
-          "label": "❄ Winter Camp",
-          "href": "/winter-camp"
-        },
-        {
-          "label": "⚡ Winter Redirection",
-          "href": "/winter-redirection"
-        },
-        {
-          "label": "Achala Viva",
-          "href": "/achala-viva"
-        },
-        {
-          "label": "Aulas Verdes",
-          "href": "/escuelas"
+          "title": "Para grupos e instituciones",
+          "links": [
+            { "label": "Retiros Grupales", "href": "#retiros" },
+            { "label": "Aulas Verdes", "href": "/escuelas" }
+          ]
         }
       ],
       "copyright": "Pueblo Mágico Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
@@ -522,7 +538,7 @@
         "title": "Familión",
         "subtitle": "Un encuentro para volver a lo esencial en familia.",
         "btn": "Consultar Próxima Fecha",
-        "dates": "13-15 JUNIO · Los Gigantes, Córdoba",
+        "dates": "14-15 AGOSTO · Los Gigantes, Córdoba",
         "description": "Un fin de semana para reconectar con lo que importa: la familia, la naturaleza y el juego. Tres días de inmersión en la montaña con experiencias, fogones y momentos que se quedan para siempre en el Corazón.",
         "cta_join": "RESERVAR MI LUGAR",
         "cta_details": "Ver en la Agenda"
@@ -609,6 +625,10 @@
           {
             "question": "¿Qué debo llevar?",
             "answer": "Ropa cómoda para caminar, abrigo para las noches, linterna y ganas de desconectarte. Todo lo demás está incluido: comidas, talleres y actividades."
+          },
+          {
+            "question": "¿Y si no puedo ir en esas fechas?",
+            "answer": "Sin problema — escribinos y te contamos las próximas fechas disponibles. Y si son una familia, también podemos organizar una experiencia personalizada para ustedes en otro momento."
           }
         ],
         "subtitle": "Todo lo que necesitás saber antes de venir con tu familia."
@@ -669,7 +689,7 @@
         "tag": "PROGRAMA",
         "title": "3 a 4 días para volver a lo esencial",
         "dates": [
-          "13-15 JUNIO · ÚLTIMOS CUPOS"
+          "14-15 AGOSTO · ÚLTIMOS CUPOS"
         ],
         "days": [
           {
@@ -1900,17 +1920,35 @@
           "title": "Winter Redirection · Entrepreneurs in the Mountains",
           "desc": "A month to redirect when the day-to-day noise blocks your perspective. Specific content for entrepreneurs, business owners and teams: growth mindset, communication and AI-powered products.",
           "btn": "See More",
-          "image": "/uploads/coworking.webp",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
           "link": "/winter-redirection",
           "pdfLink": ""
         },
         {
-          "date": "JUN 13-15",
+          "date": "AUG 14-15",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
           "btn": "See More",
           "image": "/uploads/portada familion.webp",
           "link": "/familion",
+          "pdfLink": ""
+        },
+        {
+          "date": "AUG 14-17",
+          "title": "Pachamama Fest · Long Weekend in the Mountains",
+          "desc": "A conscious festival to honor the Earth, give thanks and open a new cycle. Bonfires, ritual, music and community in the Sierras Grandes. From $60,000.",
+          "btn": "See More",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "link": "/pachamama-fest",
+          "pdfLink": ""
+        },
+        {
+          "date": "AUG 28-30",
+          "title": "Ciclo Vital Femenino · Women's Gathering",
+          "desc": "A women's mountain retreat to transmute all that no longer IS. Women's circle, temazcal, cacao ceremony and cycle-closing rituals.",
+          "btn": "See More",
+          "image": "/uploads/Invierno/20250627_222558.webp",
+          "link": "/ciclo-vital-femenino",
           "pdfLink": ""
         },
         {
@@ -2013,19 +2051,11 @@
           "submenu": [
             {
               "label": "Stays & Glamping",
-              "href": "#experiencias"
+              "href": "/estadia"
             },
             {
-              "label": "Group Retreats",
-              "href": "#retiros"
-            },
-            {
-              "label": "Schools & Institutions",
-              "href": "/escuelas"
-            },
-            {
-              "label": "The Condor's Flight",
-              "href": "/el-vuelo-del-condor"
+              "label": "Coliving",
+              "href": "/coliving"
             },
             {
               "label": "❄ Winter Camp",
@@ -2035,7 +2065,11 @@
               "label": "⚡ Winter Redirection",
               "href": "/winter-redirection"
             }
-          ]
+          ],
+          "viewAllLink": {
+            "label": "See all experiences",
+            "href": "#eventos"
+          }
         },
         {
           "label": "Testimonials",
@@ -2121,30 +2155,32 @@
         "privacy": "Privacy Policy",
         "faq": "FAQ"
       },
-      "experienceLinks": [
+      "experienceGroups": [
         {
-          "label": "Stays & Glamping",
-          "href": "/estadia"
+          "title": "Accommodation",
+          "links": [
+            { "label": "Stays & Glamping", "href": "/estadia" },
+            { "label": "Coliving", "href": "/coliving" }
+          ]
         },
         {
-          "label": "Familion",
-          "href": "/familion"
+          "title": "Dated experiences",
+          "links": [
+            { "label": "❄ Winter Camp", "href": "/winter-camp" },
+            { "label": "⚡ Winter Redirection", "href": "/winter-redirection" },
+            { "label": "Pachamama Fest", "href": "/pachamama-fest" },
+            { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
+            { "label": "Familion", "href": "/familion" },
+            { "label": "Achala Viva", "href": "/achala-viva" },
+            { "label": "The Condor's Flight", "href": "/el-vuelo-del-condor" }
+          ]
         },
         {
-          "label": "❄ Winter Camp",
-          "href": "/winter-camp"
-        },
-        {
-          "label": "⚡ Winter Redirection",
-          "href": "/winter-redirection"
-        },
-        {
-          "label": "Achala Viva",
-          "href": "/achala-viva"
-        },
-        {
-          "label": "Green Classrooms",
-          "href": "/escuelas"
+          "title": "Groups & institutions",
+          "links": [
+            { "label": "Group Retreats", "href": "#retiros" },
+            { "label": "Green Classrooms", "href": "/escuelas" }
+          ]
         }
       ],
       "copyright": "Pueblo Mágico Eco-Refugio. All rights reserved. Operated by HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
@@ -2168,7 +2204,7 @@
         "title": "Familion",
         "subtitle": "An encounter to return to the essentials as a family.",
         "btn": "Check Next Date",
-        "dates": "JUN 13-15 · Los Gigantes, Córdoba",
+        "dates": "AUG 14-15 · Los Gigantes, Córdoba",
         "description": "A weekend to reconnect with what matters: family, nature, and play. Three days of mountain immersion with experiences, bonfires, and moments that last forever in the Heart.",
         "cta_join": "BOOK MY SPOT",
         "cta_details": "View in Calendar"
@@ -2255,6 +2291,10 @@
           {
             "question": "What should I bring?",
             "answer": "Comfortable clothes for walking, warm layers for the nights, a torch, and the desire to disconnect. Everything else is included: meals, workshops, and activities."
+          },
+          {
+            "question": "What if I can't make it on those dates?",
+            "answer": "No problem — message us and we'll tell you the next available dates. And if you're a family, we can also organize a personalized experience for you at another time."
           }
         ],
         "subtitle": "Everything you need to know before coming with your family."
@@ -2315,7 +2355,7 @@
         "tag": "PROGRAM",
         "title": "3 to 4 days to return to the essentials",
         "dates": [
-          "JUN 13-15 · LAST SPOTS"
+          "AUG 14-15 · LAST SPOTS"
         ],
         "days": [
           {

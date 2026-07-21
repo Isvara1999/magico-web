@@ -102,7 +102,7 @@ const FAQS = [
   },
   {
     q: '¿Cómo funcionan los precios?',
-    a: 'En Experiencia completa: 1 noche $60.000, 2 noches $120.000, 3 noches (festival completo, ya incluye la Ofrenda + Temazcal) $190.000. En Pijamada: 1 noche $40.000, 2 noches $80.000 (incluye cualquier día, incluida la Ofrenda), 3 noches (festival completo) $120.000. Si tu estadía no incluye el domingo, podés sumar la noche de la Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000.',
+    a: 'En Experiencia completa: 1 noche según el día (viernes o lunes $65.000, sábado $75.000, domingo —día de la Ofrenda— $90.000), 2 noches $140.000, 3 noches (festival completo, ya incluye la Ofrenda + Temazcal) $190.000. En Pijamada: 1 noche $60.000, 2 noches $115.000 (incluye cualquier día, incluida la Ofrenda), 3 noches (festival completo) $150.000. Si tu estadía no incluye el domingo, podés sumar la noche de la Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000.',
   },
   {
     q: '¿Qué pasa si no me gusta la experiencia?',
@@ -177,11 +177,23 @@ const APORTE_OFRENDA = 30000;
 
 type Modalidad = 'completa' | 'pijamada' | 'dia';
 
+// La única noche (en Experiencia completa, con cama) tiene precio distinto según el día.
+type DiaKey = 'viernes' | 'sabado' | 'domingo' | 'lunes';
+type DiaOpcion = { dia: DiaKey; label: string; precio: number; ofrendaIncluida: boolean };
+const DIAS_UNA_NOCHE: DiaOpcion[] = [
+  { dia: 'viernes', label: 'Viernes',          precio: 65000, ofrendaIncluida: false },
+  { dia: 'sabado',  label: 'Sábado',           precio: 75000, ofrendaIncluida: false },
+  { dia: 'domingo', label: 'Domingo · Ofrenda', precio: 90000, ofrendaIncluida: true },
+  { dia: 'lunes',   label: 'Lunes',            precio: 65000, ofrendaIncluida: false },
+];
+
 type NocheOpcion = {
   noches: number;
   label: string;
   precio: number;
   ofrendaIncluida: boolean;
+  // Cuánto ahorrás vs. pagar esas noches por separado (solo 2 y 3 noches).
+  ahorro?: number;
 };
 
 type HospedajeTier = {
@@ -209,12 +221,11 @@ const HOSPEDAJE_TIERS: HospedajeTier[] = [
       'Acceso a todas las actividades durante tu estadía',
       'Cama en domo o refugio compartido',
       'Ropa blanca, toalla y toallón individual',
-      'Todas las comidas incluidas',
     ],
     opciones: [
-      { noches: 1, label: '1 noche', precio: 60000, ofrendaIncluida: false },
-      { noches: 2, label: '2 noches', precio: 120000, ofrendaIncluida: false },
-      { noches: 3, label: '3 noches · Festival completo', precio: 190000, ofrendaIncluida: true },
+      { noches: 1, label: '1 noche', precio: 65000, ofrendaIncluida: false },
+      { noches: 2, label: '2 noches', precio: 140000, ofrendaIncluida: false, ahorro: 25000 },
+      { noches: 3, label: '3 noches · Festival completo', precio: 190000, ofrendaIncluida: true, ahorro: 40000 },
     ],
     nota: 'Recomendada para vivir el proceso completo',
     cta: 'Reservar habitación',
@@ -230,12 +241,11 @@ const HOSPEDAJE_TIERS: HospedajeTier[] = [
       'Acceso a todas las actividades durante tu estadía',
       'Sin cama — dormís en el salón (traés tu colchón o colchoneta)',
       'Espacio cálido y compartido',
-      'Todas las comidas incluidas',
     ],
     opciones: [
-      { noches: 1, label: '1 noche', precio: 40000, ofrendaIncluida: false },
-      { noches: 2, label: '2 noches', precio: 80000, ofrendaIncluida: true },
-      { noches: 3, label: '3 noches · Festival completo', precio: 120000, ofrendaIncluida: true },
+      { noches: 1, label: '1 noche', precio: 60000, ofrendaIncluida: false },
+      { noches: 2, label: '2 noches', precio: 115000, ofrendaIncluida: true, ahorro: 5000 },
+      { noches: 3, label: '3 noches · Festival completo', precio: 150000, ofrendaIncluida: true, ahorro: 30000 },
     ],
     nota: 'Ideal si querés venir con presupuesto más accesible',
     cta: 'Reservar pijamada',
@@ -254,6 +264,7 @@ const PachamamaFest: React.FC = () => {
   const [modalidad, setModalidad] = useState<Modalidad>('completa');
   const [nochesSeleccion, setNochesSeleccion] = useState(3);
   const [incluyeOfrendaExtra, setIncluyeOfrendaExtra] = useState(false);
+  const [diaUnaNoche, setDiaUnaNoche] = useState<DiaKey>('viernes');
 
   useEffect(() => {
     document.title = 'Pachamama Fest · 14 al 17 de Agosto · Pueblo Mágico';
@@ -279,7 +290,12 @@ const PachamamaFest: React.FC = () => {
   }, []);
 
   const tier = modalidad !== 'dia' ? HOSPEDAJE_TIERS.find(t => t.key === modalidad)! : null;
-  const opcion = tier ? tier.opciones.find(o => o.noches === nochesSeleccion)! : null;
+  const esUnaNocheEnCama = modalidad === 'completa' && nochesSeleccion === 1;
+  const diaInfo = esUnaNocheEnCama ? DIAS_UNA_NOCHE.find(d => d.dia === diaUnaNoche)! : null;
+  const opcionBase = tier ? tier.opciones.find(o => o.noches === nochesSeleccion)! : null;
+  const opcion = diaInfo
+    ? { ...opcionBase!, label: `1 noche · ${diaInfo.label}`, precio: diaInfo.precio, ofrendaIncluida: diaInfo.ofrendaIncluida }
+    : opcionBase;
 
   const totalEfectivo = modalidad === 'dia'
     ? APORTE_OFRENDA
@@ -860,8 +876,8 @@ const PachamamaFest: React.FC = () => {
             <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>1. Elegí tu modalidad</p>
             <div className="grid grid-cols-3 gap-2 mb-2">
               {[
-                { key: 'completa' as const, label: 'Experiencia completa', desde: 60000, headColor: C.green, bgColor: 'rgba(0,83,51,0.05)' },
-                { key: 'pijamada' as const, label: 'Pijamada', desde: 40000, headColor: '#8B6A00', bgColor: 'rgba(212,175,55,0.04)' },
+                { key: 'completa' as const, label: 'Experiencia completa', desde: 65000, headColor: C.green, bgColor: 'rgba(0,83,51,0.05)' },
+                { key: 'pijamada' as const, label: 'Pijamada', desde: 60000, headColor: '#8B6A00', bgColor: 'rgba(212,175,55,0.04)' },
                 { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_OFRENDA, headColor: C.primavera, bgColor: 'rgba(157,0,94,0.05)' },
               ].map(m => {
                 const active = modalidad === m.key;
@@ -895,11 +911,38 @@ const PachamamaFest: React.FC = () => {
                         <p className="text-[11px] font-bold leading-tight" style={{ color: active ? tier!.headColor : C.dark }}>
                           {o.noches} noche{o.noches !== 1 ? 's' : ''}
                         </p>
-                        <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>{fmt(o.precio)}</p>
+                        <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>
+                          {tier!.key === 'completa' && o.noches === 1 ? `Desde ${fmt(o.precio)}` : fmt(o.precio)}
+                        </p>
+                        {!!o.ahorro && (
+                          <p className="text-[9px] font-bold mt-0.5" style={{ color: active ? tier!.headColor : '#2E8B57' }}>
+                            Ahorrás {fmt(o.ahorro)}
+                          </p>
+                        )}
                       </button>
                     );
                   })}
                 </div>
+
+                {esUnaNocheEnCama && (
+                  <div className="mb-5">
+                    <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2.1 ¿Qué día te quedás?</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {DIAS_UNA_NOCHE.map(d => {
+                        const active = diaUnaNoche === d.dia;
+                        return (
+                          <button key={d.dia} onClick={() => setDiaUnaNoche(d.dia)}
+                            className="rounded-xl px-2 py-2.5 border text-center transition-colors"
+                            style={{ borderColor: active ? tier!.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? tier!.bgColor : 'white' }}>
+                            <p className="text-[11px] font-bold leading-tight" style={{ color: active ? tier!.headColor : C.dark }}>{d.label}</p>
+                            <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>{fmt(d.precio)}</p>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
                 {opcion!.ofrendaIncluida && (
                   <p className="text-[11px] font-semibold mb-6" style={{ color: C.primavera }}>{opcion!.label} — incluye la Ofrenda + Temazcal, sin cargo extra.</p>
                 )}
@@ -948,8 +991,19 @@ const PachamamaFest: React.FC = () => {
                 </div>
                 <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{fmt(totalEfectivo)}</p>
               </div>
+              {modalidad !== 'dia' && !!opcion!.ahorro && (
+                <p className="text-sm font-bold mb-1" style={{ color: '#1F7A4D' }}>
+                  Ahorrás {fmt(opcion!.ahorro)} vs. pagar esas noches por separado
+                </p>
+              )}
               {modalidad !== 'dia' && (
-                <p className="text-xs mb-5" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
+                <p className="text-xs mb-4" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
+              )}
+              {modalidad !== 'dia' && (
+                <div className="flex items-center gap-2 mb-5 px-3.5 py-2.5 rounded-xl border" style={{ backgroundColor: 'white', borderColor: tier!.headColor }}>
+                  <Utensils size={16} color={tier!.headColor} className="flex-shrink-0" />
+                  <span className="text-sm font-bold" style={{ color: tier!.headColor }}>Todas las comidas incluidas</span>
+                </div>
               )}
 
               {modalidad === 'dia' ? (

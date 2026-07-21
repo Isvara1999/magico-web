@@ -216,7 +216,7 @@ export const Header: React.FC = () => {
                   <ul
                     className={`
                       lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[10px]
-                      bg-[#FAFAFA] lg:bg-white lg:min-w-[180px] lg:rounded-sm lg:shadow-[0_10px_30px_rgba(0,0,0,0.06)]
+                      bg-[#FAFAFA] lg:bg-white lg:min-w-[220px] lg:rounded-sm lg:shadow-[0_10px_30px_rgba(0,0,0,0.06)]
                       lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible lg:group-hover:translate-y-0
                       transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
                       w-full lg:w-auto py-1 lg:py-2
@@ -237,6 +237,17 @@ export const Header: React.FC = () => {
                         </a>
                       </li>
                     ))}
+                    {item.viewAllLink && (
+                      <li className="border-t border-black/5 mt-1 pt-1">
+                        <a
+                          href={item.viewAllLink.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.viewAllLink.href : item.viewAllLink.href}
+                          onClick={(e) => handleNavClick(e, item.viewAllLink.href, false, index)}
+                          className="block py-2.5 px-5 text-[14px] lg:text-[12px] font-bold text-gold hover:text-brand transition-all text-center lg:text-left"
+                        >
+                          {item.viewAllLink.label} →
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 )}
               </li>
