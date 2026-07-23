@@ -6,6 +6,7 @@ const CHECK_INTERVAL_MS = 5 * 60 * 1000;
 export const UpdateBanner: React.FC = () => {
   const { t } = useLanguage();
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
+  const [updating, setUpdating] = useState(false);
   const reloadingRef = useRef(false);
   // sw.js calls clients.claim() on activate, which also fires 'controllerchange'
   // the very first time a page gets claimed by ANY service worker (not just on
@@ -71,17 +72,30 @@ export const UpdateBanner: React.FC = () => {
     >
       <span>{t.ui.updateAvailable}</span>
       <button
+        disabled={updating}
         onClick={() => {
+          if (updating) return;
+          setUpdating(true);
           userTriggeredUpdateRef.current = true;
           waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+          // Safety net: if the browser doesn't hand off control within a few
+          // seconds (should be near-instant), reload anyway rather than
+          // leaving the button stuck on "Actualizando...".
+          setTimeout(() => {
+            if (!reloadingRef.current) {
+              reloadingRef.current = true;
+              window.location.reload();
+            }
+          }, 3000);
         }}
         style={{
           background: '#D4AF37', color: '#005333', fontWeight: 700,
           fontSize: 12, letterSpacing: '0.05em', textTransform: 'uppercase',
-          border: 'none', borderRadius: 999, padding: '6px 16px', cursor: 'pointer',
+          border: 'none', borderRadius: 999, padding: '6px 16px',
+          cursor: updating ? 'default' : 'pointer', opacity: updating ? 0.7 : 1,
         }}
       >
-        {t.ui.updateNow}
+        {updating ? t.ui.updating : t.ui.updateNow}
       </button>
     </div>
   );

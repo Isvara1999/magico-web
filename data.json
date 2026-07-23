@@ -44,7 +44,8 @@
       "mute": "Silenciar",
       "videoTitle": "Video de Pueblo Mágico",
       "updateAvailable": "Hay una versión nueva del sitio disponible.",
-      "updateNow": "Actualizar"
+      "updateNow": "Actualizar",
+      "updating": "Actualizando..."
     },
     "nichos": {
       "eyebrow": "Más experiencias",
@@ -1711,7 +1712,8 @@
       "mute": "Mute",
       "videoTitle": "Pueblo Mágico Video",
       "updateAvailable": "A new version of the site is available.",
-      "updateNow": "Update"
+      "updateNow": "Update",
+      "updating": "Updating..."
     },
     "nichos": {
       "eyebrow": "More experiences",
