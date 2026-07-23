@@ -38,8 +38,11 @@ const Hero: React.FC = () => (
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-5 drop-shadow-xl font-light max-w-3xl">
         Filosofía del<br />Buen Vivir
       </h1>
-      <p className="text-white/75 text-base font-light max-w-xl mb-5 leading-relaxed">
+      <p className="text-white/75 text-base font-light max-w-xl mb-2 leading-relaxed">
         Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $20.000/noche con desayuno.
+      </p>
+      <p className="text-gold text-xs font-bold uppercase tracking-widest mb-5">
+        ⚡ Precio de invierno · válido reservando entre julio y septiembre 2026
       </p>
       <div className="flex flex-wrap gap-2 mb-7">
         {['Para emprendedores & creativos', 'Parejas', 'Grupos & familias'].map(chip => (
@@ -94,7 +97,7 @@ const Inclusiones: React.FC = () => {
         ))}
         <div className="w-full text-center mt-1">
           <span className="text-gold/60 text-[10px] uppercase tracking-widest font-bold">
-            $20.000/noche con desayuno · $50.000/noche pensión completa · Sin sorpresas ocultas
+            $20.000/noche con desayuno · $50.000/noche pensión completa · Precio de invierno (Jul–Sep 2026) · Sin sorpresas ocultas
           </span>
         </div>
       </div>
@@ -210,11 +213,14 @@ const Alojamientos: React.FC = () => {
             </div>
 
             {/* Tabla de precios compacta */}
-            <div className="bg-white rounded-2xl p-5 border border-brand/5 shadow-sm">
-              <div className="flex items-center gap-2 mb-3">
+            <div className="bg-white rounded-2xl p-5 border border-gold/30 shadow-sm">
+              <div className="flex items-center gap-2 mb-1">
                 <CurrencyCircleDollar className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />
                 <p className="text-brand font-serif text-lg">Precios de invierno</p>
               </div>
+              <p className="inline-block bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-3">
+                ⚡ Válido reservando Julio–Septiembre 2026
+              </p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
                   <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Con desayuno</p>
@@ -227,7 +233,7 @@ const Alojamientos: React.FC = () => {
                   <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
                 </div>
               </div>
-              <p className="text-center text-dark/40 text-xs mt-3">⚡ Solo por invierno · sin sorpresas ocultas</p>
+              <p className="text-center text-dark/40 text-xs mt-3">Fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
             </div>
           </div>
 

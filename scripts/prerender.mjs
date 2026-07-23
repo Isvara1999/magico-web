@@ -9,7 +9,7 @@ import { createServer } from 'http';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
 
-const ROUTES = [
+export const ROUTES = [
   {
     path: '/',
     title: 'Pueblo Mágico — Eco‑Refugio & Glamping · Los Gigantes, Córdoba',

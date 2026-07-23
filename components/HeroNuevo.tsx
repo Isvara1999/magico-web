@@ -114,6 +114,9 @@ export const HeroNuevo: React.FC = () => {
             <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, fontWeight: 400, color: 'white', margin: 0 }}>
               {(t.hero as any).reservationCta}
             </p>
+            <p style={{ fontSize: 11, color: 'rgba(212,175,55,0.9)', fontWeight: 600, margin: '4px 0 0' }}>
+              {(t.hero as any).reservationPricing}
+            </p>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.97)' }}>
             <BookingWidget compact />
@@ -222,6 +225,9 @@ export const HeroNuevo: React.FC = () => {
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 21, fontWeight: 400, color: 'white', lineHeight: 1.25, margin: 0 }}>
                 {(t.hero as any).reservationTitle}
               </h2>
+              <p style={{ fontSize: 12, color: 'rgba(212,175,55,0.9)', fontWeight: 600, margin: '6px 0 0' }}>
+                {(t.hero as any).reservationPricing}
+              </p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.96)' }}>
               <BookingWidget />

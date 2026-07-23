@@ -4,14 +4,5 @@
 # URL limpia para el Recetario Familión (ManyChat / automatizaciones)
 /recetario-familion    /uploads/Recetarios/recetario-familion.pdf    302
 
-# SPA routes (migradas desde netlify.toml)
-/escuelas    /index.html    200
-/familion    /index.html    200
-/achala-viva    /index.html    200
-/gondorbows    /index.html    200
-/estadia    /index.html    200
-/terminos-y-condiciones    /index.html    200
-/politica-de-privacidad    /index.html    200
-
 # SPA fallback: serve index.html for any path that has no static file on disk.
 /*    /index.html   200

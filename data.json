@@ -58,7 +58,7 @@
       "badge_accommodation": "Alojamiento",
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés.",
+      "card_extra_text": "También podés solo alojarte si querés — desde $20.000/noche con desayuno. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
       "btn": "RESERVAR MI LUGAR",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -351,7 +351,8 @@
       },
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
-      "reservationTitle": "Reserva tu experiencia inolvidable en la montaña"
+      "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
+      "reservationPricing": "Desde $20.000/noche · ⚡ precio de invierno (jul-sep 2026)"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -1724,7 +1725,7 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish.",
+      "card_extra_text": "You can also just book accommodation if you wish — from $20,000/night with breakfast. ⚡ Winter pricing, valid when booking July-September 2026.",
       "btn": "Book my spot",
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -2017,7 +2018,8 @@
       },
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
-      "reservationTitle": "Book your unforgettable mountain experience"
+      "reservationTitle": "Book your unforgettable mountain experience",
+      "reservationPricing": "From $20,000/night · ⚡ winter pricing (Jul-Sep 2026)"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
