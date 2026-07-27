@@ -7,7 +7,7 @@ import {
   Bed, ForkKnife, Leaf, WifiHigh, Tree, UsersThree,
   CheckCircle, ArrowRight, Sun, Mountains, Campfire,
   Laptop, HeartStraight, Compass, ChartLineUp, CurrencyCircleDollar,
-  Star, CaretDown, WhatsappLogo, Drop, Globe, Towel,
+  Star, CaretDown, CaretLeft, CaretRight, WhatsappLogo, Drop, Globe, Towel,
   CaretDownIcon, HouseIcon, WifiHighIcon, MountainsIcon, MapPinIcon,
   ClockIcon, UsersThreeIcon, CalendarIcon, WhatsappLogoIcon
 } from '@phosphor-icons/react';
@@ -260,6 +260,142 @@ const Alojamientos: React.FC = () => {
   );
 };
 
+// ── Horarios y Pensión Completa de Montaña ───────────────────────────────────
+const HorariosPension: React.FC = () => (
+  <section className="py-14 bg-bone">
+    <div className="max-w-4xl mx-auto px-6">
+      <div data-reveal className="bg-white rounded-2xl border border-brand/10 shadow-sm p-6 md:p-8">
+        <div className="flex items-start gap-3 mb-5">
+          <div className="w-10 h-10 rounded-full bg-brand/5 flex items-center justify-center flex-shrink-0">
+            <ClockIcon className="w-5 h-5 text-gold" weight="duotone" />
+          </div>
+          <div>
+            <h2 className="font-serif text-xl md:text-2xl text-brand leading-tight">Horarios y Pensión Completa de Montaña</h2>
+            <p className="inline-block bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mt-2">
+              ⚡ Válido hasta fin de invierno · Septiembre 2026
+            </p>
+          </div>
+        </div>
+
+        <p className="text-dark/70 text-sm leading-relaxed mb-5">
+          <strong className="text-brand font-semibold">Tarifa: $50.000 por persona / noche</strong> — incluye alojamiento, almuerzo, cena y desayuno.
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-4 mb-5">
+          <div className="bg-bone rounded-xl px-4 py-3 text-center">
+            <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Check-In</p>
+            <p className="text-brand text-lg font-serif">13:00 hs</p>
+          </div>
+          <div className="bg-bone rounded-xl px-4 py-3 text-center">
+            <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Check-Out</p>
+            <p className="text-brand text-lg font-serif">11:00 hs</p>
+          </div>
+        </div>
+
+        <div className="mb-5">
+          <p className="text-brand font-semibold text-sm mb-2">Circuito de comidas por noche contratada</p>
+          <ul className="space-y-2">
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span><strong className="text-brand font-medium">Día de ingreso:</strong> incluye el almuerzo de bienvenida y la cena.</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span><strong className="text-brand font-medium">Día de salida:</strong> incluye el desayuno de la mañana.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-brand/5 border border-brand/10 rounded-xl px-5 py-4">
+          <p className="text-brand font-semibold text-sm mb-2">Uso extendido del predio (flexibilidad)</p>
+          <p className="text-dark/65 text-sm leading-relaxed mb-2">
+            Podés llegar antes de las 13:00 hs o quedarte después de las 11:00 hs disfrutando del río y las 200 hectáreas del predio, sin problema.
+          </p>
+          <p className="text-dark/50 text-xs leading-relaxed mb-2">
+            Durante ese lapso no vas a contar con la habitación/domo, ya que va a estar en proceso de limpieza y orden para los próximos ingresos.
+          </p>
+          <p className="text-dark/65 text-sm leading-relaxed">
+            Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ── Galería del lugar ─────────────────────────────────────────────────────────
+const GALERIA = [
+  { src: '/uploads/dji_0074.webp',                                   caption: 'Vista aérea — los domos, el refugio y el bosque en medio de la sierra' },
+  { src: '/uploads/494815924_1424799465353456_392615711940557767_n.webp', caption: 'El paraje completo, visto desde el aire' },
+  { src: '/uploads/refu.webp',                                       caption: 'El refugio de piedra al atardecer' },
+  { src: '/uploads/img_6948.webp',                                   caption: 'Las Sierras Grandes de Córdoba' },
+  { src: '/uploads/mesadas.webp',                                    caption: 'La cocina — el corazón de la casa' },
+  { src: '/uploads/origen.webp',                                     caption: 'El salón, con vista abierta a la sierra' },
+  { src: '/uploads/yoga_salon.webp',                                  caption: 'Espacio para prácticas y dinámicas grupales' },
+  { src: '/uploads/469742031_941240881439467_8316347989568757415_n.webp', caption: 'El salón, listo para la próxima sesión' },
+  { src: '/uploads/coworking.webp',                                  caption: 'Rincón de coworking con WiFi Starlink' },
+  { src: '/uploads/bienestar-balance.webp',                          caption: 'Círculo de meditación al amanecer' },
+  { src: '/uploads/botica.webp',                                     caption: 'Comidas compartidas, en comunidad' },
+  { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', caption: 'Desayuno servido — pensión completa' },
+  { src: '/uploads/f2d5nat1pa6uihnwj480.webp',                       caption: 'Círculo junto al fogón, de día' },
+  { src: '/uploads/fogon_nocturno.webp',                              caption: 'Noches de fogón bajo un cielo sin contaminación lumínica' },
+  { src: '/uploads/img_8475.webp',                                    caption: 'Comunidad — lo que hace a Pueblo Mágico' },
+];
+
+const Galeria: React.FC = () => {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % GALERIA.length), 4500);
+    return () => clearInterval(t);
+  }, []);
+
+  const prev = () => setIdx(i => (i - 1 + GALERIA.length) % GALERIA.length);
+  const next = () => setIdx(i => (i + 1) % GALERIA.length);
+
+  return (
+    <section className="py-16 md:py-20 bg-white border-t border-brand/5">
+      <div className="max-w-5xl mx-auto px-6">
+        <div data-reveal className="text-center mb-8">
+          <p className="text-brand font-bold tracking-widest uppercase text-xs mb-2">Conocé el lugar</p>
+          <h2 className="text-2xl md:text-4xl font-serif text-brand">Así se vive Pueblo Mágico</h2>
+        </div>
+
+        <div className="relative rounded-2xl overflow-hidden shadow-lg" style={{ height: '62vh', minHeight: 360, maxHeight: 600 }}>
+          {GALERIA.map((photo, i) => (
+            <div key={photo.src} className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center bg-bone"
+              style={{ opacity: i === idx ? 1 : 0 }}>
+              <img src={photo.src} alt={photo.caption} className="w-full h-full object-cover"
+                loading={i === 0 ? 'eager' : 'lazy'} />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+          <button onClick={prev} aria-label="Foto anterior"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white/90 hover:bg-white transition-colors">
+            <CaretLeft weight="bold" className="w-4 h-4 text-brand" />
+          </button>
+          <button onClick={next} aria-label="Foto siguiente"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white/90 hover:bg-white transition-colors">
+            <CaretRight weight="bold" className="w-4 h-4 text-brand" />
+          </button>
+
+          <div className="absolute bottom-0 left-0 right-0 z-10 text-center pb-5 px-6">
+            <p className="text-white text-sm mb-3 drop-shadow">{GALERIA[idx].caption}</p>
+            <div className="flex justify-center gap-1.5 flex-wrap">
+              {GALERIA.map((_, i) => (
+                <button key={i} onClick={() => setIdx(i)} aria-label={`Foto ${i + 1}`}
+                  className="rounded-full transition-all duration-300"
+                  style={{ width: i === idx ? 18 : 6, height: 6, backgroundColor: i === idx ? '#D4AF37' : 'rgba(255,255,255,0.5)' }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ── Ritmo de la semana ────────────────────────────────────────────────────────
 const RITMO = [
   { icon: <Sun className="w-5 h-5" weight="duotone" />, hora: 'Mañana', texto: 'Despertar natural. Desayuno compartido. Práctica de yoga o meditación (opcional, sin obligación).' },
@@ -446,7 +582,7 @@ const FAQS = [
   {
     Icon: ClockIcon,
     q: '¿Cuál es el check-in y check-out?',
-    a: 'Check-in: a partir de las 15:00 hs. Check-out: hasta las 11:00 hs. Podés consultar flexibilidad si llegás tarde o salís temprano.',
+    a: 'Check-in: a partir de las 13:00 hs. Check-out: hasta las 11:00 hs. Podés llegar antes o quedarte después disfrutando del río y las 200 hectáreas del predio — solo que durante ese lapso no vas a contar con la habitación/domo, que estará en limpieza para el próximo ingreso.',
   },
   {
     Icon: UsersThreeIcon,
@@ -665,6 +801,8 @@ const Estadia: React.FC = () => {
           <Hero />
           <Inclusiones />
           <Alojamientos />
+          <HorariosPension />
+          <Galeria />
           {/* Mini CTA puente */}
           <div style={{ background: '#005333', padding: '24px', textAlign: 'center' }}>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 13, fontFamily: 'Georgia, serif', fontWeight: 400, marginBottom: 12 }}>

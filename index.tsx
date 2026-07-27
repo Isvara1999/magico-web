@@ -38,20 +38,19 @@ const ScrollToTop: React.FC = () => {
     if (hash) {
       // Navigating to /#section (e.g. a menu/footer link clicked from another
       // page) — scroll to that section instead of forcing the top of the page.
+      // Several sections use content-visibility:auto for perf; a manual
+      // getBoundingClientRect + scrollTo measures their placeholder size, not
+      // the real one. scrollIntoView is what makes browsers resolve those
+      // sections correctly along the way.
       const id = hash.slice(1);
-      const scrollToHash = () => {
+      const headerOffset = 80;
+      const raf = requestAnimationFrame(() => {
         const el = document.getElementById(id);
-        if (!el) return false;
-        const headerOffset = 80;
-        const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
-        window.scrollTo({ top, left: 0, behavior: 'instant' });
-        return true;
-      };
-      if (!scrollToHash()) {
-        const raf = requestAnimationFrame(scrollToHash);
-        return () => cancelAnimationFrame(raf);
-      }
-      return;
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' });
+        window.scrollBy({ top: -headerOffset, left: 0, behavior: 'instant' as ScrollBehavior });
+      });
+      return () => cancelAnimationFrame(raf);
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname, hash]);

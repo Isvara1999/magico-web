@@ -18,12 +18,13 @@
       "guestsLabel": "Personas",
       "accommodation": "Alojamiento",
       "domoShort": "Domo",
-      "refugioShort": "Refugio",
+      "refugioShort": "Habitación",
       "domoFull": "Domo geodésico",
-      "refugioFull": "Refugio",
-      "regimen": "Régimen",
-      "fullBoard": "Pensión completa",
-      "breakfastOnly": "Solo desayuno",
+      "refugioFull": "Habitación",
+      "roomType": "Tipo de habitación",
+      "sharedRoom": "Compartida",
+      "privateRoom": "Privada",
+      "privateFromSeptember": "Privada disponible a partir de septiembre",
       "clear": "limpiar",
       "confirmWhatsapp": "Confirmar por WhatsApp",
       "checkAvailability": "Consultar disponibilidad",
@@ -56,11 +57,11 @@
       "title": "Diseñá tu <span class='italic text-gold'>Experiencia</span>",
       "intro_p1": "En Pueblo Mágico, <strong class='text-brand font-medium'>lo básico es extraordinario</strong>. Tu estadía siempre incluye <strong class='text-[#8B6914] font-medium'>Alojamiento, Pensión Completa y la experiencia Reset Vital</strong>. Descubrí la calma profunda de habitar la montaña durante la semana, el ritmo perfecto para el enfoque, la creatividad y la presencia.",
       "intro_p2": "Ya recibimos viajeros de todo el mundo. Somos el destino ideal para quienes buscan un <b>Coworking con alma</b> o un retiro personal autoguiado: el <b>Reset Vital</b>.",
-      "badge_accommodation": "Alojamiento",
+      "badge_accommodation": "Alojamiento", 
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés — desde $20.000/noche con desayuno. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
-      "btn": "RESERVAR MI LUGAR",
+      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/noche con pensión completa. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
+      "btn": "RESERVAR MI LUGAR", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
@@ -244,7 +245,7 @@
         {
           "date": "INVIERNO 2026 · JUL · AGO · SEP",
           "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $40.000/noche pensión completa en efectivo.",
+          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/noche pensión completa en efectivo.",
           "btn": "Ver más",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -325,7 +326,7 @@
       "stats_years": "+15.000 Árboles Plantados",
       "stats_trees": "Huéspedes de +20 Países",
       "stats_land": "+200ha cuidadas · 25 años",
-      "stats_sus": "Desde $20.000 / noche",
+      "stats_sus": "Desde $50.000 / noche",
       "stats_google": "5.0★ · 64 reseñas Google",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -353,7 +354,7 @@
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
       "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
-      "reservationPricing": "Desde $20.000/noche · ⚡ precio de invierno (jul-sep 2026)"
+      "reservationPricing": "Desde $50.000/noche · ⚡ precio de invierno (jul-sep 2026)"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -380,7 +381,7 @@
               "href": "#voluntariados"
             }
           ]
-        },
+        }, 
         {
           "label": "Experiencias",
           "href": "#experiencias",
@@ -408,8 +409,8 @@
           }
         },
         {
-          "label": "Testimonios",
-          "href": "#testimonios"
+          "label": "Testimonios", 
+          "href": "#testimonios" 
         },
         {
           "label": "Agenda",
@@ -584,9 +585,8 @@
         "kids_subtitle": "Los más chiquitos son siempre bienvenidos.",
         "kids": [
           { "rango": "0 a 3 años", "desc": "Sin cargo", "note": "si no ocupan cama" },
-          { "rango": "4 a 7 años", "desc": "30% OFF", "noche": "35.000", "price": "70.000" },
-          { "rango": "8 a 12 años", "desc": "15% OFF", "noche": "42.500", "price": "85.000" },
-          { "rango": "13 años o más", "desc": "Tarifa adulto" }
+          { "rango": "0 a 3 años", "desc": "Tarifa adulto", "note": "si ocupan cama" },
+          { "rango": "4 años o más", "desc": "Tarifa adulto" }
         ],
         "editions": ["PRÓXIMA EDICIÓN"],
         "spots": ["¡ÚLTIMOS CUPOS!"],
@@ -1596,10 +1596,10 @@
           "sub": "Jabón, shampoo y acondicionador biodegradables"
         }
       ],
-      "price_solo_label": "Solo alojamiento",
-      "price_solo_sub": "Incluye ropa blanca, biocosmética y Reset Vital",
-      "price_pension_label": "Pensión completa",
-      "price_pension_sub": "+ desayuno, almuerzo y cena · todo incluido",
+      "price_solo_label": "Habitación Compartida",
+      "price_solo_sub": "Desde $50.000/noche con pensión completa",
+      "price_pension_label": "Habitación Privada",
+      "price_pension_sub": "Desde $75.000/noche con pensión completa",
       "price_unit": "/ noche",
       "cta": "Ver todos los alojamientos"
     },
@@ -1686,12 +1686,13 @@
       "guestsLabel": "Guests",
       "accommodation": "Accommodation",
       "domoShort": "Dome",
-      "refugioShort": "Lodge",
+      "refugioShort": "Room",
       "domoFull": "Geodesic dome",
-      "refugioFull": "Lodge",
-      "regimen": "Meal plan",
-      "fullBoard": "Full board",
-      "breakfastOnly": "Breakfast only",
+      "refugioFull": "Room",
+      "roomType": "Room type",
+      "sharedRoom": "Shared",
+      "privateRoom": "Private",
+      "privateFromSeptember": "Private available from September",
       "clear": "clear",
       "confirmWhatsapp": "Confirm via WhatsApp",
       "checkAvailability": "Check availability",
@@ -1727,8 +1728,8 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish — from $20,000/night with breakfast. ⚡ Winter pricing, valid when booking July-September 2026.",
-      "btn": "Book my spot",
+      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/night with full board. ⚡ Winter pricing, valid when booking July-September 2026.",
+      "btn": "Book my spot", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
         {
@@ -1855,7 +1856,7 @@
     "about": {
       "tag": "Our Essence",
       "title": "Returning to the origin <br /><span class='text-gold italic'>true luxury.</span>",
-      "p1": "Pueblo Mágico is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.",
+      "p1": "Pueblo Mágico is much more than a place; it is an experience to inhabit with all senses, where nature sets the pace. Located in the heart of the Sierras Grandes, we have been building this space for over 25 years. Today, it is an international refuge that has welcomed travelers from all over the world, being a home for rest, connection and Good Living, in harmony with nature and community life.", 
       "p2": "We combine genuine collaboration, wellness and a regenerative approach in every action we take. Every tree planted and every dish served tells a story of love, care and respect for the Earth and the ecosystem that sustains us.",
       "link": "Our way of Being and Doing",
       "image": "/uploads/dji_0074.webp",
@@ -1912,7 +1913,7 @@
         {
           "date": "WINTER 2026 · JUL · AUG · SEP",
           "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $40,000/night full board cash.",
+          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/night full board cash.",
           "btn": "See More",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -1993,7 +1994,7 @@
       "stats_years": "+15,000 Trees Planted",
       "stats_trees": "Guests from +20 Countries",
       "stats_land": "+200ha cared for · 25 years",
-      "stats_sus": "From $20,000 / night",
+      "stats_sus": "From $50,000 / night", 
       "stats_google": "5.0★ · 64 Google Reviews",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -2021,7 +2022,7 @@
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
       "reservationTitle": "Book your unforgettable mountain experience",
-      "reservationPricing": "From $20,000/night · ⚡ winter pricing (Jul-Sep 2026)"
+      "reservationPricing": "From $50,000/night · ⚡ winter pricing (Jul-Sep 2026)"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -2095,8 +2096,8 @@
     "pillars": [
       {
         "id": 1,
-        "title": "Regeneration",
-        "subtitle": "Over 8,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures."
+        "title": "Regeneration", 
+        "subtitle": "Over 15,000 trees planted and cared for. Concrete actions to restore the ecosystem and sow new possible futures."
       },
       {
         "id": 2,
@@ -2252,9 +2253,8 @@
         "kids_subtitle": "Little ones are always welcome.",
         "kids": [
           { "rango": "0 to 3 years", "desc": "Free", "note": "if not occupying a bed" },
-          { "rango": "4 to 7 years", "desc": "30% OFF", "noche": "35,000", "price": "70,000" },
-          { "rango": "8 to 12 years", "desc": "15% OFF", "noche": "42,500", "price": "85,000" },
-          { "rango": "13 years or more", "desc": "Adult rate" }
+          { "rango": "0 to 3 years", "desc": "Adult rate", "note": "if occupying a bed" },
+          { "rango": "4 years or more", "desc": "Adult rate" }
         ],
         "editions": ["NEXT EDITION"],
         "spots": ["LAST SPOTS!"],
@@ -3266,10 +3266,10 @@
           "sub": "Biodegradable soap, shampoo & conditioner"
         }
       ],
-      "price_solo_label": "Accommodation only",
-      "price_solo_sub": "Includes linen, eco-cosmetics and Reset Vital",
-      "price_pension_label": "Full board",
-      "price_pension_sub": "+ breakfast, lunch and dinner · all inclusive",
+      "price_solo_label": "Shared Room",
+      "price_solo_sub": "From $50,000/night with full board",
+      "price_pension_label": "Private Room",
+      "price_pension_sub": "From $75,000/night with full board",
       "price_unit": "/ night",
       "cta": "View all accommodations"
     },

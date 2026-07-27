@@ -94,16 +94,18 @@ export const Header: React.FC = () => {
         
         if (element) {
           setIsMobileMenuOpen(false);
-          // Offset by ~80px to avoid the fixed header covering the section title.
-          // Use scrollTo with behavior:'smooth' when supported (Safari 15.4+);
-          // fall back to an instant jump on older browsers.
+          // scrollIntoView (rather than a manual getBoundingClientRect + scrollTo)
+          // is what makes browsers correctly resolve content-visibility:auto
+          // sections along the way — several sections between here and the
+          // target use it for perf. behavior:'smooth' is unreliable here: as
+          // the animation passes each not-yet-rendered section, it expands
+          // from its placeholder size to its real one and shifts the page
+          // height mid-scroll, throwing off the already-committed animation
+          // target. An instant jump lets layout resolve first, then we
+          // animate the last little bit for a soft landing.
           const headerOffset = 80;
-          const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-          if ('scrollBehavior' in document.documentElement.style) {
-            window.scrollTo({ top, behavior: 'smooth' });
-          } else {
-            window.scrollTo(0, top);
-          }
+          element.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' });
+          window.scrollBy({ top: -headerOffset, left: 0, behavior: 'instant' as ScrollBehavior });
           window.history.pushState(null, '', href);
         }
       } else {

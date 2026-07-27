@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
-import { BLOCKED_DATES } from '../src/data/availability';
+import { BLOCKED_DATES, PRIVATE_AVAILABLE_FROM } from '../src/data/availability';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
 const MONTH_DATES = [
@@ -52,7 +52,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const [pickEnd, setPickEnd]   = useState(false);
   const [personas, setPersonas] = useState(2);
   const [tipo, setTipo]         = useState<'domo' | 'refugio'>('domo');
-  const [desayuno, setDesayuno] = useState(true);
+  const [habitacion, setHabitacion] = useState<'compartida' | 'privada'>('compartida');
 
   const mo          = MONTHS[monthIdx];
   const firstDay    = new Date(mo.year, mo.month - 1, 1).getDay();
@@ -81,15 +81,19 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     return                       { bg: 'transparent', color: '#1A2B3C', cursor: 'pointer',      opacity: 1,    radius: 6 };
   }
 
+  // La habitación privada recién tiene lugar disponible desde septiembre.
+  const privadaDisponible = !start || start >= PRIVATE_AVAILABLE_FROM;
+  const habitacionEfectiva = privadaDisponible ? habitacion : 'compartida';
+
   const nights       = start && end ? nightsBetween(start, end) : 0;
-  const pxNoche      = desayuno ? 50_000 : 20_000;
+  const pxNoche      = habitacionEfectiva === 'privada' ? 75_000 : 50_000;
   const total        = nights * pxNoche * personas;
   const tipoLabel    = tipo === 'domo' ? b.domoFull : b.refugioFull;
-  const regimenLabel = desayuno ? b.fullBoard : b.breakfastOnly;
+  const habitacionLabel = habitacionEfectiva === 'privada' ? b.privateRoom : b.sharedRoom;
   const waMsg        = start && end
     ? fillTemplate(b.waTemplateWithDates, {
         tipo: tipoLabel,
-        regimen: regimenLabel,
+        regimen: habitacionLabel,
         start: fmt(start, b.monthAbbr),
         end: fmt(end, b.monthAbbr),
         nights: plural(nights, b.nightWord),
@@ -197,23 +201,36 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         </>
       )}
 
-      {/* Régimen — siempre visible */}
-      <p style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: G.muted, marginBottom: 6 }}>{b.regimen}</p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 12 }}>
-        {([true, false] as const).map(op => (
-          <button key={String(op)} onClick={() => setDesayuno(op)}
-            style={{ padding: '9px 8px', borderRadius: 9, border: `1.5px solid ${desayuno === op ? G.green : 'rgba(0,83,51,0.18)'}`, background: desayuno === op ? G.green : 'white', color: desayuno === op ? 'white' : G.muted, fontSize: 11, fontWeight: 700, cursor: 'pointer' }}>
-            {op ? b.fullBoard : b.breakfastOnly}
-          </button>
-        ))}
+      {/* Tipo de habitación — siempre visible */}
+      <p style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: G.muted, marginBottom: 6 }}>{b.roomType}</p>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: privadaDisponible ? 12 : 4 }}>
+        {(['compartida', 'privada'] as const).map(op => {
+          const disabled = op === 'privada' && !privadaDisponible;
+          const active = habitacionEfectiva === op;
+          return (
+            <button key={op} disabled={disabled} onClick={() => !disabled && setHabitacion(op)}
+              style={{
+                padding: '9px 8px', borderRadius: 9,
+                border: `1.5px solid ${active ? G.green : 'rgba(0,83,51,0.18)'}`,
+                background: active ? G.green : disabled ? '#f1f5f9' : 'white',
+                color: active ? 'white' : disabled ? '#cbd5e1' : G.muted,
+                fontSize: 11, fontWeight: 700, cursor: disabled ? 'not-allowed' : 'pointer',
+              }}>
+              {op === 'privada' ? b.privateRoom : b.sharedRoom}
+            </button>
+          );
+        })}
       </div>
+      {!privadaDisponible && (
+        <p style={{ fontSize: 10, color: '#94a3b8', marginTop: -6, marginBottom: 12 }}>{b.privateFromSeptember}</p>
+      )}
 
       {/* Resumen */}
       {nights > 0 && (
         <div style={{ background: 'rgba(0,83,51,0.05)', borderRadius: 9, padding: '9px 11px', marginBottom: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: 11, color: G.muted, margin: 0 }}>{plural(nights, b.nightWord)} · {plural(personas, b.guestWord)}</p>
-            <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>{regimenLabel.toLowerCase()}</p>
+            <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>{habitacionLabel.toLowerCase()}</p>
           </div>
           <div style={{ textAlign: 'right' }}>
             <p style={{ fontWeight: 700, fontSize: 17, color: G.green, margin: 0 }}>${total.toLocaleString('es-AR')}</p>

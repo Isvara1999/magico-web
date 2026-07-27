@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Flame, Snowflake, Users, Heart, Star, Compass, ChevronDown, ChevronLeft, ChevronRight, Instagram, Linkedin,
+  Flame, Snowflake, Users, Heart, Star, Compass, ChevronDown, ChevronLeft, ChevronRight, Instagram, Linkedin, Clock, CheckCircle2,
   Mountain, Briefcase, Network, Home, Wifi, Droplet, Sparkles,
   Footprints, PawPrint, TrendingDown, CalendarDays, Utensils, Smartphone,
   type LucideIcon,
@@ -1388,9 +1388,8 @@ const WinterCamp: React.FC = () => {
             <ul className="space-y-1.5">
               {[
                 { rango: '0 a 3 años', desc: 'Sin cargo', note: 'si no ocupan cama' },
-                { rango: '4 a 7 años', desc: '30% OFF' },
-                { rango: '8 a 12 años', desc: '15% OFF' },
-                { rango: '13 años o más', desc: 'Tarifa completa' },
+                { rango: '0 a 3 años', desc: 'Tarifa completa', note: 'si ocupan cama' },
+                { rango: '4 años o más', desc: 'Tarifa completa' },
               ].map(({ rango, desc, note }) => (
                 <li key={rango} className="flex items-center justify-between text-xs">
                   <span style={{ color: C.muted }}>{rango}</span>
@@ -1401,6 +1400,63 @@ const WinterCamp: React.FC = () => {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Horarios y Pensión Completa de Montaña */}
+          <div className="mt-8 max-w-2xl mx-auto rounded-2xl border p-6 md:p-8" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'white' }} data-reveal data-delay="2">
+            <div className="flex items-start gap-3 mb-4">
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.06)' }}>
+                <Clock size={18} color={C.gold} />
+              </div>
+              <div>
+                <p className="font-bold text-base" style={{ color: C.green }}>Horarios y Pensión Completa de Montaña</p>
+                <p className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mt-1" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#8B6A00' }}>
+                  ⚡ Válido hasta fin de invierno · Septiembre 2026
+                </p>
+              </div>
+            </div>
+
+            <p className="text-sm mb-4" style={{ color: C.muted }}>
+              <strong style={{ color: C.dark }}>Tarifa: $50.000 por persona / noche</strong> — incluye alojamiento, almuerzo, cena y desayuno.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="rounded-xl px-4 py-3 text-center" style={{ backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: C.faint }}>Check-In</p>
+                <p className="text-lg serif-title" style={{ color: C.green }}>13:00 hs</p>
+              </div>
+              <div className="rounded-xl px-4 py-3 text-center" style={{ backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: C.faint }}>Check-Out</p>
+                <p className="text-lg serif-title" style={{ color: C.green }}>11:00 hs</p>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <p className="font-semibold text-sm mb-2" style={{ color: C.dark }}>Circuito de comidas por noche contratada</p>
+              <ul className="space-y-1.5">
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span><strong style={{ color: C.dark }}>Día de ingreso:</strong> incluye el almuerzo de bienvenida y la cena.</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span><strong style={{ color: C.dark }}>Día de salida:</strong> incluye el desayuno de la mañana.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-xl px-5 py-4" style={{ backgroundColor: 'rgba(0,83,51,0.04)' }}>
+              <p className="font-semibold text-sm mb-2" style={{ color: C.dark }}>Uso extendido del predio (flexibilidad)</p>
+              <p className="text-sm leading-relaxed mb-2" style={{ color: C.muted }}>
+                Podés llegar antes de las 13:00 hs o quedarte después de las 11:00 hs disfrutando del río y las 200 hectáreas del predio, sin problema.
+              </p>
+              <p className="text-xs leading-relaxed mb-2" style={{ color: C.faint }}>
+                Durante ese lapso no vas a contar con la habitación/domo, ya que va a estar en proceso de limpieza y orden para los próximos ingresos.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
+              </p>
+            </div>
           </div>
 
           <div className="text-center mt-10" data-reveal data-delay="3">
