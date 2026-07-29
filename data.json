@@ -18,13 +18,29 @@
       "guestsLabel": "Personas",
       "accommodation": "Alojamiento",
       "domoShort": "Domo",
-      "refugioShort": "Habitación",
+      "refugioShort": "Refugio",
       "domoFull": "Domo geodésico",
-      "refugioFull": "Habitación",
+      "refugioFull": "Refugio",
       "roomType": "Tipo de habitación",
       "sharedRoom": "Compartida",
       "privateRoom": "Privada",
-      "privateFromSeptember": "Privada disponible a partir de septiembre",
+      "privateDomoNote": "Privada en domo: 1 persona sola ($150.000), pareja (reservando hasta el 31/07) o grupos de 3 a 8 personas",
+      "unavailableForDates": "Esa opción no tiene lugar en las fechas que elegiste — probá con otras fechas.",
+      "capacityExceeded": "El {tipo} tiene capacidad para hasta {max} personas — para grupos más grandes, escribinos por WhatsApp.",
+      "groupNote": {
+        "domo": "Grupo: podés reservar el domo entero solo para ustedes (privado).",
+        "refugio": "Grupo: podríamos ofrecerte una o más habitaciones privadas dentro del refugio, solo para ustedes — consultanos la disponibilidad por WhatsApp."
+      },
+      "groupTeaser": "👥 ¿Van 3 o más? Hay tarifas especiales para grupos.",
+      "perPersonPerNight": "persona/noche",
+      "discountApplied": "🎉 Precio promocional: ahorrás ${ahorro} por persona por noche.",
+      "privacySurcharge": "Privacidad: +${extra} por persona por noche.",
+      "privacyIncluded": "✓ Privacidad incluida, sin cargo extra.",
+      "monthUrgency": {
+        "pocosLugares": "⚡ Pocos lugares para {month}",
+        "ultimosLugares": "🔥 Últimos lugares para {month}"
+      },
+      "senaNote": "Seña para congelar la tarifa: ${monto} ({pct}% del total) · el resto se abona al llegar",
       "clear": "limpiar",
       "confirmWhatsapp": "Confirmar por WhatsApp",
       "checkAvailability": "Consultar disponibilidad",
@@ -60,7 +76,7 @@
       "badge_accommodation": "Alojamiento", 
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/noche con pensión completa. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
+      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/persona/noche con pensión completa. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
       "btn": "RESERVAR MI LUGAR", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -245,7 +261,7 @@
         {
           "date": "INVIERNO 2026 · JUL · AGO · SEP",
           "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/noche pensión completa en efectivo.",
+          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo.",
           "btn": "Ver más",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -326,7 +342,7 @@
       "stats_years": "+15.000 Árboles Plantados",
       "stats_trees": "Huéspedes de +20 Países",
       "stats_land": "+200ha cuidadas · 25 años",
-      "stats_sus": "Desde $50.000 / noche",
+      "stats_sus": "Desde $50.000 / persona / noche",
       "stats_google": "5.0★ · 64 reseñas Google",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -354,7 +370,7 @@
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
       "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
-      "reservationPricing": "Desde $50.000/noche · ⚡ precio de invierno (jul-sep 2026)"
+      "reservationPricing": "Desde $50.000/persona/noche · ⚡ precio de invierno (jul-sep 2026)"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -1597,10 +1613,10 @@
         }
       ],
       "price_solo_label": "Habitación Compartida",
-      "price_solo_sub": "Desde $50.000/noche con pensión completa",
+      "price_solo_sub": "Desde $50.000/persona/noche con pensión completa",
       "price_pension_label": "Habitación Privada",
-      "price_pension_sub": "Desde $75.000/noche con pensión completa",
-      "price_unit": "/ noche",
+      "price_pension_sub": "Desde $75.000/persona/noche con pensión completa",
+      "price_unit": "/ persona / noche",
       "cta": "Ver todos los alojamientos"
     },
     "para_quien": {
@@ -1686,13 +1702,29 @@
       "guestsLabel": "Guests",
       "accommodation": "Accommodation",
       "domoShort": "Dome",
-      "refugioShort": "Room",
+      "refugioShort": "Shelter",
       "domoFull": "Geodesic dome",
-      "refugioFull": "Room",
+      "refugioFull": "Shelter",
       "roomType": "Room type",
       "sharedRoom": "Shared",
       "privateRoom": "Private",
-      "privateFromSeptember": "Private available from September",
+      "privateDomoNote": "Private dome: solo traveler ($150,000), couples (book by 07/31), or groups of 3 to 8 people",
+      "unavailableForDates": "That option has no availability for the dates you picked — try different dates.",
+      "capacityExceeded": "The {tipo} has room for up to {max} people — for bigger groups, message us on WhatsApp.",
+      "groupNote": {
+        "domo": "Group: you can book the whole dome exclusively for your group.",
+        "refugio": "Group: we may be able to offer you one or more private rooms inside the shelter, just for your group — check availability with us on WhatsApp."
+      },
+      "groupTeaser": "👥 Going as 3 or more? Ask about our group rates.",
+      "perPersonPerNight": "person/night",
+      "discountApplied": "🎉 Special price: you save ${ahorro} per person per night.",
+      "privacySurcharge": "Privacy: +${extra} per person per night.",
+      "privacyIncluded": "✓ Privacy included, no extra charge.",
+      "monthUrgency": {
+        "pocosLugares": "⚡ Limited spots left for {month}",
+        "ultimosLugares": "🔥 Last spots left for {month}"
+      },
+      "senaNote": "Deposit to lock in the rate: ${monto} ({pct}% of the total) · balance due on arrival",
       "clear": "clear",
       "confirmWhatsapp": "Confirm via WhatsApp",
       "checkAvailability": "Check availability",
@@ -1728,7 +1760,7 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/night with full board. ⚡ Winter pricing, valid when booking July-September 2026.",
+      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/person/night with full board. ⚡ Winter pricing, valid when booking July-September 2026.",
       "btn": "Book my spot", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -1913,7 +1945,7 @@
         {
           "date": "WINTER 2026 · JUL · AUG · SEP",
           "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/night full board cash.",
+          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash.",
           "btn": "See More",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -1994,7 +2026,7 @@
       "stats_years": "+15,000 Trees Planted",
       "stats_trees": "Guests from +20 Countries",
       "stats_land": "+200ha cared for · 25 years",
-      "stats_sus": "From $50,000 / night", 
+      "stats_sus": "From $50,000 / person / night",
       "stats_google": "5.0★ · 64 Google Reviews",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -2022,7 +2054,7 @@
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
       "reservationTitle": "Book your unforgettable mountain experience",
-      "reservationPricing": "From $50,000/night · ⚡ winter pricing (Jul-Sep 2026)"
+      "reservationPricing": "From $50,000/person/night · ⚡ winter pricing (Jul-Sep 2026)"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -3267,10 +3299,10 @@
         }
       ],
       "price_solo_label": "Shared Room",
-      "price_solo_sub": "From $50,000/night with full board",
+      "price_solo_sub": "From $50,000/person/night with full board",
       "price_pension_label": "Private Room",
-      "price_pension_sub": "From $75,000/night with full board",
-      "price_unit": "/ night",
+      "price_pension_sub": "From $75,000/person/night with full board",
+      "price_unit": "/ person / night",
       "cta": "View all accommodations"
     },
     "para_quien": {

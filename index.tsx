@@ -23,7 +23,6 @@ const PachamamaFest = lazy(() => import('./src/PachamamaFest'));
 const Despertar = lazy(() => import('./src/Despertar'));
 const WinterCamp = lazy(() => import('./src/WinterCamp'));
 const WinterRedirection = lazy(() => import('./src/WinterRedirection'));
-const Reservas = lazy(() => import('./src/Reservas'));
 const PropuestaNicoGrupe = lazy(() => import('./src/PropuestaNicoGrupe'));
 const ResetVitalApp = lazy(() => import('./ResetVital.jsx'));
 const Estadia = lazy(() => import('./src/Estadia'));
@@ -95,7 +94,6 @@ root.render(
               <Route path="/despertar" element={<Despertar />} />
               <Route path="/winter-camp" element={<WinterCamp />} />
               <Route path="/winter-redirection" element={<WinterRedirection />} />
-              <Route path="/reservas" element={<Reservas />} />
               <Route path="/propuesta/nico-grupe" element={<PropuestaNicoGrupe />} />
               <Route path="/estadia" element={<Estadia />} />
               <Route path="/coliving" element={<Coliving />} />

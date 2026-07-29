@@ -39,7 +39,7 @@ const Hero: React.FC = () => (
         Filosofía del<br />Buen Vivir
       </h1>
       <p className="text-white/75 text-base font-light max-w-xl mb-2 leading-relaxed">
-        Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $20.000/noche con desayuno.
+        Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $20.000/persona/noche con desayuno.
       </p>
       <p className="text-gold text-xs font-bold uppercase tracking-widest mb-5">
         ⚡ Precio de invierno · válido reservando entre julio y septiembre 2026
@@ -97,7 +97,7 @@ const Inclusiones: React.FC = () => {
         ))}
         <div className="w-full text-center mt-1">
           <span className="text-gold/60 text-[10px] uppercase tracking-widest font-bold">
-            $20.000/noche con desayuno · $50.000/noche pensión completa · Precio de invierno (Jul–Sep 2026) · Sin sorpresas ocultas
+            $20.000/persona/noche con desayuno · $50.000/persona/noche pensión completa · Precio de invierno (Jul–Sep 2026) · Sin sorpresas ocultas
           </span>
         </div>
       </div>
@@ -225,15 +225,15 @@ const Alojamientos: React.FC = () => {
                 <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
                   <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Con desayuno</p>
                   <p className="text-dark/30 text-xs line-through">Antes $40.000</p>
-                  <p className="text-brand text-xl font-serif">$20.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+                  <p className="text-brand text-xl font-serif">$20.000<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
                 </div>
                 <div className="bg-bone rounded-xl px-4 py-3 border border-gold/20 text-center">
                   <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión completa</p>
                   <p className="text-dark/30 text-xs line-through">Antes $95.000</p>
-                  <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche</span></p>
+                  <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
                 </div>
               </div>
-              <p className="text-center text-dark/40 text-xs mt-3">Fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
+              <p className="text-center text-dark/40 text-xs mt-3">Precios por persona · fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
             </div>
           </div>
 
@@ -316,6 +316,42 @@ const HorariosPension: React.FC = () => (
           </p>
           <p className="text-dark/65 text-sm leading-relaxed">
             Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
+          </p>
+        </div>
+
+        <div className="mt-5 pt-5 border-t border-brand/10">
+          <p className="text-brand font-semibold text-sm mb-3">Infraestructura y servicios incluidos</p>
+          <ul className="grid sm:grid-cols-2 gap-2.5">
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span>Uso libre de las <strong className="text-brand font-medium">200 hectáreas</strong> de reserva natural</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span>Calefacción en todos los espacios y agua caliente las 24 hs</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span>WiFi Starlink disponible para trabajo remoto</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span>Guía <strong className="text-brand font-medium">Reset Vital en PDF</strong> de regalo, incluida en toda estadía</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span><strong className="text-brand font-medium">Capacidad:</strong> refugio para 15 personas + 2 domos geodésicos de 7 personas c/u (14 en total), adaptables a domo privado para 1 persona, pareja o grupo</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-dark/65">
+              <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
+              <span><strong className="text-brand font-medium">Baños:</strong> 1 baño y ducha dentro del refugio, 4 baños secos y 2 duchas cerca del refugio, y 8 baños y 8 duchas cerca de los domos</span>
+            </li>
+          </ul>
+          <p className="text-dark/60 text-sm leading-relaxed mt-3">
+            <strong className="text-brand font-semibold">Grupos:</strong> domo de uso exclusivo desde 4 personas, y para grupos más grandes podríamos ofrecer una o más habitaciones privadas dentro del refugio, solo para ustedes — consultanos la disponibilidad por WhatsApp. Ideal para familias, amigos o instituciones que viajan juntas.
+          </p>
+          <p className="text-dark/50 text-xs leading-relaxed mt-2">
+            Actividades y traslados a consultar: temazcal ceremonial, cabalgatas, traslado desde Córdoba / Villa Carlos Paz.
           </p>
         </div>
       </div>

@@ -1,6 +1,10 @@
 # Redirect ruta vieja de Reset Vital (usuarios con PWA instalada antes del cambio)
 /reset-vital-5-d    /reset-vital    301
 
+# /reservas se eliminó (el sistema de reservas ya vive en Home y /estadia) —
+# redirect por si hay links viejos (ManyChat, WhatsApp compartido, etc.)
+/reservas    /estadia    301
+
 # URL limpia para el Recetario Familión (ManyChat / automatizaciones)
 /recetario-familion    /uploads/Recetarios/recetario-familion.pdf    302
 

@@ -29,7 +29,6 @@ const ROUTE_PATHS = [
   '/organizamos-tu-experiencia',
   '/winter-camp',
   '/winter-redirection',
-  '/reservas',
   '/coliving',
   '/ciclo-vital-femenino',
   '/reset-vital',

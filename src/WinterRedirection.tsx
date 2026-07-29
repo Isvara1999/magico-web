@@ -1360,6 +1360,42 @@ const WinterRedirection: React.FC = () => {
                 Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
               </p>
             </div>
+
+            <div className="mt-5 pt-5" style={{ borderTop: '1px solid rgba(0,83,51,0.1)' }}>
+              <p className="font-semibold text-sm mb-3" style={{ color: C.dark }}>Infraestructura y servicios incluidos</p>
+              <ul className="grid sm:grid-cols-2 gap-2.5">
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span>Uso libre de las <strong style={{ color: C.dark }}>200 hectáreas</strong> de reserva natural</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span>Calefacción en todos los espacios y agua caliente las 24 hs</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span>WiFi Starlink disponible para trabajo remoto</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span>Guía <strong style={{ color: C.dark }}>Reset Vital en PDF</strong> de regalo, incluida en toda estadía</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span><strong style={{ color: C.dark }}>Capacidad:</strong> refugio para 15 personas + 2 domos geodésicos de 7 personas c/u (14 en total), adaptables a domo privado para 1 persona, pareja o grupo</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <CheckCircle2 size={15} color={C.gold} className="flex-shrink-0 mt-0.5" />
+                  <span><strong style={{ color: C.dark }}>Baños:</strong> 1 baño y ducha dentro del refugio, 4 baños secos y 2 duchas cerca del refugio, y 8 baños y 8 duchas cerca de los domos</span>
+                </li>
+              </ul>
+              <p className="text-sm leading-relaxed mt-3" style={{ color: C.muted }}>
+                <strong style={{ color: C.dark }}>Grupos:</strong> domo de uso exclusivo desde 4 personas, y para grupos más grandes podríamos ofrecer una o más habitaciones privadas dentro del refugio, solo para ustedes — consultanos la disponibilidad por WhatsApp. Ideal para familias, amigos o instituciones que viajan juntas.
+              </p>
+              <p className="text-xs leading-relaxed mt-2" style={{ color: C.faint }}>
+                Actividades y traslados a consultar: temazcal ceremonial, cabalgatas, traslado desde Córdoba / Villa Carlos Paz.
+              </p>
+            </div>
           </div>
 
           {/* ── Planes especiales ── */}

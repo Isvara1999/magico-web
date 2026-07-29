@@ -116,13 +116,6 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/winter-redirection',
   },
   {
-    path: '/reservas',
-    title: 'Reservá tu estadía · Invierno 2026 | Pueblo Mágico',
-    description: 'Reservá tu lugar en Pueblo Mágico para el invierno 2026 — julio, agosto o septiembre. 30 camas disponibles por día, sin fechas bloqueadas. Seleccioná tus fechas y confirmá por WhatsApp.',
-    image: 'https://experienciamagico.com/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp',
-    canonical: 'https://experienciamagico.com/reservas',
-  },
-  {
     path: '/coliving',
     title: 'Coliving Mágico — Vivir, Trabajar y Reconectar · Los Gigantes, Córdoba | Pueblo Mágico',
     description: 'Coliving en las Sierras de Córdoba para bienestar y estilo de vida. Formatos de 3, 5 y 10 noches, y Pase Libre Mensual desde $180.000. Pensión completa, WiFi satelital y Programa Reset Vital incluidos.',
