@@ -98,11 +98,11 @@ const FAQS = [
   },
   {
     q: '¿Cuál es la diferencia entre Experiencia completa y Pijamada?',
-    a: 'Experiencia completa incluye cama en domo o refugio compartido. Pijamada es sin cama: dormís en nuestro salón principal sobre tu propio colchón o colchoneta. El resto —comidas y actividades— es igual en ambas.',
+    a: 'Experiencia completa ya está agotada para esta edición. Las modalidades disponibles son Pijamada (sin cama, dormís en nuestro salón principal sobre tu propio colchón o colchoneta, con comidas y actividades incluidas) y Pase del día (solo el domingo, sin alojamiento, para vivir la Ofrenda y/o el Temazcal).',
   },
   {
     q: '¿Cómo funcionan los precios?',
-    a: 'En Experiencia completa: 1 noche según el día (viernes o lunes $65.000, sábado $75.000, domingo —día de la Ofrenda— $90.000), 2 noches $140.000, 3 noches (festival completo, ya incluye la Ofrenda + Temazcal) $190.000. En Pijamada: 1 noche $60.000, 2 noches $115.000 (incluye cualquier día, incluida la Ofrenda), 3 noches (festival completo) $150.000. Si tu estadía no incluye el domingo, podés sumar la noche de la Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000.',
+    a: 'Pijamada sale $30.000 por noche (1 noche $30.000, 2 noches $60.000, 3 noches $90.000), con todas las comidas y actividades incluidas — esto se paga 100% antes de venir, para reservar tu lugar. Además, podés sumar aportes voluntarios si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso: viernes y lunes desde $15.000, sábado desde $30.000. El domingo, Ofrenda y Temazcal son aportes independientes ($30.000 mínimo cada uno, o $50.000 las dos juntas). Estos aportes no hace falta pagarlos antes: se abonan después de vivir cada actividad.',
   },
   {
     q: '¿Qué pasa si no me gusta la experiencia?',
@@ -110,7 +110,7 @@ const FAQS = [
   },
   {
     q: '¿Puedo venir solo el domingo, sin quedarme a dormir?',
-    a: 'Sí. Podés sumarte solo a la ceremonia de Ofrenda + Temazcal con un aporte mínimo sugerido de $30.000 — como toda ofrenda, este encuentro también se sostiene por el intercambio, y ese aporte está muy por debajo de lo que representa. No incluye comida, pero podés consultarnos por opciones caseras y nutritivas aparte.',
+    a: 'Sí, con el Pase del día. Podés sumarte a la Ofrenda y/o al Temazcal el domingo con un aporte independiente para cada uno ($30.000 mínimo cada uno, o $50.000 las dos juntas) — como toda ofrenda, se sostiene por el intercambio, muy por debajo de lo que representa. No hace falta pagarlo antes, se abona después de vivir la ceremonia. No incluye comida, pero podés consultarnos por opciones caseras y nutritivas aparte.',
   },
   {
     q: '¿En qué consiste la ceremonia de ofrenda a la Pachamama?',
@@ -171,86 +171,45 @@ const Countdown: React.FC = () => {
 // ─── Precios ────────────────────────────────────────────────────────────────────
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
-// El aporte de la Ofrenda + Temazcal es un mínimo sugerido, no un precio fijo —
-// se ofrenda desde la voluntad; este número solo sostiene la logística del ritual.
-const APORTE_OFRENDA = 30000;
+// Nueva estrategia: Experiencia completa queda agotada. Pijamada y Pase del día disponibles.
+const PIJAMADA_COLOR = '#8B6A00';
+const PIJAMADA_BG = 'rgba(212,175,55,0.04)';
+const PIJAMADA_BORDER = 'rgba(212,175,55,0.4)';
+const PRECIO_NOCHE_PIJAMADA = 30000;
 
-type Modalidad = 'completa' | 'pijamada' | 'dia';
+// Solo a modo de referencia — ya no se vende, se muestra como agotada.
+const EXPERIENCIA_COMPLETA_AGOTADA = 250000;
 
-// La única noche (en Experiencia completa, con cama) tiene precio distinto según el día.
-type DiaKey = 'viernes' | 'sabado' | 'domingo' | 'lunes';
-type DiaOpcion = { dia: DiaKey; label: string; precio: number; ofrendaIncluida: boolean };
-const DIAS_UNA_NOCHE: DiaOpcion[] = [
-  { dia: 'viernes', label: 'Viernes',          precio: 65000, ofrendaIncluida: false },
-  { dia: 'sabado',  label: 'Sábado',           precio: 75000, ofrendaIncluida: false },
-  { dia: 'domingo', label: 'Domingo · Ofrenda', precio: 90000, ofrendaIncluida: true },
-  { dia: 'lunes',   label: 'Lunes',            precio: 65000, ofrendaIncluida: false },
+type NocheOpcion = { noches: number; label: string; precio: number };
+const OPCIONES_NOCHES: NocheOpcion[] = [
+  { noches: 1, label: '1 noche',  precio: PRECIO_NOCHE_PIJAMADA * 1 },
+  { noches: 2, label: '2 noches', precio: PRECIO_NOCHE_PIJAMADA * 2 },
+  { noches: 3, label: '3 noches', precio: PRECIO_NOCHE_PIJAMADA * 3 },
 ];
 
-type NocheOpcion = {
-  noches: number;
-  label: string;
-  precio: number;
-  ofrendaIncluida: boolean;
-  // Cuánto ahorrás vs. pagar esas noches por separado (solo 2 y 3 noches).
-  ahorro?: number;
-};
-
-type HospedajeTier = {
-  key: 'completa' | 'pijamada';
-  label: string;
-  subtitle: string;
-  headColor: string;
-  bgColor: string;
-  borderColor: string;
-  items: string[];
-  opciones: NocheOpcion[];
-  nota: string;
-  cta: string;
-};
-
-const HOSPEDAJE_TIERS: HospedajeTier[] = [
-  {
-    key: 'completa',
-    label: 'Experiencia completa',
-    subtitle: 'Con cama, en domo o refugio compartido',
-    headColor: C.green,
-    bgColor: 'rgba(0,83,51,0.05)',
-    borderColor: 'rgba(0,83,51,0.35)',
-    items: [
-      'Acceso a todas las actividades durante tu estadía',
-      'Cama en domo o refugio compartido',
-      'Ropa blanca, toalla y toallón individual',
-    ],
-    opciones: [
-      { noches: 1, label: '1 noche', precio: 65000, ofrendaIncluida: false },
-      { noches: 2, label: '2 noches', precio: 140000, ofrendaIncluida: false, ahorro: 25000 },
-      { noches: 3, label: '3 noches · Festival completo', precio: 190000, ofrendaIncluida: true, ahorro: 40000 },
-    ],
-    nota: 'Recomendada para vivir el proceso completo',
-    cta: 'Reservar habitación',
-  },
-  {
-    key: 'pijamada',
-    label: 'Pijamada',
-    subtitle: 'Sin cama — traés tu colchón o colchoneta, dormís en el salón',
-    headColor: '#8B6A00',
-    bgColor: 'rgba(212,175,55,0.04)',
-    borderColor: 'rgba(212,175,55,0.4)',
-    items: [
-      'Acceso a todas las actividades durante tu estadía',
-      'Sin cama — dormís en el salón (traés tu colchón o colchoneta)',
-      'Espacio cálido y compartido',
-    ],
-    opciones: [
-      { noches: 1, label: '1 noche', precio: 60000, ofrendaIncluida: false },
-      { noches: 2, label: '2 noches', precio: 115000, ofrendaIncluida: true, ahorro: 5000 },
-      { noches: 3, label: '3 noches · Festival completo', precio: 150000, ofrendaIncluida: true, ahorro: 30000 },
-    ],
-    nota: 'Ideal si querés venir con presupuesto más accesible',
-    cta: 'Reservar pijamada',
-  },
+const PIJAMADA_ITEMS = [
+  'Acceso a todas las actividades durante tu estadía',
+  'Sin cama — dormís en el salón (traés tu colchón o colchoneta)',
+  'Espacio cálido y compartido',
+  'Todas las comidas incluidas',
 ];
+
+// Aportes por actividades: mínimos sugeridos y voluntarios. No hace falta pagarlos
+// antes de venir — se abonan después de vivir cada actividad. Lo único que se paga
+// 100% por adelantado es el lugar en la Pijamada.
+const APORTE_VIERNES_LUNES = 15000;
+const APORTE_SABADO = 30000;
+
+type AporteDiaKey = 'viernes' | 'sabado' | 'lunes';
+const APORTES_DIA: { key: AporteDiaKey; label: string; monto: number }[] = [
+  { key: 'viernes', label: 'Viernes', monto: APORTE_VIERNES_LUNES },
+  { key: 'sabado',  label: 'Sábado',  monto: APORTE_SABADO },
+  { key: 'lunes',   label: 'Lunes',   monto: APORTE_VIERNES_LUNES },
+];
+
+// Domingo: Ofrenda y Temazcal son aportes independientes entre sí.
+const APORTE_DOMINGO_UNA = 30000;   // una de las dos
+const APORTE_DOMINGO_AMBAS = 50000; // las dos juntas
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 const PachamamaFest: React.FC = () => {
@@ -261,10 +220,16 @@ const PachamamaFest: React.FC = () => {
   const [temazcalOfrendaOpen, setTemazcalOfrendaOpen] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
 
-  const [modalidad, setModalidad] = useState<Modalidad>('completa');
+  const [modalidad, setModalidad] = useState<'pijamada' | 'dia'>('pijamada');
   const [nochesSeleccion, setNochesSeleccion] = useState(3);
-  const [incluyeOfrendaExtra, setIncluyeOfrendaExtra] = useState(false);
-  const [diaUnaNoche, setDiaUnaNoche] = useState<DiaKey>('viernes');
+  const [aportesDias, setAportesDias] = useState<Record<AporteDiaKey, boolean>>({ viernes: false, sabado: false, lunes: false });
+  const [domOfrenda, setDomOfrenda] = useState(false);
+  const [domTemazcal, setDomTemazcal] = useState(false);
+  const toggleAporteDia = (key: AporteDiaKey) => setAportesDias(a => ({ ...a, [key]: !a[key] }));
+  const selectModalidad = (key: 'pijamada' | 'dia') => {
+    setModalidad(key);
+    if (key === 'dia' && !domOfrenda && !domTemazcal) setDomOfrenda(true);
+  };
 
   useEffect(() => {
     document.title = 'Pachamama Fest · 14 al 17 de Agosto · Pueblo Mágico';
@@ -289,27 +254,30 @@ const PachamamaFest: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const tier = modalidad !== 'dia' ? HOSPEDAJE_TIERS.find(t => t.key === modalidad)! : null;
-  const esUnaNocheEnCama = modalidad === 'completa' && nochesSeleccion === 1;
-  const diaInfo = esUnaNocheEnCama ? DIAS_UNA_NOCHE.find(d => d.dia === diaUnaNoche)! : null;
-  const opcionBase = tier ? tier.opciones.find(o => o.noches === nochesSeleccion)! : null;
-  const opcion = diaInfo
-    ? { ...opcionBase!, label: `1 noche · ${diaInfo.label}`, precio: diaInfo.precio, ofrendaIncluida: diaInfo.ofrendaIncluida }
-    : opcionBase;
+  const opcion = OPCIONES_NOCHES.find(o => o.noches === nochesSeleccion)!;
 
-  const totalEfectivo = modalidad === 'dia'
-    ? APORTE_OFRENDA
-    : opcion!.precio + (!opcion!.ofrendaIncluida && incluyeOfrendaExtra ? APORTE_OFRENDA : 0);
+  const aporteDomingo = domOfrenda && domTemazcal ? APORTE_DOMINGO_AMBAS : (domOfrenda || domTemazcal) ? APORTE_DOMINGO_UNA : 0;
+  const detalleDomingoTxt = domOfrenda && domTemazcal ? 'Ofrenda + Temazcal' : domOfrenda ? 'Ofrenda' : 'Temazcal';
+
+  // En Pijamada, los aportes por actividades (incluido el domingo) son un extra que se paga después.
+  // En Pase del día, el aporte del domingo ES el producto — se cobra como total.
+  const detalleAportes = modalidad === 'pijamada'
+    ? [
+        ...APORTES_DIA.filter(d => aportesDias[d.key]).map(d => `Aporte ${d.label}: ${fmt(d.monto)}`),
+        ...(aporteDomingo ? [`Aporte Domingo (${detalleDomingoTxt}): ${fmt(aporteDomingo)}`] : []),
+      ]
+    : [];
+  const aportesTotal = modalidad === 'pijamada'
+    ? APORTES_DIA.reduce((sum, d) => sum + (aportesDias[d.key] ? d.monto : 0), 0) + aporteDomingo
+    : 0;
+
+  const totalEfectivo = modalidad === 'dia' ? aporteDomingo : opcion.precio;
   const totalCuotas = totalEfectivo * 1.2;
   const cuotaMensual = totalCuotas / 3;
 
-  const detalleSeleccion = modalidad === 'dia'
-    ? 'Domingo · Ofrenda + Temazcal'
-    : `${opcion!.label}${opcion!.ofrendaIncluida ? ' · incluye la Ofrenda + Temazcal' : incluyeOfrendaExtra ? ' + la Ofrenda + Temazcal' : ''}`;
-  const etiquetaModalidad = modalidad === 'dia' ? 'Pase del día · Ofrenda + Temazcal' : tier!.label;
   const waMsgCalc = modalidad === 'dia'
-    ? `¡Hola! Quiero sumarme al Pachamama Fest el domingo (Ofrenda + Temazcal).\n\nAporte: ${fmt(APORTE_OFRENDA)}\n\n¿Cómo sigo?`
-    : `¡Hola! Quiero reservar en el Pachamama Fest.\n\n${etiquetaModalidad}\n${detalleSeleccion}\nTotal: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n\n¿Cómo sigo?`;
+    ? `¡Hola! Quiero sumarme al Pachamama Fest el domingo (${detalleDomingoTxt}).\n\nAporte: ${fmt(totalEfectivo)}\n\n¿Cómo sigo?`
+    : `¡Hola! Quiero reservar mi Pijamada en el Pachamama Fest.\n\nPijamada · ${opcion.label}\nTotal alojamiento: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n${detalleAportes.length ? `\nAportes por actividades:\n${detalleAportes.join('\n')}\nSubtotal aportes: ${fmt(aportesTotal)}\n` : ''}\n¿Cómo sigo?`;
   const waCalcUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(waMsgCalc)}`;
 
   return (
@@ -794,12 +762,21 @@ const PachamamaFest: React.FC = () => {
             <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">
               La ofrenda —también llamada pago o despacho— es un acto de reciprocidad: se agradece por todo lo recibido y se devuelve algo a cambio, honrando el principio de la ayni. Se preparan elementos simbólicos —hojas de coca, granos, flores, dulces, sahumerios— que se entregan a la tierra con intención y gratitud.
             </p>
-            <div className="inline-flex items-center gap-4 rounded-2xl px-6 py-4 mb-8" style={{ backgroundColor: 'rgba(157,0,94,0.12)', border: '1px solid rgba(157,0,94,0.3)' }}>
-              <p className="text-3xl font-bold serif-title flex-shrink-0" style={{ color: C.primavera }}>$30.000</p>
-              <p className="text-xs leading-relaxed text-left max-w-xs text-white/70">
-                Aporte mínimo sugerido. Sumarte a esta ceremonia no tiene un precio fijo — se sostiene por intercambio y voluntad, la misma lógica de la propia ofrenda. Si podés dar más, es bienvenido.
-              </p>
+            <div className="flex flex-col sm:flex-row items-stretch gap-3 mb-5 max-w-xl mx-auto">
+              {[
+                { label: 'Ofrenda', monto: APORTE_DOMINGO_UNA },
+                { label: 'Temazcal', monto: APORTE_DOMINGO_UNA },
+                { label: 'Las dos juntas', monto: APORTE_DOMINGO_AMBAS },
+              ].map(x => (
+                <div key={x.label} className="flex-1 rounded-2xl px-5 py-4 text-center" style={{ backgroundColor: 'rgba(157,0,94,0.12)', border: '1px solid rgba(157,0,94,0.3)' }}>
+                  <p className="text-2xl font-bold serif-title" style={{ color: C.primavera }}>{fmt(x.monto)}</p>
+                  <p className="text-[11px] uppercase tracking-wide text-white/70 mt-1">{x.label}</p>
+                </div>
+              ))}
             </div>
+            <p className="text-xs leading-relaxed max-w-xl mx-auto mb-8 text-white/60">
+              Aportes mínimos sugeridos, independientes entre sí. Sumarte a estas ceremonias no tiene un precio fijo — se sostienen por intercambio y voluntad, la misma lógica de la propia ofrenda. No hace falta pagarlos antes: se abonan después de vivir cada una. Si podés dar más, es bienvenido.
+            </p>
 
             <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
 
@@ -867,168 +844,180 @@ const PachamamaFest: React.FC = () => {
               Armá tu precio
             </h2>
             <p className="text-base max-w-md mx-auto" style={{ color: C.muted }}>
-              Elegí tu modalidad y tus noches — el total se calcula al instante, en efectivo o en 3 cuotas con tarjeta de crédito.
+              Elegí tu modalidad y sumá los aportes que quieras — el total se calcula al instante, en efectivo o en 3 cuotas con tarjeta de crédito.
             </p>
           </div>
 
           <div data-reveal data-delay="1">
-            {/* Paso 1: modalidad */}
-            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>1. Elegí tu modalidad</p>
+            {/* Modalidad */}
+            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>Modalidad</p>
             <div className="grid grid-cols-3 gap-2 mb-2">
-              {[
-                { key: 'completa' as const, label: 'Experiencia completa', desde: 65000, headColor: C.green, bgColor: 'rgba(0,83,51,0.05)' },
-                { key: 'pijamada' as const, label: 'Pijamada', desde: 60000, headColor: '#8B6A00', bgColor: 'rgba(212,175,55,0.04)' },
-                { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_OFRENDA, headColor: C.primavera, bgColor: 'rgba(157,0,94,0.05)' },
-              ].map(m => {
+              <div className="rounded-xl px-2 py-3 border text-center" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: '#F1EEE7', opacity: 0.6 }}>
+                <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: C.faint }}>Experiencia completa</p>
+                <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: '#B0483F' }}>Agotado · {fmt(EXPERIENCIA_COMPLETA_AGOTADA)}</p>
+              </div>
+              {([
+                { key: 'pijamada' as const, label: 'Pijamada', desde: PRECIO_NOCHE_PIJAMADA, color: PIJAMADA_COLOR, bg: PIJAMADA_BG },
+                { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_DOMINGO_UNA, color: C.primavera, bg: 'rgba(157,0,94,0.05)' },
+              ]).map(m => {
                 const active = modalidad === m.key;
                 return (
-                  <button key={m.key} onClick={() => setModalidad(m.key)}
+                  <button key={m.key} onClick={() => selectModalidad(m.key)}
                     className="rounded-xl px-2 py-3 border text-center transition-colors"
-                    style={{ borderColor: active ? m.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bgColor : 'white' }}>
-                    <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: active ? m.headColor : C.dark }}>{m.label}</p>
+                    style={{ borderColor: active ? m.color : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bg : 'white' }}>
+                    <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: active ? m.color : C.dark }}>{m.label}</p>
                     <p className="text-[10px]" style={{ color: C.faint }}>desde {fmt(m.desde)}</p>
                   </button>
                 );
               })}
             </div>
-            <p className="text-xs mb-5" style={{ color: C.faint }}>
-              {modalidad === 'completa' && 'Con cama, en domo o refugio compartido.'}
-              {modalidad === 'pijamada' && 'Sin cama — traés tu colchón o colchoneta, dormís en el salón.'}
-              {modalidad === 'dia' && 'Sin alojamiento — vení solo el domingo, a vivir la ceremonia.'}
+            <p className="text-xs mb-6" style={{ color: C.faint }}>
+              {modalidad === 'pijamada'
+                ? 'Sin cama — traés tu colchón o colchoneta, dormís en el salón. Todas las comidas y actividades incluidas.'
+                : 'Sin alojamiento — vení solo el domingo, a vivir la Ofrenda y/o el Temazcal.'}
             </p>
 
-            {modalidad !== 'dia' ? (
+            {modalidad === 'pijamada' && (
               <>
-                {/* Paso 2: noches */}
-                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2. Elegí tus noches</p>
-                <div className="grid grid-cols-3 gap-2 mb-2.5">
-                  {tier!.opciones.map(o => {
+                {/* Paso 1: noches */}
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>1. Elegí tus noches de Pijamada</p>
+                <div className="grid grid-cols-3 gap-2 mb-6">
+                  {OPCIONES_NOCHES.map(o => {
                     const active = nochesSeleccion === o.noches;
                     return (
                       <button key={o.noches} onClick={() => setNochesSeleccion(o.noches)}
                         className="rounded-xl px-2 py-3 border text-center transition-colors"
-                        style={{ borderColor: active ? tier!.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? tier!.bgColor : 'white' }}>
-                        <p className="text-[11px] font-bold leading-tight" style={{ color: active ? tier!.headColor : C.dark }}>
-                          {o.noches} noche{o.noches !== 1 ? 's' : ''}
-                        </p>
-                        <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>
-                          {tier!.key === 'completa' && o.noches === 1 ? `Desde ${fmt(o.precio)}` : fmt(o.precio)}
-                        </p>
-                        {!!o.ahorro && (
-                          <p className="text-[9px] font-bold mt-0.5" style={{ color: active ? tier!.headColor : '#2E8B57' }}>
-                            Ahorrás {fmt(o.ahorro)}
-                          </p>
-                        )}
+                        style={{ borderColor: active ? PIJAMADA_COLOR : 'rgba(0,83,51,0.12)', backgroundColor: active ? PIJAMADA_BG : 'white' }}>
+                        <p className="text-[11px] font-bold leading-tight" style={{ color: active ? PIJAMADA_COLOR : C.dark }}>{o.label}</p>
+                        <p className="text-xs font-bold serif-title" style={{ color: active ? PIJAMADA_COLOR : C.dark }}>{fmt(o.precio)}</p>
                       </button>
                     );
                   })}
                 </div>
 
-                {esUnaNocheEnCama && (
-                  <div className="mb-5">
-                    <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2.1 ¿Qué día te quedás?</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {DIAS_UNA_NOCHE.map(d => {
-                        const active = diaUnaNoche === d.dia;
-                        return (
-                          <button key={d.dia} onClick={() => setDiaUnaNoche(d.dia)}
-                            className="rounded-xl px-2 py-2.5 border text-center transition-colors"
-                            style={{ borderColor: active ? tier!.headColor : 'rgba(0,83,51,0.12)', backgroundColor: active ? tier!.bgColor : 'white' }}>
-                            <p className="text-[11px] font-bold leading-tight" style={{ color: active ? tier!.headColor : C.dark }}>{d.label}</p>
-                            <p className="text-xs font-bold serif-title" style={{ color: active ? tier!.headColor : C.dark }}>{fmt(d.precio)}</p>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {opcion!.ofrendaIncluida && (
-                  <p className="text-[11px] font-semibold mb-6" style={{ color: C.primavera }}>{opcion!.label} — incluye la Ofrenda + Temazcal, sin cargo extra.</p>
-                )}
-
-                {!opcion!.ofrendaIncluida && (
-                  <button
-                    onClick={() => setIncluyeOfrendaExtra(o => !o)}
-                    className="w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 border transition-colors mb-6"
-                    style={{
-                      borderColor: incluyeOfrendaExtra ? 'rgba(157,0,94,0.4)' : 'rgba(0,83,51,0.15)',
-                      backgroundColor: incluyeOfrendaExtra ? 'rgba(157,0,94,0.08)' : 'white',
-                    }}
-                  >
-                    <span className="text-left">
-                      <span className="block text-sm font-semibold" style={{ color: incluyeOfrendaExtra ? C.primavera : C.dark }}>
-                        Sumar la noche de la Ofrenda + Temazcal
-                      </span>
-                      <span className="block text-xs" style={{ color: C.faint }}>
-                        domingo · + aporte mínimo sugerido {fmt(APORTE_OFRENDA)}
-                      </span>
-                    </span>
-                    <span className="flex-shrink-0 w-11 h-6 rounded-full relative transition-colors"
-                      style={{ backgroundColor: incluyeOfrendaExtra ? C.primavera : '#E5DDD5' }}>
-                      <span className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
-                        style={{ left: incluyeOfrendaExtra ? '22px' : '2px' }} />
-                    </span>
-                  </button>
-                )}
-              </>
-            ) : (
-              <div className="rounded-xl px-4 py-3 border mb-6" style={{ borderColor: 'rgba(157,0,94,0.25)', backgroundColor: 'rgba(157,0,94,0.05)' }}>
-                <p className="text-sm font-semibold" style={{ color: C.primavera }}>Domingo · Ofrenda a la Pachamama + Temazcal</p>
-                <p className="text-xs mt-1" style={{ color: C.faint }}>
-                  Como toda ofrenda, este encuentro se sostiene también por el intercambio. {fmt(APORTE_OFRENDA)} es el aporte mínimo para que la ceremonia pueda seguir sucediendo — muy por debajo de lo que representa. Si sentís que podés dar más, sumá lo que tu corazón disponga.
+                {/* Paso 2: aportes por actividades */}
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2. Aportes por actividades (opcional)</p>
+                <p className="text-xs mb-3" style={{ color: C.faint }}>
+                  Sumate a lo que quieras. Si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso, podés hacer un aporte. No hace falta pagarlo ahora: se abona después de vivirla. Lo único que se paga 100% antes de venir es tu lugar en la Pijamada.
                 </p>
+                <div className="space-y-2 mb-6">
+                  {APORTES_DIA.map(d => {
+                    const active = aportesDias[d.key];
+                    return (
+                      <button key={d.key} onClick={() => toggleAporteDia(d.key)}
+                        className="w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 border transition-colors"
+                        style={{ borderColor: active ? PIJAMADA_COLOR : 'rgba(0,83,51,0.15)', backgroundColor: active ? PIJAMADA_BG : 'white' }}>
+                        <span className="text-sm font-semibold text-left" style={{ color: active ? PIJAMADA_COLOR : C.dark }}>
+                          {d.label} — mínimo sugerido {fmt(d.monto)}
+                        </span>
+                        <span className="flex-shrink-0 w-11 h-6 rounded-full relative transition-colors"
+                          style={{ backgroundColor: active ? PIJAMADA_COLOR : '#E5DDD5' }}>
+                          <span className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
+                            style={{ left: active ? '22px' : '2px' }} />
+                        </span>
+                      </button>
+                    );
+                  })}
+
+                  <div className="rounded-xl px-4 py-3 border" style={{ borderColor: (domOfrenda || domTemazcal) ? 'rgba(157,0,94,0.4)' : 'rgba(0,83,51,0.15)', backgroundColor: (domOfrenda || domTemazcal) ? 'rgba(157,0,94,0.06)' : 'white' }}>
+                    <p className="text-sm font-semibold mb-2" style={{ color: (domOfrenda || domTemazcal) ? C.primavera : C.dark }}>Domingo — Ofrenda y Temazcal (aportes independientes)</p>
+                    <div className="flex flex-col gap-2 mb-2">
+                      <label className="flex items-center justify-between gap-3 cursor-pointer">
+                        <span className="text-xs" style={{ color: C.muted }}>Ofrenda — mínimo {fmt(APORTE_DOMINGO_UNA)}</span>
+                        <input type="checkbox" checked={domOfrenda} onChange={() => setDomOfrenda(v => !v)} className="w-4 h-4 flex-shrink-0" />
+                      </label>
+                      <label className="flex items-center justify-between gap-3 cursor-pointer">
+                        <span className="text-xs" style={{ color: C.muted }}>Temazcal — mínimo {fmt(APORTE_DOMINGO_UNA)}</span>
+                        <input type="checkbox" checked={domTemazcal} onChange={() => setDomTemazcal(v => !v)} className="w-4 h-4 flex-shrink-0" />
+                      </label>
+                    </div>
+                    <p className="text-[11px] font-semibold" style={{ color: C.primavera }}>
+                      Las dos juntas: mínimo {fmt(APORTE_DOMINGO_AMBAS)}
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {modalidad === 'dia' && (
+              <div className="mb-6">
+                <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>1. Elegí tu aporte del domingo</p>
+                <div className="rounded-xl px-4 py-3 border" style={{ borderColor: 'rgba(157,0,94,0.4)', backgroundColor: 'rgba(157,0,94,0.06)' }}>
+                  <p className="text-sm font-semibold mb-2" style={{ color: C.primavera }}>Ofrenda y Temazcal (aportes independientes)</p>
+                  <div className="flex flex-col gap-2 mb-2">
+                    <label className="flex items-center justify-between gap-3 cursor-pointer">
+                      <span className="text-xs" style={{ color: C.muted }}>Ofrenda — mínimo {fmt(APORTE_DOMINGO_UNA)}</span>
+                      <input type="checkbox" checked={domOfrenda} onChange={() => setDomOfrenda(v => !v)} className="w-4 h-4 flex-shrink-0" />
+                    </label>
+                    <label className="flex items-center justify-between gap-3 cursor-pointer">
+                      <span className="text-xs" style={{ color: C.muted }}>Temazcal — mínimo {fmt(APORTE_DOMINGO_UNA)}</span>
+                      <input type="checkbox" checked={domTemazcal} onChange={() => setDomTemazcal(v => !v)} className="w-4 h-4 flex-shrink-0" />
+                    </label>
+                  </div>
+                  <p className="text-[11px] font-semibold" style={{ color: C.primavera }}>
+                    Las dos juntas: mínimo {fmt(APORTE_DOMINGO_AMBAS)}
+                  </p>
+                </div>
               </div>
             )}
 
-            {/* Paso 3: resultado */}
-            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>3. {modalidad === 'dia' ? 'Tu aporte' : 'Tu precio'}</p>
-            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: modalidad === 'dia' ? 'rgba(157,0,94,0.05)' : tier!.bgColor, border: `1px solid ${modalidad === 'dia' ? 'rgba(157,0,94,0.3)' : tier!.borderColor}` }}>
+            {/* Paso final: resultado */}
+            <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>{modalidad === 'dia' ? 'Tu aporte' : 'Tu precio'}</p>
+            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: modalidad === 'dia' ? 'rgba(157,0,94,0.05)' : PIJAMADA_BG, border: `1px solid ${modalidad === 'dia' ? 'rgba(157,0,94,0.3)' : PIJAMADA_BORDER}` }}>
               <div className="flex items-end justify-between gap-3 mb-1">
                 <div>
-                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{etiquetaModalidad}</p>
-                  <p className="text-xs" style={{ color: C.faint }}>{detalleSeleccion}</p>
+                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>
+                    {modalidad === 'dia' ? 'Pase del día' : 'Pijamada'}
+                  </p>
+                  <p className="text-xs" style={{ color: C.faint }}>
+                    {modalidad === 'dia' ? `Domingo · ${detalleDomingoTxt}` : opcion.label}
+                  </p>
                 </div>
-                <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : tier!.headColor }}>{fmt(totalEfectivo)}</p>
+                <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>{fmt(totalEfectivo)}</p>
               </div>
-              {modalidad !== 'dia' && !!opcion!.ahorro && (
-                <p className="text-sm font-bold mb-1" style={{ color: '#1F7A4D' }}>
-                  Ahorrás {fmt(opcion!.ahorro)} vs. pagar esas noches por separado
-                </p>
-              )}
-              {modalidad !== 'dia' && (
-                <p className="text-xs mb-4" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
-              )}
-              {modalidad !== 'dia' && (
-                <div className="flex items-center gap-2 mb-5 px-3.5 py-2.5 rounded-xl border" style={{ backgroundColor: 'white', borderColor: tier!.headColor }}>
-                  <Utensils size={16} color={tier!.headColor} className="flex-shrink-0" />
-                  <span className="text-sm font-bold" style={{ color: tier!.headColor }}>Todas las comidas incluidas</span>
-                </div>
+
+              {modalidad === 'pijamada' && (
+                <>
+                  <p className="text-xs mb-1" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
+                  <p className="text-xs mb-4 font-semibold" style={{ color: PIJAMADA_COLOR }}>Se paga 100% antes de venir, para reservar tu lugar.</p>
+                  <div className="flex items-center gap-2 mb-5 px-3.5 py-2.5 rounded-xl border" style={{ backgroundColor: 'white', borderColor: PIJAMADA_COLOR }}>
+                    <Utensils size={16} color={PIJAMADA_COLOR} className="flex-shrink-0" />
+                    <span className="text-sm font-bold" style={{ color: PIJAMADA_COLOR }}>Todas las comidas incluidas</span>
+                  </div>
+                  <ul className="space-y-2 mb-5">
+                    {PIJAMADA_ITEMS.map(i => (
+                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                        <span className="flex-shrink-0 mt-0.5" style={{ color: PIJAMADA_COLOR }}>✓</span>{i}
+                      </li>
+                    ))}
+                  </ul>
+                  {aportesTotal > 0 && (
+                    <div className="rounded-xl px-4 py-3 mb-5" style={{ backgroundColor: 'rgba(157,0,94,0.06)', border: '1px solid rgba(157,0,94,0.2)' }}>
+                      <p className="text-xs font-semibold mb-1" style={{ color: C.primavera }}>Aportes por actividades — no se pagan ahora, se abonan después de vivirlas</p>
+                      {detalleAportes.map(d => (
+                        <p key={d} className="text-xs" style={{ color: C.muted }}>{d}</p>
+                      ))}
+                      <p className="text-sm font-bold mt-1" style={{ color: C.primavera }}>Subtotal aportes: {fmt(aportesTotal)}</p>
+                    </div>
+                  )}
+                  <p className="text-xs mb-4" style={{ color: C.faint }}>Ideal si querés venir con presupuesto más accesible</p>
+                </>
               )}
 
-              {modalidad === 'dia' ? (
+              {modalidad === 'dia' && (
                 <ul className="space-y-2 mb-5 mt-4">
-                  {['Acceso a la ceremonia de Ofrenda + Temazcal', 'Sin alojamiento ni comida incluida', 'Podés consultar por comidas caseras y nutritivas aparte'].map(i => (
+                  {['Acceso a la ceremonia elegida el domingo', 'Sin alojamiento ni comida incluida', 'Podés consultar por comidas caseras y nutritivas aparte'].map(i => (
                     <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
                       <span className="flex-shrink-0 mt-0.5" style={{ color: C.primavera }}>✓</span>{i}
                     </li>
                   ))}
                 </ul>
-              ) : (
-                <ul className="space-y-2 mb-5">
-                  {tier!.items.map(i => (
-                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                      <span className="flex-shrink-0 mt-0.5" style={{ color: tier!.headColor }}>✓</span>{i}
-                    </li>
-                  ))}
-                </ul>
               )}
-              <p className="text-xs mb-4" style={{ color: C.faint }}>{modalidad === 'dia' ? 'Perfecto si querés vivir la ceremonia sin quedarte a dormir' : tier!.nota}</p>
 
               <a href={waCalcUrl} target="_blank" rel="noopener noreferrer"
                 className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: modalidad === 'dia' ? C.primavera : tier!.headColor }}>
-                {modalidad === 'dia' ? 'Quiero sumarme ese día' : tier!.cta}
+                style={{ backgroundColor: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>
+                {modalidad === 'dia' ? 'Quiero sumarme ese día' : 'Reservar pijamada'}
               </a>
             </div>
           </div>
