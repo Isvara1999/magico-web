@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CaretDownIcon, MoonIcon, FireIcon, UsersThreeIcon, HouseIcon, HeartIcon } from '@phosphor-icons/react';
+import { CaretDownIcon, MoonIcon, FireIcon, UsersThreeIcon, HouseIcon, HeartIcon, PawPrintIcon, WheelchairIcon } from '@phosphor-icons/react';
 import { RETREATS_DATA } from '../data/retreats';
 
 const { priceSola, priceAcompanada, senia, segundoPago, segundoPagoFecha, cupos, fechaLimiteInscripcion } = RETREATS_DATA.cicloVitalFemenino;
@@ -23,12 +23,22 @@ const faqs = [
   {
     Icon: HouseIcon,
     question: '¿Cómo es el alojamiento y qué incluyen las comidas?',
-    answer: 'Te hospedás dos noches en Pueblo Mágico, nuestro eco-centro de montaña, con ropa de cama y biocosmética incluidas. Las comidas están pensadas para nutrir y acompañar el proceso — todas incluidas durante los tres días.',
+    answer: 'Te hospedás dos noches en Pueblo Mágico, nuestro eco-centro de montaña, con ropa de cama y biocosmética incluidas. Las comidas están pensadas para nutrir y acompañar el proceso — todas incluidas durante los tres días. Tenemos opciones sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes, pero no un ambiente 100% libre de contaminación cruzada (cocinamos en una cocina y mesada compartida) — para celiaquía severa o intolerancia alta, contanos tu caso al reservar.',
   },
   {
     Icon: HeartIcon,
     question: '¿Cómo reservo mi lugar y qué formas de pago hay?',
     answer: `La experiencia cuesta $${priceSola.toLocaleString('es-AR')} si venís sola, o $${priceAcompanada.toLocaleString('es-AR')} por persona si venís acompañada. Reservás con una seña recomendada de $${senia.toLocaleString('es-AR')}, otros $${segundoPago.toLocaleString('es-AR')} antes del ${segundoPagoFecha}, y el saldo se cancela durante el retiro. Quedan ${cupos} lugares y las inscripciones cierran el ${fechaLimiteInscripcion}, así que te recomendamos escribirnos por WhatsApp cuanto antes.`,
+  },
+  {
+    Icon: PawPrintIcon,
+    question: '¿Puedo llevar a mi mascota?',
+    answer: 'No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas.',
+  },
+  {
+    Icon: WheelchairIcon,
+    question: '¿Tienen accesibilidad para sillas de ruedas?',
+    answer: 'Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos.',
   },
 ];
 

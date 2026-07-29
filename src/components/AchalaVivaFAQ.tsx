@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CaretDownIcon, MagnifyingGlassIcon, PersonSimpleHikeIcon, CloudRainIcon, HouseIcon, CarIcon } from '@phosphor-icons/react';
+import { CaretDownIcon, MagnifyingGlassIcon, PersonSimpleHikeIcon, CloudRainIcon, HouseIcon, CarIcon, PawPrintIcon, WheelchairIcon } from '@phosphor-icons/react';
 
 const faqs = [
   {
@@ -20,12 +20,22 @@ const faqs = [
   {
     Icon: HouseIcon,
     question: "¿Está incluido todo el equipamiento?",
-    answer: "Tu estadía en el Eco-refugio incluye la ropa de cama (sábanas y mantas cálidas) y todas las comidas de la estadía. Solo necesitás traer tu mochila personal, ropa cómoda, buen calzado de trekking y abrigo, ya que en la sierra la temperatura baja por la noche."
+    answer: "Tu estadía en el Eco-refugio incluye la ropa de cama (sábanas y mantas cálidas) y todas las comidas de la estadía. Solo necesitás traer tu mochila personal, ropa cómoda, buen calzado de trekking y abrigo, ya que en la sierra la temperatura baja por la noche. Tenemos opciones sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes, pero no un ambiente 100% libre de contaminación cruzada (cocinamos en una cocina y mesada compartida) — para celiaquía severa o intolerancia alta, contanos tu caso al reservar."
   },
   {
     Icon: CarIcon,
     question: "¿Se puede llegar en vehículo normal o auto bajo?",
     answer: "Sí, el camino de acceso de ripio (aprox. 50km Desde Tanti) está mantenido y es apto para vehículos estándar. Al momento de confirmar tu reserva, te enviamos las indicaciones precisas y el punto GPS para que llegues sin problemas."
+  },
+  {
+    Icon: PawPrintIcon,
+    question: "¿Puedo llevar a mi mascota?",
+    answer: "No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas."
+  },
+  {
+    Icon: WheelchairIcon,
+    question: "¿Tienen accesibilidad para sillas de ruedas?",
+    answer: "Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos."
   }
 ];
 

@@ -630,7 +630,7 @@
           },
           {
             "question": "¿Hay opciones de comida para niños?",
-            "answer": "Sí, nuestra cocina es saludable y adaptable a los gustos de los más pequeños."
+            "answer": "Sí, nuestra cocina es saludable y adaptable a los gustos de los más pequeños. También tenemos opciones sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes, aunque no podemos garantizar un ambiente 100% libre de contaminación cruzada (cocinamos en una cocina y mesada compartida). Para celiaquía severa o intolerancia alta al gluten, contanos tu caso al reservar."
           },
           {
             "question": "¿Qué pasa si llueve?",
@@ -643,6 +643,14 @@
           {
             "question": "¿Qué debo llevar?",
             "answer": "Ropa cómoda para caminar, abrigo para las noches, linterna y ganas de desconectarte. Todo lo demás está incluido: comidas, talleres y actividades."
+          },
+          {
+            "question": "¿Podemos llevar a nuestra mascota?",
+            "answer": "No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas. Si tenés dudas puntuales, escribinos por WhatsApp y lo vemos juntos."
+          },
+          {
+            "question": "¿Tienen accesibilidad para sillas de ruedas?",
+            "answer": "Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos."
           },
           {
             "question": "¿Y si no puedo ir en esas fechas?",
@@ -1163,7 +1171,7 @@
           },
           {
             "question": "¿Qué pasa si hay chicos con necesidades especiales o alergias?",
-            "answer": "Nos adaptamos a cada grupo. Pedimos un detalle de las necesidades especiales antes del viaje para preparar el programa y la alimentación adecuados."
+            "answer": "Nos adaptamos a cada grupo. Pedimos un detalle de las necesidades especiales antes del viaje para preparar el programa y la alimentación adecuados. Tenemos opciones sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes, pero no un ambiente 100% libre de contaminación cruzada (cocinamos en una cocina y mesada compartida) — para celiaquía severa, contanos el caso con anticipación. Por el momento tampoco contamos con rampas ni espacios especialmente preparados para sillas de ruedas; si hay estudiantes con necesidades de accesibilidad, escribinos antes de reservar y lo vemos juntos."
           },
           {
             "question": "¿Está incluido el transporte?",
@@ -1679,6 +1687,18 @@
         {
           "q": "¿Cómo llego si no tengo auto?",
           "a": "Estamos en Paraje Cuchilla Nevada, Ojo de Agua, a 20 minutos de Los Gigantes (Córdoba). Podemos coordinar traslado Desde Villa Carlos Paz o Alta Gracia — consultanos por WhatsApp y lo organizamos juntos."
+        },
+        {
+          "q": "¿Puedo llevar a mi mascota?",
+          "a": "No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas. Si tenés dudas puntuales, escribinos por WhatsApp y lo vemos juntos."
+        },
+        {
+          "q": "¿Tienen accesibilidad para sillas de ruedas?",
+          "a": "Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos."
+        },
+        {
+          "q": "¿Tienen opciones para celíacos o intolerancia al gluten?",
+          "a": "Sí, tenemos opciones de comida sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes. Lo que no podemos garantizar es un ambiente 100% libre de contaminación cruzada: cocinamos en una cocina y mesada compartida, sin productos envasados al vacío ni un proceso aislado. Por eso, para celiaquía severa o intolerancia alta al gluten no podemos asegurar inocuidad total — para el resto de las dietas y alergias, contanos tu caso al reservar."
         }
       ]
     }
@@ -2314,7 +2334,7 @@
           },
           {
             "question": "Are there food options for children?",
-            "answer": "Yes, our kitchen is healthy and adaptable to the tastes of the little ones."
+            "answer": "Yes, our kitchen is healthy and adaptable to the tastes of the little ones. We also have gluten-free options and can guarantee dishes that don't include gluten as an ingredient, though we can't guarantee a 100% cross-contamination-free environment (we cook in a shared kitchen and countertop). For severe celiac disease or high gluten sensitivity, let us know when booking."
           },
           {
             "question": "What if it rains?",
@@ -2327,6 +2347,14 @@
           {
             "question": "What should I bring?",
             "answer": "Comfortable clothes for walking, warm layers for the nights, a torch, and the desire to disconnect. Everything else is included: meals, workshops, and activities."
+          },
+          {
+            "question": "Can we bring our pet?",
+            "answer": "Not at the moment — we don't accept pets, since there are farm animals nearby and we don't have adequate facilities to host them. If you have specific questions, message us on WhatsApp and we'll figure it out together."
+          },
+          {
+            "question": "Do you have wheelchair accessibility?",
+            "answer": "We don't currently have ramps or specially prepared wheelchair-accessible spaces. If you have specific accessibility questions, message us on WhatsApp and we'll work it out together."
           },
           {
             "question": "What if I can't make it on those dates?",
@@ -2852,7 +2880,7 @@
           },
           {
             "question": "What if there are students with special needs or allergies?",
-            "answer": "We adapt to every group. We ask for a list of special needs before the trip so we can prepare the right program and food."
+            "answer": "We adapt to every group. We ask for a list of special needs before the trip so we can prepare the right program and food. We have gluten-free options and can guarantee dishes that don't include gluten as an ingredient, but not a 100% cross-contamination-free environment (we cook in a shared kitchen and countertop) — for severe celiac disease, let us know in advance. We also don't currently have ramps or specially prepared wheelchair-accessible spaces; if there are students with accessibility needs, message us before booking and we'll work it out together."
           },
           {
             "question": "Is transport included?",
@@ -3365,6 +3393,18 @@
         {
           "q": "How do I get there without a car?",
           "a": "We are in Paraje Cuchilla Nevada, Ojo de Agua, 20 minutes from Los Gigantes (Córdoba). We can arrange a transfer from Villa Carlos Paz or Alta Gracia — contact us on WhatsApp and we will sort it out together."
+        },
+        {
+          "q": "Can I bring my pet?",
+          "a": "Not at the moment — we don't accept pets, since there are farm animals nearby and we don't have adequate facilities to host them. If you have specific questions, message us on WhatsApp and we'll figure it out together."
+        },
+        {
+          "q": "Do you have wheelchair accessibility?",
+          "a": "We don't currently have ramps or specially prepared wheelchair-accessible spaces. If you have specific accessibility questions, message us on WhatsApp and we'll work it out together."
+        },
+        {
+          "q": "Do you have options for celiac or gluten intolerance?",
+          "a": "Yes, we offer gluten-free dishes and can guarantee meals that don't include gluten as an ingredient. What we can't guarantee is a 100% cross-contamination-free environment: we cook in a shared kitchen and countertop, without vacuum-sealed products or an isolated process. Because of that, for severe celiac disease or high gluten sensitivity we can't ensure full food safety — for other diets and allergies, just let us know when booking."
         }
       ]
     }

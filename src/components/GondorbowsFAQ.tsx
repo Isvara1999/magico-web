@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CaretDownIcon, BowlFoodIcon, TreeEvergreenIcon, WrenchIcon, UsersThreeIcon, HouseIcon } from '@phosphor-icons/react';
+import { CaretDownIcon, BowlFoodIcon, TreeEvergreenIcon, WrenchIcon, UsersThreeIcon, HouseIcon, PawPrintIcon, WheelchairIcon } from '@phosphor-icons/react';
 
 const faqs = [
   {
@@ -25,7 +25,17 @@ const faqs = [
   {
     Icon: HouseIcon,
     question: "¿Cómo es el alojamiento y la comida?",
-    answer: "La estadía incluye alojamiento premium (Domos Geodésicos o Eco-refugio compartido) con ropa de cama y abrigo, duchas con agua caliente 24hs y todas las comidas caseras (desayuno, almuerzo, merienda y cena) incluidas durante los tres días."
+    answer: "La estadía incluye alojamiento premium (Domos Geodésicos o Eco-refugio compartido) con ropa de cama y abrigo, duchas con agua caliente 24hs y todas las comidas caseras (desayuno, almuerzo, merienda y cena) incluidas durante los tres días. Tenemos opciones sin gluten y podemos garantizar platos que no llevan gluten entre sus ingredientes, pero no un ambiente 100% libre de contaminación cruzada (cocinamos en una cocina y mesada compartida) — para celiaquía severa o intolerancia alta, contanos tu caso al reservar."
+  },
+  {
+    Icon: PawPrintIcon,
+    question: "¿Puedo llevar a mi mascota?",
+    answer: "No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas."
+  },
+  {
+    Icon: WheelchairIcon,
+    question: "¿Tienen accesibilidad para sillas de ruedas?",
+    answer: "Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos."
   }
 ];
 

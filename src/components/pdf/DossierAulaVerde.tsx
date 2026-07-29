@@ -152,7 +152,7 @@ const DossierAulaVerde = () => (
       <Text style={styles.sectionTitle}>Nuestros Servicios Exclusivos</Text>
       <View style={{ marginTop: 0 }}>
           <BulletPoint><Text style={styles.boldText}>Alojamiento Total:</Text> Camas individuales confortables con baños de amplias duchas con agua caliente 24 hs.</BulletPoint>
-          <BulletPoint><Text style={styles.boldText}>Gastronomía Adaptada:</Text> Pensión completa artesanal. Adaptada integralmente a alumnos celíacos, alérgicos o veganos sin cargo extra.</BulletPoint>
+          <BulletPoint><Text style={styles.boldText}>Gastronomía Adaptada:</Text> Pensión completa artesanal, con opciones para alumnos celíacos, alérgicos o veganos sin cargo extra. No garantizamos un ambiente 100% libre de contaminación cruzada (cocina y mesada compartidas) — para celiaquía severa, consultanos antes de confirmar.</BulletPoint>
           <BulletPoint><Text style={styles.boldText}>Staff Bonificado:</Text> Coordinadores y docentes acceden al formato de liberados para unirse de acuerdo a cantidad.</BulletPoint>
       </View>
 

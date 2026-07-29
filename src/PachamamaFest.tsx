@@ -134,7 +134,15 @@ const FAQS = [
   },
   {
     q: '¿Tienen opciones para dietas o alergias?',
-    a: 'Sí, tenemos opciones de comida para todo tipo de dietas y restricciones alimentarias. Contanos tu caso al reservar.',
+    a: 'Sí, tenemos opciones de comida para todo tipo de dietas y restricciones alimentarias, incluidas opciones sin gluten. Lo que no podemos garantizar es un ambiente 100% libre de contaminación cruzada: cocinamos en una cocina y mesada compartida, sin productos envasados al vacío ni un proceso aislado. Para celiaquía severa o intolerancia alta al gluten no podemos asegurar inocuidad total, pero sí podemos garantizar platos que no llevan gluten entre sus ingredientes. Contanos tu caso al reservar.',
+  },
+  {
+    q: '¿Puedo llevar a mi mascota?',
+    a: 'No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas. Si tenés dudas puntuales, escribinos por WhatsApp y lo vemos juntos.',
+  },
+  {
+    q: '¿Tienen accesibilidad para sillas de ruedas?',
+    a: 'Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos.',
   },
 ];
 

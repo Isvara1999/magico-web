@@ -7,7 +7,7 @@ import {
   WifiHigh, CheckCircle, ArrowRight, Star, WhatsappLogo, Tree, UsersThree,
   CaretDownIcon, HouseIcon, ClockIcon, CalendarIcon, Brain, Sparkle, Moon,
   Mountains, Bank, DownloadSimple, FilePdf, CircleNotch, InstagramLogo,
-  CaretLeft, CaretRight,
+  CaretLeft, CaretRight, ForkKnifeIcon, PawPrintIcon, WheelchairIcon,
 } from '@phosphor-icons/react';
 import { WA_MAGICO, SITE_URL } from './data/config';
 import { COLIVING_PRICES } from './data/retreats';
@@ -777,6 +777,9 @@ const FAQS = [
   { Icon: CalendarIcon, q: '¿Puedo entrar y salir cuando quiera durante el Pase Mensual?', a: 'Sí. Podés subir y bajar de la montaña cuando lo necesites. Para volver a subir, avisanos con 24 horas de anticipación — así preparamos todo (cama y comidas) y confirmamos disponibilidad.' },
   { Icon: CalendarIcon, q: '¿Puedo combinar días de trabajo remoto con la rutina de bienestar?', a: 'Sí, es justamente la idea. No hay horarios obligatorios: tenés espacios cómodos y conexión para trabajar, y podés sumarte a las prácticas de bienestar cuando quieras.' },
   { Icon: CaretDownIcon, q: '¿Cómo reservo mi lugar?', a: 'Los cupos son limitados para cuidar la experiencia. Escribinos por WhatsApp contándonos qué formato te interesa y te confirmamos disponibilidad.' },
+  { Icon: ForkKnifeIcon, q: '¿Tienen opciones para dietas o alergias?', a: 'Sí, tenemos opciones de comida para todo tipo de dietas y restricciones alimentarias, incluidas opciones sin gluten. Lo que no podemos garantizar es un ambiente 100% libre de contaminación cruzada: cocinamos en una cocina y mesada compartida, sin productos envasados al vacío ni un proceso aislado. Para celiaquía severa o intolerancia alta al gluten no podemos asegurar inocuidad total, pero sí podemos garantizar platos que no llevan gluten entre sus ingredientes. Contanos tu caso al reservar.' },
+  { Icon: PawPrintIcon, q: '¿Puedo llevar a mi mascota?', a: 'No, por el momento no aceptamos mascotas: en el campo hay animales de granja cerca y no contamos con instalaciones adecuadas para recibirlas.' },
+  { Icon: WheelchairIcon, q: '¿Tienen accesibilidad para sillas de ruedas?', a: 'Por el momento no contamos con rampas ni espacios especialmente preparados para sillas de ruedas. Si tenés dudas puntuales sobre accesibilidad, escribinos por WhatsApp y lo vemos juntos.' },
 ];
 
 const FAQ: React.FC = () => (
