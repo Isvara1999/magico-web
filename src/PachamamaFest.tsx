@@ -102,7 +102,7 @@ const FAQS = [
   },
   {
     q: '¿Cómo funcionan los precios?',
-    a: 'Pijamada sale $30.000 por noche (1 noche $30.000, 2 noches $60.000, 3 noches $90.000), con todas las comidas y actividades incluidas — esto se paga 100% antes de venir, para reservar tu lugar. Además, podés sumar aportes voluntarios si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso: viernes y lunes desde $15.000, sábado desde $30.000. El domingo, Ofrenda y Temazcal son aportes independientes ($30.000 mínimo cada uno, o $50.000 las dos juntas). Estos aportes no hace falta pagarlos antes: se abonan después de vivir cada actividad.',
+    a: 'Pijamada sale $45.000 por noche (1 noche $45.000, 2 noches $90.000, 3 noches $135.000), con todas las comidas y actividades incluidas. Para reservar tu lugar se paga una seña — consultanos el monto por WhatsApp — y el resto se abona después. Además, podés sumar aportes voluntarios si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso: viernes y lunes desde $15.000, sábado desde $30.000. El domingo, Ofrenda y Temazcal son aportes independientes ($30.000 mínimo cada uno, o $50.000 las dos juntas). Estos aportes no hace falta pagarlos antes: se abonan después de vivir cada actividad.',
   },
   {
     q: '¿Qué pasa si no me gusta la experiencia?',
@@ -183,7 +183,7 @@ const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 const PIJAMADA_COLOR = '#8B6A00';
 const PIJAMADA_BG = 'rgba(212,175,55,0.04)';
 const PIJAMADA_BORDER = 'rgba(212,175,55,0.4)';
-const PRECIO_NOCHE_PIJAMADA = 30000;
+const PRECIO_NOCHE_PIJAMADA = 45000;
 
 // Solo a modo de referencia — ya no se vende, se muestra como agotada.
 const EXPERIENCIA_COMPLETA_AGOTADA = 250000;
@@ -203,8 +203,8 @@ const PIJAMADA_ITEMS = [
 ];
 
 // Aportes por actividades: mínimos sugeridos y voluntarios. No hace falta pagarlos
-// antes de venir — se abonan después de vivir cada actividad. Lo único que se paga
-// 100% por adelantado es el lugar en la Pijamada.
+// antes de venir — se abonan después de vivir cada actividad. Para reservar el
+// lugar en la Pijamada se paga una seña (monto a consultar por WhatsApp).
 const APORTE_VIERNES_LUNES = 15000;
 const APORTE_SABADO = 30000;
 
@@ -335,7 +335,7 @@ const PachamamaFest: React.FC = () => {
           </p>
 
           <p className="text-sm sm:text-base font-semibold mb-3" style={{ color: C.gold }}>
-            Desde $30.000
+            Desde {fmt(PRECIO_NOCHE_PIJAMADA)}
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -906,7 +906,7 @@ const PachamamaFest: React.FC = () => {
                 {/* Paso 2: aportes por actividades */}
                 <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>2. Aportes por actividades (opcional)</p>
                 <p className="text-xs mb-3" style={{ color: C.faint }}>
-                  Sumate a lo que quieras. Si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso, podés hacer un aporte. No hace falta pagarlo ahora: se abona después de vivirla. Lo único que se paga 100% antes de venir es tu lugar en la Pijamada.
+                  Sumate a lo que quieras. Si sentís que una actividad te movió, te generó una transformación o te ayudó en tu proceso, podés hacer un aporte. No hace falta pagarlo ahora: se abona después de vivirla. Para tu lugar en la Pijamada se paga una seña — consultanos el monto por WhatsApp.
                 </p>
                 <div className="space-y-2 mb-6">
                   {APORTES_DIA.map(d => {
@@ -987,7 +987,7 @@ const PachamamaFest: React.FC = () => {
               {modalidad === 'pijamada' && (
                 <>
                   <p className="text-xs mb-1" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
-                  <p className="text-xs mb-4 font-semibold" style={{ color: PIJAMADA_COLOR }}>Se paga 100% antes de venir, para reservar tu lugar.</p>
+                  <p className="text-xs mb-4 font-semibold" style={{ color: PIJAMADA_COLOR }}>Para reservar tu lugar se paga una seña — consultanos el monto por WhatsApp.</p>
                   <div className="flex items-center gap-2 mb-5 px-3.5 py-2.5 rounded-xl border" style={{ backgroundColor: 'white', borderColor: PIJAMADA_COLOR }}>
                     <Utensils size={16} color={PIJAMADA_COLOR} className="flex-shrink-0" />
                     <span className="text-sm font-bold" style={{ color: PIJAMADA_COLOR }}>Todas las comidas incluidas</span>
