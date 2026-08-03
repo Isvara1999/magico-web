@@ -6,6 +6,9 @@ node_modules
 # Build output
 /dist
 
+# Cloudflare Wrangler local dev state (local D1 sqlite, logs)
+.wrangler
+
 # Vite cache metadata (can change when running dev)
 node_modules/.vite/deps/_metadata.json
 

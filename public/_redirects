@@ -8,5 +8,17 @@
 # URL limpia para el Recetario Familión (ManyChat / automatizaciones)
 /recetario-familion    /uploads/Recetarios/recetario-familion.pdf    302
 
-# SPA fallback: serve index.html for any path that has no static file on disk.
-/*    /index.html   200
+# SPA fallback SOLO para las rutas client-only que no están prerenderizadas
+# (todo lo demás ya tiene su propio dist/<ruta>/index.html real — ver
+# scripts/prerender.mjs ROUTES). Un catch-all "/* -> /index.html 200" acá
+# rompía /estadia y compañía (ver scripts/check-routes.mjs) y además Cloudflare
+# lo detecta como loop infinito porque /* también matchea /index.html.
+# IMPORTANTE: el destino es /app-shell/ (carpeta con su propio index.html),
+# NO un archivo .html suelto. Cloudflare Pages normaliza automáticamente
+# cualquier destino que termine en ".html" con un 308 que le saca la
+# extensión — eso rompe la reescritura 200 (invisible) y cambia la URL
+# del browser a la del destino. Una carpeta con index.html (mismo patrón
+# que cualquier ruta prerenderizada) no sufre esa normalización.
+/reset-vital    /app-shell/   200
+/despertar    /app-shell/   200
+/propuesta/nico-grupe    /app-shell/   200

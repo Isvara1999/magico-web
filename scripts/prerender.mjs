@@ -140,6 +140,25 @@ if (!existsSync(DIST)) {
 console.log('\nPhase 1: Meta tag injection...');
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
+// Fallback nativo de Cloudflare Pages para rutas desconocidas: si existe un
+// 404.html en la raíz del output, lo sirve para cualquier ruta no encontrada —
+// mismo shell que index.html, React Router se encarga de mostrar <NotFound/>.
+// Reemplaza al viejo catch-all de _redirects (causaba loop + pisaba rutas
+// prerenderizadas, ver public/_redirects).
+writeFileSync(join(DIST, '404.html'), template);
+console.log('  ✓ 404.html (fallback SPA nativo)');
+
+// Shell para las 3 rutas client-only (reset-vital, despertar, propuesta/nico-grupe)
+// referenciadas desde _redirects. IMPORTANTE: va en una carpeta con su propio
+// index.html (como cualquier ruta prerenderizada), NO como un archivo .html
+// suelto — Cloudflare Pages normaliza automáticamente cualquier destino que
+// termine en ".html" con un 308 que le saca la extensión, lo que convierte
+// la reescritura 200 (invisible) en un redirect visible que cambia la URL
+// del browser. Un directorio con index.html no sufre esa normalización.
+mkdirSync(join(DIST, 'app-shell'), { recursive: true });
+writeFileSync(join(DIST, 'app-shell', 'index.html'), template);
+console.log('  ✓ app-shell/index.html (destino de redirects SPA client-only)');
+
 // ─── Per-route JSON-LD builder ───────────────────────────────────────────────
 function buildJsonLD(route) {
   const base = {
