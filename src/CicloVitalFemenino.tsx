@@ -12,6 +12,7 @@ import CicloVitalFemeninoHero from './components/CicloVitalFemeninoHero';
 import CicloVitalFemeninoLugar from './components/CicloVitalFemeninoLugar';
 import CicloVitalFemeninoEquipo from './components/CicloVitalFemeninoEquipo';
 import CicloVitalFemeninoTestimonios from './components/CicloVitalFemeninoTestimonios';
+import CicloVitalFemeninoMomentos from './components/CicloVitalFemeninoMomentos';
 import CicloVitalFemeninoPrecios from './components/CicloVitalFemeninoPrecios';
 import CicloVitalFemeninoFAQ from './components/CicloVitalFemeninoFAQ';
 
@@ -26,6 +27,15 @@ const QUE_VIVIRAS = [
   'Temazcal',
   'Ceremonia de Cacao',
   'Y otras magias que se vivirán y son imposibles de describir o develar',
+];
+
+const MOMENTOS_IMAGES = [
+  { src: '/uploads/469280911_444096748740233_2818770490495002077_n.webp', alt: 'Sala de encuentro y movimiento, luz cálida entrando por los ventanales' },
+  { src: '/uploads/Ciclo Femenino/Mujeres meditando en circulo acostadas.jpeg', alt: 'Mujeres en círculo, acostadas en meditación' },
+  { src: '/uploads/Ciclo Femenino/Altar con tarot.jpeg', alt: 'Altar ritual con tarot, plumas y elementos de la tierra' },
+  { src: '/uploads/Ciclo Femenino/altar con tarot e intenciones.jpeg', alt: 'Círculo de intenciones con flores y tarot' },
+  { src: '/uploads/Ciclo Femenino/meditacion china.jpeg', alt: 'Meditación grupal guiada' },
+  { src: '/uploads/Ciclo Femenino/temazcal parte superior.jpeg', alt: 'Estructura del temazcal contra el cielo' },
 ];
 
 const GALLERY_IMAGES = [
@@ -57,6 +67,7 @@ const NO_ES_PARA_VOS = [
 
 const CicloVitalFemeninoContent: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [momentosIndex, setMomentosIndex] = useState(0);
   const [showFloatingCta, setShowFloatingCta] = useState(false);
 
   const MSG = encodeURIComponent(RETREATS_DATA.cicloVitalFemenino.message);
@@ -169,6 +180,14 @@ const CicloVitalFemeninoContent: React.FC = () => {
   const nextImage = () => setCurrentImage((prev) => (prev + 1) % GALLERY_IMAGES.length);
   const prevImage = () => setCurrentImage((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
+  // Autoplay carrusel de momentos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMomentosIndex((prev) => (prev + 1) % MOMENTOS_IMAGES.length);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => setShowFloatingCta(window.scrollY > 700);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -200,13 +219,46 @@ const CicloVitalFemeninoContent: React.FC = () => {
                 </p>
               </div>
               <div data-reveal data-delay="1">
-                <img
-                  src={img('/uploads/469280911_444096748740233_2818770490495002077_n.webp', 900)}
-                  alt="Sala de encuentro y movimiento, luz cálida entrando por los ventanales"
-                  className="w-full object-cover rounded-2xl aspect-[4/5] md:aspect-square"
+                <div
+                  className="relative w-full rounded-2xl overflow-hidden aspect-[4/5] md:aspect-square group"
                   style={{ boxShadow: '0 20px 60px rgba(0,83,51,0.15)' }}
-                  loading="lazy"
-                />
+                >
+                  <img
+                    src={img(MOMENTOS_IMAGES[momentosIndex].src, 900)}
+                    alt={MOMENTOS_IMAGES[momentosIndex].alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+
+                  <button
+                    onClick={() => setMomentosIndex((p) => (p - 1 + MOMENTOS_IMAGES.length) % MOMENTOS_IMAGES.length)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-brand p-2 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer opacity-0 group-hover:opacity-100"
+                    aria-label="Momento anterior"
+                  >
+                    <CaretLeft weight="thin" className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setMomentosIndex((p) => (p + 1) % MOMENTOS_IMAGES.length)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-white text-white hover:text-brand p-2 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 active:scale-90 z-20 cursor-pointer opacity-0 group-hover:opacity-100"
+                    aria-label="Siguiente momento"
+                  >
+                    <CaretRight weight="thin" className="w-5 h-5" />
+                  </button>
+
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    {MOMENTOS_IMAGES.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setMomentosIndex(index)}
+                        className={`h-1.5 rounded-full transition-all duration-300 shadow-sm active:scale-90 cursor-pointer ${
+                          index === momentosIndex ? 'bg-white w-5' : 'bg-white/50 hover:bg-white/80 w-1.5'
+                        }`}
+                        aria-label={`Ir al momento ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -214,8 +266,8 @@ const CicloVitalFemeninoContent: React.FC = () => {
           {/* ====== QUÉ VIVIRÁS ====== */}
           <section className="relative py-20 md:py-28 px-6 overflow-hidden">
             <img
-              src={img('/uploads/Invierno/20250628_181834.webp', 1800)}
-              alt="Atardecer de invierno tras la pirca de piedra"
+              src={img('/uploads/temazcal.webp', 1800)}
+              alt="Temazcal — ritual de purificación"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ filter: 'blur(2px)' }}
               loading="lazy"
@@ -351,6 +403,7 @@ const CicloVitalFemeninoContent: React.FC = () => {
 
           <CicloVitalFemeninoEquipo />
           <CicloVitalFemeninoTestimonios />
+          <CicloVitalFemeninoMomentos />
           <CicloVitalFemeninoPrecios />
           <CicloVitalFemeninoFAQ />
 

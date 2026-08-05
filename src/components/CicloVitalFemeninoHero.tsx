@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { WA_CICLO_VITAL_FEMENINO } from '../data/config';
 import { RETREATS_DATA } from '../data/retreats';
-import { img } from '../lib/img';
 
 const CicloVitalFemeninoHero: React.FC = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const MSG = encodeURIComponent(RETREATS_DATA.cicloVitalFemenino.message);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="heroSec" className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
 
-      {/* ── Fondo: círculo de meditación al sol, en Pueblo Mágico ── */}
-      <div className="absolute inset-0 z-0 bg-[#0B0F17]">
-        <img
-          src={img('/uploads/bienestar-balance.webp', 1800)}
-          alt="Círculo de meditación al sol en Pueblo Mágico"
-          className="w-full h-full object-cover scale-105"
-          style={{ objectPosition: 'center 55%', animation: 'ciclo-hero-zoom 20s ease-in-out infinite alternate' }}
-        />
-        <style>{`@keyframes ciclo-hero-zoom { from { transform: scale(1.0); } to { transform: scale(1.08); } }`}</style>
+      {/* ── Fondo: video del encuentro ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#0B0F17]">
+        {videoLoaded && (
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/g0F3jwDOi4E?autoplay=1&mute=1&controls=0&loop=1&playlist=g0F3jwDOi4E&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&showinfo=0&fs=0"
+            title="Video de fondo — Ciclo Vital Femenino"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            className="pointer-events-none absolute"
+            style={{
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%) scale(1.8)',
+              width: '177.78vh',
+              height: '100vh',
+              minWidth: '100vw',
+            }}
+          />
+        )}
+        <div className="absolute inset-0 z-[1]" style={{ pointerEvents: 'auto' }} />
       </div>
 
       {/* ── Overlays — cálidos, tono otoño-invierno en vez de negro puro ── */}
