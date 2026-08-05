@@ -307,6 +307,27 @@ const HorariosPension: React.FC = () => (
           </ul>
         </div>
 
+        <div className="mb-5">
+          <p className="text-brand font-semibold text-sm mb-2">Horarios del servicio de comidas</p>
+          <div className="grid grid-cols-3 gap-2 mb-2">
+            <div className="bg-bone rounded-lg px-2 py-2 text-center">
+              <p className="text-dark/40 text-[10px] uppercase tracking-widest">Desayuno</p>
+              <p className="text-brand text-sm font-semibold">09:00–10:00</p>
+            </div>
+            <div className="bg-bone rounded-lg px-2 py-2 text-center">
+              <p className="text-dark/40 text-[10px] uppercase tracking-widest">Almuerzo</p>
+              <p className="text-brand text-sm font-semibold">14:00–15:00</p>
+            </div>
+            <div className="bg-bone rounded-lg px-2 py-2 text-center">
+              <p className="text-dark/40 text-[10px] uppercase tracking-widest">Cena</p>
+              <p className="text-brand text-sm font-semibold">20:00–21:00</p>
+            </div>
+          </div>
+          <p className="text-dark/50 text-xs leading-relaxed">
+            Fuera de estos horarios no se presta servicio de cocina. Si llegás a partir de las 19:00 hs, contás con la cena en su horario habitual; las comidas no consumidas por llegadas tardías sin aviso no son acumulables ni reembolsables.
+          </p>
+        </div>
+
         <div className="bg-brand/5 border border-brand/10 rounded-xl px-5 py-4">
           <p className="text-brand font-semibold text-sm mb-2">Uso extendido del predio (flexibilidad)</p>
           <p className="text-dark/65 text-sm leading-relaxed mb-2">
@@ -317,6 +338,14 @@ const HorariosPension: React.FC = () => (
           </p>
           <p className="text-dark/65 text-sm leading-relaxed">
             Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
+          </p>
+        </div>
+
+        <div className="bg-gold/5 border border-gold/20 rounded-xl px-5 py-4 mt-3">
+          <p className="text-brand font-semibold text-sm mb-1">Saldo y cambios de fecha</p>
+          <p className="text-dark/60 text-xs leading-relaxed">
+            Si reservaste con seña, el saldo pendiente se cancela hasta el check-out. Reprogramaciones de fecha o ajustes de comidas: mínimo 24 hs de anticipación. Política completa de cancelación en{' '}
+            <a href="/terminos-y-condiciones" className="text-brand underline">Términos y Condiciones</a>.
           </p>
         </div>
 

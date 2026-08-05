@@ -19,9 +19,9 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <img
-              src="/uploads/logo negro.svg"
+              src="/uploads/pueblo_magico_logo_marron.svg"
               alt="Pueblo Mágico"
-              width="160"
+              width="82"
               height="40"
               className="h-10 opacity-90"
             />
@@ -53,6 +53,14 @@ export const Footer: React.FC = () => {
                   <a href={item.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.href : item.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
                     {item.label}
+                  </a>
+                </li>
+              ))}
+              {t.footer.exploreLinks.map((link: any, index: number) => (
+                <li key={`explore-${index}`}>
+                  <a href={link.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
+                    {link.label}
                   </a>
                 </li>
               ))}

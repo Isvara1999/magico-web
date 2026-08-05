@@ -19,7 +19,9 @@
 # extensión — eso rompe la reescritura 200 (invisible) y cambia la URL
 # del browser a la del destino. Una carpeta con index.html (mismo patrón
 # que cualquier ruta prerenderizada) no sufre esa normalización.
+# /admin/reservas NO necesita entrada acá: tiene su propio archivo real en
+# dist/admin/reservas/index.html (con manifest propio — ver prerender.mjs),
+# y un archivo real siempre tiene prioridad sobre _redirects en Cloudflare Pages.
 /reset-vital    /app-shell/   200
 /despertar    /app-shell/   200
 /propuesta/nico-grupe    /app-shell/   200
-/admin/reservas    /app-shell/   200

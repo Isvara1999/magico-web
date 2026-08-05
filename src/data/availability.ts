@@ -1,7 +1,10 @@
 /**
- * Static availability — edit these lists as reservations come in.
- * BLOCKED_DATES_DOMO / BLOCKED_DATES_REFUGIO: string[] of 'YYYY-MM-DD'.
- * Refresh this file each time a reservation is confirmed.
+ * Fallback de disponibilidad — el BookingWidget ahora consulta en vivo
+ * GET /api/disponibilidad (functions/api/disponibilidad.ts), que calcula
+ * estas mismas listas a partir de las reservas reales en D1. Estos arrays
+ * solo se usan como respaldo mientras esa consulta está en curso o si falla
+ * (por ejemplo en `npm run dev`, donde no corren las Pages Functions).
+ * BLOCKED_DATES_DOMO / BLOCKED_DATES_REFUGIO: string[] de 'YYYY-MM-DD'.
  */
 
 export const CAPACITY_PER_DAY = 30;

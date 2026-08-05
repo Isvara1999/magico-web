@@ -1360,6 +1360,27 @@ const WinterRedirection: React.FC = () => {
               </ul>
             </div>
 
+            <div className="mb-4">
+              <p className="font-semibold text-sm mb-2" style={{ color: C.dark }}>Horarios del servicio de comidas</p>
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <div className="rounded-lg px-2 py-2 text-center" style={{ backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: C.faint }}>Desayuno</p>
+                  <p className="text-sm font-semibold" style={{ color: C.green }}>09:00–10:00</p>
+                </div>
+                <div className="rounded-lg px-2 py-2 text-center" style={{ backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: C.faint }}>Almuerzo</p>
+                  <p className="text-sm font-semibold" style={{ color: C.green }}>14:00–15:00</p>
+                </div>
+                <div className="rounded-lg px-2 py-2 text-center" style={{ backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: C.faint }}>Cena</p>
+                  <p className="text-sm font-semibold" style={{ color: C.green }}>20:00–21:00</p>
+                </div>
+              </div>
+              <p className="text-xs leading-relaxed" style={{ color: C.faint }}>
+                Fuera de estos horarios no se presta servicio de cocina. Si llegás a partir de las 19:00 hs, contás con la cena en su horario habitual; las comidas no consumidas por llegadas tardías sin aviso no son acumulables ni reembolsables.
+              </p>
+            </div>
+
             <div className="rounded-xl px-5 py-4" style={{ backgroundColor: 'rgba(0,83,51,0.04)' }}>
               <p className="font-semibold text-sm mb-2" style={{ color: C.dark }}>Uso extendido del predio (flexibilidad)</p>
               <p className="text-sm leading-relaxed mb-2" style={{ color: C.muted }}>
@@ -1370,6 +1391,14 @@ const WinterRedirection: React.FC = () => {
               </p>
               <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
                 Si querés almorzar en el refugio el día de tu check-out, se ofrece el almuerzo como consumo extra.
+              </p>
+            </div>
+
+            <div className="rounded-xl px-5 py-4 mt-3" style={{ backgroundColor: 'rgba(212,175,55,0.08)' }}>
+              <p className="font-semibold text-sm mb-1" style={{ color: C.dark }}>Saldo y cambios de fecha</p>
+              <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
+                Si reservaste con seña, el saldo pendiente se cancela hasta el check-out. Reprogramaciones de fecha o ajustes de comidas: mínimo 24 hs de anticipación. Política completa de cancelación en{' '}
+                <a href="/terminos-y-condiciones" style={{ color: C.green, textDecoration: 'underline' }}>Términos y Condiciones</a>.
               </p>
             </div>
 

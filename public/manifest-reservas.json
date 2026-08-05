@@ -1,0 +1,30 @@
+{
+  "name": "Pueblo Mágico — Reservas",
+  "short_name": "PM Reservas",
+  "description": "Panel interno de gestión de reservas de Pueblo Mágico",
+  "start_url": "/admin/reservas",
+  "scope": "/admin/reservas",
+  "display": "standalone",
+  "background_color": "#F9FAFB",
+  "theme_color": "#005333",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/uploads/pwa-192x192-reservas.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/uploads/pwa-512x512-reservas.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

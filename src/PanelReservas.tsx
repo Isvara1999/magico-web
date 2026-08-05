@@ -674,6 +674,92 @@ const SeccionAirbnb: React.FC<{ alojamientos: Alojamiento[]; onSincronizado: () 
   );
 };
 
+const INSTALAR_DESCARTADO_KEY = 'pm_reservas_instalar_descartado';
+
+// Cartel de instalación propio de este dashboard (no el del sitio público:
+// éste usa manifest-reservas.json, con su propio ícono/nombre — ver
+// scripts/prerender.mjs). Chrome/Edge/Android disparan 'beforeinstallprompt'
+// y ofrecemos el prompt nativo con un botón. Safari/iOS nunca dispara ese
+// evento, así que le mostramos el paso a paso manual en su lugar.
+const InstalarBanner: React.FC = () => {
+  const [promptEvent, setPromptEvent] = useState<any>(null);
+  const [descartado, setDescartado] = useState(() => {
+    try { return localStorage.getItem(INSTALAR_DESCARTADO_KEY) === '1'; } catch { return false; }
+  });
+  const [instalando, setInstalando] = useState(false);
+
+  const esIOS = useMemo(() => /iphone|ipad|ipod/i.test(navigator.userAgent), []);
+  const yaInstalada = useMemo(
+    () => window.matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone === true,
+    []
+  );
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setPromptEvent(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const descartar = () => {
+    setDescartado(true);
+    try { localStorage.setItem(INSTALAR_DESCARTADO_KEY, '1'); } catch { /* localStorage puede estar bloqueado — no es crítico */ }
+  };
+
+  if (yaInstalada || descartado || !(promptEvent || esIOS)) return null;
+
+  return (
+    <div className="bg-brand text-white px-4 sm:px-6 py-3" role="region" aria-label="Instalar app de Reservas">
+      <div className="max-w-6xl mx-auto flex items-start sm:items-center justify-between gap-3">
+        <div className="flex items-start sm:items-center gap-3 min-w-0">
+          <Download size={18} className="flex-shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" />
+          <div className="min-w-0">
+            <p className="text-sm font-semibold leading-snug">Instalá "Reservas" en tu celular</p>
+            {esIOS && !promptEvent ? (
+              <p className="text-xs text-white/80 leading-snug mt-0.5">
+                Tocá Compartir (el ícono □↑ abajo en Safari) y elegí "Agregar a inicio". Vas a tener un acceso directo, separado del sitio público.
+              </p>
+            ) : (
+              <p className="text-xs text-white/80 leading-snug mt-0.5">
+                Acceso rápido desde tu pantalla de inicio, separado del sitio público.
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {promptEvent && (
+            <button
+              disabled={instalando}
+              onClick={async () => {
+                setInstalando(true);
+                try {
+                  promptEvent.prompt();
+                  await promptEvent.userChoice;
+                } finally {
+                  setPromptEvent(null);
+                  setInstalando(false);
+                }
+              }}
+              className={`text-xs font-semibold rounded-lg px-3 py-2 bg-white text-brand hover:opacity-90 transition-opacity ${FOCUS_RING}`}
+            >
+              {instalando ? 'Instalando…' : 'Instalar'}
+            </button>
+          )}
+          <button
+            onClick={descartar}
+            aria-label="Cerrar"
+            className={`p-1.5 rounded-lg hover:bg-white/10 transition-colors ${FOCUS_RING}`}
+          >
+            <X size={16} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PanelReservas: React.FC = () => {
   const [vistaActiva, setVistaActiva] = useState<VistaActiva>('operativa');
   const [reservas, setReservas] = useState<Reserva[]>([]);
@@ -842,6 +928,8 @@ const PanelReservas: React.FC = () => {
           </div>
         </div>
       </header>
+
+      <InstalarBanner />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {error && (

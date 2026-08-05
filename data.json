@@ -259,24 +259,6 @@
       "link": "",
       "cards": [
         {
-          "date": "INVIERNO 2026 · JUL · AGO · SEP",
-          "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo.",
-          "btn": "Ver más",
-          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
-          "link": "/winter-camp",
-          "pdfLink": ""
-        },
-        {
-          "date": "INVIERNO 2026 · JUL · AGO · SEP",
-          "title": "Winter Redirection · Emprendedores en la Montaña",
-          "desc": "Un mes para redirigir cuando el ruido del día a día tapa la perspectiva. Contenido específico para emprendedores, dueños de negocio y equipos: mentalidad de crecimiento, comunicación y productos con IA.",
-          "btn": "Ver más",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
-          "link": "/winter-redirection",
-          "pdfLink": ""
-        },
-        {
           "date": "14-15 AGOSTO",
           "title": "Familion",
           "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
@@ -290,7 +272,7 @@
           "title": "Pachamama Fest · Finde Largo en la Montaña",
           "desc": "Festival consciente para honrar a la Tierra, agradecer y abrir un nuevo ciclo. Fogones, ritual, música y comunidad en las Sierras Grandes. Desde $45.000.",
           "btn": "Ver más",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "image": "/uploads/hero(3).webp",
           "link": "/pachamama-fest",
           "pdfLink": ""
         },
@@ -326,8 +308,26 @@
           "title": "Reset Vital",
           "desc": "Tu retiro autoguiado incluido en toda estadía. Una guía PDF con meditaciones, journaling, caminatas conscientes y rituales simples para reconectar a tu propio ritmo. Sin horarios, sin obligaciones. Reservá tu estadía y llevate la experiencia.",
           "btn": "Ver Estadías",
-          "image": "/uploads/bienestar-balance.webp",
+          "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
+        },
+        {
+          "date": "INVIERNO 2026 · JUL · AGO · SEP",
+          "title": "Winter Camp · Vacaciones de Invierno",
+          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo.",
+          "btn": "Ver más",
+          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
+          "link": "/winter-camp",
+          "pdfLink": ""
+        },
+        {
+          "date": "INVIERNO 2026 · JUL · AGO · SEP",
+          "title": "Winter Redirection · Emprendedores en la Montaña",
+          "desc": "Un mes para redirigir cuando el ruido del día a día tapa la perspectiva. Contenido específico para emprendedores, dueños de negocio y equipos: mentalidad de crecimiento, comunicación y productos con IA.",
+          "btn": "Ver más",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "link": "/winter-redirection",
+          "pdfLink": ""
         }
       ]
     },
@@ -356,12 +356,9 @@
         "label": "WINTER CAMP · INVIERNO 2026 · ¡RESERVÁ TU LUGAR!",
         "link": "/winter-camp"
       },
-      "winterExperiences": {
-        "label": "EXPERIENCIAS DE INVIERNO 2026",
-        "options": [
-          { "label": "Winter Camp", "sub": "Familias y viajeros solos", "link": "/winter-camp" },
-          { "label": "Winter Redirection", "sub": "Emprendedores y dueños de negocio", "link": "/winter-redirection" }
-        ]
+      "pachamamaBadge": {
+        "label": "PACHAMAMA FEST · 14-17 AGO",
+        "link": "/pachamama-fest"
       },
       "colivingBadge": {
         "label": "CO-LIVING · ESTADÍAS LARGAS",
@@ -508,24 +505,19 @@
         "privacy": "Políticas de Privacidad",
         "faq": "Preguntas Frecuentes"
       },
+      "exploreLinks": [
+        { "label": "Estadías & Glamping", "href": "/estadia" },
+        { "label": "Coliving", "href": "/coliving" }
+      ],
       "experienceGroups": [
-        {
-          "title": "Alojamiento",
-          "links": [
-            { "label": "Estadías & Glamping", "href": "/estadia" },
-            { "label": "Coliving", "href": "/coliving" }
-          ]
-        },
         {
           "title": "Experiencias con fecha",
           "links": [
             { "label": "❄ Winter Camp", "href": "/winter-camp" },
-            { "label": "⚡ Winter Redirection", "href": "/winter-redirection" },
             { "label": "Pachamama Fest", "href": "/pachamama-fest" },
             { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
             { "label": "Familion", "href": "/familion" },
-            { "label": "Achala Viva", "href": "/achala-viva" },
-            { "label": "El Vuelo del Cóndor", "href": "/el-vuelo-del-condor" }
+            { "label": "Achala Viva", "href": "/achala-viva" }
           ]
         },
         {
@@ -1963,24 +1955,6 @@
       "link": "",
       "cards": [
         {
-          "date": "WINTER 2026 · JUL · AUG · SEP",
-          "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash.",
-          "btn": "See More",
-          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
-          "link": "/winter-camp",
-          "pdfLink": ""
-        },
-        {
-          "date": "WINTER 2026 · JUL · AUG · SEP",
-          "title": "Winter Redirection · Entrepreneurs in the Mountains",
-          "desc": "A month to redirect when the day-to-day noise blocks your perspective. Specific content for entrepreneurs, business owners and teams: growth mindset, communication and AI-powered products.",
-          "btn": "See More",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
-          "link": "/winter-redirection",
-          "pdfLink": ""
-        },
-        {
           "date": "AUG 14-15",
           "title": "Familion",
           "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
@@ -1994,7 +1968,7 @@
           "title": "Pachamama Fest · Long Weekend in the Mountains",
           "desc": "A conscious festival to honor the Earth, give thanks and open a new cycle. Bonfires, ritual, music and community in the Sierras Grandes. From $45,000.",
           "btn": "See More",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "image": "/uploads/hero(3).webp",
           "link": "/pachamama-fest",
           "pdfLink": ""
         },
@@ -2030,8 +2004,26 @@
           "title": "Reset Vital",
           "desc": "Your self-guided retreat included in every stay. A PDF guide with meditations, journaling, mindful walks and simple rituals to reconnect at your own pace. No schedules, no obligations.",
           "btn": "See Stays",
-          "image": "/uploads/bienestar-balance.webp",
+          "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
+        },
+        {
+          "date": "WINTER 2026 · JUL · AUG · SEP",
+          "title": "Winter Camp · Mountain Retreat",
+          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash.",
+          "btn": "See More",
+          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
+          "link": "/winter-camp",
+          "pdfLink": ""
+        },
+        {
+          "date": "WINTER 2026 · JUL · AUG · SEP",
+          "title": "Winter Redirection · Entrepreneurs in the Mountains",
+          "desc": "A month to redirect when the day-to-day noise blocks your perspective. Specific content for entrepreneurs, business owners and teams: growth mindset, communication and AI-powered products.",
+          "btn": "See More",
+          "image": "/uploads/pachamama-interior-ventanales.webp",
+          "link": "/winter-redirection",
+          "pdfLink": ""
         }
       ]
     },
@@ -2060,12 +2052,9 @@
         "label": "WINTER CAMP · WINTER 2026 · BOOK YOUR SPOT!",
         "link": "/winter-camp"
       },
-      "winterExperiences": {
-        "label": "WINTER EXPERIENCES 2026",
-        "options": [
-          { "label": "Winter Camp", "sub": "Families & solo travelers", "link": "/winter-camp" },
-          { "label": "Winter Redirection", "sub": "Entrepreneurs & business owners", "link": "/winter-redirection" }
-        ]
+      "pachamamaBadge": {
+        "label": "PACHAMAMA FEST · AUG 14-17",
+        "link": "/pachamama-fest"
       },
       "colivingBadge": {
         "label": "CO-LIVING · LONG STAYS",
@@ -2212,24 +2201,19 @@
         "privacy": "Privacy Policy",
         "faq": "FAQ"
       },
+      "exploreLinks": [
+        { "label": "Stays & Glamping", "href": "/estadia" },
+        { "label": "Coliving", "href": "/coliving" }
+      ],
       "experienceGroups": [
-        {
-          "title": "Accommodation",
-          "links": [
-            { "label": "Stays & Glamping", "href": "/estadia" },
-            { "label": "Coliving", "href": "/coliving" }
-          ]
-        },
         {
           "title": "Dated experiences",
           "links": [
             { "label": "❄ Winter Camp", "href": "/winter-camp" },
-            { "label": "⚡ Winter Redirection", "href": "/winter-redirection" },
             { "label": "Pachamama Fest", "href": "/pachamama-fest" },
             { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
             { "label": "Familion", "href": "/familion" },
-            { "label": "Achala Viva", "href": "/achala-viva" },
-            { "label": "The Condor's Flight", "href": "/el-vuelo-del-condor" }
+            { "label": "Achala Viva", "href": "/achala-viva" }
           ]
         },
         {
@@ -2253,7 +2237,7 @@
     },
     "familion": {
       "seo": {
-        "title": "Familion — Family Experiences · Los Gigantes, Cordoba | Magico Ensueno",
+        "title": "Familion — Family Experiences · Los Gigantes, Cordoba | Pueblo Magico",
         "description": "3 days of urban disconnection and family reconnection in the mountains. Workshops, hikes and wildlife for all ages."
       },
       "hero": {
@@ -2556,7 +2540,7 @@
     },
     "aula_verde": {
       "seo": {
-        "title": "Aula Verde — Educational Camps in Cordoba | Magico Ensueno",
+        "title": "Aula Verde — Educational Camps in Cordoba | Pueblo Magico",
         "description": "Educational camps in Los Gigantes, Córdoba. Biology, geology, astronomy and sustainability with specialists in open country. For primary and secondary schools."
       },
       "invitation": {
@@ -2733,11 +2717,11 @@
       },
       "magico": {
         "wa_query": "Hi! I'm coming from the Aula Verde website and would like to ask about the educational programmes at Pueblo Mágico for my institution.",
-        "title": "Magico Ensueno",
+        "title": "Pueblo Magico",
         "description": "In the heart of Los Gigantes, Cordoba, just 1h from Tanti and 1:30h from Villa Carlos Paz. A space with over 25 years of history that has welcomed educational institutions from all over Argentina.",
         "infra_title": "Infrastructure for groups",
         "infra_text": "Main hall for 60 people, equipped kitchen, group dormitories, bathrooms with hot water, and outdoor spaces for all program activities.",
-        "video_title": "Magico Ensueno — Mountain Experience",
+        "video_title": "Pueblo Magico — Mountain Experience",
         "benefits_title": "Why schools choose us",
         "benefits": [
           {
@@ -2774,7 +2758,7 @@
         ],
         "gallery_title": "The experience in images",
         "gallery_subtitle": "Groups that have already experienced Aula Verde in Los Gigantes",
-        "map_alt": "Map of Magico Ensueno - Los Gigantes, Cordoba",
+        "map_alt": "Map of Pueblo Magico - Los Gigantes, Cordoba",
         "map_download": "Download Map",
         "map_consult": "Ask about location"
       },
@@ -3043,7 +3027,7 @@
     },
     "vuelo_condor": {
       "seo": {
-        "title": "The Flight of the Condor — An initiatory journey in Peru | Magico Ensueno",
+        "title": "The Flight of the Condor — An initiatory journey in Peru | Pueblo Magico",
         "description": "7 days to raise your consciousness in the Sacred Valley of the Incas. From July 22 to 29."
       },
       "video": {

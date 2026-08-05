@@ -1,45 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Tree, UsersThree, Mountains, CaretDown } from '@phosphor-icons/react';
+import { Tree, UsersThree, Mountains } from '@phosphor-icons/react';
 import { BookingWidget, G } from './BookingWidget';
 
-const WinterExperiencesMenu: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+const PachamamaFestBadge: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
   const { t } = useLanguage();
-  const data = (t.hero as any).winterExperiences;
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener('mousedown', onClick);
-    return () => document.removeEventListener('mousedown', onClick);
-  }, [open]);
+  const data = (t.hero as any).pachamamaBadge;
 
   if (!data) return null;
 
   return (
-    <div ref={ref} style={{ position: 'relative' }}>
-      <button onClick={() => setOpen(o => !o)}
-        style={{ display: 'flex', alignItems: 'center', gap: compact ? 6 : 8, background: 'rgba(212,175,55,0.2)', border: '1px solid rgba(212,175,55,0.4)', borderRadius: 999, padding: compact ? '5px 12px' : '6px 14px', cursor: 'pointer' }}>
-        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
-        <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: compact ? 11 : 12, fontWeight: 700, letterSpacing: compact ? '0.2em' : '0.25em', textTransform: 'uppercase' }}>{data.label}</span>
-        <CaretDown size={compact ? 10 : 11} weight="bold" color="rgba(255,255,255,0.8)" style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
-      </button>
-      {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 8px)', left: 0, zIndex: 30, minWidth: 250, background: 'white', borderRadius: 14, overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
-          {data.options.map((opt: any, i: number) => (
-            <a key={opt.link} href={opt.link}
-              style={{ display: 'block', padding: '12px 16px', textDecoration: 'none', borderBottom: i < data.options.length - 1 ? '1px solid rgba(0,83,51,0.08)' : 'none' }}>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: 13, color: G.green }}>{opt.label}</p>
-              <p style={{ margin: '2px 0 0', fontSize: 11, color: '#4A6070' }}>{opt.sub}</p>
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
+    <a href={data.link}
+      style={{ display: 'flex', alignItems: 'center', gap: compact ? 6 : 8, background: 'rgba(212,175,55,0.2)', border: '1px solid rgba(212,175,55,0.4)', borderRadius: 999, padding: compact ? '5px 12px' : '6px 14px', textDecoration: 'none' }}>
+      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
+      <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: compact ? 11 : 12, fontWeight: 700, letterSpacing: compact ? '0.2em' : '0.25em', textTransform: 'uppercase' }}>{data.label}</span>
+    </a>
   );
 };
 
@@ -76,14 +51,12 @@ export const HeroNuevo: React.FC = () => {
       {/* ═══════════════════════════════════════════════════════
           MOBILE: logo + H1 corto + widget directo
       ════════════════════════════════════════════════════════ */}
-      <div className="lg:hidden flex flex-col" style={{ position: 'relative', zIndex: 10, padding: '4.5rem 1.25rem 1.5rem' }}>
+      <div className="lg:hidden flex flex-col" style={{ position: 'relative', zIndex: 10, padding: '6.5rem 1.25rem 1.5rem' }}>
 
-        {/* Tag + logo */}
-        <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 10 }}>
+        {/* Tag */}
+        <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 14 }}>
           {(t.hero as any).tag}
         </p>
-        <img src="/uploads/logo negro.svg" alt="Pueblo Mágico"
-          style={{ height: 76, width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.95, marginBottom: 10, display: 'block' }} />
 
         {/* Título + posicionamiento */}
         <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', color: 'white', lineHeight: 1.2, fontWeight: 300, marginBottom: 5 }}>
@@ -129,7 +102,7 @@ export const HeroNuevo: React.FC = () => {
             <span style={{ color: '#fde047', fontSize: 13 }}>★★★★★</span>
             <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 12 }}>{(t.hero as any).stats_google}</span>
           </div>
-          <WinterExperiencesMenu compact />
+          <PachamamaFestBadge compact />
           {colivingBadge && (
             <a href={colivingBadge.link}
               style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: 999, padding: '5px 12px', textDecoration: 'none' }}>
@@ -147,17 +120,14 @@ export const HeroNuevo: React.FC = () => {
           DESKTOP: dos columnas — texto izquierda, widget derecha
       ════════════════════════════════════════════════════════ */}
       <div className="hidden lg:flex"
-        style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem', alignItems: 'flex-start', minHeight: '100vh' }}>
+        style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem', alignItems: 'center', minHeight: '100vh' }}>
 
         {/* Columna texto */}
-        <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingTop: '8rem', paddingBottom: '3rem', paddingRight: '2rem' }}>
+        <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingTop: '5rem', paddingBottom: '5rem', paddingRight: '2rem' }}>
 
-          <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 18 }}>
+          <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 22 }}>
             {(t.hero as any).tag}
           </p>
-
-          <img src="/uploads/logo negro.svg" alt="Pueblo Mágico" width={900} height={900}
-            style={{ height: 72, width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.95, marginBottom: 18, display: 'block' }} />
 
           <h1 style={{ fontSize: 'clamp(2.1rem, 3.4vw, 3.1rem)', fontFamily: 'Georgia, serif', color: 'white', lineHeight: 1.2, fontWeight: 300, marginBottom: 8, maxWidth: 480 }}>
             {t.hero.title}
@@ -190,7 +160,7 @@ export const HeroNuevo: React.FC = () => {
 
           {/* Trust chips */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-            <WinterExperiencesMenu />
+            <PachamamaFestBadge />
             {colivingBadge && (
               <a href={colivingBadge.link}
                 style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: 999, padding: '6px 14px', textDecoration: 'none' }}>
@@ -219,7 +189,7 @@ export const HeroNuevo: React.FC = () => {
         </div>
 
         {/* Tarjeta flotante de reserva */}
-        <div style={{ width: 370, flexShrink: 0, paddingTop: '7.5rem', paddingBottom: '3rem', paddingLeft: '1.5rem' }}>
+        <div style={{ width: 370, flexShrink: 0, paddingTop: '5rem', paddingBottom: '5rem', paddingLeft: '1.5rem' }}>
           <div style={{ width: '100%', borderRadius: 22, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.18)' }}>
             <div style={{ background: G.green, padding: '18px 20px 16px' }}>
               <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 21, fontWeight: 400, color: 'white', lineHeight: 1.25, margin: 0 }}>

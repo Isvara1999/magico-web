@@ -22,7 +22,7 @@ const BRAND = {
 
 // --- IMÁGENES DE FONDO (Placeholders estilo Córdoba) ---
 const IMAGES = {
-  hero: "/uploads/img_6948.webp", 
+  hero: "/uploads/img_6948.webp",
   day1: "/uploads/hero(3).webp", 
   day2: "/uploads/f2d5nat1pa6uihnwj480.webp", 
   day3: "/uploads/494815924_1424799465353456_392615711940557767_n.webp", 
@@ -220,12 +220,13 @@ export default function ResetVitalApp() {
 
           {/* Logo blanco arriba */}
           <img
-            src="/uploads/logo blanco.svg"
+            src="/uploads/pueblo_magico_logo_marron.svg"
             alt="Pueblo Mágico"
             className="h-12 md:h-14 w-auto object-contain opacity-80 mb-8 drop-shadow-lg print:hidden"
+            style={{ filter: 'brightness(0) invert(1)' }}
           />
           <img
-            src="/uploads/logo negro.svg"
+            src="/uploads/pueblo_magico_logo_marron.svg"
             alt="Pueblo Mágico"
             className="hidden print:block h-12 w-auto object-contain mb-6"
           />
@@ -890,7 +891,7 @@ export default function ResetVitalApp() {
             <div className="mt-8 flex justify-center">
               <a
                 href="/uploads/mapa_magico.webp"
-                download="Mapa_Magico_Ensueno.webp"
+                download="Mapa_Pueblo_Magico.webp"
                 className="inline-flex items-center gap-2 px-7 py-3 bg-[#005333] text-white rounded-full hover:bg-[#003d26] transition-colors text-xs font-bold uppercase tracking-widest shadow-lg"
               >
                 <Download size={16} /> Descargar Mapa

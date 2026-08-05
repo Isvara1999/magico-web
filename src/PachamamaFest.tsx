@@ -98,7 +98,7 @@ const FAQS = [
   },
   {
     q: '¿Cuál es la diferencia entre Experiencia completa y Pijamada?',
-    a: 'Experiencia completa ya está agotada para esta edición. Las modalidades disponibles son Pijamada (sin cama, dormís en nuestro salón principal sobre tu propio colchón o colchoneta, con comidas y actividades incluidas) y Pase del día (solo el domingo, sin alojamiento, para vivir la Ofrenda y/o el Temazcal).',
+    a: 'Experiencia completa incluye cama en habitación compartida. Pijamada es sin cama — dormís en nuestro salón principal sobre tu propio colchón o colchoneta. Ambas incluyen todas las comidas y actividades del festival. También está el Pase del día (solo el domingo, sin alojamiento, para vivir la Ofrenda y/o el Temazcal).',
   },
   {
     q: '¿Cómo funcionan los precios?',
@@ -179,14 +179,20 @@ const Countdown: React.FC = () => {
 // ─── Precios ────────────────────────────────────────────────────────────────────
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
-// Nueva estrategia: Experiencia completa queda agotada. Pijamada y Pase del día disponibles.
 const PIJAMADA_COLOR = '#8B6A00';
 const PIJAMADA_BG = 'rgba(212,175,55,0.04)';
 const PIJAMADA_BORDER = 'rgba(212,175,55,0.4)';
 const PRECIO_NOCHE_PIJAMADA = 45000;
 
-// Solo a modo de referencia — ya no se vende, se muestra como agotada.
-const EXPERIENCIA_COMPLETA_AGOTADA = 250000;
+const EXPERIENCIA_COMPLETA_COLOR = '#005333';
+const EXPERIENCIA_COMPLETA_BG = 'rgba(0,83,51,0.05)';
+const EXPERIENCIA_COMPLETA_BORDER = 'rgba(0,83,51,0.3)';
+const PRECIO_EXPERIENCIA_COMPLETA = 250000;
+const EXPERIENCIA_COMPLETA_ITEMS = [
+  'Cama en habitación compartida',
+  'Todas las actividades del festival incluidas — sin aportes adicionales',
+  'Todas las comidas incluidas',
+];
 
 type NocheOpcion = { noches: number; label: string; precio: number };
 const OPCIONES_NOCHES: NocheOpcion[] = [
@@ -228,13 +234,13 @@ const PachamamaFest: React.FC = () => {
   const [temazcalOfrendaOpen, setTemazcalOfrendaOpen] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
 
-  const [modalidad, setModalidad] = useState<'pijamada' | 'dia'>('pijamada');
+  const [modalidad, setModalidad] = useState<'completa' | 'pijamada' | 'dia'>('pijamada');
   const [nochesSeleccion, setNochesSeleccion] = useState(3);
   const [aportesDias, setAportesDias] = useState<Record<AporteDiaKey, boolean>>({ viernes: false, sabado: false, lunes: false });
   const [domOfrenda, setDomOfrenda] = useState(false);
   const [domTemazcal, setDomTemazcal] = useState(false);
   const toggleAporteDia = (key: AporteDiaKey) => setAportesDias(a => ({ ...a, [key]: !a[key] }));
-  const selectModalidad = (key: 'pijamada' | 'dia') => {
+  const selectModalidad = (key: 'completa' | 'pijamada' | 'dia') => {
     setModalidad(key);
     if (key === 'dia' && !domOfrenda && !domTemazcal) setDomOfrenda(true);
   };
@@ -269,6 +275,7 @@ const PachamamaFest: React.FC = () => {
 
   // En Pijamada, los aportes por actividades (incluido el domingo) son un extra que se paga después.
   // En Pase del día, el aporte del domingo ES el producto — se cobra como total.
+  // Experiencia completa ya incluye todas las actividades sin aportes adicionales.
   const detalleAportes = modalidad === 'pijamada'
     ? [
         ...APORTES_DIA.filter(d => aportesDias[d.key]).map(d => `Aporte ${d.label}: ${fmt(d.monto)}`),
@@ -279,12 +286,14 @@ const PachamamaFest: React.FC = () => {
     ? APORTES_DIA.reduce((sum, d) => sum + (aportesDias[d.key] ? d.monto : 0), 0) + aporteDomingo
     : 0;
 
-  const totalEfectivo = modalidad === 'dia' ? aporteDomingo : opcion.precio;
+  const totalEfectivo = modalidad === 'dia' ? aporteDomingo : modalidad === 'completa' ? PRECIO_EXPERIENCIA_COMPLETA : opcion.precio;
   const totalCuotas = totalEfectivo * 1.2;
   const cuotaMensual = totalCuotas / 3;
 
   const waMsgCalc = modalidad === 'dia'
     ? `¡Hola! Quiero sumarme al Pachamama Fest el domingo (${detalleDomingoTxt}).\n\nAporte: ${fmt(totalEfectivo)}\n\n¿Cómo sigo?`
+    : modalidad === 'completa'
+    ? `¡Hola! Quiero reservar la Experiencia Completa en el Pachamama Fest.\n\nExperiencia completa (con cama)\nTotal: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n${detalleAportes.length ? `\nAportes por actividades:\n${detalleAportes.join('\n')}\nSubtotal aportes: ${fmt(aportesTotal)}\n` : ''}\n¿Cómo sigo?`
     : `¡Hola! Quiero reservar mi Pijamada en el Pachamama Fest.\n\nPijamada · ${opcion.label}\nTotal alojamiento: ${fmt(totalEfectivo)} (o 3x ${fmt(cuotaMensual)})\n${detalleAportes.length ? `\nAportes por actividades:\n${detalleAportes.join('\n')}\nSubtotal aportes: ${fmt(aportesTotal)}\n` : ''}\n¿Cómo sigo?`;
   const waCalcUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(waMsgCalc)}`;
 
@@ -860,13 +869,10 @@ const PachamamaFest: React.FC = () => {
             {/* Modalidad */}
             <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>Modalidad</p>
             <div className="grid grid-cols-3 gap-2 mb-2">
-              <div className="rounded-xl px-2 py-3 border text-center" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: '#F1EEE7', opacity: 0.6 }}>
-                <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: C.faint }}>Experiencia completa</p>
-                <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: '#B0483F' }}>Agotado · {fmt(EXPERIENCIA_COMPLETA_AGOTADA)}</p>
-              </div>
               {([
-                { key: 'pijamada' as const, label: 'Pijamada', desde: PRECIO_NOCHE_PIJAMADA, color: PIJAMADA_COLOR, bg: PIJAMADA_BG },
-                { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_DOMINGO_UNA, color: C.primavera, bg: 'rgba(157,0,94,0.05)' },
+                { key: 'completa' as const, label: 'Experiencia completa', desde: PRECIO_EXPERIENCIA_COMPLETA, fixed: true, color: EXPERIENCIA_COMPLETA_COLOR, bg: EXPERIENCIA_COMPLETA_BG },
+                { key: 'pijamada' as const, label: 'Pijamada', desde: PRECIO_NOCHE_PIJAMADA, fixed: false, color: PIJAMADA_COLOR, bg: PIJAMADA_BG },
+                { key: 'dia' as const, label: 'Pase del día · Ofrenda', desde: APORTE_DOMINGO_UNA, fixed: false, color: C.primavera, bg: 'rgba(157,0,94,0.05)' },
               ]).map(m => {
                 const active = modalidad === m.key;
                 return (
@@ -874,7 +880,7 @@ const PachamamaFest: React.FC = () => {
                     className="rounded-xl px-2 py-3 border text-center transition-colors"
                     style={{ borderColor: active ? m.color : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bg : 'white' }}>
                     <p className="text-xs font-bold mb-0.5 leading-tight" style={{ color: active ? m.color : C.dark }}>{m.label}</p>
-                    <p className="text-[10px]" style={{ color: C.faint }}>desde {fmt(m.desde)}</p>
+                    <p className="text-[10px]" style={{ color: C.faint }}>{m.fixed ? fmt(m.desde) : `desde ${fmt(m.desde)}`}</p>
                   </button>
                 );
               })}
@@ -882,6 +888,8 @@ const PachamamaFest: React.FC = () => {
             <p className="text-xs mb-6" style={{ color: C.faint }}>
               {modalidad === 'pijamada'
                 ? 'Sin cama — traés tu colchón o colchoneta, dormís en el salón. Todas las comidas y actividades incluidas.'
+                : modalidad === 'completa'
+                ? 'Con cama en habitación compartida. Todas las comidas y actividades del festival incluidas, sin aportes adicionales.'
                 : 'Sin alojamiento — vení solo el domingo, a vivir la Ofrenda y/o el Temazcal.'}
             </p>
 
@@ -971,17 +979,20 @@ const PachamamaFest: React.FC = () => {
 
             {/* Paso final: resultado */}
             <p className="text-[10px] tracking-widest uppercase font-semibold mb-2" style={{ color: C.faint }}>{modalidad === 'dia' ? 'Tu aporte' : 'Tu precio'}</p>
-            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: modalidad === 'dia' ? 'rgba(157,0,94,0.05)' : PIJAMADA_BG, border: `1px solid ${modalidad === 'dia' ? 'rgba(157,0,94,0.3)' : PIJAMADA_BORDER}` }}>
+            <div className="rounded-2xl p-6 md:p-7" style={{
+              backgroundColor: modalidad === 'dia' ? 'rgba(157,0,94,0.05)' : modalidad === 'completa' ? EXPERIENCIA_COMPLETA_BG : PIJAMADA_BG,
+              border: `1px solid ${modalidad === 'dia' ? 'rgba(157,0,94,0.3)' : modalidad === 'completa' ? EXPERIENCIA_COMPLETA_BORDER : PIJAMADA_BORDER}`,
+            }}>
               <div className="flex items-end justify-between gap-3 mb-1">
                 <div>
-                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>
-                    {modalidad === 'dia' ? 'Pase del día' : 'Pijamada'}
+                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidad === 'dia' ? C.primavera : modalidad === 'completa' ? EXPERIENCIA_COMPLETA_COLOR : PIJAMADA_COLOR }}>
+                    {modalidad === 'dia' ? 'Pase del día' : modalidad === 'completa' ? 'Experiencia completa' : 'Pijamada'}
                   </p>
                   <p className="text-xs" style={{ color: C.faint }}>
-                    {modalidad === 'dia' ? `Domingo · ${detalleDomingoTxt}` : opcion.label}
+                    {modalidad === 'dia' ? `Domingo · ${detalleDomingoTxt}` : modalidad === 'completa' ? 'Festival completo · con cama' : opcion.label}
                   </p>
                 </div>
-                <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>{fmt(totalEfectivo)}</p>
+                <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidad === 'dia' ? C.primavera : modalidad === 'completa' ? EXPERIENCIA_COMPLETA_COLOR : PIJAMADA_COLOR }}>{fmt(totalEfectivo)}</p>
               </div>
 
               {modalidad === 'pijamada' && (
@@ -1012,6 +1023,25 @@ const PachamamaFest: React.FC = () => {
                 </>
               )}
 
+              {modalidad === 'completa' && (
+                <>
+                  <p className="text-xs mb-1" style={{ color: C.faint }}>o 3 cuotas con tarjeta de crédito de {fmt(cuotaMensual)}</p>
+                  <p className="text-xs mb-4 font-semibold" style={{ color: EXPERIENCIA_COMPLETA_COLOR }}>Para reservar tu lugar se paga una seña — consultanos el monto por WhatsApp.</p>
+                  <div className="flex items-center gap-2 mb-5 px-3.5 py-2.5 rounded-xl border" style={{ backgroundColor: 'white', borderColor: EXPERIENCIA_COMPLETA_COLOR }}>
+                    <Utensils size={16} color={EXPERIENCIA_COMPLETA_COLOR} className="flex-shrink-0" />
+                    <span className="text-sm font-bold" style={{ color: EXPERIENCIA_COMPLETA_COLOR }}>Todas las comidas incluidas</span>
+                  </div>
+                  <ul className="space-y-2 mb-5">
+                    {EXPERIENCIA_COMPLETA_ITEMS.map(i => (
+                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                        <span className="flex-shrink-0 mt-0.5" style={{ color: EXPERIENCIA_COMPLETA_COLOR }}>✓</span>{i}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs mb-4" style={{ color: C.faint }}>La opción más cómoda: cama, todas las comidas y todas las actividades incluidas — sin aportes adicionales</p>
+                </>
+              )}
+
               {modalidad === 'dia' && (
                 <ul className="space-y-2 mb-5 mt-4">
                   {['Acceso a la ceremonia elegida el domingo', 'Sin alojamiento ni comida incluida', 'Podés consultar por comidas caseras y nutritivas aparte'].map(i => (
@@ -1024,8 +1054,8 @@ const PachamamaFest: React.FC = () => {
 
               <a href={waCalcUrl} target="_blank" rel="noopener noreferrer"
                 className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: modalidad === 'dia' ? C.primavera : PIJAMADA_COLOR }}>
-                {modalidad === 'dia' ? 'Quiero sumarme ese día' : 'Reservar pijamada'}
+                style={{ backgroundColor: modalidad === 'dia' ? C.primavera : modalidad === 'completa' ? EXPERIENCIA_COMPLETA_COLOR : PIJAMADA_COLOR }}>
+                {modalidad === 'dia' ? 'Quiero sumarme ese día' : modalidad === 'completa' ? 'Reservar experiencia completa' : 'Reservar pijamada'}
               </a>
             </div>
           </div>

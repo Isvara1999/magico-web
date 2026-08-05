@@ -31,7 +31,7 @@ export const PoliticaPrivacidad: React.FC = () => {
           </a>
           <span className="text-gray-200">|</span>
           <img
-            src="/uploads/logo negro.svg"
+            src="/uploads/pueblo_magico_logo_marron.svg"
             alt="Pueblo Mágico"
             className="h-7 opacity-80"
           />

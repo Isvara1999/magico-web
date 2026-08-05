@@ -157,9 +157,9 @@ export const Header: React.FC = () => {
             }
           }}>
             <img
-              src="/uploads/logo negro.svg"
+              src="/uploads/pueblo_magico_logo_marron.svg"
               alt="Pueblo Mágico"
-              width="65"
+              width="134"
               height="65"
               className={logoClasses}
             />

@@ -4,7 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { submitForm } from '../lib/submitForm';
 
 const PDF_URL = '/uploads/Recetarios/recetario-familion.pdf';
-const PDF_FILENAME = 'Recetario-Familion-Magico-Ensueno.pdf';
+const PDF_FILENAME = 'Recetario-Familion-Pueblo-Magico.pdf';
 
 const FamilionRecetario: React.FC = () => {
   const { t } = useLanguage();

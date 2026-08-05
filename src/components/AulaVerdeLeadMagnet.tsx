@@ -41,7 +41,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
           const url = URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = 'Propuesta-Magico-Ensueno-Aula-Verde.pdf';
+          link.download = 'Propuesta-Pueblo-Magico-Aula-Verde.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);

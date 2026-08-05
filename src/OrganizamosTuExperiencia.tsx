@@ -169,7 +169,7 @@ const ACCOUNTS = [
   {
     handle: '@pueblomagico__',
     nombre: 'Pueblo Mágico',
-    seguidores: '15K',
+    seguidores: '36K',
     desc: 'El espacio — una comunidad que busca experiencias transformadoras en la naturaleza.',
     color: C.green,
     bg: 'rgba(0,83,51,0.05)',
@@ -905,7 +905,7 @@ const OrganizamosTuExperiencia: React.FC = () => {
             <div className="inline-flex flex-col items-center gap-2 border rounded-2xl px-10 py-6"
               style={{ borderColor: 'rgba(212,175,55,0.4)', backgroundColor: 'rgba(212,175,55,0.05)' }}>
               <p className="text-[10px] tracking-widest uppercase" style={{ color: C.faint }}>Nuestro alcance combinado</p>
-              <p className="text-5xl md:text-6xl font-bold serif-title" style={{ color: C.green }}>43K+</p>
+              <p className="text-5xl md:text-6xl font-bold serif-title" style={{ color: C.green }}>64K+</p>
               <p className="text-base max-w-xs text-center leading-relaxed" style={{ color: C.muted }}>
                 personas que ya buscan bienestar, naturaleza y experiencias que cambien algo en sus vidas.
               </p>

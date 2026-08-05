@@ -29,7 +29,7 @@ const ACCOUNTS = [
   {
     handle: '@pueblomagico__',
     nombre: 'Pueblo Mágico',
-    seguidores: '15K',
+    seguidores: '36K',
     desc: 'El espacio — una comunidad que busca experiencias transformadoras en la naturaleza',
     color: '#005333',
     bg: 'rgba(0,83,51,0.05)',
@@ -190,7 +190,7 @@ const PropuestaCalmaYoga: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  const totalSeguidores = '54.4K';
+  const totalSeguidores = '75.4K';
   const [espacioIdx, setEspacioIdx] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setEspacioIdx(i => (i + 1) % ESPACIO_IMGS.length), 1400);
@@ -210,7 +210,7 @@ const PropuestaCalmaYoga: React.FC = () => {
       <div className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 backdrop-blur-md" style={{ backgroundColor: '#AA3E11' }}>
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
-            <img src="/uploads/logo blanco.svg" alt="Pueblo Mágico" className="h-6 w-auto flex-shrink-0" />
+            <img src="/uploads/pueblo_magico_logo_marron.svg" alt="Pueblo Mágico" className="h-6 w-auto flex-shrink-0" style={{ filter: 'brightness(0) invert(1)' }} />
             <div className="w-px h-4 bg-white/20 hidden sm:block flex-shrink-0" />
             <span className="text-white/50 text-[10px] tracking-widest uppercase hidden sm:block truncate">
               Propuesta personalizada · {PROSPECT.comunidad}

@@ -11,28 +11,13 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: null,
       includeAssets: ['favicon.svg', 'robots.txt'],
-      manifest: {
-        name: 'Pueblo Mágico',
-        short_name: 'Pueblo Mágico',
-        description: 'Ecocentro en Sierras Grandes de Córdoba: retiros, glamping, campamentos educativos y voluntariados en la montaña.',
-        theme_color: '#FDFBF7',
-        background_color: '#FDFBF7',
-        display: 'standalone',
-        orientation: 'portrait',
-        icons: [
-          {
-            src: '/uploads/pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/uploads/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any'
-          }
-        ]
-      },
+      // El sitio maneja sus manifests a mano (manifest.json, manifest-reservas.json,
+      // enlazados directo desde cada HTML shell — ver index.html y scripts/prerender.mjs)
+      // y el Service Worker propio en sw.js (registrado en index.html), no el de
+      // vite-plugin-pwa. Sin esto, VitePWA inyectaba un segundo <link rel="manifest">
+      // en cada página apuntando a un manifest genérico no usado, compitiendo con
+      // el real.
+      manifest: false,
       workbox: {
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MiB
         globPatterns: ['**/*.{js,css,ico,png,svg}'],

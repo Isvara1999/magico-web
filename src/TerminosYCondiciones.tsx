@@ -32,7 +32,7 @@ export const TerminosYCondiciones: React.FC = () => {
           </a>
           <span className="text-gray-200">|</span>
           <img
-            src="/uploads/logo negro.svg"
+            src="/uploads/pueblo_magico_logo_marron.svg"
             alt="Pueblo Mágico"
             className="h-7 opacity-80"
           />
@@ -125,7 +125,13 @@ export const TerminosYCondiciones: React.FC = () => {
             El prestador responderá dentro de las 24 a 48 horas hábiles con disponibilidad y propuesta de precio. La reserva quedará confirmada una vez abonado el anticipo requerido (cuando corresponda) dentro del plazo indicado en la propuesta.
           </p>
           <p>
-            El check-in se realiza a partir de las 15:00 hs y el check-out hasta las 11:00 hs, salvo acuerdo previo.
+            El check-in se realiza a partir de las 13:00 hs y el check-out hasta las 11:00 hs, salvo acuerdo previo.
+          </p>
+          <p>
+            <strong>Horarios de comidas:</strong> desayuno de 09:00 a 10:00 hs, almuerzo de 14:00 a 15:00 hs y cena de 20:00 a 21:00 hs. Fuera de esos horarios no se presta servicio de cocina; quienes ingresen a partir de las 19:00 hs cuentan con el servicio de cena en su horario habitual. Las comidas no consumidas por llegadas tardías sin aviso previo no son acumulables ni reembolsables.
+          </p>
+          <p>
+            En caso de haber abonado un anticipo, el saldo pendiente deberá cancelarse a más tardar al momento del check-out.
           </p>
         </Section>
 
@@ -162,7 +168,7 @@ export const TerminosYCondiciones: React.FC = () => {
             <strong>Ausencia sin aviso previo:</strong> Si el/la huésped no se presenta en la fecha pactada sin haber comunicado cancelación o demora, se perderá el anticipo abonado y la reserva quedará cancelada automáticamente.
           </p>
           <p>
-            <strong>Modificación de fechas:</strong> sujeta a disponibilidad y sin costo adicional si se solicita con más de 10 días de anticipación.
+            <strong>Modificación de fechas:</strong> sujeta a disponibilidad y sin costo adicional si se solicita con más de 10 días de anticipación. En todos los casos, las reprogramaciones de fecha o ajustes en las comidas deben solicitarse con un mínimo de 24 horas de anticipación; vencido ese plazo, la reserva no podrá modificarse.
           </p>
           <p>
             Las políticas anteriores no afectan el derecho de arrepentimiento regulado en la Sección 5, que prevalece en su plazo legal.
@@ -202,7 +208,20 @@ export const TerminosYCondiciones: React.FC = () => {
           </ul>
         </Section>
 
-        <Section title="9. Ley aplicable y foro">
+        <Section title="9. Política de compensación y garantía de servicio">
+          <p>
+            En caso de que el establecimiento no pueda cumplir con alguno de los servicios esenciales pactados por causas imputables a la organización:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li><strong>Inconvenientes operativos o fallas menores de servicio:</strong> se ofrecerá como compensación noches de estadía sin cargo para ser utilizadas en una futura fecha, sujeto a disponibilidad.</li>
+            <li><strong>Contingencias graves o imposibilidad total de prestación del servicio:</strong> se procederá al reintegro o devolución proporcional o total del importe abonado, según corresponda.</li>
+          </ul>
+          <p>
+            Quedan excluidas de esta garantía las interrupciones de servicios derivadas de fuerza mayor o condiciones climáticas extremas propias del entorno de montaña (ver Sección 8).
+          </p>
+        </Section>
+
+        <Section title="10. Ley aplicable y foro">
           <p>
             Los presentes Términos y Condiciones se rigen por las leyes de la República Argentina, en particular:
           </p>

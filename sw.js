@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reset-vital-v9';
+const CACHE_NAME = 'reset-vital-v10';
 
 // Archivos críticos para cachear inmediatamente
 const PRECACHE_URLS = [
@@ -6,8 +6,7 @@ const PRECACHE_URLS = [
   '/index.html',
   '/reset-vital',
   '/favicon.svg',
-  '/uploads/logo blanco.svg',
-  '/uploads/logo negro.svg',
+  '/uploads/pueblo_magico_logo_marron.svg',
   '/uploads/pwa-192x192.png',
   '/uploads/pwa-512x512.png',
   // Imágenes de la landing (Agregadas para que funcionen offline)

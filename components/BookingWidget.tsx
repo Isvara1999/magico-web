@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
@@ -11,6 +11,14 @@ const MONTH_DATES = [
   { year: 2026, month: 9 },
 ];
 const TODAY = new Date().toISOString().slice(0, 10);
+// Rango que cubre el calendario del widget (1° del primer mes hasta el 1°
+// del mes siguiente al último), para pedirle a /api/disponibilidad solo lo
+// que se va a mostrar.
+const DISPONIBILIDAD_DESDE = `${MONTH_DATES[0].year}-${String(MONTH_DATES[0].month).padStart(2, '0')}-01`;
+const DISPONIBILIDAD_HASTA = (() => {
+  const ultimo = MONTH_DATES[MONTH_DATES.length - 1];
+  return new Date(ultimo.year, ultimo.month, 1).toISOString().slice(0, 10); // mes 1° del mes siguiente
+})();
 export const G = { green: '#005333', gold: '#D4AF37', muted: '#4A6070' };
 
 export function toISO(y: number, m: number, d: number) {
@@ -23,9 +31,8 @@ export function fmt(iso: string, monthAbbr: string[]) {
 export function nightsBetween(a: string, b: string) {
   return Math.round((new Date(b).getTime() - new Date(a).getTime()) / 86_400_000);
 }
-export function getStatus(iso: string, tipo: 'domo' | 'refugio' = 'domo'): 'available' | 'blocked' | 'past' {
+export function getStatus(iso: string, blockedList: string[]): 'available' | 'blocked' | 'past' {
   if (iso < TODAY) return 'past';
-  const blockedList = tipo === 'domo' ? BLOCKED_DATES_DOMO : BLOCKED_DATES_REFUGIO;
   if (blockedList.includes(iso)) return 'blocked';
   return 'available';
 }
@@ -59,12 +66,34 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const [habitacion, setHabitacion] = useState<'compartida' | 'privada' | null>(null);
   const tipoEfectivo: 'domo' | 'refugio' = tipo ?? 'domo';
 
+  // Disponibilidad real desde D1 (Panel de Reservas). Arranca con el
+  // fallback estático y, si /api/disponibilidad responde a tiempo, lo
+  // reemplaza — así el calendario nunca queda "todo disponible" mientras
+  // carga, y sigue funcionando si la consulta falla (p. ej. en dev local).
+  const [blockedDomo, setBlockedDomo] = useState<string[]>(BLOCKED_DATES_DOMO);
+  const [blockedRefugio, setBlockedRefugio] = useState<string[]>(BLOCKED_DATES_REFUGIO);
+
+  useEffect(() => {
+    let cancelado = false;
+    fetch(`/api/disponibilidad?desde=${DISPONIBILIDAD_DESDE}&hasta=${DISPONIBILIDAD_HASTA}`)
+      .then(res => (res.ok ? res.json() : Promise.reject(new Error(`status ${res.status}`))))
+      .then(data => {
+        if (cancelado) return;
+        if (Array.isArray(data?.domo?.blocked)) setBlockedDomo(data.domo.blocked);
+        if (Array.isArray(data?.refugio?.blocked)) setBlockedRefugio(data.refugio.blocked);
+      })
+      .catch(() => { /* se queda con el fallback estático */ });
+    return () => { cancelado = true; };
+  }, []);
+
+  const blockedByTipo = useMemo(() => ({ domo: blockedDomo, refugio: blockedRefugio }), [blockedDomo, blockedRefugio]);
+
   // En vez de borrar las fechas elegidas cuando no aplican al otro tipo de
   // alojamiento, directamente deshabilitamos ese botón — así la persona ve
   // por qué no puede cambiar, en lugar de perder su selección sin aviso.
   function tipoDisponibleParaFechas(op: 'domo' | 'refugio'): boolean {
-    if (start && getStatus(start, op) !== 'available') return false;
-    if (end && getStatus(end, op) !== 'available') return false;
+    if (start && getStatus(start, blockedByTipo[op]) !== 'available') return false;
+    if (end && getStatus(end, blockedByTipo[op]) !== 'available') return false;
     return true;
   }
 
@@ -76,17 +105,17 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const monthUrgency = MONTHLY_URGENCY[monthKey] ?? 'normal';
 
   const handleDay = useCallback((iso: string) => {
-    if (getStatus(iso, tipoEfectivo) !== 'available') return;
+    if (getStatus(iso, blockedByTipo[tipoEfectivo]) !== 'available') return;
     if (!pickEnd || !start) {
       setStart(iso); setEnd(null); setPickEnd(true);
     } else {
       if (iso <= start) { setStart(iso); setEnd(null); }
       else { setEnd(iso); setPickEnd(false); }
     }
-  }, [pickEnd, start, tipoEfectivo]);
+  }, [pickEnd, start, tipoEfectivo, blockedByTipo]);
 
   function dayStyle(iso: string) {
-    const s = getStatus(iso, tipoEfectivo);
+    const s = getStatus(iso, blockedByTipo[tipoEfectivo]);
     const isStart = iso === start;
     const isEnd   = iso === end;
     const inRange = !!(start && end && iso > start && iso < end);

@@ -74,7 +74,7 @@ const AchalaVivaMagico: React.FC = () => {
         <div className="relative group cursor-zoom-in mb-12" onClick={() => window.open('/uploads/mapa_magico.webp', '_blank')}>
           <img src="/uploads/mapa_magico.webp" alt="Mapa de Pueblo Mágico - Los Gigantes" loading="lazy" className="w-full rounded-2xl shadow-lg" />
           <div className="mt-12 mb-16 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30">
-            <a href="/uploads/mapa_magico.webp" download="Mapa_Magico_Ensueno.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
+            <a href="/uploads/mapa_magico.webp" download="Mapa_Pueblo_Magico.webp" className="btn-glass inline-block w-full sm:w-auto text-center">Descargar Mapa</a>
             <a href={consultLink} className="btn-gold inline-block w-full sm:w-auto text-center">Consultar ubicación</a>
           </div>
         </div>
