@@ -80,8 +80,8 @@ export async function onRequestPost({ request, env }: any) {
   const inserted: any = await db
     .prepare(
       `INSERT INTO reservas
-        (cliente_nombre, alojamiento_id, fecha_checkin, fecha_checkout, cantidad_personas, monto_total, monto_sena, estado, manychat_user_id)
-       VALUES (?, ?, ?, ?, ?, ?, ?, 'pendiente', ?)
+        (cliente_nombre, alojamiento_id, fecha_checkin, fecha_checkout, cantidad_personas, monto_total, monto_sena, estado, manychat_user_id, canal_origen)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 'pendiente', ?, 'ManyChat')
        RETURNING id`
     )
     .bind(clienteNombrePlaceholder, disponibilidad.alojamiento_id, fecha_entrada, fecha_salida, personas, precio.subtotal, montoSena, String(user_id))

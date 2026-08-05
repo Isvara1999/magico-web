@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS alojamientos (
 INSERT INTO alojamientos (nombre, tipo, capacidad_total) VALUES
   ('Domo 1',        'domo',    7),
   ('Domo 2',        'domo',    7),
-  ('Refugio Shared', 'refugio', 15);
+  ('Refugio',        'refugio', 15);
 
 -- ─── reservas ───────────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS reservas (
@@ -34,6 +34,9 @@ CREATE TABLE IF NOT EXISTS reservas (
   mp_payment_id      TEXT,
   created_at         TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   manychat_user_id   TEXT,
+  unidad_asignada    TEXT,   -- lugar físico concreto, ej. 'Domo 2' o 'Cama 3 Habitación 1' (Panel de Reservas)
+  canal_origen       TEXT,   -- 'ManyChat', 'WhatsApp', 'Instagram', 'Airbnb', etc. — de dónde vino la reserva
+  ical_uid           TEXT,   -- UID del VEVENT del calendario externo (Airbnb, etc.) — permite hacer upsert en cada sync sin duplicar
 
   CHECK (fecha_checkout > fecha_checkin)
 );
@@ -54,3 +57,6 @@ CREATE INDEX IF NOT EXISTS idx_reservas_mp_payment_id
 
 CREATE INDEX IF NOT EXISTS idx_reservas_manychat_user_id
   ON reservas (manychat_user_id);
+
+CREATE INDEX IF NOT EXISTS idx_reservas_ical_uid
+  ON reservas (ical_uid);

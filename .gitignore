@@ -21,3 +21,9 @@ outputs/
 .graphifyignore
 graphify-out/
 
+# Datos reales de huéspedes / exports de migración — nunca al repo (ver
+# CLAUDE.md: scripts de fix temporales se escriben, se corren, se borran).
+huespedes.csv
+insert_historico.sql
+update_canal.sql
+

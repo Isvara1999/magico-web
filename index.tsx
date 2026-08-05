@@ -30,6 +30,7 @@ const Coliving = lazy(() => import('./src/Coliving'));
 const TerminosYCondiciones = lazy(() => import('./src/TerminosYCondiciones'));
 const PoliticaPrivacidad = lazy(() => import('./src/PoliticaPrivacidad'));
 const NotFound = lazy(() => import('./src/NotFound'));
+const PanelReservas = lazy(() => import('./src/PanelReservas'));
 
 const ScrollToTop: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -99,6 +100,7 @@ root.render(
               <Route path="/coliving" element={<Coliving />} />
               <Route path="/terminos-y-condiciones" element={<TerminosYCondiciones />} />
               <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
+              <Route path="/admin/reservas" element={<PanelReservas />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
