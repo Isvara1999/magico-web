@@ -1,7 +1,11 @@
 // Cloudflare Pages Function — asigna un lugar físico concreto (ej. "Domo 2" o
 // "Cama 3 Habitación 1") a una reserva desde el Panel de Reservas.
 //
-// CERO LOGIN A PROPÓSITO — ver nota en functions/api/admin/reservas.ts.
+// Protegido por sesión propia, roles super_admin/editor — ver
+// functions/_lib/authGuard.ts y nota en functions/api/admin/reservas.ts.
+
+import { requireRole } from '../../_lib/authGuard';
+import { registrarAuditoria } from '../../_lib/auditoria';
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
@@ -11,6 +15,9 @@ function json(body: unknown, status = 200) {
 }
 
 export async function onRequestPost({ request, env }: any) {
+  const auth = await requireRole(request, env, ['super_admin', 'editor']);
+  if (auth instanceof Response) return auth;
+
   let body: any;
   try {
     body = await request.json();
@@ -37,6 +44,8 @@ export async function onRequestPost({ request, env }: any) {
   if (!row) {
     return json({ error: `No existe la reserva #${id}.` }, 404);
   }
+
+  await registrarAuditoria(db, auth.email, 'asignar_unidad', `Reserva #${id} → ${row.unidad_asignada || '(sin asignar)'}`);
 
   return json({ ok: true, reserva_id: row.id, unidad_asignada: row.unidad_asignada });
 }

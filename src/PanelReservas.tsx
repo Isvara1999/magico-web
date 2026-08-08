@@ -23,7 +23,7 @@ import { X, ChevronLeft, ChevronRight, RefreshCw, CheckCircle2, MessageCircle, D
 // más específicos, sin tocar el CSS global del sitio.
 
 type TipoAlojamiento = 'domo' | 'refugio';
-type VistaActiva = 'operativa' | 'metricas' | 'historial';
+type VistaActiva = 'operativa' | 'metricas' | 'historial' | 'usuarios' | 'actividad';
 type EstadoReserva = 'pendiente' | 'confirmada' | 'cancelada';
 
 type Alojamiento = {
@@ -51,6 +51,30 @@ type Reserva = {
   canal_origen: string | null;
   manychat_user_id: string | null;
   created_at: string;
+};
+
+type Rol = 'super_admin' | 'editor' | 'viewer';
+
+type Usuario = {
+  id: number;
+  email: string;
+  rol: Rol;
+  activo: number;
+  created_at: string;
+};
+
+type RegistroActividad = {
+  id: number;
+  email: string;
+  accion: string;
+  detalle: string | null;
+  created_at: string;
+};
+
+const ROL_LABEL: Record<Rol, string> = {
+  super_admin: 'Súper admin',
+  editor: 'Editor',
+  viewer: 'Solo ver',
 };
 
 type PendienteVieja = {
@@ -182,15 +206,24 @@ type FormReserva = {
   estado: EstadoReserva;
   canal_origen: string;
   unidad_asignada: string;
+  tipo_estadia: string;
 };
+
+const TIPOS_ESTADIA = [
+  { value: 'huesped', label: 'Huésped' },
+  { value: 'staff', label: 'Staff' },
+  { value: 'voluntario', label: 'Voluntario' },
+  { value: 'residente', label: 'Residente' },
+];
 
 const ModalReserva: React.FC<{
   modo: 'crear' | 'editar';
   reserva: Reserva | null;
   alojamientos: Alojamiento[];
+  soloLectura?: boolean;
   onClose: () => void;
   onGuardado: () => void;
-}> = ({ modo, reserva, alojamientos, onClose, onGuardado }) => {
+}> = ({ modo, reserva, alojamientos, soloLectura, onClose, onGuardado }) => {
   const [form, setForm] = useState<FormReserva>(() => ({
     cliente_nombre: reserva?.cliente_nombre || '',
     cliente_telefono: reserva?.cliente_telefono || '',
@@ -204,6 +237,7 @@ const ModalReserva: React.FC<{
     estado: reserva?.estado || 'confirmada',
     canal_origen: reserva?.canal_origen || 'Manual',
     unidad_asignada: reserva?.unidad_asignada || '',
+    tipo_estadia: 'huesped',
   }));
   const [guardando, setGuardando] = useState(false);
   const [guardado, setGuardado] = useState(false);
@@ -213,6 +247,19 @@ const ModalReserva: React.FC<{
   const [cancelando, setCancelando] = useState(false);
 
   const setCampo = (campo: keyof FormReserva, valor: string) => setForm(f => ({ ...f, [campo]: valor }));
+
+  // Staff/voluntario/residente no pagan estadía — al elegir cualquier tipo
+  // distinto de "Huésped" forzamos $0 y bloqueamos los montos para que nadie
+  // tipee un número ahí por error.
+  const esHuesped = form.tipo_estadia === 'huesped';
+  const cambiarTipoEstadia = (valor: string) => {
+    setForm(f => ({
+      ...f,
+      tipo_estadia: valor,
+      monto_total: valor === 'huesped' ? f.monto_total : '0',
+      monto_sena: valor === 'huesped' ? f.monto_sena : '0',
+    }));
+  };
 
   const validar = (): string | null => {
     if (!form.cliente_nombre.trim()) return 'Falta el nombre del huésped.';
@@ -248,6 +295,7 @@ const ModalReserva: React.FC<{
             monto_sena: form.monto_sena !== '' ? Number(form.monto_sena) : null,
             estado: form.estado,
             canal_origen: form.canal_origen.trim() || 'Manual',
+            tipo_estadia: form.tipo_estadia,
           }),
         });
         const data: any = await res.json();
@@ -317,7 +365,13 @@ const ModalReserva: React.FC<{
         </p>
       )}
 
-      <div className="space-y-3 mb-4">
+      {soloLectura && (
+        <p className="text-xs text-gray-500 mb-4 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+          Modo solo lectura — tu usuario no tiene permiso para crear, editar ni cancelar reservas.
+        </p>
+      )}
+
+      <fieldset disabled={soloLectura} className="space-y-3 mb-4 border-0 p-0 m-0 min-w-0">
         <div>
           <label className={labelCls} htmlFor="f_nombre">Nombre del huésped *</label>
           <input id="f_nombre" autoFocus className={inputCls} value={form.cliente_nombre} onChange={e => setCampo('cliente_nombre', e.target.value)} />
@@ -351,6 +405,18 @@ const ModalReserva: React.FC<{
           </div>
         </div>
 
+        {modo === 'crear' && (
+          <div>
+            <label className={labelCls} htmlFor="f_tipo_estadia">Tipo de estadía *</label>
+            <select id="f_tipo_estadia" className={inputCls} value={form.tipo_estadia} onChange={e => cambiarTipoEstadia(e.target.value)}>
+              {TIPOS_ESTADIA.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
+            </select>
+            {!esHuesped && (
+              <p className="text-[11px] text-gray-400 mt-1">Staff/voluntario/residente no pagan estadía — el monto queda en $0.</p>
+            )}
+          </div>
+        )}
+
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className={labelCls} htmlFor="f_in">Check-in *</label>
@@ -379,11 +445,11 @@ const ModalReserva: React.FC<{
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className={labelCls} htmlFor="f_total">Monto total *</label>
-            <input id="f_total" type="number" inputMode="decimal" min={0} className={`${inputCls} tabular-nums`} value={form.monto_total} onChange={e => setCampo('monto_total', e.target.value)} />
+            <input id="f_total" type="number" inputMode="decimal" min={0} disabled={modo === 'crear' && !esHuesped} className={`${inputCls} tabular-nums disabled:bg-gray-100 disabled:text-gray-400`} value={form.monto_total} onChange={e => setCampo('monto_total', e.target.value)} />
           </div>
           <div>
             <label className={labelCls} htmlFor="f_sena">Seña</label>
-            <input id="f_sena" type="number" inputMode="decimal" min={0} className={`${inputCls} tabular-nums`} value={form.monto_sena} onChange={e => setCampo('monto_sena', e.target.value)} />
+            <input id="f_sena" type="number" inputMode="decimal" min={0} disabled={modo === 'crear' && !esHuesped} className={`${inputCls} tabular-nums disabled:bg-gray-100 disabled:text-gray-400`} value={form.monto_sena} onChange={e => setCampo('monto_sena', e.target.value)} />
           </div>
         </div>
 
@@ -399,7 +465,7 @@ const ModalReserva: React.FC<{
             <MessageCircle size={13} aria-hidden="true" /> Escribirle por WhatsApp
           </a>
         )}
-      </div>
+      </fieldset>
 
       {error && <p className="text-xs text-red-600 mb-3" role="alert">{error}</p>}
       {aviso && !error && <p className="text-xs text-amber-600 mb-3" role="alert">{aviso}</p>}
@@ -408,18 +474,20 @@ const ModalReserva: React.FC<{
         <button onClick={onClose} className={`text-sm font-semibold px-4 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100 ${FOCUS_RING}`}>
           Cerrar
         </button>
-        <button
-          onClick={guardar}
-          disabled={guardando || guardado}
-          className={`inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-lg text-white bg-brand disabled:opacity-60 ${FOCUS_RING}`}
-        >
-          {guardando && 'Guardando…'}
-          {guardado && (<><CheckCircle2 size={16} aria-hidden="true" /> Guardado</>)}
-          {!guardando && !guardado && 'Guardar'}
-        </button>
+        {!soloLectura && (
+          <button
+            onClick={guardar}
+            disabled={guardando || guardado}
+            className={`inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-lg text-white bg-brand disabled:opacity-60 ${FOCUS_RING}`}
+          >
+            {guardando && 'Guardando…'}
+            {guardado && (<><CheckCircle2 size={16} aria-hidden="true" /> Guardado</>)}
+            {!guardando && !guardado && 'Guardar'}
+          </button>
+        )}
       </div>
 
-      {modo === 'editar' && reserva && reserva.estado !== 'cancelada' && (
+      {!soloLectura && modo === 'editar' && reserva && reserva.estado !== 'cancelada' && (
         <div className="mt-5 pt-4 border-t border-gray-100">
           {!confirmandoCancelar ? (
             <button onClick={() => setConfirmandoCancelar(true)} className={`text-xs font-semibold text-red-600 hover:underline rounded ${FOCUS_RING}`}>
@@ -760,7 +828,366 @@ const InstalarBanner: React.FC = () => {
   );
 };
 
+// --- LOGIN Y GESTIÓN DE USUARIOS DEL PANEL ---
+// Reemplaza el One-Time PIN de Cloudflare Access: login propio (usuario +
+// contraseña) contra D1, sesión de 30 días por cookie HttpOnly. Ver
+// functions/api/admin/login.ts y functions/_lib/authGuard.ts.
+
+const INPUT_CLS = 'w-full text-sm border border-gray-300 rounded-lg px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2';
+const LABEL_CLS = 'block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1';
+
+const PanelLogin: React.FC<{ onLogin: (email: string, rol: Rol) => void; avisoInicial?: string }> = ({ onLogin, avisoInicial }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [enviando, setEnviando] = useState(false);
+  const [error, setError] = useState(avisoInicial || '');
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setEnviando(true);
+    setError('');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data: any = await res.json();
+      if (!res.ok) throw new Error(data.error || 'No se pudo iniciar sesión.');
+      onLogin(data.email, data.rol);
+    } catch (e: any) {
+      setError(e.message || 'Ocurrió un error.');
+    } finally {
+      setEnviando(false);
+    }
+  };
+
+  return (
+    <div className="admin-panel-scope min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <style>{`
+        .admin-panel-scope, .admin-panel-scope * {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+        }
+      `}</style>
+      <form onSubmit={submit} className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8 w-full max-w-sm">
+        <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Pueblo Mágico</p>
+        <h1 className="text-lg font-bold text-brand mb-6">Panel de Reservas</h1>
+        <div className="space-y-3 mb-4">
+          <div>
+            <label className={LABEL_CLS} htmlFor="login_email">Email</label>
+            <input id="login_email" type="email" autoFocus required autoComplete="username" className={INPUT_CLS} value={email} onChange={e => setEmail(e.target.value)} />
+          </div>
+          <div>
+            <label className={LABEL_CLS} htmlFor="login_password">Contraseña</label>
+            <input id="login_password" type="password" required autoComplete="current-password" className={INPUT_CLS} value={password} onChange={e => setPassword(e.target.value)} />
+          </div>
+        </div>
+        {error && <p className="text-xs text-red-600 mb-4" role="alert">{error}</p>}
+        <button type="submit" disabled={enviando} className={`w-full text-sm font-semibold px-4 py-2.5 rounded-lg text-white bg-brand disabled:opacity-60 ${FOCUS_RING}`}>
+          {enviando ? 'Ingresando…' : 'Ingresar'}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+// Modal genérico para pedir una contraseña (y opcionalmente un email + rol) —
+// lo usa tanto "Nuevo usuario" como "Resetear contraseña" en SeccionUsuarios.
+const ModalCredencial: React.FC<{
+  titulo: string;
+  pedirEmail?: boolean;
+  onClose: () => void;
+  onGuardar: (email: string, password: string, rol: Rol) => Promise<void>;
+}> = ({ titulo, pedirEmail, onClose, onGuardar }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rol, setRol] = useState<Rol>('editor');
+  const [guardando, setGuardando] = useState(false);
+  const [error, setError] = useState('');
+
+  const guardar = async () => {
+    if (pedirEmail && !email.trim()) { setError('Falta el email.'); return; }
+    if (password.length < 8) { setError('La contraseña debe tener al menos 8 caracteres.'); return; }
+    setGuardando(true);
+    setError('');
+    try {
+      await onGuardar(email.trim(), password, rol);
+      onClose();
+    } catch (e: any) {
+      setError(e.message || 'Ocurrió un error.');
+      setGuardando(false);
+    }
+  };
+
+  return (
+    <ModalBase titulo={titulo} onClose={onClose}>
+      <div className="space-y-3 mb-4">
+        {pedirEmail && (
+          <>
+            <div>
+              <label className={LABEL_CLS} htmlFor="cred_email">Email</label>
+              <input id="cred_email" type="email" autoFocus className={INPUT_CLS} value={email} onChange={e => setEmail(e.target.value)} />
+            </div>
+            <div>
+              <label className={LABEL_CLS} htmlFor="cred_rol">Rol</label>
+              <select id="cred_rol" className={INPUT_CLS} value={rol} onChange={e => setRol(e.target.value as Rol)}>
+                <option value="viewer">Solo ver</option>
+                <option value="editor">Editor</option>
+                <option value="super_admin">Súper admin</option>
+              </select>
+            </div>
+          </>
+        )}
+        <div>
+          <label className={LABEL_CLS} htmlFor="cred_password">{pedirEmail ? 'Contraseña' : 'Nueva contraseña'}</label>
+          <input id="cred_password" type="password" autoFocus={!pedirEmail} className={INPUT_CLS} value={password} onChange={e => setPassword(e.target.value)} placeholder="Mínimo 8 caracteres" />
+        </div>
+      </div>
+      {error && <p className="text-xs text-red-600 mb-3" role="alert">{error}</p>}
+      <div className="flex justify-end gap-2">
+        <button onClick={onClose} className={`text-sm font-semibold px-4 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100 ${FOCUS_RING}`}>Cerrar</button>
+        <button onClick={guardar} disabled={guardando} className={`text-sm font-semibold px-4 py-2.5 rounded-lg text-white bg-brand disabled:opacity-60 ${FOCUS_RING}`}>
+          {guardando ? 'Guardando…' : 'Guardar'}
+        </button>
+      </div>
+    </ModalBase>
+  );
+};
+
+const SeccionUsuarios: React.FC<{ emailActual: string }> = ({ emailActual }) => {
+  const [usuarios, setUsuarios] = useState<Usuario[] | null>(null);
+  const [error, setError] = useState('');
+  const [modalNuevo, setModalNuevo] = useState(false);
+  const [modalReset, setModalReset] = useState<Usuario | null>(null);
+
+  const cargar = () => {
+    fetch('/api/admin/usuarios')
+      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(data => setUsuarios(data.usuarios || []))
+      .catch(err => setError(err.message || 'Error al cargar usuarios'));
+  };
+
+  useEffect(() => { cargar(); }, []);
+
+  const cambiarEstado = async (u: Usuario) => {
+    const res = await fetch('/api/admin/usuarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: u.activo ? 'desactivar' : 'reactivar', id: u.id }),
+    });
+    const data: any = await res.json();
+    if (!res.ok) { setError(data.error || 'No se pudo actualizar.'); return; }
+    setError('');
+    cargar();
+  };
+
+  const cambiarRol = async (u: Usuario, rol: Rol) => {
+    const res = await fetch('/api/admin/usuarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'cambiar_rol', id: u.id, rol }),
+    });
+    const data: any = await res.json();
+    if (!res.ok) { setError(data.error || 'No se pudo cambiar el rol.'); return; }
+    setError('');
+    cargar();
+  };
+
+  return (
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="flex items-center justify-between px-4 sm:px-5 py-4 border-b border-gray-100">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500">Usuarios con acceso al panel</h2>
+        <button
+          onClick={() => setModalNuevo(true)}
+          className={`inline-flex items-center gap-1.5 text-sm font-semibold rounded-lg px-3 py-2 text-white bg-brand hover:opacity-90 transition-opacity ${FOCUS_RING}`}
+        >
+          <Plus size={15} aria-hidden="true" /> Nuevo usuario
+        </button>
+      </div>
+
+      {error && <p className="text-xs text-red-600 px-4 sm:px-5 py-3" role="alert">{error}</p>}
+
+      <ul className="divide-y divide-gray-100">
+        {(usuarios || []).map(u => (
+          <li key={u.id} className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-gray-800 truncate">
+                {u.email}{u.email.toLowerCase() === emailActual.toLowerCase() && <span className="text-gray-400 font-normal"> (vos)</span>}
+              </p>
+              <p className="text-xs text-gray-400">{u.activo ? 'Activo' : 'Desactivado'} · desde {fmtDateLong(u.created_at.slice(0, 10))}</p>
+            </div>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              {u.email.toLowerCase() === emailActual.toLowerCase() ? (
+                <span className="text-xs font-semibold text-gray-500">{ROL_LABEL[u.rol]}</span>
+              ) : (
+                <select
+                  aria-label={`Rol de ${u.email}`}
+                  value={u.rol}
+                  onChange={e => cambiarRol(u, e.target.value as Rol)}
+                  className={`text-xs border border-gray-300 rounded-lg px-2 py-1.5 ${FOCUS_RING}`}
+                >
+                  <option value="viewer">Solo ver</option>
+                  <option value="editor">Editor</option>
+                  <option value="super_admin">Súper admin</option>
+                </select>
+              )}
+              <button onClick={() => setModalReset(u)} className={`text-xs font-semibold text-brand hover:underline rounded ${FOCUS_RING}`}>
+                Resetear contraseña
+              </button>
+              {u.email.toLowerCase() !== emailActual.toLowerCase() && (
+                <button
+                  onClick={() => cambiarEstado(u)}
+                  className={`text-xs font-semibold rounded ${FOCUS_RING} ${u.activo ? 'text-red-600 hover:underline' : 'text-green-700 hover:underline'}`}
+                >
+                  {u.activo ? 'Desactivar' : 'Reactivar'}
+                </button>
+              )}
+            </div>
+          </li>
+        ))}
+        {usuarios !== null && usuarios.length === 0 && (
+          <li className="px-4 sm:px-5 py-8 text-center text-sm text-gray-400">Todavía no hay usuarios cargados.</li>
+        )}
+      </ul>
+
+      {modalNuevo && (
+        <ModalCredencial
+          titulo="Nuevo usuario"
+          pedirEmail
+          onClose={() => setModalNuevo(false)}
+          onGuardar={async (email, password, rol) => {
+            const res = await fetch('/api/admin/usuarios', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ accion: 'crear', email, password, rol }),
+            });
+            const data: any = await res.json();
+            if (!res.ok) throw new Error(data.error || 'No se pudo crear.');
+            cargar();
+          }}
+        />
+      )}
+
+      {modalReset && (
+        <ModalCredencial
+          titulo={`Resetear contraseña — ${modalReset.email}`}
+          onClose={() => setModalReset(null)}
+          onGuardar={async (_email, password) => {
+            const res = await fetch('/api/admin/usuarios', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ accion: 'resetear_password', id: modalReset.id, password }),
+            });
+            const data: any = await res.json();
+            if (!res.ok) throw new Error(data.error || 'No se pudo resetear.');
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
+type GrupoMetricaEstadia = {
+  tipo_estadia: string;
+  total_personas: number;
+  total_noches: number;
+};
+
+// Cards de "Métricas Operativas" — personas y noches por tipo_estadia desde
+// el 06/08, para que contabilidad cruce volumen de gente alojada/alimentada
+// contra gastos reales. Ver functions/api/admin/metricas.ts.
+const SeccionMetricasOperativas: React.FC = () => {
+  const [grupos, setGrupos] = useState<GrupoMetricaEstadia[] | null>(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetch('/api/admin/metricas')
+      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(data => setGrupos(data.grupos || []))
+      .catch(err => setError(err.message || 'Error al cargar métricas operativas'));
+  }, []);
+
+  if (error) {
+    return <p className="text-xs text-red-600 mb-6" role="alert">No se pudieron cargar las métricas operativas: {error}</p>;
+  }
+
+  return (
+    <div className="mb-6 sm:mb-8">
+      <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Métricas Operativas</h2>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        {TIPOS_ESTADIA.map(t => {
+          const grupo = grupos?.find(g => g.tipo_estadia === t.value);
+          return (
+            <MetricCard
+              key={t.value}
+              compact
+              label={t.label}
+              value={grupo ? `${grupo.total_personas} personas` : (grupos === null ? '—' : '0 personas')}
+              hint={grupo ? `${Math.round(grupo.total_noches)} noches` : undefined}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const ACCION_LABEL: Record<string, string> = {
+  crear_reserva: 'Creó reserva',
+  editar_reserva: 'Editó reserva',
+  cancelar_reserva: 'Canceló reserva',
+  asignar_unidad: 'Asignó unidad',
+  sync_airbnb: 'Sincronizó Airbnb',
+  crear_usuario: 'Creó usuario',
+  resetear_password: 'Reseteó contraseña',
+  cambiar_rol: 'Cambió rol',
+  desactivar_usuario: 'Desactivó usuario',
+  reactivar_usuario: 'Reactivó usuario',
+};
+
+const fmtFechaHora = (iso: string) => {
+  const d = new Date(iso.replace(' ', 'T') + (iso.endsWith('Z') ? '' : 'Z'));
+  return d.toLocaleString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+};
+
+const SeccionActividad: React.FC = () => {
+  const [registros, setRegistros] = useState<RegistroActividad[] | null>(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetch('/api/admin/actividad')
+      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(data => setRegistros(data.registros || []))
+      .catch(err => setError(err.message || 'Error al cargar la actividad'));
+  }, []);
+
+  return (
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="px-4 sm:px-5 py-4 border-b border-gray-100">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500">Actividad reciente</h2>
+      </div>
+      {error && <p className="text-xs text-red-600 px-4 sm:px-5 py-3" role="alert">{error}</p>}
+      <ul className="divide-y divide-gray-100">
+        {(registros || []).map(r => (
+          <li key={r.id} className="px-4 sm:px-5 py-3">
+            <p className="text-sm text-gray-800">
+              <span className="font-semibold">{r.email}</span> — {ACCION_LABEL[r.accion] || r.accion}
+            </p>
+            {r.detalle && <p className="text-xs text-gray-500 mt-0.5">{r.detalle}</p>}
+            <p className="text-[11px] text-gray-400 mt-0.5 tabular-nums">{fmtFechaHora(r.created_at)}</p>
+          </li>
+        ))}
+        {registros !== null && registros.length === 0 && (
+          <li className="px-4 sm:px-5 py-8 text-center text-sm text-gray-400">Todavía no hay actividad registrada.</li>
+        )}
+      </ul>
+    </div>
+  );
+};
+
 const PanelReservas: React.FC = () => {
+  const [auth, setAuth] = useState<{ email: string; rol: Rol } | null | 'cargando'>('cargando');
+  const [sesionExpirada, setSesionExpirada] = useState(false);
   const [vistaActiva, setVistaActiva] = useState<VistaActiva>('operativa');
   const [reservas, setReservas] = useState<Reserva[]>([]);
   const [reservasHistorial, setReservasHistorial] = useState<Reserva[] | null>(null);
@@ -774,17 +1201,28 @@ const PanelReservas: React.FC = () => {
   const [celdaMultiple, setCeldaMultiple] = useState<{ alojamiento: Alojamiento; fecha: string; reservas: Reserva[] } | null>(null);
   const [modalReserva, setModalReserva] = useState<{ modo: 'crear' | 'editar'; reserva: Reserva | null } | null>(null);
 
+  // Si la sesión venció a mitad de uso, el servidor devuelve 401 — volvemos
+  // a mostrar el login en vez de un error genérico de carga.
+  const manejarNoAutenticado = () => {
+    setSesionExpirada(true);
+    setAuth(null);
+  };
+
   const cargarOperativa = () => {
     setLoading(true);
     setError(null);
     fetch('/api/admin/reservas')
-      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(res => {
+        if (res.status === 401) { manejarNoAutenticado(); throw new Error('__unauthorized__'); }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then(data => {
         setReservas(data.reservas || []);
         setAlojamientos(data.alojamientos || []);
         setMetricas(data.metricas || null);
       })
-      .catch(err => setError(err.message || 'Error al cargar las reservas'))
+      .catch(err => { if (err.message !== '__unauthorized__') setError(err.message || 'Error al cargar las reservas'); })
       .finally(() => setLoading(false));
   };
 
@@ -792,16 +1230,60 @@ const PanelReservas: React.FC = () => {
     setLoading(true);
     setError(null);
     return fetch('/api/admin/reservas?vista=historial')
-      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(res => {
+        if (res.status === 401) { manejarNoAutenticado(); throw new Error('__unauthorized__'); }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then(data => { setReservasHistorial(data.reservas || []); return data.reservas || []; })
-      .catch(err => { setError(err.message || 'Error al cargar el historial'); return []; })
+      .catch(err => { if (err.message !== '__unauthorized__') setError(err.message || 'Error al cargar el historial'); return []; })
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
+    fetch('/api/admin/me')
+      .then(res => { if (!res.ok) throw new Error('401'); return res.json(); })
+      .then(data => setAuth({ email: data.email, rol: data.rol }))
+      .catch(() => setAuth(null));
+  }, []);
+
+  useEffect(() => {
+    if (auth === 'cargando' || !auth) return;
     document.title = 'Dashboard — Pueblo Mágico';
     cargarOperativa();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
+
+  const cerrarSesion = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    setSesionExpirada(false);
+    setAuth(null);
+  };
+
+  const [descargandoReporte, setDescargandoReporte] = useState(false);
+
+  // Reporte financiero para la contadora — a diferencia de descargarCsv()
+  // (que arma el CSV en el navegador con lo ya cargado en esta vista), este
+  // le pide al servidor el reporte completo vía /api/admin/exportar.
+  const descargarReporteServidor = async () => {
+    setDescargandoReporte(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/admin/exportar');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `reporte_reservas_${toISODate(new Date())}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      setError(`No se pudo descargar el reporte (${e.message || 'error desconocido'}).`);
+    } finally {
+      setDescargandoReporte(false);
+    }
+  };
 
   useEffect(() => {
     if (vistaActiva === 'historial' && reservasHistorial === null) cargarHistorial();
@@ -867,10 +1349,32 @@ const PanelReservas: React.FC = () => {
     return base.filter(r => r.cliente_nombre.toLowerCase().includes(q) || (r.cliente_telefono || '').includes(q));
   }, [reservasHistorial, busqueda]);
 
+  if (auth === 'cargando') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <RefreshCw className="animate-spin text-gray-300" size={28} aria-hidden="true" />
+      </div>
+    );
+  }
+
+  if (!auth) {
+    return (
+      <PanelLogin
+        avisoInicial={sesionExpirada ? 'Tu sesión expiró — iniciá sesión de nuevo.' : undefined}
+        onLogin={(email, rol) => { setSesionExpirada(false); setAuth({ email, rol }); }}
+      />
+    );
+  }
+
+  // A partir de acá, TypeScript ya sabe que auth es { email, rol } (no 'cargando' ni null).
+  const esSuperAdmin = auth.rol === 'super_admin';
+  const puedeEditar = auth.rol === 'super_admin' || auth.rol === 'editor';
+
   const TABS: { key: VistaActiva; label: string }[] = [
     { key: 'operativa', label: 'Operativa' },
     { key: 'metricas', label: 'Métricas' },
     { key: 'historial', label: 'Historial' },
+    ...(esSuperAdmin ? [{ key: 'usuarios' as VistaActiva, label: 'Usuarios' }, { key: 'actividad' as VistaActiva, label: 'Actividad' }] : []),
   ];
 
   return (
@@ -893,13 +1397,24 @@ const PanelReservas: React.FC = () => {
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
-                onClick={() => setModalReserva({ modo: 'crear', reserva: null })}
-                aria-label="Nueva reserva"
-                className={`inline-flex items-center gap-1.5 text-sm font-semibold rounded-lg px-3 sm:px-4 py-2.5 text-white bg-brand hover:opacity-90 transition-opacity ${FOCUS_RING}`}
+                onClick={descargarReporteServidor}
+                disabled={descargandoReporte}
+                aria-label="Descargar Reporte (CSV)"
+                className={`inline-flex items-center gap-1.5 text-sm font-semibold rounded-lg px-3 sm:px-4 py-2.5 text-white bg-brand hover:opacity-90 transition-opacity disabled:opacity-60 ${FOCUS_RING}`}
               >
-                <Plus size={15} aria-hidden="true" />
-                <span className="hidden sm:inline">Nueva reserva</span>
+                <Download size={15} className={descargandoReporte ? 'animate-pulse' : ''} aria-hidden="true" />
+                <span className="hidden sm:inline">{descargandoReporte ? 'Descargando…' : 'Descargar Reporte (CSV)'}</span>
               </button>
+              {puedeEditar && (
+                <button
+                  onClick={() => setModalReserva({ modo: 'crear', reserva: null })}
+                  aria-label="Nueva reserva"
+                  className={`inline-flex items-center gap-1.5 text-sm font-semibold rounded-lg px-3 sm:px-4 py-2.5 text-white bg-brand hover:opacity-90 transition-opacity ${FOCUS_RING}`}
+                >
+                  <Plus size={15} aria-hidden="true" />
+                  <span className="hidden sm:inline">Nueva reserva</span>
+                </button>
+              )}
               <button
                 onClick={actualizar}
                 disabled={loading}
@@ -907,6 +1422,15 @@ const PanelReservas: React.FC = () => {
                 className={`inline-flex items-center gap-2 text-sm font-semibold border border-gray-300 rounded-lg px-3 py-2.5 hover:bg-gray-100 transition-colors disabled:opacity-60 ${FOCUS_RING}`}
               >
                 <RefreshCw size={15} className={loading ? 'animate-spin' : ''} aria-hidden="true" />
+              </button>
+              <button
+                onClick={cerrarSesion}
+                aria-label="Cerrar sesión"
+                title={auth.email}
+                className={`inline-flex items-center gap-1.5 text-sm font-semibold border border-gray-300 rounded-lg px-3 py-2.5 hover:bg-gray-100 transition-colors ${FOCUS_RING}`}
+              >
+                <LogOut size={15} aria-hidden="true" />
+                <span className="hidden sm:inline">Salir</span>
               </button>
             </div>
           </div>
@@ -948,6 +1472,8 @@ const PanelReservas: React.FC = () => {
               <MetricCard compact label="Se van" value={metricas ? String(metricas.checkouts_hoy) : '—'} hint="Hoy" icon={<LogOut size={13} className="text-gray-400 flex-shrink-0" aria-hidden="true" />} />
             </div>
 
+            <SeccionMetricasOperativas />
+
             <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
               <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500">
                 Grilla de ocupación {loading && <span className="font-normal normal-case text-gray-400">(cargando…)</span>}
@@ -970,12 +1496,14 @@ const PanelReservas: React.FC = () => {
                 <div className="px-6 py-12 text-center">
                   <p className="text-sm font-semibold text-gray-600 mb-1">Todavía no hay reservas cargadas</p>
                   <p className="text-xs text-gray-400 mb-4">Cuando se confirme una reserva (o se cargue el histórico), va a aparecer acá.</p>
-                  <button
-                    onClick={() => setModalReserva({ modo: 'crear', reserva: null })}
-                    className={`inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline rounded ${FOCUS_RING}`}
-                  >
-                    <Plus size={15} aria-hidden="true" /> Cargar una reserva manual
-                  </button>
+                  {puedeEditar && (
+                    <button
+                      onClick={() => setModalReserva({ modo: 'crear', reserva: null })}
+                      className={`inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline rounded ${FOCUS_RING}`}
+                    >
+                      <Plus size={15} aria-hidden="true" /> Cargar una reserva manual
+                    </button>
+                  )}
                 </div>
               ) : (
                 <div className="overflow-x-auto">
@@ -1082,7 +1610,7 @@ const PanelReservas: React.FC = () => {
                 <Download size={15} aria-hidden="true" /> Descargar CSV (vista operativa)
               </button>
             </div>
-            <SeccionAirbnb alojamientos={alojamientos} onSincronizado={handleGuardado} />
+            {puedeEditar && <SeccionAirbnb alojamientos={alojamientos} onSincronizado={handleGuardado} />}
           </div>
         )}
 
@@ -1118,6 +1646,9 @@ const PanelReservas: React.FC = () => {
             </div>
           </>
         )}
+
+        {vistaActiva === 'usuarios' && esSuperAdmin && <SeccionUsuarios emailActual={auth.email} />}
+        {vistaActiva === 'actividad' && esSuperAdmin && <SeccionActividad />}
       </main>
 
       {celdaMultiple && (
@@ -1135,6 +1666,7 @@ const PanelReservas: React.FC = () => {
           modo={modalReserva.modo}
           reserva={modalReserva.reserva}
           alojamientos={alojamientos}
+          soloLectura={!puedeEditar}
           onClose={() => setModalReserva(null)}
           onGuardado={handleGuardado}
         />

@@ -4,12 +4,16 @@
 // endpoint de borrado — cancelar es simplemente estado = 'cancelada', así
 // la reserva queda registrada en el historial en vez de desaparecer.
 //
-// CERO LOGIN A PROPÓSITO — ver nota en functions/api/admin/reservas.ts.
+// Protegido por sesión propia, roles super_admin/editor — ver
+// functions/_lib/authGuard.ts y nota en functions/api/admin/reservas.ts.
 //
 // Update parcial: solo se tocan los campos presentes en el body. Las
 // validaciones de fechas/estado/cantidad_personas las hace el propio CHECK
 // del schema (schema.sql) — si el UPDATE las viola, D1 tira el error y acá
 // simplemente lo devolvemos legible, en vez de duplicar esa lógica.
+
+import { requireRole } from '../../_lib/authGuard';
+import { registrarAuditoria } from '../../_lib/auditoria';
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
@@ -34,6 +38,9 @@ const CAMPOS_EDITABLES = [
 ];
 
 export async function onRequestPost({ request, env }: any) {
+  const auth = await requireRole(request, env, ['super_admin', 'editor']);
+  if (auth instanceof Response) return auth;
+
   let body: any;
   try {
     body = await request.json();
@@ -67,6 +74,11 @@ export async function onRequestPost({ request, env }: any) {
       .first();
 
     if (!row) return json({ error: `No existe la reserva #${id}.` }, 404);
+
+    const accion = resto.estado === 'cancelada' ? 'cancelar_reserva' : 'editar_reserva';
+    const detalle = entradas.map(([campo, valor]) => `${campo}=${valor}`).join(', ');
+    await registrarAuditoria(db, auth.email, accion, `Reserva #${id}: ${detalle}`);
+
     return json({ ok: true, reserva_id: row.id });
   } catch (e: any) {
     // Típicamente un CHECK violado (fecha_checkout <= fecha_checkin, estado

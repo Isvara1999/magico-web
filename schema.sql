@@ -37,6 +37,11 @@ CREATE TABLE IF NOT EXISTS reservas (
   unidad_asignada    TEXT,   -- lugar físico concreto, ej. 'Domo 2' o 'Cama 3 Habitación 1' (Panel de Reservas)
   canal_origen       TEXT,   -- 'ManyChat', 'WhatsApp', 'Instagram', 'Airbnb', etc. — de dónde vino la reserva
   ical_uid           TEXT,   -- UID del VEVENT del calendario externo (Airbnb, etc.) — permite hacer upsert en cada sync sin duplicar
+  tipo_estadia       TEXT NOT NULL DEFAULT 'huesped'
+                        CHECK (tipo_estadia IN ('huesped', 'staff', 'voluntario', 'residente')),
+                        -- huésped paga, staff/voluntario/residente no — ver add_tipo_estadia.sql
+                        -- (en la DB real esta columna se agregó con ALTER TABLE, sin el CHECK:
+                        -- ver ese archivo para el motivo)
 
   CHECK (fecha_checkout > fecha_checkin)
 );
@@ -60,3 +65,36 @@ CREATE INDEX IF NOT EXISTS idx_reservas_manychat_user_id
 
 CREATE INDEX IF NOT EXISTS idx_reservas_ical_uid
   ON reservas (ical_uid);
+
+-- ─── usuarios_admin ─────────────────────────────────────────────────────────
+-- Login del Panel de Reservas (/admin/reservas y /api/admin/*) — reemplaza el
+-- One-Time PIN de Cloudflare Access. Ver migration_usuarios_admin.sql: esta
+-- tabla se agregó después de crear la base original, así que en la DB real
+-- se aplicó con ese archivo suelto, no reejecutando este schema.sql completo.
+CREATE TABLE IF NOT EXISTS usuarios_admin (
+  id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+  email              TEXT NOT NULL UNIQUE,
+  password_hash      TEXT NOT NULL,
+  rol                TEXT NOT NULL DEFAULT 'editor'
+                        CHECK (rol IN ('super_admin', 'editor', 'viewer')),
+  activo             INTEGER NOT NULL DEFAULT 1,
+  intentos_fallidos  INTEGER NOT NULL DEFAULT 0,
+  bloqueado_hasta    TEXT,   -- ISO8601; NULL = no bloqueado
+  created_at         TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_usuarios_admin_email ON usuarios_admin (email);
+
+-- ─── auditoria_admin ────────────────────────────────────────────────────────
+-- Quién hizo qué desde el Panel de Reservas — pestaña "Actividad" (solo
+-- super_admin). email en texto plano (no FK) para que el registro sobreviva
+-- aunque el usuario se desactive más adelante.
+CREATE TABLE IF NOT EXISTS auditoria_admin (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  email       TEXT NOT NULL,
+  accion      TEXT NOT NULL,
+  detalle     TEXT,
+  created_at  TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_auditoria_admin_created_at ON auditoria_admin (created_at);

@@ -5,7 +5,8 @@
 // misma función se puede llamar desde un Worker aparte con su propio cron,
 // o desde un servicio externo que le pegue a este endpoint).
 //
-// CERO LOGIN A PROPÓSITO — ver nota en functions/api/admin/reservas.ts.
+// Protegido por sesión propia, roles super_admin/editor — ver
+// functions/_lib/authGuard.ts y nota en functions/api/admin/reservas.ts.
 //
 // Configuración: una env var por alojamiento con la URL del .ics que exporta
 // Airbnb (Host → Calendario → Sincronizar calendarios → Exportar calendario):
@@ -25,6 +26,8 @@
 // asume cancelada en Airbnb y se marca estado='cancelada' acá también.
 
 import { parseIcs } from '../../_lib/ical';
+import { requireRole } from '../../_lib/authGuard';
+import { registrarAuditoria } from '../../_lib/auditoria';
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
@@ -44,7 +47,10 @@ function nombreDesdeSummary(summary: string): string {
   return limpio;
 }
 
-export async function onRequestPost({ env }: any) {
+export async function onRequestPost({ request, env }: any) {
+  const auth = await requireRole(request, env, ['super_admin', 'editor']);
+  if (auth instanceof Response) return auth;
+
   const db = env.DB;
   const { results: alojamientos } = await db.prepare('SELECT id, nombre FROM alojamientos ORDER BY id ASC').all();
 
@@ -122,6 +128,11 @@ export async function onRequestPost({ env }: any) {
   if (Object.keys(resumen).length === 0) {
     return json({ error: 'No hay ninguna AIRBNB_ICS_URL_<id> configurada — nada para sincronizar.' }, 400);
   }
+
+  const detalle = Object.entries(resumen)
+    .map(([nombre, r]: [string, any]) => ('error' in r ? `${nombre}: error` : `${nombre}: +${r.nuevas}/~${r.actualizadas}/-${r.canceladas}`))
+    .join(' · ');
+  await registrarAuditoria(db, auth.email, 'sync_airbnb', detalle);
 
   return json({ ok: true, resumen });
 }

@@ -1,9 +1,8 @@
 // Cloudflare Pages Function — datos para el Dashboard interno (/admin/reservas).
 //
-// CERO LOGIN A PROPÓSITO: esta ruta no valida ningún token ni contraseña.
-// La protección es Cloudflare Zero Trust Access a nivel DNS sobre /admin
-// (y, si no se restringe también /api/admin/* por su cuenta, sobre estos
-// endpoints). Sin Zero Trust configurado, esto queda abierto.
+// Protegido por sesión propia (login de usuario/contraseña en D1) — ver
+// functions/_lib/authGuard.ts y functions/api/admin/login.ts. Reemplaza al
+// One-Time PIN de Cloudflare Access que protegía esta ruta antes.
 //
 // Dos vistas, mismo endpoint:
 //   GET /api/admin/reservas                 -> vista operativa (default)
@@ -16,6 +15,8 @@
 // sin importar qué vista se pidió — son números de "ahora", no un acumulado
 // histórico. También devuelve el listado completo de alojamientos, para que
 // el frontend pueda dibujar las filas de la grilla aunque un día esté vacío.
+
+import { requireAuth } from '../../_lib/authGuard';
 
 const DIAS_PENDIENTE_VIEJA = 3;
 
@@ -35,6 +36,9 @@ const CAMPOS_RESERVA = `
 `;
 
 export async function onRequestGet({ request, env }: any) {
+  const auth = await requireAuth(request, env);
+  if (auth instanceof Response) return auth;
+
   const db = env.DB;
   const url = new URL(request.url);
   const vistaHistorial = url.searchParams.get('vista') === 'historial';
