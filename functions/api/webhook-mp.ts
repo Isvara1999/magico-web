@@ -24,6 +24,16 @@ async function hmacSha256Hex(secret: string, message: string): Promise<string> {
   return [...new Uint8Array(sig)].map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+// Comparación en tiempo constante — un `===` filtraría por timing dónde
+// diverge el hash, lo que en teoría permite reconstruir una firma válida
+// byte a byte contra un endpoint público.
+function hashesIguales(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
 // https://www.mercadopago.com.ar/developers/es/docs/checkout-api/additional-content/your-integrations/notifications/webhooks#editor_10
 async function firmaValida(request: Request, env: any): Promise<{ ok: boolean; dataId: string | null }> {
   const url = new URL(request.url);
@@ -46,7 +56,7 @@ async function firmaValida(request: Request, env: any): Promise<{ ok: boolean; d
   const manifest = `id:${dataId.toLowerCase()};request-id:${xRequestId};ts:${ts};`;
   const hash = await hmacSha256Hex(env.MP_WEBHOOK_SECRET, manifest);
 
-  return { ok: hash === v1, dataId };
+  return { ok: hashesIguales(hash, v1), dataId };
 }
 
 async function dispararGrowth(env: any, manychatUserId: string, fechaCheckin: string, fechaCheckout: string) {
