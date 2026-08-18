@@ -57,14 +57,14 @@ export const SectionInclusiones: React.FC = () => {
             <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
               <p className="text-white/70 font-bold tracking-widest uppercase text-xs mb-1">{i.price_solo_label}</p>
               <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.base.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
+                ${ESTADIA_PRICES.pensionCompleta.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
               </p>
               <p className="text-white/50 text-xs mt-1">{i.price_solo_sub}</p>
             </div>
             <div className="bg-gold/20 border border-gold/40 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
               <p className="text-gold font-bold tracking-widest uppercase text-xs mb-1">{i.price_pension_label}</p>
               <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.pensionCompleta.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
+                ${ESTADIA_PRICES.domoPrivadoDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_pension_unit}</span>
               </p>
               <p className="text-white/50 text-xs mt-1">{i.price_pension_sub}</p>
             </div>

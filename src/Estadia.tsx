@@ -40,10 +40,10 @@ const Hero: React.FC = () => (
         Filosofía del<br />Buen Vivir
       </h1>
       <p className="text-white/75 text-base font-light max-w-xl mb-2 leading-relaxed">
-        Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $20.000/persona/noche con desayuno.
+        Domos geodésicos, habitaciones y camping en las Sierras Grandes. Desde $50.000/persona/noche con pensión completa, en habitación o domo compartido.
       </p>
       <p className="text-gold text-xs font-bold uppercase tracking-widest mb-5">
-        ⚡ Precio de invierno · válido reservando entre julio y septiembre 2026
+        ⚡ Precio de invierno · válido para estadías hasta el 21 de septiembre de 2026
       </p>
       <div className="flex flex-wrap gap-2 mb-7">
         {['Para emprendedores & creativos', 'Parejas', 'Grupos & familias'].map(chip => (
@@ -98,7 +98,7 @@ const Inclusiones: React.FC = () => {
         ))}
         <div className="w-full text-center mt-1">
           <span className="text-gold/60 text-[10px] uppercase tracking-widest font-bold">
-            $20.000/persona/noche con desayuno · $50.000/persona/noche pensión completa · Precio de invierno (Jul–Sep 2026) · Sin sorpresas ocultas
+            $50.000/persona/noche pensión completa · habitación o domo compartido · Precio de invierno, válido hasta el 21/09/2026 · Sin sorpresas ocultas
           </span>
         </div>
       </div>
@@ -220,21 +220,19 @@ const Alojamientos: React.FC = () => {
                 <p className="text-brand font-serif text-lg">Precios de invierno</p>
               </div>
               <p className="inline-block bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-3">
-                ⚡ Válido reservando Julio–Septiembre 2026
+                ⚡ Válido para estadías hasta el 21 de septiembre de 2026
               </p>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
-                  <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Con desayuno</p>
-                  <p className="text-dark/30 text-xs line-through">Antes $40.000</p>
-                  <p className="text-brand text-xl font-serif">$20.000<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
-                </div>
-                <div className="bg-bone rounded-xl px-4 py-3 border border-gold/20 text-center">
-                  <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión completa</p>
-                  <p className="text-dark/30 text-xs line-through">Antes $95.000</p>
-                  <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
-                </div>
+              <div className="bg-bone rounded-xl px-4 py-3 border border-gold/20 text-center mb-3">
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Pensión completa · habitación o domo compartido</p>
+                <p className="text-dark/30 text-xs line-through">Antes $95.000</p>
+                <p className="text-gold text-xl font-serif">$50.000<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
               </div>
-              <p className="text-center text-dark/40 text-xs mt-3">Precios por persona · fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
+              <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Domo privado · 1 o 2 personas</p>
+                <p className="text-brand text-xl font-serif">$150.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche, domo entero</span></p>
+                <p className="text-dark/40 text-[11px] mt-0.5">3 a 8 personas: consultá el precio por grupo</p>
+              </div>
+              <p className="text-center text-dark/40 text-xs mt-3">Precios por persona salvo el domo privado (precio por domo) · fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
             </div>
           </div>
 
@@ -273,13 +271,13 @@ const HorariosPension: React.FC = () => (
           <div>
             <h2 className="font-serif text-xl md:text-2xl text-brand leading-tight">Horarios y Pensión Completa de Montaña</h2>
             <p className="inline-block bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mt-2">
-              ⚡ Válido hasta fin de invierno · Septiembre 2026
+              ⚡ Válido para estadías hasta el 21 de septiembre de 2026
             </p>
           </div>
         </div>
 
         <p className="text-dark/70 text-sm leading-relaxed mb-5">
-          <strong className="text-brand font-semibold">Tarifa: $50.000 por persona / noche</strong> — incluye alojamiento, almuerzo, cena y desayuno.
+          <strong className="text-brand font-semibold">Tarifa: $50.000 por persona / noche</strong> en habitación o domo compartido — incluye alojamiento, almuerzo, cena y desayuno. Domo privado (1 o 2 personas): $150.000/noche.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-5">
@@ -791,7 +789,7 @@ const CTAFinal: React.FC = () => (
 const Estadia: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Pueblo Mágico';
-    const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $${ESTADIA_PRICES.base.toLocaleString('es-AR')}/noche.`;
+    const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $${ESTADIA_PRICES.pensionCompleta.toLocaleString('es-AR')}/noche con pensión completa.`;
     const URL = SITE_URL + ROUTES.ESTADIA;
     const IMG = `${SITE_URL}/uploads/campoentero.webp`;
     const prevTitle = document.title;

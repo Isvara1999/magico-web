@@ -72,6 +72,7 @@ const CicloVitalFemeninoContent: React.FC = () => {
 
   const MSG = encodeURIComponent(RETREATS_DATA.cicloVitalFemenino.message);
   const WA_HREF = `https://wa.me/${WA_CICLO_VITAL_FEMENINO}?text=${MSG}`;
+  const WA_CONSULTA_HREF = `https://wa.me/${WA_CICLO_VITAL_FEMENINO}?text=${encodeURIComponent(RETREATS_DATA.cicloVitalFemenino.messageConsulta)}`;
 
   // SEO — title, meta, OG, canonical y JSON-LD
   useEffect(() => {
@@ -127,7 +128,7 @@ const CicloVitalFemeninoContent: React.FC = () => {
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: { '@type': 'Place', name: 'Pueblo Mágico', address: { '@type': 'PostalAddress', addressLocality: 'Los Gigantes', addressRegion: 'Córdoba', addressCountry: 'AR' } },
       organizer: { '@type': 'Organization', name: 'Pueblo Mágico', url: SITE_URL },
-      offers: { '@type': 'Offer', url: URL, priceCurrency: 'ARS', price: String(RETREATS_DATA.cicloVitalFemenino.priceAcompanada), availability: 'https://schema.org/LimitedAvailability' },
+      offers: { '@type': 'Offer', url: URL, availability: 'https://schema.org/LimitedAvailability' },
       image: IMG,
     };
     const ldScript = document.createElement('script');
@@ -442,10 +443,10 @@ const CicloVitalFemeninoContent: React.FC = () => {
             <div className="bg-white border-t border-gray-100 shadow-2xl px-4 py-3 flex items-center gap-3">
               <div className="flex-1 min-w-0">
                 <p className="text-[10px] text-gray-400 uppercase tracking-widest">Ciclo Vital Femenino · Invierno</p>
-                <p className="text-sm font-bold text-brand truncate">Desde ${RETREATS_DATA.cicloVitalFemenino.priceAcompanada.toLocaleString('es-AR')} — {RETREATS_DATA.cicloVitalFemenino.dates}</p>
+                <p className="text-sm font-bold text-brand truncate">{RETREATS_DATA.cicloVitalFemenino.dates}</p>
               </div>
-              <a href={WA_HREF} target="_blank" rel="noopener noreferrer" className="btn-gold text-xs py-3 px-5 flex-shrink-0">
-                Reservar
+              <a href={WA_CONSULTA_HREF} target="_blank" rel="noopener noreferrer" className="btn-gold text-xs py-3 px-5 flex-shrink-0">
+                Consultar
               </a>
             </div>
           </div>

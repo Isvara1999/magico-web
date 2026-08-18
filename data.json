@@ -24,7 +24,7 @@
       "roomType": "Tipo de habitación",
       "sharedRoom": "Compartida",
       "privateRoom": "Privada",
-      "privateDomoNote": "Privada en domo: 1 persona sola ($150.000), pareja (reservando hasta el 31/07) o grupos de 3 a 8 personas",
+      "privateDomoNote": "Privada en domo: 1 o 2 personas ($150.000/noche, o $75.000/noche reservando en pareja hasta el 31/07) o grupos de 3 a 8 personas",
       "unavailableForDates": "Esa opción no tiene lugar en las fechas que elegiste — probá con otras fechas.",
       "capacityExceeded": "El {tipo} tiene capacidad para hasta {max} personas — para grupos más grandes, escribinos por WhatsApp.",
       "groupNote": {
@@ -76,7 +76,7 @@
       "badge_accommodation": "Alojamiento", 
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/persona/noche con pensión completa. ⚡ Precio de invierno, válido reservando julio-septiembre 2026.",
+      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/persona/noche con pensión completa, en habitación o domo compartido. ⚡ Precio de invierno, válido para estadías hasta el 21 de septiembre de 2026.",
       "btn": "RESERVAR MI LUGAR", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -259,24 +259,6 @@
       "link": "",
       "cards": [
         {
-          "date": "14-15 AGOSTO",
-          "title": "Familion",
-          "desc": "Una experiencia para reconectar en familia. Un fin de semana diseñado para habitar el presente, el juego y la tribu en Los Gigantes.",
-          "btn": "Ver Más",
-          "image": "/uploads/portada familion.webp",
-          "link": "/familion",
-          "pdfLink": ""
-        },
-        {
-          "date": "14-17 AGOSTO",
-          "title": "Pachamama Fest · Finde Largo en la Montaña",
-          "desc": "Festival consciente para honrar a la Tierra, agradecer y abrir un nuevo ciclo. Fogones, ritual, música y comunidad en las Sierras Grandes. Desde $45.000.",
-          "btn": "Ver más",
-          "image": "/uploads/hero(3).webp",
-          "link": "/pachamama-fest",
-          "pdfLink": ""
-        },
-        {
           "date": "28-30 AGOSTO",
           "title": "Ciclo Vital Femenino · Encuentro de Mujeres",
           "desc": "Retiro de mujeres en la montaña para transmutar todo lo que no ES. Círculo de mujeres, temazcal, ceremonia de cacao y rituales de cierre de ciclo.",
@@ -314,7 +296,7 @@
         {
           "date": "INVIERNO 2026 · JUL · AGO · SEP",
           "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo.",
+          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo, en habitación o domo compartido.",
           "btn": "Ver más",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -356,10 +338,6 @@
         "label": "WINTER CAMP · INVIERNO 2026 · ¡RESERVÁ TU LUGAR!",
         "link": "/winter-camp"
       },
-      "pachamamaBadge": {
-        "label": "PACHAMAMA FEST · 14-17 AGO",
-        "link": "/pachamama-fest"
-      },
       "colivingBadge": {
         "label": "CO-LIVING · ESTADÍAS LARGAS",
         "link": "/coliving"
@@ -367,7 +345,7 @@
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
       "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
-      "reservationPricing": "Desde $50.000/persona/noche · ⚡ precio de invierno (jul-sep 2026)"
+      "reservationPricing": "Desde $50.000/persona/noche (compartido) · ⚡ precio de invierno, válido hasta el 21/09/2026"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -1612,11 +1590,12 @@
           "sub": "Jabón, shampoo y acondicionador biodegradables"
         }
       ],
-      "price_solo_label": "Habitación Compartida",
-      "price_solo_sub": "Desde $50.000/persona/noche con pensión completa",
-      "price_pension_label": "Habitación Privada",
-      "price_pension_sub": "Desde $75.000/persona/noche con pensión completa",
+      "price_solo_label": "Habitación o Domo Compartido",
+      "price_solo_sub": "Pensión completa, precio por persona",
+      "price_pension_label": "Domo Privado",
+      "price_pension_sub": "1 o 2 personas, domo entero",
       "price_unit": "/ persona / noche",
+      "price_pension_unit": "/ noche",
       "cta": "Ver todos los alojamientos"
     },
     "para_quien": {
@@ -1720,7 +1699,7 @@
       "roomType": "Room type",
       "sharedRoom": "Shared",
       "privateRoom": "Private",
-      "privateDomoNote": "Private dome: solo traveler ($150,000), couples (book by 07/31), or groups of 3 to 8 people",
+      "privateDomoNote": "Private dome: 1 or 2 people ($150,000/night, or $75,000/night booking as a couple by 07/31), or groups of 3 to 8 people",
       "unavailableForDates": "That option has no availability for the dates you picked — try different dates.",
       "capacityExceeded": "The {tipo} has room for up to {max} people — for bigger groups, message us on WhatsApp.",
       "groupNote": {
@@ -1772,7 +1751,7 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/person/night with full board. ⚡ Winter pricing, valid when booking July-September 2026.",
+      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/person/night with full board, in a shared room or dome. ⚡ Winter pricing, valid for stays through September 21, 2026.",
       "btn": "Book my spot", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -1955,24 +1934,6 @@
       "link": "",
       "cards": [
         {
-          "date": "AUG 14-15",
-          "title": "Familion",
-          "desc": "An experience to reconnect as a family. A weekend designed to inhabit the present, play, and tribe in Los Gigantes.",
-          "btn": "See More",
-          "image": "/uploads/portada familion.webp",
-          "link": "/familion",
-          "pdfLink": ""
-        },
-        {
-          "date": "AUG 14-17",
-          "title": "Pachamama Fest · Long Weekend in the Mountains",
-          "desc": "A conscious festival to honor the Earth, give thanks and open a new cycle. Bonfires, ritual, music and community in the Sierras Grandes. From $45,000.",
-          "btn": "See More",
-          "image": "/uploads/hero(3).webp",
-          "link": "/pachamama-fest",
-          "pdfLink": ""
-        },
-        {
           "date": "AUG 28-30",
           "title": "Ciclo Vital Femenino · Women's Gathering",
           "desc": "A women's mountain retreat to transmute all that no longer IS. Women's circle, temazcal, cacao ceremony and cycle-closing rituals.",
@@ -2010,7 +1971,7 @@
         {
           "date": "WINTER 2026 · JUL · AUG · SEP",
           "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash.",
+          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash, in a shared room or dome.",
           "btn": "See More",
           "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
           "link": "/winter-camp",
@@ -2052,10 +2013,6 @@
         "label": "WINTER CAMP · WINTER 2026 · BOOK YOUR SPOT!",
         "link": "/winter-camp"
       },
-      "pachamamaBadge": {
-        "label": "PACHAMAMA FEST · AUG 14-17",
-        "link": "/pachamama-fest"
-      },
       "colivingBadge": {
         "label": "CO-LIVING · LONG STAYS",
         "link": "/coliving"
@@ -2063,7 +2020,7 @@
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
       "reservationTitle": "Book your unforgettable mountain experience",
-      "reservationPricing": "From $50,000/person/night · ⚡ winter pricing (Jul-Sep 2026)"
+      "reservationPricing": "From $50,000/person/night (shared) · ⚡ winter pricing, valid through 09/21/2026"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -3310,11 +3267,12 @@
           "sub": "Biodegradable soap, shampoo & conditioner"
         }
       ],
-      "price_solo_label": "Shared Room",
-      "price_solo_sub": "From $50,000/person/night with full board",
-      "price_pension_label": "Private Room",
-      "price_pension_sub": "From $75,000/person/night with full board",
+      "price_solo_label": "Shared Room or Dome",
+      "price_solo_sub": "Full board, price per person",
+      "price_pension_label": "Private Dome",
+      "price_pension_sub": "1 or 2 people, whole dome",
       "price_unit": "/ person / night",
+      "price_pension_unit": "/ night",
       "cta": "View all accommodations"
     },
     "para_quien": {

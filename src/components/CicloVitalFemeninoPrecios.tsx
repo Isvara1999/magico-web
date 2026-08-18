@@ -11,10 +11,9 @@ const INCLUYE = [
 
 const CicloVitalFemeninoPrecios: React.FC = () => {
   const {
-    dates, priceSola, priceAcompanada, senia, segundoPago, segundoPagoFecha,
-    valorReferenciaARS, currency, message, cupos, fechaLimiteInscripcion,
+    dates, valorReferenciaARS, messageConsulta, cupos, fechaLimiteInscripcion,
   } = RETREATS_DATA.cicloVitalFemenino;
-  const waMain = 'https://wa.me/' + WA_CICLO_VITAL_FEMENINO + '?text=' + encodeURIComponent(message);
+  const waConsulta = 'https://wa.me/' + WA_CICLO_VITAL_FEMENINO + '?text=' + encodeURIComponent(messageConsulta);
   const waFechas = 'https://wa.me/' + WA_CICLO_VITAL_FEMENINO + '?text=' +
     encodeURIComponent('¡Hola! Me encantó la propuesta de Ciclo Vital Femenino pero no puedo en esta fecha. ¿Me avisás cuando lancen la próxima edición? 🌙');
 
@@ -63,28 +62,23 @@ const CicloVitalFemeninoPrecios: React.FC = () => {
             </div>
           </div>
 
-          {/* ── Derecha: precio dominante ── */}
+          {/* ── Derecha: valor + consulta ── */}
           <div data-reveal data-delay="1">
-            <p className="text-white/40 text-xs uppercase tracking-widest mb-3">
-              Valor real de mercado{' '}
-              <span className="line-through decoration-[#E88A5C]/60">${valorReferenciaARS.toLocaleString('es-AR')}</span>
+            <p className="serif-title text-white leading-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)' }}>
+              ¿Cuánto creés que vale una experiencia así?
             </p>
-            <p className="font-serif text-white leading-none mb-3" style={{ fontSize: 'clamp(3.5rem, 9vw, 6.5rem)' }}>
-              ${priceAcompanada.toLocaleString('es-AR')}
+            <p className="text-white/45 text-sm mb-8" style={{ maxWidth: '40ch' }}>
+              Retiros con este nivel de acompañamiento personalizado, alojamiento y proceso de transformación suelen rondar los ${valorReferenciaARS.toLocaleString('es-AR')} en el mercado — lo hacemos mucho más accesible para que puedas vivir este tipo de experiencias. Contanos y lo vemos juntas.
             </p>
-            <p className="text-gold text-sm uppercase tracking-widest font-bold mb-1">{currency} · por persona</p>
-            <p className="text-white/45 text-sm mb-8">en pareja o grupo · ¿venís sola? ${priceSola.toLocaleString('es-AR')}</p>
 
-            <p className="text-white/60 text-sm leading-relaxed mb-2" style={{ maxWidth: '42ch' }}>
-              Seña de <strong className="text-white">${senia.toLocaleString('es-AR')}</strong> para reservar, otros <strong className="text-white">${segundoPago.toLocaleString('es-AR')}</strong> antes del {segundoPagoFecha}, saldo en el retiro.
-            </p>
             <p className="text-[#E894C0] text-xs uppercase tracking-widest font-bold mb-8">
               Inscripciones cierran el {fechaLimiteInscripcion} o al completar los cupos
             </p>
 
-            <a href={waMain} target="_blank" rel="noopener noreferrer" className="btn-gold inline-block mb-4">
-              RESERVAR MI LUGAR
+            <a href={waConsulta} target="_blank" rel="noopener noreferrer" className="btn-gold inline-block mb-3">
+              QUIERO SABER CUÁNTO VALE
             </a>
+            <p className="text-white/40 text-xs mb-4">Efectivo, tarjeta o en cuotas — lo vemos por WhatsApp.</p>
             <p className="text-white/35 text-xs italic max-w-xs leading-relaxed font-serif mb-4">
               Si sentís el llamado a regalarte este tiempo, será una alegría recibirte.
             </p>

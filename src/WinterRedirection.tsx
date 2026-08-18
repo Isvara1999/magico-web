@@ -336,7 +336,7 @@ const WinterRedirection: React.FC = () => {
             Un mes para ver el mapa completo cuando el ruido del día a día tapa la perspectiva.
           </p>
           <p className="text-white/45 text-xs sm:text-sm mb-6 md:mb-10 max-w-lg md:max-w-2xl leading-relaxed">
-            Todo el invierno en la montaña. Llegás y te vas cuando quieras. Desde $20.000/noche con desayuno · Pensión completa desde $50.000/noche.
+            Todo el invierno en la montaña. Llegás y te vas cuando quieras. Pensión completa desde $50.000/noche, en habitación o domo compartido.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -1193,7 +1193,7 @@ const WinterRedirection: React.FC = () => {
               Sabemos que te merecés tomarte un descanso de verdad. Nos jugamos en darte los mejores precios y experiencias de la montaña. Vos solo tenés que animarte a venir.
             </p>
             <p className="text-sm max-w-lg mx-auto mb-4" style={{ color: C.muted }}>
-              Desde $20.000/noche con desayuno · Pensión completa desde $50.000/noche · Domos compartidos (hasta 7 pers.) · privados desde 4 · baños fuera del domo.
+              Pensión completa desde $50.000/noche en habitaciones y domos compartidos (hasta 7 pers.) · domo privado desde $150.000/noche · baños fuera del domo.
             </p>
             <p className="text-sm font-bold flex items-center justify-center gap-1.5 mb-4" style={{ color: '#8B6A00' }}>
               <TrendingDown size={16} /> Cuantas más noches te quedás, más barata sale cada una
@@ -1326,13 +1326,13 @@ const WinterRedirection: React.FC = () => {
               <div>
                 <p className="font-bold text-base" style={{ color: C.green }}>Horarios y Pensión Completa de Montaña</p>
                 <p className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mt-1" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#8B6A00' }}>
-                  ⚡ Válido hasta fin de invierno · Septiembre 2026
+                  ⚡ Válido para estadías hasta el 21 de septiembre de 2026
                 </p>
               </div>
             </div>
 
             <p className="text-sm mb-4" style={{ color: C.muted }}>
-              <strong style={{ color: C.dark }}>Tarifa: $50.000 por persona / noche</strong> — incluye alojamiento, almuerzo, cena y desayuno.
+              <strong style={{ color: C.dark }}>Tarifa: $50.000 por persona / noche</strong> en habitación o domo compartido — incluye alojamiento, almuerzo, cena y desayuno. Domo privado (1 o 2 personas): $150.000/noche.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-4">

@@ -23,7 +23,7 @@ import { X, ChevronLeft, ChevronRight, RefreshCw, CheckCircle2, MessageCircle, D
 // más específicos, sin tocar el CSS global del sitio.
 
 type TipoAlojamiento = 'domo' | 'refugio';
-type VistaActiva = 'operativa' | 'metricas' | 'historial' | 'usuarios' | 'actividad';
+type VistaActiva = 'operativa' | 'metricas' | 'historial' | 'consultas' | 'usuarios' | 'actividad';
 type EstadoReserva = 'pendiente' | 'confirmada' | 'cancelada';
 
 type Alojamiento = {
@@ -51,6 +51,19 @@ type Reserva = {
   canal_origen: string | null;
   manychat_user_id: string | null;
   created_at: string;
+};
+
+type Consulta = {
+  id: number;
+  cliente_nombre: string;
+  cliente_telefono: string | null;
+  alojamiento_interes: string | null;
+  fecha_desde: string | null;
+  fecha_hasta: string | null;
+  cantidad_personas: number | null;
+  monto_estimado: number | null;
+  subscriber_id: string | null;
+  fecha_consulta: string;
 };
 
 type Rol = 'super_admin' | 'editor' | 'viewer';
@@ -657,6 +670,92 @@ const TablaHistorial: React.FC<{ reservas: Reserva[]; onSeleccionar: (r: Reserva
   </>
 );
 
+const TablaConsultas: React.FC<{ consultas: Consulta[] }> = ({ consultas }) => (
+  <>
+    {/* Tabla — pantallas sm y más grandes */}
+    <div className="hidden sm:block overflow-x-auto">
+      <table className="text-sm border-collapse w-full">
+        <thead>
+          <tr className="text-left text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-50">
+            <th scope="col" className="border-b border-gray-200 px-3 py-2.5">Consulta</th>
+            <th scope="col" className="border-b border-gray-200 px-3 py-2.5">Interés</th>
+            <th scope="col" className="border-b border-gray-200 px-3 py-2.5 tabular-nums">Fechas</th>
+            <th scope="col" className="border-b border-gray-200 px-3 py-2.5 text-right tabular-nums">Monto cotizado</th>
+            <th scope="col" className="border-b border-gray-200 px-3 py-2.5 tabular-nums">Última interacción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {consultas.map(c => (
+            <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
+              <td className="px-3 py-2.5">
+                <p className="font-semibold text-gray-800">{c.cliente_nombre}</p>
+                <div className="flex items-center gap-2">
+                  {c.cliente_telefono && <p className="text-xs text-gray-400">{c.cliente_telefono}</p>}
+                  {c.cliente_telefono && (
+                    <a
+                      href={waLink(c.cliente_telefono)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1 text-xs text-brand font-semibold hover:underline rounded ${FOCUS_RING}`}
+                    >
+                      <MessageCircle size={11} aria-hidden="true" /> Escribir
+                    </a>
+                  )}
+                </div>
+              </td>
+              <td className="px-3 py-2.5 text-gray-600">
+                {c.alojamiento_interes || '—'}{c.cantidad_personas ? ` · ${c.cantidad_personas}p` : ''}
+              </td>
+              <td className="px-3 py-2.5 text-gray-600 tabular-nums whitespace-nowrap">
+                {c.fecha_desde ? fmtDateShort(c.fecha_desde) : '—'}{c.fecha_hasta ? `–${fmtDateShort(c.fecha_hasta)}` : ''}
+              </td>
+              <td className="px-3 py-2.5 text-right text-gray-700 tabular-nums">
+                {c.monto_estimado != null ? fmtMoney(c.monto_estimado) : '—'}
+              </td>
+              <td className="px-3 py-2.5 text-gray-500 tabular-nums whitespace-nowrap">{fmtDateShort(c.fecha_consulta)}</td>
+            </tr>
+          ))}
+          {consultas.length === 0 && (
+            <tr><td colSpan={5} className="px-3 py-8 text-center text-sm text-gray-400">No hay consultas sin convertir.</td></tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Lista de tarjetas — mobile */}
+    <div className="sm:hidden divide-y divide-gray-100">
+      {consultas.map(c => (
+        <div key={c.id} className="px-4 py-3.5">
+          <div className="flex items-start justify-between gap-2 mb-1">
+            <p className="font-semibold text-gray-800 text-sm truncate">{c.cliente_nombre}</p>
+            {c.monto_estimado != null && <span className="font-semibold text-gray-600 text-xs tabular-nums">{fmtMoney(c.monto_estimado)}</span>}
+          </div>
+          <p className="text-xs text-gray-500 tabular-nums mb-0.5">
+            {c.alojamiento_interes || 'Sin especificar'}
+            {c.fecha_desde ? ` · ${fmtDateShort(c.fecha_desde)}${c.fecha_hasta ? `–${fmtDateShort(c.fecha_hasta)}` : ''}` : ''}
+          </p>
+          <div className="flex items-center justify-between gap-2 text-xs text-gray-400">
+            <span>Consultó el {fmtDateShort(c.fecha_consulta)}</span>
+            {c.cliente_telefono && (
+              <a
+                href={waLink(c.cliente_telefono)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-1 text-brand font-semibold hover:underline rounded ${FOCUS_RING}`}
+              >
+                <MessageCircle size={11} aria-hidden="true" /> Escribir
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+      {consultas.length === 0 && (
+        <p className="px-4 py-8 text-center text-sm text-gray-400">No hay consultas sin convertir.</p>
+      )}
+    </div>
+  </>
+);
+
 type ResumenSync = Record<string, { nuevas: number; actualizadas: number; canceladas: number } | { error: string }>;
 
 const SeccionAirbnb: React.FC<{ alojamientos: Alojamiento[]; onSincronizado: () => void }> = ({ alojamientos, onSincronizado }) => {
@@ -1191,6 +1290,7 @@ const PanelReservas: React.FC = () => {
   const [vistaActiva, setVistaActiva] = useState<VistaActiva>('operativa');
   const [reservas, setReservas] = useState<Reserva[]>([]);
   const [reservasHistorial, setReservasHistorial] = useState<Reserva[] | null>(null);
+  const [consultas, setConsultas] = useState<Consulta[] | null>(null);
   const [alojamientos, setAlojamientos] = useState<Alojamiento[]>([]);
   const [metricas, setMetricas] = useState<Metricas | null>(null);
   const [loading, setLoading] = useState(true);
@@ -1237,6 +1337,20 @@ const PanelReservas: React.FC = () => {
       })
       .then(data => { setReservasHistorial(data.reservas || []); return data.reservas || []; })
       .catch(err => { if (err.message !== '__unauthorized__') setError(err.message || 'Error al cargar el historial'); return []; })
+      .finally(() => setLoading(false));
+  };
+
+  const cargarConsultas = () => {
+    setLoading(true);
+    setError(null);
+    fetch('/api/admin/consultas')
+      .then(res => {
+        if (res.status === 401) { manejarNoAutenticado(); throw new Error('__unauthorized__'); }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => setConsultas(data.consultas || []))
+      .catch(err => { if (err.message !== '__unauthorized__') setError(err.message || 'Error al cargar las consultas'); })
       .finally(() => setLoading(false));
   };
 
@@ -1287,6 +1401,7 @@ const PanelReservas: React.FC = () => {
 
   useEffect(() => {
     if (vistaActiva === 'historial' && reservasHistorial === null) cargarHistorial();
+    if (vistaActiva === 'consultas' && consultas === null) cargarConsultas();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vistaActiva]);
 
@@ -1374,6 +1489,7 @@ const PanelReservas: React.FC = () => {
     { key: 'operativa', label: 'Operativa' },
     { key: 'metricas', label: 'Métricas' },
     { key: 'historial', label: 'Historial' },
+    { key: 'consultas', label: 'Consultas' },
     ...(esSuperAdmin ? [{ key: 'usuarios' as VistaActiva, label: 'Usuarios' }, { key: 'actividad' as VistaActiva, label: 'Actividad' }] : []),
   ];
 
@@ -1643,6 +1759,20 @@ const PanelReservas: React.FC = () => {
             </div>
             <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
               <TablaHistorial reservas={reservasHistorialFiltradas} onSeleccionar={r => setModalReserva({ modo: 'editar', reserva: r })} />
+            </div>
+          </>
+        )}
+
+        {vistaActiva === 'consultas' && (
+          <>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">
+              Consultas sin convertir {loading && <span className="font-normal normal-case text-gray-400">(cargando…)</span>}
+            </h2>
+            <p className="text-xs text-gray-400 mb-4">
+              Llegaron al último paso del flujo de ManyChat (fecha, alojamiento y monto ya cotizados) pero no completaron el pago.
+            </p>
+            <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+              <TablaConsultas consultas={consultas || []} />
             </div>
           </>
         )}

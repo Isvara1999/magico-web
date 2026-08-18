@@ -40,15 +40,16 @@ export const RETREATS_DATA = {
     valorReferenciaARS: 900000,
     currency: 'ARS',
     dates: '28, 29 y 30 de Agosto',
-    cupos: 21,
+    cupos: 9,
     fechaLimiteInscripcion: '24 de Agosto',
     message: '¡Hola! Vengo de la web y me interesa el retiro "Ciclo Vital Femenino - Capítulo Muerte-Invierno". Me gustaría reservar mi lugar. ✨',
+    messageConsulta: '¡Hola! Me encantó la propuesta de Ciclo Vital Femenino y quiero saber el valor de la inversión y las formas de pago. ✨',
   }
 };
 
 export const ESTADIA_PRICES = {
-  base: 20000,           // alojamiento + desayuno
-  pensionCompleta: 50000, // + almuerzo y cena
+  pensionCompleta: 50000, // alojamiento + desayuno, almuerzo y cena — habitación o domo compartido
+  domoPrivadoDesde: 150000, // domo entero, 1 o 2 personas — grupos de 3 a 8 se cotizan aparte
 };
 
 export const COLIVING_PRICES = {

@@ -135,13 +135,12 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const excedeCapacidad = personas > capacidadMax;
 
   // Privada en domo: 1 persona sola paga tarifa fija de $150.000 (única
-  // disponibilidad son domos sueltos); la promo de parejas (2 personas)
-  // solo corre si se reserva antes del 31/07 — la estadía en sí puede ser
-  // más adelante. Fuera de la promo, domo privado se ofrece de 3 a 8
-  // personas (grupo, tope físico del domo).
+  // disponibilidad son domos sueltos). La pareja (2 personas) tiene la
+  // misma tarifa fija de $150.000 fuera de promo; reservando antes del
+  // 31/07 accede a la Promo Parejas ($75.000). De 3 a 8 personas el precio
+  // se calcula por persona (ver precioPorPersona).
   const promoParejasVigente = TODAY <= PROMO_PAREJAS_RESERVA_HASTA;
-  const domoPrivadaDisponible =
-    personas === 1 || (personas === 2 && promoParejasVigente) || (personas >= 3 && personas <= CAPACIDAD_DOMO);
+  const domoPrivadaDisponible = personas >= 1 && personas <= CAPACIDAD_DOMO;
   // Privada en refugio: de 3 personas hasta el tope real (15) no tiene costo
   // extra (misma tarifa que compartida) — a esa escala ya estás usando la
   // mayor parte o todo el refugio igual. El recargo es solo para 1-2
@@ -155,8 +154,8 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   function precioPorPersona(): number {
     if (habitacionEfectiva !== 'privada') return 50_000;
     if (tipoEfectivo === 'domo') {
-      if (personas === 1) return 150_000;
-      if (personas === 2 && promoParejasVigente) return 37_500; // $75.000 total
+      if (personas === 1) return 150_000; // tarifa fija, domo entero
+      if (personas === 2) return promoParejasVigente ? 37_500 : 75_000; // $75.000 total en promo, $150.000 total fuera de promo
       if (personas >= 3 && personas <= 5) return 65_000;
       if (personas >= 6 && personas <= 8) return 50_000;
       return 50_000; // fallback, no debería alcanzarse con privadaDisponible en false
