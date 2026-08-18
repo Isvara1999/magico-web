@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
-import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, PROMO_PAREJAS_RESERVA_HASTA, MONTHLY_URGENCY } from '../src/data/availability';
+import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, PROMO_PAREJAS_RESERVA_HASTA, MONTHLY_URGENCY } from '../src/data/availability';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
 const MONTH_DATES = [
@@ -31,10 +31,16 @@ export function fmt(iso: string, monthAbbr: string[]) {
 export function nightsBetween(a: string, b: string) {
   return Math.round((new Date(b).getTime() - new Date(a).getTime()) / 86_400_000);
 }
-export function getStatus(iso: string, blockedList: string[]): 'available' | 'blocked' | 'past' {
+export function getStatus(iso: string, blockedList: string[], retiroList: string[] = []): 'available' | 'blocked' | 'retiro' | 'past' {
   if (iso < TODAY) return 'past';
   if (blockedList.includes(iso)) return 'blocked';
+  if (retiroList.includes(iso)) return 'retiro';
   return 'available';
+}
+// 'retiro' se puede elegir igual que 'available' — solo cambia el color y
+// dispara el aviso de consultar por WhatsApp (ver RETIRO_DATES_* arriba).
+export function esPickable(status: ReturnType<typeof getStatus>): boolean {
+  return status === 'available' || status === 'retiro';
 }
 export function initialMonth() {
   const i = MONTH_DATES.findIndex(mo => toISO(mo.year, mo.month, new Date(mo.year, mo.month, 0).getDate()) >= TODAY);
@@ -72,6 +78,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // carga, y sigue funcionando si la consulta falla (p. ej. en dev local).
   const [blockedDomo, setBlockedDomo] = useState<string[]>(BLOCKED_DATES_DOMO);
   const [blockedRefugio, setBlockedRefugio] = useState<string[]>(BLOCKED_DATES_REFUGIO);
+  const retiroByTipo = useMemo(() => ({ domo: RETIRO_DATES_DOMO, refugio: RETIRO_DATES_REFUGIO }), []);
 
   useEffect(() => {
     let cancelado = false;
@@ -92,8 +99,8 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // alojamiento, directamente deshabilitamos ese botón — así la persona ve
   // por qué no puede cambiar, en lugar de perder su selección sin aviso.
   function tipoDisponibleParaFechas(op: 'domo' | 'refugio'): boolean {
-    if (start && getStatus(start, blockedByTipo[op]) !== 'available') return false;
-    if (end && getStatus(end, blockedByTipo[op]) !== 'available') return false;
+    if (start && !esPickable(getStatus(start, blockedByTipo[op], retiroByTipo[op]))) return false;
+    if (end && !esPickable(getStatus(end, blockedByTipo[op], retiroByTipo[op]))) return false;
     return true;
   }
 
@@ -105,17 +112,17 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const monthUrgency = MONTHLY_URGENCY[monthKey] ?? 'normal';
 
   const handleDay = useCallback((iso: string) => {
-    if (getStatus(iso, blockedByTipo[tipoEfectivo]) !== 'available') return;
+    if (!esPickable(getStatus(iso, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]))) return;
     if (!pickEnd || !start) {
       setStart(iso); setEnd(null); setPickEnd(true);
     } else {
       if (iso <= start) { setStart(iso); setEnd(null); }
       else { setEnd(iso); setPickEnd(false); }
     }
-  }, [pickEnd, start, tipoEfectivo, blockedByTipo]);
+  }, [pickEnd, start, tipoEfectivo, blockedByTipo, retiroByTipo]);
 
   function dayStyle(iso: string) {
-    const s = getStatus(iso, blockedByTipo[tipoEfectivo]);
+    const s = getStatus(iso, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]);
     const isStart = iso === start;
     const isEnd   = iso === end;
     const inRange = !!(start && end && iso > start && iso < end);
@@ -123,13 +130,15 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     if (s === 'blocked')  return { bg: '#f1f5f9',     color: '#cbd5e1', cursor: 'not-allowed',  opacity: 0.6,  radius: 6 };
     if (isStart || isEnd) return { bg: G.green,        color: 'white',   cursor: 'pointer',      opacity: 1,    radius: 6 };
     if (inRange)          return { bg: 'rgba(0,83,51,0.1)', color: G.green, cursor: 'pointer',  opacity: 1,    radius: 0 };
+    if (s === 'retiro')   return { bg: 'rgba(212,175,55,0.16)', color: '#8B6A00', cursor: 'pointer', opacity: 1, radius: 6 };
     return                       { bg: 'transparent', color: '#1A2B3C', cursor: 'pointer',      opacity: 1,    radius: 6 };
   }
 
-  // Capacidad física real: un domo entra hasta 8 personas (7 camas + opción
-  // matrimonial), el refugio hasta 15. Por encima de eso no se puede
-  // reservar solo — se coordina por WhatsApp (combinar domos + refugio, etc.).
-  const CAPACIDAD_DOMO = 8;
+  // Capacidad física real: un domo entra hasta 7 personas (7 camas — por
+  // ahora todas individuales, sin armar la opción matrimonial), el refugio
+  // hasta 15. Por encima de eso no se puede reservar solo — se coordina por
+  // WhatsApp (combinar domos + refugio, etc.).
+  const CAPACIDAD_DOMO = 7;
   const CAPACIDAD_REFUGIO = 15;
   const capacidadMax = tipoEfectivo === 'domo' ? CAPACIDAD_DOMO : CAPACIDAD_REFUGIO;
   const excedeCapacidad = personas > capacidadMax;
@@ -137,7 +146,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // Privada en domo: 1 persona sola paga tarifa fija de $150.000 (única
   // disponibilidad son domos sueltos). La pareja (2 personas) tiene la
   // misma tarifa fija de $150.000 fuera de promo; reservando antes del
-  // 31/07 accede a la Promo Parejas ($75.000). De 3 a 8 personas el precio
+  // 31/07 accede a la Promo Parejas ($75.000). De 3 a 7 personas el precio
   // se calcula por persona (ver precioPorPersona).
   const promoParejasVigente = TODAY <= PROMO_PAREJAS_RESERVA_HASTA;
   const domoPrivadaDisponible = personas >= 1 && personas <= CAPACIDAD_DOMO;
@@ -157,12 +166,18 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
       if (personas === 1) return 150_000; // tarifa fija, domo entero
       if (personas === 2) return promoParejasVigente ? 37_500 : 75_000; // $75.000 total en promo, $150.000 total fuera de promo
       if (personas >= 3 && personas <= 5) return 65_000;
-      if (personas >= 6 && personas <= 8) return 50_000;
+      if (personas >= 6 && personas <= CAPACIDAD_DOMO) return 50_000;
       return 50_000; // fallback, no debería alcanzarse con privadaDisponible en false
     }
     // Refugio privado: sin costo extra de 3 hasta el tope real (15); recargo solo para 1-2.
     return (personas >= 3 && personas <= CAPACIDAD_REFUGIO) ? 50_000 : 75_000;
   }
+
+  // Si la estadía elegida cae en fechas de retiro/evento (ver RETIRO_DATES_*),
+  // no la bloqueamos, pero avisamos que hay que confirmar por WhatsApp: puede
+  // que el evento no use este alojamiento, o lo use solo parcialmente.
+  const enRetiro = (start != null && getStatus(start, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro')
+    || (end != null && getStatus(end, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro');
 
   const PRECIO_BASE_COMPARTIDA = 50_000;
   const nights       = start && end ? nightsBetween(start, end) : 0;
@@ -265,6 +280,12 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         </div>
       )}
 
+      {enRetiro && (
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#8B6A00', background: 'rgba(212,175,55,0.14)', borderRadius: 8, padding: '8px 10px', marginBottom: 10 }}>
+          {b.retiroNote}
+        </p>
+      )}
+
       {/* Personas */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
         <span style={{ fontSize: 12, color: G.muted, fontWeight: 500 }}>{b.guestsLabel}</span>
@@ -272,15 +293,15 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
           <button onClick={() => setPersonas(p => Math.max(1, p - 1))}
             style={{ width: 28, height: 28, borderRadius: '50%', border: '1.5px solid rgba(0,83,51,0.2)', background: 'white', cursor: 'pointer', fontSize: 16, color: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
           <span style={{ fontWeight: 700, fontSize: 15, color: '#1A2B3C', minWidth: 18, textAlign: 'center' }}>{personas}</span>
-          <button onClick={() => setPersonas(p => p + 1)}
+          <button onClick={() => setPersonas(p => Math.min(CAPACIDAD_REFUGIO, p + 1))}
             style={{ width: 28, height: 28, borderRadius: '50%', border: 'none', background: G.green, cursor: 'pointer', fontSize: 16, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
         </div>
       </div>
-      {excedeCapacidad ? (
+      {excedeCapacidad && nights === 0 ? (
         <p style={{ fontSize: 10, color: '#94a3b8', marginTop: -6, marginBottom: 10 }}>
           {fillTemplate(b.capacityExceeded, { tipo: (tipoEfectivo === 'domo' ? b.domoShort : b.refugioShort).toLowerCase(), max: String(capacidadMax) })}
         </p>
-      ) : enRangoGrupo ? (
+      ) : excedeCapacidad ? null : enRangoGrupo ? (
         <p style={{ fontSize: 10, color: G.green, marginTop: -6, marginBottom: 10, fontWeight: 600 }}>
           {tipoEfectivo === 'domo' ? b.groupNote.domo : b.groupNote.refugio}
         </p>
@@ -338,8 +359,18 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         <p style={{ fontSize: 10, color: '#94a3b8', marginTop: -6, marginBottom: 12 }}>{b.privateDomoNote}</p>
       )}
 
-      {/* Resumen */}
-      {nights > 0 && (
+      {/* Resumen — sin precio si el grupo excede la capacidad real: esas
+          tarifas por persona no aplican a un grupo que no entra en el
+          alojamiento, así que no mostramos un total inventado. */}
+      {nights > 0 && excedeCapacidad && (
+        <div style={{ background: 'rgba(212,175,55,0.14)', borderRadius: 9, padding: '9px 11px', marginBottom: 10 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#8B6A00', margin: 0 }}>
+            {fillTemplate(b.capacityExceeded, { tipo: (tipoEfectivo === 'domo' ? b.domoShort : b.refugioShort).toLowerCase(), max: String(capacidadMax) })}
+          </p>
+          <button onClick={clear} style={{ fontSize: 11, color: '#8B6A00', background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginTop: 6, textDecoration: 'underline' }}>{b.clear}</button>
+        </div>
+      )}
+      {nights > 0 && !excedeCapacidad && (
         <div style={{ background: 'rgba(0,83,51,0.05)', borderRadius: 9, padding: '9px 11px', marginBottom: 10 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
@@ -372,10 +403,11 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         </div>
       )}
 
-      {/* CTA */}
+      {/* CTA — "Confirmar" solo tiene sentido si hay un total real; si el
+          grupo excede la capacidad, siempre se deriva a consultar. */}
       <a href={waUrl} target="_blank" rel="noopener noreferrer"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, background: nights > 0 ? '#25D366' : G.green, color: 'white', borderRadius: 11, padding: '12px 14px', fontWeight: 700, fontSize: 12, textDecoration: 'none', width: '100%', boxSizing: 'border-box' }}>
-        💬 {nights > 0 ? b.confirmWhatsapp : b.checkAvailability}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, background: nights > 0 && !excedeCapacidad ? '#25D366' : G.green, color: 'white', borderRadius: 11, padding: '12px 14px', fontWeight: 700, fontSize: 12, textDecoration: 'none', width: '100%', boxSizing: 'border-box' }}>
+        💬 {nights > 0 && !excedeCapacidad ? b.confirmWhatsapp : b.checkAvailability}
       </a>
     </div>
   );

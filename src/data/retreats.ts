@@ -49,7 +49,7 @@ export const RETREATS_DATA = {
 
 export const ESTADIA_PRICES = {
   pensionCompleta: 50000, // alojamiento + desayuno, almuerzo y cena — habitación o domo compartido
-  domoPrivadoDesde: 150000, // domo entero, 1 o 2 personas — grupos de 3 a 8 se cotizan aparte
+  domoPrivadoDesde: 150000, // domo entero, 1 o 2 personas — grupos de 3 a 7 se cotizan aparte
 };
 
 export const COLIVING_PRICES = {

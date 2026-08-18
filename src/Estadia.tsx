@@ -112,10 +112,10 @@ const ALOJAMIENTOS = [
     name: 'Domo Geodésico',
     tag: 'MÁS SOLICITADO',
     tagColor: 'bg-gold text-white',
-    shortDesc: '7 camas de una plaza · opción matrimonial · exclusivo desde 4 personas',
-    desc: 'Esfera geométrica en plena montaña con ventanas panorámicas al cielo. 7 camas de una plaza — una puede configurarse como matrimonial. Desde 4 personas podés reservar el domo de uso exclusivo. Ropa blanca incluida. Baños compartidos a metros del domo.',
+    shortDesc: '7 camas de una plaza · exclusivo desde 4 personas',
+    desc: 'Esfera geométrica en plena montaña con ventanas panorámicas al cielo. 7 camas de una plaza. Desde 4 personas podés reservar el domo de uso exclusivo. Ropa blanca incluida. Baños compartidos a metros del domo.',
     image: '/uploads/domos.webp',
-    details: ['7 camas de 1 plaza', 'Opción matrimonial disponible', 'Exclusivo desde 4 personas', 'Ropa blanca incluida', 'Baños compartidos fuera del domo', 'Programa Reset Vital'],
+    details: ['7 camas de 1 plaza', 'Exclusivo desde 4 personas', 'Ropa blanca incluida', 'Baños compartidos fuera del domo', 'Programa Reset Vital'],
     wa: WA('Hola! Quiero consultar disponibilidad de un Domo Geodésico en Pueblo Mágico ✨'),
   },
   {
@@ -230,7 +230,7 @@ const Alojamientos: React.FC = () => {
               <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
                 <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Domo privado · 1 o 2 personas</p>
                 <p className="text-brand text-xl font-serif">$150.000<span className="text-xs text-dark/50 font-sans ml-1">/ noche, domo entero</span></p>
-                <p className="text-dark/40 text-[11px] mt-0.5">3 a 8 personas: consultá el precio por grupo</p>
+                <p className="text-dark/40 text-[11px] mt-0.5">3 a 7 personas: consultá el precio por grupo</p>
               </div>
               <p className="text-center text-dark/40 text-xs mt-3">Precios por persona salvo el domo privado (precio por domo) · fuera de este rango de fechas, consultá el precio vigente · sin sorpresas ocultas</p>
             </div>

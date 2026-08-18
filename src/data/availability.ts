@@ -1,30 +1,35 @@
 /**
- * Fallback de disponibilidad — el BookingWidget ahora consulta en vivo
+ * Fallback de disponibilidad — el BookingWidget consulta en vivo
  * GET /api/disponibilidad (functions/api/disponibilidad.ts), que calcula
  * estas mismas listas a partir de las reservas reales en D1. Estos arrays
  * solo se usan como respaldo mientras esa consulta está en curso o si falla
  * (por ejemplo en `npm run dev`, donde no corren las Pages Functions).
+ * Empiezan vacíos a propósito: "sin lugar" solo lo puede afirmar el conteo
+ * real de reservas, nunca una lista cargada a mano acá.
  * BLOCKED_DATES_DOMO / BLOCKED_DATES_REFUGIO: string[] de 'YYYY-MM-DD'.
  */
 
 export const CAPACITY_PER_DAY = 30;
 
-// Domos: llenos todos los fines de semana de agosto (viernes a domingo,
-// el finde largo del Pachamama Fest / Familion se extiende al lunes) —
-// EXCEPTO el finde 31 jul-2 ago, que todavía tiene 1 domo libre.
-// El refugio (eco-refugio compartido) sigue con lugar toda la temporada.
-//
-// ⚠️ Manual por ahora: cuando ese último domo del 31/7-2/8 se reserve,
-// agregá esas 3 fechas de vuelta a esta lista (o avisale a Claude en el
-// chat). Más adelante esto se puede conectar a una planilla/Sheet.
-export const BLOCKED_DATES_DOMO: string[] = [
-  '2026-08-07', '2026-08-08', '2026-08-09',                // finde 7-9 ago
-  '2026-08-14', '2026-08-15', '2026-08-16', '2026-08-17',  // finde largo (Pachamama Fest / Familion)
-  '2026-08-21', '2026-08-22', '2026-08-23',                // finde 21-23 ago
-  '2026-08-28', '2026-08-29', '2026-08-30',                // finde 28-30 ago (Ciclo Vital Femenino)
-];
-
+export const BLOCKED_DATES_DOMO: string[] = [];
 export const BLOCKED_DATES_REFUGIO: string[] = [];
+
+// Fechas de retiros/eventos (Pachamama Fest, Familion, Ciclo Vital Femenino,
+// etc.) que usan domos o refugio pero se coordinan aparte y no quedan
+// cargados como 'reserva' en D1 — por eso el chequeo en vivo no los ve.
+// A diferencia de BLOCKED_DATES_*, estas fechas NO se muestran como "sin
+// lugar": el calendario las marca aparte y deriva a WhatsApp para que el
+// equipo confirme caso por caso si hay lugar (puede que solo se use un domo
+// del evento, o ninguno, y quede libre igual).
+// ⚠️ Manual por ahora — mantené esta lista al día con la agenda de eventos.
+export const RETIRO_DATES_DOMO: string[] = [
+  '2026-08-21', '2026-08-22', '2026-08-23', // finde 21-23 ago
+  '2026-08-28', '2026-08-29', '2026-08-30', // Ciclo Vital Femenino
+];
+export const RETIRO_DATES_REFUGIO: string[] = [
+  '2026-08-21', '2026-08-22', '2026-08-23',
+  '2026-08-28', '2026-08-29', '2026-08-30',
+];
 
 // Última fecha para reservar y acceder a la Promo Parejas de domo privado
 // (la estadía en sí puede ser más adelante, lo que vence es la reserva).

@@ -24,7 +24,8 @@
       "roomType": "Tipo de habitación",
       "sharedRoom": "Compartida",
       "privateRoom": "Privada",
-      "privateDomoNote": "Privada en domo: 1 o 2 personas ($150.000/noche, o $75.000/noche reservando en pareja hasta el 31/07) o grupos de 3 a 8 personas",
+      "privateDomoNote": "Privada en domo: 1 o 2 personas ($150.000/noche, o $75.000/noche reservando en pareja hasta el 31/07) o grupos de 3 a 7 personas",
+      "retiroNote": "🗓️ Estas fechas coinciden con un retiro — te confirmamos por WhatsApp si hay lugar antes de cerrar la reserva.",
       "unavailableForDates": "Esa opción no tiene lugar en las fechas que elegiste — probá con otras fechas.",
       "capacityExceeded": "El {tipo} tiene capacidad para hasta {max} personas — para grupos más grandes, escribinos por WhatsApp.",
       "groupNote": {
@@ -1699,7 +1700,8 @@
       "roomType": "Room type",
       "sharedRoom": "Shared",
       "privateRoom": "Private",
-      "privateDomoNote": "Private dome: 1 or 2 people ($150,000/night, or $75,000/night booking as a couple by 07/31), or groups of 3 to 8 people",
+      "privateDomoNote": "Private dome: 1 or 2 people ($150,000/night, or $75,000/night booking as a couple by 07/31), or groups of 3 to 7 people",
+      "retiroNote": "🗓️ These dates overlap with a retreat — we'll confirm availability with you on WhatsApp before finalizing the booking.",
       "unavailableForDates": "That option has no availability for the dates you picked — try different dates.",
       "capacityExceeded": "The {tipo} has room for up to {max} people — for bigger groups, message us on WhatsApp.",
       "groupNote": {
