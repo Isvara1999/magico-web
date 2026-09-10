@@ -35,7 +35,7 @@ const MODALIDADES = [
     color: C.green,
     bg: 'rgba(0,83,51,0.05)',
     border: 'rgba(0,83,51,0.3)',
-    destacado: false,
+    destacado: true,
     items: [
       'Acceso a todas las actividades',
       'Alojamiento compartido',
@@ -59,7 +59,7 @@ const MODALIDADES = [
     color: C.luna,
     bg: 'rgba(157,0,94,0.05)',
     border: 'rgba(157,0,94,0.3)',
-    destacado: true,
+    destacado: false,
     items: [
       'Alojamiento compartido',
       '3 comidas incluidas (cena, desayuno y almuerzo)',
@@ -146,7 +146,6 @@ const Countdown: React.FC = () => {
 };
 
 const KillaRaymi: React.FC = () => {
-  const [activeModalidad, setActiveModalidad] = useState<typeof MODALIDADES[number]['key']>('completa');
   const [showStickyBar, setShowStickyBar] = useState(false);
 
   useEffect(() => {
@@ -171,8 +170,6 @@ const KillaRaymi: React.FC = () => {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const modalidadActiva = MODALIDADES.find(m => m.key === activeModalidad)!;
 
   return (
     <div style={{ backgroundColor: C.cream, color: C.dark }} className="overflow-x-hidden">
@@ -506,7 +503,7 @@ const KillaRaymi: React.FC = () => {
 
       {/* ── PRECIOS ── */}
       <section id="precios" className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
               style={{ backgroundColor: C.green }}>
@@ -520,54 +517,41 @@ const KillaRaymi: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 mb-6" data-reveal data-delay="1">
-            {MODALIDADES.map(m => {
-              const active = activeModalidad === m.key;
-              return (
-                <button key={m.key} onClick={() => setActiveModalidad(m.key)}
-                  className="relative rounded-xl px-2 py-3 border text-center transition-colors"
-                  style={{ borderColor: active ? m.color : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bg : 'white' }}>
-                  {m.destacado && (
-                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[8px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full text-white whitespace-nowrap"
-                      style={{ backgroundColor: C.luna }}>
-                      Más elegida
-                    </span>
-                  )}
-                  <m.icon size={16} color={active ? m.color : C.faint} className="mx-auto mb-1.5" />
-                  <p className="text-[11px] font-bold leading-tight" style={{ color: active ? m.color : C.dark }}>{m.short}</p>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="rounded-2xl p-6 md:p-8" data-reveal data-delay="2" style={{ backgroundColor: modalidadActiva.bg, border: `1px solid ${modalidadActiva.border}` }}>
-            <div className="flex items-end justify-between gap-3 mb-1">
-              <div>
-                <div className="flex items-center gap-2 mb-0.5">
-                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidadActiva.color }}>{modalidadActiva.label}</p>
-                  {modalidadActiva.destacado && (
-                    <span className="text-[8px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full text-white whitespace-nowrap" style={{ backgroundColor: C.luna }}>
-                      Más elegida
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs" style={{ color: C.faint }}>{modalidadActiva.sub}</p>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5 items-start">
+            {MODALIDADES.map(m => (
+              <div key={m.key} data-reveal data-delay="1"
+                className="rounded-2xl p-6 md:p-7 relative flex flex-col h-full"
+                style={{
+                  backgroundColor: m.destacado ? m.bg : 'white',
+                  border: `1px solid ${m.destacado ? m.color : 'rgba(0,83,51,0.12)'}`,
+                  boxShadow: m.destacado ? '0 8px 30px rgba(157,0,94,0.12)' : 'none',
+                }}
+              >
+                {m.destacado && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-wide px-3 py-1 rounded-full text-white whitespace-nowrap"
+                    style={{ backgroundColor: m.color }}>
+                    Más elegida
+                  </span>
+                )}
+                <m.icon size={18} color={m.color} className="mb-3" />
+                <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: m.color }}>{m.label}</p>
+                <p className="text-xs mb-3" style={{ color: C.faint }}>{m.sub}</p>
+                <p className="text-2xl md:text-3xl font-bold serif-title mb-4" style={{ color: m.color }}>{fmt(PRECIO)}</p>
+                <ul className="space-y-2 mb-5 flex-1">
+                  {m.items.map(i => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: m.color }}>✓</span>{i}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs mb-4" style={{ color: C.faint }}>{m.nota}</p>
+                <a href={m.wa} target="_blank" rel="noopener noreferrer"
+                  className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: m.color }}>
+                  {m.cta}
+                </a>
               </div>
-              <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidadActiva.color }}>{fmt(PRECIO)}</p>
-            </div>
-            <ul className="space-y-2 my-5">
-              {modalidadActiva.items.map(i => (
-                <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                  <span className="flex-shrink-0 mt-0.5" style={{ color: modalidadActiva.color }}>✓</span>{i}
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs mb-5" style={{ color: C.faint }}>{modalidadActiva.nota}</p>
-            <a href={modalidadActiva.wa} target="_blank" rel="noopener noreferrer"
-              className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: modalidadActiva.color }}>
-              {modalidadActiva.cta}
-            </a>
+            ))}
           </div>
 
           <p className="flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide mt-5" style={{ color: C.luna }}>
@@ -575,7 +559,7 @@ const KillaRaymi: React.FC = () => {
             Cupos limitados — reservá tu lugar
           </p>
 
-          <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4" data-reveal
+          <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4 max-w-xl mx-auto" data-reveal
             style={{ backgroundColor: 'rgba(0,83,51,0.05)', border: '1px solid rgba(0,83,51,0.15)' }}>
             <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
               <ShieldCheck size={18} color={C.green} />
