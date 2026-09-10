@@ -23,5 +23,6 @@ export const ROUTES = {
   WINTER_REDIRECTION: '/winter-redirection',
   COLIVING: '/coliving',
   CICLO_VITAL_FEMENINO: '/ciclo-vital-femenino',
+  KILLA_RAYMI: '/killa-raymi',
   ADMIN_RESERVAS: '/admin/reservas',
 };

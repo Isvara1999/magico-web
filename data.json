@@ -260,12 +260,12 @@
       "link": "",
       "cards": [
         {
-          "date": "28-30 AGOSTO",
-          "title": "Ciclo Vital Femenino · Encuentro de Mujeres",
-          "desc": "Retiro de mujeres en la montaña para transmutar todo lo que no ES. Círculo de mujeres, temazcal, ceremonia de cacao y rituales de cierre de ciclo.",
+          "date": "25-27 SEPTIEMBRE",
+          "title": "Killa Raymi · Primavera & Luna Llena",
+          "desc": "Un fin de semana en la montaña para celebrar la llegada de la primavera bajo la luz de la Luna llena. Temazcal, ceremonia de Luna llena, trekking al Macizo Los Gigantes y música en comunidad.",
           "btn": "Ver más",
-          "image": "/uploads/bienestar-balance.webp",
-          "link": "/ciclo-vital-femenino",
+          "image": "/uploads/pachamama-cielo-estrellado.webp",
+          "link": "/killa-raymi",
           "pdfLink": ""
         },
         {
@@ -493,9 +493,7 @@
           "title": "Experiencias con fecha",
           "links": [
             { "label": "❄ Winter Camp", "href": "/winter-camp" },
-            { "label": "Pachamama Fest", "href": "/pachamama-fest" },
-            { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
-            { "label": "Familion", "href": "/familion" },
+            { "label": "Killa Raymi", "href": "/killa-raymi" },
             { "label": "Achala Viva", "href": "/achala-viva" }
           ]
         },
@@ -1936,12 +1934,12 @@
       "link": "",
       "cards": [
         {
-          "date": "AUG 28-30",
-          "title": "Ciclo Vital Femenino · Women's Gathering",
-          "desc": "A women's mountain retreat to transmute all that no longer IS. Women's circle, temazcal, cacao ceremony and cycle-closing rituals.",
+          "date": "SEP 25-27",
+          "title": "Killa Raymi · Spring & Full Moon",
+          "desc": "A weekend in the mountains to welcome spring under the light of the full moon. Temazcal, full moon ceremony, trekking to the Los Gigantes massif and music in community.",
           "btn": "See More",
-          "image": "/uploads/Invierno/20250627_222558.webp",
-          "link": "/ciclo-vital-femenino",
+          "image": "/uploads/pachamama-cielo-estrellado.webp",
+          "link": "/killa-raymi",
           "pdfLink": ""
         },
         {
@@ -2169,9 +2167,7 @@
           "title": "Dated experiences",
           "links": [
             { "label": "❄ Winter Camp", "href": "/winter-camp" },
-            { "label": "Pachamama Fest", "href": "/pachamama-fest" },
-            { "label": "Ciclo Vital Femenino", "href": "/ciclo-vital-femenino" },
-            { "label": "Familion", "href": "/familion" },
+            { "label": "Killa Raymi", "href": "/killa-raymi" },
             { "label": "Achala Viva", "href": "/achala-viva" }
           ]
         },

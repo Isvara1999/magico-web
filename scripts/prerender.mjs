@@ -95,6 +95,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/pachamama-fest',
   },
   {
+    path: '/killa-raymi',
+    title: 'Killa Raymi — Primavera & Luna Llena · 25 al 27 de Septiembre | Pueblo Mágico',
+    description: 'Un fin de semana en la montaña para celebrar la primavera bajo la luna llena. Temazcal, ceremonia de luna llena, trekking al Macizo Los Gigantes y música en comunidad. Los Gigantes, Córdoba.',
+    image: 'https://experienciamagico.com/uploads/pachamama-cielo-estrellado.webp',
+    canonical: 'https://experienciamagico.com/killa-raymi',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',

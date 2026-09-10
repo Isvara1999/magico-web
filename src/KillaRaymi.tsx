@@ -1,0 +1,648 @@
+import React, { useState, useEffect } from 'react';
+import { Moon, Flame, Mountain, Sprout, Music, ChevronDown, Instagram, ShieldCheck } from 'lucide-react';
+import { img } from './lib/img';
+import { WA_MAGICO } from './data/config';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+
+const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa Killa Raymi del 25 al 27 de septiembre. ¿Me pueden dar más info?')}`;
+const WA_COMPLETA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia Completa (2 noches) de Killa Raymi, del 25 al 27 de septiembre. ¿Cómo sigo?')}`;
+const WA_1NOCHE   = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia de 1 noche de Killa Raymi. ¿Cómo sigo?')}`;
+const WA_DIA      = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero el pase por el día para Killa Raymi. ¿Cómo sigo?')}`;
+
+const C = {
+  green:     '#005333',
+  gold:      '#D4AF37',
+  luna:      '#9D005E', // Pantone P81-16U · primavera, mismo acento que Pachamama para la noche de luna llena
+  night:     '#0F1A12',
+  cream:     '#FDFBF7',
+  dark:      '#2A1708',
+  muted:     '#6B4A33',
+  faint:     '#8B6347',
+};
+
+// Precio único, provisorio, para las 3 modalidades — a definir por separado más adelante.
+const PRECIO = 250000;
+const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
+
+const MODALIDADES = [
+  {
+    key: 'completa',
+    icon: Moon,
+    short: 'Completa',
+    label: 'Experiencia completa · Habitación',
+    sub: '2 noches · viernes y sábado',
+    color: C.green,
+    bg: 'rgba(0,83,51,0.05)',
+    border: 'rgba(0,83,51,0.3)',
+    destacado: false,
+    items: [
+      'Acceso a todas las actividades',
+      'Alojamiento compartido',
+      'Ropa blanca, toalla y toallón individual',
+      'Todas las comidas incluidas',
+      'Ceremonia de Temazcal',
+      'Ceremonia de Luna llena',
+      'Trekking al Macizo Los Gigantes',
+      'Todas las dinámicas y propuestas del encuentro',
+    ],
+    cta: 'Reservar experiencia completa',
+    wa: WA_COMPLETA,
+    nota: 'La recomendamos para quienes quieran vivir el proceso completo.',
+  },
+  {
+    key: '1noche',
+    icon: Flame,
+    short: '1 noche',
+    label: 'Experiencia · 1 noche',
+    sub: 'Viernes a sábado, o sábado y la noche de Luna llena',
+    color: C.luna,
+    bg: 'rgba(157,0,94,0.05)',
+    border: 'rgba(157,0,94,0.3)',
+    destacado: true,
+    items: [
+      'Alojamiento compartido',
+      '3 comidas incluidas (cena, desayuno y almuerzo)',
+      'Acceso a las actividades',
+      'Participación en las dinámicas del encuentro',
+    ],
+    cta: 'Reservar 1 noche',
+    wa: WA_1NOCHE,
+    nota: 'Una forma de entrar en la experiencia sin quedarte todo el fin de semana.',
+  },
+  {
+    key: 'dia',
+    icon: Sprout,
+    short: 'Pase por el día',
+    label: 'Pase por el día',
+    sub: 'Venís, vivís Killa Raymi y volvés a casa',
+    color: C.gold,
+    bg: 'rgba(212,175,55,0.06)',
+    border: 'rgba(212,175,55,0.4)',
+    destacado: false,
+    items: [
+      'Acceso a las actividades del día',
+      'Almuerzo y merienda incluidos',
+      'Música y celebración',
+      'Espacios de comunidad',
+    ],
+    cta: 'Quiero el pase diario',
+    wa: WA_DIA,
+    nota: 'Ideal si querés acercarte a conocer la experiencia en el día que más te resuene.',
+  },
+] as const;
+
+const ENCONTRAR = [
+  {
+    Icon: Moon,
+    title: 'Ritual & Conexión',
+    items: ['Ceremonia de Luna llena', 'Ceremonia de Temazcal', 'Ceremonia de fuego', 'Círculos de palabra', 'Espacios de silencio y presencia'],
+  },
+  {
+    Icon: Music,
+    title: 'Expresión & Comunidad',
+    items: ['Ecstatic Dance', 'Danza libre', 'Meditaciones en movimiento', 'Círculos de canto', 'Música en vivo & Jam sessions', 'Fogón y encuentros comunitarios'],
+  },
+  {
+    Icon: Mountain,
+    title: 'Naturaleza & Territorio',
+    items: ['Trekking al Macizo Los Gigantes', 'Caminatas conscientes', 'Interpretación del territorio', 'Avistaje de aves', 'Reconocimiento de plantas'],
+  },
+  {
+    Icon: Sprout,
+    title: 'Bienestar',
+    items: ['Alimentación consciente', 'Espacios de descanso', 'Movimiento y consciencia corporal', 'Integración cuerpo–mente–emociones', 'Tiempo libre para disfrutar de la montaña'],
+  },
+];
+
+// ─── Countdown ─────────────────────────────────────────────────────────────────
+const Countdown: React.FC = () => {
+  const target = new Date('2026-09-25T09:00:00').getTime();
+  const calc = () => {
+    const d = target - Date.now();
+    if (d <= 0) return { days: 0, h: 0, m: 0 };
+    return {
+      days: Math.floor(d / 86400000),
+      h:    Math.floor((d % 86400000) / 3600000),
+      m:    Math.floor((d % 3600000) / 60000),
+    };
+  };
+  const [t, setT] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setT(calc()), 30000);
+    return () => clearInterval(id);
+  }, []);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return (
+    <div className="flex items-center gap-3">
+      {[{ v: t.days, l: 'días' }, { v: t.h, l: 'hs' }, { v: t.m, l: 'min' }].map(({ v, l }) => (
+        <div key={l} className="text-center">
+          <div className="text-2xl md:text-3xl font-bold serif-title" style={{ color: C.gold }}>{pad(v)}</div>
+          <div className="text-[10px] tracking-widest uppercase text-white/50">{l}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const KillaRaymi: React.FC = () => {
+  const [activeModalidad, setActiveModalidad] = useState<typeof MODALIDADES[number]['key']>('completa');
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Killa Raymi · 25 al 27 de Septiembre · Pueblo Mágico';
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const nearBottom = y + window.innerHeight > document.documentElement.scrollHeight - 600;
+      setShowStickyBar(y > 500 && !nearBottom);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const modalidadActiva = MODALIDADES.find(m => m.key === activeModalidad)!;
+
+  return (
+    <div style={{ backgroundColor: C.cream, color: C.dark }} className="overflow-x-hidden">
+      <Header />
+
+      {/* ── HERO ── */}
+      <section
+        className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden"
+        style={{
+          backgroundImage: `url(${img('/uploads/pachamama-cielo-estrellado.webp', 1800)})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
+        />
+
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
+            <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
+              <span className="sm:hidden">25-27 Sep · Los Gigantes</span>
+              <span className="hidden sm:inline">25, 26 y 27 de septiembre · Los Gigantes, Córdoba</span>
+            </span>
+            <span
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
+              style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.3)' }}
+            >
+              Primavera & Luna llena
+            </span>
+            <span
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.2)' }}
+            >
+              Para todo público
+            </span>
+          </div>
+
+          <p className="text-white/50 text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 sm:mb-3 font-semibold">Un encuentro en la montaña</p>
+          <h1 className="text-5xl md:text-7xl serif-title leading-none mb-4 text-white">
+            Killa <span style={{ color: C.gold }}>Raymi</span>
+          </h1>
+          <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
+            Volvemos a la Luna. Volvemos a la naturaleza. Volvemos a florecer. Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu a través de rituales, música, danza, fuego y presencia.
+          </p>
+
+          <p className="text-sm sm:text-base font-semibold mb-3" style={{ color: C.gold }}>
+            {fmt(PRECIO)}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <a
+              href={WA_INFO}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold text-sm py-4 px-8 inline-block"
+            >
+              Quiero participar
+            </a>
+            <div>
+              <p className="text-white/35 text-[10px] tracking-widest uppercase mb-2">Faltan</p>
+              <Countdown />
+            </div>
+          </div>
+
+          <a href="#precios" className="inline-flex items-center gap-1.5 text-white/50 hover:text-gold text-xs sm:text-sm font-semibold uppercase tracking-wider mt-6 transition-colors">
+            Ver precios
+            <ChevronDown size={14} className="animate-bounce" style={{ animationDuration: '1.8s' }} />
+          </a>
+
+          <p className="text-white/40 text-xs sm:text-sm mt-6 max-w-md leading-relaxed">
+            No hace falta experiencia previa. No hay una única manera de vivir Killa Raymi — vos elegís cómo transitarla.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SOBRE LA EXPERIENCIA ── */}
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.luna }}>
+              Sobre la experiencia
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-6" style={{ color: C.green }}>
+              Dos ciclos que se encuentran
+            </h2>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-4" style={{ color: C.muted }}>
+              La primavera llega para abrir un nuevo ciclo. La tierra despierta, los días se alargan y la naturaleza comienza nuevamente a expresarse hacia afuera. Y en este momento de transformación, la Luna alcanza su plenitud.
+            </p>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: C.muted }}>
+              Killa Raymi nace del encuentro entre esos dos ciclos: la primavera que florece y la Luna que se expande. Un momento para pausar, escuchar, soltar lo que ya cumplió su ciclo y abrir espacio para aquello que quiere crecer.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4 mb-12" data-reveal data-delay="1">
+            {['Conexión con la naturaleza', 'Exploración consciente', 'Sabiduría ancestral', 'Música y expresión', 'Celebración colectiva'].map(item => (
+              <div key={item} className="rounded-2xl p-3 md:p-5 border text-center" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <p className="text-xs md:text-sm font-semibold leading-tight" style={{ color: C.green }}>{item}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center rounded-3xl p-8 md:p-10" data-reveal data-delay="2" style={{ backgroundColor: 'rgba(157,0,94,0.04)', border: '1px solid rgba(157,0,94,0.15)' }}>
+            <p className="text-lg md:text-xl serif-title mb-3" style={{ color: C.luna }}>No es un festival. No es un retiro.</p>
+            <p className="text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
+              Es un espacio vivo para encontrarnos, celebrar y disfrutar juntos la llegada de un nuevo ciclo. Un encuentro abierto, familiar y diverso, donde lo profundo puede convivir con lo simple. Podés bailar, caminar, meditar, cantar, compartir, descansar, contemplar o simplemente estar. Cada propuesta es una puerta — vos elegís cómo transitarla.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CRONOGRAMA ── */}
+      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              Cronograma
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+              25, 26 y 27 de septiembre
+            </h2>
+            <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
+              Tres días para habitar Pueblo Mágico y sus montañas, a tu ritmo.
+            </p>
+          </div>
+
+          <div className="space-y-5" data-reveal data-delay="1">
+            {/* Viernes */}
+            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'white' }}>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+                  <Sprout size={18} color={C.green} />
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.green }}>Viernes · Llegada & apertura</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Entrar en el ciclo</p>
+                </div>
+              </div>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+                Bajamos el ritmo, dejamos atrás la rutina y empezamos a entrar en sintonía con la montaña y con la comunidad. Recepción, alojamiento, espacios para recorrer el lugar y propuestas de bienvenida. Al caer la tarde nos encontramos para abrir el círculo: un primer fuego, una intención, un comienzo. La experiencia empieza cuando llegamos.
+              </p>
+            </div>
+
+            {/* Sábado */}
+            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(157,0,94,0.25)', backgroundColor: 'rgba(157,0,94,0.03)' }}>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(157,0,94,0.12)' }}>
+                  <Moon size={18} color={C.luna} />
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.luna }}>Sábado · Luna llena</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Expandir & celebrar</p>
+                </div>
+              </div>
+              <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
+                Un día para habitar Pueblo Mágico con todos los sentidos: naturaleza, música, movimiento, alimentación consciente, espacios de contemplación y propuestas para conectar con el cuerpo y con la comunidad. Durante el día vamos preparando el espacio para recibir la noche.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.luna }}>Temazcal & ritual</p>
+                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Un momento de introspección, purificación y conexión con los elementos. Entramos en el calor, soltamos, respiramos y dejamos espacio para lo nuevo.</p>
+                </div>
+                <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.luna }}>Ceremonia de Luna llena</p>
+                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Fuego, canto, música, danza, silencio y comunidad — una noche para reconocer lo que está floreciendo y darle fuerza. Una noche para celebrar la vida.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Domingo */}
+            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
+                  <Mountain size={18} color="#A8871C" />
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: '#A8871C' }}>Domingo · Montaña & territorio</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Caminar hacia lo esencial</p>
+                </div>
+              </div>
+              <p className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.muted }}>
+                Después de la celebración, abrimos el domingo hacia el territorio. Salimos de Pueblo Mágico para encontrarnos con la inmensidad de las Sierras Grandes: una caminata para conectar con uno de los paisajes más poderosos de nuestra montaña. Caminamos, respiramos, contemplamos y dejamos que el territorio nos acompañe a integrar lo vivido.
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+                Quienes prefieran cerrar el finde más tranqui pueden quedarse en Pueblo Mágico a disfrutar el día y hacer una integración más relajada. Nos llevamos la experiencia de vuelta a la vida cotidiana.
+              </p>
+            </div>
+          </div>
+
+          {/* Tres días, tres movimientos */}
+          <div className="grid grid-cols-3 gap-2 md:gap-5 mt-8" data-reveal data-delay="2">
+            {[
+              { Icon: Sprout, day: 'Viernes', word: 'Llegar', desc: 'Bajar el ritmo. Conectar. Abrir.', color: C.green },
+              { Icon: Moon, day: 'Sábado', word: 'Expandir', desc: 'Luna llena. Temazcal. Celebración.', color: C.luna },
+              { Icon: Mountain, day: 'Domingo', word: 'Caminar', desc: 'Montaña. Territorio. Integración.', color: '#A8871C' },
+            ].map(({ Icon, day, word, desc, color }) => (
+              <div key={day} className="rounded-2xl p-3 md:p-6 border text-center" style={{ borderColor: `${color}25`, backgroundColor: `${color}08` }}>
+                <Icon size={16} color={color} className="mx-auto mb-1.5 md:mb-3" />
+                <p className="text-[9px] md:text-[10px] uppercase tracking-widest font-semibold mb-0.5 md:mb-1" style={{ color }}>{day}</p>
+                <p className="font-bold text-xs md:text-lg serif-title mb-0.5 md:mb-2" style={{ color: C.dark }}>{word}</p>
+                <p className="text-[10px] md:text-xs leading-relaxed hidden md:block" style={{ color: C.muted }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUÉ VAS A ENCONTRAR ── */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.luna }}>
+              Propuestas
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+              Qué vas a encontrar
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4" data-reveal data-delay="1">
+            {ENCONTRAR.map(({ Icon, title, items }) => (
+              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+                    <Icon size={16} color={C.green} />
+                  </div>
+                  <p className="font-bold text-sm md:text-base" style={{ color: C.green }}>{title}</p>
+                </div>
+                <ul className="space-y-1.5">
+                  {items.map(i => (
+                    <li key={i} className="flex items-start gap-2 text-xs md:text-sm" style={{ color: C.muted }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: C.gold }}>✦</span>{i}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── EL LUGAR ── */}
+      <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div data-reveal>
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.green }}>El lugar</p>
+              <h2 className="text-3xl md:text-4xl serif-title mb-5 leading-tight" style={{ color: C.green }}>
+                Pueblo Mágico,<br />Los Gigantes
+              </h2>
+              <p className="text-base leading-relaxed mb-6" style={{ color: C.muted }}>
+                Un eco-centro de montaña en las Sierras Grandes de Córdoba. Un espacio que ya respira lo que este encuentro propone — naturaleza, comunidad y presencia.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  'Sierras Grandes de Córdoba · Los Gigantes',
+                  'A 90 km de Córdoba Capital',
+                  'Acceso para todo tipo de vehículos',
+                  'Salones, espacios abiertos, fogón y senderos',
+                  '200 hectáreas de reserva natural',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: C.muted }}>
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>—</span>{item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap items-center gap-3 mt-7">
+                <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+                  ¿Cómo llegar? Consultanos
+                </a>
+                <a href="https://www.instagram.com/pueblomagico__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pueblo Mágico"
+                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-brand-green hover:border-brand-green"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)' }}>
+                  <Instagram size={16} color={C.green} />
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3" data-reveal data-delay="1">
+              <div className="rounded-2xl overflow-hidden shadow-xl col-span-2">
+                <img src={img('/uploads/dji_0074.webp', 900)} alt="Vista aérea de Pueblo Mágico" className="w-full aspect-[16/9] object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img src={img('/uploads/temazcal.webp', 600)} alt="Ceremonia de Temazcal" className="w-full aspect-square object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img src={img('/uploads/danza.webp', 600)} alt="Danza y música en comunidad" className="w-full aspect-square object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg col-span-2">
+                <img src={img('/uploads/pachamama-fogon-grupo-cielo.webp', 900)} alt="Fogón bajo el cielo estrellado" className="w-full aspect-[16/9] object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RESEÑAS · VALIDACIÓN SOCIAL ── */}
+      <section className="py-16 md:py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10" data-reveal>
+            <a href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5 transition-colors hover:bg-black/5"
+              style={{ borderColor: 'rgba(0,83,51,0.25)' }}>
+              <span className="text-sm" style={{ color: C.gold }}>★★★★★</span>
+              <span className="text-xs font-semibold" style={{ color: C.muted }}>5.0 · 64 reseñas en Google Maps</span>
+            </a>
+            <h2 className="text-2xl md:text-3xl serif-title mt-5" style={{ color: C.green }}>
+              Lo que dicen quienes ya vivieron Mágico
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5" data-reveal data-delay="1">
+            {[
+              { text: 'Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.', name: 'Sofía R.', rol: 'Viajera' },
+              { text: 'Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.', name: 'Marcos D.', rol: 'Huésped' },
+              { text: 'Lo más importante: el amor y la entrega de todo el equipo, y la capacidad de sentirte uno con la naturaleza.', name: 'Julieta C.', rol: 'Facilitadora' },
+            ].map(t => (
+              <div key={t.name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+                <p className="text-sm italic leading-relaxed mb-4" style={{ color: C.muted }}>"{t.text}"</p>
+                <p className="font-bold text-sm" style={{ color: C.dark }}>{t.name}</p>
+                <p className="text-xs" style={{ color: C.faint }}>{t.rol}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRECIOS ── */}
+      <section id="precios" className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10" data-reveal>
+            <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
+              style={{ backgroundColor: C.green }}>
+              Modalidades de participación
+            </p>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+              Elegís cómo vivir Killa Raymi
+            </h2>
+            <p className="text-base max-w-md mx-auto" style={{ color: C.muted }}>
+              Podés llegar el viernes y vivir la experiencia completa, quedarte una sola noche o venir por el día.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 mb-6" data-reveal data-delay="1">
+            {MODALIDADES.map(m => {
+              const active = activeModalidad === m.key;
+              return (
+                <button key={m.key} onClick={() => setActiveModalidad(m.key)}
+                  className="relative rounded-xl px-2 py-3 border text-center transition-colors"
+                  style={{ borderColor: active ? m.color : 'rgba(0,83,51,0.12)', backgroundColor: active ? m.bg : 'white' }}>
+                  {m.destacado && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[8px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full text-white whitespace-nowrap"
+                      style={{ backgroundColor: C.luna }}>
+                      Más elegida
+                    </span>
+                  )}
+                  <m.icon size={16} color={active ? m.color : C.faint} className="mx-auto mb-1.5" />
+                  <p className="text-[11px] font-bold leading-tight" style={{ color: active ? m.color : C.dark }}>{m.short}</p>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="rounded-2xl p-6 md:p-8" data-reveal data-delay="2" style={{ backgroundColor: modalidadActiva.bg, border: `1px solid ${modalidadActiva.border}` }}>
+            <div className="flex items-end justify-between gap-3 mb-1">
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: modalidadActiva.color }}>{modalidadActiva.label}</p>
+                  {modalidadActiva.destacado && (
+                    <span className="text-[8px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full text-white whitespace-nowrap" style={{ backgroundColor: C.luna }}>
+                      Más elegida
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs" style={{ color: C.faint }}>{modalidadActiva.sub}</p>
+              </div>
+              <p className="text-3xl md:text-4xl font-bold serif-title flex-shrink-0" style={{ color: modalidadActiva.color }}>{fmt(PRECIO)}</p>
+            </div>
+            <ul className="space-y-2 my-5">
+              {modalidadActiva.items.map(i => (
+                <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
+                  <span className="flex-shrink-0 mt-0.5" style={{ color: modalidadActiva.color }}>✓</span>{i}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs mb-5" style={{ color: C.faint }}>{modalidadActiva.nota}</p>
+            <a href={modalidadActiva.wa} target="_blank" rel="noopener noreferrer"
+              className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: modalidadActiva.color }}>
+              {modalidadActiva.cta}
+            </a>
+          </div>
+
+          <p className="flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide mt-5" style={{ color: C.luna }}>
+            <Flame size={13} />
+            Cupos limitados — reservá tu lugar
+          </p>
+
+          <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4" data-reveal
+            style={{ backgroundColor: 'rgba(0,83,51,0.05)', border: '1px solid rgba(0,83,51,0.15)' }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+              <ShieldCheck size={18} color={C.green} />
+            </div>
+            <div>
+              <p className="font-bold text-sm mb-1" style={{ color: C.green }}>¿Tenés dudas sobre el precio?</p>
+              <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                Escribinos por WhatsApp y coordinamos la seña para reservar tu lugar y la forma de pago que mejor te quede.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CIERRE POÉTICO ── */}
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden"
+        style={{ backgroundImage: `url(${img('/uploads/pachamama-cielo-estrellado.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15,26,18,0.9)' }} />
+        <div className="max-w-2xl mx-auto relative z-10 text-center" data-reveal>
+          <div className="flex justify-center mb-8">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(157,0,94,0.25)', border: '1px solid rgba(212,175,55,0.2)' }}>
+              <Moon size={26} color={C.gold} />
+            </div>
+          </div>
+          <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-4" style={{ color: C.gold }}>Killa significa Luna en quechua</p>
+          <p className="text-base md:text-lg leading-relaxed mb-6 text-white/75">
+            La Luna acompaña los ciclos. Crece, alcanza su plenitud, comienza a menguar y vuelve a comenzar. Nos recuerda que la vida también se mueve así: hay momentos para ir hacia adentro, momentos para soltar, momentos para expandirse y momentos para florecer.
+          </p>
+          <p className="text-base md:text-lg leading-relaxed mb-10 text-white/75">
+            Killa Raymi es una invitación a encontrarnos con ese movimiento — a recibir la primavera, celebrar la Luna, caminar la montaña y compartir con otros. Y a reconocer que aquello que queremos ver florecer afuera también necesita espacio para crecer adentro.
+          </p>
+          <p className="font-serif italic text-lg md:text-xl mb-10" style={{ color: C.gold }}>
+            La primavera no solo sucede afuera.<br />También puede suceder adentro nuestro.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={WA_COMPLETA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-5 px-10 inline-block">
+              Quiero participar
+            </a>
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+              className="inline-block border border-white/30 text-white/80 font-semibold text-sm py-5 px-10 rounded-full hover:bg-white/10 transition-colors">
+              Tengo preguntas
+            </a>
+          </div>
+          <p className="text-xs mt-8 text-white/40">
+            25, 26 y 27 de septiembre · Pueblo Mágico, Los Gigantes, Córdoba
+          </p>
+        </div>
+      </section>
+
+      {/* ── BARRA FIJA MOBILE ── */}
+      <div
+        className={`lg:hidden fixed bottom-0 left-0 right-0 z-[998] px-4 pt-3 transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{
+          paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))',
+          backgroundColor: 'rgba(15,26,18,0.97)',
+          borderTop: '1px solid rgba(212,175,55,0.25)',
+          backdropFilter: 'blur(8px)',
+        }}
+      >
+        <a href={WA_COMPLETA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-3 w-full text-center block">
+          Reservar mi lugar
+        </a>
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default KillaRaymi;
