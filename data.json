@@ -264,8 +264,26 @@
           "title": "Killa Raymi · Primavera & Luna Llena",
           "desc": "Un fin de semana en la montaña para celebrar la llegada de la primavera bajo la luz de la Luna llena. Temazcal, ceremonia de Luna llena, trekking al Macizo Los Gigantes y música en comunidad.",
           "btn": "Ver más",
-          "image": "/uploads/pachamama-cielo-estrellado.webp",
+          "image": "/uploads/killa-raymi-hero-mobile.webp",
           "link": "/killa-raymi",
+          "pdfLink": ""
+        },
+        {
+          "date": "2, 3 y 4 DE OCTUBRE",
+          "title": "Alma de Lobo · Encuentro de Hombres",
+          "desc": "Retiro para hombres en la montaña bajo la luna llena: círculos de palabra, temazcal, fuego y naturaleza para habitar lo masculino desde un lugar consciente y verdadero. Desde $465.000.",
+          "btn": "Ver más",
+          "image": "/uploads/alma-de-lobo.webp",
+          "link": "/alma-de-lobo",
+          "pdfLink": ""
+        },
+        {
+          "date": "17-18 OCTUBRE",
+          "title": "Retiro Pueblo Mágico · Los Gigantes",
+          "desc": "Dos días para bajar el ritmo, respirar aire puro y reconectar con lo esencial: yoga, meditación, caminatas al río, fogón y ceremonia del cacao. Desde $280.000.",
+          "btn": "Anotarme",
+          "image": "/uploads/yoga_salon.webp",
+          "link": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20el%20Retiro%20Pueblo%20M%C3%A1gico%20del%2017%20y%2018%20de%20octubre.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20info%3F",
           "pdfLink": ""
         },
         {
@@ -279,9 +297,9 @@
           "pdfLink": ""
         },
         {
-          "date": "RECURRENTE",
-          "title": "Temazcal",
-          "desc": "Fines de semana (Consultar fechas específicas).",
+          "date": "1er y 3er finde de cada mes",
+          "title": "Ceremonia de Temazcal",
+          "desc": "Experiencia ancestral de conexión y transformación física, mental, emocional & espiritual.",
           "btn": "Consultar",
           "image": "/uploads/temazcal.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"
@@ -1938,8 +1956,26 @@
           "title": "Killa Raymi · Spring & Full Moon",
           "desc": "A weekend in the mountains to welcome spring under the light of the full moon. Temazcal, full moon ceremony, trekking to the Los Gigantes massif and music in community.",
           "btn": "See More",
-          "image": "/uploads/pachamama-cielo-estrellado.webp",
+          "image": "/uploads/killa-raymi-hero-mobile.webp",
           "link": "/killa-raymi",
+          "pdfLink": ""
+        },
+        {
+          "date": "OCT 2-4",
+          "title": "Alma de Lobo · Men's Gathering",
+          "desc": "A men's mountain retreat under the full moon: talking circles, temazcal, fire and nature to inhabit the masculine from a conscious, true place. From $465,000.",
+          "btn": "See More",
+          "image": "/uploads/alma-de-lobo.webp",
+          "link": "/alma-de-lobo",
+          "pdfLink": ""
+        },
+        {
+          "date": "OCT 17-18",
+          "title": "Pueblo Mágico Retreat · Los Gigantes",
+          "desc": "Two days to slow down, breathe fresh air and reconnect with what matters: yoga, meditation, walks to the river, bonfire and a cacao ceremony. From $280,000.",
+          "btn": "Sign me up",
+          "image": "/uploads/yoga_salon.webp",
+          "link": "https://wa.me/5493516765820?text=Hi!%20I%27m%20interested%20in%20the%20Pueblo%20M%C3%A1gico%20Retreat%20on%20October%2017-18.%20Can%20you%20give%20me%20more%20info%3F",
           "pdfLink": ""
         },
         {
@@ -1953,9 +1989,9 @@
           "pdfLink": ""
         },
         {
-          "date": "RECURRING",
-          "title": "Temazcal",
-          "desc": "Weekends (Ask for specific dates).",
+          "date": "1st & 3rd weekend of every month",
+          "title": "Temazcal Ceremony",
+          "desc": "Ancestral experience of physical, mental, emotional & spiritual connection and transformation.",
           "btn": "Inquire",
           "image": "/uploads/temazcal.webp",
           "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20reservar%20mi%20lugar%20para%20uno%20de%20los%20Pr%C3%B3ximos%20Encuentros.%20%F0%9F%93%85"

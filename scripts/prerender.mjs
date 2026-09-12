@@ -102,6 +102,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/killa-raymi',
   },
   {
+    path: '/alma-de-lobo',
+    title: 'Alma de Lobo — Encuentro de Hombres en la Montaña · 2, 3 y 4 de Octubre | Pueblo Mágico',
+    description: 'Retiro para hombres bajo la luna llena: círculos de palabra, temazcal, fuego y naturaleza para habitar lo masculino desde un lugar consciente y verdadero. Los Gigantes, Córdoba.',
+    image: 'https://experienciamagico.com/uploads/alma-de-lobo-hero-desktop.webp',
+    canonical: 'https://experienciamagico.com/alma-de-lobo',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',

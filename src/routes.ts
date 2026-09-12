@@ -24,5 +24,6 @@ export const ROUTES = {
   COLIVING: '/coliving',
   CICLO_VITAL_FEMENINO: '/ciclo-vital-femenino',
   KILLA_RAYMI: '/killa-raymi',
+  ALMA_DE_LOBO: '/alma-de-lobo',
   ADMIN_RESERVAS: '/admin/reservas',
 };

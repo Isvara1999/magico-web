@@ -21,24 +21,25 @@ const C = {
   faint:     '#8B6347',
 };
 
-// Precio único, provisorio, para las 3 modalidades — a definir por separado más adelante.
-const PRECIO = 250000;
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
+// precioCuotas = precio en 3 cuotas sin interés (tarjeta de crédito).
+// El pago en transferencia/efectivo tiene 20% OFF sobre ese valor.
 const MODALIDADES = [
   {
     key: 'completa',
     icon: Moon,
     short: 'Completa',
     label: 'Experiencia completa · Habitación',
-    sub: '2 noches · viernes y sábado',
+    sub: '2 noches y 3 días · viernes a domingo',
     color: C.green,
     bg: 'rgba(0,83,51,0.05)',
     border: 'rgba(0,83,51,0.3)',
     destacado: true,
+    precioCuotas: 295000,
     items: [
       'Acceso a todas las actividades',
-      'Alojamiento compartido',
+      'Alojamiento',
       'Ropa blanca, toalla y toallón individual',
       'Todas las comidas incluidas',
       'Ceremonia de Temazcal',
@@ -55,15 +56,16 @@ const MODALIDADES = [
     icon: Flame,
     short: '1 noche',
     label: 'Experiencia · 1 noche',
-    sub: 'Viernes a sábado, o sábado y la noche de Luna llena',
+    sub: 'Viernes a sábado, o sábado y Domingo',
     color: C.luna,
     bg: 'rgba(157,0,94,0.05)',
     border: 'rgba(157,0,94,0.3)',
     destacado: false,
+    precioCuotas: 215000,
     items: [
-      'Alojamiento compartido',
-      '3 comidas incluidas (cena, desayuno y almuerzo)',
-      'Acceso a las actividades',
+      'Alojamiento',
+      'Todas las comidas',
+      'Acceso a todas las actividades',
       'Participación en las dinámicas del encuentro',
     ],
     cta: 'Reservar 1 noche',
@@ -75,15 +77,15 @@ const MODALIDADES = [
     icon: Sprout,
     short: 'Pase por el día',
     label: 'Pase por el día',
-    sub: 'Venís, vivís Killa Raymi y volvés a casa',
+    sub: 'Venís el día que más te guste y pegás la vuelta',
     color: C.gold,
     bg: 'rgba(212,175,55,0.06)',
     border: 'rgba(212,175,55,0.4)',
     destacado: false,
+    precioCuotas: 120000,
     items: [
-      'Acceso a las actividades del día',
-      'Almuerzo y merienda incluidos',
-      'Música y celebración',
+      'Acceso a todas las actividades del día',
+      'Todas las comidas',
       'Espacios de comunidad',
     ],
     cta: 'Quiero el pase diario',
@@ -176,14 +178,9 @@ const KillaRaymi: React.FC = () => {
       <Header />
 
       {/* ── HERO ── */}
-      <section
-        className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden"
-        style={{
-          backgroundImage: `url(${img('/uploads/pachamama-cielo-estrellado.webp', 1800)})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      <section className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden">
+        <div className="absolute inset-0 md:hidden" style={{ backgroundImage: `url(${img('/uploads/killa-raymi-hero-mobile.webp', 1200)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/killa-raymi-hero-desktop.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
@@ -214,11 +211,7 @@ const KillaRaymi: React.FC = () => {
             Killa <span style={{ color: C.gold }}>Raymi</span>
           </h1>
           <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
-            Volvemos a la Luna. Volvemos a la naturaleza. Volvemos a florecer. Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu a través de rituales, música, danza, fuego y presencia.
-          </p>
-
-          <p className="text-sm sm:text-base font-semibold mb-3" style={{ color: C.gold }}>
-            {fmt(PRECIO)}
+            Volvemos a la Luna. Volvemos a la naturaleza. Volvemos a florecer. Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu a través de rituales, caminatas, música, danza, fuego y presencia.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
@@ -350,14 +343,15 @@ const KillaRaymi: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: '#A8871C' }}>Domingo · Montaña & territorio</p>
-                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Caminar hacia lo esencial</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Trekking a Los Gigantes</p>
+                  <p className="text-sm font-semibold" style={{ color: '#A8871C' }}>Caminar hacia lo esencial</p>
                 </div>
               </div>
               <p className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.muted }}>
-                Después de la celebración, abrimos el domingo hacia el territorio. Salimos de Pueblo Mágico para encontrarnos con la inmensidad de las Sierras Grandes: una caminata para conectar con uno de los paisajes más poderosos de nuestra montaña. Caminamos, respiramos, contemplamos y dejamos que el territorio nos acompañe a integrar lo vivido.
+                Después de la celebración, abrimos el domingo hacia el territorio. Salimos de Pueblo Mágico para encontrarnos con la inmensidad del Macizo Los Gigantes: una caminata guiada por nuestro equipo para conectar con uno de los paisajes más poderosos de nuestras Sierras. Caminamos, respiramos, contemplamos y dejamos que el territorio nos acompañe a integrar lo vivido.
               </p>
               <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-                Quienes prefieran cerrar el finde más tranqui pueden quedarse en Pueblo Mágico a disfrutar el día y hacer una integración más relajada. Nos llevamos la experiencia de vuelta a la vida cotidiana.
+                Quienes prefieran cerrar el finde más tranqui pueden quedarse en Pueblo Mágico a disfrutar el día y hacer una integración más relajada. Quienes quieran venir por el día solo a esta actividad también pueden hacerlo.
               </p>
             </div>
           </div>
@@ -367,7 +361,7 @@ const KillaRaymi: React.FC = () => {
             {[
               { Icon: Sprout, day: 'Viernes', word: 'Llegar', desc: 'Bajar el ritmo. Conectar. Abrir.', color: C.green },
               { Icon: Moon, day: 'Sábado', word: 'Expandir', desc: 'Luna llena. Temazcal. Celebración.', color: C.luna },
-              { Icon: Mountain, day: 'Domingo', word: 'Caminar', desc: 'Montaña. Territorio. Integración.', color: '#A8871C' },
+              { Icon: Mountain, day: 'Domingo', word: 'Integración', desc: 'Trekking. Montaña. Territorio.', color: '#A8871C' },
             ].map(({ Icon, day, word, desc, color }) => (
               <div key={day} className="rounded-2xl p-3 md:p-6 border text-center" style={{ borderColor: `${color}25`, backgroundColor: `${color}08` }}>
                 <Icon size={16} color={color} className="mx-auto mb-1.5 md:mb-3" />
@@ -512,9 +506,17 @@ const KillaRaymi: React.FC = () => {
             <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
               Elegís cómo vivir Killa Raymi
             </h2>
-            <p className="text-base max-w-md mx-auto" style={{ color: C.muted }}>
+            <p className="text-base max-w-md mx-auto mb-5" style={{ color: C.muted }}>
               Podés llegar el viernes y vivir la experiencia completa, quedarte una sola noche o venir por el día.
             </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Descuentos especiales para familias y grupos', 'Consultá por diferentes opciones de alojamiento', '30% OFF en zona de camping'].map(tag => (
+                <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
+                  style={{ borderColor: 'rgba(0,83,51,0.25)', color: C.green, backgroundColor: 'rgba(0,83,51,0.04)' }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-5 items-start">
@@ -536,7 +538,10 @@ const KillaRaymi: React.FC = () => {
                 <m.icon size={18} color={m.color} className="mb-3" />
                 <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: m.color }}>{m.label}</p>
                 <p className="text-xs mb-3" style={{ color: C.faint }}>{m.sub}</p>
-                <p className="text-2xl md:text-3xl font-bold serif-title mb-4" style={{ color: m.color }}>{fmt(PRECIO)}</p>
+                <p className="text-2xl md:text-3xl font-bold serif-title mb-0.5" style={{ color: m.color }}>{fmt(m.precioCuotas * 0.8)}</p>
+                <p className="text-xs mb-4" style={{ color: C.faint }}>
+                  transferencia o contado · o 3 cuotas sin interés de {fmt(m.precioCuotas)}
+                </p>
                 <ul className="space-y-2 mb-5 flex-1">
                   {m.items.map(i => (
                     <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
@@ -556,7 +561,7 @@ const KillaRaymi: React.FC = () => {
 
           <p className="flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide mt-5" style={{ color: C.luna }}>
             <Flame size={13} />
-            Cupos limitados — reservá tu lugar
+            Cupos limitados — reservá tu lugar con una seña
           </p>
 
           <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4 max-w-xl mx-auto" data-reveal
@@ -571,6 +576,12 @@ const KillaRaymi: React.FC = () => {
               </p>
             </div>
           </div>
+
+          <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold rounded-full px-6 py-3 mx-auto transition-colors hover:bg-brand-green hover:text-white"
+            style={{ borderColor: C.green, border: '1px solid rgba(0,83,51,0.3)', color: C.green, display: 'flex', width: 'fit-content' }}>
+            Conversá con alguien de nuestro equipo
+          </a>
         </div>
       </section>
 
