@@ -49,19 +49,19 @@ const EQUIPO = [
     nombre: 'Gustavo Torras',
     rol: 'Buscador · Terapeuta sonoro',
     desc: 'Facilitador de Kambo, terapia de regresiones y vidas pasadas, maestro de Reiki. Caminante del danzar de la vida y apasionado del poder del monte nativo.',
-    photo: null,
+    photo: '/uploads/vuelo-condor/Toti.webp',
   },
   {
     nombre: 'Diego Epelman',
     rol: 'Comunicador · Coach en Bienestar',
     desc: 'Facilitador de experiencias transformadoras, emprendedor apasionado, Guardián de Vida. Fundador de Pueblo Mágico.',
-    photo: '/uploads/Diego_perfil.png',
+    photo: '/uploads/vuelo-condor/Diego.webp',
   },
   {
     nombre: 'Juan Cruz Sartori',
     rol: 'Coach Ontológico · Hombre Medicina',
     desc: 'Biodecodificador, Constelador familiar, PNL e Hipnosis, Breathwork, Terapeuta en Regresiones.',
-    photo: null,
+    photo: '/uploads/vuelo-condor/juan.webp',
   },
 ];
 
@@ -127,7 +127,8 @@ const AlmaDeLobo: React.FC = () => {
 
       {/* ── HERO ── */}
       <section className="relative h-[100svh] min-h-[600px] md:h-[100vh] w-full flex flex-col justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${img('/uploads/pachamama-fogon-grupo-cielo.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 md:hidden" style={{ backgroundImage: `url(${img('/uploads/alma-de-lobo.webp', 1200)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/alma-de-lobo-hero-desktop.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(23,16,10,0.97) 0%, rgba(23,16,10,0.6) 45%, rgba(23,16,10,0.25) 100%)' }} />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
@@ -323,6 +324,7 @@ const AlmaDeLobo: React.FC = () => {
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12" data-reveal>
+            <img src={img('/uploads/acan-de-fuego-logo.png', 200)} alt="Acan de Fuego · Círculo de Hombres" className="w-20 h-20 object-contain mx-auto mb-4" loading="lazy" />
             <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.fire }}>Quienes somos</p>
             <h2 className="text-3xl md:text-4xl serif-title mb-5" style={{ color: C.ember }}>Acan de Fuego</h2>
             <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto" style={{ color: C.muted }}>
