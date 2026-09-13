@@ -159,13 +159,13 @@ export const SectionContacto = () => {
           <div>
             <p className="font-bold text-brand mb-1 font-serif text-base">{t.contact.labels.email}</p>
             <a href="mailto:experienciamagico@gmail.com" className="hover:text-gold transition-colors font-light">
-              experienciamagico@gmail.com
+              {t.contact.values.email}
             </a>
           </div>
           <div>
             <p className="font-bold text-brand mb-1 font-serif text-base">{t.contact.labels.whatsapp}</p>
-            <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors font-light">
-              +54 9 351 676 5820
+            <a href={t.contact.values.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors font-light">
+              {t.contact.labels.phone}
             </a>
           </div>
           <div>
@@ -176,7 +176,7 @@ export const SectionContacto = () => {
               rel="noreferrer"
               className="hover:text-gold transition-colors font-light"
             >
-              @experienciamagico
+              {t.contact.values.socialTag}
             </a>
           </div>
         </div>
