@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ChevronLeft, ChevronRight, Calendar, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, ArrowRight, Tag } from 'lucide-react';
 
 export const SectionEventos: React.FC = () => {
   const { t } = useLanguage();
@@ -68,6 +68,14 @@ export const SectionEventos: React.FC = () => {
                     {card.date}
                   </span>
                 </div>
+                {card.price && (
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-xl shadow-lg flex items-center gap-1.5 z-10">
+                    <Tag className="w-3 h-3 text-gold flex-shrink-0" />
+                    <span className="text-[9px] md:text-[10px] font-bold tracking-wider text-brand uppercase whitespace-nowrap">
+                      {card.price}
+                    </span>
+                  </div>
+                )}
               </div>
               
               <div className="p-6 md:p-8 flex flex-col flex-grow">

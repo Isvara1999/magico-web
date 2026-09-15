@@ -23,8 +23,23 @@ const C = {
 
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
 
+const CardIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 24 24"
+    fill="none"
+    className="h-5 w-5 flex-shrink-0"
+  >
+    <rect x="2.75" y="5.25" width="18.5" height="13.5" rx="2.25" stroke={color} strokeWidth="1.5" />
+    <path d="M3.5 9.25h17" stroke={color} strokeWidth="1.5" />
+    <path d="M6.5 14.75h3.25" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
 // precioCuotas = precio en 3 cuotas sin interés (tarjeta de crédito).
-// El pago en transferencia/efectivo tiene 20% OFF sobre ese valor.
+// El pago en transferencia/efectivo es precioCuotas * 0.8.
+// items = solo lo que DIFERENCIA a esta modalidad de las otras — lo común
+// (comidas, actividades) se dice una sola vez arriba de las 3 tarjetas.
 const MODALIDADES = [
   {
     key: 'completa',
@@ -37,16 +52,8 @@ const MODALIDADES = [
     border: 'rgba(0,83,51,0.3)',
     destacado: true,
     precioCuotas: 295000,
-    items: [
-      'Acceso a todas las actividades',
-      'Alojamiento',
-      'Ropa blanca, toalla y toallón individual',
-      'Todas las comidas incluidas',
-      'Ceremonia de Temazcal',
-      'Ceremonia de Luna llena',
-      'Trekking al Macizo Los Gigantes',
-      'Todas las dinámicas y propuestas del encuentro',
-    ],
+    cuotaValor: 98000,
+    items: ['Alojamiento', 'Temazcal, Luna llena y Trekking'],
     cta: 'Reservar experiencia completa',
     wa: WA_COMPLETA,
     nota: 'La recomendamos para quienes quieran vivir el proceso completo.',
@@ -62,12 +69,8 @@ const MODALIDADES = [
     border: 'rgba(157,0,94,0.3)',
     destacado: false,
     precioCuotas: 215000,
-    items: [
-      'Alojamiento',
-      'Todas las comidas',
-      'Acceso a todas las actividades',
-      'Participación en las dinámicas del encuentro',
-    ],
+    cuotaValor: 72000,
+    items: ['Alojamiento'],
     cta: 'Reservar 1 noche',
     wa: WA_1NOCHE,
     nota: 'Una forma de entrar en la experiencia sin quedarte todo el fin de semana.',
@@ -83,11 +86,8 @@ const MODALIDADES = [
     border: 'rgba(212,175,55,0.4)',
     destacado: false,
     precioCuotas: 120000,
-    items: [
-      'Acceso a todas las actividades del día',
-      'Todas las comidas',
-      'Espacios de comunidad',
-    ],
+    cuotaValor: 40000,
+    items: ['Sin alojamiento'],
     cta: 'Quiero el pase diario',
     wa: WA_DIA,
     nota: 'Ideal si querés acercarte a conocer la experiencia en el día que más te resuene.',
@@ -509,7 +509,7 @@ const KillaRaymi: React.FC = () => {
             <p className="text-base max-w-md mx-auto mb-5" style={{ color: C.muted }}>
               Podés llegar el viernes y vivir la experiencia completa, quedarte una sola noche o venir por el día.
             </p>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
               {['Descuentos especiales para familias y grupos', 'Consultá por diferentes opciones de alojamiento', '30% OFF en zona de camping'].map(tag => (
                 <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
                   style={{ borderColor: 'rgba(0,83,51,0.25)', color: C.green, backgroundColor: 'rgba(0,83,51,0.04)' }}>
@@ -517,6 +517,9 @@ const KillaRaymi: React.FC = () => {
                 </span>
               ))}
             </div>
+            <p className="text-sm font-semibold" style={{ color: C.green }}>
+              Las 3 modalidades incluyen comidas y actividades — lo que cambia es cuántos días te quedás.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-5 items-start">
@@ -538,18 +541,41 @@ const KillaRaymi: React.FC = () => {
                 <m.icon size={18} color={m.color} className="mb-3" />
                 <p className="text-[10px] tracking-widest uppercase font-semibold" style={{ color: m.color }}>{m.label}</p>
                 <p className="text-xs mb-3" style={{ color: C.faint }}>{m.sub}</p>
-                <p className="text-2xl md:text-3xl font-bold serif-title mb-0.5" style={{ color: m.color }}>{fmt(m.precioCuotas * 0.8)}</p>
-                <p className="text-xs mb-4" style={{ color: C.faint }}>
-                  transferencia o contado · o 3 cuotas sin interés de {fmt(m.precioCuotas)}
+                <div className="mb-5">
+                  <p className="text-3xl md:text-[2rem] font-bold serif-title leading-none mb-2" style={{ color: m.color }}>
+                    {fmt(m.precioCuotas * 0.8)}
+                  </p>
+                  <p className="text-[11px] leading-snug" style={{ color: C.faint }}>
+                    por persona · efectivo o transferencia
+                  </p>
+                </div>
+
+                <div
+                  className="flex items-center gap-2.5 px-3.5 py-3 mb-2 rounded-lg"
+                  style={{
+                    color: m.color,
+                    backgroundColor: m.destacado ? 'rgba(255,255,255,0.72)' : m.bg,
+                    border: `1px solid ${m.border}`,
+                  }}
+                >
+                  <CardIcon color={m.color} />
+                  <p className="text-[11px] leading-tight uppercase tracking-[0.02em]">
+                    <strong className="font-extrabold">3 cuotas sin interés</strong>
+                    <span className="block mt-0.5 normal-case tracking-normal">
+                      de <strong className="text-sm font-extrabold">{fmt(m.cuotaValor)}</strong>
+                    </span>
+                  </p>
+                </div>
+                <p className="text-[10px] mb-5 pl-0.5" style={{ color: C.faint }}>
+                  Reservá con una seña y pagá el saldo después
                 </p>
-                <ul className="space-y-2 mb-5 flex-1">
+                <ul className="space-y-1.5 mb-5 flex-1">
                   {m.items.map(i => (
-                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: C.muted }}>
-                      <span className="flex-shrink-0 mt-0.5" style={{ color: m.color }}>✓</span>{i}
+                    <li key={i} className="flex items-start gap-2 text-sm font-medium" style={{ color: C.dark }}>
+                      <span className="flex-shrink-0 mt-0.5" style={{ color: m.color }}>+</span>{i}
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs mb-4" style={{ color: C.faint }}>{m.nota}</p>
                 <a href={m.wa} target="_blank" rel="noopener noreferrer"
                   className="block text-center py-3.5 px-4 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: m.color }}>
