@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Flame, Mountain, Sprout, Music, ChevronDown, Instagram, ShieldCheck } from 'lucide-react';
+import { Moon, Flame, Mountain, Sprout, Music, ChevronDown, Instagram, Linkedin, ShieldCheck, Home, Handshake, Utensils } from 'lucide-react';
 import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
@@ -22,6 +22,59 @@ const C = {
 };
 
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
+
+type TeamMember = { photo: string; nombre: string; rol: string; desc: string; instagram?: string; linkedin?: string; tags?: string[] };
+
+const HOSTS: TeamMember[] = [
+  {
+    photo: '/uploads/Diego_perfil.png',
+    nombre: 'Diego Epelman Hodara',
+    rol: 'Fundador de Pueblo Mágico',
+    desc: 'Emprendedor, Facilitador & Guía de Dinámicas de Alto Impacto. Sostén energético del festival desde los fogones, los círculos y la presencia.',
+    instagram: 'https://www.instagram.com/diegoepel/',
+    tags: ['MÁGICO', 'KINTU'],
+  },
+  {
+    photo: '/uploads/china.jpeg',
+    nombre: 'China Dericia',
+    rol: 'Anfitriona del Pueblo',
+    desc: 'Profe de Yoga & Facilitadora de Movimiento Consciente. Consciencia corporal, meditaciones y canto — guía el cuerpo y la energía del grupo.',
+    instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
+    tags: ['MÁGICO'],
+  },
+];
+
+const TEAM: TeamMember[] = [
+  {
+    photo: '/uploads/isvara-rojas.jpg', nombre: 'Isvara Rojas Romero', rol: 'Host de emprendedores y creativos',
+    desc: 'Estratega polímata y Growth Engineer. Conecta la innovación tecnológica y el diseño de vanguardia con filosofías ancestrales de la Tierra.',
+    instagram: 'https://www.instagram.com/isvara_strategist/', linkedin: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/', tags: ['MÁGICO', 'KINTU'],
+  },
+  {
+    photo: '/uploads/jasper.png', nombre: 'Jasper', rol: 'Medicinas ancestrales & tecnología',
+    desc: 'Camina las medicinas ancestrales de Latinoamérica, conviviendo con sus comunidades durante años. También es programador — hoy une ambos conocimientos, compartiéndolos tanto con el equipo como con quienes llegan al espacio.',
+    tags: ['MÁGICO'],
+  },
+  {
+    photo: '/uploads/tomas-fossatti.jpg', nombre: 'Tomás Fossatti', rol: 'Host de emprendedores/as',
+    desc: 'Ingeniero en innovación y desarrollo, emprendedor y speaker de TEDx. Construye sistemas agénticos recursivos en la intersección de la tecnología y el propósito.',
+    instagram: 'https://www.instagram.com/tomasfossatti_/', linkedin: 'https://www.linkedin.com/in/tomas-fossatti-ing', tags: ['MÁGICO', 'KINTU'],
+  },
+  {
+    photo: '/uploads/nicole-rosignoli.webp', nombre: 'Nicole Rosignoli Miranda', rol: 'Psicología · Gestalt · Salud Cíclica',
+    desc: 'Licenciada en Psicología (UNC). Acompaña desde el enfoque gestáltico y la salud cíclica, integrando plantas medicinales, movimiento corporal y círculos de mujeres.',
+    instagram: 'https://www.instagram.com/thematriiz/', tags: ['MÁGICO'],
+  },
+  {
+    photo: '/uploads/santiago-alzogaray.png', nombre: 'Santiago Alzogaray', rol: 'Ceremonia de Temazcal',
+    desc: 'Conducción del ritual de purificación, uno de los momentos centrales de Killa Raymi.',
+    tags: ['MÁGICO'],
+  },
+  {
+    photo: '/uploads/Walter_E._Cejas.jpg', nombre: 'Walter Eugenio Cejas', rol: 'Biólogo · Investigador · Vida Silvestre',
+    desc: 'Puente entre el conocimiento científico y la experiencia directa de la Sierra de Achala. Guía avistaje de aves, flora y fauna en la montaña.', tags: ['MÁGICO'],
+  },
+];
 
 const CardIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
   <svg
@@ -149,6 +202,10 @@ const Countdown: React.FC = () => {
 
 const KillaRaymi: React.FC = () => {
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [hostsOpen, setHostsOpen] = useState(false);
+  const [equipoOpen, setEquipoOpen] = useState(false);
+  const [alimentacionOpen, setAlimentacionOpen] = useState(false);
+  const [temazcalOfrendaOpen, setTemazcalOfrendaOpen] = useState(false);
 
   useEffect(() => {
     document.title = 'Killa Raymi · 25 al 27 de Septiembre · Pueblo Mágico';
@@ -452,15 +509,140 @@ const KillaRaymi: React.FC = () => {
                 <img src={img('/uploads/dji_0074.webp', 900)} alt="Vista aérea de Pueblo Mágico" className="w-full aspect-[16/9] object-cover" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src={img('/uploads/temazcal.webp', 600)} alt="Ceremonia de Temazcal" className="w-full aspect-square object-cover" loading="lazy" />
+                <img src={img('/uploads/yoga_salon.webp', 600)} alt="El salón · círculos y ceremonias" className="w-full aspect-square object-cover" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src={img('/uploads/danza.webp', 600)} alt="Danza y música en comunidad" className="w-full aspect-square object-cover" loading="lazy" />
+                <img src={img('/uploads/hero-estadia.webp', 600)} alt="El refugio de piedra al atardecer" className="w-full aspect-square object-cover" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg col-span-2">
-                <img src={img('/uploads/pachamama-fogon-grupo-cielo.webp', 900)} alt="Fogón bajo el cielo estrellado" className="w-full aspect-[16/9] object-cover" loading="lazy" />
+                <img src={img('/uploads/domos_2.jpg', 900)} alt="Domos geodésicos de Pueblo Mágico" className="w-full aspect-[16/9] object-cover" loading="lazy" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANFITRIONES ── */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.night }}>
+        <button onClick={() => setHostsOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={hostsOpen}>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <Home size={22} color={C.gold} className="transition-transform duration-300 group-hover:scale-110" />
+              <div className="text-left">
+                <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.gold }}>Los guardianes del Pueblo</p>
+                <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Anfitriones del espacio</h2>
+              </div>
+            </div>
+            <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${hostsOpen ? '' : 'animate-bounce'}`}
+              style={{ transform: hostsOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
+          </div>
+        </button>
+        <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out"
+          style={{ maxHeight: hostsOpen ? '700px' : '0px', opacity: hostsOpen ? 1 : 0 }}>
+          <div className="px-6 pb-12 pt-2 max-w-4xl mx-auto">
+            <p className="text-sm leading-relaxed max-w-lg mb-6 text-white/60">
+              Diego y China no son anfitriones de temporada. Viven acá, todo el año. Son los primeros habitantes permanentes de Pueblo Mágico.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {HOSTS.map(({ photo, nombre, rol, desc, instagram, tags }) => (
+                <div key={nombre} className="flex items-start gap-4 rounded-2xl p-5 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                  <img src={img(photo, 120)} alt={nombre} className="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" />
+                  <div>
+                    {tags && tags.length > 0 && <div className="flex flex-wrap gap-1.5 mb-1.5">{tags.map(tag => <span key={tag} className="text-[8px] font-bold tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(212,175,55,0.1)', color: C.gold, borderColor: 'rgba(212,175,55,0.3)' }}>{tag}</span>)}</div>}
+                    <p className="font-bold text-sm mb-0.5 text-white">{nombre}</p>
+                    <p className="text-xs font-semibold mb-2" style={{ color: C.gold }}>{rol}</p>
+                    <p className="text-xs leading-relaxed mb-2 text-white/60">{desc}</p>
+                    {instagram && <a href={instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-white/70"><Instagram size={11} /> Instagram</a>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EQUIPO + PRODUCCIÓN ── */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: '#132419' }}>
+        <button onClick={() => setEquipoOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={equipoOpen}>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <Handshake size={22} color={C.gold} className="transition-transform duration-300 group-hover:scale-110" />
+              <div className="text-left">
+                <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.gold }}>Facilitadores & producción</p>
+                <h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Equipo</h2>
+              </div>
+            </div>
+            <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${equipoOpen ? '' : 'animate-bounce'}`}
+              style={{ transform: equipoOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
+          </div>
+        </button>
+        <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out"
+          style={{ maxHeight: equipoOpen ? '3600px' : '0px', opacity: equipoOpen ? 1 : 0 }}>
+          <div className="px-6 pb-12 pt-2 max-w-5xl mx-auto">
+            <p className="text-sm leading-relaxed max-w-lg mb-6 text-white/60">
+              Un equipo y una comunidad de referentes que suman su energía a esta celebración. Nos cruzaremos con ellos alrededor del fuego en distintos momentos del festival.
+            </p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+              {TEAM.map(({ photo, nombre, rol, desc, instagram, linkedin, tags }) => (
+                <div key={nombre} className="rounded-2xl p-5 border" style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                  <img src={img(photo, 200)} alt={nombre} className="w-12 h-12 rounded-full object-cover mb-3" loading="lazy" />
+                  {tags && tags.length > 0 && <div className="flex flex-wrap gap-1.5 mb-2">{tags.map(tag => <span key={tag} className="text-[8px] font-bold tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(212,175,55,0.1)', color: C.gold, borderColor: 'rgba(212,175,55,0.3)' }}>{tag}</span>)}</div>}
+                  <p className="font-bold text-sm mb-0.5 text-white">{nombre}</p>
+                  {rol ? <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: C.gold }}>{rol}</p> : null}
+                  {desc ? <p className="text-xs leading-relaxed text-white/60">{desc}</p> : null}
+                  {(instagram || linkedin) && <div className="flex gap-2 mt-3">
+                    {instagram && <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${nombre}`} className="inline-flex items-center justify-center w-7 h-7 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}><Instagram size={12} color="white" /></a>}
+                    {linkedin && <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${nombre}`} className="inline-flex items-center justify-center w-7 h-7 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}><Linkedin size={12} color="white" /></a>}
+                  </div>}
+                </div>
+              ))}
+            </div>
+            <div className="rounded-2xl p-6 md:p-8 text-center" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-2" style={{ color: 'rgba(212,175,55,0.8)' }}>Una producción de</p>
+              <h3 className="text-xl md:text-2xl serif-title text-white mb-4">Kintu</h3>
+              <p className="text-sm leading-relaxed mb-3 text-white/70 max-w-xl mx-auto">KINTU es un equipo y una productora pionera en experiencias transformadoras que diseña viajes y procesos con corazón y propósito, inspirada en la cosmovisión andina —donde el kintu es una ofrenda.</p>
+              <p className="text-sm leading-relaxed mb-6 text-white/70 max-w-xl mx-auto">Integrada por <span className="font-semibold text-white">Isvara, Diego y Tomi</span>.</p>
+              <a href="https://www.instagram.com/somoskintu_/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-2.5 transition-colors hover:bg-white/10" style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: C.gold, border: '1px solid rgba(212,175,55,0.3)' }}><Instagram size={16} />@somoskintu_</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ALIMENTACIÓN ── */}
+      <section className="relative overflow-hidden" style={{ backgroundImage: `url(${img('/uploads/comida.jpg', 1400)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,26,18,0.92) 0%, rgba(15,26,18,0.88) 100%)' }} />
+        <button onClick={() => setAlimentacionOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={alimentacionOpen}>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5"><Utensils size={22} color={C.gold} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.gold }}>Todas las comidas · incluidas</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Alimentación</h2></div></div>
+            <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${alimentacionOpen ? '' : 'animate-bounce'}`} style={{ transform: alimentacionOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
+          </div>
+        </button>
+        <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out" style={{ maxHeight: alimentacionOpen ? '600px' : '0px', opacity: alimentacionOpen ? 1 : 0 }}>
+          <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto">
+            <p className="text-base leading-relaxed mb-6 text-white/75">La alimentación es parte del ritual. Cada plato se prepara con ingredientes frescos, locales y de estación — comida real que agradece a la Tierra lo que nos da y sostiene la energía del encuentro.</p>
+            <div className="grid grid-cols-2 gap-3">{['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por nuestro equipo', 'Opciones para dietas y alergias'].map(item => <div key={item} className="flex items-start gap-2"><span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} /><p className="text-xs text-white/70">{item}</p></div>)}</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OFRENDA + TEMAZCAL ── */}
+      <section id="ofrenda-temazcal" className="relative overflow-hidden" style={{ backgroundImage: `url(${img('/uploads/temazcal.webp', 1400)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,26,18,0.92) 0%, rgba(15,26,18,0.88) 100%)' }} />
+        <button onClick={() => setTemazcalOfrendaOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={temazcalOfrendaOpen}>
+          <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div className="flex items-center gap-5"><Flame size={22} color={C.luna} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.luna }}>Ceremonia central · domingo</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Ofrenda a la Pachamama + Temazcal</h2></div></div>
+            <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${temazcalOfrendaOpen ? '' : 'animate-bounce'}`} style={{ transform: temazcalOfrendaOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
+          </div>
+        </button>
+        <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out" style={{ maxHeight: temazcalOfrendaOpen ? '1000px' : '0px', opacity: temazcalOfrendaOpen ? 1 : 0 }}>
+          <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto text-center">
+            <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.luna }}>La Ofrenda</p>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-8 text-white/75">La ofrenda —también llamada pago o despacho— es un acto de reciprocidad: agradecemos por todo lo recibido y devolvemos algo a cambio, honrando el principio de la ayni.</p>
+            <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
+            <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.gold }}>El Temazcal</p>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">Una ceremonia ancestral de purificación y sanación del cuerpo físico, mental, emocional y espiritual — opcional, para quienes la sientan. Se realiza junto a la ofrenda, como cierre simbólico de todo lo que soltamos ese día.</p>
+            <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8 text-white/55">Si tenés alguna condición de salud, escribinos antes de sumarte para que podamos asesorarte.</p>
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold px-8 py-3 rounded-full transition-opacity hover:opacity-90" style={{ backgroundColor: C.luna, color: 'white' }}>Consultar por WhatsApp</a>
           </div>
         </div>
       </section>
