@@ -11,14 +11,14 @@ const WA_1NOCHE   = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hol
 const WA_DIA      = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero el pase por el día para Killa Raymi. ¿Cómo sigo?')}`;
 
 const C = {
-  green:     '#005333',
-  gold:      '#D4AF37',
-  luna:      '#9D005E', // Pantone P81-16U · primavera, mismo acento que Pachamama para la noche de luna llena
-  night:     '#0F1A12',
-  cream:     '#FDFBF7',
-  dark:      '#2A1708',
-  muted:     '#6B4A33',
-  faint:     '#8B6347',
+  primavera:     '#9D005E', // Pantone P81-16U · primavera (manual de marca) — color principal de Killa Raymi
+  primaveraSoft: '#C4669E', // primavera clara — diferencia la tarjeta de 1 noche
+  gold:          '#D4AF37',
+  night:         '#0F1A12',
+  cream:         '#FDFBF7',
+  dark:          '#2A1708',
+  muted:         '#6B4A33',
+  faint:         '#8B6347',
 };
 
 const fmt = (n: number) => `$${Math.round(n).toLocaleString('es-AR')}`;
@@ -100,9 +100,9 @@ const MODALIDADES = [
     short: 'Completa',
     label: 'Experiencia completa · Habitación',
     sub: '2 noches y 3 días · viernes a domingo',
-    color: C.green,
-    bg: 'rgba(0,83,51,0.05)',
-    border: 'rgba(0,83,51,0.3)',
+    color: C.primavera,
+    bg: 'rgba(157,0,94,0.05)',
+    border: 'rgba(157,0,94,0.3)',
     destacado: true,
     precioCuotas: 295000,
     cuotaValor: 98000,
@@ -117,9 +117,9 @@ const MODALIDADES = [
     short: '1 noche',
     label: 'Experiencia · 1 noche',
     sub: 'Viernes a sábado, o sábado y Domingo',
-    color: C.luna,
-    bg: 'rgba(157,0,94,0.05)',
-    border: 'rgba(157,0,94,0.3)',
+    color: C.primaveraSoft,
+    bg: 'rgba(196,102,158,0.06)',
+    border: 'rgba(196,102,158,0.35)',
     destacado: false,
     precioCuotas: 215000,
     cuotaValor: 72000,
@@ -243,8 +243,8 @@ const KillaRaymi: React.FC = () => {
           style={{ background: 'linear-gradient(to top, rgba(10,20,12,0.97) 0%, rgba(10,20,12,0.65) 45%, rgba(10,20,12,0.2) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center md:justify-center gap-2 sm:gap-3 mb-4">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-10 md:pb-0 flex flex-col md:items-center md:text-center">
+          <div className="flex flex-row flex-wrap items-center md:justify-center gap-2 sm:gap-3 mb-3">
             <span className="inline-block max-w-full px-3 sm:px-4 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.4em] uppercase font-bold border border-white/20 text-white/70 whitespace-nowrap">
               <span className="sm:hidden">25-27 Sep · Los Gigantes</span>
               <span className="hidden sm:inline">25, 26 y 27 de septiembre · Los Gigantes, Córdoba</span>
@@ -267,11 +267,11 @@ const KillaRaymi: React.FC = () => {
           <h1 className="text-5xl md:text-7xl serif-title leading-none mb-4 text-white">
             Killa <span style={{ color: C.gold }}>Raymi</span>
           </h1>
-          <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-6 md:mt-5 md:mb-10">
-            Volvemos a la Luna. Volvemos a la naturaleza. Volvemos a florecer. Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu a través de rituales, caminatas, música, danza, fuego y presencia.
+          <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-5 md:mt-5 md:mb-10">
+            Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu: rituales, caminatas, música y fuego.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
             <a
               href={WA_INFO}
               target="_blank"
@@ -286,14 +286,10 @@ const KillaRaymi: React.FC = () => {
             </div>
           </div>
 
-          <a href="#precios" className="inline-flex items-center gap-1.5 text-white/50 hover:text-gold text-xs sm:text-sm font-semibold uppercase tracking-wider mt-6 transition-colors">
+          <a href="#precios" className="inline-flex items-center gap-1.5 text-white/50 hover:text-gold text-xs sm:text-sm font-semibold uppercase tracking-wider mt-5 transition-colors">
             Ver precios
             <ChevronDown size={14} className="animate-bounce" style={{ animationDuration: '1.8s' }} />
           </a>
-
-          <p className="text-white/40 text-xs sm:text-sm mt-6 max-w-md leading-relaxed">
-            No hace falta experiencia previa. No hay una única manera de vivir Killa Raymi — vos elegís cómo transitarla.
-          </p>
         </div>
       </section>
 
@@ -302,10 +298,10 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.luna }}>
+              style={{ backgroundColor: C.primavera }}>
               Sobre la experiencia
             </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-6" style={{ color: C.green }}>
+            <h2 className="text-3xl md:text-4xl serif-title mb-6" style={{ color: C.primavera }}>
               Dos ciclos que se encuentran
             </h2>
             <p className="text-base leading-relaxed max-w-2xl mx-auto mb-4" style={{ color: C.muted }}>
@@ -318,14 +314,14 @@ const KillaRaymi: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4 mb-12" data-reveal data-delay="1">
             {['Conexión con la naturaleza', 'Exploración consciente', 'Sabiduría ancestral', 'Música y expresión', 'Celebración colectiva'].map(item => (
-              <div key={item} className="rounded-2xl p-3 md:p-5 border text-center" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
-                <p className="text-xs md:text-sm font-semibold leading-tight" style={{ color: C.green }}>{item}</p>
+              <div key={item} className="rounded-2xl p-3 md:p-5 border text-center" style={{ borderColor: 'rgba(157,0,94,0.12)', backgroundColor: 'rgba(157,0,94,0.03)' }}>
+                <p className="text-xs md:text-sm font-semibold leading-tight" style={{ color: C.primavera }}>{item}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center rounded-3xl p-8 md:p-10" data-reveal data-delay="2" style={{ backgroundColor: 'rgba(157,0,94,0.04)', border: '1px solid rgba(157,0,94,0.15)' }}>
-            <p className="text-lg md:text-xl serif-title mb-3" style={{ color: C.luna }}>No es un festival. No es un retiro.</p>
+            <p className="text-lg md:text-xl serif-title mb-3" style={{ color: C.primavera }}>No es un festival. No es un retiro.</p>
             <p className="text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
               Es un espacio vivo para encontrarnos, celebrar y disfrutar juntos la llegada de un nuevo ciclo. Un encuentro abierto, familiar y diverso, donde lo profundo puede convivir con lo simple. Podés bailar, caminar, meditar, cantar, compartir, descansar, contemplar o simplemente estar. Cada propuesta es una puerta — vos elegís cómo transitarla.
             </p>
@@ -338,10 +334,10 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.green }}>
+              style={{ backgroundColor: C.primavera }}>
               Cronograma
             </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.primavera }}>
               25, 26 y 27 de septiembre
             </h2>
             <p className="text-base max-w-lg mx-auto" style={{ color: C.muted }}>
@@ -351,13 +347,13 @@ const KillaRaymi: React.FC = () => {
 
           <div className="space-y-5" data-reveal data-delay="1">
             {/* Viernes */}
-            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(0,83,51,0.15)', backgroundColor: 'white' }}>
+            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(196,102,158,0.25)', backgroundColor: 'white' }}>
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
-                  <Sprout size={18} color={C.green} />
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(196,102,158,0.15)' }}>
+                  <Sprout size={18} color={C.primaveraSoft} />
                 </div>
                 <div>
-                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.green }}>Viernes · Llegada & apertura</p>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.primaveraSoft }}>Viernes · Llegada & apertura</p>
                   <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Entrar en el ciclo</p>
                 </div>
               </div>
@@ -370,10 +366,10 @@ const KillaRaymi: React.FC = () => {
             <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(157,0,94,0.25)', backgroundColor: 'rgba(157,0,94,0.03)' }}>
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(157,0,94,0.12)' }}>
-                  <Moon size={18} color={C.luna} />
+                  <Moon size={18} color={C.primavera} />
                 </div>
                 <div>
-                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.luna }}>Sábado · Luna llena</p>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.primavera }}>Sábado · Luna llena</p>
                   <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Expandir & celebrar</p>
                 </div>
               </div>
@@ -382,11 +378,11 @@ const KillaRaymi: React.FC = () => {
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
                 <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
-                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.luna }}>Temazcal & ritual</p>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Temazcal & ritual</p>
                   <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Un momento de introspección, purificación y conexión con los elementos. Entramos en el calor, soltamos, respiramos y dejamos espacio para lo nuevo.</p>
                 </div>
                 <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
-                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.luna }}>Ceremonia de Luna llena</p>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Ceremonia de Luna llena</p>
                   <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Fuego, canto, música, danza, silencio y comunidad — una noche para reconocer lo que está floreciendo y darle fuerza. Una noche para celebrar la vida.</p>
                 </div>
               </div>
@@ -416,8 +412,8 @@ const KillaRaymi: React.FC = () => {
           {/* Tres días, tres movimientos */}
           <div className="grid grid-cols-3 gap-2 md:gap-5 mt-8" data-reveal data-delay="2">
             {[
-              { Icon: Sprout, day: 'Viernes', word: 'Llegar', desc: 'Bajar el ritmo. Conectar. Abrir.', color: C.green },
-              { Icon: Moon, day: 'Sábado', word: 'Expandir', desc: 'Luna llena. Temazcal. Celebración.', color: C.luna },
+              { Icon: Sprout, day: 'Viernes', word: 'Llegar', desc: 'Bajar el ritmo. Conectar. Abrir.', color: C.primaveraSoft },
+              { Icon: Moon, day: 'Sábado', word: 'Expandir', desc: 'Luna llena. Temazcal. Celebración.', color: C.primavera },
               { Icon: Mountain, day: 'Domingo', word: 'Integración', desc: 'Trekking. Montaña. Territorio.', color: '#A8871C' },
             ].map(({ Icon, day, word, desc, color }) => (
               <div key={day} className="rounded-2xl p-3 md:p-6 border text-center" style={{ borderColor: `${color}25`, backgroundColor: `${color}08` }}>
@@ -436,22 +432,22 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.luna }}>
+              style={{ backgroundColor: C.primavera }}>
               Propuestas
             </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.primavera }}>
               Qué vas a encontrar
             </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4" data-reveal data-delay="1">
             {ENCONTRAR.map(({ Icon, title, items }) => (
-              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.12)', backgroundColor: 'rgba(0,83,51,0.02)' }}>
+              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(157,0,94,0.12)', backgroundColor: 'rgba(157,0,94,0.02)' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
-                    <Icon size={16} color={C.green} />
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(157,0,94,0.1)' }}>
+                    <Icon size={16} color={C.primavera} />
                   </div>
-                  <p className="font-bold text-sm md:text-base" style={{ color: C.green }}>{title}</p>
+                  <p className="font-bold text-sm md:text-base" style={{ color: C.primavera }}>{title}</p>
                 </div>
                 <ul className="space-y-1.5">
                   {items.map(i => (
@@ -471,8 +467,8 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div data-reveal>
-              <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.green }}>El lugar</p>
-              <h2 className="text-3xl md:text-4xl serif-title mb-5 leading-tight" style={{ color: C.green }}>
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.primavera }}>El lugar</p>
+              <h2 className="text-3xl md:text-4xl serif-title mb-5 leading-tight" style={{ color: C.primavera }}>
                 Pueblo Mágico,<br />Los Gigantes
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: C.muted }}>
@@ -487,20 +483,20 @@ const KillaRaymi: React.FC = () => {
                   '200 hectáreas de reserva natural',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>—</span>{item}
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.primavera }}>—</span>{item}
                   </li>
                 ))}
               </ul>
               <div className="flex flex-wrap items-center gap-3 mt-7">
                 <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-brand-green hover:text-white hover:border-brand-green"
-                  style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
+                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-[#9D005E] hover:text-white hover:border-[#9D005E]"
+                  style={{ borderColor: 'rgba(157,0,94,0.3)', color: C.primavera }}>
                   ¿Cómo llegar? Consultanos
                 </a>
                 <a href="https://www.instagram.com/pueblomagico__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pueblo Mágico"
-                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-brand-green hover:border-brand-green"
-                  style={{ borderColor: 'rgba(0,83,51,0.3)' }}>
-                  <Instagram size={16} color={C.green} />
+                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-[#9D005E] hover:border-[#9D005E]"
+                  style={{ borderColor: 'rgba(157,0,94,0.3)' }}>
+                  <Instagram size={16} color={C.primavera} />
                 </a>
               </div>
             </div>
@@ -630,19 +626,19 @@ const KillaRaymi: React.FC = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,26,18,0.92) 0%, rgba(15,26,18,0.88) 100%)' }} />
         <button onClick={() => setTemazcalOfrendaOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={temazcalOfrendaOpen}>
           <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
-            <div className="flex items-center gap-5"><Flame size={22} color={C.luna} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.luna }}>Ceremonia central · domingo</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Ofrenda a la Pachamama + Temazcal</h2></div></div>
+            <div className="flex items-center gap-5"><Flame size={22} color={C.primavera} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.primavera }}>Ceremonia central · domingo</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Ofrenda a la Pachamama + Temazcal</h2></div></div>
             <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${temazcalOfrendaOpen ? '' : 'animate-bounce'}`} style={{ transform: temazcalOfrendaOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
           </div>
         </button>
         <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out" style={{ maxHeight: temazcalOfrendaOpen ? '1000px' : '0px', opacity: temazcalOfrendaOpen ? 1 : 0 }}>
           <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto text-center">
-            <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.luna }}>La Ofrenda</p>
+            <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.primavera }}>La Ofrenda</p>
             <p className="text-base leading-relaxed max-w-2xl mx-auto mb-8 text-white/75">La ofrenda —también llamada pago o despacho— es un acto de reciprocidad: agradecemos por todo lo recibido y devolvemos algo a cambio, honrando el principio de la ayni.</p>
             <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
             <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.gold }}>El Temazcal</p>
             <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">Una ceremonia ancestral de purificación y sanación del cuerpo físico, mental, emocional y espiritual — opcional, para quienes la sientan. Se realiza junto a la ofrenda, como cierre simbólico de todo lo que soltamos ese día.</p>
             <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8 text-white/55">Si tenés alguna condición de salud, escribinos antes de sumarte para que podamos asesorarte.</p>
-            <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold px-8 py-3 rounded-full transition-opacity hover:opacity-90" style={{ backgroundColor: C.luna, color: 'white' }}>Consultar por WhatsApp</a>
+            <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold px-8 py-3 rounded-full transition-opacity hover:opacity-90" style={{ backgroundColor: C.primavera, color: 'white' }}>Consultar por WhatsApp</a>
           </div>
         </div>
       </section>
@@ -653,11 +649,11 @@ const KillaRaymi: React.FC = () => {
           <div className="text-center mb-10" data-reveal>
             <a href="https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5 transition-colors hover:bg-black/5"
-              style={{ borderColor: 'rgba(0,83,51,0.25)' }}>
+              style={{ borderColor: 'rgba(157,0,94,0.25)' }}>
               <span className="text-sm" style={{ color: C.gold }}>★★★★★</span>
               <span className="text-xs font-semibold" style={{ color: C.muted }}>5.0 · 64 reseñas en Google Maps</span>
             </a>
-            <h2 className="text-2xl md:text-3xl serif-title mt-5" style={{ color: C.green }}>
+            <h2 className="text-2xl md:text-3xl serif-title mt-5" style={{ color: C.primavera }}>
               Lo que dicen quienes ya vivieron Mágico
             </h2>
           </div>
@@ -667,7 +663,7 @@ const KillaRaymi: React.FC = () => {
               { text: 'Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.', name: 'Marcos D.', rol: 'Huésped' },
               { text: 'Lo más importante: el amor y la entrega de todo el equipo, y la capacidad de sentirte uno con la naturaleza.', name: 'Julieta C.', rol: 'Facilitadora' },
             ].map(t => (
-              <div key={t.name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(0,83,51,0.1)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
+              <div key={t.name} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(157,0,94,0.1)', backgroundColor: 'rgba(157,0,94,0.03)' }}>
                 <p className="text-sm italic leading-relaxed mb-4" style={{ color: C.muted }}>"{t.text}"</p>
                 <p className="font-bold text-sm" style={{ color: C.dark }}>{t.name}</p>
                 <p className="text-xs" style={{ color: C.faint }}>{t.rol}</p>
@@ -682,10 +678,10 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10" data-reveal>
             <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold"
-              style={{ backgroundColor: C.green }}>
+              style={{ backgroundColor: C.primavera }}>
               Modalidades de participación
             </p>
-            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.green }}>
+            <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.primavera }}>
               Elegís cómo vivir Killa Raymi
             </h2>
             <p className="text-base max-w-md mx-auto mb-5" style={{ color: C.muted }}>
@@ -694,12 +690,12 @@ const KillaRaymi: React.FC = () => {
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {['Descuentos especiales para familias y grupos', 'Consultá por diferentes opciones de alojamiento', '30% OFF en zona de camping'].map(tag => (
                 <span key={tag} className="text-[11px] px-3 py-1.5 rounded-full border font-medium"
-                  style={{ borderColor: 'rgba(0,83,51,0.25)', color: C.green, backgroundColor: 'rgba(0,83,51,0.04)' }}>
+                  style={{ borderColor: 'rgba(157,0,94,0.25)', color: C.primavera, backgroundColor: 'rgba(157,0,94,0.04)' }}>
                   {tag}
                 </span>
               ))}
             </div>
-            <p className="text-sm font-semibold" style={{ color: C.green }}>
+            <p className="text-sm font-semibold" style={{ color: C.primavera }}>
               Las 3 modalidades incluyen comidas y actividades — lo que cambia es cuántos días te quedás.
             </p>
           </div>
@@ -710,7 +706,7 @@ const KillaRaymi: React.FC = () => {
                 className="rounded-2xl p-6 md:p-7 relative flex flex-col h-full"
                 style={{
                   backgroundColor: m.destacado ? m.bg : 'white',
-                  border: `1px solid ${m.destacado ? m.color : 'rgba(0,83,51,0.12)'}`,
+                  border: `1px solid ${m.destacado ? m.color : 'rgba(157,0,94,0.12)'}`,
                   boxShadow: m.destacado ? '0 8px 30px rgba(157,0,94,0.12)' : 'none',
                 }}
               >
@@ -767,18 +763,18 @@ const KillaRaymi: React.FC = () => {
             ))}
           </div>
 
-          <p className="flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide mt-5" style={{ color: C.luna }}>
+          <p className="flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide mt-5" style={{ color: C.primavera }}>
             <Flame size={13} />
             Cupos limitados — reservá tu lugar con una seña
           </p>
 
           <div className="mt-8 rounded-2xl p-5 md:p-6 flex items-start gap-4 max-w-xl mx-auto" data-reveal
-            style={{ backgroundColor: 'rgba(0,83,51,0.05)', border: '1px solid rgba(0,83,51,0.15)' }}>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
-              <ShieldCheck size={18} color={C.green} />
+            style={{ backgroundColor: 'rgba(157,0,94,0.05)', border: '1px solid rgba(157,0,94,0.15)' }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(157,0,94,0.1)' }}>
+              <ShieldCheck size={18} color={C.primavera} />
             </div>
             <div>
-              <p className="font-bold text-sm mb-1" style={{ color: C.green }}>¿Tenés dudas sobre el precio?</p>
+              <p className="font-bold text-sm mb-1" style={{ color: C.primavera }}>¿Tenés dudas sobre el precio?</p>
               <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
                 Escribinos por WhatsApp y coordinamos la seña para reservar tu lugar y la forma de pago que mejor te quede.
               </p>
@@ -786,8 +782,8 @@ const KillaRaymi: React.FC = () => {
           </div>
 
           <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold rounded-full px-6 py-3 mx-auto transition-colors hover:bg-brand-green hover:text-white"
-            style={{ borderColor: C.green, border: '1px solid rgba(0,83,51,0.3)', color: C.green, display: 'flex', width: 'fit-content' }}>
+            className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold rounded-full px-6 py-3 mx-auto transition-colors hover:bg-[#9D005E] hover:text-white"
+            style={{ borderColor: C.primavera, border: '1px solid rgba(157,0,94,0.3)', color: C.primavera, display: 'flex', width: 'fit-content' }}>
             Conversá con alguien de nuestro equipo
           </a>
         </div>
