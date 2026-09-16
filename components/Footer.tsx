@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label={t.ui.followInstagram} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <InstagramLogo size={20} weight="light" />
               </a>
-              <a href={t.contact.labels.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label={t.ui.contactWhatsapp} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
+              <a href={t.contact.values.whatsapp} target="_blank" rel="noopener noreferrer" aria-label={t.ui.contactWhatsapp} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
                 <WhatsappLogo size={20} weight="light" />
               </a>
               <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label={t.ui.followFacebook} className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300">
@@ -107,13 +107,13 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <Phone size={18} weight="light" className="text-brand-gold flex-shrink-0" />
-                <a href={`tel:${t.contact.labels.phone}`} className="text-sm font-light hover:text-brand-gold transition-colors">
-                  {t.contact.labels.phone}
+                <a href={`tel:${t.contact.values.phone}`} className="text-sm font-light hover:text-brand-gold transition-colors">
+                  {t.contact.values.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <Envelope size={18} weight="light" className="text-brand-gold flex-shrink-0" />
-                <a href={`mailto:${t.contact.labels.email}`} className="text-sm font-light hover:text-brand-gold transition-colors">
+                <a href={`mailto:${t.contact.values.email}`} className="text-sm font-light hover:text-brand-gold transition-colors">
                   {t.contact.labels.email}
                 </a>
               </li>

@@ -13,7 +13,7 @@ export const SITE_URL = 'https://experienciamagico.com';
 export const WEB3FORMS_ACCESS_KEY = '05502bcd-b552-47bd-bd01-122f9ab9bc6f';
 
 export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/magicoensueno',
-  facebook: 'https://facebook.com/magicoensueno',
+  instagram: 'https://instagram.com/pueblomagico__',
+  facebook: 'https://facebook.com/magicoensuenio',
   maps: 'https://maps.app.goo.gl/4c1nrpBbQf5hYrsE9',
 };
