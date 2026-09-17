@@ -51,9 +51,10 @@ const TEAM: TeamMember[] = [
     instagram: 'https://www.instagram.com/isvara_strategist/', linkedin: 'https://www.linkedin.com/in/isvara-rojas-romero-53a20a298/', tags: ['MÁGICO', 'KINTU'],
   },
   {
-    photo: '/uploads/jasper.png', nombre: 'Jasper', rol: 'Medicinas ancestrales & tecnología',
-    desc: 'Camina las medicinas ancestrales de Latinoamérica, conviviendo con sus comunidades durante años. También es programador — hoy une ambos conocimientos, compartiéndolos tanto con el equipo como con quienes llegan al espacio.',
+    photo: '/uploads/jasper.png', nombre: 'Jasper Felix Meyer', rol: 'Medicinas ancestrales, tecnología & REGENERACIÓN',
+    desc: 'Desarrollador y creador multidisciplinario. Conecta tecnología, proyectos regenerativos y creatividad con prácticas ceremoniales, música medicina y espacios de integración. Crea puentes entre personas, culturas e ideas para transformar visión en proyectos con propósito.',
     tags: ['MÁGICO'],
+    instagram: 'https://www.instagram.com/itsjasperrz/',
   },
   {
     photo: '/uploads/tomas-fossatti.jpg', nombre: 'Tomás Fossatti', rol: 'Host de emprendedores/as',
