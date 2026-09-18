@@ -35,7 +35,7 @@ export function mensajePrivacidad(tipo: TipoAlojamiento, personas: number): stri
 export function calcularPrecio(tipo: TipoAlojamiento, personas: number, noches: number): Cotizacion | { error: string } {
   if (tipo === 'refugio') {
     if (personas < 1 || personas > 15) return { error: 'El Refugio Compartido admite entre 1 y 15 personas.' };
-    const precioPorNoche = 50000 * personas;
+    const precioPorNoche = 35000 * personas;
     return {
       tipo_alojamiento: tipo,
       cantidad_personas: personas,

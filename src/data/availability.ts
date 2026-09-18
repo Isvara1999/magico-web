@@ -46,4 +46,4 @@ export const MONTHLY_URGENCY: Record<string, MonthUrgency> = {
   '2026-09': 'normal',
 };
 
-export const PRECIO_NOCHE_ARS = 50_000; // pensión completa, habitación o domo compartido
+export const PRECIO_NOCHE_ARS = 35_000; // alojamiento + desayuno, habitación o domo compartido (Eco-Refugio)
