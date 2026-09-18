@@ -109,6 +109,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/alma-de-lobo',
   },
   {
+    path: '/empresas',
+    title: 'Empresas — Voluntariado Corporativo & RSE en las Sierras · Los Gigantes, Córdoba | Pueblo Mágico',
+    description: 'Programas de restauración ambiental, voluntariado corporativo y team building en Los Gigantes, Córdoba. +15.000 árboles plantados, +200 hectáreas cuidadas, +25 años de trayectoria.',
+    image: 'https://experienciamagico.com/uploads/dji_0074.webp',
+    canonical: 'https://experienciamagico.com/empresas',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',

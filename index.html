@@ -109,8 +109,12 @@
     })();
 
     // Service Worker PWA
+    // No se registra en localhost/127.0.0.1: en dev, un SW cache-first queda
+    // sirviendo JS/CSS viejos indefinidamente (no revalida nunca) y hace que
+    // cambios nuevos no se vean pase lo que pase con el servidor.
     (function() {
-      if ('serviceWorker' in navigator) {
+      var isLocal = ['localhost', '127.0.0.1'].indexOf(window.location.hostname) !== -1;
+      if ('serviceWorker' in navigator && !isLocal) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/sw.js');
         });

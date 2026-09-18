@@ -22,6 +22,7 @@ const IntiRaymi = lazy(() => import('./src/IntiRaymi'));
 const PachamamaFest = lazy(() => import('./src/PachamamaFest'));
 const KillaRaymi = lazy(() => import('./src/KillaRaymi'));
 const AlmaDeLobo = lazy(() => import('./src/AlmaDeLobo'));
+const Empresas = lazy(() => import('./src/Empresas'));
 const Despertar = lazy(() => import('./src/Despertar'));
 const WinterCamp = lazy(() => import('./src/WinterCamp'));
 const WinterRedirection = lazy(() => import('./src/WinterRedirection'));
@@ -96,6 +97,7 @@ root.render(
               <Route path="/pachamama-fest" element={<PachamamaFest />} />
               <Route path="/killa-raymi" element={<KillaRaymi />} />
               <Route path="/alma-de-lobo" element={<AlmaDeLobo />} />
+              <Route path="/empresas" element={<Empresas />} />
               <Route path="/despertar" element={<Despertar />} />
               <Route path="/winter-camp" element={<WinterCamp />} />
               <Route path="/winter-redirection" element={<WinterRedirection />} />

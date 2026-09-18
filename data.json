@@ -19,12 +19,16 @@
       "accommodation": "Alojamiento",
       "domoShort": "Domo",
       "refugioShort": "Refugio",
+      "carpaShort": "Carpa",
       "domoFull": "Domo geodésico",
       "refugioFull": "Refugio",
+      "carpaFull": "Camping",
+      "carpaRegimen": "Alojamiento + desayuno",
+      "carpaNote": "Camping — te confirmamos disponibilidad y coordinamos todo por WhatsApp.",
       "roomType": "Tipo de habitación",
       "sharedRoom": "Compartida",
       "privateRoom": "Privada",
-      "privateDomoNote": "Privada en domo: 1 o 2 personas ($150.000/noche, o $75.000/noche reservando en pareja hasta el 31/07) o grupos de 3 a 7 personas",
+      "privateDomoNote": "Privada en domo: 1 o 2 personas ($150.000/noche) o grupos de 3 a 7 personas",
       "retiroNote": "🗓️ Estas fechas coinciden con un retiro — te confirmamos por WhatsApp si hay lugar antes de cerrar la reserva.",
       "unavailableForDates": "Esa opción no tiene lugar en las fechas que elegiste — probá con otras fechas.",
       "capacityExceeded": "El {tipo} tiene capacidad para hasta {max} personas — para grupos más grandes, escribinos por WhatsApp.",
@@ -77,7 +81,7 @@
       "badge_accommodation": "Alojamiento", 
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés — desde $50.000/persona/noche con pensión completa, en habitación o domo compartido. ⚡ Precio de invierno, válido para estadías hasta el 21 de septiembre de 2026.",
+      "card_extra_text": "También podés solo alojarte si querés — desde $20.000/persona/noche con desayuno, en carpa, habitación o domo compartido. Sumá almuerzo, cena o pensión completa a tu gusto.",
       "btn": "RESERVAR MI LUGAR", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -312,24 +316,6 @@
           "btn": "Ver Estadías",
           "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
-        },
-        {
-          "date": "INVIERNO 2026 · JUL · AGO · SEP",
-          "title": "Winter Camp · Vacaciones de Invierno",
-          "desc": "Estadía libre todo el invierno en la montaña nevada. Fogones, temazcal, comunidad y naturaleza. Para familias, emprendedores y creativos. Desde $50.000/persona/noche pensión completa en efectivo, en habitación o domo compartido.",
-          "btn": "Ver más",
-          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
-          "link": "/winter-camp",
-          "pdfLink": ""
-        },
-        {
-          "date": "INVIERNO 2026 · JUL · AGO · SEP",
-          "title": "Winter Redirection · Emprendedores en la Montaña",
-          "desc": "Un mes para redirigir cuando el ruido del día a día tapa la perspectiva. Contenido específico para emprendedores, dueños de negocio y equipos: mentalidad de crecimiento, comunicación y productos con IA.",
-          "btn": "Ver más",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
-          "link": "/winter-redirection",
-          "pdfLink": ""
         }
       ]
     },
@@ -344,7 +330,7 @@
       "stats_years": "+15.000 Árboles Plantados",
       "stats_trees": "Huéspedes de +20 Países",
       "stats_land": "+200ha cuidadas · 25 años",
-      "stats_sus": "Desde $50.000 / persona / noche",
+      "stats_sus": "Desde $20.000 / persona / noche",
       "stats_google": "5.0★ · 64 reseñas Google",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -365,7 +351,7 @@
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
       "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
-      "reservationPricing": "Desde $50.000/persona/noche (compartido) · ⚡ precio de invierno, válido hasta el 21/09/2026"
+      "reservationPricing": "Desde $20.000/persona/noche (carpa, con desayuno) · sumá comidas a tu gusto"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -420,12 +406,16 @@
           }
         },
         {
-          "label": "Testimonios", 
-          "href": "#testimonios" 
+          "label": "Testimonios",
+          "href": "#testimonios"
         },
         {
           "label": "Agenda",
           "href": "#eventos"
+        },
+        {
+          "label": "Empresas",
+          "href": "/empresas"
         },
         {
           "label": "Ubicación",
@@ -527,7 +517,8 @@
           "title": "Para grupos e instituciones",
           "links": [
             { "label": "Retiros Grupales", "href": "#retiros" },
-            { "label": "Aulas Verdes", "href": "/escuelas" }
+            { "label": "Aulas Verdes", "href": "/escuelas" },
+            { "label": "Empresas", "href": "/empresas" }
           ]
         }
       ],
@@ -1332,6 +1323,158 @@
         "ai_note": "Las competencias que se trabajan en Aula Verde — observación científica, resolución de problemas, trabajo en equipo, expresión creativa y conciencia ambiental — son transferibles a casi cualquier entorno laboral del siglo XXI: investigación, diseño, gastronomía, educación, conservación o trabajo en otros ecosistemas naturales del planeta. No es solo un campamento. Es una semana que amplía el mapa de lo que es posible."
       }
     },
+    "empresas": {
+      "seo": {
+        "title": "Empresas — Voluntariado Corporativo & RSE en las Sierras · Los Gigantes, Córdoba | Pueblo Mágico",
+        "description": "Programas de restauración ambiental, voluntariado corporativo y team building en Los Gigantes, Córdoba. +15.000 árboles plantados, +200 hectáreas cuidadas, +25 años de trayectoria."
+      },
+      "hero": {
+        "tag": "Programas corporativos",
+        "title": "Regeneración corporativa en las Sierras Grandes",
+        "subtitle": "Convertí los objetivos de sustentabilidad de tu organización en una experiencia concreta de participación e impacto.",
+        "description": "Diseñamos programas de restauración ambiental y voluntariado corporativo para empresas e instituciones, integrando naturaleza, participación de colaboradores y, cuando tiene sentido, experiencias de integración de equipos.",
+        "cta_primary": "Diseñar un programa para mi organización",
+        "cta_secondary": "Conocer Pueblo Mágico antes de traer a mi equipo",
+        "wa_query_programa": "¡Hola! Quiero diseñar un programa de voluntariado corporativo / RSE con Pueblo Mágico para mi organización.",
+        "wa_query_jornada": "¡Hola! Quiero recibir la invitación a la próxima Jornada de Presentación para responsables de organizaciones.",
+        "stats": [
+          { "value": "+15.000", "label": "árboles plantados" },
+          { "value": "+200", "label": "hectáreas cuidadas" },
+          { "value": "+25 años", "label": "en Los Gigantes" }
+        ]
+      },
+      "problema": {
+        "tag": "El desafío",
+        "title": "De los compromisos a la acción",
+        "intro": "Muchas organizaciones ya cuentan con políticas de sustentabilidad, RSE, voluntariado o metas ambientales. El desafío suele estar en transformar esos compromisos en acciones que sean, al mismo tiempo:",
+        "items": ["Concretas y visibles", "Participativas", "Vinculadas con el territorio", "Valiosas para los colaboradores", "Documentables", "Adaptables a los objetivos de la organización"],
+        "closing1": "Pueblo Mágico funciona como territorio, infraestructura y plataforma para diseñar esas experiencias en las Sierras Grandes.",
+        "closing2": "No buscamos realizar una actividad ambiental aislada. Buscamos que tu organización se integre a un proceso de regeneración que ya existe."
+      },
+      "dimensiones": {
+        "title": "Tres dimensiones que pueden convivir en un mismo programa",
+        "items": [
+          {
+            "title": "Restauración & biodiversidad",
+            "items": ["Plantación de especies nativas", "Restauración de ecosistemas y tabaquillos", "Conservación y educación ambiental", "Conocimiento del territorio"]
+          },
+          {
+            "title": "Voluntariado corporativo",
+            "items": ["Programas de sustentabilidad y RSE", "Inversión social y voluntariado corporativo", "Participación activa de colaboradores", "Sensibilización ambiental"]
+          },
+          {
+            "title": "Experiencia de equipo",
+            "items": ["Colaboración e integración", "Liderazgo y coordinación entre áreas", "Comunicación y cultura", "Propósito compartido"]
+          }
+        ],
+        "note": "La experiencia de equipo no reemplaza el objetivo ambiental. Lo potencia."
+      },
+      "galeria": {
+        "title": "El lugar donde pasa",
+        "subtitle": "Domos, senderos, cocina de estación y espacios de encuentro. El mismo territorio que hoy reciben instituciones, escuelas y voluntarios."
+      },
+      "jornada": {
+        "title": "Cómo puede ser una jornada",
+        "subtitle": "Cada programa se diseña a medida, pero suele incluir estos momentos.",
+        "steps": [
+          { "num": "01", "title": "Llegada al territorio", "text": "Recepción, presentación del lugar y contexto de la intervención: qué ecosistema visitan, qué problema se aborda y por qué su participación importa." },
+          { "num": "02", "title": "Acción ambiental", "text": "Plantación, restauración u otra intervención, adaptada a cantidad de participantes, temporada, disponibilidad de ejemplares y capacidades técnicas." },
+          { "num": "03", "title": "Comprender el impacto", "text": "No es solo \"plantar un árbol\": buscamos que los participantes entiendan qué están haciendo, cómo funciona ese ecosistema y de qué proceso de restauración forman parte." },
+          { "num": "04", "title": "Compartir", "text": "Gastronomía, naturaleza, recorridos y momentos de encuentro." },
+          { "num": "05", "title": "Integrar", "text": "Cuando la organización lo requiere, incorporamos dinámicas orientadas a desarrollar capacidades del equipo." },
+          { "num": "06", "title": "Documentar", "text": "Registro de indicadores acordados: participantes, horas de voluntariado, ejemplares plantados, material fotográfico y otros datos relevantes." }
+        ],
+        "benchmark": "Las grandes compañías estructuran sus programas de voluntariado alrededor de acciones, participación e indicadores. Globant, por ejemplo, reportó en 2025 2.787 voluntarios y 34.073 horas destinadas a iniciativas comunitarias y ambientales."
+      },
+      "impacto": {
+        "tag": "No es una plantación creada para empresas",
+        "title": "Es la posibilidad de sumarse a un proceso que ya existe",
+        "text": "La regeneración ambiental forma parte de Pueblo Mágico desde mucho antes de esta propuesta corporativa.",
+        "stats": [
+          { "value": "+15.000", "label": "árboles plantados y cuidados" },
+          { "value": "+200", "label": "hectáreas cuidadas" },
+          { "value": "+25", "label": "años de trayectoria en Los Gigantes" }
+        ],
+        "partners_intro": "A lo largo de este camino trabajamos y generamos vínculos con organizaciones ambientales como:",
+        "partners": ["Bosques de Agua", "Acciones Serranas"],
+        "partners_note": "Actualmente estamos desarrollando nuevas articulaciones con Acción Ambiental y otros actores del ecosistema ambiental."
+      },
+      "equipo": {
+        "title": "Una acción ambiental también puede fortalecer al equipo",
+        "intro": "Participar juntos de una intervención concreta crea un contexto diferente al cotidiano. Las personas tienen que organizarse, distribuir roles, comunicarse, resolver, colaborar, adaptarse y tomar decisiones.",
+        "text2": "Cuando forma parte de los objetivos de la organización, utilizamos esa experiencia como materia prima para trabajar también sobre el funcionamiento del equipo.",
+        "example_label": "Por ejemplo",
+        "example_text": "Un grupo compuesto por personas de Comercial y Operaciones participa de una experiencia que exige coordinación y circulación de información. Después de la actividad se facilita una conversación sobre qué funcionó, dónde aparecieron fricciones, cómo se tomaron decisiones y qué patrones también aparecen en el trabajo cotidiano.",
+        "example_result": "El cierre puede transformarse en acuerdos concretos para mejorar la coordinación entre ambas áreas.",
+        "formula": "Experiencia → reflexión → transferencia al trabajo."
+      },
+      "preview": {
+        "tag": "Antes de traer a todo tu equipo",
+        "title": "Vení a conocerlo primero",
+        "intro": "Sabemos que antes de presentar una iniciativa internamente aparecen muchas preguntas.",
+        "questions_label": "Antes de presentar la propuesta",
+        "questions": ["¿Cómo es el lugar y cómo se llega?", "¿Qué van a hacer los colaboradores?", "¿Qué nivel de exigencia física tiene?", "¿Cómo se organiza la plantación?", "¿Qué pasa si cambia el clima?", "¿Cómo se adapta a nuestros objetivos?"],
+        "audience_title": "Jornadas de Presentación en Pueblo Mágico, dirigidas a:",
+        "audience_items": ["Responsables de Sustentabilidad y RSE", "Directores y responsables de RRHH", "Cultura y Personas", "Líderes de programas de voluntariado", "Mandos medios y decisores de organizaciones"],
+        "group_note": "Encuentros con cupos reducidos: al menos 8 referentes de distintas organizaciones por jornada.",
+        "includes": ["Recorrer Pueblo Mágico y sus instalaciones", "Visitar las zonas de intervención", "Vivir una pequeña experiencia de muestra", "Conocer al equipo y almorzar en el espacio", "Conversar sobre posibles programas", "Despejar dudas operativas y estratégicas"],
+        "closing": "Antes de invitar a todo tu equipo, podés venir vos. Tenemos fechas destinadas especialmente a este tipo de encuentros.",
+        "cta": "Quiero recibir invitación a la próxima jornada"
+      },
+      "proceso": {
+        "title": "Programas a medida",
+        "subtitle": "No todas las organizaciones necesitan lo mismo. Por eso no partimos de un paquete cerrado.",
+        "steps": [
+          { "num": "1", "title": "Objetivo", "text": "Entendemos qué quiere conseguir la organización." },
+          { "num": "2", "title": "Participantes", "text": "Definimos cantidad, perfiles, áreas y niveles de responsabilidad." },
+          { "num": "3", "title": "Programa", "text": "Seleccionamos intervención, actividades, duración y recursos." },
+          { "num": "4", "title": "Indicadores", "text": "Acordamos qué tiene sentido registrar." },
+          { "num": "5", "title": "Implementación", "text": "Realizamos la experiencia en Pueblo Mágico." },
+          { "num": "6", "title": "Documentación", "text": "Cuando corresponde, entregamos registro e información sobre lo realizado." }
+        ]
+      },
+      "formatos": {
+        "title": "Distintos formatos según el objetivo",
+        "items": [
+          { "title": "Jornada corporativa", "text": "Una experiencia de un día. Ideal para voluntariado, restauración, integración y primeras experiencias institucionales." },
+          { "title": "Jornada + noche", "text": "Más inmersiva: permite incorporar convivencia, fogón, naturaleza y actividades complementarias." },
+          { "title": "Programa de varios días", "text": "Para equipos que buscan profundizar en liderazgo, cultura, coordinación y estrategia." }
+        ],
+        "note": "Todos los formatos se diseñan según la necesidad de cada organización."
+      },
+      "respaldo": {
+        "title": "Una experiencia respaldada por trayectoria",
+        "subtitle": "La línea corporativa es nueva. Pueblo Mágico no.",
+        "text1": "Durante más de 25 años desarrollamos capacidades vinculadas con naturaleza, hospitalidad, grupos, experiencias y regeneración. Recibimos instituciones, escuelas, clubes, retiros, comunidades, voluntarios internacionales y grupos de distintos tamaños.",
+        "aula_verde_note": "A través de Aula Verde ya desarrollamos experiencias institucionales adaptadas a objetivos educativos y grupales, incluyendo jornadas con más de 200 participantes.",
+        "aula_verde_cta": "Conocer Aula Verde",
+        "items": ["Alojamiento", "Gastronomía", "Espacios comunes y senderos", "Especialistas y facilitadores", "Experiencia logística", "Diseño de experiencias a medida"],
+        "text3": "No somos nuevos recibiendo grupos ni trabajando con instituciones. Lo nuevo es poner esa experiencia al servicio de los objetivos de sustentabilidad y participación de las empresas."
+      },
+      "red": {
+        "title": "Una propuesta construida en red",
+        "subtitle": "La regeneración territorial requiere colaboración. Cada programa puede articular diferentes capacidades.",
+        "partners": [
+          { "name": "Pueblo Mágico", "text": "Territorio, infraestructura, hospitalidad, experiencia, regeneración y operación de las jornadas." },
+          { "name": "Fundación para el Desarrollo Sostenible", "text": "Marco institucional y administrativo para programas de voluntariado: planificación, administración de fondos de patrocinadores, facturación y rendición de cuentas." },
+          { "name": "Apoidea", "text": "Vinculación con empresas, reuniones de diagnóstico, desarrollo de propuestas particulares y otros aspectos de asesoría y comercialización." },
+          { "name": "Organizaciones ambientales", "text": "Conocimiento técnico, ejemplares, experiencia territorial y acompañamiento ambiental, según cada intervención." }
+        ],
+        "benchmark": "La lógica coincide con cómo las empresas más grandes estructuran sus programas de impacto: colaboración con organizaciones, involucramiento de empleados y proyectos ambientales conectados con una estrategia más amplia."
+      },
+      "empezar": {
+        "title": "Dos formas de empezar",
+        "option1": { "title": "Ya tengo una iniciativa en mente", "text": "Contanos qué quiere lograr tu organización y diseñamos una propuesta.", "cta": "Quiero diseñar un programa" },
+        "option2": { "title": "Primero quiero conocer Pueblo Mágico", "text": "Participá de una Jornada de Presentación, conocé el territorio, viví una muestra de la experiencia y evaluá si tiene sentido para tu equipo.", "cta": "Quiero recibir invitación" }
+      },
+      "cta_final": {
+        "title": "Que la sustentabilidad deje de ser solamente un compromiso escrito",
+        "subtitle": "Convertí los objetivos de tu organización en una experiencia concreta de participación y regeneración.",
+        "cta_primary": "Diseñar una experiencia para mi organización",
+        "cta_secondary": "Conocer Pueblo Mágico primero",
+        "location": "Los Gigantes · Sierras Grandes · Córdoba"
+      }
+    },
     "vuelo_condor": {
       "seo": {
         "title": "El Vuelo del Cóndor — Un viaje iniciático en Perú | Pueblo Mágico",
@@ -1582,9 +1725,9 @@
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
     },
     "inclusiones": {
-      "eyebrow": "TODO INCLUIDO",
+      "eyebrow": "PRECIO CLARO",
       "title": "Lo que incluye tu estadía",
-      "subtitle": "Sin sorpresas. Un precio claro que incluye todo lo que necesitás para desconectarte y reconectarte.",
+      "subtitle": "Sin sorpresas. Un precio de entrada accesible — vos elegís cuánto sumar.",
       "items": [
         {
           "label": "Alojamiento",
@@ -1615,8 +1758,8 @@
           "sub": "Jabón, shampoo y acondicionador biodegradables"
         }
       ],
-      "price_solo_label": "Habitación o Domo Compartido",
-      "price_solo_sub": "Pensión completa, precio por persona",
+      "price_solo_label": "Camping",
+      "price_solo_sub": "Alojamiento + desayuno, precio por persona",
       "price_pension_label": "Domo Privado",
       "price_pension_sub": "1 o 2 personas, domo entero",
       "price_unit": "/ persona / noche",
@@ -1719,12 +1862,16 @@
       "accommodation": "Accommodation",
       "domoShort": "Dome",
       "refugioShort": "Shelter",
+      "carpaShort": "Tent",
       "domoFull": "Geodesic dome",
       "refugioFull": "Shelter",
+      "carpaFull": "Camping",
+      "carpaRegimen": "Accommodation + breakfast",
+      "carpaNote": "Camping — we'll confirm availability and sort everything out over WhatsApp.",
       "roomType": "Room type",
       "sharedRoom": "Shared",
       "privateRoom": "Private",
-      "privateDomoNote": "Private dome: 1 or 2 people ($150,000/night, or $75,000/night booking as a couple by 07/31), or groups of 3 to 7 people",
+      "privateDomoNote": "Private dome: 1 or 2 people ($150,000/night), or groups of 3 to 7 people",
       "retiroNote": "🗓️ These dates overlap with a retreat — we'll confirm availability with you on WhatsApp before finalizing the booking.",
       "unavailableForDates": "That option has no availability for the dates you picked — try different dates.",
       "capacityExceeded": "The {tipo} has room for up to {max} people — for bigger groups, message us on WhatsApp.",
@@ -1777,7 +1924,7 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish — from $50,000/person/night with full board, in a shared room or dome. ⚡ Winter pricing, valid for stays through September 21, 2026.",
+      "card_extra_text": "You can also just book accommodation if you wish — from $20,000/person/night with breakfast, in a tent, shared room or dome. Add lunch, dinner or full board as you like.",
       "btn": "Book my spot", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -2012,24 +2159,6 @@
           "btn": "See Stays",
           "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
-        },
-        {
-          "date": "WINTER 2026 · JUL · AUG · SEP",
-          "title": "Winter Camp · Mountain Retreat",
-          "desc": "Open stay all winter in the snowy mountain. Bonfires, temazcal, community and nature. For families, entrepreneurs and creatives. From $50,000/person/night full board cash, in a shared room or dome.",
-          "btn": "See More",
-          "image": "/uploads/Invierno/DJI_20250629135712_0164_D_CHAPA2025.webp",
-          "link": "/winter-camp",
-          "pdfLink": ""
-        },
-        {
-          "date": "WINTER 2026 · JUL · AUG · SEP",
-          "title": "Winter Redirection · Entrepreneurs in the Mountains",
-          "desc": "A month to redirect when the day-to-day noise blocks your perspective. Specific content for entrepreneurs, business owners and teams: growth mindset, communication and AI-powered products.",
-          "btn": "See More",
-          "image": "/uploads/pachamama-interior-ventanales.webp",
-          "link": "/winter-redirection",
-          "pdfLink": ""
         }
       ]
     },
@@ -2044,7 +2173,7 @@
       "stats_years": "+15,000 Trees Planted",
       "stats_trees": "Guests from +20 Countries",
       "stats_land": "+200ha cared for · 25 years",
-      "stats_sus": "From $50,000 / person / night",
+      "stats_sus": "From $20,000 / person / night",
       "stats_google": "5.0★ · 64 Google Reviews",
       "bgImage": "/uploads/img_8475.webp",
       "bgImages": [
@@ -2065,7 +2194,7 @@
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
       "reservationTitle": "Book your unforgettable mountain experience",
-      "reservationPricing": "From $50,000/person/night (shared) · ⚡ winter pricing, valid through 09/21/2026"
+      "reservationPricing": "From $20,000/person/night (tent, with breakfast) · add meals as you like"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -2126,6 +2255,10 @@
         {
           "label": "Agenda",
           "href": "#eventos"
+        },
+        {
+          "label": "Companies",
+          "href": "/empresas"
         },
         {
           "label": "Location",
@@ -2220,7 +2353,8 @@
           "title": "Groups & institutions",
           "links": [
             { "label": "Group Retreats", "href": "#retiros" },
-            { "label": "Green Classrooms", "href": "/escuelas" }
+            { "label": "Green Classrooms", "href": "/escuelas" },
+            { "label": "Companies", "href": "/empresas" }
           ]
         }
       ],
@@ -3025,6 +3159,158 @@
         "ai_note": "The competencies developed in Aula Verde — scientific observation, problem-solving, teamwork, creative expression and environmental awareness — transfer to almost any 21st-century work environment: research, design, gastronomy, education, conservation or work in other natural ecosystems around the planet. It's not just a camp. It's a week that expands the map of what's possible."
       }
     },
+    "empresas": {
+      "seo": {
+        "title": "Companies — Corporate Volunteering & CSR in the Sierras · Los Gigantes, Córdoba | Pueblo Mágico",
+        "description": "Environmental restoration, corporate volunteering and team-building programs in Los Gigantes, Córdoba. +15,000 trees planted, +200 hectares cared for, +25 years of track record."
+      },
+      "hero": {
+        "tag": "Corporate programs",
+        "title": "Corporate regeneration in the Sierras Grandes",
+        "subtitle": "Turn your organization's sustainability goals into a concrete experience of participation and impact.",
+        "description": "We design environmental restoration and corporate volunteering programs for companies and institutions, combining nature, employee participation and, when it makes sense, team-building and development experiences.",
+        "cta_primary": "Design a program for my organization",
+        "cta_secondary": "Get to know Pueblo Mágico before bringing my team",
+        "wa_query_programa": "Hi! I'd like to design a corporate volunteering / CSR program with Pueblo Mágico for my organization.",
+        "wa_query_jornada": "Hi! I'd like to be invited to the next Preview Day for organization decision-makers.",
+        "stats": [
+          { "value": "+15,000", "label": "trees planted" },
+          { "value": "+200", "label": "hectares cared for" },
+          { "value": "+25 years", "label": "in Los Gigantes" }
+        ]
+      },
+      "problema": {
+        "tag": "The challenge",
+        "title": "From commitments to action",
+        "intro": "Many organizations already have sustainability policies, CSR programs, volunteering or environmental goals. The challenge is usually turning those commitments into actions that are, at the same time:",
+        "items": ["Concrete and visible", "Participatory", "Connected to the land", "Valuable for employees", "Documentable", "Adaptable to the organization's goals"],
+        "closing1": "Pueblo Mágico works as territory, infrastructure and platform to design those experiences in the Sierras Grandes.",
+        "closing2": "We're not looking to run an isolated environmental activity. We want your organization to join a regeneration process that already exists."
+      },
+      "dimensiones": {
+        "title": "Three dimensions that can coexist in one program",
+        "items": [
+          {
+            "title": "Restoration & biodiversity",
+            "items": ["Planting native species", "Restoring ecosystems and highland woodlands", "Conservation and environmental education", "Knowledge of the land"]
+          },
+          {
+            "title": "Corporate volunteering",
+            "items": ["Sustainability and CSR programs", "Social investment and corporate volunteering", "Active employee participation", "Environmental awareness"]
+          },
+          {
+            "title": "Team experience",
+            "items": ["Collaboration and integration", "Leadership and cross-team coordination", "Communication and culture", "Shared purpose"]
+          }
+        ],
+        "note": "The team experience doesn't replace the environmental goal. It strengthens it."
+      },
+      "galeria": {
+        "title": "The place where it happens",
+        "subtitle": "Domes, trails, seasonal cooking and gathering spaces. The same land that hosts institutions, schools and volunteers today."
+      },
+      "jornada": {
+        "title": "What a day can look like",
+        "subtitle": "Each program is tailor-made, but it usually includes these moments.",
+        "steps": [
+          { "num": "01", "title": "Arrival on site", "text": "Reception, introduction to the place and context for the intervention: which ecosystem they're visiting, what problem is being addressed and why their participation matters." },
+          { "num": "02", "title": "Environmental action", "text": "Planting, restoration or another intervention, adapted to the number of participants, the season, plant availability and technical requirements." },
+          { "num": "03", "title": "Understanding the impact", "text": "It's not just \"planting a tree\": we want participants to understand what they're doing, how that ecosystem works and what restoration process they're part of." },
+          { "num": "04", "title": "Sharing", "text": "Food, nature, walks and moments of connection." },
+          { "num": "05", "title": "Integrating", "text": "When the organization needs it, we add activities designed to build team capabilities." },
+          { "num": "06", "title": "Documenting", "text": "Recording agreed indicators: participants, volunteer hours, trees planted, photo material and other data relevant to the organization." }
+        ],
+        "benchmark": "Large companies structure their volunteering programs around actions, participation and indicators. Globant, for example, reported 2,787 volunteers and 34,073 hours dedicated to community and environmental initiatives in 2025."
+      },
+      "impacto": {
+        "tag": "Not a plantation created for companies",
+        "title": "The chance to join a process that already exists",
+        "text": "Environmental regeneration has been part of Pueblo Mágico long before this corporate proposal.",
+        "stats": [
+          { "value": "+15,000", "label": "trees planted and cared for" },
+          { "value": "+200", "label": "hectares cared for" },
+          { "value": "+25", "label": "years of track record in Los Gigantes" }
+        ],
+        "partners_intro": "Along the way we've worked and built ties with environmental organizations such as:",
+        "partners": ["Bosques de Agua", "Acciones Serranas"],
+        "partners_note": "We're currently building new partnerships with Acción Ambiental and other players in the environmental ecosystem."
+      },
+      "equipo": {
+        "title": "An environmental action can also strengthen the team",
+        "intro": "Taking part together in a concrete intervention creates a different context from everyday work. People have to organize, share roles, communicate, solve problems, collaborate, adapt and make decisions.",
+        "text2": "When it's part of the organization's goals, we use that experience as raw material to also work on how the team functions.",
+        "example_label": "For example",
+        "example_text": "A group made up of people from Sales and Operations takes part in an experience that requires coordination and information flow. Afterwards, a facilitated conversation covers what worked, where friction showed up, how decisions were made, and what patterns also show up in everyday work.",
+        "example_result": "The closing can turn into concrete agreements to improve coordination between both areas.",
+        "formula": "Experience → reflection → transfer to work."
+      },
+      "preview": {
+        "tag": "Before bringing your whole team",
+        "title": "Come see it for yourself first",
+        "intro": "We know that before presenting an initiative internally, plenty of questions come up.",
+        "questions_label": "Before you pitch it internally",
+        "questions": ["What's the place like, and how do you get there?", "What will employees actually do?", "How physically demanding is it?", "How is the planting organized?", "What happens if the weather changes?", "How does it adapt to our goals?"],
+        "audience_title": "Preview Days at Pueblo Mágico, for:",
+        "audience_items": ["Sustainability and CSR managers", "HR directors and managers", "Culture and People teams", "Volunteering program leaders", "Mid-level managers and decision-makers"],
+        "group_note": "Small-group sessions: at least 8 representatives from different organizations per day.",
+        "includes": ["Touring Pueblo Mágico and its facilities", "Visiting the intervention areas", "Living a small sample of the experience", "Meeting the team and having lunch on site", "Talking through possible programs", "Clearing up operational and strategic doubts"],
+        "closing": "Before inviting your whole team, you can come yourself. We have dates set aside specifically for this kind of gathering.",
+        "cta": "I want to be invited to the next Preview Day"
+      },
+      "proceso": {
+        "title": "Tailor-made programs",
+        "subtitle": "Not every organization needs the same thing. That's why we don't start from a fixed package.",
+        "steps": [
+          { "num": "1", "title": "Goal", "text": "We understand what the organization wants to achieve." },
+          { "num": "2", "title": "Participants", "text": "We define number of people, profiles, areas and levels of responsibility." },
+          { "num": "3", "title": "Program", "text": "We select the intervention, activities, duration and resources." },
+          { "num": "4", "title": "Indicators", "text": "We agree on what's worth measuring." },
+          { "num": "5", "title": "Implementation", "text": "We run the experience at Pueblo Mágico." },
+          { "num": "6", "title": "Documentation", "text": "When relevant, we deliver a record and information about what was done." }
+        ]
+      },
+      "formatos": {
+        "title": "Different formats depending on the goal",
+        "items": [
+          { "title": "Corporate day", "text": "A one-day experience. Ideal for volunteering, restoration, integration and first institutional experiences." },
+          { "title": "Day + overnight", "text": "More immersive: adds shared living, a bonfire, nature and complementary activities." },
+          { "title": "Multi-day program", "text": "For teams looking to go deeper on leadership, culture, coordination and strategy." }
+        ],
+        "note": "All formats are designed around each organization's needs."
+      },
+      "respaldo": {
+        "title": "An experience backed by track record",
+        "subtitle": "The corporate line is new. Pueblo Mágico is not.",
+        "text1": "Over more than 25 years we've built capabilities around nature, hospitality, groups, experiences and regeneration. We've hosted institutions, schools, clubs, retreats, communities, international volunteers and groups of all sizes.",
+        "aula_verde_note": "Through Aula Verde we've already developed institutional experiences adapted to educational and group goals, including days with more than 200 participants.",
+        "aula_verde_cta": "Get to know Aula Verde",
+        "items": ["Accommodation", "Food service", "Common areas and trails", "Specialists and facilitators", "Logistics experience", "Tailor-made experience design"],
+        "text3": "We're not new to hosting groups or working with institutions. What's new is putting that experience at the service of companies' sustainability and participation goals."
+      },
+      "red": {
+        "title": "A proposal built as a network",
+        "subtitle": "Regenerating a territory requires collaboration. Each program can bring different capabilities together.",
+        "partners": [
+          { "name": "Pueblo Mágico", "text": "Territory, infrastructure, hospitality, experience, regeneration and day-to-day operations." },
+          { "name": "Fundación para el Desarrollo Sostenible", "text": "Institutional and administrative framework for volunteering programs: planning, sponsor fund management, invoicing and accountability." },
+          { "name": "Apoidea", "text": "Business outreach, diagnostic meetings, development of tailored proposals and other advisory and sales aspects." },
+          { "name": "Environmental organizations", "text": "Technical knowledge, plant stock, local expertise and environmental support, depending on each intervention." }
+        ],
+        "benchmark": "This mirrors how the largest companies structure their impact programs: collaborating with organizations, engaging employees, and connecting environmental projects to a broader strategy."
+      },
+      "empezar": {
+        "title": "Two ways to start",
+        "option1": { "title": "I already have an initiative in mind", "text": "Tell us what your organization wants to achieve and we'll design a proposal.", "cta": "I want to design a program" },
+        "option2": { "title": "I want to get to know Pueblo Mágico first", "text": "Join a Preview Day, see the site, live a sample of the experience and judge for yourself whether it makes sense for your team.", "cta": "I want to be invited" }
+      },
+      "cta_final": {
+        "title": "Let sustainability stop being just a written commitment",
+        "subtitle": "Turn your organization's goals into a concrete experience of participation and regeneration.",
+        "cta_primary": "Design an experience for my organization",
+        "cta_secondary": "Get to know Pueblo Mágico first",
+        "location": "Los Gigantes · Sierras Grandes · Córdoba"
+      }
+    },
     "vuelo_condor": {
       "seo": {
         "title": "The Flight of the Condor — An initiatory journey in Peru | Pueblo Magico",
@@ -3277,9 +3563,9 @@
       "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
     },
     "inclusiones": {
-      "eyebrow": "ALL INCLUDED",
+      "eyebrow": "CLEAR PRICING",
       "title": "What's included in your stay",
-      "subtitle": "No surprises. One clear price that includes everything you need to disconnect and reconnect.",
+      "subtitle": "No surprises. An accessible entry price — you choose how much to add.",
       "items": [
         {
           "label": "Accommodation",
@@ -3310,8 +3596,8 @@
           "sub": "Biodegradable soap, shampoo & conditioner"
         }
       ],
-      "price_solo_label": "Shared Room or Dome",
-      "price_solo_sub": "Full board, price per person",
+      "price_solo_label": "Camping",
+      "price_solo_sub": "Accommodation + breakfast, price per person",
       "price_pension_label": "Private Dome",
       "price_pension_sub": "1 or 2 people, whole dome",
       "price_unit": "/ person / night",
