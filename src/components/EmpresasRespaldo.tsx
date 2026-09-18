@@ -4,9 +4,9 @@ import { ROUTES } from '../routes';
 
 const ITEM_PHOTOS = [
   '/uploads/habitaciones.webp',
-  '/uploads/comida.jpg',
+  '/uploads/469742031_941240881439467_8316347989568757415_n.webp',
   '/uploads/domos_2.jpg',
-  '/uploads/grupo.jpg',
+  '/uploads/Aula Verde/IMG-20251120-WA0064.jpg',
   '/uploads/mesadas.webp',
   '/uploads/botica.webp',
 ];

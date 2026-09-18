@@ -22,7 +22,7 @@ const EmpresasEquipo: React.FC = () => {
           </div>
 
           <div data-reveal data-delay="2" className="rounded-2xl overflow-hidden h-56 md:h-full min-h-[240px]">
-            <img src="/uploads/grupo.jpg" alt="" loading="lazy" className="w-full h-full object-cover" />
+            <img src="/uploads/f2d5nat1pa6uihnwj480.webp" alt="" loading="lazy" className="w-full h-full object-cover" />
           </div>
         </div>
 

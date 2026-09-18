@@ -3,8 +3,8 @@ import { useLanguage } from '../../contexts/LanguageContext';
 
 const STEP_PHOTOS = [
   '/uploads/exterior.webp',
-  '/uploads/Aula Verde/IMG-20251120-WA0057.jpg',
-  '/uploads/comida.jpg',
+  '/uploads/494815924_1424799465353456_392615711940557767_n.webp',
+  '/uploads/469731807_3987061274856806_2943773444767775905_n.jpg',
 ];
 
 const EmpresasJornada: React.FC = () => {

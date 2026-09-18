@@ -6,7 +6,7 @@ const DIMENSION_ICONS = [Sprout, Users, HeartHandshake];
 const DIMENSION_PHOTOS = [
   '/uploads/Aula Verde/IMG-20251120-WA0063.jpg',
   '/uploads/voluntarios.webp',
-  '/uploads/grupo.jpg',
+  '/uploads/bienestar-balance.webp',
 ];
 
 const EmpresasProblema: React.FC = () => {

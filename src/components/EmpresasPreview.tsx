@@ -22,7 +22,7 @@ const EmpresasPreview: React.FC = () => {
           </p>
 
           <div data-reveal data-delay="1" className="grid grid-cols-3 gap-3 md:gap-4 mb-10">
-            {['/uploads/exterior.webp', '/uploads/mesadas.webp', '/uploads/grupo.jpg'].map((src, i) => (
+            {['/uploads/img_6948.webp', '/uploads/domos_2.jpg', '/uploads/469280911_444096748740233_2818770490495002077_n.webp'].map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden h-28 md:h-40">
                 <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
               </div>

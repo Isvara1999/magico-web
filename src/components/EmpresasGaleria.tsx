@@ -4,12 +4,12 @@ import { useLanguage } from '../../contexts/LanguageContext';
 const PHOTOS = [
   '/uploads/domos.webp',
   '/uploads/habitaciones.webp',
-  '/uploads/exterior.webp',
+  '/uploads/refu.webp',
   '/uploads/mesadas.webp',
   '/uploads/botica.webp',
-  '/uploads/comida.jpg',
-  '/uploads/voluntarios.webp',
-  '/uploads/grupo.jpg',
+  '/uploads/coworking.webp',
+  '/uploads/pachamama-fogon-grupo-cielo.webp',
+  '/uploads/469731807_3987061274856806_2943773444767775905_n.jpg',
 ];
 
 const EmpresasGaleria: React.FC = () => {
