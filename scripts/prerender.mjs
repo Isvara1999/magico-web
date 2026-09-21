@@ -116,6 +116,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/empresas',
   },
   {
+    path: '/cordoba-fly-fishing',
+    title: 'Córdoba Fly Fishing Adventure — Guided Trout Fishing in the Sierras | Pueblo Mágico',
+    description: 'Guided fly fishing for wild Rainbow and Brook trout in the crystal-clear mountain streams of Las Sierras de Córdoba. Full-day outings or a 2-night stay in geodesic domes.',
+    image: 'https://experienciamagico.com/uploads/flyfishing-hero.jpg',
+    canonical: 'https://experienciamagico.com/cordoba-fly-fishing',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',

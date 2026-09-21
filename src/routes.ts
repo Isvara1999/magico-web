@@ -26,5 +26,6 @@ export const ROUTES = {
   KILLA_RAYMI: '/killa-raymi',
   ALMA_DE_LOBO: '/alma-de-lobo',
   EMPRESAS: '/empresas',
+  FLY_FISHING: '/cordoba-fly-fishing',
   ADMIN_RESERVAS: '/admin/reservas',
 };
