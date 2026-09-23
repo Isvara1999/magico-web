@@ -5,14 +5,16 @@ import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa Killa Raymi del 25 al 27 de septiembre. ¿Me pueden dar más info?')}`;
-const WA_COMPLETA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia Completa (2 noches) de Killa Raymi, del 25 al 27 de septiembre. ¿Cómo sigo?')}`;
-const WA_1NOCHE   = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia de 1 noche de Killa Raymi. ¿Cómo sigo?')}`;
-const WA_DIA      = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero el pase por el día para Killa Raymi. ¿Cómo sigo?')}`;
+const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa Primavera en la Montaña (Killa Raymi) del 25 al 27 de septiembre. ¿Me pueden dar más info?')}`;
+const WA_COMPLETA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia Completa (2 noches) de Primavera en la Montaña, del 25 al 27 de septiembre. ¿Cómo sigo?')}`;
+const WA_1NOCHE   = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar la Experiencia de 1 noche de Primavera en la Montaña. ¿Cómo sigo?')}`;
+const WA_DIA      = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero el pase por el día para Primavera en la Montaña. ¿Cómo sigo?')}`;
+const WA_PROMO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero la promo 2x1 de la Experiencia Completa de Primavera en la Montaña ($118.000 por persona, viniendo con alguien más). ¿Cómo sigo?')}`;
 
 const C = {
-  primavera:     '#9D005E', // Pantone P81-16U · primavera (manual de marca) — color principal de Killa Raymi
+  primavera:     '#9D005E', // Pantone P81-16U · primavera (manual de marca) — color principal
   primaveraSoft: '#C4669E', // primavera clara — diferencia la tarjeta de 1 noche
+  green:         '#005333', // verde de marca — acento de naturaleza, para que no sea todo fucsia
   gold:          '#D4AF37',
   night:         '#0F1A12',
   cream:         '#FDFBF7',
@@ -30,7 +32,7 @@ const HOSTS: TeamMember[] = [
     photo: '/uploads/Diego_perfil.png',
     nombre: 'Diego Epelman Hodara',
     rol: 'Fundador de Pueblo Mágico',
-    desc: 'Emprendedor, Facilitador & Guía de Dinámicas de Alto Impacto. Sostén energético del festival desde los fogones, los círculos y la presencia.',
+    desc: 'Emprendedor, Facilitador & Guía de Dinámicas de Alto Impacto. Presente en los fogones, los encuentros y el día a día del lugar.',
     instagram: 'https://www.instagram.com/diegoepel/',
     tags: ['MÁGICO', 'KINTU'],
   },
@@ -38,7 +40,7 @@ const HOSTS: TeamMember[] = [
     photo: '/uploads/china.jpeg',
     nombre: 'China Dericia',
     rol: 'Anfitriona del Pueblo',
-    desc: 'Profe de Yoga & Facilitadora de Movimiento Consciente. Consciencia corporal, meditaciones y canto — guía el cuerpo y la energía del grupo.',
+    desc: 'Profe de Yoga & Facilitadora de Movimiento Consciente. Estiramientos, respiración y canto — acompaña el movimiento del grupo.',
     instagram: 'https://www.instagram.com/bambu.alquimia.terapeutica/',
     tags: ['MÁGICO'],
   },
@@ -52,7 +54,7 @@ const TEAM: TeamMember[] = [
   },
   {
     photo: '/uploads/jasper.png', nombre: 'Jasper Felix Meyer', rol: 'Medicinas ancestrales, tecnología & REGENERACIÓN',
-    desc: 'Desarrollador y creador multidisciplinario. Conecta tecnología, proyectos regenerativos y creatividad con prácticas ceremoniales, música medicina y espacios de integración. Crea puentes entre personas, culturas e ideas para transformar visión en proyectos con propósito.',
+    desc: 'Desarrollador y creador multidisciplinario. Conecta tecnología, proyectos regenerativos y creatividad con música y encuentros en comunidad. Crea puentes entre personas, culturas e ideas para transformar visión en proyectos con propósito.',
     tags: ['MÁGICO'],
     instagram: 'https://www.instagram.com/itsjasperrz/',
   },
@@ -67,8 +69,8 @@ const TEAM: TeamMember[] = [
     instagram: 'https://www.instagram.com/thematriiz/', tags: ['MÁGICO'],
   },
   {
-    photo: '/uploads/santiago-alzogaray.png', nombre: 'Santiago Alzogaray', rol: 'Ceremonia de Temazcal',
-    desc: 'Conducción del ritual de purificación, uno de los momentos centrales de Killa Raymi.',
+    photo: '/uploads/santiago-alzogaray.png', nombre: 'Santiago Alzogaray', rol: 'Temazcal',
+    desc: 'Conducción del Temazcal, uno de los momentos centrales del finde.',
     tags: ['MÁGICO'],
   },
   {
@@ -110,7 +112,7 @@ const MODALIDADES = [
     items: ['Alojamiento', 'Temazcal, Luna llena y Trekking'],
     cta: 'Reservar experiencia completa',
     wa: WA_COMPLETA,
-    nota: 'La recomendamos para quienes quieran vivir el proceso completo.',
+    nota: 'La recomendamos si querés vivir el finde completo, sin apuro.',
   },
   {
     key: '1noche',
@@ -144,30 +146,34 @@ const MODALIDADES = [
     items: ['Sin alojamiento'],
     cta: 'Quiero el pase diario',
     wa: WA_DIA,
-    nota: 'Ideal si querés acercarte a conocer la experiencia en el día que más te resuene.',
+    nota: 'Ideal si querés venir a conocer, sin comprometerte a todo el finde.',
   },
 ] as const;
 
 const ENCONTRAR = [
   {
     Icon: Moon,
-    title: 'Ritual & Conexión',
-    items: ['Ceremonia de Luna llena', 'Ceremonia de Temazcal', 'Ceremonia de fuego', 'Círculos de palabra', 'Espacios de silencio y presencia'],
+    title: 'Fuego & Comunidad',
+    color: C.primavera,
+    items: ['Luna llena en comunidad', 'Temazcal', 'Fogón nocturno', 'Rondas de conversación', 'Espacios de calma'],
   },
   {
     Icon: Music,
     title: 'Expresión & Comunidad',
-    items: ['Ecstatic Dance', 'Danza libre', 'Meditaciones en movimiento', 'Círculos de canto', 'Música en vivo & Jam sessions', 'Fogón y encuentros comunitarios'],
+    color: C.primaveraSoft,
+    items: ['Danza libre', 'Rondas de canto', 'Música en vivo & jam sessions', 'Fogón y encuentros comunitarios'],
   },
   {
     Icon: Mountain,
     title: 'Naturaleza & Territorio',
-    items: ['Trekking al Macizo Los Gigantes', 'Caminatas conscientes', 'Interpretación del territorio', 'Avistaje de aves', 'Reconocimiento de plantas'],
+    color: C.green,
+    items: ['Trekking al Macizo Los Gigantes', 'Caminatas por la sierra', 'Interpretación del territorio', 'Avistaje de aves', 'Reconocimiento de plantas'],
   },
   {
     Icon: Sprout,
     title: 'Bienestar',
-    items: ['Alimentación consciente', 'Espacios de descanso', 'Movimiento y consciencia corporal', 'Integración cuerpo–mente–emociones', 'Tiempo libre para disfrutar de la montaña'],
+    color: C.gold,
+    items: ['Buena comida, todos los días', 'Espacios de descanso', 'Movimiento y bienestar corporal', 'Tiempo libre para disfrutar de la montaña'],
   },
 ];
 
@@ -209,7 +215,7 @@ const KillaRaymi: React.FC = () => {
   const [temazcalOfrendaOpen, setTemazcalOfrendaOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Killa Raymi · 25 al 27 de Septiembre · Pueblo Mágico';
+    document.title = 'Primavera en la Montaña · 25 al 27 de Septiembre · Pueblo Mágico';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -262,14 +268,21 @@ const KillaRaymi: React.FC = () => {
             >
               Para todo público
             </span>
+            <span
+              className="inline-block max-w-full px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.2)' }}
+            >
+              Sin actividades obligatorias
+            </span>
           </div>
 
           <p className="text-white/50 text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 sm:mb-3 font-semibold">Un encuentro en la montaña</p>
-          <h1 className="text-5xl md:text-7xl serif-title leading-none mb-4 text-white">
-            Killa <span style={{ color: C.gold }}>Raymi</span>
+          <h1 className="text-5xl md:text-7xl serif-title leading-none mb-2 text-white">
+            Primavera en la <span style={{ color: C.gold }}>Montaña</span>
           </h1>
+          <p className="text-white/45 text-xs sm:text-sm tracking-[0.15em] uppercase mb-4 font-semibold">También conocido como Killa Raymi — Festival de la Luna, en quechua</p>
           <p className="text-white/65 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mt-4 mb-5 md:mt-5 md:mb-10">
-            Tres días en la montaña para conectar con el cuerpo, la comunidad y el espíritu: rituales, caminatas, música y fuego.
+            Tres días en la montaña para desconectar de la rutina, conocer gente piola y hacer cosas: caminatas, música en vivo, fogones y buena comida.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
@@ -303,20 +316,26 @@ const KillaRaymi: React.FC = () => {
               Sobre la experiencia
             </p>
             <h2 className="text-3xl md:text-4xl serif-title mb-6" style={{ color: C.primavera }}>
-              Dos ciclos que se encuentran
+              Un fin de semana para vos
             </h2>
             <p className="text-base leading-relaxed max-w-2xl mx-auto mb-4" style={{ color: C.muted }}>
-              La primavera llega para abrir un nuevo ciclo. La tierra despierta, los días se alargan y la naturaleza comienza nuevamente a expresarse hacia afuera. Y en este momento de transformación, la Luna alcanza su plenitud.
+              La primavera llega a las Sierras: los días se alargan, el campo despierta y la montaña se llena de vida otra vez. Elegimos celebrarlo justo el fin de semana de la luna llena de septiembre — un lindo detalle para la ocasión.
             </p>
             <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: C.muted }}>
-              Killa Raymi nace del encuentro entre esos dos ciclos: la primavera que florece y la Luna que se expande. Un momento para pausar, escuchar, soltar lo que ya cumplió su ciclo y abrir espacio para aquello que quiere crecer.
+              Primavera en la Montaña es un encuentro para disfrutar ese cambio de estación al aire libre: naturaleza, buena comida, fogones y música en vivo, en un ambiente relajado y sin estructura rígida.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4 mb-12" data-reveal data-delay="1">
-            {['Conexión con la naturaleza', 'Exploración consciente', 'Sabiduría ancestral', 'Música y expresión', 'Celebración colectiva'].map(item => (
-              <div key={item} className="rounded-2xl p-3 md:p-5 border text-center" style={{ borderColor: 'rgba(157,0,94,0.12)', backgroundColor: 'rgba(157,0,94,0.03)' }}>
-                <p className="text-xs md:text-sm font-semibold leading-tight" style={{ color: C.primavera }}>{item}</p>
+            {[
+              { label: 'Naturaleza', color: C.green },
+              { label: 'Trekking', color: C.green },
+              { label: 'Música en vivo', color: C.primaveraSoft },
+              { label: 'Fogón', color: C.primavera },
+              { label: 'Gente nueva', color: C.gold },
+            ].map(({ label, color }) => (
+              <div key={label} className="rounded-2xl p-3 md:p-5 border text-center" style={{ borderColor: `${color}25`, backgroundColor: `${color}08` }}>
+                <p className="text-xs md:text-sm font-semibold leading-tight" style={{ color }}>{label}</p>
               </div>
             ))}
           </div>
@@ -324,7 +343,7 @@ const KillaRaymi: React.FC = () => {
           <div className="text-center rounded-3xl p-8 md:p-10" data-reveal data-delay="2" style={{ backgroundColor: 'rgba(157,0,94,0.04)', border: '1px solid rgba(157,0,94,0.15)' }}>
             <p className="text-lg md:text-xl serif-title mb-3" style={{ color: C.primavera }}>No es un festival. No es un retiro.</p>
             <p className="text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
-              Es un espacio vivo para encontrarnos, celebrar y disfrutar juntos la llegada de un nuevo ciclo. Un encuentro abierto, familiar y diverso, donde lo profundo puede convivir con lo simple. Podés bailar, caminar, meditar, cantar, compartir, descansar, contemplar o simplemente estar. Cada propuesta es una puerta — vos elegís cómo transitarla.
+              Es un espacio abierto para encontrarnos, disfrutar la llegada de la primavera y pasar un buen momento juntos — familiar y diverso, donde lo profundo puede convivir con lo simple. Podés caminar, bailar, cantar, compartir, descansar o simplemente estar. <strong style={{ color: C.primavera }}>No hay una agenda obligatoria</strong>: vos elegís qué sumar y qué dejar pasar.
             </p>
           </div>
         </div>
@@ -355,11 +374,11 @@ const KillaRaymi: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.primaveraSoft }}>Viernes · Llegada & apertura</p>
-                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Entrar en el ciclo</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Bienvenida a la montaña</p>
                 </div>
               </div>
               <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-                Bajamos el ritmo, dejamos atrás la rutina y empezamos a entrar en sintonía con la montaña y con la comunidad. Recepción, alojamiento, espacios para recorrer el lugar y propuestas de bienvenida. Al caer la tarde nos encontramos para abrir el círculo: un primer fuego, una intención, un comienzo. La experiencia empieza cuando llegamos.
+                Bajamos el ritmo, dejamos atrás la rutina y empezamos a entrar en sintonía con la montaña y con la comunidad. Recepción, alojamiento, espacios para recorrer el lugar y propuestas de bienvenida. Al caer la tarde nos encontramos alrededor del fuego para arrancar el finde juntos. La experiencia empieza cuando llegamos.
               </p>
             </div>
 
@@ -371,41 +390,40 @@ const KillaRaymi: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.primavera }}>Sábado · Luna llena</p>
-                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Expandir & celebrar</p>
+                  <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Un día para vos</p>
                 </div>
               </div>
               <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
-                Un día para habitar Pueblo Mágico con todos los sentidos: naturaleza, música, movimiento, alimentación consciente, espacios de contemplación y propuestas para conectar con el cuerpo y con la comunidad. Durante el día vamos preparando el espacio para recibir la noche.
+                Un día para disfrutar Pueblo Mágico a tu ritmo: naturaleza, música, movimiento, buena comida, espacios de descanso y propuestas para compartir con la comunidad. Durante el día vamos preparando el espacio para recibir la noche.
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
                 <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
-                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Temazcal & ritual</p>
-                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Un momento de introspección, purificación y conexión con los elementos. Entramos en el calor, soltamos, respiramos y dejamos espacio para lo nuevo.</p>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Temazcal</p>
+                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Una experiencia tradicional de calor y respiración — opcional, para quienes quieran sumarse.</p>
                 </div>
                 <div className="rounded-xl p-4" style={{ backgroundColor: 'white', border: '1px solid rgba(157,0,94,0.15)' }}>
-                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Ceremonia de Luna llena</p>
-                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Fuego, canto, música, danza, silencio y comunidad — una noche para reconocer lo que está floreciendo y darle fuerza. Una noche para celebrar la vida.</p>
+                  <p className="text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: C.primavera }}>Fogón bajo la luna llena</p>
+                  <p className="text-xs leading-relaxed" style={{ color: C.muted }}>Fuego, música en vivo, canto y baile — una noche para celebrar en comunidad.</p>
                 </div>
               </div>
             </div>
 
             {/* Domingo */}
-            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(212,175,55,0.3)', backgroundColor: 'rgba(212,175,55,0.04)' }}>
+            <div className="rounded-2xl p-6 md:p-8 border" style={{ borderColor: 'rgba(0,83,51,0.2)', backgroundColor: 'rgba(0,83,51,0.03)' }}>
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(212,175,55,0.15)' }}>
-                  <Mountain size={18} color="#A8871C" />
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0,83,51,0.1)' }}>
+                  <Mountain size={18} color={C.green} />
                 </div>
                 <div>
-                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: '#A8871C' }}>Domingo · Montaña & territorio</p>
+                  <p className="text-[10px] tracking-widest uppercase font-bold mb-1" style={{ color: C.green }}>Domingo · Montaña & territorio</p>
                   <p className="text-lg md:text-xl serif-title" style={{ color: C.dark }}>Trekking a Los Gigantes</p>
-                  <p className="text-sm font-semibold" style={{ color: '#A8871C' }}>Caminar hacia lo esencial</p>
                 </div>
               </div>
               <p className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.muted }}>
-                Después de la celebración, abrimos el domingo hacia el territorio. Salimos de Pueblo Mágico para encontrarnos con la inmensidad del Macizo Los Gigantes: una caminata guiada por nuestro equipo para conectar con uno de los paisajes más poderosos de nuestras Sierras. Caminamos, respiramos, contemplamos y dejamos que el territorio nos acompañe a integrar lo vivido.
+                Después de la celebración, abrimos el domingo hacia el territorio. Salimos de Pueblo Mágico para encontrarnos con la inmensidad del Macizo Los Gigantes: una caminata guiada por nuestro equipo para conectar con uno de los paisajes más lindos de nuestras Sierras.
               </p>
               <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-                Quienes prefieran cerrar el finde más tranqui pueden quedarse en Pueblo Mágico a disfrutar el día y hacer una integración más relajada. Quienes quieran venir por el día solo a esta actividad también pueden hacerlo.
+                Quienes prefieran cerrar el finde más tranqui pueden quedarse en Pueblo Mágico a disfrutar el día con calma. Quienes quieran venir por el día solo a esta actividad también pueden hacerlo.
               </p>
             </div>
           </div>
@@ -414,8 +432,8 @@ const KillaRaymi: React.FC = () => {
           <div className="grid grid-cols-3 gap-2 md:gap-5 mt-8" data-reveal data-delay="2">
             {[
               { Icon: Sprout, day: 'Viernes', word: 'Llegar', desc: 'Bajar el ritmo. Conectar. Abrir.', color: C.primaveraSoft },
-              { Icon: Moon, day: 'Sábado', word: 'Expandir', desc: 'Luna llena. Temazcal. Celebración.', color: C.primavera },
-              { Icon: Mountain, day: 'Domingo', word: 'Integración', desc: 'Trekking. Montaña. Territorio.', color: '#A8871C' },
+              { Icon: Moon, day: 'Sábado', word: 'Disfrutar', desc: 'Luna llena. Temazcal. Fogón.', color: C.primavera },
+              { Icon: Mountain, day: 'Domingo', word: 'Trekking', desc: 'Macizo. Montaña. Naturaleza.', color: C.green },
             ].map(({ Icon, day, word, desc, color }) => (
               <div key={day} className="rounded-2xl p-3 md:p-6 border text-center" style={{ borderColor: `${color}25`, backgroundColor: `${color}08` }}>
                 <Icon size={16} color={color} className="mx-auto mb-1.5 md:mb-3" />
@@ -442,13 +460,13 @@ const KillaRaymi: React.FC = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4" data-reveal data-delay="1">
-            {ENCONTRAR.map(({ Icon, title, items }) => (
-              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: 'rgba(157,0,94,0.12)', backgroundColor: 'rgba(157,0,94,0.02)' }}>
+            {ENCONTRAR.map(({ Icon, title, items, color }) => (
+              <div key={title} className="rounded-2xl p-6 border" style={{ borderColor: `${color}20`, backgroundColor: `${color}08` }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(157,0,94,0.1)' }}>
-                    <Icon size={16} color={C.primavera} />
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}18` }}>
+                    <Icon size={16} color={color} />
                   </div>
-                  <p className="font-bold text-sm md:text-base" style={{ color: C.primavera }}>{title}</p>
+                  <p className="font-bold text-sm md:text-base" style={{ color }}>{title}</p>
                 </div>
                 <ul className="space-y-1.5">
                   {items.map(i => (
@@ -468,8 +486,8 @@ const KillaRaymi: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div data-reveal>
-              <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.primavera }}>El lugar</p>
-              <h2 className="text-3xl md:text-4xl serif-title mb-5 leading-tight" style={{ color: C.primavera }}>
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: C.green }}>El lugar</p>
+              <h2 className="text-3xl md:text-4xl serif-title mb-5 leading-tight" style={{ color: C.green }}>
                 Pueblo Mágico,<br />Los Gigantes
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: C.muted }}>
@@ -484,20 +502,20 @@ const KillaRaymi: React.FC = () => {
                   '200 hectáreas de reserva natural',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.primavera }}>—</span>{item}
+                    <span className="flex-shrink-0 mt-0.5" style={{ color: C.green }}>—</span>{item}
                   </li>
                 ))}
               </ul>
               <div className="flex flex-wrap items-center gap-3 mt-7">
                 <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
-                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-[#9D005E] hover:text-white hover:border-[#9D005E]"
-                  style={{ borderColor: 'rgba(157,0,94,0.3)', color: C.primavera }}>
+                  className="inline-block text-sm font-semibold border rounded-full px-6 py-2.5 transition-colors hover:bg-[#005333] hover:text-white hover:border-[#005333]"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)', color: C.green }}>
                   ¿Cómo llegar? Consultanos
                 </a>
                 <a href="https://www.instagram.com/pueblomagico__/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pueblo Mágico"
-                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-[#9D005E] hover:border-[#9D005E]"
-                  style={{ borderColor: 'rgba(157,0,94,0.3)' }}>
-                  <Instagram size={16} color={C.primavera} />
+                  className="w-10 h-10 rounded-full flex items-center justify-center border transition-colors hover:bg-[#005333] hover:border-[#005333]"
+                  style={{ borderColor: 'rgba(0,83,51,0.3)' }}>
+                  <Instagram size={16} color={C.green} />
                 </a>
               </div>
             </div>
@@ -506,7 +524,7 @@ const KillaRaymi: React.FC = () => {
                 <img src={img('/uploads/dji_0074.webp', 900)} alt="Vista aérea de Pueblo Mágico" className="w-full aspect-[16/9] object-cover" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src={img('/uploads/yoga_salon.webp', 600)} alt="El salón · círculos y ceremonias" className="w-full aspect-square object-cover" loading="lazy" />
+                <img src={img('/uploads/yoga_salon.webp', 600)} alt="El salón · encuentros y actividades" className="w-full aspect-square object-cover" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img src={img('/uploads/hero-estadia.webp', 600)} alt="El refugio de piedra al atardecer" className="w-full aspect-square object-cover" loading="lazy" />
@@ -577,7 +595,7 @@ const KillaRaymi: React.FC = () => {
           style={{ maxHeight: equipoOpen ? '3600px' : '0px', opacity: equipoOpen ? 1 : 0 }}>
           <div className="px-6 pb-12 pt-2 max-w-5xl mx-auto">
             <p className="text-sm leading-relaxed max-w-lg mb-6 text-white/60">
-              Un equipo y una comunidad de referentes que suman su energía a esta celebración. Nos cruzaremos con ellos alrededor del fuego en distintos momentos del festival.
+              Un equipo y una comunidad de referentes que suman a este finde. Los vas a cruzar alrededor del fuego en distintos momentos.
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
               {TEAM.map(({ photo, nombre, rol, desc, instagram, linkedin, tags }) => (
@@ -616,8 +634,13 @@ const KillaRaymi: React.FC = () => {
         </button>
         <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out" style={{ maxHeight: alimentacionOpen ? '600px' : '0px', opacity: alimentacionOpen ? 1 : 0 }}>
           <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto">
-            <p className="text-base leading-relaxed mb-6 text-white/75">La alimentación es parte del ritual. Cada plato se prepara con ingredientes frescos, locales y de estación — comida real que agradece a la Tierra lo que nos da y sostiene la energía del encuentro.</p>
-            <div className="grid grid-cols-2 gap-3">{['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Preparado con cariño por nuestro equipo', 'Opciones para dietas y alergias'].map(item => <div key={item} className="flex items-start gap-2"><span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} /><p className="text-xs text-white/70">{item}</p></div>)}</div>
+            <p className="text-base leading-relaxed mb-4 text-white/75">No vas a pasar hambre. Comida casera, de esas que hace la abuela — con carne y opciones vegetarianas siempre disponibles.</p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {['Locro', 'Humita', 'Pastas', 'Pollo al disco', 'Polenta a la bolognesa', 'y más'].map(dish => (
+                <span key={dish} className="text-[11px] px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(212,175,55,0.12)', color: '#F4C27A', border: '1px solid rgba(212,175,55,0.25)' }}>{dish}</span>
+              ))}
+            </div>
+            <div className="grid grid-cols-2 gap-3">{['Desayuno, almuerzo y cena incluidos', 'Ingredientes frescos y de estación', 'Con carne y opción vegetariana', 'Opciones para dietas y alergias'].map(item => <div key={item} className="flex items-start gap-2"><span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} /><p className="text-xs text-white/70">{item}</p></div>)}</div>
           </div>
         </div>
       </section>
@@ -627,17 +650,14 @@ const KillaRaymi: React.FC = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,26,18,0.92) 0%, rgba(15,26,18,0.88) 100%)' }} />
         <button onClick={() => setTemazcalOfrendaOpen(o => !o)} className="group relative z-10 w-full py-5 md:py-7 transition-colors duration-300 hover:bg-white/5" aria-expanded={temazcalOfrendaOpen}>
           <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
-            <div className="flex items-center gap-5"><Flame size={22} color={C.primavera} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.primavera }}>Ceremonia central · domingo</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Ofrenda a la Pachamama + Temazcal</h2></div></div>
+            <div className="flex items-center gap-5"><Flame size={22} color={C.primavera} className="transition-transform duration-300 group-hover:scale-110" /><div className="text-left"><p className="text-[9px] tracking-[0.35em] uppercase font-semibold mb-1.5" style={{ color: C.primavera }}>Momento central · domingo</p><h2 className="text-xl md:text-2xl serif-title text-white leading-tight">Temazcal</h2></div></div>
             <span className={`text-white/60 text-2xl transition-all duration-300 flex-shrink-0 group-hover:text-white ${temazcalOfrendaOpen ? '' : 'animate-bounce'}`} style={{ transform: temazcalOfrendaOpen ? 'rotate(180deg)' : 'rotate(0deg)', animationDuration: '1.8s' }}>↓</span>
           </div>
         </button>
         <div className="relative z-10 overflow-hidden transition-all duration-500 ease-in-out" style={{ maxHeight: temazcalOfrendaOpen ? '1000px' : '0px', opacity: temazcalOfrendaOpen ? 1 : 0 }}>
           <div className="px-6 pb-12 pt-8 max-w-4xl mx-auto text-center">
-            <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.primavera }}>La Ofrenda</p>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-8 text-white/75">La ofrenda —también llamada pago o despacho— es un acto de reciprocidad: agradecemos por todo lo recibido y devolvemos algo a cambio, honrando el principio de la ayni.</p>
-            <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
             <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-3" style={{ color: C.gold }}>El Temazcal</p>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">Una ceremonia ancestral de purificación y sanación del cuerpo físico, mental, emocional y espiritual — opcional, para quienes la sientan. Se realiza junto a la ofrenda, como cierre simbólico de todo lo que soltamos ese día.</p>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-5 text-white/75">Una experiencia tradicional de calor y respiración, para soltar tensión y bajar del todo el cuerpo — opcional, para quienes quieran sumarse.</p>
             <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8 text-white/55">Si tenés alguna condición de salud, escribinos antes de sumarte para que podamos asesorarte.</p>
             <a href={WA_INFO} target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold px-8 py-3 rounded-full transition-opacity hover:opacity-90" style={{ backgroundColor: C.primavera, color: 'white' }}>Consultar por WhatsApp</a>
           </div>
@@ -683,7 +703,7 @@ const KillaRaymi: React.FC = () => {
               Modalidades de participación
             </p>
             <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.primavera }}>
-              Elegís cómo vivir Killa Raymi
+              Elegís cómo vivir el finde
             </h2>
             <p className="text-base max-w-md mx-auto mb-5" style={{ color: C.muted }}>
               Podés llegar el viernes y vivir la experiencia completa, quedarte una sola noche o venir por el día.
@@ -699,6 +719,22 @@ const KillaRaymi: React.FC = () => {
             <p className="text-sm font-semibold" style={{ color: C.primavera }}>
               Las 3 modalidades incluyen comidas y actividades — lo que cambia es cuántos días te quedás.
             </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto mb-8 rounded-2xl p-5 md:p-6 text-center" data-reveal
+            style={{ backgroundColor: 'rgba(212,175,55,0.1)', border: '2px solid rgba(212,175,55,0.4)' }}>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#8B6A00' }}>🔥 Promo por tiempo limitado</p>
+            <p className="text-xl md:text-2xl serif-title mb-2" style={{ color: C.dark }}>
+              Vení con alguien más y pagás <span style={{ color: C.primavera }}>$118.000</span> por persona
+            </p>
+            <p className="text-sm mb-4" style={{ color: C.muted }}>
+              Experiencia completa (2 noches, todo incluido) — arranca en pocos días, quedan pocos lugares.
+            </p>
+            <a href={WA_PROMO} target="_blank" rel="noopener noreferrer"
+              className="inline-block text-sm font-bold px-6 py-3 rounded-full text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: C.primavera }}>
+              Quiero el 2x1
+            </a>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-5 items-start">
@@ -800,15 +836,9 @@ const KillaRaymi: React.FC = () => {
               <Moon size={26} color={C.gold} />
             </div>
           </div>
-          <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-4" style={{ color: C.gold }}>Killa significa Luna en quechua</p>
-          <p className="text-base md:text-lg leading-relaxed mb-6 text-white/75">
-            La Luna acompaña los ciclos. Crece, alcanza su plenitud, comienza a menguar y vuelve a comenzar. Nos recuerda que la vida también se mueve así: hay momentos para ir hacia adentro, momentos para soltar, momentos para expandirse y momentos para florecer.
-          </p>
+          <p className="text-[10px] tracking-[0.3em] uppercase font-semibold mb-4" style={{ color: C.gold }}>Killa Raymi significa "Festival de la Luna", en quechua</p>
           <p className="text-base md:text-lg leading-relaxed mb-10 text-white/75">
-            Killa Raymi es una invitación a encontrarnos con ese movimiento — a recibir la primavera, celebrar la Luna, caminar la montaña y compartir con otros. Y a reconocer que aquello que queremos ver florecer afuera también necesita espacio para crecer adentro.
-          </p>
-          <p className="font-serif italic text-lg md:text-xl mb-10" style={{ color: C.gold }}>
-            La primavera no solo sucede afuera.<br />También puede suceder adentro nuestro.
+            Nos vemos en la montaña: caminatas, música en vivo, fogones y buena comida bajo la luna llena de septiembre. Escribinos y contanos qué modalidad te queda mejor.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WA_COMPLETA} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm py-5 px-10 inline-block">

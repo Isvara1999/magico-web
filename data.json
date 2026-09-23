@@ -316,6 +316,14 @@
           "btn": "Ver Estadías",
           "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
+        },
+        {
+          "date": "SIEMPRE DISPONIBLE",
+          "title": "Córdoba Fly Fishing Adventure",
+          "desc": "Pesca con mosca guiada en los arroyos de montaña de las Sierras de Córdoba. Salidas de día completo o 2 noches en domos geodésicos, en alianza con Pointer Outfitters.",
+          "btn": "Ver más",
+          "image": "/uploads/flyfishing-hero.jpg",
+          "link": "/cordoba-fly-fishing"
         }
       ]
     },
@@ -2159,6 +2167,14 @@
           "btn": "See Stays",
           "image": "/uploads/WhatsApp Image 2025-09-29 at 2.46.36 PM (1).jpeg",
           "link": "/estadia"
+        },
+        {
+          "date": "ALWAYS AVAILABLE",
+          "title": "Córdoba Fly Fishing Adventure",
+          "desc": "Guided fly fishing in the mountain streams of the Sierras de Córdoba. Full-day outings or a 2-night stay in geodesic domes, in partnership with Pointer Outfitters.",
+          "btn": "See more",
+          "image": "/uploads/flyfishing-hero.jpg",
+          "link": "/cordoba-fly-fishing"
         }
       ]
     },

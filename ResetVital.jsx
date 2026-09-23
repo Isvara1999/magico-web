@@ -1,13 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { canInstall, onInstallReady, promptInstall as pwaPromptInstall } from './src/lib/pwa';
-import { 
-  ChevronDown, ChevronUp, Music, Video, Wind, Sun, 
-  Feather, Anchor, Heart, Info, Coffee, BookOpen, Compass, Star, 
+import {
+  ChevronDown, ChevronUp, Music, Video, Wind, Sun,
+  Feather, Anchor, Heart, Info, Coffee, BookOpen, Compass, Star,
   Footprints, PenTool, Smile, Moon, PlayCircle, Headphones, Smartphone,
-  Users, Notebook, Printer, Sparkles, Download
+  Users, Notebook, Sparkles, Download, X, Share, MoreVertical,
+  PlusSquare, Monitor, CheckCircle2
 } from 'lucide-react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+
+// Detecta la plataforma real del dispositivo para mostrar SOLO los pasos
+// que le corresponden — nada de mezclar Android + iOS + PC en un mismo cartel.
+function detectPlatform() {
+  if (typeof navigator === 'undefined') return 'desktop';
+  const ua = navigator.userAgent || '';
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOS) return 'ios';
+  if (/Android/.test(ua)) return 'android';
+  return 'desktop';
+}
+
+const PLATFORM_STEPS = {
+  ios: {
+    label: 'iPhone / iPad (Safari)',
+    icon: Smartphone,
+    steps: [
+      { icon: Share, text: <>Tocá el ícono <strong>Compartir</strong> (el cuadrado con la flecha hacia arriba), abajo en la pantalla.</> },
+      { icon: PlusSquare, text: <>Deslizá la lista y elegí <strong>"Agregar a inicio"</strong>.</> },
+    ],
+  },
+  android: {
+    label: 'Celular Android (Chrome)',
+    icon: Smartphone,
+    steps: [
+      { icon: MoreVertical, text: <>Tocá el menú <strong>⋮</strong>, arriba a la derecha.</> },
+      { icon: PlusSquare, text: <>Elegí <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla de inicio"</strong>.</> },
+    ],
+  },
+  desktop: {
+    label: 'Computadora',
+    icon: Monitor,
+    steps: [
+      { icon: Monitor, text: <>Buscá el ícono <strong>⊕</strong> en la barra de direcciones, junto a la URL.</> },
+      { icon: PlusSquare, text: <>Hacé clic en <strong>"Instalar"</strong>.</> },
+    ],
+  },
+};
 
 // --- CONFIGURACIÓN DE MARCA (Manual de Uso) ---
 const BRAND = {
@@ -126,12 +165,71 @@ const DayCard = ({ dayNumber, title, subtitle, icon: Icon, color, image, childre
   );
 };
 
+// Panel propio para guardar la guía — reemplaza el alert() nativo del
+// navegador, que no se puede estilar, mezcla los 3 sistemas operativos en
+// un mismo bloque de texto y es lo único que llega a ver la gente con
+// iPhone (Safari nunca ofrece el instalador automático).
+const InstallGuideModal = ({ onClose }) => {
+  const platform = detectPlatform();
+  const { label, icon: PlatformIcon, steps } = PLATFORM_STEPS[platform];
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm p-0 md:p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-t-3xl md:rounded-2xl w-full md:max-w-sm p-6 md:p-8 shadow-2xl relative animate-[fadeSlideUp_0.3s_ease]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Cerrar"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:bg-stone-200 transition-colors"
+        >
+          <X size={16} />
+        </button>
+
+        <div className="w-14 h-14 bg-[#AA3E11]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <PlatformIcon className="text-[#AA3E11]" size={26} />
+        </div>
+
+        <h3 className="font-serif text-2xl text-center text-[#1F2937] mb-1">Guardá esta guía</h3>
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-stone-400 mb-6">{label}</p>
+
+        <div className="space-y-4 mb-6">
+          {steps.map((step, i) => (
+            <div key={i} className="flex items-start gap-4">
+              <div className="w-9 h-9 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center flex-shrink-0 font-bold text-stone-400 text-sm">
+                {i + 1}
+              </div>
+              <div className="flex-1 pt-1.5">
+                <p className="text-sm text-stone-700 leading-snug">{step.text}</p>
+              </div>
+              <step.icon className="text-[#AA3E11] flex-shrink-0 mt-1.5" size={18} />
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-[#005333]/5 p-4 rounded-xl flex items-start gap-3">
+          <Sparkles className="text-[#005333] flex-shrink-0" size={16} />
+          <p className="text-xs text-[#005333] leading-relaxed">
+            Una vez guardada, vas a poder abrir esta guía las veces que quieras <strong>sin necesitar señal ni internet</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // --- MAIN APP ---
 export default function ResetVitalApp() {
-  const [openDay, setOpenDay] = useState(0); 
+  const [openDay, setOpenDay] = useState(0);
   const [installReady, setInstallReady] = useState(canInstall());
   const [isStandalone, setIsStandalone] = useState(false);
   const [isOfflineInfoOpen, setIsOfflineInfoOpen] = useState(false);
+  const [showInstallGuide, setShowInstallGuide] = useState(false);
+  const [justInstalled, setJustInstalled] = useState(false);
 
   useEffect(() => {
     // Impedir indexación de contenido pago
@@ -152,8 +250,14 @@ export default function ResetVitalApp() {
   const handleInstall = async () => {
     if (window.fbq) window.fbq('track', 'Lead', { content_name: 'App Install Intent' });
     const accepted = await pwaPromptInstall();
-    if (!accepted && !canInstall()) {
-      alert("📱 Para Celulares (Android/iOS):\n1. Abrí el menú del navegador (⋮ o botón compartir).\n2. Seleccioná 'Agregar a la pantalla principal' o 'Instalar aplicación'.\n\n💻 Para PC/Notebook:\n1. Buscá el ícono de instalar (⊕ o 🖥️) en la barra de direcciones.\n2. O andá al menú > Guardar y compartir > Instalar página...\n\n✨ IMPORTANTE: Una vez descargada, podrás ingresar a este mismo enlace incluso sin conexión a internet.");
+    if (accepted) {
+      setJustInstalled(true);
+      setTimeout(() => setJustInstalled(false), 6000);
+    } else if (!canInstall()) {
+      // Sin prompt nativo disponible (típicamente Safari/iOS) — mostramos
+      // nuestro propio panel con los pasos exactos del dispositivo, en vez
+      // del alert() del navegador.
+      setShowInstallGuide(true);
     }
   };
 
@@ -332,34 +436,21 @@ export default function ResetVitalApp() {
                       <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOfflineInfoOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
                           <div className="p-4 pt-0 text-sm text-stone-600 border-t border-stone-200/50">
                               <div className="space-y-4 pt-4">
-                                  {installReady ? (
-                                     <button
-                                        onClick={handleInstall}
-                                        className="w-full py-3 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#8a330e] transition-colors shadow-md flex items-center justify-center gap-2"
-                                    >
-                                        <Download size={16} /> Descargar Reset Vital
-                                    </button>
+                                  {justInstalled ? (
+                                    <div className="w-full py-3 bg-[#005333]/10 text-[#005333] text-xs font-bold rounded-lg flex items-center justify-center gap-2 text-center px-3">
+                                      <CheckCircle2 size={16} /> ¡Listo! Buscá el ícono en tu pantalla de inicio.
+                                    </div>
                                   ) : (
-                                    <>
-                                      <div>
-                                        <p className="font-bold text-[#AA3E11] mb-1 flex items-center gap-2"><Smartphone size={14}/> En Celulares (Android/iOS):</p>
-                                        <ol className="list-decimal pl-5 space-y-1 text-xs">
-                                          <li>Abrí el menú del navegador (⋮ o botón compartir).</li>
-                                          <li>Seleccioná <strong>"Agregar a inicio"</strong> o <strong>"Instalar aplicación"</strong>.</li>
-                                        </ol>
-                                      </div>
-                                      <div>
-                                        <p className="font-bold text-[#AA3E11] mb-1 flex items-center gap-2"><Printer size={14}/> En PC/Notebook:</p>
-                                        <ol className="list-decimal pl-5 space-y-1 text-xs">
-                                          <li>Buscá el ícono de instalar (⊕) en la barra de direcciones.</li>
-                                          <li>O andá al menú {'>'} Guardar y compartir {'>'} Instalar página.</li>
-                                        </ol>
-                                      </div>
-                                    </>
+                                    <button
+                                      onClick={handleInstall}
+                                      className="w-full py-3 bg-[#AA3E11] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#8a330e] transition-colors shadow-md flex items-center justify-center gap-2"
+                                    >
+                                      <Download size={16} /> {installReady ? 'Guardar Reset Vital' : 'Ver cómo guardarla'}
+                                    </button>
                                   )}
                                   <div className="bg-[#AA3E11]/10 p-3 rounded-lg">
                                      <p className="text-xs text-[#AA3E11] font-bold">✨ IMPORTANTE:</p>
-                                     <p className="text-xs text-[#AA3E11]">Una vez descargada, podrás ingresar a este mismo enlace incluso sin conexión a internet.</p>
+                                     <p className="text-xs text-[#AA3E11]">Una vez guardada, vas a poder abrir este mismo enlace incluso sin conexión a internet.</p>
                                   </div>
                               </div>
                           </div>
@@ -909,17 +1000,22 @@ export default function ResetVitalApp() {
       {!isStandalone && (
         <button
           onClick={handleInstall}
-          className="fixed bottom-6 right-6 z-50 bg-[#AA3E11] text-white p-4 rounded-full shadow-2xl hover:bg-[#8a330e] transition-all duration-300 hover:scale-110 no-print flex items-center gap-2 group border-2 border-white/20"
-          style={{ boxShadow: '0 4px 20px rgba(170, 62, 17, 0.4)' }}
+          className="fixed bottom-6 right-6 z-50 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 no-print flex items-center gap-2 group border-2 border-white/20"
+          style={{
+            backgroundColor: justInstalled ? '#005333' : '#AA3E11',
+            boxShadow: justInstalled ? '0 4px 20px rgba(0,83,51,0.4)' : '0 4px 20px rgba(170, 62, 17, 0.4)',
+          }}
         >
-          <Download size={24} />
+          {justInstalled ? <CheckCircle2 size={24} /> : <Download size={24} />}
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-bold pl-0 group-hover:pl-2">
-            {installReady ? 'Descargar Reset Vital' : 'Descargar'}
+            {justInstalled ? '¡Guardada!' : installReady ? 'Guardar Reset Vital' : 'Guardar guía'}
           </span>
         </button>
       )}
+
+      {showInstallGuide && <InstallGuideModal onClose={() => setShowInstallGuide(false)} />}
         </div>
-        
+
         {/* Footer */}
         <Footer />
         
