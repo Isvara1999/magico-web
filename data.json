@@ -143,6 +143,7 @@
             "title": "Activación y primeros cuidados",
             "status": "En curso",
             "description": "La mayoría de los árboles ya se encuentra en el proyecto. Mientras continúa la recaudación de la seña, avanzamos con su selección y conteo antes de iniciar los primeros cuidados.",
+            "plannedDate": "Fecha prevista de cierre: 30 de septiembre de 2026",
             "steps": [
               { "title": "Pago de la seña", "status": "En recaudación", "state": "active" },
               { "title": "Recepción de los arbolitos", "status": "Mayoría recibida", "state": "completed" },
@@ -2192,6 +2193,7 @@
             "title": "Activation and initial care",
             "status": "In progress",
             "description": "Most of the trees are already at the project. While down-payment fundraising continues, selection and counting are under way before initial care begins.",
+            "plannedDate": "Planned completion: September 30, 2026",
             "steps": [
               { "title": "Fund the down payment", "status": "Fundraising in progress", "state": "active" },
               { "title": "Receive the baby trees", "status": "Most received", "state": "completed" },
