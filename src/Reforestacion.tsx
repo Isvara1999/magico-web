@@ -283,7 +283,7 @@ const Reforestacion: React.FC = () => {
                 description: string;
                 plannedDate?: string;
                 note?: string;
-                steps: Array<{ title: string; status: string }>;
+                steps: Array<{ title: string; status: string; state: 'active' | 'completed' | 'upcoming' }>;
                 photos: Array<{ src: string; alt: string; caption: string }>;
               }, phaseIndex: number) => {
                 const Icon = phaseIcons[phaseIndex] ?? Sprout;
@@ -312,11 +312,13 @@ const Reforestacion: React.FC = () => {
                     {phase.steps.length > 0 && (
                       <div className="grid sm:grid-cols-2 gap-3 mb-8">
                         {phase.steps.map((step, stepIndex) => (
-                          <div key={step.title} className="flex items-center gap-3 rounded-xl border border-brand/10 bg-bone px-4 py-4">
-                            <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${phaseIndex === 0 && stepIndex === 0 ? 'bg-gold text-brand' : 'bg-brand/10 text-brand'}`}>{stepIndex + 1}</span>
-                            <div>
+                          <div key={step.title} className={`flex items-center gap-3 rounded-xl border px-4 py-4 ${step.state === 'active' ? 'border-gold/45 bg-gold/10' : step.state === 'completed' ? 'border-brand/25 bg-brand/5' : 'border-brand/10 bg-bone'}`}>
+                            <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${step.state === 'active' ? 'bg-gold text-brand' : step.state === 'completed' ? 'bg-brand text-white' : 'bg-brand/10 text-brand'}`}>
+                              {step.state === 'completed' ? <Check size={16} aria-hidden="true" /> : stepIndex + 1}
+                            </span>
+                            <div className="min-w-0 flex-1">
                               <p className="text-sm font-semibold text-dark">{step.title}</p>
-                              <p className="text-[10px] uppercase tracking-[0.14em] text-gray-400 mt-1">{step.status}</p>
+                              <p className={`mt-2 inline-flex rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] font-bold ${step.state === 'active' ? 'bg-gold/25 text-[#76570d]' : step.state === 'completed' ? 'bg-brand/10 text-brand' : 'bg-gray-100 text-gray-500'}`}>{step.status}</p>
                             </div>
                           </div>
                         ))}

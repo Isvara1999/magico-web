@@ -144,10 +144,10 @@
             "status": "En curso",
             "description": "La mayoría de los árboles ya se encuentra en el proyecto. Mientras continúa la recaudación de la seña, avanzamos con su selección y conteo antes de iniciar los primeros cuidados.",
             "steps": [
-              { "title": "Pago de la seña", "status": "En recaudación" },
-              { "title": "Recepción de los arbolitos", "status": "Mayoría recibida" },
-              { "title": "Selección y conteo", "status": "En curso" },
-              { "title": "Sanitización, poda y nutrición inicial", "status": "Siguiente tarea" }
+              { "title": "Pago de la seña", "status": "En recaudación", "state": "active" },
+              { "title": "Recepción de los arbolitos", "status": "Mayoría recibida", "state": "completed" },
+              { "title": "Selección y conteo", "status": "En curso", "state": "active" },
+              { "title": "Sanitización, poda y nutrición inicial", "status": "Siguiente tarea", "state": "upcoming" }
             ],
             "photos": []
           },
@@ -159,10 +159,10 @@
             "plannedDate": "Fecha prevista: antes de la temporada de lluvias",
             "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica.",
             "steps": [
-              { "title": "Identificar la ubicación", "status": "Pendiente" },
-              { "title": "Definir el diseño concreto", "status": "Pendiente" },
-              { "title": "Conseguir materiales, principalmente locales", "status": "Pendiente" },
-              { "title": "Construir el vivero", "status": "Pendiente" }
+              { "title": "Identificar la ubicación", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Definir el diseño concreto", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Conseguir materiales, principalmente locales", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Construir el vivero", "status": "Pendiente", "state": "upcoming" }
             ],
             "photos": [
               {
@@ -2193,10 +2193,10 @@
             "status": "In progress",
             "description": "Most of the trees are already at the project. While down-payment fundraising continues, selection and counting are under way before initial care begins.",
             "steps": [
-              { "title": "Fund the down payment", "status": "Fundraising in progress" },
-              { "title": "Receive the baby trees", "status": "Most received" },
-              { "title": "Selection and count", "status": "In progress" },
-              { "title": "Sanitisation, pruning and initial nutrition", "status": "Next task" }
+              { "title": "Fund the down payment", "status": "Fundraising in progress", "state": "active" },
+              { "title": "Receive the baby trees", "status": "Most received", "state": "completed" },
+              { "title": "Selection and count", "status": "In progress", "state": "active" },
+              { "title": "Sanitisation, pruning and initial nutrition", "status": "Next task", "state": "upcoming" }
             ],
             "photos": []
           },
@@ -2208,10 +2208,10 @@
             "plannedDate": "Planned date: before the rainy season",
             "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation.",
             "steps": [
-              { "title": "Identify the location", "status": "Pending" },
-              { "title": "Define the concrete design", "status": "Pending" },
-              { "title": "Source materials, primarily local", "status": "Pending" },
-              { "title": "Build the nursery", "status": "Pending" }
+              { "title": "Identify the location", "status": "Pending", "state": "upcoming" },
+              { "title": "Define the concrete design", "status": "Pending", "state": "upcoming" },
+              { "title": "Source materials, primarily local", "status": "Pending", "state": "upcoming" },
+              { "title": "Build the nursery", "status": "Pending", "state": "upcoming" }
             ],
             "photos": [
               {
