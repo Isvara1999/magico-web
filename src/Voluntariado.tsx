@@ -375,7 +375,7 @@ const Voluntariado: React.FC = () => {
                     <div className="p-6 md:p-8">
                       <h3 className="font-serif text-3xl text-brand mb-3">{event.title}</h3>
                       <p className="text-dark/65 font-light leading-relaxed mb-7">{event.desc}</p>
-                      <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="flex flex-col items-stretch gap-3 sm:items-start">
                         <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
                           <MessageCircle size={18} aria-hidden="true" />{content.calendar.applyCta}
                         </a>
