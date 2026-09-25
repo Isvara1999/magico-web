@@ -4,8 +4,6 @@ import {
   CalendarDays,
   Camera,
   Check,
-  ChevronLeft,
-  ChevronRight,
   Copy,
   Heart,
   Leaf,
@@ -30,7 +28,7 @@ const Reforestacion: React.FC = () => {
   const content = t.reforestation;
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
-  const [activeMediaByPhase, setActiveMediaByPhase] = useState<Record<number, number>>({});
+  const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string; caption: string } | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -290,9 +288,6 @@ const Reforestacion: React.FC = () => {
                 photos: Array<{ src: string; alt: string; caption: string; type?: 'image' | 'video' }>;
               }, phaseIndex: number) => {
                 const Icon = phaseIcons[phaseIndex] ?? Sprout;
-                const activeMediaIndex = activeMediaByPhase[phaseIndex] ?? 0;
-                const activeMedia = phase.photos[activeMediaIndex];
-                const showMedia = (index: number) => setActiveMediaByPhase(current => ({ ...current, [phaseIndex]: index }));
                 return (
                   <article key={phase.number} data-reveal className="rounded-3xl border border-brand/10 bg-white p-6 md:p-9 shadow-[0_16px_50px_rgba(0,83,51,0.07)]">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-7">
@@ -332,40 +327,24 @@ const Reforestacion: React.FC = () => {
                     )}
 
                     {phase.photos.length > 0 ? (
-                      <div className="overflow-hidden rounded-2xl border border-brand/10 bg-[#071d14] shadow-lg">
-                        <figure>
-                          <div className="relative flex aspect-[4/3] md:aspect-video items-center justify-center overflow-hidden">
-                            {activeMedia.type === 'video' ? (
-                              <video key={activeMedia.src} controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={activeMedia.alt}>
-                                <source src={activeMedia.src} />
-                                <a href={activeMedia.src}>{content.updates.videoFallback}</a>
-                              </video>
+                      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" aria-label={content.updates.carouselLabel}>
+                        {phase.photos.map(photo => (
+                          <figure key={photo.src} className="w-[78vw] max-w-sm shrink-0 snap-start overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-lg sm:w-80">
+                            {photo.type === 'video' ? (
+                              <div className="flex aspect-[3/4] items-center justify-center bg-[#071d14]">
+                                <video controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={photo.alt}>
+                                  <source src={photo.src} />
+                                  <a href={photo.src}>{content.updates.videoFallback}</a>
+                                </video>
+                              </div>
                             ) : (
-                              <img src={activeMedia.src} alt={activeMedia.alt} className="h-full w-full object-contain" loading="lazy" decoding="async" />
+                              <button type="button" onClick={() => setExpandedImage(photo)} className="group block w-full bg-[#071d14] focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${photo.alt}`}>
+                                <img src={photo.src} alt={photo.alt} className="aspect-[3/4] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
+                              </button>
                             )}
-                            {phase.photos.length > 1 && (
-                              <>
-                                <button type="button" onClick={() => showMedia((activeMediaIndex - 1 + phase.photos.length) % phase.photos.length)} aria-label={content.updates.previous} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
-                                  <ChevronLeft size={22} aria-hidden="true" />
-                                </button>
-                                <button type="button" onClick={() => showMedia((activeMediaIndex + 1) % phase.photos.length)} aria-label={content.updates.next} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
-                                  <ChevronRight size={22} aria-hidden="true" />
-                                </button>
-                              </>
-                            )}
-                          </div>
-                          <figcaption className="flex flex-col gap-3 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
-                            <span className="text-sm text-gray-600">{activeMedia.caption}</span>
-                            <span className="shrink-0 text-xs font-semibold text-gray-400">{activeMediaIndex + 1} / {phase.photos.length}</span>
-                          </figcaption>
-                        </figure>
-                        {phase.photos.length > 1 && (
-                          <div className="flex flex-wrap items-center justify-center gap-2 border-t border-brand/10 bg-white px-4 py-3" aria-label={content.updates.carouselLabel}>
-                            {phase.photos.map((photo, index) => (
-                              <button key={photo.src} type="button" onClick={() => showMedia(index)} aria-label={`${content.updates.goTo} ${index + 1}`} aria-current={index === activeMediaIndex ? 'true' : undefined} className={`h-2.5 rounded-full transition-all ${index === activeMediaIndex ? 'w-8 bg-gold' : 'w-2.5 bg-brand/20 hover:bg-brand/40'}`} />
-                            ))}
-                          </div>
-                        )}
+                            <figcaption className="min-h-20 p-4 text-sm leading-relaxed text-gray-600">{photo.caption}</figcaption>
+                          </figure>
+                        ))}
                       </div>
                     ) : (
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 rounded-xl border border-dashed border-brand/20 bg-bone/70 px-5 py-6 text-center sm:text-left">
@@ -565,6 +544,29 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {expandedImage && (
+        <div
+          className="fixed inset-0 z-[6000] flex items-center justify-center bg-[#071d14]/90 p-4 backdrop-blur-sm md:p-8"
+          role="presentation"
+          onMouseDown={event => {
+            if (event.target === event.currentTarget) setExpandedImage(null);
+          }}
+        >
+          <section role="dialog" aria-modal="true" aria-label={expandedImage.alt} className="relative flex max-h-full w-full max-w-6xl flex-col items-center">
+            <button
+              type="button"
+              onClick={() => setExpandedImage(null)}
+              aria-label={content.contribution.closeModal}
+              className="absolute right-2 top-2 z-10 rounded-full bg-white/95 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:right-4 md:top-4"
+            >
+              <X size={24} aria-hidden="true" />
+            </button>
+            <img src={expandedImage.src} alt={expandedImage.alt} className="max-h-[82vh] max-w-full rounded-2xl object-contain shadow-2xl" />
+            <p className="mt-3 max-w-3xl rounded-full bg-white/95 px-5 py-2 text-center text-sm text-gray-700 shadow-lg">{expandedImage.caption}</p>
+          </section>
+        </div>
+      )}
 
       {donationModalOpen && (
         <div

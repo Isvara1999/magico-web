@@ -139,8 +139,8 @@
         "noPhotos": "Las fotografías y actualizaciones de esta fase se publicarán aquí a medida que avance el proyecto.",
         "previous": "Ver imagen anterior",
         "next": "Ver imagen siguiente",
-        "carouselLabel": "Selector de imágenes y videos",
-        "goTo": "Ver elemento",
+        "carouselLabel": "Galería de imágenes y videos",
+        "goTo": "Ampliar imagen",
         "videoFallback": "Descargar video",
         "phases": [
           {
@@ -2200,8 +2200,8 @@
         "noPhotos": "Photographs and updates from this phase will be published here as the project progresses.",
         "previous": "View previous image",
         "next": "View next image",
-        "carouselLabel": "Image and video selector",
-        "goTo": "View item",
+        "carouselLabel": "Image and video gallery",
+        "goTo": "Enlarge image",
         "videoFallback": "Download video",
         "phases": [
           {
