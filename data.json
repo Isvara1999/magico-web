@@ -670,6 +670,12 @@
             { "label": "Aulas Verdes", "href": "/escuelas" },
             { "label": "Empresas", "href": "/empresas" }
           ]
+        },
+        {
+          "title": "Comunidad",
+          "links": [
+            { "label": "Voluntariado · Programa Semilla", "href": "/voluntariado" }
+          ]
         }
       ],
       "copyright": "Pueblo Mágico Eco-Refugio. Todos los derechos reservados. Operado por HERMANOS MÁGICOS SOCIEDAD POR ACCIONES SIMPLIFICADA.",
@@ -2662,6 +2668,12 @@
             { "label": "Group Retreats", "href": "#retiros" },
             { "label": "Green Classrooms", "href": "/escuelas" },
             { "label": "Companies", "href": "/empresas" }
+          ]
+        },
+        {
+          "title": "Community",
+          "links": [
+            { "label": "Volunteering · Programa Semilla", "href": "/voluntariado" }
           ]
         }
       ],
