@@ -188,6 +188,14 @@
         "eyebrow": "Formas de participar",
         "title": "Encontrá tu manera de sembrar",
         "description": "Podés integrarte a la vida cotidiana, acompañar un evento o sumarte a una jornada concreta. Cada modalidad tiene tiempos, responsabilidades y condiciones propias.",
+        "residential": {
+          "eyebrow": "Estadías de voluntariado",
+          "title": "Programa Semilla"
+        },
+        "occasional": {
+          "eyebrow": "Participaciones puntuales",
+          "title": "Otras formas de ser parte"
+        },
         "items": [
           { "tag": "2 a 4 semanas", "title": "Colibrí", "description": "Una primera inmersión en la vida comunitaria. Participás en una o más áreas, compartís el ritmo cotidiano y conocés el proyecto desde adentro." },
           { "tag": "1 a 3 meses", "title": "Abeja", "description": "Un compromiso más profundo, con continuidad, responsabilidades sostenidas y la posibilidad de acompañar un área o proyecto específico." },
@@ -2173,6 +2181,14 @@
         "eyebrow": "Ways to participate",
         "title": "Find your way to plant a seed",
         "description": "You can join daily community life, support an event or take part in a specific work day. Each format has its own timing, responsibilities and conditions.",
+        "residential": {
+          "eyebrow": "Volunteer stays",
+          "title": "Programa Semilla"
+        },
+        "occasional": {
+          "eyebrow": "Short-term participation",
+          "title": "Other ways to take part"
+        },
         "items": [
           { "tag": "2 to 4 weeks", "title": "Hummingbird", "description": "A first immersion in community life. Participate in one or more areas, share the daily rhythm and discover the project from within." },
           { "tag": "1 to 3 months", "title": "Bee", "description": "A deeper commitment with continuity, sustained responsibilities and the possibility of supporting a particular area or project." },

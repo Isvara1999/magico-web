@@ -40,6 +40,22 @@ const Voluntariado: React.FC = () => {
   const content = (t as any).volunteerPage;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const renderModalityCard = (item: any, index: number) => {
+    const Icon = modalityIcons[index] || Sparkles;
+    const isResidentialProgram = index < 2;
+
+    return (
+      <div data-reveal key={item.title}>
+        <article className={`h-full rounded-2xl p-7 md:p-8 border ${isResidentialProgram ? 'bg-brand text-white border-brand' : 'bg-white border-brand/10'} shadow-sm`}>
+          <Icon className={isResidentialProgram ? 'text-gold' : 'text-brand'} size={30} aria-hidden="true" />
+          <p className="text-xs uppercase tracking-[0.18em] font-bold mt-6 mb-2 text-gold">{item.tag}</p>
+          <h3 className="font-serif text-3xl mb-4">{item.title}</h3>
+          <p className={`font-light leading-relaxed ${isResidentialProgram ? 'text-white/75' : 'text-dark/65'}`}>{item.description}</p>
+        </article>
+      </div>
+    );
+  };
+
   useEffect(() => {
     const previousTitle = document.title;
     const url = SITE_URL + ROUTES.VOLUNTARIADO;
@@ -143,20 +159,26 @@ const Voluntariado: React.FC = () => {
               <h2 className="font-serif text-4xl md:text-6xl text-brand mb-6">{content.modalities.title}</h2>
               <p className="text-dark/65 text-lg font-light leading-relaxed">{content.modalities.description}</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {content.modalities.items.map((item: any, index: number) => {
-                const Icon = modalityIcons[index] || Sparkles;
-                return (
-                  <div data-reveal key={item.title}>
-                    <article className={`h-full rounded-2xl p-7 md:p-8 border ${index < 2 ? 'bg-brand text-white border-brand' : 'bg-white border-brand/10'} shadow-sm`}>
-                      <Icon className={index < 2 ? 'text-gold' : 'text-brand'} size={30} aria-hidden="true" />
-                      <p className={`text-xs uppercase tracking-[0.18em] font-bold mt-6 mb-2 ${index < 2 ? 'text-gold' : 'text-gold'}`}>{item.tag}</p>
-                      <h3 className="font-serif text-3xl mb-4">{item.title}</h3>
-                      <p className={`font-light leading-relaxed ${index < 2 ? 'text-white/75' : 'text-dark/65'}`}>{item.description}</p>
-                    </article>
-                  </div>
-                );
-              })}
+            <div className="space-y-14">
+              <div>
+                <div className="mb-6" data-reveal>
+                  <p className="text-gold text-xs font-bold uppercase tracking-[0.18em] mb-2">{content.modalities.residential.eyebrow}</p>
+                  <h3 className="font-serif text-3xl md:text-4xl text-brand">{content.modalities.residential.title}</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-5 max-w-4xl">
+                  {content.modalities.items.slice(0, 2).map((item: any, index: number) => renderModalityCard(item, index))}
+                </div>
+              </div>
+
+              <div className="pt-12 border-t border-brand/10">
+                <div className="mb-6" data-reveal>
+                  <p className="text-gold text-xs font-bold uppercase tracking-[0.18em] mb-2">{content.modalities.occasional.eyebrow}</p>
+                  <h3 className="font-serif text-3xl md:text-4xl text-brand">{content.modalities.occasional.title}</h3>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {content.modalities.items.slice(2).map((item: any, index: number) => renderModalityCard(item, index + 2))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
