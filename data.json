@@ -243,6 +243,17 @@
         ],
         "imageAlt": "Encuentro comunitario en el salón de Pueblo Mágico"
       },
+      "corporate": {
+        "eyebrow": "Alianzas con impacto",
+        "title": "Empresas que regeneran territorio",
+        "description": "Las empresas y sus equipos pueden transformar sus objetivos de sustentabilidad en acciones concretas junto a Pueblo Mágico.",
+        "items": [
+          { "title": "Financiar una etapa", "description": "Acompañar la compra de árboles, el vivero, la logística o una fase completa del proyecto." },
+          { "title": "Voluntariado corporativo", "description": "Crear jornadas de participación en territorio que conecten al equipo con la restauración ambiental." },
+          { "title": "Alianzas a largo plazo", "description": "Diseñar un programa de impacto, seguimiento y comunicación adaptado a los objetivos de la organización." }
+        ],
+        "cta": "Conocé las propuestas para empresas"
+      },
       "contribution": {
         "eyebrow": "Aporte directo",
         "title": "Tu aporte se convierte en bosque",
@@ -2306,6 +2317,17 @@
           "Monitoring that distinguishes planted trees from observed outcomes."
         ],
         "imageAlt": "Community gathering inside Pueblo Mágico's hall"
+      },
+      "corporate": {
+        "eyebrow": "Impact partnerships",
+        "title": "Companies regenerating the land",
+        "description": "Companies and their teams can turn sustainability goals into tangible action together with Pueblo Mágico.",
+        "items": [
+          { "title": "Fund a project phase", "description": "Support tree acquisition, the nursery, logistics or a complete phase of the project." },
+          { "title": "Corporate volunteering", "description": "Create hands-on days in the field that connect teams with environmental restoration." },
+          { "title": "Long-term partnerships", "description": "Design an impact, monitoring and communications program suited to the organisation's goals." }
+        ],
+        "cta": "Explore our corporate programs"
       },
       "contribution": {
         "eyebrow": "Direct contribution",

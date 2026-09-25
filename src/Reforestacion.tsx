@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowDown,
+  ArrowRight,
+  Building2,
   CalendarDays,
   Camera,
   Check,
@@ -435,6 +437,42 @@ const Reforestacion: React.FC = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-brand px-6 py-20 text-white md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+            <div data-reveal>
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-brand">
+                <Building2 size={28} strokeWidth={1.5} aria-hidden="true" />
+              </div>
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-gold">{content.corporate.eyebrow}</p>
+              <h2 className="mb-6 font-serif text-4xl leading-tight md:text-5xl">{content.corporate.title}</h2>
+              <p className="max-w-xl text-lg font-light leading-relaxed text-white/75">{content.corporate.description}</p>
+            </div>
+
+            <div data-reveal data-delay="1">
+              <div className="space-y-3">
+                {content.corporate.items.map((item: { title: string; description: string }, index: number) => {
+                  const Icon = [TreePine, Users, ShieldCheck][index] ?? TreePine;
+                  return (
+                    <article key={item.title} className="flex gap-4 rounded-2xl border border-white/15 bg-white/[0.06] p-5 backdrop-blur-sm">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
+                        <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h3 className="mb-1 font-serif text-xl">{item.title}</h3>
+                        <p className="text-sm font-light leading-relaxed text-white/65">{item.description}</p>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              <a href={ROUTES.EMPRESAS} className="btn-gold btn-icon-inline mt-7">
+                {content.corporate.cta}
+                <ArrowRight size={18} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </section>
