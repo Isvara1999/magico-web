@@ -503,11 +503,16 @@ const Reforestacion: React.FC = () => {
               <p className="text-lg font-light leading-relaxed text-gray-600">{content.maps.description}</p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
-              {content.maps.areas.map((area: { status: string; title: string; description: string }, index: number) => (
-                <article key={area.title} data-reveal data-delay={String(index + 1)} className="rounded-2xl border border-brand/10 bg-bone p-7 md:p-8">
-                  <span className="mb-5 inline-flex rounded-full bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">{area.status}</span>
-                  <h3 className="mb-3 font-serif text-3xl text-brand">{area.title}</h3>
-                  <p className="font-light leading-relaxed text-gray-600">{area.description}</p>
+              {content.maps.areas.map((area: { status: string; title: string; description: string; image: string; imageAlt: string }, index: number) => (
+                <article key={area.title} data-reveal data-delay={String(index + 1)} className="overflow-hidden rounded-2xl border border-brand/10 bg-bone shadow-[0_12px_35px_rgba(0,83,51,0.07)]">
+                  <button type="button" onClick={() => setExpandedImage({ src: area.image, alt: area.imageAlt, caption: area.title })} className="group block aspect-[16/10] w-full overflow-hidden bg-brand/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${area.imageAlt}`}>
+                    <img src={area.image} alt={area.imageAlt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
+                  </button>
+                  <div className="p-7 md:p-8">
+                    <span className="mb-5 inline-flex rounded-full bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">{area.status}</span>
+                    <h3 className="mb-3 font-serif text-3xl text-brand">{area.title}</h3>
+                    <p className="font-light leading-relaxed text-gray-600">{area.description}</p>
+                  </div>
                 </article>
               ))}
             </div>

@@ -256,12 +256,12 @@
       "maps": {
         "eyebrow": "Territorio y transparencia",
         "title": "Dónde crece el bosque",
-        "description": "Estamos preparando los mapas aéreos con información verificada para mostrar el trabajo realizado y las próximas áreas de intervención.",
+        "description": "Estos mapas muestran el área previamente reforestada y el sector definido para la próxima plantación de 10.000 árboles nativos.",
         "areas": [
-          { "status": "Relevamiento en preparación", "title": "Áreas ya reforestadas", "description": "Publicaremos los sectores donde ya se plantaron árboles nativos, diferenciando plantación realizada y resultados observados." },
-          { "status": "Planificación en curso", "title": "Próximos 10.000 árboles", "description": "Mostraremos las áreas previstas para esta campaña cuando estén confirmadas las coordenadas y el plan de plantación." }
+          { "status": "Reforestación realizada", "title": "Área reforestada · 9,42 ha", "description": "Sector donde ya se realizaron acciones de reforestación dentro del territorio de Pueblo Mágico.", "image": "/uploads/reforestacion/mapa-area-reforestada-9-42ha.webp", "imageAlt": "Mapa aéreo del área reforestada de 9,42 hectáreas en Pueblo Mágico" },
+          { "status": "Próxima intervención", "title": "Próximos 10.000 árboles", "description": "Sector definido para la próxima etapa de reforestación con 10.000 árboles nativos.", "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp", "imageAlt": "Mapa aéreo del área prevista para reforestar con 10.000 árboles nativos" }
         ],
-        "note": "Los polígonos se publicarán únicamente con datos verificados. No presentaremos límites aproximados como superficies relevadas."
+        "note": "El área histórica de 9,42 ha surge del Informe Wayra Marka de diciembre de 2023. El sector de la próxima intervención fue señalado por el equipo de Pueblo Mágico y podrá ajustarse durante la planificación técnica."
       },
       "corporate": {
         "eyebrow": "Alianzas con impacto",
@@ -2353,12 +2353,12 @@
       "maps": {
         "eyebrow": "Land and transparency",
         "title": "Where the forest grows",
-        "description": "We are preparing aerial maps with verified information to show completed work and the next intervention areas.",
+        "description": "These maps show the previously reforested area and the sector identified for the next planting of 10,000 native trees.",
         "areas": [
-          { "status": "Survey in preparation", "title": "Previously restored areas", "description": "We will publish the sectors where native trees have already been planted, distinguishing completed planting from observed results." },
-          { "status": "Planning in progress", "title": "The next 10,000 trees", "description": "We will show the areas planned for this campaign once coordinates and the planting plan have been confirmed." }
+          { "status": "Completed reforestation", "title": "Reforested area · 9.42 ha", "description": "The sector where reforestation work has already taken place within Pueblo Mágico's land.", "image": "/uploads/reforestacion/mapa-area-reforestada-9-42ha.webp", "imageAlt": "Aerial map of the 9.42-hectare reforested area at Pueblo Mágico" },
+          { "status": "Next intervention", "title": "The next 10,000 trees", "description": "The sector identified for the next reforestation stage with 10,000 native trees.", "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp", "imageAlt": "Aerial map of the area planned for 10,000 native trees" }
         ],
-        "note": "Polygons will only be published using verified data. Approximate boundaries will not be presented as surveyed areas."
+        "note": "The historical 9.42 ha area comes from the December 2023 Wayra Marka report. The next intervention sector was identified by the Pueblo Mágico team and may be refined during technical planning."
       },
       "corporate": {
         "eyebrow": "Impact partnerships",
