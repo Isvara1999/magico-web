@@ -69,6 +69,248 @@
       "updateNow": "Actualizar",
       "updating": "Actualizando..."
     },
+    "reforestation": {
+      "seo": {
+        "title": "Reforestación de las Sierras de Córdoba | Pueblo Mágico",
+        "description": "Sumate a la campaña de Pueblo Mágico para plantar 10.000 árboles nativos más y acompañar la regeneración de las Sierras de Córdoba."
+      },
+      "hero": {
+        "eyebrow": "Reforestación comunitaria · Sierras de Córdoba",
+        "title": "Plantemos 10.000 árboles nativos más",
+        "description": "Una campaña para seguir regenerando la montaña con bosque nativo, trabajo territorial y una comunidad que cuida lo que ama.",
+        "primaryCta": "Quiero aportar",
+        "secondaryCta": "Conocer el proyecto",
+        "imageAlt": "Macizo de Los Gigantes iluminado por el sol"
+      },
+      "impact": {
+        "eyebrow": "Una historia que ya empezó",
+        "title": "Raíces para el futuro de la montaña",
+        "description": "La nueva meta continúa un trabajo sostenido de restauración junto a Consciencia Nativa y otras organizaciones ambientales.",
+        "stats": [
+          { "value": "+25.000", "label": "árboles nativos plantados", "description": "El recorrido acumulado que impulsa esta nueva etapa.", "href": "#mapas", "action": "Ver áreas reforestadas" },
+          { "value": "+10.000", "label": "nuevos árboles", "description": "La meta de plantación de esta campaña.", "href": "#mapas", "action": "Conocer áreas previstas" },
+          { "value": "Comunidad", "label": "en acción", "description": "Organizaciones, voluntariado y personas unidas por la montaña.", "href": "#voluntariado", "action": "Sumarme como voluntario" }
+        ]
+      },
+      "funding": {
+        "eyebrow": "Metas de la campaña",
+        "title": "Cuatro pasos para llevar los árboles a la montaña",
+        "description": "Los 10.000 árboles ya están disponibles para el proyecto. La campaña avanza por hitos: activar el trabajo con una seña, preparar el vivero, completar el pago y finalmente plantar.",
+        "currentLabel": "Recaudado hasta hoy",
+        "ofGoal": "de la primera meta de",
+        "progressLabel": "Progreso de recaudación de la primera fase",
+        "updatedNote": "El total muestra aportes confirmados y se actualiza periódicamente.",
+        "cta": "Aportar a esta meta",
+        "volunteerCta": "Participar como voluntario",
+        "mapsCta": "Ver áreas de plantación",
+        "phases": [
+          {
+            "number": "Fase 1",
+            "status": "Meta activa",
+            "title": "Financiar la seña",
+            "goal": "Meta inicial: $1.500.000 ARS",
+            "description": "La primera meta es reunir la seña necesaria para confirmar los 10.000 árboles e iniciar formalmente el proyecto."
+          },
+          {
+            "number": "Fase 2",
+            "status": "Próxima etapa",
+            "title": "Construir el vivero",
+            "goal": "Infraestructura para el cuidado",
+            "description": "Construiremos el vivero donde los árboles podrán resguardarse, adaptarse y recibir los cuidados necesarios antes de la plantación."
+          },
+          {
+            "number": "Fase 3",
+            "status": "Durante la ejecución",
+            "title": "Completar el financiamiento",
+            "goal": "Monto total: $15.000.000 ARS",
+            "description": "Mientras avanza la implementación, reuniremos el resto del monto necesario para completar el pago de los 10.000 árboles, valuados en $1.500 cada uno."
+          },
+          {
+            "number": "Fase 4",
+            "status": "Verano 2026–2027",
+            "title": "Plantar los 10.000 árboles",
+            "goal": "Jornadas de plantación en la montaña",
+            "description": "Durante el verano 2026–2027 llevaremos los árboles al territorio mediante jornadas de plantación, protección y cuidado inicial."
+          }
+        ]
+      },
+      "updates": {
+        "eyebrow": "Bitácora del proyecto",
+        "title": "Avances fase por fase",
+        "description": "En esta sección vamos a documentar cada hito con novedades, fechas y fotografías reales del trabajo realizado.",
+        "noPhotos": "Las fotografías y actualizaciones de esta fase se publicarán aquí a medida que avance el proyecto.",
+        "previous": "Ver imagen anterior",
+        "next": "Ver imagen siguiente",
+        "carouselLabel": "Galería de imágenes y videos",
+        "goTo": "Ampliar imagen",
+        "videoFallback": "Descargar video",
+        "phases": [
+          {
+            "number": "Fase 1",
+            "title": "Activación y primeros cuidados",
+            "status": "En curso",
+            "description": "La mayoría de los árboles ya se encuentra en el proyecto. Mientras continúa la recaudación de la seña, avanzamos con su selección y conteo antes de iniciar los primeros cuidados.",
+            "plannedDate": "Fecha prevista de cierre: 30 de septiembre de 2026",
+            "steps": [
+              { "title": "Pago de la seña", "status": "En recaudación", "state": "active" },
+              { "title": "Recepción de los arbolitos", "status": "Mayoría recibida", "state": "completed" },
+              { "title": "Selección y conteo", "status": "En curso", "state": "active" },
+              { "title": "Sanitización, poda y nutrición inicial", "status": "Siguiente tarea", "state": "upcoming" }
+            ],
+            "photos": [
+              { "src": "/uploads/reforestacion/arboles-recibidos-01.webp", "alt": "Arbolitos nativos recibidos y organizados en cajones", "caption": "Parte de los árboles nativos que ya se encuentran en el proyecto.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Detalle de arbolitos nativos recibidos en cajones azules", "caption": "Arbolitos recibidos, pendientes de selección y conteo completo.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Arbolitos nativos agrupados para su revisión", "caption": "Ejemplares agrupados para avanzar con la revisión inicial.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video de los árboles nativos que ya llegaron al proyecto", "caption": "Registro en video de los árboles que ya se encuentran en el lugar.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-02.mp4", "alt": "Video del trabajo con los árboles nativos recibidos para la primera fase", "caption": "Nuevo registro del estado y cuidado de los árboles recibidos.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-03.mp4", "alt": "Video del avance de la selección de árboles nativos", "caption": "Avance del proceso de selección y organización de los árboles.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-04.mp4", "alt": "Video de los árboles nativos alojados en Pueblo Mágico", "caption": "Los árboles que ya están en el lugar durante esta primera etapa.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Primer plano de arbolitos nativos recibidos", "caption": "Árboles a la espera de sanitización, poda y nutrición inicial.", "type": "image" }
+            ]
+          },
+          {
+            "number": "Fase 2",
+            "title": "Construcción del vivero",
+            "status": "Próxima etapa",
+            "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles. Compartiremos aquí el diseño elegido, la preparación del terreno y el proceso de construcción.",
+            "plannedDate": "Fecha prevista: antes de la temporada de lluvias",
+            "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica.",
+            "steps": [
+              { "title": "Identificar la ubicación", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Definir el diseño concreto", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Conseguir materiales, principalmente locales", "status": "Pendiente", "state": "upcoming" },
+              { "title": "Construir el vivero", "status": "Pendiente", "state": "upcoming" }
+            ],
+            "photos": [
+              {
+                "src": "/uploads/reforestacion/vivero-domo.webp",
+                "alt": "Diseño conceptual de vivero domo con estanterías para árboles",
+                "caption": "Vivero domo: 8 m de diámetro, 3 m de altura, cuatro niveles, pasillo central y mesa de trabajo."
+              },
+              {
+                "src": "/uploads/reforestacion/vivero-rectangular.webp",
+                "alt": "Diseño conceptual de vivero rectangular con estructura de madera",
+                "caption": "Vivero rectangular: 8 × 6 m, postes de álamo, techo plástico a dos aguas y cuatro niveles."
+              }
+            ]
+          },
+          {
+            "number": "Fase 3",
+            "title": "Financiamiento completo",
+            "status": "Etapa futura",
+            "description": "Publicaremos el avance hacia el monto total y los hitos de pago alcanzados durante la implementación.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Fase 4",
+            "title": "Plantación en la montaña",
+            "status": "Verano 2026–2027",
+            "description": "Documentaremos las jornadas, las áreas intervenidas y los primeros cuidados de los árboles plantados.",
+            "steps": [],
+            "photos": []
+          }
+        ]
+      },
+      "story": {
+        "eyebrow": "Montañas vivas, comunidades fuertes",
+        "title": "Regenerar es volver a tejer vínculos",
+        "paragraphs": [
+          "El bosque nativo protege el suelo, acompaña el ciclo del agua y sostiene la biodiversidad de las Sierras de Córdoba.",
+          "Cada aporte ayuda a poner en marcha una nueva etapa de trabajo: desde los plantines y la preparación del terreno hasta la plantación, el cuidado y el seguimiento.",
+          "La restauración no termina cuando un árbol llega a la tierra. Por eso queremos compartir avances claros y sostener el proceso en el tiempo."
+        ],
+        "imageAlt": "Comunidad reunida en la montaña al atardecer"
+      },
+      "use": {
+        "eyebrow": "Destino de los aportes",
+        "title": "Del plantín al cuidado en territorio",
+        "description": "Los fondos se aplicarán a las etapas necesarias para avanzar con la plantación y sostenerla. Publicaremos actualizaciones a medida que el proyecto avance.",
+        "items": [
+          { "title": "Plantines nativos", "description": "Producción o adquisición de ejemplares adecuados para cada ambiente." },
+          { "title": "Preparación y protección", "description": "Materiales y tareas para preparar el terreno y proteger cada plantación." },
+          { "title": "Plantación y logística", "description": "Herramientas, traslados y jornadas de trabajo en la montaña." },
+          { "title": "Cuidado y seguimiento", "description": "Riego, monitoreo y reposición cuando las condiciones lo requieran." }
+        ]
+      },
+      "community": {
+        "eyebrow": "Una tarea colectiva",
+        "title": "La montaña se regenera en comunidad",
+        "description": "Durante la temporada compartiremos oportunidades para encontrarnos, aprender y participar de jornadas abiertas de plantación.",
+        "items": [
+          "Actualizaciones del avance y de las tareas realizadas.",
+          "Información sobre especies y criterios de plantación.",
+          "Convocatorias a jornadas abiertas cuando estén confirmadas.",
+          "Seguimiento que diferencie árboles plantados de resultados observados."
+        ],
+        "imageAlt": "Encuentro comunitario en el salón de Pueblo Mágico"
+      },
+      "volunteering": {
+        "eyebrow": "Manos a la tierra",
+        "title": "Sumate a las jornadas de reforestación",
+        "description": "Abriremos convocatorias para colaborar con el cuidado en vivero, la preparación del territorio, la plantación y la protección inicial. Las fechas se confirmarán según el avance del proyecto y las condiciones climáticas.",
+        "items": ["Cuidado y preparación de los árboles", "Jornadas de plantación y protección", "Aprendizaje y trabajo comunitario en territorio"],
+        "cta": "Quiero recibir la convocatoria",
+        "whatsappMessage": "Hola, quiero sumarme como voluntario/a a las jornadas de reforestación de los 10.000 árboles nativos. ¿Pueden avisarme cuando se confirmen las próximas actividades?"
+      },
+      "maps": {
+        "eyebrow": "Territorio y transparencia",
+        "title": "Dónde crece el bosque",
+        "description": "Estos mapas muestran el área previamente reforestada y el sector definido para la próxima plantación de 10.000 árboles nativos.",
+        "areas": [
+          { "status": "Reforestación realizada", "title": "Área reforestada · 9,42 ha", "description": "Sector donde ya se realizaron acciones de reforestación dentro del territorio de Pueblo Mágico.", "image": "/uploads/reforestacion/mapa-area-reforestada-9-42ha.webp", "imageAlt": "Mapa aéreo del área reforestada de 9,42 hectáreas en Pueblo Mágico" },
+          { "status": "Próxima intervención", "title": "Próximos 10.000 árboles", "description": "Sector definido para la próxima etapa de reforestación con 10.000 árboles nativos.", "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp", "imageAlt": "Mapa aéreo del área prevista para reforestar con 10.000 árboles nativos" }
+        ],
+        "note": "El área histórica de 9,42 ha surge del Informe Wayra Marka de diciembre de 2023. El sector de la próxima intervención fue señalado por el equipo de Pueblo Mágico y podrá ajustarse durante la planificación técnica."
+      },
+      "corporate": {
+        "eyebrow": "Alianzas con impacto",
+        "title": "Empresas que regeneran territorio",
+        "description": "Las empresas y sus equipos pueden transformar sus objetivos de sustentabilidad en acciones concretas junto a Pueblo Mágico.",
+        "items": [
+          { "title": "Financiar una etapa", "description": "Acompañar la compra de árboles, el vivero, la logística o una fase completa del proyecto." },
+          { "title": "Voluntariado corporativo", "description": "Crear jornadas de participación en territorio que conecten al equipo con la restauración ambiental." },
+          { "title": "Alianzas a largo plazo", "description": "Diseñar un programa de impacto, seguimiento y comunicación adaptado a los objetivos de la organización." }
+        ],
+        "cta": "Conocé las propuestas para empresas",
+        "contactCta": "Contactar directamente",
+        "whatsappMessage": "Hola, formo parte de una empresa y quiero conocer cómo podemos colaborar con la campaña de reforestación de 10.000 árboles nativos. Me gustaría conversar sobre opciones de financiamiento, voluntariado corporativo o una alianza de impacto."
+      },
+      "contribution": {
+        "eyebrow": "Aporte directo",
+        "title": "Tu aporte se convierte en bosque",
+        "description": "Transferí el monto que elijas directamente a la cuenta destinada a la campaña. No hay un aporte mínimo.",
+        "cardTitle": "Aporte voluntario",
+        "cardDescription": "Esta contribución financia el proyecto de reforestación. Es independiente de la rifa y no incluye números, premios, vouchers ni servicios.",
+        "modalTitle": "Hacé tu aporte a la reforestación",
+        "modalDescription": "Elegí el monto que quieras aportar. Podés usar los datos de transferencia o escribirnos por WhatsApp si necesitás ayuda.",
+        "closeModal": "Cerrar opciones de aporte",
+        "notes": [
+          "Elegís libremente el monto.",
+          "La transferencia se realiza en pesos argentinos.",
+          "Podés avisarnos por WhatsApp para facilitar la conciliación."
+        ],
+        "aliasLabel": "Alias para transferir",
+        "holderLabel": "Titular",
+        "cbuLabel": "CBU / CVU",
+        "copy": "Copiar",
+        "copied": "Copiado",
+        "copyCbu": "Copiar CBU o CVU",
+        "copyConfirmation": "Dato copiado al portapapeles",
+        "confirmCta": "Avisar que aporté",
+        "fallbackTitle": "Pedinos los datos para aportar",
+        "fallbackDescription": "La cuenta pública de la campaña todavía no está configurada en esta versión del sitio. Escribinos y te compartimos los datos vigentes.",
+        "fallbackCta": "Pedir datos por WhatsApp",
+        "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia."
+      },
+      "closing": {
+        "title": "Lo que plantamos hoy puede cuidar la montaña durante generaciones",
+        "description": "Sumate a una red de personas que transforma intención en trabajo concreto sobre el territorio.",
+        "cta": "Hacer un aporte",
+        "imageAlt": "Salón de Pueblo Mágico abierto al bosque"
+      }
+    },
     "nichos": {
       "eyebrow": "Más experiencias",
       "title": "Otros caminos en Mágico"
@@ -381,10 +623,14 @@
               "label": "Nuestros Pilares",
               "href": "#pilares"
             },
-            {
-              "label": "Voluntariados",
-              "href": "#voluntariados"
-            }
+        {
+          "label": "Voluntariados",
+          "href": "#voluntariados"
+        },
+        {
+          "label": "Reforestación",
+          "href": "/reforestacion"
+        }
           ]
         }, 
         {
@@ -1920,6 +2166,248 @@
       "updateNow": "Update",
       "updating": "Updating..."
     },
+    "reforestation": {
+      "seo": {
+        "title": "Reforesting the Córdoba Sierras | Pueblo Mágico",
+        "description": "Support Pueblo Mágico's campaign to plant 10,000 more native trees and help regenerate the Córdoba Sierras."
+      },
+      "hero": {
+        "eyebrow": "Community reforestation · Córdoba Sierras",
+        "title": "Let's plant 10,000 more native trees",
+        "description": "A campaign to keep regenerating the mountains through native forest, field work and a community that cares for what it loves.",
+        "primaryCta": "Contribute",
+        "secondaryCta": "Discover the project",
+        "imageAlt": "The Los Gigantes mountain range lit by sunlight"
+      },
+      "impact": {
+        "eyebrow": "A story already in motion",
+        "title": "Roots for the mountain's future",
+        "description": "This new goal continues sustained restoration work alongside Consciencia Nativa and other environmental organizations.",
+        "stats": [
+          { "value": "+25,000", "label": "native trees planted", "description": "The accumulated work behind this new stage.", "href": "#maps", "action": "View restored areas" },
+          { "value": "+10,000", "label": "new trees", "description": "The planting goal supported by this campaign.", "href": "#maps", "action": "Explore planned areas" },
+          { "value": "Community", "label": "in action", "description": "Organizations, volunteers and people united for the mountains.", "href": "#volunteering", "action": "Join as a volunteer" }
+        ]
+      },
+      "funding": {
+        "eyebrow": "Campaign goals",
+        "title": "Four steps to bring the trees to the mountains",
+        "description": "All 10,000 trees are already available for the project. The campaign advances through milestones: activate the work with a down payment, prepare the nursery, complete payment and finally plant.",
+        "currentLabel": "Raised so far",
+        "ofGoal": "of the first goal of",
+        "progressLabel": "Fundraising progress for the first phase",
+        "updatedNote": "The total reflects confirmed contributions and is updated periodically.",
+        "cta": "Contribute to this goal",
+        "volunteerCta": "Participate as a volunteer",
+        "mapsCta": "View planting areas",
+        "phases": [
+          {
+            "number": "Phase 1",
+            "status": "Active goal",
+            "title": "Fund the down payment",
+            "goal": "Initial goal: ARS 1,500,000",
+            "description": "The first goal is to raise the down payment required to confirm all 10,000 trees and formally begin the project."
+          },
+          {
+            "number": "Phase 2",
+            "status": "Next stage",
+            "title": "Build the nursery",
+            "goal": "Infrastructure for tree care",
+            "description": "We will build the nursery where the trees can be sheltered, acclimatized and cared for before planting."
+          },
+          {
+            "number": "Phase 3",
+            "status": "During implementation",
+            "title": "Complete the funding",
+            "goal": "Total amount: ARS 15,000,000",
+            "description": "As implementation progresses, we will raise the remaining amount needed to complete payment for all 10,000 trees, valued at ARS 1,500 each."
+          },
+          {
+            "number": "Phase 4",
+            "status": "Summer 2026–2027",
+            "title": "Plant all 10,000 trees",
+            "goal": "Planting days in the mountains",
+            "description": "During the 2026–2027 summer, we will bring the trees into the landscape through planting, protection and initial-care days."
+          }
+        ]
+      },
+      "updates": {
+        "eyebrow": "Project journal",
+        "title": "Phase-by-phase updates",
+        "description": "This section will document each milestone with news, dates and real photographs of completed work.",
+        "noPhotos": "Photographs and updates from this phase will be published here as the project progresses.",
+        "previous": "View previous image",
+        "next": "View next image",
+        "carouselLabel": "Image and video gallery",
+        "goTo": "Enlarge image",
+        "videoFallback": "Download video",
+        "phases": [
+          {
+            "number": "Phase 1",
+            "title": "Activation and initial care",
+            "status": "In progress",
+            "description": "Most of the trees are already at the project. While down-payment fundraising continues, selection and counting are under way before initial care begins.",
+            "plannedDate": "Planned completion: September 30, 2026",
+            "steps": [
+              { "title": "Fund the down payment", "status": "Fundraising in progress", "state": "active" },
+              { "title": "Receive the baby trees", "status": "Most received", "state": "completed" },
+              { "title": "Selection and count", "status": "In progress", "state": "active" },
+              { "title": "Sanitisation, pruning and initial nutrition", "status": "Next task", "state": "upcoming" }
+            ],
+            "photos": [
+              { "src": "/uploads/reforestacion/arboles-recibidos-01.webp", "alt": "Received native baby trees arranged in crates", "caption": "Some of the native trees that are already at the project.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Close view of received native baby trees in blue crates", "caption": "Received trees awaiting full selection and counting.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Native baby trees grouped for review", "caption": "Trees grouped together for their initial review.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video of the native trees that have arrived at the project", "caption": "Video record of the trees already at the site.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-02.mp4", "alt": "Video of the work with the native trees received for phase one", "caption": "A new record of the condition and care of the trees received.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-03.mp4", "alt": "Video showing progress in selecting the native trees", "caption": "Progress in the tree selection and organization process.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-04.mp4", "alt": "Video of the native trees being kept at Pueblo Mágico", "caption": "The trees already on site during this first stage.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Close-up of received native baby trees", "caption": "Trees awaiting sanitisation, pruning and initial nutrition.", "type": "image" }
+            ]
+          },
+          {
+            "number": "Phase 2",
+            "title": "Nursery construction",
+            "status": "Next stage",
+            "description": "We are evaluating two possible configurations to shelter and care for the trees. We will share the selected design, site preparation and construction process here.",
+            "plannedDate": "Planned date: before the rainy season",
+            "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation.",
+            "steps": [
+              { "title": "Identify the location", "status": "Pending", "state": "upcoming" },
+              { "title": "Define the concrete design", "status": "Pending", "state": "upcoming" },
+              { "title": "Source materials, primarily local", "status": "Pending", "state": "upcoming" },
+              { "title": "Build the nursery", "status": "Pending", "state": "upcoming" }
+            ],
+            "photos": [
+              {
+                "src": "/uploads/reforestacion/vivero-domo.webp",
+                "alt": "Concept design for a dome nursery with tree shelving",
+                "caption": "Dome nursery: 8 m diameter, 3 m high, four levels, central aisle and work table."
+              },
+              {
+                "src": "/uploads/reforestacion/vivero-rectangular.webp",
+                "alt": "Concept design for a rectangular nursery with a timber structure",
+                "caption": "Rectangular nursery: 8 × 6 m, poplar posts, pitched plastic roof and four levels."
+              }
+            ]
+          },
+          {
+            "number": "Phase 3",
+            "title": "Complete funding",
+            "status": "Future stage",
+            "description": "We will publish progress toward the full amount and the payment milestones reached during implementation.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Phase 4",
+            "title": "Planting in the mountains",
+            "status": "Summer 2026–2027",
+            "description": "We will document planting days, restored areas and the initial care given to planted trees.",
+            "steps": [],
+            "photos": []
+          }
+        ]
+      },
+      "story": {
+        "eyebrow": "Living mountains, strong communities",
+        "title": "Regeneration means weaving connections again",
+        "paragraphs": [
+          "Native forest protects the soil, supports the water cycle and sustains biodiversity across the Córdoba Sierras.",
+          "Every contribution helps launch a new stage of work, from seedlings and site preparation to planting, care and monitoring.",
+          "Restoration does not end when a tree reaches the ground. We want to share clear progress and sustain this process over time."
+        ],
+        "imageAlt": "A community gathering in the mountains at sunset"
+      },
+      "use": {
+        "eyebrow": "How contributions are used",
+        "title": "From seedling to long-term field care",
+        "description": "Funds will support the stages required to move planting forward and sustain it. We will publish updates as the project progresses.",
+        "items": [
+          { "title": "Native seedlings", "description": "Producing or sourcing appropriate specimens for each environment." },
+          { "title": "Preparation and protection", "description": "Materials and field work to prepare the site and protect each planting." },
+          { "title": "Planting and logistics", "description": "Tools, transportation and work days in the mountains." },
+          { "title": "Care and monitoring", "description": "Watering, monitoring and replacement when conditions require it." }
+        ]
+      },
+      "community": {
+        "eyebrow": "A collective effort",
+        "title": "The mountain regenerates through community",
+        "description": "Throughout the season we will share opportunities to meet, learn and take part in open planting days.",
+        "items": [
+          "Updates on progress and completed work.",
+          "Information about species and planting criteria.",
+          "Invitations to open planting days once dates are confirmed.",
+          "Monitoring that distinguishes planted trees from observed outcomes."
+        ],
+        "imageAlt": "Community gathering inside Pueblo Mágico's hall"
+      },
+      "volunteering": {
+        "eyebrow": "Hands on the land",
+        "title": "Join our reforestation days",
+        "description": "We will open calls to help with nursery care, site preparation, planting and initial protection. Dates will be confirmed according to project progress and weather conditions.",
+        "items": ["Tree care and preparation", "Planting and protection days", "Learning and community work in the field"],
+        "cta": "Notify me about upcoming calls",
+        "whatsappMessage": "Hi, I would like to volunteer in the reforestation days for the 10,000 native trees. Could you let me know when the next activities are confirmed?"
+      },
+      "maps": {
+        "eyebrow": "Land and transparency",
+        "title": "Where the forest grows",
+        "description": "These maps show the previously reforested area and the sector identified for the next planting of 10,000 native trees.",
+        "areas": [
+          { "status": "Completed reforestation", "title": "Reforested area · 9.42 ha", "description": "The sector where reforestation work has already taken place within Pueblo Mágico's land.", "image": "/uploads/reforestacion/mapa-area-reforestada-9-42ha.webp", "imageAlt": "Aerial map of the 9.42-hectare reforested area at Pueblo Mágico" },
+          { "status": "Next intervention", "title": "The next 10,000 trees", "description": "The sector identified for the next reforestation stage with 10,000 native trees.", "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp", "imageAlt": "Aerial map of the area planned for 10,000 native trees" }
+        ],
+        "note": "The historical 9.42 ha area comes from the December 2023 Wayra Marka report. The next intervention sector was identified by the Pueblo Mágico team and may be refined during technical planning."
+      },
+      "corporate": {
+        "eyebrow": "Impact partnerships",
+        "title": "Companies regenerating the land",
+        "description": "Companies and their teams can turn sustainability goals into tangible action together with Pueblo Mágico.",
+        "items": [
+          { "title": "Fund a project phase", "description": "Support tree acquisition, the nursery, logistics or a complete phase of the project." },
+          { "title": "Corporate volunteering", "description": "Create hands-on days in the field that connect teams with environmental restoration." },
+          { "title": "Long-term partnerships", "description": "Design an impact, monitoring and communications program suited to the organisation's goals." }
+        ],
+        "cta": "Explore our corporate programs",
+        "contactCta": "Contact us directly",
+        "whatsappMessage": "Hi, I represent a company and would like to learn how we can support the campaign to plant 10,000 native trees. I would like to discuss funding, corporate volunteering or a longer-term impact partnership."
+      },
+      "contribution": {
+        "eyebrow": "Direct contribution",
+        "title": "Your contribution becomes forest",
+        "description": "Transfer any amount directly to the account dedicated to the campaign. There is no minimum contribution.",
+        "cardTitle": "Voluntary contribution",
+        "cardDescription": "This contribution funds the reforestation project. It is independent from the raffle and does not include entries, prizes, vouchers or services.",
+        "modalTitle": "Support the reforestation campaign",
+        "modalDescription": "Choose any amount to contribute. Use the bank transfer details or contact us on WhatsApp if you need help.",
+        "closeModal": "Close contribution options",
+        "notes": [
+          "You choose the amount freely.",
+          "Transfers are made in Argentine pesos.",
+          "You can notify us on WhatsApp to help us reconcile the transfer."
+        ],
+        "aliasLabel": "Transfer alias",
+        "holderLabel": "Account holder",
+        "cbuLabel": "CBU / CVU",
+        "copy": "Copy",
+        "copied": "Copied",
+        "copyCbu": "Copy CBU or CVU",
+        "copyConfirmation": "Banking detail copied to clipboard",
+        "confirmCta": "Let us know I contributed",
+        "fallbackTitle": "Ask us for contribution details",
+        "fallbackDescription": "The campaign's public account is not configured in this site version yet. Message us and we will share the current details.",
+        "fallbackCta": "Request details on WhatsApp",
+        "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
+        "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt."
+      },
+      "closing": {
+        "title": "What we plant today can protect the mountains for generations",
+        "description": "Join a network of people turning intention into tangible work on the land.",
+        "cta": "Make a contribution",
+        "imageAlt": "Pueblo Mágico's hall opening onto the forest"
+      }
+    },
     "nichos": {
       "eyebrow": "More experiences",
       "title": "Other paths at Mágico"
@@ -2232,10 +2720,14 @@
               "label": "Our Pillars",
               "href": "#pilares"
             },
-            {
-              "label": "Volunteering",
-              "href": "#voluntariados"
-            }
+        {
+          "label": "Volunteering",
+          "href": "#voluntariados"
+        },
+        {
+          "label": "Reforestation",
+          "href": "/reforestacion"
+        }
           ]
         },
         {
@@ -2336,6 +2828,13 @@
         "social": "Social",
         "phone": "5493516765820",
         "whatsappLink": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF"
+      },
+      "values": {
+        "email": "experienciamagico@gmail.com",
+        "whatsapp": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF",
+        "social": "https://instagram.com/experienciamagico",
+        "socialTag": "@pueblomagico__",
+        "phone": "5493516765820"
       }
     },
     "footer": {
