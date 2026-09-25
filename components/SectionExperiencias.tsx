@@ -3,9 +3,10 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { BookOpenText, CheckCircle } from '@phosphor-icons/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { marked } from 'marked';
+import { ars, precioEntrada } from '../src/data/precios';
 
 export const SectionExperiencias: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 'left' | 'right') => {
@@ -94,7 +95,7 @@ export const SectionExperiencias: React.FC = () => {
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-xl font-serif text-brand mb-2">{card.title}</h3>
-                    <p className="text-dark/70 mb-4 text-sm leading-relaxed flex-grow">{card.description}{isEcoRefugio && ` ${(t.experiences as any).card_extra_text}`}</p>
+                    <p className="text-dark/70 mb-4 text-sm leading-relaxed flex-grow">{card.description}{isEcoRefugio && ` ${(t.experiences as any).card_extra_text.replace('{desde}', ars(precioEntrada(), language))}`}</p>
                     {card.ctaLink?.startsWith('/') ? (
                       <a href={card.ctaLink} className="text-[#8B6914] font-bold uppercase text-xs tracking-wider hover:text-brand transition-colors">{card.ctaText} →</a>
                     ) : (

@@ -38,6 +38,7 @@ Usar siempre rutas relativas. El alias `@/*` está definido en tsconfig y vite.c
 ## Config / WhatsApp
 - WA numbers + SITE_URL: `src/data/config.ts`
 - Fechas, precios, mensajes por retiro: `src/data/retreats.ts`
+- Precios de **estadía** (camping, Eco-Refugio, domo, comidas, Reset Vital): SOLO en D1, tablas `tarifas`/`extras`/`feriados` (`add_tarifas.sql`). Nunca hardcodear montos. Cálculo: `src/lib/tarifas.ts`. Textos estáticos ("Desde $X"): `src/data/precios.ts`, que lee `precios-build.json` (lo regenera `scripts/fetch-precios.mjs` en cada build).
 
 ## Debugging
 - Pantalla en blanco → revisar ErrorBoundary + keys faltantes en `data.json` (es + en).

@@ -47,24 +47,6 @@ export const RETREATS_DATA = {
   }
 };
 
-export const ESTADIA_PRICES = {
-  // Alojamiento + desayuno — por persona/noche. Comidas y Reset Vital presencial se suman aparte.
-  carpaDesde: 20000,        // Camping
-  ecoRefugioDesde: 35000,   // Habitación compartida o Domo geodésico compartido
-  domoPrivadoDesde: 150000, // domo entero, 1 o 2 personas — grupos de 3 a 7 se cotizan aparte
-
-  // Gastronomía — menú del día, por persona/día
-  almuerzo: 20000,
-  cena: 20000,
-
-  // Pensión completa — precio total por persona/noche (alojamiento + desayuno + almuerzo + cena)
-  pensionCompletaCarpa: 45000,
-  pensionCompletaEcoRefugio: 60000,
-
-  // Reset Vital presencial — upgrade sobre el programa digital (incluido) · tarifa única por persona (no por día)
-  resetVitalPresencial: 5000,
-};
-
 export const COLIVING_PRICES = {
   currency: 'ARS',
   precioPorNocheInvierno: 50000, // temporada de invierno — estadías cortas, a la carta

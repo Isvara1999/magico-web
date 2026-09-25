@@ -13,7 +13,7 @@ import {
   ForkKnifeIcon, PawPrintIcon, WheelchairIcon
 } from '@phosphor-icons/react';
 import { WA_MAGICO, SITE_URL } from './data/config';
-import { ESTADIA_PRICES } from './data/retreats';
+import { ars, minimoPersonas, pensionCompletaDesde, precioDesde, precioEntrada, precioExtra } from './data/precios';
 import { ROUTES } from './routes';
 
 const WA = (msg: string) =>
@@ -43,7 +43,7 @@ const Hero: React.FC = () => (
         Domos geodésicos, habitaciones y camping en las Sierras Grandes. Elegí cómo querés vivir Pueblo Mágico.
       </p>
       <p className="text-gold text-xs font-bold uppercase tracking-widest mb-5">
-        ✦ Desde $20.000/persona/noche con desayuno — sumá comidas y experiencias a tu gusto
+        ✦ Desde {ars(precioEntrada())}/persona/noche con desayuno — sumá comidas y experiencias a tu gusto
       </p>
       <div className="flex flex-wrap gap-2 mb-7">
         {['Para emprendedores & creativos', 'Parejas', 'Grupos & familias'].map(chip => (
@@ -98,7 +98,7 @@ const Inclusiones: React.FC = () => {
         ))}
         <div className="w-full text-center mt-1">
           <span className="text-gold/60 text-[10px] uppercase tracking-widest font-bold">
-            Desde $20.000/persona/noche con desayuno · sumá almuerzo, cena o pensión completa a tu gusto · Sin sorpresas ocultas
+            Desde {ars(precioEntrada())}/persona/noche con desayuno · sumá almuerzo, cena o pensión completa a tu gusto · Sin sorpresas ocultas
           </span>
         </div>
       </div>
@@ -112,17 +112,17 @@ const ALOJAMIENTOS = [
     name: 'Domo Geodésico',
     tag: 'MÁS SOLICITADO',
     tagColor: 'bg-gold text-white',
-    shortDesc: `7 camas de una plaza · exclusivo desde 4 personas · desde $${ESTADIA_PRICES.ecoRefugioDesde.toLocaleString('es-AR')}/noche con desayuno`,
-    desc: 'Esfera geométrica en plena montaña con ventanas panorámicas al cielo. 7 camas de una plaza. Desde 4 personas podés reservar el domo de uso exclusivo. Ropa blanca incluida. Baños compartidos a metros del domo.',
+    shortDesc: `7 camas de una plaza · privado para tu grupo · desde ${ars(precioDesde('domo'))}/persona/noche con desayuno`,
+    desc: 'Esfera geométrica en plena montaña con ventanas panorámicas al cielo. 7 camas de una plaza. El domo es de uso exclusivo para tu grupo (hasta 7 personas). Ropa blanca incluida. Baños compartidos a metros del domo.',
     image: '/uploads/domos.webp',
-    details: ['7 camas de 1 plaza', 'Exclusivo desde 4 personas', 'Ropa blanca incluida', 'Baños compartidos fuera del domo', 'Desayuno incluido · sumá comidas', 'Programa Reset Vital'],
+    details: ['7 camas de 1 plaza', 'Uso exclusivo de tu grupo', 'Ropa blanca incluida', 'Baños compartidos fuera del domo', 'Desayuno incluido · sumá comidas', 'Programa Reset Vital'],
     wa: WA('Hola! Quiero consultar disponibilidad de un Domo Geodésico en Pueblo Mágico ✨'),
   },
   {
     name: 'Habitación Compartida',
     tag: 'COLIVING',
     tagColor: 'bg-bone text-brand border border-brand/20',
-    shortDesc: `Refugio principal · baño compartido · desde $${ESTADIA_PRICES.ecoRefugioDesde.toLocaleString('es-AR')}/noche con desayuno`,
+    shortDesc: `Refugio principal · baño compartido · desde ${ars(precioDesde('refugio'))}/persona/noche con desayuno`,
     desc: 'Habitaciones en el refugio principal. Los baños son compartidos (no dentro de las habitaciones, pero sí en el mismo edificio). Ideal para viajeros solos que quieren conectar con otros. Grupos pueden reservar habitaciones o domos de uso exclusivo.',
     image: '/uploads/habitaciones.webp',
     details: ['Programa Reset Vital', 'Camas individuales', 'Baño compartido del refugio', 'Grupos: uso exclusivo disponible', 'Desayuno incluido · sumá comidas'],
@@ -132,7 +132,7 @@ const ALOJAMIENTOS = [
     name: 'Camping',
     tag: 'LA MÁS ECONÓMICA',
     tagColor: 'bg-bone text-brand border border-brand/20',
-    shortDesc: `Bajo las estrellas · duchas calientes · desde $${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')}/noche con desayuno`,
+    shortDesc: `Bajo las estrellas · duchas calientes · desde ${ars(precioDesde('camping'))}/persona/noche con desayuno`,
     desc: 'Instalá tu carpa en pleno campo y dormí bajo las estrellas de los Gigantes. Para quienes buscan la experiencia más cruda y auténtica de la montaña, con la puerta de entrada más accesible a Pueblo Mágico. Duchas calientes y baños disponibles.',
     image: '/uploads/exterior.webp',
     details: ['Programa Reset Vital', 'Traé tu carpa', 'Duchas calientes y baños', 'Fogón comunitario', 'Desayuno incluido · sumá comidas'],
@@ -224,16 +224,16 @@ const Alojamientos: React.FC = () => {
               </p>
               <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center mb-2.5">
                 <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Camping</p>
-                <p className="text-brand text-xl font-serif">${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')}<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
+                <p className="text-brand text-xl font-serif">{ars(precioDesde('camping'))}<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
               </div>
               <div className="bg-bone rounded-xl px-4 py-3 border border-gold/20 text-center mb-2.5">
-                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Habitación o domo compartido</p>
-                <p className="text-gold text-xl font-serif">${ESTADIA_PRICES.ecoRefugioDesde.toLocaleString('es-AR')}<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Eco-Refugio · habitación compartida</p>
+                <p className="text-gold text-xl font-serif">{ars(precioDesde('refugio'))}<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
               </div>
               <div className="bg-bone rounded-xl px-4 py-3 border border-brand/10 text-center">
-                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Domo privado · 1 o 2 personas</p>
-                <p className="text-brand text-xl font-serif">${ESTADIA_PRICES.domoPrivadoDesde.toLocaleString('es-AR')}<span className="text-xs text-dark/50 font-sans ml-1">/ noche, domo entero</span></p>
-                <p className="text-dark/40 text-[11px] mt-0.5">3 a 7 personas: consultá el precio por grupo</p>
+                <p className="text-dark/40 text-xs uppercase tracking-widest mb-0.5">Domo privado · hasta 7 personas</p>
+                <p className="text-brand text-xl font-serif">{ars(precioDesde('domo'))}<span className="text-xs text-dark/50 font-sans ml-1">/ persona / noche</span></p>
+                <p className="text-dark/40 text-[11px] mt-0.5">Mínimo {minimoPersonas('domo')} personas</p>
               </div>
               <p className="text-center text-dark/40 text-xs mt-3">
                 Sumá almuerzo, cena o pensión completa a tu gusto —{' '}
@@ -271,22 +271,22 @@ const ESCALERA = [
     icon: <Bed className="w-6 h-6" weight="duotone" />,
     step: '1',
     title: 'Vení a Pueblo Mágico',
-    price: `Desde $${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')}/persona/noche`,
-    desc: 'Alojamiento + desayuno. Camping, habitación compartida, domo compartido o privado.',
+    price: `Desde ${ars(precioDesde('camping'))}/persona/noche`,
+    desc: 'Alojamiento + desayuno. Camping, habitación compartida o domo privado.',
   },
   {
     icon: <ForkKnife className="w-6 h-6" weight="duotone" />,
     step: '2',
     title: 'Quedate a comer',
-    price: `Almuerzo o cena +$${ESTADIA_PRICES.almuerzo.toLocaleString('es-AR')} c/u`,
-    desc: `O sumá la pensión completa a precio cerrado — desde $${ESTADIA_PRICES.pensionCompletaCarpa.toLocaleString('es-AR')}/persona/noche.`,
+    price: `Almuerzo +${ars(precioExtra('almuerzo'))} · Cena +${ars(precioExtra('cena'))}`,
+    desc: `O sumá la pensión completa a precio cerrado — desde ${ars(pensionCompletaDesde('camping'))}/persona/noche.`,
   },
   {
     icon: <Leaf className="w-6 h-6" weight="duotone" />,
     step: '3',
     title: 'Viví Reset Vital',
     price: 'Programa digital incluido',
-    desc: `Guía autoguiada gratis en toda estadía. Sumá las actividades grupales presenciales por +$${ESTADIA_PRICES.resetVitalPresencial.toLocaleString('es-AR')} por persona, tarifa única.`,
+    desc: `Guía autoguiada gratis en toda estadía. Sumá las actividades grupales presenciales por +${ars(precioExtra('reset_presencial'))} por persona por día.`,
   },
   {
     icon: <HeartStraight className="w-6 h-6" weight="duotone" />,
@@ -348,7 +348,7 @@ const HorariosPension: React.FC = () => (
         </div>
 
         <p className="text-dark/70 text-sm leading-relaxed mb-5">
-          <strong className="text-brand font-semibold">Tarifa base: desde $20.000 por persona / noche</strong> (camping) o $35.000 (habitación o domo compartido) — incluye alojamiento y desayuno. Domo privado (1 o 2 personas): $150.000/noche. Sumá almuerzo o cena a +$20.000 cada uno, o pensión completa a precio cerrado desde $45.000/persona/noche.
+          <strong className="text-brand font-semibold">Tarifa base: desde {ars(precioDesde('camping'))} por persona / noche</strong> (camping), {ars(precioDesde('refugio'))} (Eco-Refugio) o {ars(precioDesde('domo'))} (domo privado, mínimo {minimoPersonas('domo')} personas) — incluye alojamiento y desayuno. Sumá almuerzo (+{ars(precioExtra('almuerzo'))}) o cena (+{ars(precioExtra('cena'))}), o pensión completa a precio cerrado desde {ars(pensionCompletaDesde('camping'))}/persona/noche.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-5">
@@ -371,11 +371,11 @@ const HorariosPension: React.FC = () => (
             </li>
             <li className="flex items-start gap-2 text-sm text-dark/65">
               <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
-              <span><strong className="text-brand font-medium">Almuerzo y cena:</strong> opcionales, +$20.000 cada uno por persona — menú del día, sumalos los días que quieras.</span>
+              <span><strong className="text-brand font-medium">Almuerzo y cena:</strong> opcionales, almuerzo +{ars(precioExtra('almuerzo'))} y cena +{ars(precioExtra('cena'))} por persona — menú del día, sumalos los días que quieras.</span>
             </li>
             <li className="flex items-start gap-2 text-sm text-dark/65">
               <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" weight="duotone" />
-              <span><strong className="text-brand font-medium">Pensión completa:</strong> si preferís las 3 comidas todos los días, sale a precio cerrado ($45.000 camping / $60.000 habitación o domo compartido, por persona/noche) — más conveniente que sumar cada comida suelta.</span>
+              <span><strong className="text-brand font-medium">Pensión completa:</strong> si preferís las 3 comidas todos los días, sale a precio cerrado ({ars(pensionCompletaDesde('camping'))} camping / {ars(pensionCompletaDesde('refugio'))} Eco-Refugio / {ars(pensionCompletaDesde('domo'))} domo privado, por persona/noche) — más conveniente que sumar cada comida suelta.</span>
             </li>
           </ul>
         </div>
@@ -864,7 +864,7 @@ const CTAFinal: React.FC = () => (
 const Estadia: React.FC = () => {
   useEffect(() => {
     const TITLE = 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Pueblo Mágico';
-    const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')}/persona/noche con desayuno.`;
+    const DESC = `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde ${ars(precioDesde('camping'))}/persona/noche con desayuno.`;
     const URL = SITE_URL + ROUTES.ESTADIA;
     const IMG = `${SITE_URL}/uploads/campoentero.webp`;
     const prevTitle = document.title;

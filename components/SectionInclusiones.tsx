@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ESTADIA_PRICES } from '../src/data/retreats';
+import { ars, minimoPersonas, precioDesde } from '../src/data/precios';
 import {
   House,
   WifiHigh,
@@ -22,7 +22,7 @@ const ICONS = [
 ];
 
 export const SectionInclusiones: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const i = t.inclusiones;
 
   return (
@@ -57,16 +57,16 @@ export const SectionInclusiones: React.FC = () => {
             <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
               <p className="text-white/70 font-bold tracking-widest uppercase text-xs mb-1">{i.price_solo_label}</p>
               <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
+                {ars(precioDesde('camping'), language)} <span className="text-base font-sans font-light">{i.price_unit}</span>
               </p>
               <p className="text-white/50 text-xs mt-1">{i.price_solo_sub}</p>
             </div>
             <div className="bg-gold/20 border border-gold/40 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
               <p className="text-gold font-bold tracking-widest uppercase text-xs mb-1">{i.price_pension_label}</p>
               <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.domoPrivadoDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_pension_unit}</span>
+                {ars(precioDesde('domo'), language)} <span className="text-base font-sans font-light">{i.price_pension_unit}</span>
               </p>
-              <p className="text-white/50 text-xs mt-1">{i.price_pension_sub}</p>
+              <p className="text-white/50 text-xs mt-1">{i.price_pension_sub.replace('{min}', String(minimoPersonas('domo')))}</p>
             </div>
           </div>
 

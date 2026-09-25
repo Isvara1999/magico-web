@@ -1,0 +1,37 @@
+{
+  "tarifas": [
+    {
+      "tipo": "camping",
+      "nombre": "Carpa / Camping",
+      "precio_noche": 20000,
+      "precio_pension_completa": 45000,
+      "precio_noche_finde": null,
+      "precio_pension_completa_finde": null,
+      "minimo_personas_facturadas": 1
+    },
+    {
+      "tipo": "refugio",
+      "nombre": "Eco-Refugio",
+      "precio_noche": 35000,
+      "precio_pension_completa": 60000,
+      "precio_noche_finde": null,
+      "precio_pension_completa_finde": null,
+      "minimo_personas_facturadas": 1
+    },
+    {
+      "tipo": "domo",
+      "nombre": "Domo privado",
+      "precio_noche": 50000,
+      "precio_pension_completa": 75000,
+      "precio_noche_finde": null,
+      "precio_pension_completa_finde": null,
+      "minimo_personas_facturadas": 2
+    }
+  ],
+  "extras": {
+    "almuerzo": 20000,
+    "cena": 20000,
+    "reset_presencial": 5000
+  },
+  "feriados": []
+}

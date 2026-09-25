@@ -9,6 +9,14 @@ import { createServer } from 'http';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
 
+// Precios de estadía desde D1 (bajados por scripts/fetch-precios.mjs en prebuild).
+const PRECIOS = JSON.parse(readFileSync(join(__dirname, '..', 'src', 'data', 'precios-build.json'), 'utf8'));
+const ars = n => '$' + n.toLocaleString('es-AR');
+const desdeNoche = t => Math.min(t.precio_noche, t.precio_noche_finde ?? t.precio_noche);
+const desdePension = t => Math.min(t.precio_pension_completa, t.precio_pension_completa_finde ?? t.precio_pension_completa);
+const PRECIO_ENTRADA = Math.min(...PRECIOS.tarifas.map(desdeNoche));
+const PENSION_ENTRADA = Math.min(...PRECIOS.tarifas.map(desdePension));
+
 export const ROUTES = [
   {
     path: '/',
@@ -55,7 +63,7 @@ export const ROUTES = [
   {
     path: '/estadia',
     title: 'Estadías & Glamping — Reset Vital · Los Gigantes, Córdoba | Pueblo Mágico',
-    description: 'Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde $40.000/noche (ropa blanca + Reset Vital). Pensión completa Desde $95.000. 20% dto. lun–jue.',
+    description: `Glamping y retiro autoguiado en las Sierras de Córdoba. Domos geodésicos, habitaciones y camping. Desde ${ars(PRECIO_ENTRADA)}/persona/noche con desayuno. Pensión completa desde ${ars(PENSION_ENTRADA)}.`,
     image: 'https://experienciamagico.com/uploads/campoentero.webp',
     canonical: 'https://experienciamagico.com/estadia',
   },

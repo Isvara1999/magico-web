@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Tree, UsersThree, Mountains } from '@phosphor-icons/react';
 import { BookingWidget, G } from './BookingWidget';
+import { ars, precioEntrada } from '../src/data/precios';
 
 const PachamamaFestBadge: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
   const { t } = useLanguage();
@@ -19,7 +20,7 @@ const PachamamaFestBadge: React.FC<{ compact?: boolean }> = ({ compact = false }
 };
 
 export const HeroNuevo: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const images   = (t.hero as any).bgImages || [t.hero.bgImage];
   const colivingBadge = (t.hero as any).colivingBadge;
@@ -88,7 +89,7 @@ export const HeroNuevo: React.FC = () => {
               {(t.hero as any).reservationCta}
             </p>
             <p style={{ fontSize: 11, color: 'rgba(212,175,55,0.9)', fontWeight: 600, margin: '4px 0 0' }}>
-              {(t.hero as any).reservationPricing}
+              {(t.hero as any).reservationPricing.replace('{desde}', ars(precioEntrada(), language))}
             </p>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.97)' }}>
@@ -196,7 +197,7 @@ export const HeroNuevo: React.FC = () => {
                 {(t.hero as any).reservationTitle}
               </h2>
               <p style={{ fontSize: 12, color: 'rgba(212,175,55,0.9)', fontWeight: 600, margin: '6px 0 0' }}>
-                {(t.hero as any).reservationPricing}
+                {(t.hero as any).reservationPricing.replace('{desde}', ars(precioEntrada(), language))}
               </p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.96)' }}>

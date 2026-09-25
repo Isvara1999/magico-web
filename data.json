@@ -76,7 +76,7 @@
       "badge_accommodation": "Alojamiento", 
       "personalizeStay": "PERSONALIZÁ TU ESTADÍA",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "También podés solo alojarte si querés — desde $20.000/persona/noche con desayuno, en carpa, habitación o domo compartido. Sumá almuerzo, cena o pensión completa a tu gusto.",
+      "card_extra_text": "También podés solo alojarte si querés — desde {desde}/persona/noche con desayuno, en carpa, Eco-Refugio o domo privado. Sumá almuerzo, cena o pensión completa a tu gusto.",
       "btn": "RESERVAR MI LUGAR", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -354,7 +354,7 @@
       "reservationKicker": "INVIERNO 2026",
       "reservationCta": "Verificar disponibilidad",
       "reservationTitle": "Reserva tu experiencia inolvidable en la montaña",
-      "reservationPricing": "Desde $20.000/persona/noche (carpa, con desayuno) · sumá comidas a tu gusto"
+      "reservationPricing": "Desde {desde}/persona/noche (carpa, con desayuno) · sumá comidas a tu gusto"
     },
     "video": {
       "title": "Viví nuestra experiencia de <span class='italic text-gold'>montaña</span>",
@@ -1764,9 +1764,9 @@
       "price_solo_label": "Camping",
       "price_solo_sub": "Alojamiento + desayuno, precio por persona",
       "price_pension_label": "Domo Privado",
-      "price_pension_sub": "1 o 2 personas, domo entero",
+      "price_pension_sub": "Hasta 7 personas · mínimo {min}",
       "price_unit": "/ persona / noche",
-      "price_pension_unit": "/ noche",
+      "price_pension_unit": "/ persona / noche",
       "cta": "Ver todos los alojamientos"
     },
     "para_quien": {
@@ -1922,7 +1922,7 @@
       "badge_accommodation": "Accommodation",
       "personalizeStay": "CUSTOMIZE YOUR STAY",
       "coworkingBadge": "Coworking & Coliving",
-      "card_extra_text": "You can also just book accommodation if you wish — from $20,000/person/night with breakfast, in a tent, shared room or dome. Add lunch, dinner or full board as you like.",
+      "card_extra_text": "You can also just book accommodation if you wish — from {desde}/person/night with breakfast, in a tent, the Eco-Refuge or a private dome. Add lunch, dinner or full board as you like.",
       "btn": "Book my spot", 
       "link": "https://wa.me/5493516765820?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20mi%20lugar%20en%20una%20experiencia.%20%E2%9C%A8",
       "cards": [
@@ -2200,7 +2200,7 @@
       "reservationKicker": "WINTER 2026",
       "reservationCta": "Check availability",
       "reservationTitle": "Book your unforgettable mountain experience",
-      "reservationPricing": "From $20,000/person/night (tent, with breakfast) · add meals as you like"
+      "reservationPricing": "From {desde}/person/night (tent, with breakfast) · add meals as you like"
     },
     "video": {
       "title": "Live our mountain <span class='italic text-gold'>experience</span>",
@@ -3605,9 +3605,9 @@
       "price_solo_label": "Camping",
       "price_solo_sub": "Accommodation + breakfast, price per person",
       "price_pension_label": "Private Dome",
-      "price_pension_sub": "1 or 2 people, whole dome",
+      "price_pension_sub": "Up to 7 guests · minimum {min}",
       "price_unit": "/ person / night",
-      "price_pension_unit": "/ night",
+      "price_pension_unit": "/ person / night",
       "cta": "View all accommodations"
     },
     "para_quien": {

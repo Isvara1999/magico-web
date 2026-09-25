@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/fetch-precios.mjs",
     "build": "node node_modules/vite/bin/vite.js build",
     "postbuild": "node scripts/prerender.mjs",
     "preview": "vite preview"
