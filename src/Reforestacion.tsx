@@ -347,7 +347,7 @@ const Reforestacion: React.FC = () => {
                     {phase.photos.length > 0 ? (
                       <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" aria-label={content.updates.carouselLabel}>
                         {phase.photos.map(photo => (
-                          <figure key={photo.src} className="w-[68vw] max-w-72 shrink-0 snap-start overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-lg sm:w-72">
+                          <figure key={photo.src} className="flex w-[68vw] max-w-72 shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-lg sm:w-72">
                             {photo.type === 'video' ? (
                               <div className="flex aspect-[3/4] items-center justify-center overflow-hidden bg-bone">
                                 <video controls playsInline preload="metadata" className="h-full w-full object-cover" aria-label={photo.alt}>
@@ -356,11 +356,11 @@ const Reforestacion: React.FC = () => {
                                 </video>
                               </div>
                             ) : (
-                              <button type="button" onClick={() => setExpandedImage(photo)} className="group block w-full bg-[#071d14] focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${photo.alt}`}>
-                                <img src={photo.src} alt={photo.alt} className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
+                              <button type="button" onClick={() => setExpandedImage(photo)} className="group block aspect-[3/4] w-full overflow-hidden bg-bone focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${photo.alt}`}>
+                                <img src={photo.src} alt={photo.alt} className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
                               </button>
                             )}
-                            <figcaption className="min-h-20 p-4 text-sm leading-relaxed text-gray-600">{photo.caption}</figcaption>
+                            <figcaption className="min-h-20 flex-1 p-4 text-sm leading-relaxed text-gray-600">{photo.caption}</figcaption>
                           </figure>
                         ))}
                       </div>
