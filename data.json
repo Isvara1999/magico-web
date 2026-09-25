@@ -132,26 +132,6 @@
           }
         ]
       },
-      "nursery": {
-        "eyebrow": "Fase 2 · Vivero",
-        "title": "Dos alternativas para cuidar los árboles",
-        "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles antes de llevarlos a la montaña.",
-        "options": [
-          {
-            "title": "Vivero domo",
-            "description": "Una estructura circular de 8 metros de diámetro y 3 metros de altura, con estanterías perimetrales de cuatro niveles, pasillo central y mesa de trabajo.",
-            "image": "/uploads/reforestacion/vivero-domo.webp",
-            "imageAlt": "Diseño conceptual de vivero domo con estanterías para árboles"
-          },
-          {
-            "title": "Vivero rectangular",
-            "description": "Una estructura de 8 por 6 metros con postes de álamo, techo plástico a dos aguas, estanterías de cuatro niveles y circulación central.",
-            "image": "/uploads/reforestacion/vivero-rectangular.webp",
-            "imageAlt": "Diseño conceptual de vivero rectangular con estructura de madera"
-          }
-        ],
-        "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica."
-      },
       "updates": {
         "eyebrow": "Bitácora del proyecto",
         "title": "Avances fase por fase",
@@ -175,9 +155,21 @@
             "number": "Fase 2",
             "title": "Construcción del vivero",
             "status": "Próxima etapa",
-            "description": "Compartiremos el diseño elegido, la preparación del terreno y el proceso de construcción del espacio de cuidado.",
+            "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles. Compartiremos aquí el diseño elegido, la preparación del terreno y el proceso de construcción.",
+            "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica.",
             "steps": [],
-            "photos": []
+            "photos": [
+              {
+                "src": "/uploads/reforestacion/vivero-domo.webp",
+                "alt": "Diseño conceptual de vivero domo con estanterías para árboles",
+                "caption": "Vivero domo: 8 m de diámetro, 3 m de altura, cuatro niveles, pasillo central y mesa de trabajo."
+              },
+              {
+                "src": "/uploads/reforestacion/vivero-rectangular.webp",
+                "alt": "Diseño conceptual de vivero rectangular con estructura de madera",
+                "caption": "Vivero rectangular: 8 × 6 m, postes de álamo, techo plástico a dos aguas y cuatro niveles."
+              }
+            ]
           },
           {
             "number": "Fase 3",
@@ -2183,26 +2175,6 @@
           }
         ]
       },
-      "nursery": {
-        "eyebrow": "Phase 2 · Nursery",
-        "title": "Two alternatives for caring for the trees",
-        "description": "We are evaluating two possible configurations to shelter and care for the trees before bringing them into the mountains.",
-        "options": [
-          {
-            "title": "Dome nursery",
-            "description": "A circular structure measuring 8 metres in diameter and 3 metres high, with four-level perimeter shelving, a central aisle and a work table.",
-            "image": "/uploads/reforestacion/vivero-domo.webp",
-            "imageAlt": "Concept design for a dome nursery with tree shelving"
-          },
-          {
-            "title": "Rectangular nursery",
-            "description": "An 8 by 6 metre structure with poplar posts, a pitched plastic roof, four-level shelving and a central circulation aisle.",
-            "image": "/uploads/reforestacion/vivero-rectangular.webp",
-            "imageAlt": "Concept design for a rectangular nursery with a timber structure"
-          }
-        ],
-        "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation."
-      },
       "updates": {
         "eyebrow": "Project journal",
         "title": "Phase-by-phase updates",
@@ -2226,9 +2198,21 @@
             "number": "Phase 2",
             "title": "Nursery construction",
             "status": "Next stage",
-            "description": "We will share the selected design, site preparation and the process of constructing the care space.",
+            "description": "We are evaluating two possible configurations to shelter and care for the trees. We will share the selected design, site preparation and construction process here.",
+            "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation.",
             "steps": [],
-            "photos": []
+            "photos": [
+              {
+                "src": "/uploads/reforestacion/vivero-domo.webp",
+                "alt": "Concept design for a dome nursery with tree shelving",
+                "caption": "Dome nursery: 8 m diameter, 3 m high, four levels, central aisle and work table."
+              },
+              {
+                "src": "/uploads/reforestacion/vivero-rectangular.webp",
+                "alt": "Concept design for a rectangular nursery with a timber structure",
+                "caption": "Rectangular nursery: 8 × 6 m, poplar posts, pitched plastic roof and four levels."
+              }
+            ]
           },
           {
             "number": "Phase 3",
