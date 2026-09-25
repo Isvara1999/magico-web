@@ -94,7 +94,7 @@
       },
       "funding": {
         "eyebrow": "Metas de la campaña",
-        "title": "Un camino de regeneración en dos fases",
+        "title": "Un camino de regeneración en tres fases",
         "description": "Cada etapa construye las condiciones para que el bosque nativo crezca y el trabajo pueda sostenerse en el tiempo.",
         "currentLabel": "Recaudado hasta hoy",
         "ofGoal": "de la primera meta de",
@@ -104,13 +104,20 @@
           {
             "number": "Fase 1",
             "status": "Meta activa",
-            "title": "Conseguir los árboles",
+            "title": "Conseguir los primeros 1.000 árboles",
             "goal": "Meta: $1.500.000 ARS",
-            "description": "La primera recaudación está destinada a conseguir los árboles nativos necesarios para poner en marcha la nueva etapa de plantación."
+            "description": "La primera recaudación está destinada a conseguir 1.000 árboles nativos a $1.500 cada uno y poner en marcha la nueva etapa de plantación."
           },
           {
             "number": "Fase 2",
             "status": "Próxima etapa",
+            "title": "Completar los 10.000 árboles",
+            "goal": "Meta total: $15.000.000 ARS",
+            "description": "La próxima meta es reunir el monto completo para pagar los 10.000 árboles nativos de la campaña, calculados a $1.500 por árbol."
+          },
+          {
+            "number": "Fase 3",
+            "status": "Etapa futura",
             "title": "Construir el vivero",
             "goal": "Meta económica a definir",
             "description": "El siguiente objetivo será construir un vivero que permita producir y cuidar plantines nativos en el territorio, fortaleciendo la continuidad del proyecto."
@@ -2062,7 +2069,7 @@
       },
       "funding": {
         "eyebrow": "Campaign goals",
-        "title": "A two-phase path to regeneration",
+        "title": "A three-phase path to regeneration",
         "description": "Each phase creates the conditions for native forest to grow and for this work to continue over time.",
         "currentLabel": "Raised so far",
         "ofGoal": "of the first goal of",
@@ -2072,13 +2079,20 @@
           {
             "number": "Phase 1",
             "status": "Active goal",
-            "title": "Source the trees",
+            "title": "Source the first 1,000 trees",
             "goal": "Goal: ARS 1,500,000",
-            "description": "The first round of funding will source the native trees required to begin the new planting stage."
+            "description": "The first round of funding will source 1,000 native trees at ARS 1,500 each and begin the new planting stage."
           },
           {
             "number": "Phase 2",
             "status": "Next stage",
+            "title": "Complete all 10,000 trees",
+            "goal": "Total goal: ARS 15,000,000",
+            "description": "The next goal is to raise the complete amount required for all 10,000 native trees in the campaign, calculated at ARS 1,500 per tree."
+          },
+          {
+            "number": "Phase 3",
+            "status": "Future stage",
             "title": "Build the nursery",
             "goal": "Funding goal to be defined",
             "description": "The next goal will be to build a nursery where native seedlings can be produced and cared for on site, strengthening the project's continuity."
