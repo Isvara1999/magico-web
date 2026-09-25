@@ -105,10 +105,10 @@ const Voluntariado: React.FC = () => {
               <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-5xl mb-7">{content.hero.title}</h1>
               <p className="text-lg md:text-2xl font-light leading-relaxed text-white/85 max-w-3xl mb-9">{content.hero.subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="#modalidades" className="btn-gold btn-icon-inline justify-center">
+                <a href="#modalidades" className="btn-gold !inline-flex items-center gap-2 justify-center">
                   {content.hero.primaryCta}<ArrowRight size={18} aria-hidden="true" />
                 </a>
-                <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-glass btn-icon-inline justify-center">
+                <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-glass !inline-flex items-center gap-2 justify-center">
                   <MessageCircle size={18} aria-hidden="true" />{content.hero.secondaryCta}
                 </a>
               </div>
@@ -326,7 +326,7 @@ const Voluntariado: React.FC = () => {
             <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.calendar.eyebrow}</p>
             <h2 className="font-serif text-4xl md:text-6xl mb-6">{content.calendar.title}</h2>
             <p className="text-white/70 text-lg font-light leading-relaxed max-w-3xl mx-auto mb-9">{content.calendar.description}</p>
-            <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline justify-center">
+            <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
               <MessageCircle size={18} aria-hidden="true" />{content.calendar.cta}
             </a>
             <p className="text-white/45 text-xs mt-5">{content.calendar.note}</p>
@@ -359,7 +359,7 @@ const Voluntariado: React.FC = () => {
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white" data-reveal>
             <h2 className="font-serif text-4xl md:text-6xl mb-6">{content.finalCta.title}</h2>
             <p className="text-white/75 text-lg font-light leading-relaxed max-w-2xl mx-auto mb-9">{content.finalCta.description}</p>
-            <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline justify-center">
+            <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
               {content.finalCta.cta}<ArrowRight size={18} aria-hidden="true" />
             </a>
           </div>
