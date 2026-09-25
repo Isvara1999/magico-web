@@ -12,8 +12,8 @@ export const SITE_URL = 'https://experienciamagico.com';
 // Datos públicos de la campaña de reforestación. Se inyectan en build time y
 // pueden quedar vacíos: la landing deriva a WhatsApp hasta que estén configurados.
 export const REFORESTATION_CONTRIBUTION = {
-  alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() ?? '',
-  accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() ?? '',
+  alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() || 'pueblo-magico',
+  accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() || 'Diego Epelman',
   cbu: import.meta.env.VITE_REFORESTATION_CBU?.trim() ?? '',
   raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 75_000),
 };
