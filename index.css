@@ -124,6 +124,14 @@ h1, h2, h3, h4, .serif-title { font-family: 'Gilda Display', serif; }
   transform: translateY(-3px);
 }
 
+.btn-glass.btn-icon-inline {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 /* Hero-specific CTAs */
 .hero-cta .btn-gold {
   padding: 0.6rem 1.25rem;
