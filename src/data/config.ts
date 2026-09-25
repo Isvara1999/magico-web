@@ -15,6 +15,7 @@ export const REFORESTATION_CONTRIBUTION = {
   alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() ?? '',
   accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() ?? '',
   cbu: import.meta.env.VITE_REFORESTATION_CBU?.trim() ?? '',
+  raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 0),
 };
 
 // Reemplaza los envíos de Netlify Forms (no disponible en Cloudflare Pages).

@@ -8,6 +8,7 @@ import {
   MessageCircle,
   ShieldCheck,
   Sprout,
+  Target,
   TreePine,
   Users,
 } from 'lucide-react';
@@ -24,6 +25,17 @@ const Reforestacion: React.FC = () => {
   const content = t.reforestation;
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
+  const phaseOneGoal = 1_500_000;
+  const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
+    ? Math.max(0, REFORESTATION_CONTRIBUTION.raisedAmount)
+    : 0;
+  const progressPercentage = Math.min(100, (raisedAmount / phaseOneGoal) * 100);
+  const displayedPercentage = Math.round((raisedAmount / phaseOneGoal) * 100);
+  const currencyFormatter = new Intl.NumberFormat(language === 'es' ? 'es-AR' : 'en-US', {
+    style: 'currency',
+    currency: 'ARS',
+    maximumFractionDigits: 0,
+  });
   const whatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
 
   useEffect(() => {
@@ -168,6 +180,60 @@ const Reforestacion: React.FC = () => {
                       <p className="text-sm text-gray-500 font-light leading-relaxed">{stat.description}</p>
                     </article>
                   </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="metas" className="py-20 md:py-28 px-6 bg-bone">
+          <div className="max-w-6xl mx-auto">
+            <div data-reveal className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.funding.eyebrow}</p>
+              <h2 className="font-serif text-4xl md:text-5xl text-brand leading-tight mb-6">{content.funding.title}</h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed">{content.funding.description}</p>
+            </div>
+
+            <div data-reveal data-delay="1" className="rounded-3xl bg-brand p-7 md:p-10 text-white shadow-[0_24px_80px_rgba(0,83,51,0.16)] mb-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-7">
+                <div>
+                  <p className="text-gold text-xs uppercase tracking-[0.2em] font-bold mb-2">{content.funding.currentLabel}</p>
+                  <p className="font-serif text-4xl md:text-5xl">{currencyFormatter.format(raisedAmount)}</p>
+                </div>
+                <div className="md:text-right">
+                  <p className="text-3xl font-semibold text-gold">{displayedPercentage}%</p>
+                  <p className="text-white/65 text-sm">{content.funding.ofGoal} {currencyFormatter.format(phaseOneGoal)}</p>
+                </div>
+              </div>
+              <div
+                className="h-4 rounded-full bg-white/15 overflow-hidden"
+                role="progressbar"
+                aria-label={content.funding.progressLabel}
+                aria-valuemin={0}
+                aria-valuemax={phaseOneGoal}
+                aria-valuenow={Math.min(raisedAmount, phaseOneGoal)}
+              >
+                <div className="h-full rounded-full bg-gold transition-[width] duration-700" style={{ width: `${progressPercentage}%` }} />
+              </div>
+              <p className="text-white/55 text-xs mt-4">{content.funding.updatedNote}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {content.funding.phases.map((phase: { number: string; status: string; title: string; goal: string; description: string }, index: number) => {
+                const Icon = index === 0 ? TreePine : Sprout;
+                return (
+                  <article key={phase.number} data-reveal data-delay={String(index + 1)} className={`rounded-2xl border p-7 md:p-8 ${index === 0 ? 'bg-white border-gold/40 shadow-lg' : 'bg-white/60 border-brand/10'}`}>
+                    <div className="flex items-start justify-between gap-4 mb-7">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${index === 0 ? 'bg-brand text-gold' : 'bg-brand/10 text-brand'}`}>
+                        <Icon size={25} strokeWidth={1.5} aria-hidden="true" />
+                      </div>
+                      <span className={`rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] font-bold ${index === 0 ? 'bg-gold/20 text-[#76570d]' : 'bg-gray-100 text-gray-500'}`}>{phase.status}</span>
+                    </div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-2">{phase.number}</p>
+                    <h3 className="font-serif text-3xl text-brand mb-3">{phase.title}</h3>
+                    <p className="inline-flex items-center gap-2 text-sm font-semibold text-gold-dark mb-4"><Target size={17} aria-hidden="true" />{phase.goal}</p>
+                    <p className="text-gray-600 font-light leading-relaxed">{phase.description}</p>
+                  </article>
                 );
               })}
             </div>

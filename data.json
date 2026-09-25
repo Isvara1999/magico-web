@@ -92,6 +92,31 @@
           { "value": "Comunidad", "label": "en acción", "description": "Organizaciones, voluntariado y personas unidas por la montaña." }
         ]
       },
+      "funding": {
+        "eyebrow": "Metas de la campaña",
+        "title": "Un camino de regeneración en dos fases",
+        "description": "Cada etapa construye las condiciones para que el bosque nativo crezca y el trabajo pueda sostenerse en el tiempo.",
+        "currentLabel": "Recaudado hasta hoy",
+        "ofGoal": "de la primera meta de",
+        "progressLabel": "Progreso de recaudación de la primera fase",
+        "updatedNote": "El total muestra aportes confirmados y se actualiza periódicamente.",
+        "phases": [
+          {
+            "number": "Fase 1",
+            "status": "Meta activa",
+            "title": "Conseguir los árboles",
+            "goal": "Meta: $1.500.000 ARS",
+            "description": "La primera recaudación está destinada a conseguir los árboles nativos necesarios para poner en marcha la nueva etapa de plantación."
+          },
+          {
+            "number": "Fase 2",
+            "status": "Próxima etapa",
+            "title": "Construir el vivero",
+            "goal": "Meta económica a definir",
+            "description": "El siguiente objetivo será construir un vivero que permita producir y cuidar plantines nativos en el territorio, fortaleciendo la continuidad del proyecto."
+          }
+        ]
+      },
       "story": {
         "eyebrow": "Montañas vivas, comunidades fuertes",
         "title": "Regenerar es volver a tejer vínculos",
@@ -2033,6 +2058,31 @@
           { "value": "+25,000", "label": "native trees planted", "description": "The accumulated work behind this new stage." },
           { "value": "+10,000", "label": "new trees", "description": "The planting goal supported by this campaign." },
           { "value": "Community", "label": "in action", "description": "Organizations, volunteers and people united for the mountains." }
+        ]
+      },
+      "funding": {
+        "eyebrow": "Campaign goals",
+        "title": "A two-phase path to regeneration",
+        "description": "Each phase creates the conditions for native forest to grow and for this work to continue over time.",
+        "currentLabel": "Raised so far",
+        "ofGoal": "of the first goal of",
+        "progressLabel": "Fundraising progress for the first phase",
+        "updatedNote": "The total reflects confirmed contributions and is updated periodically.",
+        "phases": [
+          {
+            "number": "Phase 1",
+            "status": "Active goal",
+            "title": "Source the trees",
+            "goal": "Goal: ARS 1,500,000",
+            "description": "The first round of funding will source the native trees required to begin the new planting stage."
+          },
+          {
+            "number": "Phase 2",
+            "status": "Next stage",
+            "title": "Build the nursery",
+            "goal": "Funding goal to be defined",
+            "description": "The next goal will be to build a nursery where native seedlings can be produced and cared for on site, strengthening the project's continuity."
+          }
         ]
       },
       "story": {

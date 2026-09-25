@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly VITE_REFORESTATION_ALIAS?: string;
   readonly VITE_REFORESTATION_ACCOUNT_HOLDER?: string;
   readonly VITE_REFORESTATION_CBU?: string;
+  readonly VITE_REFORESTATION_RAISED_AMOUNT?: string;
 }
 
 interface ImportMeta {
