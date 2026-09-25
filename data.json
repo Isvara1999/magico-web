@@ -100,6 +100,7 @@
         "ofGoal": "de la primera meta de",
         "progressLabel": "Progreso de recaudación de la primera fase",
         "updatedNote": "El total muestra aportes confirmados y se actualiza periódicamente.",
+        "cta": "Aportar a esta meta",
         "phases": [
           {
             "number": "Fase 1",
@@ -163,6 +164,9 @@
         "description": "Transferí el monto que elijas directamente a la cuenta destinada a la campaña. No hay un aporte mínimo.",
         "cardTitle": "Aporte voluntario",
         "cardDescription": "Esta contribución financia el proyecto de reforestación. Es independiente de la rifa y no incluye números, premios, vouchers ni servicios.",
+        "modalTitle": "Hacé tu aporte a la reforestación",
+        "modalDescription": "Elegí el monto que quieras aportar. Podés usar los datos de transferencia o escribirnos por WhatsApp si necesitás ayuda.",
+        "closeModal": "Cerrar opciones de aporte",
         "notes": [
           "Elegís libremente el monto.",
           "La transferencia se realiza en pesos argentinos.",
@@ -2075,6 +2079,7 @@
         "ofGoal": "of the first goal of",
         "progressLabel": "Fundraising progress for the first phase",
         "updatedNote": "The total reflects confirmed contributions and is updated periodically.",
+        "cta": "Contribute to this goal",
         "phases": [
           {
             "number": "Phase 1",
@@ -2138,6 +2143,9 @@
         "description": "Transfer any amount directly to the account dedicated to the campaign. There is no minimum contribution.",
         "cardTitle": "Voluntary contribution",
         "cardDescription": "This contribution funds the reforestation project. It is independent from the raffle and does not include entries, prizes, vouchers or services.",
+        "modalTitle": "Support the reforestation campaign",
+        "modalDescription": "Choose any amount to contribute. Use the bank transfer details or contact us on WhatsApp if you need help.",
+        "closeModal": "Close contribution options",
         "notes": [
           "You choose the amount freely.",
           "Transfers are made in Argentine pesos.",

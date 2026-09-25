@@ -11,6 +11,7 @@ import {
   Target,
   TreePine,
   Users,
+  X,
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -24,6 +25,7 @@ const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
   const content = t.reforestation;
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
+  const [donationModalOpen, setDonationModalOpen] = useState(false);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -115,6 +117,22 @@ const Reforestacion: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!donationModalOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setDonationModalOpen(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [donationModalOpen]);
+
   const copyValue = async (field: 'alias' | 'cbu', value: string) => {
     await navigator.clipboard.writeText(value);
     setCopiedField(field);
@@ -148,10 +166,10 @@ const Reforestacion: React.FC = () => {
               {content.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#aportar" className="btn-gold inline-flex items-center justify-center gap-2">
+              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold inline-flex items-center justify-center gap-2">
                 {content.hero.primaryCta}
                 <ArrowDown size={17} aria-hidden="true" />
-              </a>
+              </button>
               <a href="#impacto" className="btn-glass inline-flex items-center justify-center">
                 {content.hero.secondaryCta}
               </a>
@@ -236,6 +254,12 @@ const Reforestacion: React.FC = () => {
                   </article>
                 );
               })}
+            </div>
+            <div data-reveal className="text-center mt-10">
+              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold inline-flex items-center justify-center gap-2">
+                <Heart size={18} aria-hidden="true" />
+                {content.funding.cta}
+              </button>
             </div>
           </div>
         </section>
@@ -414,11 +438,66 @@ const Reforestacion: React.FC = () => {
               <Leaf size={34} strokeWidth={1.5} className="text-gold mx-auto mb-6" aria-hidden="true" />
               <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-6">{content.closing.title}</h2>
               <p className="text-white/75 text-lg font-light leading-relaxed mb-8">{content.closing.description}</p>
-              <a href="#aportar" className="btn-gold inline-flex items-center justify-center">{content.closing.cta}</a>
+              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold inline-flex items-center justify-center">{content.closing.cta}</button>
             </div>
           </div>
         </section>
       </main>
+
+      {donationModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071d14]/80 px-4 py-8 backdrop-blur-sm"
+          role="presentation"
+          onMouseDown={event => {
+            if (event.target === event.currentTarget) setDonationModalOpen(false);
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="donation-modal-title"
+            className="relative w-full max-w-xl max-h-full overflow-y-auto rounded-3xl bg-white p-7 md:p-10 shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setDonationModalOpen(false)}
+              aria-label={content.contribution.closeModal}
+              className="absolute right-5 top-5 rounded-full p-2 text-gray-400 transition-colors hover:bg-bone hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <X size={22} aria-hidden="true" />
+            </button>
+            <Sprout size={34} strokeWidth={1.5} className="text-gold mb-5" aria-hidden="true" />
+            <p className="text-brand text-[11px] uppercase tracking-[0.22em] font-bold mb-3">{content.contribution.eyebrow}</p>
+            <h2 id="donation-modal-title" className="font-serif text-3xl md:text-4xl text-brand leading-tight mb-4">{content.contribution.modalTitle}</h2>
+            <p className="text-gray-600 font-light leading-relaxed mb-7">{content.contribution.modalDescription}</p>
+
+            {hasAlias ? (
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-3">{content.contribution.aliasLabel}</p>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-brand/15 bg-bone p-5 mb-5">
+                  <code className="text-brand text-xl md:text-2xl font-semibold break-all flex-1">{REFORESTATION_CONTRIBUTION.alias}</code>
+                  <button type="button" onClick={() => copyValue('alias', REFORESTATION_CONTRIBUTION.alias)} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                    {copiedField === 'alias' ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                    {copiedField === 'alias' ? content.contribution.copied : content.contribution.copy}
+                  </button>
+                </div>
+                {REFORESTATION_CONTRIBUTION.accountHolder && <p className="text-sm text-gray-500 mb-3"><span className="font-semibold text-gray-700">{content.contribution.holderLabel}:</span> {REFORESTATION_CONTRIBUTION.accountHolder}</p>}
+                {REFORESTATION_CONTRIBUTION.cbu && <p className="text-sm text-gray-500 break-all mb-6"><span className="font-semibold text-gray-700">{content.contribution.cbuLabel}:</span> {REFORESTATION_CONTRIBUTION.cbu}</p>}
+                <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
+              </div>
+            ) : (
+              <div className="rounded-2xl bg-bone p-5 mb-6">
+                <p className="text-gray-600 font-light leading-relaxed">{content.contribution.fallbackDescription}</p>
+              </div>
+            )}
+
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold w-full inline-flex items-center justify-center gap-2">
+              <MessageCircle size={18} aria-hidden="true" />
+              {hasAlias ? content.contribution.confirmCta : content.contribution.fallbackCta}
+            </a>
+          </section>
+        </div>
+      )}
 
       <Footer />
     </div>
