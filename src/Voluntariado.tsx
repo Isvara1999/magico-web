@@ -38,7 +38,14 @@ const dayIcons = [Sun, Users, Leaf, Sparkles];
 const Voluntariado: React.FC = () => {
   const { t, language } = useLanguage();
   const content = (t as any).volunteerPage;
+  const volunteerEvents = ((t as any).events?.cards || []).filter((event: any) => event.isVolunariado === true);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const getEventApplicationLink = (eventTitle: string) => {
+    const applicationUrl = new URL(content.applyLink);
+    applicationUrl.searchParams.set('text', content.calendar.applyMessage.replace('{event}', eventTitle));
+    return applicationUrl.toString();
+  };
 
   const renderModalityCard = (item: any, index: number) => {
     const Icon = modalityIcons[index] || Sparkles;
@@ -343,15 +350,54 @@ const Voluntariado: React.FC = () => {
         </section>
 
         <section id="convocatorias" className="py-20 md:py-28 bg-brand text-white scroll-mt-24">
-          <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center" data-reveal>
-            <CalendarDays className="text-gold mx-auto mb-6" size={38} aria-hidden="true" />
-            <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.calendar.eyebrow}</p>
-            <h2 className="font-serif text-4xl md:text-6xl mb-6">{content.calendar.title}</h2>
-            <p className="text-white/70 text-lg font-light leading-relaxed max-w-3xl mx-auto mb-9">{content.calendar.description}</p>
-            <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
-              <MessageCircle size={18} aria-hidden="true" />{content.calendar.cta}
-            </a>
-            <p className="text-white/45 text-xs mt-5">{content.calendar.note}</p>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl mx-auto text-center mb-12" data-reveal>
+              <CalendarDays className="text-gold mx-auto mb-6" size={38} aria-hidden="true" />
+              <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.calendar.eyebrow}</p>
+              <h2 className="font-serif text-4xl md:text-6xl mb-6">{content.calendar.title}</h2>
+              <p className="text-white/70 text-lg font-light leading-relaxed">{content.calendar.description}</p>
+            </div>
+
+            {volunteerEvents.length > 0 ? (
+              <div className={`grid gap-6 ${volunteerEvents.length === 1 ? 'max-w-2xl mx-auto' : 'md:grid-cols-2'}`}>
+                {volunteerEvents.map((event: any) => (
+                  <article key={`${event.date}-${event.title}`} data-reveal className="overflow-hidden rounded-2xl border border-white/15 bg-white text-dark shadow-xl">
+                    <div className="relative aspect-[16/9] overflow-hidden bg-brand/10">
+                      <img src={event.image} alt={event.title} className="h-full w-full object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                      <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand shadow-lg">
+                        <CalendarDays size={14} aria-hidden="true" />{event.date}
+                      </div>
+                      <div className="absolute bottom-5 left-5 rounded-full bg-gold px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand">
+                        {content.calendar.volunteerBadge}
+                      </div>
+                    </div>
+                    <div className="p-6 md:p-8">
+                      <h3 className="font-serif text-3xl text-brand mb-3">{event.title}</h3>
+                      <p className="text-dark/65 font-light leading-relaxed mb-7">{event.desc}</p>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
+                          <MessageCircle size={18} aria-hidden="true" />{content.calendar.applyCta}
+                        </a>
+                        {event.link && (
+                          <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-6 py-3 text-xs font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
+                            {content.calendar.eventCta}<ArrowRight size={16} aria-hidden="true" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div data-reveal className="max-w-3xl mx-auto rounded-2xl border border-white/15 bg-white/5 p-8 text-center">
+                <p className="text-white/70 mb-6">{content.calendar.empty}</p>
+                <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
+                  <MessageCircle size={18} aria-hidden="true" />{content.calendar.generalCta}
+                </a>
+              </div>
+            )}
+            <p className="text-white/45 text-xs mt-8 text-center">{content.calendar.note}</p>
           </div>
         </section>
 

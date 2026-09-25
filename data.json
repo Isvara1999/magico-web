@@ -522,9 +522,14 @@
       },
       "calendar": {
         "eyebrow": "Próximas convocatorias",
-        "title": "El calendario también abre puertas",
-        "description": "Estamos preparando una agenda única donde cada retiro, jornada o proyecto podrá indicar si recibe voluntarios, qué roles necesita y qué condiciones ofrece. Mientras se habilitan las primeras convocatorias, podés enviarnos tu interés general.",
-        "cta": "Consultar próximas fechas",
+        "title": "Eventos que reciben voluntarios",
+        "description": "Estas experiencias tienen abierta la posibilidad de participar como voluntario. Explorá cada evento y postulate para acompañar su preparación, hospitalidad, cocina, logística o cierre.",
+        "volunteerBadge": "Convocatoria abierta",
+        "applyCta": "Postularme como voluntario",
+        "eventCta": "Ver evento",
+        "generalCta": "Enviar interés general",
+        "applyMessage": "Hola! Vengo de la página de Programa Semilla y quiero postularme como voluntario para el evento: {event}. ¿Me cuentan sobre las tareas, fechas y condiciones? 🌱",
+        "empty": "En este momento no hay eventos con convocatoria de voluntariado abierta. Podés enviarnos tu interés para próximas fechas.",
         "note": "Enviar tu interés no reserva una plaza. La participación se confirma después de revisar disponibilidad y conversar las condiciones."
       },
       "faq": {
@@ -2769,9 +2774,14 @@
       },
       "calendar": {
         "eyebrow": "Upcoming opportunities",
-        "title": "The calendar opens doors too",
-        "description": "We are preparing a single calendar where every retreat, community day or project can show whether it welcomes volunteers, which roles are needed and what conditions are offered. While the first calls are being prepared, you can send us your general interest.",
-        "cta": "Ask about upcoming dates",
+        "title": "Events welcoming volunteers",
+        "description": "These experiences are currently open to volunteer participation. Explore each event and apply to support preparation, hospitality, cooking, logistics or closing activities.",
+        "volunteerBadge": "Applications open",
+        "applyCta": "Apply as a volunteer",
+        "eventCta": "View event",
+        "generalCta": "Send general interest",
+        "applyMessage": "Hi! I came from the Seed Program page and would like to apply as a volunteer for the event: {event}. Could you tell me about the tasks, dates and conditions? 🌱",
+        "empty": "There are currently no events with an open volunteer call. You can send us your interest for future dates.",
         "note": "Sending your interest does not reserve a place. Participation is confirmed after availability and conditions have been discussed."
       },
       "faq": {
