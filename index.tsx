@@ -24,6 +24,7 @@ const KillaRaymi = lazy(() => import('./src/KillaRaymi'));
 const AlmaDeLobo = lazy(() => import('./src/AlmaDeLobo'));
 const Empresas = lazy(() => import('./src/Empresas'));
 const CordobaFlyFishing = lazy(() => import('./src/CordobaFlyFishing'));
+const Voluntariado = lazy(() => import('./src/Voluntariado'));
 const Despertar = lazy(() => import('./src/Despertar'));
 const WinterCamp = lazy(() => import('./src/WinterCamp'));
 const WinterRedirection = lazy(() => import('./src/WinterRedirection'));
@@ -100,6 +101,7 @@ root.render(
               <Route path="/alma-de-lobo" element={<AlmaDeLobo />} />
               <Route path="/empresas" element={<Empresas />} />
               <Route path="/cordoba-fly-fishing" element={<CordobaFlyFishing />} />
+              <Route path="/voluntariado" element={<Voluntariado />} />
               <Route path="/despertar" element={<Despertar />} />
               <Route path="/winter-camp" element={<WinterCamp />} />
               <Route path="/winter-redirection" element={<WinterRedirection />} />

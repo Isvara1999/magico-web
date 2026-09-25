@@ -162,6 +162,140 @@
         }
       ]
     },
+    "volunteerPage": {
+      "seo": {
+        "title": "Programa Semilla — Voluntariado en Pueblo Mágico",
+        "description": "Viví una experiencia de intercambio consciente en las Sierras de Córdoba. Comunidad, huerta, reforestación, hospitalidad, eventos y regeneración en Pueblo Mágico."
+      },
+      "applyLink": "https://wa.me/5493534226304?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20de%20Programa%20Semilla%20y%20quiero%20conocer%20las%20pr%C3%B3ximas%20convocatorias.%20%F0%9F%8C%B1",
+      "hero": {
+        "eyebrow": "Voluntariado · Comunidad · Regeneración",
+        "title": "Programa Semilla",
+        "subtitle": "No venís solamente a pasar por un lugar. Venís a involucrarte, aprender, compartir y ser parte de un proyecto vivo en la montaña.",
+        "primaryCta": "Descubrir el programa",
+        "secondaryCta": "Quiero participar",
+        "imageAlt": "Comunidad de voluntarios de Pueblo Mágico en la montaña"
+      },
+      "intro": {
+        "eyebrow": "Un intercambio consciente",
+        "title": "Ser parte de algo que está vivo",
+        "p1": "Pueblo Mágico es un eco-centro de montaña donde la vida cotidiana se entrelaza con la naturaleza, la comunidad y los ciclos de la Tierra. Hace más de 25 años que esta familia habita y cuida el territorio.",
+        "p2": "Programa Semilla es la puerta de entrada para participar en su evolución: una experiencia de presencia, aprendizaje, responsabilidad y co-creación. No es un proyecto terminado. Quienes llegan participan también de su construcción.",
+        "quote": "Regenerar el territorio también es regenerar nuestra forma de habitar.",
+        "imageAlt": "Vista aérea del territorio de Pueblo Mágico"
+      },
+      "modalities": {
+        "eyebrow": "Formas de participar",
+        "title": "Encontrá tu manera de sembrar",
+        "description": "Podés integrarte a la vida cotidiana, acompañar un evento o sumarte a una jornada concreta. Cada modalidad tiene tiempos, responsabilidades y condiciones propias.",
+        "items": [
+          { "tag": "2 a 4 semanas", "title": "Colibrí", "description": "Una primera inmersión en la vida comunitaria. Participás en una o más áreas, compartís el ritmo cotidiano y conocés el proyecto desde adentro." },
+          { "tag": "1 a 3 meses", "title": "Abeja", "description": "Un compromiso más profundo, con continuidad, responsabilidades sostenidas y la posibilidad de acompañar un área o proyecto específico." },
+          { "tag": "Fechas concretas", "title": "Eventos y retiros", "description": "Apoyo en cocina, hospitalidad, preparación del espacio, limpieza y logística antes, durante y después de una experiencia." },
+          { "tag": "Un día", "title": "Jornadas abiertas", "description": "Encuentros de reforestación, huerta, compost, arte o mantenimiento para quienes viven cerca o quieren conocer el proyecto." },
+          { "tag": "A medida", "title": "Proyectos especiales", "description": "Propuestas presenciales o digitales alineadas con Pueblo Mágico, revisadas junto al equipo antes de ponerse en marcha." }
+        ]
+      },
+      "exchange": {
+        "eyebrow": "El intercambio",
+        "title": "Dar, recibir y habitar con presencia",
+        "description": "La referencia general es una participación de aproximadamente seis horas por día, seis días por semana. El ritmo se conversa y se adapta al clima, los eventos, las necesidades del espacio y el bienestar del grupo.",
+        "columns": [
+          { "title": "Lo que aportás", "items": ["Presencia, compromiso y responsabilidad", "Predisposición para aprender y colaborar", "Cuidado del espacio y de la comunidad", "Participación activa en las tareas acordadas", "Flexibilidad y comunicación clara"] },
+          { "title": "Lo que recibís", "items": ["Alojamiento compartido o acampe, según disponibilidad", "Alimentación y vida cotidiana compartida", "Aprendizaje práctico en distintas áreas", "Contacto profundo con la naturaleza", "Experiencia comunitaria y espacios de integración"] }
+        ],
+        "note": "Puede existir un aporte semanal sugerido para acompañar los costos del espacio. Es opcional, se conversa según las posibilidades de cada persona y su valor vigente se informa antes de confirmar la estadía. Las condiciones específicas se acuerdan por escrito para cada convocatoria."
+      },
+      "areas": {
+        "eyebrow": "Áreas de participación",
+        "title": "Lo cotidiano también transforma",
+        "description": "Las tareas cambian con la estación, el clima, los huéspedes y las prioridades del proyecto. Estas son las principales áreas donde podés aportar.",
+        "items": [
+          { "title": "Cocina y alimentación", "description": "Cuidamos el alimento como parte central de la experiencia.", "tasks": ["Preparación y servicio de comidas", "Orden, limpieza y stock", "Planificación junto al responsable de cocina"] },
+          { "title": "Hospitalidad", "description": "Preparamos y sostenemos espacios cálidos para quienes llegan.", "tasks": ["Habitaciones, domos y baños", "Recepción y espacios comunes", "Apoyo durante entradas, salidas y eventos"] },
+          { "title": "Huerta y sintropía", "description": "Aprendemos a producir alimentos respetando los ciclos naturales.", "tasks": ["Siembra, riego y cosecha", "Compost, suelo y vivero", "Agricultura regenerativa y bosque comestible"] },
+          { "title": "Reforestación", "description": "Acompañamos la recuperación del bosque nativo de las Sierras.", "tasks": ["Semillas y propagación", "Plantación, riego y protección", "Monitoreo y jornadas comunitarias"] },
+          { "title": "Mantenimiento", "description": "Cuidamos la infraestructura que hace posible la vida del lugar.", "tasks": ["Leña, jardín y senderos", "Herramientas y materiales", "Reparaciones simples y mantenimiento preventivo"] },
+          { "title": "Arte y creatividad", "description": "La belleza y la expresión también construyen comunidad.", "tasks": ["Pintura y señalización", "Objetos decorativos o funcionales", "Intervenciones previamente acordadas"] },
+          { "title": "Sustentabilidad", "description": "Buscamos usar los recursos con conciencia y coherencia.", "tasks": ["Separación de residuos", "Compostaje y optimización de recursos", "Tecnologías y prácticas apropiadas"] }
+        ],
+        "safety": "La seguridad está primero. Las tareas técnicas o de mayor riesgo —electricidad, altura, maquinaria y estructuras resistentes— requieren experiencia comprobada y supervisión competente; no forman parte del voluntariado general."
+      },
+      "day": {
+        "eyebrow": "Un día en Mágico",
+        "title": "Una base clara, un ritmo orgánico",
+        "description": "No todos los días son iguales. Hay jornadas intensas y otras más livianas. Esta estructura nos ayuda a organizarnos sin perder escucha, descanso ni disfrute.",
+        "items": [
+          { "time": "Mañana", "title": "Presencia y encuentro", "description": "Tiempo personal, desayuno compartido y un check-in breve para reconocer qué necesita el día y distribuir responsabilidades." },
+          { "time": "Bloque principal", "title": "La tarea central", "description": "El aporte principal sucede por la mañana, en equipo o de manera individual, con una prioridad clara y acompañamiento." },
+          { "time": "Mediodía", "title": "Alimento y descanso", "description": "Almuerzo compartido, pausa real y tiempo para descansar, ir al río, caminar o simplemente estar." },
+          { "time": "Tarde y noche", "title": "Flexibilidad e integración", "description": "Cierre de pendientes o tareas livianas, check-out breve y una noche abierta al descanso, la música, el fuego y los encuentros espontáneos." }
+        ]
+      },
+      "organization": {
+        "eyebrow": "Organización Viva",
+        "title": "Claridad antes que control",
+        "description": "No trabajamos desde una jerarquía rígida. Sí existen responsables de área y coordinadores que cuidan las prioridades, la seguridad y los acuerdos. La autonomía siempre viene acompañada de responsabilidad.",
+        "steps": [
+          { "title": "Actividad principal", "description": "El foco que debe suceder ese día." },
+          { "title": "Top 3", "description": "Tres tareas importantes que sostienen el funcionamiento." },
+          { "title": "Tablero abierto", "description": "Mejoras y tareas opcionales para aportar con iniciativa." },
+          { "title": "Roles rotativos", "description": "Coordinación, orden y cocina para que todas las personas aprendan y nadie se desgaste." }
+        ],
+        "imageAltOne": "Preparación comunitaria de alimentos",
+        "imageAltTwo": "Herramientas para tareas de mantenimiento"
+      },
+      "culture": {
+        "eyebrow": "Convivencia y cultura",
+        "title": "La comunidad se construye todos los días",
+        "description": "La experiencia no depende solamente de lo que hacemos, sino de desde dónde y cómo lo hacemos.",
+        "items": [
+          { "title": "Respeto", "description": "Por las personas, los tiempos, los espacios y los procesos individuales y colectivos." },
+          { "title": "Comunicación", "description": "Clara, directa, no violenta y abierta a conversar lo que necesita atención." },
+          { "title": "Autonomía", "description": "Cada persona se cuida a sí misma y reconoce el impacto de sus acciones en el grupo." },
+          { "title": "Interdependencia", "description": "Compartimos responsabilidades, pedimos ayuda y cuidamos el bienestar común." }
+        ],
+        "note": "Los círculos de palabra son una práctica comunitaria para escuchar y ajustar acuerdos. No sustituyen apoyo profesional, protocolos de emergencia ni un canal confidencial para situaciones de violencia, acoso o inseguridad."
+      },
+      "process": {
+        "eyebrow": "Cómo sumarte",
+        "title": "De la intención al encuentro",
+        "description": "Queremos que cada llegada sea cuidada y que las expectativas sean claras para ambas partes. Postularte no confirma automáticamente una plaza ni un alojamiento.",
+        "steps": [
+          { "title": "Elegí una modalidad", "description": "Contanos tus fechas, intereses y si buscás una convocatoria específica o una estadía general." },
+          { "title": "Compartí tu motivación", "description": "Queremos conocer tu experiencia, tus dones, lo que querés aprender y cómo vivís la comunidad." },
+          { "title": "Conversemos", "description": "Revisamos disponibilidad y, cuando corresponde, coordinamos una conversación antes de decidir." },
+          { "title": "Confirmación", "description": "Si hay un buen encaje, acordamos rol, fechas, alojamiento, comidas, aporte, llegada y convivencia." },
+          { "title": "Llegada e integración", "description": "Recibís una orientación inicial, conocés a las personas responsables y empezás a habitar el ritmo del lugar." },
+          { "title": "Cierre", "description": "Al finalizar compartimos aprendizajes y devoluciones para cuidar tanto a la persona como al proyecto." }
+        ]
+      },
+      "calendar": {
+        "eyebrow": "Próximas convocatorias",
+        "title": "El calendario también abre puertas",
+        "description": "Estamos preparando una agenda única donde cada retiro, jornada o proyecto podrá indicar si recibe voluntarios, qué roles necesita y qué condiciones ofrece. Mientras se habilitan las primeras convocatorias, podés enviarnos tu interés general.",
+        "cta": "Consultar próximas fechas",
+        "note": "Enviar tu interés no reserva una plaza. La participación se confirma después de revisar disponibilidad y conversar las condiciones."
+      },
+      "faq": {
+        "eyebrow": "Antes de venir",
+        "title": "Preguntas frecuentes",
+        "items": [
+          { "question": "¿Programa Semilla es para mí?", "answer": "Es para personas con deseo genuino de involucrarse, aprender y colaborar. La vida comunitaria requiere presencia, flexibilidad, responsabilidad y capacidad de habitar un entorno natural de montaña. No está pensado como alojamiento económico ni como vacaciones pasivas." },
+          { "question": "¿Cuánto tiempo puedo quedarme?", "answer": "Colibrí propone estadías de 2 a 4 semanas y Abeja compromisos de 1 a 3 meses. Las jornadas y eventos tienen fechas específicas. Toda estadía depende de disponibilidad, conversación previa y confirmación." },
+          { "question": "¿Qué incluye el intercambio?", "answer": "Según la convocatoria puede incluir alojamiento compartido o acampe, alimentación y participación en la vida comunitaria. Antes de confirmar te enviaremos las condiciones exactas, qué debés traer y cualquier aporte sugerido vigente." },
+          { "question": "¿Puedo elegir solamente un área?", "answer": "Podés expresar preferencias y aportar habilidades concretas. Al mismo tiempo, la vida comunitaria incluye tareas esenciales compartidas, como orden, cocina o cuidado de espacios. El rol final se conversa según tus intereses y las necesidades reales del momento." },
+          { "question": "¿Necesito experiencia previa?", "answer": "No para todas las tareas. Valoramos la disposición para aprender. Las actividades técnicas, el uso de herramientas especiales y las tareas de riesgo solo se asignan con experiencia y supervisión adecuadas." },
+          { "question": "¿Cómo llego y qué tengo que llevar?", "answer": "Pueblo Mágico está en un entorno de montaña. Al confirmar te compartimos instrucciones de llegada y una lista actualizada según estación, alojamiento y actividad. Siempre debés traer ropa apropiada, calzado firme, medicación personal y elementos de higiene." }
+        ]
+      },
+      "finalCta": {
+        "title": "Tu manera de habitar hace la diferencia",
+        "description": "Lo que te llevás no depende solamente del lugar, sino de cómo elegís involucrarte. Si sentís el llamado a participar, queremos conocerte.",
+        "cta": "Quiero ser parte",
+        "imageAlt": "Comunidad reunida alrededor del fuego en Pueblo Mágico"
+      }
+    },
     "retreats": {
       "tag": "Experiencias Grupales",
       "shortTitle": "Retiros Grupales",
@@ -383,7 +517,7 @@
             },
             {
               "label": "Voluntariados",
-              "href": "#voluntariados"
+              "href": "/voluntariado"
             }
           ]
         }, 
@@ -2013,6 +2147,140 @@
         }
       ]
     },
+    "volunteerPage": {
+      "seo": {
+        "title": "Programa Semilla — Volunteering at Pueblo Mágico",
+        "description": "Join a conscious exchange experience in the Córdoba mountains. Community, gardening, reforestation, hospitality, events and regeneration at Pueblo Mágico."
+      },
+      "applyLink": "https://wa.me/5493534226304?text=Hi!%20I%20visited%20the%20Programa%20Semilla%20page%20and%20would%20like%20to%20learn%20about%20the%20next%20volunteer%20opportunities.%20%F0%9F%8C%B1",
+      "hero": {
+        "eyebrow": "Volunteering · Community · Regeneration",
+        "title": "Programa Semilla",
+        "subtitle": "You are not only passing through a place. You come to get involved, learn, share and become part of a living project in the mountains.",
+        "primaryCta": "Discover the program",
+        "secondaryCta": "I want to join",
+        "imageAlt": "Pueblo Mágico volunteer community in the mountains"
+      },
+      "intro": {
+        "eyebrow": "A conscious exchange",
+        "title": "Become part of something alive",
+        "p1": "Pueblo Mágico is a mountain eco-centre where daily life meets nature, community and the cycles of the Earth. This family has lived in and cared for the territory for more than 25 years.",
+        "p2": "Programa Semilla is an invitation to participate in its evolution: an experience of presence, learning, responsibility and co-creation. This is not a finished project. Those who arrive also take part in building it.",
+        "quote": "Regenerating the territory also means regenerating the way we live.",
+        "imageAlt": "Aerial view of the Pueblo Mágico territory"
+      },
+      "modalities": {
+        "eyebrow": "Ways to participate",
+        "title": "Find your way to plant a seed",
+        "description": "You can join daily community life, support an event or take part in a specific work day. Each format has its own timing, responsibilities and conditions.",
+        "items": [
+          { "tag": "2 to 4 weeks", "title": "Hummingbird", "description": "A first immersion in community life. Participate in one or more areas, share the daily rhythm and discover the project from within." },
+          { "tag": "1 to 3 months", "title": "Bee", "description": "A deeper commitment with continuity, sustained responsibilities and the possibility of supporting a particular area or project." },
+          { "tag": "Specific dates", "title": "Events and retreats", "description": "Support with cooking, hospitality, space preparation, cleaning and logistics before, during and after an experience." },
+          { "tag": "One day", "title": "Open community days", "description": "Reforestation, gardening, composting, art or maintenance days for nearby residents and people who want to discover the project." },
+          { "tag": "Tailored", "title": "Special projects", "description": "On-site or digital proposals aligned with Pueblo Mágico, reviewed with the team before they begin." }
+        ]
+      },
+      "exchange": {
+        "eyebrow": "The exchange",
+        "title": "Give, receive and live with presence",
+        "description": "The general reference is approximately six hours of participation per day, six days per week. The rhythm is discussed and adapted to the weather, events, the needs of the place and the wellbeing of the group.",
+        "columns": [
+          { "title": "What you contribute", "items": ["Presence, commitment and responsibility", "A willingness to learn and collaborate", "Care for the place and the community", "Active participation in agreed responsibilities", "Flexibility and clear communication"] },
+          { "title": "What you receive", "items": ["Shared accommodation or camping, subject to availability", "Food and shared daily life", "Practical learning across different areas", "Deep contact with nature", "Community experience and integration spaces"] }
+        ],
+        "note": "A suggested weekly contribution may help cover the costs of the space. It is optional, discussed according to each person's possibilities, and the current amount is shared before confirming a stay. Specific conditions are agreed in writing for each opportunity."
+      },
+      "areas": {
+        "eyebrow": "Participation areas",
+        "title": "Daily life can transform us too",
+        "description": "Tasks change with the season, weather, guests and project priorities. These are the main areas where you can contribute.",
+        "items": [
+          { "title": "Kitchen and food", "description": "We care for food as a central part of the experience.", "tasks": ["Preparing and serving meals", "Cleaning, organisation and stock", "Planning with the kitchen lead"] },
+          { "title": "Hospitality", "description": "We prepare and sustain welcoming spaces for those who arrive.", "tasks": ["Rooms, domes and bathrooms", "Reception and shared spaces", "Support with arrivals, departures and events"] },
+          { "title": "Garden and syntropy", "description": "We learn to produce food while respecting natural cycles.", "tasks": ["Sowing, watering and harvesting", "Compost, soil and nursery", "Regenerative agriculture and food forest"] },
+          { "title": "Reforestation", "description": "We support the recovery of native forests in the Sierras.", "tasks": ["Seeds and propagation", "Planting, watering and protection", "Monitoring and community days"] },
+          { "title": "Maintenance", "description": "We care for the infrastructure that makes life here possible.", "tasks": ["Firewood, gardens and paths", "Tools and materials", "Simple repairs and preventive maintenance"] },
+          { "title": "Art and creativity", "description": "Beauty and expression also build community.", "tasks": ["Painting and signage", "Decorative or functional objects", "Previously agreed interventions"] },
+          { "title": "Sustainability", "description": "We seek to use resources with awareness and consistency.", "tasks": ["Waste separation", "Composting and resource optimisation", "Appropriate technologies and practices"] }
+        ],
+        "safety": "Safety comes first. Technical or higher-risk tasks — electricity, heights, machinery and load-bearing structures — require proven experience and competent supervision; they are not part of general volunteering."
+      },
+      "day": {
+        "eyebrow": "A day at Mágico",
+        "title": "A clear foundation, an organic rhythm",
+        "description": "No two days are the same. Some are intense and others lighter. This structure helps us stay organised without losing listening, rest or enjoyment.",
+        "items": [
+          { "time": "Morning", "title": "Presence and connection", "description": "Personal time, shared breakfast and a short check-in to identify what the day needs and distribute responsibilities." },
+          { "time": "Main block", "title": "The central task", "description": "The main contribution happens in the morning, as a team or individually, with a clear priority and support." },
+          { "time": "Midday", "title": "Food and rest", "description": "Shared lunch, a real pause and time to rest, visit the river, walk or simply be." },
+          { "time": "Afternoon and evening", "title": "Flexibility and integration", "description": "Closing pending work or lighter tasks, a short check-out and an evening open to rest, music, fire and spontaneous gatherings." }
+        ]
+      },
+      "organization": {
+        "eyebrow": "Living Organisation",
+        "title": "Clarity before control",
+        "description": "We do not work through a rigid hierarchy. There are, however, area leads and coordinators who care for priorities, safety and agreements. Autonomy always comes with responsibility.",
+        "steps": [
+          { "title": "Main activity", "description": "The focus that needs to happen that day." },
+          { "title": "Top three", "description": "Three important tasks that sustain the place." },
+          { "title": "Open board", "description": "Improvements and optional tasks for proactive contribution." },
+          { "title": "Rotating roles", "description": "Coordination, order and kitchen so everyone learns and no one burns out." }
+        ],
+        "imageAltOne": "Community food preparation",
+        "imageAltTwo": "Tools for maintenance tasks"
+      },
+      "culture": {
+        "eyebrow": "Community and culture",
+        "title": "Community is built every day",
+        "description": "The experience depends not only on what we do, but on where it comes from and how we do it.",
+        "items": [
+          { "title": "Respect", "description": "For people, time, spaces and individual and collective processes." },
+          { "title": "Communication", "description": "Clear, direct, non-violent and open to discussing what needs attention." },
+          { "title": "Autonomy", "description": "Each person cares for themselves and recognises how their actions affect the group." },
+          { "title": "Interdependence", "description": "We share responsibilities, ask for help and care for collective wellbeing." }
+        ],
+        "note": "Talking circles are a community practice for listening and adjusting agreements. They do not replace professional support, emergency protocols or a confidential channel for situations involving violence, harassment or safety."
+      },
+      "process": {
+        "eyebrow": "How to join",
+        "title": "From intention to encounter",
+        "description": "We want every arrival to be thoughtful and expectations to be clear on both sides. Applying does not automatically confirm a place or accommodation.",
+        "steps": [
+          { "title": "Choose a format", "description": "Tell us your dates, interests and whether you are looking for a specific opportunity or a general stay." },
+          { "title": "Share your motivation", "description": "We want to know your experience, gifts, what you hope to learn and how you approach community life." },
+          { "title": "Let's talk", "description": "We review availability and, where appropriate, arrange a conversation before making a decision." },
+          { "title": "Confirmation", "description": "If the fit is right, we agree on role, dates, accommodation, meals, contribution, arrival and community guidelines." },
+          { "title": "Arrival and integration", "description": "You receive an orientation, meet the responsible people and begin to enter the rhythm of the place." },
+          { "title": "Closing", "description": "At the end, we share learnings and feedback to care for both the participant and the project." }
+        ]
+      },
+      "calendar": {
+        "eyebrow": "Upcoming opportunities",
+        "title": "The calendar opens doors too",
+        "description": "We are preparing a single calendar where every retreat, community day or project can show whether it welcomes volunteers, which roles are needed and what conditions are offered. While the first calls are being prepared, you can send us your general interest.",
+        "cta": "Ask about upcoming dates",
+        "note": "Sending your interest does not reserve a place. Participation is confirmed after availability and conditions have been discussed."
+      },
+      "faq": {
+        "eyebrow": "Before you come",
+        "title": "Frequently asked questions",
+        "items": [
+          { "question": "Is Programa Semilla for me?", "answer": "It is for people with a genuine desire to get involved, learn and collaborate. Community life requires presence, flexibility, responsibility and the ability to live in a natural mountain environment. It is not intended as budget accommodation or a passive holiday." },
+          { "question": "How long can I stay?", "answer": "Hummingbird offers stays of 2 to 4 weeks and Bee commitments of 1 to 3 months. Community days and events have specific dates. Every stay depends on availability, a prior conversation and confirmation." },
+          { "question": "What does the exchange include?", "answer": "Depending on the opportunity, it may include shared accommodation or camping, food and participation in community life. Before confirming, we will share the exact conditions, what you need to bring and any current suggested contribution." },
+          { "question": "Can I choose only one area?", "answer": "You can express preferences and contribute specific skills. At the same time, community life includes shared essential tasks such as order, cooking and caring for spaces. The final role is discussed according to your interests and the real needs of the moment." },
+          { "question": "Do I need previous experience?", "answer": "Not for every task. We value a willingness to learn. Technical activities, special tools and higher-risk tasks are assigned only with appropriate experience and supervision." },
+          { "question": "How do I get there and what should I bring?", "answer": "Pueblo Mágico is in a mountain environment. Once confirmed, we share arrival instructions and an updated list for the season, accommodation and activity. You should always bring suitable clothing, sturdy footwear, personal medication and hygiene products." }
+        ]
+      },
+      "finalCta": {
+        "title": "The way you inhabit a place makes a difference",
+        "description": "What you take away depends not only on the place, but on how you choose to get involved. If you feel called to participate, we would love to meet you.",
+        "cta": "I want to be part of it",
+        "imageAlt": "Community gathered around a fire at Pueblo Mágico"
+      }
+    },
     "retreats": {
       "tag": "Group Experiences",
       "shortTitle": "Group Retreats",
@@ -2234,7 +2502,7 @@
             },
             {
               "label": "Volunteering",
-              "href": "#voluntariados"
+              "href": "/voluntariado"
             }
           ]
         },
@@ -2336,6 +2604,13 @@
         "social": "Social",
         "phone": "5493516765820",
         "whatsappLink": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF"
+      },
+      "values": {
+        "email": "experienciamagico@gmail.com",
+        "whatsapp": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF",
+        "social": "https://instagram.com/pueblomagico__",
+        "socialTag": "@pueblomagico__",
+        "phone": "5493516765820"
       }
     },
     "footer": {

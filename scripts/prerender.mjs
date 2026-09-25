@@ -123,6 +123,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/cordoba-fly-fishing',
   },
   {
+    path: '/voluntariado',
+    title: 'Programa Semilla — Voluntariado en Pueblo Mágico',
+    description: 'Viví una experiencia de intercambio consciente en las Sierras de Córdoba. Comunidad, huerta, reforestación, hospitalidad, eventos y regeneración en Pueblo Mágico.',
+    image: 'https://experienciamagico.com/uploads/voluntarios.webp',
+    canonical: 'https://experienciamagico.com/voluntariado',
+  },
+  {
     path: '/organizamos-tu-experiencia',
     title: 'Organizamos tu Experiencia — Retiros, Vivencias & Viajes | Pueblo Mágico',
     description: 'Diseñamos la experiencia que tu comunidad necesita. Retiros, campamentos, viajes y vivencias transformadoras en la montaña de Córdoba. Armonización sonora, cabalgatas, temazcal y más.',
