@@ -168,7 +168,7 @@ const Reforestacion: React.FC = () => {
               {content.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#metas" className="btn-gold inline-flex items-center justify-center gap-2">
+              <a href="#metas" className="btn-gold btn-icon-inline">
                 {content.hero.primaryCta}
                 <ArrowDown size={17} aria-hidden="true" />
               </a>
@@ -258,7 +258,7 @@ const Reforestacion: React.FC = () => {
               })}
             </div>
             <div data-reveal className="text-center mt-10">
-              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold inline-flex items-center justify-center gap-2">
+              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold btn-icon-inline">
                 <Heart size={18} aria-hidden="true" />
                 {content.funding.cta}
               </button>
@@ -496,7 +496,7 @@ const Reforestacion: React.FC = () => {
                           </div>
                         )}
                         <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold w-full inline-flex items-center justify-center gap-2">
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
                           <MessageCircle size={18} aria-hidden="true" />
                           {content.contribution.confirmCta}
                         </a>
@@ -506,7 +506,7 @@ const Reforestacion: React.FC = () => {
                         <MessageCircle size={36} strokeWidth={1.5} className="text-gold mx-auto mb-5" aria-hidden="true" />
                         <h3 className="font-serif text-3xl text-brand mb-4">{content.contribution.fallbackTitle}</h3>
                         <p className="text-gray-500 font-light leading-relaxed mb-7">{content.contribution.fallbackDescription}</p>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold inline-flex items-center justify-center gap-2">
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
                           <MessageCircle size={18} aria-hidden="true" />
                           {content.contribution.fallbackCta}
                         </a>
@@ -587,7 +587,7 @@ const Reforestacion: React.FC = () => {
               </div>
             )}
 
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold w-full inline-flex items-center justify-center gap-2">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
               <MessageCircle size={18} aria-hidden="true" />
               {hasAlias ? content.contribution.confirmCta : content.contribution.fallbackCta}
             </a>
