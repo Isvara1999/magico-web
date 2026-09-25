@@ -160,6 +160,9 @@
               { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Detalle de arbolitos nativos recibidos en cajones azules", "caption": "Arbolitos recibidos, pendientes de selección y conteo completo.", "type": "image" },
               { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Arbolitos nativos agrupados para su revisión", "caption": "Ejemplares agrupados para avanzar con la revisión inicial.", "type": "image" },
               { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video de los árboles nativos que ya llegaron al proyecto", "caption": "Registro en video de los árboles que ya se encuentran en el lugar.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-02.mp4", "alt": "Video del trabajo con los árboles nativos recibidos para la primera fase", "caption": "Nuevo registro del estado y cuidado de los árboles recibidos.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-03.mp4", "alt": "Video del avance de la selección de árboles nativos", "caption": "Avance del proceso de selección y organización de los árboles.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-04.mp4", "alt": "Video de los árboles nativos alojados en Pueblo Mágico", "caption": "Los árboles que ya están en el lugar durante esta primera etapa.", "type": "video" },
               { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Primer plano de arbolitos nativos recibidos", "caption": "Árboles a la espera de sanitización, poda y nutrición inicial.", "type": "image" }
             ]
           },
@@ -2221,6 +2224,9 @@
               { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Close view of received native baby trees in blue crates", "caption": "Received trees awaiting full selection and counting.", "type": "image" },
               { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Native baby trees grouped for review", "caption": "Trees grouped together for their initial review.", "type": "image" },
               { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video of the native trees that have arrived at the project", "caption": "Video record of the trees already at the site.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-02.mp4", "alt": "Video of the work with the native trees received for phase one", "caption": "A new record of the condition and care of the trees received.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-03.mp4", "alt": "Video showing progress in selecting the native trees", "caption": "Progress in the tree selection and organization process.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video-04.mp4", "alt": "Video of the native trees being kept at Pueblo Mágico", "caption": "The trees already on site during this first stage.", "type": "video" },
               { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Close-up of received native baby trees", "caption": "Trees awaiting sanitisation, pruning and initial nutrition.", "type": "image" }
             ]
           },
