@@ -265,6 +265,30 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
+        <section className="py-20 md:py-28 px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div data-reveal className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.nursery.eyebrow}</p>
+              <h2 className="font-serif text-4xl md:text-5xl text-brand leading-tight mb-6">{content.nursery.title}</h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed">{content.nursery.description}</p>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-7">
+              {content.nursery.options.map((option: { title: string; description: string; image: string; imageAlt: string }, index: number) => (
+                <article key={option.title} data-reveal data-delay={String(index + 1)} className="overflow-hidden rounded-2xl border border-brand/10 bg-bone shadow-lg">
+                  <img src={option.image} alt={option.imageAlt} className="w-full aspect-[3/2] object-cover" loading="lazy" decoding="async" />
+                  <div className="p-6 md:p-7">
+                    <h3 className="font-serif text-3xl text-brand mb-3">{option.title}</h3>
+                    <p className="text-gray-600 font-light leading-relaxed">{option.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p data-reveal className="max-w-4xl mx-auto mt-8 rounded-xl border border-gold/25 bg-gold/10 px-5 py-4 text-center text-sm text-gray-600 leading-relaxed">
+              {content.nursery.note}
+            </p>
+          </div>
+        </section>
+
         <section className="py-20 md:py-28 px-6 bg-bone">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div data-reveal>

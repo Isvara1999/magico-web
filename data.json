@@ -132,6 +132,26 @@
           }
         ]
       },
+      "nursery": {
+        "eyebrow": "Fase 2 · Vivero",
+        "title": "Dos alternativas para cuidar los árboles",
+        "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles antes de llevarlos a la montaña.",
+        "options": [
+          {
+            "title": "Vivero domo",
+            "description": "Una estructura circular de 8 metros de diámetro y 3 metros de altura, con estanterías perimetrales de cuatro niveles, pasillo central y mesa de trabajo.",
+            "image": "/uploads/reforestacion/vivero-domo.webp",
+            "imageAlt": "Diseño conceptual de vivero domo con estanterías para árboles"
+          },
+          {
+            "title": "Vivero rectangular",
+            "description": "Una estructura de 8 por 6 metros con postes de álamo, techo plástico a dos aguas, estanterías de cuatro niveles y circulación central.",
+            "image": "/uploads/reforestacion/vivero-rectangular.webp",
+            "imageAlt": "Diseño conceptual de vivero rectangular con estructura de madera"
+          }
+        ],
+        "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica."
+      },
       "story": {
         "eyebrow": "Montañas vivas, comunidades fuertes",
         "title": "Regenerar es volver a tejer vínculos",
@@ -2117,6 +2137,26 @@
             "description": "During the 2026–2027 summer, we will bring the trees into the landscape through planting, protection and initial-care days."
           }
         ]
+      },
+      "nursery": {
+        "eyebrow": "Phase 2 · Nursery",
+        "title": "Two alternatives for caring for the trees",
+        "description": "We are evaluating two possible configurations to shelter and care for the trees before bringing them into the mountains.",
+        "options": [
+          {
+            "title": "Dome nursery",
+            "description": "A circular structure measuring 8 metres in diameter and 3 metres high, with four-level perimeter shelving, a central aisle and a work table.",
+            "image": "/uploads/reforestacion/vivero-domo.webp",
+            "imageAlt": "Concept design for a dome nursery with tree shelving"
+          },
+          {
+            "title": "Rectangular nursery",
+            "description": "An 8 by 6 metre structure with poplar posts, a pitched plastic roof, four-level shelving and a central circulation aisle.",
+            "image": "/uploads/reforestacion/vivero-rectangular.webp",
+            "imageAlt": "Concept design for a rectangular nursery with a timber structure"
+          }
+        ],
+        "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation."
       },
       "story": {
         "eyebrow": "Living mountains, strong communities",
