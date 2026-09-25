@@ -141,6 +141,7 @@ const Reforestacion: React.FC = () => {
 
   const impactIcons = [TreePine, Sprout, Users];
   const useIcons = [Sprout, ShieldCheck, Heart, Leaf];
+  const phaseIcons = [Target, Sprout, Heart, TreePine];
 
   return (
     <div className="bg-bone text-dark overflow-x-hidden">
@@ -238,7 +239,7 @@ const Reforestacion: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               {content.funding.phases.map((phase: { number: string; status: string; title: string; goal: string; description: string }, index: number) => {
-                const Icon = index < 2 ? TreePine : Sprout;
+                const Icon = phaseIcons[index] ?? Sprout;
                 return (
                   <article key={phase.number} data-reveal data-delay={String(index + 1)} className={`rounded-2xl border p-7 md:p-8 ${index === 0 ? 'bg-white border-gold/40 shadow-lg' : 'bg-white/60 border-brand/10'}`}>
                     <div className="flex items-start justify-between gap-4 mb-7">

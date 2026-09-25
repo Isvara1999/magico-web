@@ -94,8 +94,8 @@
       },
       "funding": {
         "eyebrow": "Metas de la campaña",
-        "title": "Un camino de regeneración en tres fases",
-        "description": "Cada etapa construye las condiciones para que el bosque nativo crezca y el trabajo pueda sostenerse en el tiempo.",
+        "title": "Cuatro pasos para llevar los árboles a la montaña",
+        "description": "Los 10.000 árboles ya están disponibles para el proyecto. La campaña avanza por hitos: activar el trabajo con una seña, preparar el vivero, completar el pago y finalmente plantar.",
         "currentLabel": "Recaudado hasta hoy",
         "ofGoal": "de la primera meta de",
         "progressLabel": "Progreso de recaudación de la primera fase",
@@ -105,23 +105,30 @@
           {
             "number": "Fase 1",
             "status": "Meta activa",
-            "title": "Conseguir los primeros 1.000 árboles",
-            "goal": "Meta: $1.500.000 ARS",
-            "description": "La primera recaudación está destinada a conseguir 1.000 árboles nativos a $1.500 cada uno y poner en marcha la nueva etapa de plantación."
+            "title": "Financiar la seña",
+            "goal": "Meta inicial: $1.500.000 ARS",
+            "description": "La primera meta es reunir la seña necesaria para confirmar los 10.000 árboles e iniciar formalmente el proyecto."
           },
           {
             "number": "Fase 2",
             "status": "Próxima etapa",
-            "title": "Completar los 10.000 árboles",
-            "goal": "Meta total: $15.000.000 ARS",
-            "description": "La próxima meta es reunir el monto completo para pagar los 10.000 árboles nativos de la campaña, calculados a $1.500 por árbol."
+            "title": "Construir el vivero",
+            "goal": "Infraestructura para el cuidado",
+            "description": "Construiremos el vivero donde los árboles podrán resguardarse, adaptarse y recibir los cuidados necesarios antes de la plantación."
           },
           {
             "number": "Fase 3",
-            "status": "Etapa futura",
-            "title": "Construir el vivero",
-            "goal": "Meta económica a definir",
-            "description": "El siguiente objetivo será construir un vivero que permita producir y cuidar plantines nativos en el territorio, fortaleciendo la continuidad del proyecto."
+            "status": "Durante la ejecución",
+            "title": "Completar el financiamiento",
+            "goal": "Monto total: $15.000.000 ARS",
+            "description": "Mientras avanza la implementación, reuniremos el resto del monto necesario para completar el pago de los 10.000 árboles, valuados en $1.500 cada uno."
+          },
+          {
+            "number": "Fase 4",
+            "status": "Verano 2026–2027",
+            "title": "Plantar los 10.000 árboles",
+            "goal": "Jornadas de plantación en la montaña",
+            "description": "Durante el verano 2026–2027 llevaremos los árboles al territorio mediante jornadas de plantación, protección y cuidado inicial."
           }
         ]
       },
@@ -2073,8 +2080,8 @@
       },
       "funding": {
         "eyebrow": "Campaign goals",
-        "title": "A three-phase path to regeneration",
-        "description": "Each phase creates the conditions for native forest to grow and for this work to continue over time.",
+        "title": "Four steps to bring the trees to the mountains",
+        "description": "All 10,000 trees are already available for the project. The campaign advances through milestones: activate the work with a down payment, prepare the nursery, complete payment and finally plant.",
         "currentLabel": "Raised so far",
         "ofGoal": "of the first goal of",
         "progressLabel": "Fundraising progress for the first phase",
@@ -2084,23 +2091,30 @@
           {
             "number": "Phase 1",
             "status": "Active goal",
-            "title": "Source the first 1,000 trees",
-            "goal": "Goal: ARS 1,500,000",
-            "description": "The first round of funding will source 1,000 native trees at ARS 1,500 each and begin the new planting stage."
+            "title": "Fund the down payment",
+            "goal": "Initial goal: ARS 1,500,000",
+            "description": "The first goal is to raise the down payment required to confirm all 10,000 trees and formally begin the project."
           },
           {
             "number": "Phase 2",
             "status": "Next stage",
-            "title": "Complete all 10,000 trees",
-            "goal": "Total goal: ARS 15,000,000",
-            "description": "The next goal is to raise the complete amount required for all 10,000 native trees in the campaign, calculated at ARS 1,500 per tree."
+            "title": "Build the nursery",
+            "goal": "Infrastructure for tree care",
+            "description": "We will build the nursery where the trees can be sheltered, acclimatized and cared for before planting."
           },
           {
             "number": "Phase 3",
-            "status": "Future stage",
-            "title": "Build the nursery",
-            "goal": "Funding goal to be defined",
-            "description": "The next goal will be to build a nursery where native seedlings can be produced and cared for on site, strengthening the project's continuity."
+            "status": "During implementation",
+            "title": "Complete the funding",
+            "goal": "Total amount: ARS 15,000,000",
+            "description": "As implementation progresses, we will raise the remaining amount needed to complete payment for all 10,000 trees, valued at ARS 1,500 each."
+          },
+          {
+            "number": "Phase 4",
+            "status": "Summer 2026–2027",
+            "title": "Plant all 10,000 trees",
+            "goal": "Planting days in the mountains",
+            "description": "During the 2026–2027 summer, we will bring the trees into the landscape through planting, protection and initial-care days."
           }
         ]
       },
