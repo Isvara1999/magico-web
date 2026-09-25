@@ -471,7 +471,7 @@ const Reforestacion: React.FC = () => {
 
       {donationModalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071d14]/80 px-4 py-8 backdrop-blur-sm"
+          className="fixed inset-0 z-[5000] flex items-center justify-center bg-[#071d14]/80 px-4 py-8 backdrop-blur-sm"
           role="presentation"
           onMouseDown={event => {
             if (event.target === event.currentTarget) setDonationModalOpen(false);
