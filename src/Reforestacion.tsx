@@ -167,10 +167,10 @@ const Reforestacion: React.FC = () => {
               {content.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold inline-flex items-center justify-center gap-2">
+              <a href="#metas" className="btn-gold inline-flex items-center justify-center gap-2">
                 {content.hero.primaryCta}
                 <ArrowDown size={17} aria-hidden="true" />
-              </button>
+              </a>
               <a href="#impacto" className="btn-glass inline-flex items-center justify-center">
                 {content.hero.secondaryCta}
               </a>
