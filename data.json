@@ -252,7 +252,9 @@
           { "title": "Voluntariado corporativo", "description": "Crear jornadas de participación en territorio que conecten al equipo con la restauración ambiental." },
           { "title": "Alianzas a largo plazo", "description": "Diseñar un programa de impacto, seguimiento y comunicación adaptado a los objetivos de la organización." }
         ],
-        "cta": "Conocé las propuestas para empresas"
+        "cta": "Conocé las propuestas para empresas",
+        "contactCta": "Contactar directamente",
+        "whatsappMessage": "Hola, formo parte de una empresa y quiero conocer cómo podemos colaborar con la campaña de reforestación de 10.000 árboles nativos. Me gustaría conversar sobre opciones de financiamiento, voluntariado corporativo o una alianza de impacto."
       },
       "contribution": {
         "eyebrow": "Aporte directo",
@@ -2327,7 +2329,9 @@
           { "title": "Corporate volunteering", "description": "Create hands-on days in the field that connect teams with environmental restoration." },
           { "title": "Long-term partnerships", "description": "Design an impact, monitoring and communications program suited to the organisation's goals." }
         ],
-        "cta": "Explore our corporate programs"
+        "cta": "Explore our corporate programs",
+        "contactCta": "Contact us directly",
+        "whatsappMessage": "Hi, I represent a company and would like to learn how we can support the campaign to plant 10,000 native trees. I would like to discuss funding, corporate volunteering or a longer-term impact partnership."
       },
       "contribution": {
         "eyebrow": "Direct contribution",

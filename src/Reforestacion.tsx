@@ -44,6 +44,7 @@ const Reforestacion: React.FC = () => {
     maximumFractionDigits: 0,
   });
   const whatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
+  const corporateWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.corporate.whatsappMessage)}`;
 
   useEffect(() => {
     const title = content.seo.title;
@@ -469,10 +470,16 @@ const Reforestacion: React.FC = () => {
                   );
                 })}
               </div>
-              <a href={ROUTES.EMPRESAS} className="btn-gold btn-icon-inline mt-7">
-                {content.corporate.cta}
-                <ArrowRight size={18} aria-hidden="true" />
-              </a>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a href={ROUTES.EMPRESAS} className="btn-gold btn-icon-inline">
+                  {content.corporate.cta}
+                  <ArrowRight size={18} aria-hidden="true" />
+                </a>
+                <a href={corporateWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-glass btn-icon-inline">
+                  <MessageCircle size={18} aria-hidden="true" />
+                  {content.corporate.contactCta}
+                </a>
+              </div>
             </div>
           </div>
         </section>
