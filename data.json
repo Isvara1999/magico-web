@@ -152,6 +152,51 @@
         ],
         "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica."
       },
+      "updates": {
+        "eyebrow": "Bitácora del proyecto",
+        "title": "Avances fase por fase",
+        "description": "En esta sección vamos a documentar cada hito con novedades, fechas y fotografías reales del trabajo realizado.",
+        "noPhotos": "Las fotografías y actualizaciones de esta fase se publicarán aquí a medida que avance el proyecto.",
+        "phases": [
+          {
+            "number": "Fase 1",
+            "title": "Activación y primeros cuidados",
+            "status": "En curso",
+            "description": "Esta fase comienza con la seña que activa el proyecto y continúa con la recepción, revisión y cuidado inicial de los 10.000 árboles.",
+            "steps": [
+              { "title": "Pago de la seña", "status": "En recaudación" },
+              { "title": "Recepción de los arbolitos", "status": "Próximamente" },
+              { "title": "Selección y conteo", "status": "Próximamente" },
+              { "title": "Sanitización, poda y nutrición inicial", "status": "Próximamente" }
+            ],
+            "photos": []
+          },
+          {
+            "number": "Fase 2",
+            "title": "Construcción del vivero",
+            "status": "Próxima etapa",
+            "description": "Compartiremos el diseño elegido, la preparación del terreno y el proceso de construcción del espacio de cuidado.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Fase 3",
+            "title": "Financiamiento completo",
+            "status": "Etapa futura",
+            "description": "Publicaremos el avance hacia el monto total y los hitos de pago alcanzados durante la implementación.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Fase 4",
+            "title": "Plantación en la montaña",
+            "status": "Verano 2026–2027",
+            "description": "Documentaremos las jornadas, las áreas intervenidas y los primeros cuidados de los árboles plantados.",
+            "steps": [],
+            "photos": []
+          }
+        ]
+      },
       "story": {
         "eyebrow": "Montañas vivas, comunidades fuertes",
         "title": "Regenerar es volver a tejer vínculos",
@@ -2157,6 +2202,51 @@
           }
         ],
         "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation."
+      },
+      "updates": {
+        "eyebrow": "Project journal",
+        "title": "Phase-by-phase updates",
+        "description": "This section will document each milestone with news, dates and real photographs of completed work.",
+        "noPhotos": "Photographs and updates from this phase will be published here as the project progresses.",
+        "phases": [
+          {
+            "number": "Phase 1",
+            "title": "Activation and initial care",
+            "status": "In progress",
+            "description": "This phase begins with the down payment that activates the project and continues with receiving, reviewing and initially caring for all 10,000 trees.",
+            "steps": [
+              { "title": "Fund the down payment", "status": "Fundraising in progress" },
+              { "title": "Receive the baby trees", "status": "Coming next" },
+              { "title": "Selection and count", "status": "Coming next" },
+              { "title": "Sanitisation, pruning and initial nutrition", "status": "Coming next" }
+            ],
+            "photos": []
+          },
+          {
+            "number": "Phase 2",
+            "title": "Nursery construction",
+            "status": "Next stage",
+            "description": "We will share the selected design, site preparation and the process of constructing the care space.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Phase 3",
+            "title": "Complete funding",
+            "status": "Future stage",
+            "description": "We will publish progress toward the full amount and the payment milestones reached during implementation.",
+            "steps": [],
+            "photos": []
+          },
+          {
+            "number": "Phase 4",
+            "title": "Planting in the mountains",
+            "status": "Summer 2026–2027",
+            "description": "We will document planting days, restored areas and the initial care given to planted trees.",
+            "steps": [],
+            "photos": []
+          }
+        ]
       },
       "story": {
         "eyebrow": "Living mountains, strong communities",

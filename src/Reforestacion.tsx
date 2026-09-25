@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowDown,
+  Camera,
   Check,
   Copy,
   Heart,
@@ -286,6 +287,76 @@ const Reforestacion: React.FC = () => {
             <p data-reveal className="max-w-4xl mx-auto mt-8 rounded-xl border border-gold/25 bg-gold/10 px-5 py-4 text-center text-sm text-gray-600 leading-relaxed">
               {content.nursery.note}
             </p>
+          </div>
+        </section>
+
+        <section id="avances" className="py-20 md:py-28 px-6 bg-[#eef3ed]">
+          <div className="max-w-6xl mx-auto">
+            <div data-reveal className="max-w-3xl mx-auto text-center mb-14">
+              <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.updates.eyebrow}</p>
+              <h2 className="font-serif text-4xl md:text-5xl text-brand leading-tight mb-6">{content.updates.title}</h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed">{content.updates.description}</p>
+            </div>
+
+            <div className="space-y-8">
+              {content.updates.phases.map((phase: {
+                number: string;
+                title: string;
+                status: string;
+                description: string;
+                steps: Array<{ title: string; status: string }>;
+                photos: Array<{ src: string; alt: string; caption: string }>;
+              }, phaseIndex: number) => {
+                const Icon = phaseIcons[phaseIndex] ?? Sprout;
+                return (
+                  <article key={phase.number} data-reveal className="rounded-3xl border border-brand/10 bg-white p-6 md:p-9 shadow-[0_16px_50px_rgba(0,83,51,0.07)]">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-7">
+                      <div className="flex items-start gap-4">
+                        <div className={`w-12 h-12 rounded-full flex shrink-0 items-center justify-center ${phaseIndex === 0 ? 'bg-brand text-gold' : 'bg-brand/10 text-brand'}`}>
+                          <Icon size={24} strokeWidth={1.5} aria-hidden="true" />
+                        </div>
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-1">{phase.number}</p>
+                          <h3 className="font-serif text-3xl text-brand">{phase.title}</h3>
+                        </div>
+                      </div>
+                      <span className={`self-start rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] font-bold ${phaseIndex === 0 ? 'bg-gold/20 text-[#76570d]' : 'bg-gray-100 text-gray-500'}`}>{phase.status}</span>
+                    </div>
+                    <p className="max-w-3xl text-gray-600 font-light leading-relaxed mb-7">{phase.description}</p>
+
+                    {phase.steps.length > 0 && (
+                      <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                        {phase.steps.map((step, stepIndex) => (
+                          <div key={step.title} className="flex items-center gap-3 rounded-xl border border-brand/10 bg-bone px-4 py-4">
+                            <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${stepIndex === 0 ? 'bg-gold text-brand' : 'bg-brand/10 text-brand'}`}>{stepIndex + 1}</span>
+                            <div>
+                              <p className="text-sm font-semibold text-dark">{step.title}</p>
+                              <p className="text-[10px] uppercase tracking-[0.14em] text-gray-400 mt-1">{step.status}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {phase.photos.length > 0 ? (
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {phase.photos.map(photo => (
+                          <figure key={photo.src} className="overflow-hidden rounded-xl bg-bone">
+                            <img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async" />
+                            <figcaption className="p-3 text-sm text-gray-500">{photo.caption}</figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 rounded-xl border border-dashed border-brand/20 bg-bone/70 px-5 py-6 text-center sm:text-left">
+                        <Camera size={23} strokeWidth={1.5} className="text-gold" aria-hidden="true" />
+                        <p className="text-sm text-gray-500 font-light">{content.updates.noPhotos}</p>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 
