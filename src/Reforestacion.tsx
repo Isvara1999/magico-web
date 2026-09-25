@@ -206,7 +206,7 @@ const Reforestacion: React.FC = () => {
                       <p className="font-serif text-4xl text-brand mb-2">{stat.value}</p>
                       <h3 className="font-semibold text-dark mb-3">{stat.label}</h3>
                       <p className="text-sm text-gray-500 font-light leading-relaxed">{stat.description}</p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-brand transition-colors group-hover:text-gold-dark">
+                      <span className="mt-5 inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.12em] text-brand shadow-sm transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                         {stat.action}
                         <ArrowRight size={15} aria-hidden="true" />
                       </span>
