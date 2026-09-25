@@ -331,8 +331,8 @@ const Reforestacion: React.FC = () => {
                         {phase.photos.map(photo => (
                           <figure key={photo.src} className="w-[78vw] max-w-sm shrink-0 snap-start overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-lg sm:w-80">
                             {photo.type === 'video' ? (
-                              <div className="flex aspect-[3/4] items-center justify-center bg-[#071d14]">
-                                <video controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={photo.alt}>
+                              <div className="flex aspect-[3/4] items-center justify-center overflow-hidden bg-bone">
+                                <video controls playsInline preload="metadata" className="h-full w-full object-cover" aria-label={photo.alt}>
                                   <source src={photo.src} />
                                   <a href={photo.src}>{content.updates.videoFallback}</a>
                                 </video>
