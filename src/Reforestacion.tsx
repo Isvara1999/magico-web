@@ -250,26 +250,34 @@ const Reforestacion: React.FC = () => {
               <p className="text-white/55 text-xs mt-4">{content.funding.updatedNote}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <ol className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 before:hidden lg:before:block lg:before:absolute lg:before:left-[12.5%] lg:before:right-[12.5%] lg:before:top-8 lg:before:h-px lg:before:bg-brand/15">
               {content.funding.phases.map((phase: { number: string; status: string; title: string; goal: string; description: string }, index: number) => {
                 const Icon = phaseIcons[index] ?? Sprout;
                 return (
-                  <article key={phase.number} data-reveal data-delay={String(index + 1)} className={`rounded-2xl border p-7 md:p-8 ${index === 0 ? 'bg-white border-gold/40 shadow-lg' : 'bg-white/60 border-brand/10'}`}>
-                    <div className="flex items-start justify-between gap-4 mb-7">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${index === 0 ? 'bg-brand text-gold' : 'bg-brand/10 text-brand'}`}>
-                        <Icon size={25} strokeWidth={1.5} aria-hidden="true" />
+                  <li key={phase.number} data-reveal data-delay={String(index + 1)} className="relative flex">
+                    <article className={`flex w-full flex-col rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 md:p-7 ${index === 0 ? 'bg-white border-gold/50 shadow-[0_16px_45px_rgba(0,83,51,0.11)]' : 'bg-white/70 border-brand/10 shadow-[0_8px_28px_rgba(0,83,51,0.04)]'}`}>
+                      <div className="mb-6 flex items-start justify-between gap-3">
+                        <div className={`relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-[6px] border-bone ${index === 0 ? 'bg-brand text-gold' : 'bg-[#e7efeb] text-brand'}`}>
+                          <Icon size={23} strokeWidth={1.5} aria-hidden="true" />
+                          <span className={`absolute -right-1 -top-1 flex h-6 min-w-6 items-center justify-center rounded-full border-2 border-white px-1 text-[10px] font-bold ${index === 0 ? 'bg-gold text-brand' : 'bg-white text-brand shadow-sm'}`}>
+                            {index + 1}
+                          </span>
+                        </div>
+                        <span className={`mt-1 rounded-full px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] font-bold text-center ${index === 0 ? 'bg-gold/20 text-[#76570d]' : 'bg-gray-100 text-gray-500'}`}>{phase.status}</span>
                       </div>
-                      <span className={`rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] font-bold ${index === 0 ? 'bg-gold/20 text-[#76570d]' : 'bg-gray-100 text-gray-500'}`}>{phase.status}</span>
-                    </div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-2">{phase.number}</p>
-                    <h3 className="font-serif text-3xl text-brand mb-3">{phase.title}</h3>
-                    <p className="inline-flex items-center gap-2 text-sm font-semibold text-gold-dark mb-4"><Target size={17} aria-hidden="true" />{phase.goal}</p>
-                    <p className="text-gray-600 font-light leading-relaxed">{phase.description}</p>
-                  </article>
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{phase.number}</p>
+                      <h3 className="mb-4 font-serif text-[1.7rem] leading-tight text-brand">{phase.title}</h3>
+                      <div className={`mb-4 flex items-start gap-2 rounded-xl px-3.5 py-3 text-sm font-semibold ${index === 0 ? 'bg-gold/10 text-[#76570d]' : 'bg-brand/[0.055] text-brand'}`}>
+                        <Target size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
+                        <span>{phase.goal}</span>
+                      </div>
+                      <p className="mt-auto text-sm font-light leading-relaxed text-gray-600">{phase.description}</p>
+                    </article>
+                  </li>
                 );
               })}
-            </div>
-            <div data-reveal className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+            </ol>
+            <div data-reveal className="mt-10 flex flex-col items-center justify-center gap-3 rounded-2xl border border-brand/10 bg-white/65 p-5 sm:flex-row sm:flex-wrap md:p-6">
               <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold btn-icon-inline">
                 <Heart size={18} aria-hidden="true" />
                 {content.funding.cta}
