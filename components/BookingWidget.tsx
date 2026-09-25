@@ -2,7 +2,8 @@ import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
-import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, PROMO_PAREJAS_RESERVA_HASTA, MONTHLY_URGENCY } from '../src/data/availability';
+import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, MONTHLY_URGENCY } from '../src/data/availability';
+import { calcularCotizacion, calcularSena, OPCIONES_COMIDAS, type Comidas, type Precios, type TipoAlojamiento } from '../src/lib/tarifas';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
 const MONTH_DATES = [
@@ -69,7 +70,12 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // calendario se ve "siempre lleno" (por los findes bloqueados) antes de
   // que la persona elija algo. Que elija ella misma tipo y habitación.
   const [tipo, setTipo]         = useState<'domo' | 'refugio' | 'carpa' | null>(null);
-  const [habitacion, setHabitacion] = useState<'compartida' | 'privada' | null>(null);
+  const [comidas, setComidas]   = useState<Comidas>('desayuno');
+  const [reset, setReset]       = useState(false);
+  // Precios desde D1 (tablas tarifas/extras/feriados), vía /api/disponibilidad.
+  // Sin fallback con montos: si la consulta falla no mostramos un precio
+  // inventado, derivamos a WhatsApp.
+  const [precios, setPrecios]   = useState<Precios | null>(null);
   const tipoEfectivo: 'domo' | 'refugio' | 'carpa' = tipo ?? 'domo';
   const esCarpa = tipoEfectivo === 'carpa';
 
@@ -93,6 +99,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         if (cancelado) return;
         if (Array.isArray(data?.domo?.blocked)) setBlockedDomo(data.domo.blocked);
         if (Array.isArray(data?.refugio?.blocked)) setBlockedRefugio(data.refugio.blocked);
+        if (Array.isArray(data?.precios?.tarifas)) setPrecios(data.precios);
       })
       .catch(() => { /* se queda con el fallback estático */ });
     return () => { cancelado = true; };
@@ -150,37 +157,9 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // todavía) — cualquier grupo se coordina por WhatsApp, nunca la bloqueamos acá.
   const excedeCapacidad = !esCarpa && personas > capacidadMax;
 
-  // Privada en domo: 1 persona sola paga tarifa fija de $150.000 (única
-  // disponibilidad son domos sueltos). La pareja (2 personas) tiene la
-  // misma tarifa fija de $150.000 fuera de promo; reservando antes del
-  // 31/07 accede a la Promo Parejas ($75.000). De 3 a 7 personas el precio
-  // se calcula por persona (ver precioPorPersona).
-  const promoParejasVigente = TODAY <= PROMO_PAREJAS_RESERVA_HASTA;
-  const domoPrivadaDisponible = personas >= 1 && personas <= CAPACIDAD_DOMO;
-  // Privada en refugio: de 3 personas hasta el tope real (15) no tiene costo
-  // extra (misma tarifa que compartida) — a esa escala ya estás usando la
-  // mayor parte o todo el refugio igual. El recargo es solo para 1-2
-  // personas, que ocupan en exclusiva un espacio pensado para muchos más.
-  // Camping no tiene distinción compartida/privada — es siempre "compartida" a estos efectos.
-  const privadaDisponible = esCarpa ? false : tipoEfectivo === 'domo' ? domoPrivadaDisponible : true;
-  const habitacionEfectiva = privadaDisponible ? (habitacion ?? 'compartida') : 'compartida';
   const enRangoGrupo = esCarpa ? false : tipoEfectivo === 'domo'
     ? personas >= 3 && personas <= CAPACIDAD_DOMO
     : personas >= 3 && personas <= CAPACIDAD_REFUGIO;
-
-  function precioPorPersona(): number {
-    if (esCarpa) return 20_000; // Carpa — alojamiento + desayuno, tarifa única por persona (ver ESTADIA_PRICES.carpaDesde)
-    if (habitacionEfectiva !== 'privada') return 35_000;
-    if (tipoEfectivo === 'domo') {
-      if (personas === 1) return 150_000; // tarifa fija, domo entero
-      if (personas === 2) return promoParejasVigente ? 37_500 : 75_000; // $75.000 total en promo, $150.000 total fuera de promo
-      if (personas >= 3 && personas <= 5) return 65_000;
-      if (personas >= 6 && personas <= CAPACIDAD_DOMO) return 50_000;
-      return 50_000; // fallback, no debería alcanzarse con privadaDisponible en false
-    }
-    // Refugio privado: sin costo extra de 3 hasta el tope real (15); recargo solo para 1-2.
-    return (personas >= 3 && personas <= CAPACIDAD_REFUGIO) ? 35_000 : 75_000;
-  }
 
   // Si la estadía elegida cae en fechas de retiro/evento (ver RETIRO_DATES_*),
   // no la bloqueamos, pero avisamos que hay que confirmar por WhatsApp: puede
@@ -188,20 +167,23 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const enRetiro = (start != null && getStatus(start, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro')
     || (end != null && getStatus(end, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro');
 
-  const PRECIO_BASE_COMPARTIDA = 35_000;
+  // Precio: mismo cálculo que /api/cotizar (src/lib/tarifas.ts) con los
+  // valores de D1. null si todavía no llegaron los precios o la API falló.
   const nights       = start && end ? nightsBetween(start, end) : 0;
-  const pxNoche      = precioPorPersona();
-  const diferenciaPorPersona = pxNoche - PRECIO_BASE_COMPARTIDA;
-  const total        = nights * pxNoche * personas;
-  // Seña para congelar tarifa: 50% si el total es ≤ $100.000, 30% si es mayor.
-  const senaPct      = total > 0 && total <= 100_000 ? 50 : 30;
-  const senaMonto    = Math.round(total * senaPct / 100);
+  const tipoTarifa: TipoAlojamiento = tipoEfectivo === 'carpa' ? 'camping' : tipoEfectivo;
+  const tarifa       = precios?.tarifas.find(t => t.tipo === tipoTarifa) ?? null;
+  const cotizacionRaw = precios && start && end
+    ? calcularCotizacion(precios, tipoTarifa, personas, start, end, comidas, reset)
+    : null;
+  const cotizacion   = cotizacionRaw && !('error' in cotizacionRaw) ? cotizacionRaw : null;
+  const sena         = cotizacion ? calcularSena(cotizacion.subtotal) : null;
+  const minimoFacturado = tarifa && personas < tarifa.minimo_personas_facturadas ? tarifa.minimo_personas_facturadas : null;
   const tipoLabel    = tipoEfectivo === 'domo' ? b.domoFull : tipoEfectivo === 'refugio' ? b.refugioFull : b.carpaFull;
-  const habitacionLabel = esCarpa ? b.carpaRegimen : habitacionEfectiva === 'privada' ? b.privateRoom : b.sharedRoom;
+  const regimenLabel = reset ? `${b.meals[comidas]} + ${b.breakdownReset}` : b.meals[comidas];
   const waMsg        = start && end
     ? fillTemplate(b.waTemplateWithDates, {
         tipo: tipoLabel,
-        regimen: habitacionLabel,
+        regimen: regimenLabel,
         start: fmt(start, b.monthAbbr),
         end: fmt(end, b.monthAbbr),
         nights: plural(nights, b.nightWord),
@@ -348,32 +330,33 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
         <p style={{ fontSize: 10, color: '#94a3b8', marginTop: -2, marginBottom: 10 }}>{b.unavailableForDates}</p>
       )}
 
-      {/* Tipo de habitación — Camping no tiene esta distinción */}
-      {!esCarpa && (
-        <>
-          <p style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: G.muted, marginBottom: 6 }}>{b.roomType}</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: privadaDisponible ? 12 : 4 }}>
-            {(['compartida', 'privada'] as const).map(op => {
-              const disabled = op === 'privada' && !privadaDisponible;
-              const active = habitacion !== null && habitacionEfectiva === op;
-              return (
-                <button key={op} disabled={disabled} onClick={() => !disabled && setHabitacion(op)}
-                  style={{
-                    padding: '9px 8px', borderRadius: 9,
-                    border: `1.5px solid ${active ? G.green : 'rgba(0,83,51,0.18)'}`,
-                    background: active ? G.green : disabled ? '#f1f5f9' : 'white',
-                    color: active ? 'white' : disabled ? '#cbd5e1' : G.muted,
-                    fontSize: 11, fontWeight: 700, cursor: disabled ? 'not-allowed' : 'pointer',
-                  }}>
-                  {op === 'privada' ? b.privateRoom : b.sharedRoom}
-                </button>
-              );
-            })}
-          </div>
-          {!privadaDisponible && (
-            <p style={{ fontSize: 10, color: '#94a3b8', marginTop: -6, marginBottom: 12 }}>{b.privateDomoNote}</p>
-          )}
-        </>
+      {/* Comidas — alojamiento incluye desayuno; almuerzo, cena o pensión completa se suman aparte */}
+      <p style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: G.muted, marginBottom: 6 }}>{b.mealsLabel}</p>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 8 }}>
+        {OPCIONES_COMIDAS.map(op => {
+          const active = comidas === op;
+          return (
+            <button key={op} onClick={() => setComidas(op)}
+              style={{
+                padding: '9px 8px', borderRadius: 9,
+                border: `1.5px solid ${active ? G.green : 'rgba(0,83,51,0.18)'}`,
+                background: active ? G.green : 'white',
+                color: active ? 'white' : G.muted,
+                fontSize: 11, fontWeight: 700, cursor: 'pointer',
+              }}>
+              {b.meals[op]}
+            </button>
+          );
+        })}
+      </div>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, color: G.muted, fontWeight: 600, marginBottom: 12, cursor: 'pointer' }}>
+        <input type="checkbox" checked={reset} onChange={e => setReset(e.target.checked)} style={{ accentColor: G.green, width: 15, height: 15 }} />
+        {b.resetLabel}
+      </label>
+      {minimoFacturado !== null && (
+        <p style={{ fontSize: 10, color: '#8B6A00', marginTop: -6, marginBottom: 12, fontWeight: 600 }}>
+          {fillTemplate(b.minimumBilledNote, { min: String(minimoFacturado) })}
+        </p>
       )}
 
       {/* Resumen — sin precio si el grupo excede la capacidad real: esas
@@ -392,31 +375,36 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <p style={{ fontSize: 11, color: G.muted, margin: 0 }}>{plural(nights, b.nightWord)} · {plural(personas, b.guestWord)}</p>
-              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>
-                {habitacionLabel.toLowerCase()} · ${pxNoche.toLocaleString('es-AR')}/{b.perPersonPerNight}
-              </p>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>{regimenLabel.toLowerCase()}</p>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <p style={{ fontWeight: 700, fontSize: 17, color: G.green, margin: 0 }}>${total.toLocaleString('es-AR')}</p>
+              {cotizacion && (
+                <p style={{ fontWeight: 700, fontSize: 17, color: G.green, margin: 0 }}>${cotizacion.subtotal.toLocaleString('es-AR')}</p>
+              )}
               <button onClick={clear} style={{ fontSize: 11, color: '#94a3b8', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>{b.clear}</button>
             </div>
           </div>
-          {!esCarpa && diferenciaPorPersona < 0 && (
-            <p style={{ fontSize: 10, fontWeight: 700, color: G.green, margin: '6px 0 0' }}>
-              {fillTemplate(b.discountApplied, { ahorro: Math.abs(diferenciaPorPersona).toLocaleString('es-AR') })}
-            </p>
+          {cotizacion && sena ? (
+            <>
+              <div style={{ margin: '6px 0 0', fontSize: 10, color: G.muted }}>
+                {([
+                  [b.breakdownLodging, cotizacion.alojamiento],
+                  [b.breakdownMeals, cotizacion.comidas_total],
+                  [b.breakdownReset, cotizacion.reset_total],
+                ] as const).filter(([, monto]) => monto > 0).map(([label, monto]) => (
+                  <div key={label} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span>{label}</span>
+                    <span>${monto.toLocaleString('es-AR')}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: 10, color: '#94a3b8', margin: '6px 0 0', paddingTop: 6, borderTop: '1px solid rgba(0,83,51,0.08)' }}>
+                {fillTemplate(b.senaNote, { monto: sena.monto.toLocaleString('es-AR'), pct: String(sena.porcentaje * 100) })}
+              </p>
+            </>
+          ) : (
+            <p style={{ fontSize: 10, color: '#94a3b8', margin: '6px 0 0' }}>{b.priceUnavailable}</p>
           )}
-          {!esCarpa && diferenciaPorPersona === 0 && habitacionEfectiva === 'privada' && (
-            <p style={{ fontSize: 10, fontWeight: 700, color: G.green, margin: '6px 0 0' }}>{b.privacyIncluded}</p>
-          )}
-          {!esCarpa && diferenciaPorPersona > 0 && (
-            <p style={{ fontSize: 10, fontWeight: 600, color: G.muted, margin: '6px 0 0' }}>
-              {fillTemplate(b.privacySurcharge, { extra: diferenciaPorPersona.toLocaleString('es-AR') })}
-            </p>
-          )}
-          <p style={{ fontSize: 10, color: '#94a3b8', margin: '6px 0 0', paddingTop: 6, borderTop: '1px solid rgba(0,83,51,0.08)' }}>
-            {fillTemplate(b.senaNote, { monto: senaMonto.toLocaleString('es-AR'), pct: String(senaPct) })}
-          </p>
         </div>
       )}
 

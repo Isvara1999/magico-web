@@ -5,6 +5,12 @@
 // mismo dato que ya usa el Panel de Reservas, no una lista mantenida a mano.
 //
 // GET /api/disponibilidad?desde=YYYY-MM-DD&hasta=YYYY-MM-DD
+//
+// También devuelve `precios` (tablas tarifas/extras/feriados de D1) para que
+// el widget cotice con los mismos valores que /api/cotizar, sin montos
+// hardcodeados en el frontend.
+
+import { leerPrecios } from '../_lib/cotizador';
 
 const ALLOWED_ORIGINS = ['https://experienciamagico.com'];
 const LOCALHOST_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
@@ -112,6 +118,7 @@ export async function onRequestGet({ request, env }: any) {
         tipo: a.tipo,
         blocked: unidadesBlocked[a.id] || [],
       })),
+      precios: await leerPrecios(db),
     },
     200,
     headers

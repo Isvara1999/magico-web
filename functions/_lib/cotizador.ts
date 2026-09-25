@@ -1,24 +1,47 @@
-// Lógica compartida de cotización, precios y disponibilidad — usada por
-// functions/api/cotizar.ts y functions/api/manychat.ts. El prefijo "_" hace
-// que Cloudflare Pages ignore esta carpeta como ruta (no es un endpoint).
+// Lógica compartida de cotización y disponibilidad — usada por
+// functions/api/cotizar.ts, functions/api/manychat.ts y
+// functions/api/disponibilidad.ts. El prefijo "_" hace que Cloudflare Pages
+// ignore esta carpeta como ruta (no es un endpoint).
+//
+// Los precios NO están acá: se leen de las tablas `tarifas`, `extras` y
+// `feriados` de D1 (ver add_tarifas.sql) y se calculan con src/lib/tarifas.ts,
+// el mismo código que usa el widget de la web.
 
-export type TipoAlojamiento = 'domo' | 'refugio';
-
-export type Cotizacion = {
-  tipo_alojamiento: TipoAlojamiento;
-  cantidad_personas: number;
-  noches: number;
-  precio_por_noche: number;
-  subtotal: number;
-  exclusividad_gratis: boolean;
-};
+import type { Precios, Tarifa, TipoAlojamiento } from '../../src/lib/tarifas';
 
 export type Disponibilidad = {
   estado: 'disponible' | 'ocupado';
   // Alojamiento concreto a reservar si estado === 'disponible' (domo específico,
-  // o el único registro del Refugio). null si no hay lugar.
+  // o el único registro del Refugio). null si no hay lugar, o para Camping
+  // (sin unidades cargadas en `alojamientos`).
   alojamiento_id: number | null;
 };
+
+export async function leerPrecios(db: any): Promise<Precios> {
+  const [tarifas, extras, feriados] = await Promise.all([
+    db.prepare(
+      `SELECT tipo, nombre, precio_noche, precio_pension_completa, precio_noche_finde,
+              precio_pension_completa_finde, minimo_personas_facturadas
+       FROM tarifas`
+    ).all(),
+    db.prepare(`SELECT codigo, precio FROM extras`).all(),
+    db.prepare(`SELECT fecha FROM feriados ORDER BY fecha ASC`).all(),
+  ]);
+
+  return {
+    tarifas: (tarifas.results || []).map((t: any): Tarifa => ({
+      tipo: t.tipo,
+      nombre: t.nombre,
+      precio_noche: Number(t.precio_noche),
+      precio_pension_completa: Number(t.precio_pension_completa),
+      precio_noche_finde: t.precio_noche_finde === null ? null : Number(t.precio_noche_finde),
+      precio_pension_completa_finde: t.precio_pension_completa_finde === null ? null : Number(t.precio_pension_completa_finde),
+      minimo_personas_facturadas: Number(t.minimo_personas_facturadas),
+    })),
+    extras: Object.fromEntries((extras.results || []).map((e: any) => [e.codigo, Number(e.precio)])),
+    feriados: (feriados.results || []).map((f: any) => String(f.fecha)),
+  };
+}
 
 const MENSAJE_PRIVACIDAD_REFUGIO =
   'Por la cantidad que son, podríamos ubicarlos en una habitación privada dentro del refugio sin cargo extra (sujeto a disponibilidad al momento de asignar camas).';
@@ -31,47 +54,6 @@ export function mensajePrivacidad(tipo: TipoAlojamiento, personas: number): stri
   return tipo === 'refugio' && (personas === 3 || personas === 4) ? MENSAJE_PRIVACIDAD_REFUGIO : '';
 }
 
-// Reglas de precio — todos los montos son "por noche".
-export function calcularPrecio(tipo: TipoAlojamiento, personas: number, noches: number): Cotizacion | { error: string } {
-  if (tipo === 'refugio') {
-    if (personas < 1 || personas > 15) return { error: 'El Refugio Compartido admite entre 1 y 15 personas.' };
-    const precioPorNoche = 35000 * personas;
-    return {
-      tipo_alojamiento: tipo,
-      cantidad_personas: personas,
-      noches,
-      precio_por_noche: precioPorNoche,
-      subtotal: precioPorNoche * noches,
-      exclusividad_gratis: personas >= 3 && personas <= 7,
-    };
-  }
-
-  // domo
-  if (personas < 1 || personas > 7) return { error: 'El Domo admite entre 1 y 7 personas.' };
-  let precioPorNoche: number;
-  if (personas === 1) precioPorNoche = 150000;
-  else if (personas === 2) precioPorNoche = 75000;
-  else if (personas <= 5) precioPorNoche = 65000 * personas;
-  else precioPorNoche = 50000 * personas; // 6-7 personas
-
-  return {
-    tipo_alojamiento: tipo,
-    cantidad_personas: personas,
-    noches,
-    precio_por_noche: precioPorNoche,
-    subtotal: precioPorNoche * noches,
-    exclusividad_gratis: personas >= 6, // domo lleno = exclusivo por definición
-  };
-}
-
-export function nochesEntre(entrada: string, salida: string): number | null {
-  const inMs = Date.parse(entrada);
-  const outMs = Date.parse(salida);
-  if (Number.isNaN(inMs) || Number.isNaN(outMs)) return null;
-  const noches = Math.round((outMs - inMs) / 86400000);
-  return noches > 0 ? noches : null;
-}
-
 export async function chequearDisponibilidad(
   db: any,
   tipo: TipoAlojamiento,
@@ -79,14 +61,21 @@ export async function chequearDisponibilidad(
   fechaEntrada: string,
   fechaSalida: string
 ): Promise<Disponibilidad> {
+  // Camping no tiene cupo cargado en D1 todavía — se coordina por WhatsApp,
+  // igual que en el widget de la web. Nunca se informa como ocupado.
+  if (tipo === 'camping') {
+    return { estado: 'disponible', alojamiento_id: null };
+  }
+
   if (tipo === 'domo') {
-    // Un domo se alquila entero por grupo (aun 1 persona paga la tarifa fija
-    // completa), así que alcanza con que exista AL MENOS un domo sin
-    // solapamiento de fechas con una reserva 'pendiente' o 'confirmada'.
+    // Un domo se alquila entero por grupo, así que alcanza con que exista AL
+    // MENOS un domo con capacidad para el grupo y sin solapamiento de fechas
+    // con una reserva 'pendiente' o 'confirmada'.
     const libre = await db
       .prepare(
         `SELECT a.id FROM alojamientos a
          WHERE a.tipo = 'domo'
+         AND a.capacidad_total >= ?3
          AND a.id NOT IN (
            SELECT r.alojamiento_id FROM reservas r
            WHERE r.estado IN ('pendiente', 'confirmada')
@@ -94,7 +83,7 @@ export async function chequearDisponibilidad(
          )
          LIMIT 1`
       )
-      .bind(fechaEntrada, fechaSalida)
+      .bind(fechaEntrada, fechaSalida, personas)
       .first();
     return { estado: libre ? 'disponible' : 'ocupado', alojamiento_id: libre ? Number(libre.id) : null };
   }

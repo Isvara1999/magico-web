@@ -11,7 +11,8 @@
 //   MP_ACCESS_TOKEN     — access token de Mercado Pago (Producción o Test) para
 //                         crear la Preferencia de pago.
 
-import { calcularPrecio, chequearDisponibilidad, mensajePrivacidad, nochesEntre } from '../_lib/cotizador';
+import { chequearDisponibilidad, leerPrecios, mensajePrivacidad } from '../_lib/cotizador';
+import { calcularCotizacion, calcularSena } from '../../src/lib/tarifas';
 import { SITE_URL } from '../../src/data/config';
 
 function json(body: unknown, status: number) {
@@ -49,17 +50,21 @@ export async function onRequestPost({ request, env }: any) {
     return json({ error: 'cantidad_personas debe ser un entero positivo.' }, 400);
   }
 
-  const noches = nochesEntre(fecha_entrada, fecha_salida);
-  if (noches === null) {
-    return json({ error: 'Fechas inválidas: fecha_salida debe ser posterior a fecha_entrada.' }, 400);
-  }
+  const db = env.DB;
 
-  const precio = calcularPrecio(alojamiento_seleccionado, personas, noches);
+  // Precios de D1 (tabla tarifas) — ManyChat cotiza solo alojamiento + desayuno.
+  // slice(0, 10): ManyChat puede mandar fecha con hora (ISO8601); se cotiza por día.
+  const precio = calcularCotizacion(
+    await leerPrecios(db),
+    alojamiento_seleccionado,
+    personas,
+    String(fecha_entrada).slice(0, 10),
+    String(fecha_salida).slice(0, 10)
+  );
   if ('error' in precio) {
     return json({ error: precio.error }, 400);
   }
 
-  const db = env.DB;
   const disponibilidad = await chequearDisponibilidad(db, alojamiento_seleccionado, personas, fecha_entrada, fecha_salida);
 
   if (disponibilidad.estado === 'ocupado' || disponibilidad.alojamiento_id === null) {
@@ -69,8 +74,7 @@ export async function onRequestPost({ request, env }: any) {
     );
   }
 
-  const senaPorcentaje = precio.subtotal <= 100000 ? 0.5 : 0.3;
-  const montoSena = Math.round(precio.subtotal * senaPorcentaje);
+  const montoSena = calcularSena(precio.subtotal).monto;
 
   // NOTA: el schema exige cliente_nombre y ManyChat solo nos manda el user_id.
   // Guardamos un placeholder identificable — reemplazalo cuando tengas el
