@@ -9,6 +9,14 @@ export const WA_CICLO_VITAL_FEMENINO = '34621076042';
 
 export const SITE_URL = 'https://experienciamagico.com';
 
+// Datos públicos de la campaña de reforestación. Se inyectan en build time y
+// pueden quedar vacíos: la landing deriva a WhatsApp hasta que estén configurados.
+export const REFORESTATION_CONTRIBUTION = {
+  alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() ?? '',
+  accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() ?? '',
+  cbu: import.meta.env.VITE_REFORESTATION_CBU?.trim() ?? '',
+};
+
 // Reemplaza los envíos de Netlify Forms (no disponible en Cloudflare Pages).
 export const WEB3FORMS_ACCESS_KEY = '05502bcd-b552-47bd-bd01-122f9ab9bc6f';
 

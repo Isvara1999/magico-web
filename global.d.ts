@@ -1,5 +1,15 @@
 import React from 'react';
 
+interface ImportMetaEnv {
+  readonly VITE_REFORESTATION_ALIAS?: string;
+  readonly VITE_REFORESTATION_ACCOUNT_HOLDER?: string;
+  readonly VITE_REFORESTATION_CBU?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 declare global {
   namespace JSX {
     type Element = React.JSX.Element;

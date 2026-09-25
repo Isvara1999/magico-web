@@ -69,6 +69,94 @@
       "updateNow": "Actualizar",
       "updating": "Actualizando..."
     },
+    "reforestation": {
+      "seo": {
+        "title": "Reforestación de las Sierras de Córdoba | Pueblo Mágico",
+        "description": "Sumate a la campaña de Pueblo Mágico para plantar 10.000 árboles nativos más y acompañar la regeneración de las Sierras de Córdoba."
+      },
+      "hero": {
+        "eyebrow": "Reforestación comunitaria · Sierras de Córdoba",
+        "title": "Plantemos 10.000 árboles nativos más",
+        "description": "Una campaña para seguir regenerando la montaña con bosque nativo, trabajo territorial y una comunidad que cuida lo que ama.",
+        "primaryCta": "Quiero aportar",
+        "secondaryCta": "Conocer el proyecto",
+        "imageAlt": "Macizo de Los Gigantes iluminado por el sol"
+      },
+      "impact": {
+        "eyebrow": "Una historia que ya empezó",
+        "title": "Raíces para el futuro de la montaña",
+        "description": "La nueva meta continúa un trabajo sostenido de restauración junto a Consciencia Nativa y otras organizaciones ambientales.",
+        "stats": [
+          { "value": "+25.000", "label": "árboles nativos plantados", "description": "El recorrido acumulado que impulsa esta nueva etapa." },
+          { "value": "+10.000", "label": "nuevos árboles", "description": "La meta de plantación de esta campaña." },
+          { "value": "Comunidad", "label": "en acción", "description": "Organizaciones, voluntariado y personas unidas por la montaña." }
+        ]
+      },
+      "story": {
+        "eyebrow": "Montañas vivas, comunidades fuertes",
+        "title": "Regenerar es volver a tejer vínculos",
+        "paragraphs": [
+          "El bosque nativo protege el suelo, acompaña el ciclo del agua y sostiene la biodiversidad de las Sierras de Córdoba.",
+          "Cada aporte ayuda a poner en marcha una nueva etapa de trabajo: desde los plantines y la preparación del terreno hasta la plantación, el cuidado y el seguimiento.",
+          "La restauración no termina cuando un árbol llega a la tierra. Por eso queremos compartir avances claros y sostener el proceso en el tiempo."
+        ],
+        "imageAlt": "Comunidad reunida en la montaña al atardecer"
+      },
+      "use": {
+        "eyebrow": "Destino de los aportes",
+        "title": "Del plantín al cuidado en territorio",
+        "description": "Los fondos se aplicarán a las etapas necesarias para avanzar con la plantación y sostenerla. Publicaremos actualizaciones a medida que el proyecto avance.",
+        "items": [
+          { "title": "Plantines nativos", "description": "Producción o adquisición de ejemplares adecuados para cada ambiente." },
+          { "title": "Preparación y protección", "description": "Materiales y tareas para preparar el terreno y proteger cada plantación." },
+          { "title": "Plantación y logística", "description": "Herramientas, traslados y jornadas de trabajo en la montaña." },
+          { "title": "Cuidado y seguimiento", "description": "Riego, monitoreo y reposición cuando las condiciones lo requieran." }
+        ]
+      },
+      "community": {
+        "eyebrow": "Una tarea colectiva",
+        "title": "La montaña se regenera en comunidad",
+        "description": "Durante la temporada compartiremos oportunidades para encontrarnos, aprender y participar de jornadas abiertas de plantación.",
+        "items": [
+          "Actualizaciones del avance y de las tareas realizadas.",
+          "Información sobre especies y criterios de plantación.",
+          "Convocatorias a jornadas abiertas cuando estén confirmadas.",
+          "Seguimiento que diferencie árboles plantados de resultados observados."
+        ],
+        "imageAlt": "Encuentro comunitario en el salón de Pueblo Mágico"
+      },
+      "contribution": {
+        "eyebrow": "Aporte directo",
+        "title": "Tu aporte se convierte en bosque",
+        "description": "Transferí el monto que elijas directamente a la cuenta destinada a la campaña. No hay un aporte mínimo.",
+        "cardTitle": "Aporte voluntario",
+        "cardDescription": "Esta contribución financia el proyecto de reforestación. Es independiente de la rifa y no incluye números, premios, vouchers ni servicios.",
+        "notes": [
+          "Elegís libremente el monto.",
+          "La transferencia se realiza en pesos argentinos.",
+          "Podés avisarnos por WhatsApp para facilitar la conciliación."
+        ],
+        "aliasLabel": "Alias para transferir",
+        "holderLabel": "Titular",
+        "cbuLabel": "CBU / CVU",
+        "copy": "Copiar",
+        "copied": "Copiado",
+        "copyCbu": "Copiar CBU o CVU",
+        "copyConfirmation": "Dato copiado al portapapeles",
+        "confirmCta": "Avisar que aporté",
+        "fallbackTitle": "Pedinos los datos para aportar",
+        "fallbackDescription": "La cuenta pública de la campaña todavía no está configurada en esta versión del sitio. Escribinos y te compartimos los datos vigentes.",
+        "fallbackCta": "Pedir datos por WhatsApp",
+        "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia."
+      },
+      "closing": {
+        "title": "Lo que plantamos hoy puede cuidar la montaña durante generaciones",
+        "description": "Sumate a una red de personas que transforma intención en trabajo concreto sobre el territorio.",
+        "cta": "Hacer un aporte",
+        "imageAlt": "Salón de Pueblo Mágico abierto al bosque"
+      }
+    },
     "nichos": {
       "eyebrow": "Más experiencias",
       "title": "Otros caminos en Mágico"
@@ -381,10 +469,14 @@
               "label": "Nuestros Pilares",
               "href": "#pilares"
             },
-            {
-              "label": "Voluntariados",
-              "href": "#voluntariados"
-            }
+        {
+          "label": "Voluntariados",
+          "href": "#voluntariados"
+        },
+        {
+          "label": "Reforestación",
+          "href": "/reforestacion"
+        }
           ]
         }, 
         {
@@ -1920,6 +2012,94 @@
       "updateNow": "Update",
       "updating": "Updating..."
     },
+    "reforestation": {
+      "seo": {
+        "title": "Reforesting the Córdoba Sierras | Pueblo Mágico",
+        "description": "Support Pueblo Mágico's campaign to plant 10,000 more native trees and help regenerate the Córdoba Sierras."
+      },
+      "hero": {
+        "eyebrow": "Community reforestation · Córdoba Sierras",
+        "title": "Let's plant 10,000 more native trees",
+        "description": "A campaign to keep regenerating the mountains through native forest, field work and a community that cares for what it loves.",
+        "primaryCta": "Contribute",
+        "secondaryCta": "Discover the project",
+        "imageAlt": "The Los Gigantes mountain range lit by sunlight"
+      },
+      "impact": {
+        "eyebrow": "A story already in motion",
+        "title": "Roots for the mountain's future",
+        "description": "This new goal continues sustained restoration work alongside Consciencia Nativa and other environmental organizations.",
+        "stats": [
+          { "value": "+25,000", "label": "native trees planted", "description": "The accumulated work behind this new stage." },
+          { "value": "+10,000", "label": "new trees", "description": "The planting goal supported by this campaign." },
+          { "value": "Community", "label": "in action", "description": "Organizations, volunteers and people united for the mountains." }
+        ]
+      },
+      "story": {
+        "eyebrow": "Living mountains, strong communities",
+        "title": "Regeneration means weaving connections again",
+        "paragraphs": [
+          "Native forest protects the soil, supports the water cycle and sustains biodiversity across the Córdoba Sierras.",
+          "Every contribution helps launch a new stage of work, from seedlings and site preparation to planting, care and monitoring.",
+          "Restoration does not end when a tree reaches the ground. We want to share clear progress and sustain this process over time."
+        ],
+        "imageAlt": "A community gathering in the mountains at sunset"
+      },
+      "use": {
+        "eyebrow": "How contributions are used",
+        "title": "From seedling to long-term field care",
+        "description": "Funds will support the stages required to move planting forward and sustain it. We will publish updates as the project progresses.",
+        "items": [
+          { "title": "Native seedlings", "description": "Producing or sourcing appropriate specimens for each environment." },
+          { "title": "Preparation and protection", "description": "Materials and field work to prepare the site and protect each planting." },
+          { "title": "Planting and logistics", "description": "Tools, transportation and work days in the mountains." },
+          { "title": "Care and monitoring", "description": "Watering, monitoring and replacement when conditions require it." }
+        ]
+      },
+      "community": {
+        "eyebrow": "A collective effort",
+        "title": "The mountain regenerates through community",
+        "description": "Throughout the season we will share opportunities to meet, learn and take part in open planting days.",
+        "items": [
+          "Updates on progress and completed work.",
+          "Information about species and planting criteria.",
+          "Invitations to open planting days once dates are confirmed.",
+          "Monitoring that distinguishes planted trees from observed outcomes."
+        ],
+        "imageAlt": "Community gathering inside Pueblo Mágico's hall"
+      },
+      "contribution": {
+        "eyebrow": "Direct contribution",
+        "title": "Your contribution becomes forest",
+        "description": "Transfer any amount directly to the account dedicated to the campaign. There is no minimum contribution.",
+        "cardTitle": "Voluntary contribution",
+        "cardDescription": "This contribution funds the reforestation project. It is independent from the raffle and does not include entries, prizes, vouchers or services.",
+        "notes": [
+          "You choose the amount freely.",
+          "Transfers are made in Argentine pesos.",
+          "You can notify us on WhatsApp to help us reconcile the transfer."
+        ],
+        "aliasLabel": "Transfer alias",
+        "holderLabel": "Account holder",
+        "cbuLabel": "CBU / CVU",
+        "copy": "Copy",
+        "copied": "Copied",
+        "copyCbu": "Copy CBU or CVU",
+        "copyConfirmation": "Banking detail copied to clipboard",
+        "confirmCta": "Let us know I contributed",
+        "fallbackTitle": "Ask us for contribution details",
+        "fallbackDescription": "The campaign's public account is not configured in this site version yet. Message us and we will share the current details.",
+        "fallbackCta": "Request details on WhatsApp",
+        "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
+        "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt."
+      },
+      "closing": {
+        "title": "What we plant today can protect the mountains for generations",
+        "description": "Join a network of people turning intention into tangible work on the land.",
+        "cta": "Make a contribution",
+        "imageAlt": "Pueblo Mágico's hall opening onto the forest"
+      }
+    },
     "nichos": {
       "eyebrow": "More experiences",
       "title": "Other paths at Mágico"
@@ -2232,10 +2412,14 @@
               "label": "Our Pillars",
               "href": "#pilares"
             },
-            {
-              "label": "Volunteering",
-              "href": "#voluntariados"
-            }
+        {
+          "label": "Volunteering",
+          "href": "#voluntariados"
+        },
+        {
+          "label": "Reforestation",
+          "href": "/reforestacion"
+        }
           ]
         },
         {
@@ -2336,6 +2520,13 @@
         "social": "Social",
         "phone": "5493516765820",
         "whatsappLink": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF"
+      },
+      "values": {
+        "email": "experienciamagico@gmail.com",
+        "whatsapp": "https://wa.me/5493516765820?text=Hi!%20I'm%20checking%20out%20the%20Pueblo%20M%C3%A1gico%20website%20and%20I%20have%20a%20question.%20%F0%9F%8C%BF",
+        "social": "https://instagram.com/experienciamagico",
+        "socialTag": "@pueblomagico__",
+        "phone": "5493516765820"
       }
     },
     "footer": {
