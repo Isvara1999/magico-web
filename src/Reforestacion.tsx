@@ -8,8 +8,10 @@ import {
   Check,
   Copy,
   Heart,
+  HandHeart,
   Leaf,
   MessageCircle,
+  MapPinned,
   ShieldCheck,
   Sprout,
   Target,
@@ -45,6 +47,7 @@ const Reforestacion: React.FC = () => {
   });
   const whatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
   const corporateWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.corporate.whatsappMessage)}`;
+  const volunteerWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.volunteering.whatsappMessage)}`;
 
   useEffect(() => {
     const title = content.seo.title;
@@ -194,16 +197,20 @@ const Reforestacion: React.FC = () => {
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-5">
-              {content.impact.stats.map((stat: { value: string; label: string; description: string }, index: number) => {
+              {content.impact.stats.map((stat: { value: string; label: string; description: string; href: string; action: string }, index: number) => {
                 const Icon = impactIcons[index];
                 return (
                   <div data-reveal data-delay={String(index + 1)} key={stat.label}>
-                    <article className="h-full rounded-2xl border border-brand/10 bg-bone p-7 text-center">
+                    <a href={stat.href} className="group block h-full rounded-2xl border border-brand/10 bg-bone p-7 text-center transition-all hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
                       <Icon size={30} strokeWidth={1.5} className="mx-auto text-gold mb-5" aria-hidden="true" />
                       <p className="font-serif text-4xl text-brand mb-2">{stat.value}</p>
                       <h3 className="font-semibold text-dark mb-3">{stat.label}</h3>
                       <p className="text-sm text-gray-500 font-light leading-relaxed">{stat.description}</p>
-                    </article>
+                      <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-brand transition-colors group-hover:text-gold-dark">
+                        {stat.action}
+                        <ArrowRight size={15} aria-hidden="true" />
+                      </span>
+                    </a>
                   </div>
                 );
               })}
@@ -262,11 +269,19 @@ const Reforestacion: React.FC = () => {
                 );
               })}
             </div>
-            <div data-reveal className="text-center mt-10">
+            <div data-reveal className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
               <button type="button" onClick={() => setDonationModalOpen(true)} className="btn-gold btn-icon-inline">
                 <Heart size={18} aria-hidden="true" />
                 {content.funding.cta}
               </button>
+              <a href={language === 'es' ? '#voluntariado' : '#volunteering'} className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                <HandHeart size={18} aria-hidden="true" />
+                {content.funding.volunteerCta}
+              </a>
+              <a href={language === 'es' ? '#mapas' : '#maps'} className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                <MapPinned size={18} aria-hidden="true" />
+                {content.funding.mapsCta}
+              </a>
             </div>
           </div>
         </section>
@@ -439,6 +454,56 @@ const Reforestacion: React.FC = () => {
                 ))}
               </ul>
             </div>
+          </div>
+        </section>
+
+        <section id={language === 'es' ? 'voluntariado' : 'volunteering'} className="bg-bone px-6 py-20 md:py-24">
+          <div data-reveal className="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-gold/25 bg-gold/10 p-7 shadow-[0_18px_60px_rgba(0,83,51,0.08)] md:p-10 lg:p-12">
+            <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+              <div>
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-gold">
+                  <HandHeart size={28} strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">{content.volunteering.eyebrow}</p>
+                <h2 className="mb-6 font-serif text-4xl leading-tight text-brand md:text-5xl">{content.volunteering.title}</h2>
+                <p className="text-lg font-light leading-relaxed text-gray-600">{content.volunteering.description}</p>
+              </div>
+              <div>
+                <ul className="mb-7 space-y-4">
+                  {content.volunteering.items.map((item: string) => (
+                    <li key={item} className="flex gap-3 text-gray-700">
+                      <Check size={20} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href={volunteerWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
+                  <MessageCircle size={18} aria-hidden="true" />
+                  {content.volunteering.cta}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id={language === 'es' ? 'mapas' : 'maps'} className="bg-white px-6 py-20 md:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div data-reveal className="mx-auto mb-12 max-w-3xl text-center">
+              <MapPinned size={34} strokeWidth={1.5} className="mx-auto mb-5 text-gold" aria-hidden="true" />
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">{content.maps.eyebrow}</p>
+              <h2 className="mb-6 font-serif text-4xl leading-tight text-brand md:text-5xl">{content.maps.title}</h2>
+              <p className="text-lg font-light leading-relaxed text-gray-600">{content.maps.description}</p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {content.maps.areas.map((area: { status: string; title: string; description: string }, index: number) => (
+                <article key={area.title} data-reveal data-delay={String(index + 1)} className="rounded-2xl border border-brand/10 bg-bone p-7 md:p-8">
+                  <span className="mb-5 inline-flex rounded-full bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">{area.status}</span>
+                  <h3 className="mb-3 font-serif text-3xl text-brand">{area.title}</h3>
+                  <p className="font-light leading-relaxed text-gray-600">{area.description}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 rounded-xl border border-gold/25 bg-gold/10 px-5 py-4 text-center text-sm leading-relaxed text-gray-600">{content.maps.note}</p>
           </div>
         </section>
 
