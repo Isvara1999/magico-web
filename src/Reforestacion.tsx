@@ -4,6 +4,8 @@ import {
   CalendarDays,
   Camera,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Copy,
   Heart,
   Leaf,
@@ -28,6 +30,7 @@ const Reforestacion: React.FC = () => {
   const content = t.reforestation;
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
+  const [activeMediaByPhase, setActiveMediaByPhase] = useState<Record<number, number>>({});
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -284,9 +287,12 @@ const Reforestacion: React.FC = () => {
                 plannedDate?: string;
                 note?: string;
                 steps: Array<{ title: string; status: string; state: 'active' | 'completed' | 'upcoming' }>;
-                photos: Array<{ src: string; alt: string; caption: string }>;
+                photos: Array<{ src: string; alt: string; caption: string; type?: 'image' | 'video' }>;
               }, phaseIndex: number) => {
                 const Icon = phaseIcons[phaseIndex] ?? Sprout;
+                const activeMediaIndex = activeMediaByPhase[phaseIndex] ?? 0;
+                const activeMedia = phase.photos[activeMediaIndex];
+                const showMedia = (index: number) => setActiveMediaByPhase(current => ({ ...current, [phaseIndex]: index }));
                 return (
                   <article key={phase.number} data-reveal className="rounded-3xl border border-brand/10 bg-white p-6 md:p-9 shadow-[0_16px_50px_rgba(0,83,51,0.07)]">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-7">
@@ -326,13 +332,40 @@ const Reforestacion: React.FC = () => {
                     )}
 
                     {phase.photos.length > 0 ? (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {phase.photos.map(photo => (
-                          <figure key={photo.src} className="overflow-hidden rounded-xl bg-bone">
-                            <img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async" />
-                            <figcaption className="p-3 text-sm text-gray-500">{photo.caption}</figcaption>
-                          </figure>
-                        ))}
+                      <div className="overflow-hidden rounded-2xl border border-brand/10 bg-[#071d14] shadow-lg">
+                        <figure>
+                          <div className="relative flex aspect-[4/3] md:aspect-video items-center justify-center overflow-hidden">
+                            {activeMedia.type === 'video' ? (
+                              <video key={activeMedia.src} controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={activeMedia.alt}>
+                                <source src={activeMedia.src} />
+                                <a href={activeMedia.src}>{content.updates.videoFallback}</a>
+                              </video>
+                            ) : (
+                              <img src={activeMedia.src} alt={activeMedia.alt} className="h-full w-full object-contain" loading="lazy" decoding="async" />
+                            )}
+                            {phase.photos.length > 1 && (
+                              <>
+                                <button type="button" onClick={() => showMedia((activeMediaIndex - 1 + phase.photos.length) % phase.photos.length)} aria-label={content.updates.previous} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                                  <ChevronLeft size={22} aria-hidden="true" />
+                                </button>
+                                <button type="button" onClick={() => showMedia((activeMediaIndex + 1) % phase.photos.length)} aria-label={content.updates.next} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                                  <ChevronRight size={22} aria-hidden="true" />
+                                </button>
+                              </>
+                            )}
+                          </div>
+                          <figcaption className="flex flex-col gap-3 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+                            <span className="text-sm text-gray-600">{activeMedia.caption}</span>
+                            <span className="shrink-0 text-xs font-semibold text-gray-400">{activeMediaIndex + 1} / {phase.photos.length}</span>
+                          </figcaption>
+                        </figure>
+                        {phase.photos.length > 1 && (
+                          <div className="flex flex-wrap items-center justify-center gap-2 border-t border-brand/10 bg-white px-4 py-3" aria-label={content.updates.carouselLabel}>
+                            {phase.photos.map((photo, index) => (
+                              <button key={photo.src} type="button" onClick={() => showMedia(index)} aria-label={`${content.updates.goTo} ${index + 1}`} aria-current={index === activeMediaIndex ? 'true' : undefined} className={`h-2.5 rounded-full transition-all ${index === activeMediaIndex ? 'w-8 bg-gold' : 'w-2.5 bg-brand/20 hover:bg-brand/40'}`} />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ) : (
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 rounded-xl border border-dashed border-brand/20 bg-bone/70 px-5 py-6 text-center sm:text-left">

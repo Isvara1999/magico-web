@@ -137,6 +137,11 @@
         "title": "Avances fase por fase",
         "description": "En esta sección vamos a documentar cada hito con novedades, fechas y fotografías reales del trabajo realizado.",
         "noPhotos": "Las fotografías y actualizaciones de esta fase se publicarán aquí a medida que avance el proyecto.",
+        "previous": "Ver imagen anterior",
+        "next": "Ver imagen siguiente",
+        "carouselLabel": "Selector de imágenes y videos",
+        "goTo": "Ver elemento",
+        "videoFallback": "Descargar video",
         "phases": [
           {
             "number": "Fase 1",
@@ -150,7 +155,13 @@
               { "title": "Selección y conteo", "status": "En curso", "state": "active" },
               { "title": "Sanitización, poda y nutrición inicial", "status": "Siguiente tarea", "state": "upcoming" }
             ],
-            "photos": []
+            "photos": [
+              { "src": "/uploads/reforestacion/arboles-recibidos-01.webp", "alt": "Arbolitos nativos recibidos y organizados en cajones", "caption": "Parte de los árboles nativos que ya se encuentran en el proyecto.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Detalle de arbolitos nativos recibidos en cajones azules", "caption": "Arbolitos recibidos, pendientes de selección y conteo completo.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Arbolitos nativos agrupados para su revisión", "caption": "Ejemplares agrupados para avanzar con la revisión inicial.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video de los árboles nativos que ya llegaron al proyecto", "caption": "Registro en video de los árboles que ya se encuentran en el lugar.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Primer plano de arbolitos nativos recibidos", "caption": "Árboles a la espera de sanitización, poda y nutrición inicial.", "type": "image" }
+            ]
           },
           {
             "number": "Fase 2",
@@ -2187,6 +2198,11 @@
         "title": "Phase-by-phase updates",
         "description": "This section will document each milestone with news, dates and real photographs of completed work.",
         "noPhotos": "Photographs and updates from this phase will be published here as the project progresses.",
+        "previous": "View previous image",
+        "next": "View next image",
+        "carouselLabel": "Image and video selector",
+        "goTo": "View item",
+        "videoFallback": "Download video",
         "phases": [
           {
             "number": "Phase 1",
@@ -2200,7 +2216,13 @@
               { "title": "Selection and count", "status": "In progress", "state": "active" },
               { "title": "Sanitisation, pruning and initial nutrition", "status": "Next task", "state": "upcoming" }
             ],
-            "photos": []
+            "photos": [
+              { "src": "/uploads/reforestacion/arboles-recibidos-01.webp", "alt": "Received native baby trees arranged in crates", "caption": "Some of the native trees that are already at the project.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-02.webp", "alt": "Close view of received native baby trees in blue crates", "caption": "Received trees awaiting full selection and counting.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-03.webp", "alt": "Native baby trees grouped for review", "caption": "Trees grouped together for their initial review.", "type": "image" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-video.mov", "alt": "Video of the native trees that have arrived at the project", "caption": "Video record of the trees already at the site.", "type": "video" },
+              { "src": "/uploads/reforestacion/arboles-recibidos-04.webp", "alt": "Close-up of received native baby trees", "caption": "Trees awaiting sanitisation, pruning and initial nutrition.", "type": "image" }
+            ]
           },
           {
             "number": "Phase 2",
