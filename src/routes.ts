@@ -28,5 +28,6 @@ export const ROUTES = {
   EMPRESAS: '/empresas',
   FLY_FISHING: '/cordoba-fly-fishing',
   VOLUNTARIADO: '/voluntariado',
+  REFORESTACION: '/reforestacion',
   ADMIN_RESERVAS: '/admin/reservas',
 };

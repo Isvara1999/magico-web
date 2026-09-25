@@ -116,6 +116,13 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/empresas',
   },
   {
+    path: '/reforestacion',
+    title: 'Reforestación de las Sierras de Córdoba | Pueblo Mágico',
+    description: 'Sumate a la campaña de Pueblo Mágico para plantar 10.000 árboles nativos más y acompañar la regeneración de las Sierras de Córdoba.',
+    image: 'https://experienciamagico.com/uploads/reforestacion/montana-hero.webp',
+    canonical: 'https://experienciamagico.com/reforestacion',
+  },
+  {
     path: '/cordoba-fly-fishing',
     title: 'Córdoba Fly Fishing Adventure — Guided Trout Fishing in the Sierras | Pueblo Mágico',
     description: 'Guided fly fishing for wild Rainbow and Brook trout in the crystal-clear mountain streams of Las Sierras de Córdoba. Full-day outings or a 2-night stay in geodesic domes.',
