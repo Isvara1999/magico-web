@@ -1,11 +1,7 @@
 {
   "es": {
     "booking": {
-      "months": [
-        { "label": "Julio", "short": "Jul" },
-        { "label": "Agosto", "short": "Ago" },
-        { "label": "Septiembre", "short": "Sep" }
-      ],
+      "monthNames": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
       "dayNames": ["L", "M", "X", "J", "V", "S", "D"],
       "monthAbbr": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
       "selectDates": "Seleccioná tus fechas",
@@ -31,7 +27,7 @@
         "domo": "Grupo: podés reservar el domo entero solo para ustedes (privado).",
         "refugio": "Grupo: podríamos ofrecerte una o más habitaciones privadas dentro del refugio, solo para ustedes — consultanos la disponibilidad por WhatsApp."
       },
-      "groupTeaser": "👥 ¿Van 3 o más? Hay tarifas especiales para grupos.",
+      "groupTeaser": "👥 ¿Van en grupo? El domo privado es para hasta 7 personas.",
       "monthUrgency": {
         "pocosLugares": "⚡ Pocos lugares para {month}",
         "ultimosLugares": "🔥 Últimos lugares para {month}"
@@ -49,7 +45,7 @@
       "confirmWhatsapp": "Confirmar por WhatsApp",
       "checkAvailability": "Consultar disponibilidad",
       "waTemplateWithDates": "¡Hola! Quiero reservar en Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Llegada: {start}\n📅 Salida: {end}\n🌙 {nights} · 👥 {personas}\n\n¿Está disponible?",
-      "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico — invierno 2026. ¿Me pueden dar más info?"
+      "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico — temporada 2026/27. ¿Me pueden dar más info?"
     },
     "ui": {
       "prev": "Anterior",
@@ -1851,11 +1847,7 @@
   },
   "en": {
     "booking": {
-      "months": [
-        { "label": "July", "short": "Jul" },
-        { "label": "August", "short": "Aug" },
-        { "label": "September", "short": "Sep" }
-      ],
+      "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       "dayNames": ["M", "T", "W", "T", "F", "S", "S"],
       "monthAbbr": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       "selectDates": "Select your dates",
@@ -1881,7 +1873,7 @@
         "domo": "Group: you can book the whole dome exclusively for your group.",
         "refugio": "Group: we may be able to offer you one or more private rooms inside the shelter, just for your group — check availability with us on WhatsApp."
       },
-      "groupTeaser": "👥 Going as 3 or more? Ask about our group rates.",
+      "groupTeaser": "👥 Traveling as a group? The private dome sleeps up to 7.",
       "monthUrgency": {
         "pocosLugares": "⚡ Limited spots left for {month}",
         "ultimosLugares": "🔥 Last spots left for {month}"
@@ -1899,7 +1891,7 @@
       "confirmWhatsapp": "Confirm via WhatsApp",
       "checkAvailability": "Check availability",
       "waTemplateWithDates": "Hi! I'd like to book at Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Arrival: {start}\n📅 Departure: {end}\n🌙 {nights} · 👥 {personas}\n\nIs it available?",
-      "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico — winter 2026. Could you give me more info?"
+      "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico — 2026/27 season. Could you give me more info?"
     },
     "ui": {
       "prev": "Previous",

@@ -6,11 +6,13 @@ import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DA
 import { calcularCotizacion, calcularSena, OPCIONES_COMIDAS, type Comidas, type Precios, type TipoAlojamiento } from '../src/lib/tarifas';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
-const MONTH_DATES = [
-  { year: 2026, month: 7 },
-  { year: 2026, month: 8 },
-  { year: 2026, month: 9 },
-];
+// Ventana móvil: el mes actual + los 5 siguientes. Se calcula en el navegador
+// (createRoot, sin hidratación), así nunca queda un calendario vencido.
+const MESES_VISIBLES = 6;
+const MONTH_DATES = Array.from({ length: MESES_VISIBLES }, (_, i) => {
+  const d = new Date(new Date().getFullYear(), new Date().getMonth() + i, 1);
+  return { year: d.getFullYear(), month: d.getMonth() + 1 };
+});
 const TODAY = new Date().toISOString().slice(0, 10);
 // Rango que cubre el calendario del widget (1° del primer mes hasta el 1°
 // del mes siguiente al último), para pedirle a /api/disponibilidad solo lo
@@ -58,7 +60,10 @@ function fillTemplate(tpl: string, vars: Record<string, string>) {
 export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
   const { t } = useLanguage();
   const b = (t as any).booking;
-  const MONTHS = MONTH_DATES.map((d, i) => ({ ...d, label: b.months[i].label, short: b.months[i].short }));
+  const MONTHS = MONTH_DATES.map(d => {
+    const abbr: string = b.monthAbbr[d.month - 1];
+    return { ...d, label: b.monthNames[d.month - 1], short: abbr.charAt(0).toUpperCase() + abbr.slice(1) };
+  });
 
   const [calOpen, setCalOpen]   = useState(false);
   const [monthIdx, setMonthIdx] = useState(initialMonth);
@@ -230,9 +235,9 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
             <span style={{ fontWeight: 700, fontSize: 13, color: '#1A2B3C' }}>{mo.label} {mo.year}</span>
             <div style={{ display: 'flex', gap: 3 }}>
               {[{ Icon: ChevronLeft, dir: -1 }, { Icon: ChevronRight, dir: 1 }].map(({ Icon, dir }) => {
-                const disabled = dir < 0 ? monthIdx === 0 : monthIdx === 2;
+                const disabled = dir < 0 ? monthIdx === 0 : monthIdx === MONTHS.length - 1;
                 return (
-                  <button key={dir} onClick={() => setMonthIdx(i => Math.max(0, Math.min(2, i + dir)))} disabled={disabled}
+                  <button key={dir} onClick={() => setMonthIdx(i => Math.max(0, Math.min(MONTHS.length - 1, i + dir)))} disabled={disabled}
                     style={{ width: 24, height: 24, borderRadius: 6, border: 'none', background: 'rgba(0,83,51,0.06)', cursor: disabled ? 'default' : 'pointer', opacity: disabled ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={12} color={G.muted} />
                   </button>
