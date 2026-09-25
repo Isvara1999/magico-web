@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowDown,
+  CalendarDays,
   Camera,
   Check,
   Copy,
@@ -280,6 +281,7 @@ const Reforestacion: React.FC = () => {
                 title: string;
                 status: string;
                 description: string;
+                plannedDate?: string;
                 note?: string;
                 steps: Array<{ title: string; status: string }>;
                 photos: Array<{ src: string; alt: string; caption: string }>;
@@ -300,12 +302,18 @@ const Reforestacion: React.FC = () => {
                       <span className={`self-start rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] font-bold ${phaseIndex === 0 ? 'bg-gold/20 text-[#76570d]' : 'bg-gray-100 text-gray-500'}`}>{phase.status}</span>
                     </div>
                     <p className="max-w-3xl text-gray-600 font-light leading-relaxed mb-7">{phase.description}</p>
+                    {phase.plannedDate && (
+                      <p className="mb-7 inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-2 text-sm font-semibold text-brand">
+                        <CalendarDays size={17} aria-hidden="true" />
+                        {phase.plannedDate}
+                      </p>
+                    )}
 
                     {phase.steps.length > 0 && (
                       <div className="grid sm:grid-cols-2 gap-3 mb-8">
                         {phase.steps.map((step, stepIndex) => (
                           <div key={step.title} className="flex items-center gap-3 rounded-xl border border-brand/10 bg-bone px-4 py-4">
-                            <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${stepIndex === 0 ? 'bg-gold text-brand' : 'bg-brand/10 text-brand'}`}>{stepIndex + 1}</span>
+                            <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${phaseIndex === 0 && stepIndex === 0 ? 'bg-gold text-brand' : 'bg-brand/10 text-brand'}`}>{stepIndex + 1}</span>
                             <div>
                               <p className="text-sm font-semibold text-dark">{step.title}</p>
                               <p className="text-[10px] uppercase tracking-[0.14em] text-gray-400 mt-1">{step.status}</p>

@@ -156,8 +156,14 @@
             "title": "Construcción del vivero",
             "status": "Próxima etapa",
             "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles. Compartiremos aquí el diseño elegido, la preparación del terreno y el proceso de construcción.",
+            "plannedDate": "Fecha prevista: antes de la temporada de lluvias",
             "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica.",
-            "steps": [],
+            "steps": [
+              { "title": "Identificar la ubicación", "status": "Pendiente" },
+              { "title": "Definir el diseño concreto", "status": "Pendiente" },
+              { "title": "Conseguir materiales, principalmente locales", "status": "Pendiente" },
+              { "title": "Construir el vivero", "status": "Pendiente" }
+            ],
             "photos": [
               {
                 "src": "/uploads/reforestacion/vivero-domo.webp",
@@ -2199,8 +2205,14 @@
             "title": "Nursery construction",
             "status": "Next stage",
             "description": "We are evaluating two possible configurations to shelter and care for the trees. We will share the selected design, site preparation and construction process here.",
+            "plannedDate": "Planned date: before the rainy season",
             "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation.",
-            "steps": [],
+            "steps": [
+              { "title": "Identify the location", "status": "Pending" },
+              { "title": "Define the concrete design", "status": "Pending" },
+              { "title": "Source materials, primarily local", "status": "Pending" },
+              { "title": "Build the nursery", "status": "Pending" }
+            ],
             "photos": [
               {
                 "src": "/uploads/reforestacion/vivero-domo.webp",
