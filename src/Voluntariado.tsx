@@ -34,6 +34,7 @@ const HERO_IMAGE = '/uploads/voluntarios.webp';
 const areaIcons = [UtensilsCrossed, Home, Sprout, TreePine, Hammer, Palette, Recycle];
 const modalityIcons = [Sparkles, HeartHandshake, CalendarDays, Sun, CircleDot];
 const dayIcons = [Sun, Users, Leaf, Sparkles];
+const faqIcons = [Sprout, Clock3, Home, CircleDot, Hammer, Mountain];
 
 const Voluntariado: React.FC = () => {
   const { t, language } = useLanguage();
@@ -403,20 +404,45 @@ const Voluntariado: React.FC = () => {
 
         <section className="py-20 md:py-28 bg-bone">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-12" data-reveal>
-              <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.faq.eyebrow}</p>
+            <div className="mb-12" data-reveal>
+              <p className="text-brand/80 font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.faq.eyebrow}</p>
               <h2 className="font-serif text-4xl md:text-6xl text-brand">{content.faq.title}</h2>
             </div>
-            <div className="space-y-3">
-              {content.faq.items.map((item: any, index: number) => (
-                <div key={item.question} className="bg-white border border-brand/5 rounded-2xl overflow-hidden">
-                  <button type="button" className="w-full flex items-center justify-between gap-5 p-6 text-left" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}>
-                    <span className="font-serif text-xl text-brand">{item.question}</span>
-                    <ChevronDown className={`text-gold flex-none transition-transform ${openFaq === index ? 'rotate-180' : ''}`} size={20} aria-hidden="true" />
-                  </button>
-                  {openFaq === index && <p className="px-6 pb-6 text-dark/60 font-light leading-relaxed">{item.answer}</p>}
-                </div>
-              ))}
+            <div className="space-y-3 md:space-y-4">
+              {content.faq.items.map((item: any, index: number) => {
+                const isActive = openFaq === index;
+                const Icon = faqIcons[index] || Sprout;
+
+                return (
+                  <div key={item.question} data-reveal>
+                    <div className={`bg-white rounded-2xl border overflow-hidden transition-[border-color,box-shadow] duration-300 ${isActive ? 'border-gold shadow-md' : 'border-brand/5 shadow-sm hover:border-brand/15'}`}>
+                      <button
+                        type="button"
+                        className="w-full flex items-center gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:px-8 md:py-6"
+                        onClick={() => setOpenFaq(isActive ? null : index)}
+                        aria-expanded={isActive}
+                      >
+                        <Icon className={`flex-none transition-colors duration-300 ${isActive ? 'text-brand' : 'text-brand/30'}`} size={21} strokeWidth={1.6} aria-hidden="true" />
+                        <span className={`flex-1 font-serif text-lg leading-snug transition-colors duration-300 md:text-xl ${isActive ? 'text-brand' : 'text-dark'}`}>{item.question}</span>
+                        <span className={`flex h-8 w-8 flex-none items-center justify-center rounded-full transition-[transform,background-color,color] duration-300 ${isActive ? 'rotate-180 bg-brand text-gold' : 'bg-brand/5 text-brand'}`} aria-hidden="true">
+                          <ChevronDown size={17} strokeWidth={2.5} />
+                        </span>
+                      </button>
+                      <div
+                        className="grid overflow-hidden transition-[grid-template-rows,opacity] duration-500 ease-in-out"
+                        style={{ gridTemplateRows: isActive ? '1fr' : '0fr', opacity: isActive ? 1 : 0 }}
+                      >
+                        <div className="min-h-0 overflow-hidden">
+                          <div className="pb-6 pl-[3.75rem] pr-6 pt-1 md:pb-7 md:pl-[4.75rem] md:pr-8">
+                            <div className="mb-5 h-px w-full bg-brand/10" />
+                            <p className="text-sm font-light leading-relaxed text-dark/65 md:text-base">{item.answer}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
