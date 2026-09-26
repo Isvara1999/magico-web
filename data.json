@@ -248,10 +248,14 @@
       "volunteering": {
         "eyebrow": "Manos a la tierra",
         "title": "Sumate a las jornadas de reforestación",
-        "description": "Abriremos convocatorias para colaborar con el cuidado en vivero, la preparación del territorio, la plantación y la protección inicial. Las fechas se confirmarán según el avance del proyecto y las condiciones climáticas.",
+        "description": "La próxima convocatoria ya está confirmada. Nos encontraremos durante un fin de semana con campamento para avanzar en la plantación de árboles nativos y compartir trabajo comunitario en la montaña.",
         "items": ["Cuidado y preparación de los árboles", "Jornadas de plantación y protección", "Aprendizaje y trabajo comunitario en territorio"],
-        "cta": "Quiero recibir la convocatoria",
-        "whatsappMessage": "Hola, quiero sumarme como voluntario/a a las jornadas de reforestación de los 10.000 árboles nativos. ¿Pueden avisarme cuando se confirmen las próximas actividades?"
+        "cta": "Postularme como voluntario",
+        "eventBadge": "Convocatoria abierta",
+        "eventGoalLabel": "Objetivo de la jornada",
+        "eventGoal": "1.000 árboles nativos",
+        "eventDetails": "Los horarios, requisitos, cupos y condiciones del campamento se confirmarán directamente con cada persona postulante.",
+        "whatsappMessage": "Hola, quiero postularme como voluntario/a para la jornada de reforestación con campamento del 5 y 6 de diciembre. ¿Me comparten los requisitos, horarios y condiciones?"
       },
       "maps": {
         "eyebrow": "Territorio y transparencia",
@@ -681,6 +685,17 @@
           "link": "https://wa.me/5493516765820?text=Hola!%20Me%20interesa%20el%20Retiro%20Pueblo%20M%C3%A1gico%20del%2017%20y%2018%20de%20octubre.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20info%3F",
           "pdfLink": "",
           "isVolunariado": true
+        },
+        {
+          "date": "5-6 DICIEMBRE 2026",
+          "title": "Jornada de Reforestación · Campamento",
+          "desc": "Dos días de acción comunitaria en la montaña para plantar y proteger 1.000 árboles nativos. La convocatoria incluye campamento; los horarios, requisitos y condiciones se confirman al postularse.",
+          "btn": "Conocer la jornada",
+          "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp",
+          "link": "/reforestacion#voluntariado",
+          "pdfLink": "",
+          "isVolunariado": true,
+          "isReforestacion": true
         },
         {
           "date": "PRÓXIMA FECHA",
@@ -2500,10 +2515,14 @@
       "volunteering": {
         "eyebrow": "Hands on the land",
         "title": "Join our reforestation days",
-        "description": "We will open calls to help with nursery care, site preparation, planting and initial protection. Dates will be confirmed according to project progress and weather conditions.",
+        "description": "The next call is now confirmed. We will gather for a camping weekend to move native-tree planting forward and share community work in the mountains.",
         "items": ["Tree care and preparation", "Planting and protection days", "Learning and community work in the field"],
-        "cta": "Notify me about upcoming calls",
-        "whatsappMessage": "Hi, I would like to volunteer in the reforestation days for the 10,000 native trees. Could you let me know when the next activities are confirmed?"
+        "cta": "Apply as a volunteer",
+        "eventBadge": "Applications open",
+        "eventGoalLabel": "Event goal",
+        "eventGoal": "1,000 native trees",
+        "eventDetails": "Schedules, requirements, capacity and camping conditions will be confirmed directly with each applicant.",
+        "whatsappMessage": "Hi, I would like to apply as a volunteer for the reforestation camping weekend on December 5-6. Could you share the requirements, schedule and conditions?"
       },
       "maps": {
         "eyebrow": "Land and transparency",
@@ -2933,6 +2952,17 @@
           "link": "https://wa.me/5493516765820?text=Hi!%20I%27m%20interested%20in%20the%20Pueblo%20M%C3%A1gico%20Retreat%20on%20October%2017-18.%20Can%20you%20give%20me%20more%20info%3F",
           "pdfLink": "",
           "isVolunariado": true
+        },
+        {
+          "date": "DEC 5-6, 2026",
+          "title": "Reforestation Weekend · Camping",
+          "desc": "Two days of community action in the mountains to plant and protect 1,000 native trees. The call includes camping; schedules, requirements and conditions are confirmed during the application process.",
+          "btn": "View the event",
+          "image": "/uploads/reforestacion/mapa-proxima-reforestacion-10000-arboles.webp",
+          "link": "/reforestacion#volunteering",
+          "pdfLink": "",
+          "isVolunariado": true,
+          "isReforestacion": true
         },
         {
           "date": "NEXT DATE",
