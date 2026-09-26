@@ -22,7 +22,7 @@ import {
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
-import { REFORESTATION_CONTRIBUTION, SITE_URL, WA_MAGICO } from './data/config';
+import { REFORESTATION_CONTRIBUTION, SITE_URL, WA_MAGICO, WA_VOLUNTEERS } from './data/config';
 import { ROUTES } from './routes';
 
 const HERO_IMAGE = '/uploads/reforestacion/montana-hero.webp';
@@ -54,7 +54,7 @@ const Reforestacion: React.FC = () => {
     const message = content.volunteering.applyMessage
       .replace('{event}', event.title)
       .replace('{date}', event.date);
-    return `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/${WA_VOLUNTEERS}?text=${encodeURIComponent(message)}`;
   };
 
   useEffect(() => {

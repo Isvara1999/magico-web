@@ -3,6 +3,7 @@
  */
 
 export const WA_MAGICO = '5493516765820';
+export const WA_VOLUNTEERS = '5493512272919';
 export const WA_GONDOR = '5491157300099';
 export const WA_VUELO_CONDOR = '5493518782085';
 export const WA_CICLO_VITAL_FEMENINO = '34621076042';

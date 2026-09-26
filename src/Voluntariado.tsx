@@ -129,7 +129,7 @@ const Voluntariado: React.FC = () => {
               <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-5xl mb-7">{content.hero.title}</h1>
               <p className="text-lg md:text-2xl font-light leading-relaxed text-white/85 max-w-3xl mb-9">{content.hero.subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="#modalidades" className="btn-gold !inline-flex items-center gap-2 justify-center">
+                <a href="#programa" className="btn-gold !inline-flex items-center gap-2 justify-center">
                   {content.hero.primaryCta}<ArrowRight size={18} aria-hidden="true" />
                 </a>
                 <a href={content.applyLink} target="_blank" rel="noopener noreferrer" className="btn-glass !inline-flex items-center gap-2 justify-center">
@@ -140,7 +140,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-white">
+        <section id="programa" className="py-20 md:py-28 bg-white scroll-mt-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-24 items-center">
             <div data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.intro.eyebrow}</p>
