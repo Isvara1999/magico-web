@@ -423,7 +423,7 @@
         "subtitle": "No venís solamente a pasar por un lugar. Venís a involucrarte, aprender, compartir y ser parte de un proyecto vivo en la montaña.",
         "primaryCta": "Descubrir el programa",
         "secondaryCta": "Quiero participar",
-        "imageAlt": "Comunidad de voluntarios de Pueblo Mágico en la montaña"
+        "imageAlt": "Comunidad de Pueblo Mágico reunida en el campo al atardecer"
       },
       "intro": {
         "eyebrow": "Un intercambio consciente",
@@ -461,7 +461,7 @@
           { "title": "Lo que aportás", "items": ["Presencia, compromiso y responsabilidad", "Predisposición para aprender y colaborar", "Cuidado del espacio y de la comunidad", "Participación activa en las tareas acordadas", "Flexibilidad y comunicación clara"] },
           { "title": "Lo que recibís", "items": ["Alojamiento compartido o acampe, según disponibilidad", "Alimentación y vida cotidiana compartida", "Aprendizaje práctico en distintas áreas", "Contacto profundo con la naturaleza", "Experiencia comunitaria y espacios de integración"] }
         ],
-        "note": "Puede existir un aporte semanal sugerido para acompañar los costos del espacio. Es opcional, se conversa según las posibilidades de cada persona y su valor vigente se informa antes de confirmar la estadía. Las condiciones específicas se acuerdan por escrito para cada convocatoria."
+        "note": "Para acompañar los costos del espacio, sugerimos un aporte semanal. Es opcional y se conversa según las posibilidades de cada persona. El valor vigente y las condiciones específicas se informan por escrito antes de confirmar cada estadía."
       },
       "areas": {
         "eyebrow": "Áreas de participación",
@@ -2708,7 +2708,7 @@
         "subtitle": "You are not only passing through a place. You come to get involved, learn, share and become part of a living project in the mountains.",
         "primaryCta": "Discover the program",
         "secondaryCta": "I want to join",
-        "imageAlt": "Pueblo Mágico volunteer community in the mountains"
+        "imageAlt": "Pueblo Mágico community gathered in the countryside at sunset"
       },
       "intro": {
         "eyebrow": "A conscious exchange",
@@ -2746,7 +2746,7 @@
           { "title": "What you contribute", "items": ["Presence, commitment and responsibility", "A willingness to learn and collaborate", "Care for the place and the community", "Active participation in agreed responsibilities", "Flexibility and clear communication"] },
           { "title": "What you receive", "items": ["Shared accommodation or camping, subject to availability", "Food and shared daily life", "Practical learning across different areas", "Deep contact with nature", "Community experience and integration spaces"] }
         ],
-        "note": "A suggested weekly contribution may help cover the costs of the space. It is optional, discussed according to each person's possibilities, and the current amount is shared before confirming a stay. Specific conditions are agreed in writing for each opportunity."
+        "note": "To help cover the costs of the space, we suggest a weekly contribution. It is optional and discussed according to each person's possibilities. The current amount and specific conditions are shared in writing before each stay is confirmed."
       },
       "areas": {
         "eyebrow": "Participation areas",

@@ -29,7 +29,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { SITE_URL } from './data/config';
 import { ROUTES } from './routes';
 
-const HERO_IMAGE = '/uploads/voluntarios.webp';
+const HERO_IMAGE = '/uploads/reforestacion/comunidad-atardecer.webp';
 
 const areaIcons = [UtensilsCrossed, Home, Sprout, TreePine, Hammer, Palette, Recycle];
 const modalityIcons = [Sparkles, HeartHandshake, CalendarDays, Sun, CircleDot];
@@ -121,7 +121,7 @@ const Voluntariado: React.FC = () => {
       <Header />
       <main>
         <section className="relative min-h-[760px] h-[96vh] flex items-end overflow-hidden">
-          <img src={HERO_IMAGE} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
+          <img src={HERO_IMAGE} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover object-[center_70%] md:object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#10251d]/95 via-[#10251d]/55 to-black/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-12 pb-16 md:pb-24 text-white">
             <div data-reveal>
