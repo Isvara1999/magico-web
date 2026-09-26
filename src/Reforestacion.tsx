@@ -30,7 +30,9 @@ const HERO_IMAGE = '/uploads/reforestacion/montana-hero.webp';
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
   const content = t.reforestation;
-  const reforestationEvents = (t.events?.cards || []).filter((event: any) => event.isReforestacion === true);
+  const reforestationEvents = [...(t.events?.cards || [])]
+    .filter((event: any) => event.isReforestacion === true)
+    .sort((first: any, second: any) => (first.startDate || '').localeCompare(second.startDate || ''));
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string; caption: string } | null>(null);
@@ -48,7 +50,12 @@ const Reforestacion: React.FC = () => {
   });
   const whatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
   const corporateWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.corporate.whatsappMessage)}`;
-  const volunteerWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.volunteering.whatsappMessage)}`;
+  const getVolunteerWhatsappUrl = (event: { title: string; date: string }) => {
+    const message = content.volunteering.applyMessage
+      .replace('{event}', event.title)
+      .replace('{date}', event.date);
+    return `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(message)}`;
+  };
 
   useEffect(() => {
     const title = content.seo.title;
@@ -467,18 +474,18 @@ const Reforestacion: React.FC = () => {
         </section>
 
         <section id={language === 'es' ? 'voluntariado' : 'volunteering'} className="bg-bone px-6 py-20 md:py-24">
-          <div data-reveal className="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-gold/25 bg-gold/10 p-7 shadow-[0_18px_60px_rgba(0,83,51,0.08)] md:p-10 lg:p-12">
-            <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-              <div>
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-gold">
-                  <HandHeart size={28} strokeWidth={1.5} aria-hidden="true" />
+          <div className="mx-auto max-w-6xl">
+            <div data-reveal className="overflow-hidden rounded-3xl border border-gold/25 bg-gold/10 p-7 shadow-[0_18px_60px_rgba(0,83,51,0.08)] md:p-10 lg:p-12">
+              <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                <div>
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-gold">
+                    <HandHeart size={28} strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">{content.volunteering.eyebrow}</p>
+                  <h2 className="mb-6 font-serif text-4xl leading-tight text-brand md:text-5xl">{content.volunteering.title}</h2>
+                  <p className="text-lg font-light leading-relaxed text-gray-600">{content.volunteering.description}</p>
                 </div>
-                <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">{content.volunteering.eyebrow}</p>
-                <h2 className="mb-6 font-serif text-4xl leading-tight text-brand md:text-5xl">{content.volunteering.title}</h2>
-                <p className="text-lg font-light leading-relaxed text-gray-600">{content.volunteering.description}</p>
-              </div>
-              <div>
-                <ul className="mb-7 space-y-4">
+                <ul className="space-y-4">
                   {content.volunteering.items.map((item: string) => (
                     <li key={item} className="flex gap-3 text-gray-700">
                       <Check size={20} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
@@ -486,10 +493,22 @@ const Reforestacion: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                {reforestationEvents.map((event: any) => (
-                  <article key={`${event.date}-${event.title}`} className="overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-[0_12px_35px_rgba(0,83,51,0.08)]">
-                    <div className="relative aspect-[16/8] overflow-hidden bg-brand/5">
-                      <img src={event.image} alt={event.title} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div className="mt-14">
+              <div data-reveal className="mx-auto mb-10 max-w-3xl text-center">
+                <CalendarDays size={34} strokeWidth={1.5} className="mx-auto mb-5 text-gold" aria-hidden="true" />
+                <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">{content.volunteering.scheduleEyebrow}</p>
+                <h3 className="mb-5 font-serif text-4xl leading-tight text-brand md:text-5xl">{content.volunteering.scheduleTitle}</h3>
+                <p className="text-lg font-light leading-relaxed text-gray-600">{content.volunteering.scheduleDescription}</p>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                {reforestationEvents.map((event: any, index: number) => (
+                  <article key={`${event.date}-${event.title}`} data-reveal data-delay={String(index + 1)} className="flex h-full flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-[0_12px_35px_rgba(0,83,51,0.08)]">
+                    <div className="relative aspect-[16/9] overflow-hidden bg-brand/5">
+                      <img src={event.image} alt={event.title} className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]" loading="lazy" decoding="async" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#071d14]/75 via-transparent to-transparent" />
                       <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">{content.volunteering.eventBadge}</span>
                       <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-white">
@@ -497,15 +516,15 @@ const Reforestacion: React.FC = () => {
                         {event.date}
                       </div>
                     </div>
-                    <div className="p-6 md:p-7">
-                      <h3 className="mb-3 font-serif text-3xl leading-tight text-brand">{event.title}</h3>
-                      <p className="mb-5 font-light leading-relaxed text-gray-600">{event.desc}</p>
+                    <div className="flex flex-1 flex-col p-6 md:p-7">
+                      <h4 className="mb-3 font-serif text-3xl leading-tight text-brand">{event.title}</h4>
+                      <p className="mb-5 flex-1 font-light leading-relaxed text-gray-600">{event.desc}</p>
                       <div className="mb-5 rounded-xl bg-brand/5 px-4 py-3">
                         <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand/60">{content.volunteering.eventGoalLabel}</p>
                         <p className="mt-1 font-serif text-xl text-brand">{content.volunteering.eventGoal}</p>
                       </div>
                       <p className="mb-6 text-sm leading-relaxed text-gray-500">{content.volunteering.eventDetails}</p>
-                      <a href={volunteerWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
+                      <a href={getVolunteerWhatsappUrl(event)} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline self-start">
                         <MessageCircle size={18} aria-hidden="true" />
                         {content.volunteering.cta}
                       </a>

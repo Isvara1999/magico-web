@@ -248,14 +248,17 @@
       "volunteering": {
         "eyebrow": "Manos a la tierra",
         "title": "Sumate a las jornadas de reforestación",
-        "description": "La próxima convocatoria ya está confirmada. Nos encontraremos durante un fin de semana con campamento para avanzar en la plantación de árboles nativos y compartir trabajo comunitario en la montaña.",
+        "description": "Hay dos fines de semana confirmados para avanzar en la plantación de árboles nativos y compartir trabajo comunitario con campamento en la montaña.",
         "items": ["Cuidado y preparación de los árboles", "Jornadas de plantación y protección", "Aprendizaje y trabajo comunitario en territorio"],
         "cta": "Postularme como voluntario",
+        "scheduleEyebrow": "Calendario de acción",
+        "scheduleTitle": "Próximas jornadas",
+        "scheduleDescription": "Elegí la fecha que mejor se adapte a vos. Cada postulación se revisa antes de confirmar la participación y el campamento.",
         "eventBadge": "Convocatoria abierta",
         "eventGoalLabel": "Objetivo de la jornada",
         "eventGoal": "1.000 árboles nativos",
         "eventDetails": "Los horarios, requisitos, cupos y condiciones del campamento se confirmarán directamente con cada persona postulante.",
-        "whatsappMessage": "Hola, quiero postularme como voluntario/a para la jornada de reforestación con campamento del 5 y 6 de diciembre. ¿Me comparten los requisitos, horarios y condiciones?"
+        "applyMessage": "Hola, quiero postularme como voluntario/a para {event}, el {date}. ¿Me comparten los requisitos, horarios y condiciones del campamento?"
       },
       "maps": {
         "eyebrow": "Territorio y transparencia",
@@ -687,7 +690,22 @@
           "isVolunariado": true
         },
         {
+          "date": "7-8 NOVIEMBRE 2026",
+          "startDate": "2026-11-07",
+          "endDate": "2026-11-08",
+          "title": "Jornada de Reforestación · Noviembre",
+          "desc": "Un fin de semana de acción comunitaria en la montaña para plantar y proteger 1.000 árboles nativos. La convocatoria incluye campamento; los horarios, requisitos y condiciones se confirman al postularse.",
+          "btn": "Conocer la jornada",
+          "image": "/uploads/reforestacion/comunidad-atardecer.webp",
+          "link": "/reforestacion#voluntariado",
+          "pdfLink": "",
+          "isVolunariado": true,
+          "isReforestacion": true
+        },
+        {
           "date": "5-6 DICIEMBRE 2026",
+          "startDate": "2026-12-05",
+          "endDate": "2026-12-06",
           "title": "Jornada de Reforestación · Campamento",
           "desc": "Dos días de acción comunitaria en la montaña para plantar y proteger 1.000 árboles nativos. La convocatoria incluye campamento; los horarios, requisitos y condiciones se confirman al postularse.",
           "btn": "Conocer la jornada",
@@ -2515,14 +2533,17 @@
       "volunteering": {
         "eyebrow": "Hands on the land",
         "title": "Join our reforestation days",
-        "description": "The next call is now confirmed. We will gather for a camping weekend to move native-tree planting forward and share community work in the mountains.",
+        "description": "Two weekends are confirmed to move native-tree planting forward and share community work with camping in the mountains.",
         "items": ["Tree care and preparation", "Planting and protection days", "Learning and community work in the field"],
         "cta": "Apply as a volunteer",
+        "scheduleEyebrow": "Action calendar",
+        "scheduleTitle": "Upcoming reforestation days",
+        "scheduleDescription": "Choose the date that works best for you. Every application is reviewed before participation and camping are confirmed.",
         "eventBadge": "Applications open",
         "eventGoalLabel": "Event goal",
         "eventGoal": "1,000 native trees",
         "eventDetails": "Schedules, requirements, capacity and camping conditions will be confirmed directly with each applicant.",
-        "whatsappMessage": "Hi, I would like to apply as a volunteer for the reforestation camping weekend on December 5-6. Could you share the requirements, schedule and conditions?"
+        "applyMessage": "Hi, I would like to apply as a volunteer for {event}, on {date}. Could you share the requirements, schedule and camping conditions?"
       },
       "maps": {
         "eyebrow": "Land and transparency",
@@ -2954,7 +2975,22 @@
           "isVolunariado": true
         },
         {
+          "date": "NOV 7-8, 2026",
+          "startDate": "2026-11-07",
+          "endDate": "2026-11-08",
+          "title": "Reforestation Weekend · November",
+          "desc": "A weekend of community action in the mountains to plant and protect 1,000 native trees. The call includes camping; schedules, requirements and conditions are confirmed during the application process.",
+          "btn": "View the event",
+          "image": "/uploads/reforestacion/comunidad-atardecer.webp",
+          "link": "/reforestacion#volunteering",
+          "pdfLink": "",
+          "isVolunariado": true,
+          "isReforestacion": true
+        },
+        {
           "date": "DEC 5-6, 2026",
+          "startDate": "2026-12-05",
+          "endDate": "2026-12-06",
           "title": "Reforestation Weekend · Camping",
           "desc": "Two days of community action in the mountains to plant and protect 1,000 native trees. The call includes camping; schedules, requirements and conditions are confirmed during the application process.",
           "btn": "View the event",
