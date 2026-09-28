@@ -122,9 +122,9 @@ const GondorbowsPrecios: React.FC = () => {
             <a href={waFechas} className="text-white/55 hover:text-gold transition-colors text-sm underline underline-offset-4">
               ¿No podés en esta fecha? Consultá otras fechas.
             </a>
-            <p className="text-white/35 text-xs italic mt-4 max-w-xs mx-auto text-center leading-relaxed font-serif">
+            <a href="/reforestacion" className="block text-white/35 text-xs italic mt-4 max-w-xs mx-auto text-center leading-relaxed font-serif underline decoration-gold/40 underline-offset-4 transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
               El 10% de tu inversión se destina a reforestar tabaquillos y restaurar las sierras.
-            </p>
+            </a>
           </div>
 
         </div>

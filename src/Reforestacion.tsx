@@ -290,7 +290,7 @@ const Reforestacion: React.FC = () => {
                 <Heart size={18} aria-hidden="true" />
                 {content.funding.cta}
               </button>
-              <a href={language === 'es' ? '#voluntariado' : '#volunteering'} className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+              <a href={`${ROUTES.VOLUNTARIADO}#convocatorias`} className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
                 <HandHeart size={18} aria-hidden="true" />
                 {content.funding.volunteerCta}
               </a>

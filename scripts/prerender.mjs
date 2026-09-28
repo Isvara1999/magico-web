@@ -8,6 +8,8 @@ import { createServer } from 'http';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
+const CONTENT = JSON.parse(readFileSync(join(__dirname, '..', 'data.json'), 'utf8'));
+const VOLUNTEER_IMAGE = `https://experienciamagico.com${CONTENT.es.volunteer.image}`;
 
 export const ROUTES = [
   {
@@ -133,7 +135,7 @@ export const ROUTES = [
     path: '/voluntariado',
     title: 'Programa Semilla — Voluntariado en Pueblo Mágico',
     description: 'Viví una experiencia de intercambio consciente en las Sierras de Córdoba. Comunidad, huerta, reforestación, hospitalidad, eventos y regeneración en Pueblo Mágico.',
-    image: 'https://experienciamagico.com/uploads/voluntarios.webp',
+    image: VOLUNTEER_IMAGE,
     canonical: 'https://experienciamagico.com/voluntariado',
   },
   {

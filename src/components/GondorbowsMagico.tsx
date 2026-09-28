@@ -42,9 +42,9 @@ const GondorbowsMagico: React.FC = () => {
                 ))}
               </div>
 
-              <p className="text-white/45 text-xs md:text-sm italic leading-relaxed" style={{ maxWidth: '40ch' }}>
+              <a href="/reforestacion" className="block text-white/45 text-xs md:text-sm italic leading-relaxed underline decoration-gold/40 underline-offset-4 transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold" style={{ maxWidth: '40ch' }}>
                 El 10% de tu inversión se destina a reforestar los tabaquillos y restaurar las sierras de Los Gigantes.
-              </p>
+              </a>
             </div>
 
             {/* Right: video */}

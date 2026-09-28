@@ -31,8 +31,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { SITE_URL } from './data/config';
 import { ROUTES } from './routes';
 
-const HERO_IMAGE = '/uploads/reforestacion/comunidad-atardecer.webp';
-
 const areaIcons = [UtensilsCrossed, Home, Sprout, TreePine, Hammer, Palette, Recycle];
 const modalityIcons = [Sparkles, HeartHandshake, CalendarDays, Sun, CircleDot];
 const dayIcons = [Sun, Users, Leaf, Sparkles];
@@ -43,6 +41,7 @@ const Voluntariado: React.FC = () => {
   const content = (t as any).volunteerPage;
   const volunteerEvents = ((t as any).events?.cards || []).filter((event: any) => event.isVolunariado === true);
   const volunteerReviews = (t as any).volunteer?.testimonials || [];
+  const volunteerImage = (t as any).volunteer.image as string;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const getEventApplicationLink = (eventTitle: string) => {
@@ -70,7 +69,7 @@ const Voluntariado: React.FC = () => {
   useEffect(() => {
     const previousTitle = document.title;
     const url = SITE_URL + ROUTES.VOLUNTARIADO;
-    const image = SITE_URL + HERO_IMAGE;
+    const image = SITE_URL + volunteerImage;
     document.title = content.seo.title;
 
     const setMeta = (selector: string, key: 'name' | 'property', keyValue: string, value: string) => {
@@ -103,7 +102,7 @@ const Voluntariado: React.FC = () => {
     return () => {
       document.title = previousTitle;
     };
-  }, [content, language]);
+  }, [content, language, volunteerImage]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -124,7 +123,7 @@ const Voluntariado: React.FC = () => {
       <Header />
       <main>
         <section className="relative min-h-[760px] h-[96vh] flex items-end overflow-hidden">
-          <img src={HERO_IMAGE} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover object-[center_70%] md:object-center" />
+          <img src={volunteerImage} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover object-[center_70%] md:object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#10251d]/95 via-[#10251d]/55 to-black/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-12 pb-16 md:pb-24 text-white">
             <div data-reveal>
@@ -397,29 +396,29 @@ const Voluntariado: React.FC = () => {
             </div>
 
             {volunteerEvents.length > 0 ? (
-              <div className={`grid gap-6 ${volunteerEvents.length === 1 ? 'max-w-2xl mx-auto' : 'md:grid-cols-2'}`}>
+              <div className={`grid gap-5 ${volunteerEvents.length === 1 ? 'max-w-md mx-auto' : 'sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'}`}>
                 {volunteerEvents.map((event: any) => (
                   <article key={`${event.date}-${event.title}`} data-reveal className="overflow-hidden rounded-2xl border border-white/15 bg-white text-dark shadow-xl">
-                    <div className="relative aspect-[16/9] overflow-hidden bg-brand/10">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-brand/10">
                       <img src={event.image} alt={event.title} className="h-full w-full object-cover" loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                      <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand shadow-lg">
-                        <CalendarDays size={14} aria-hidden="true" />{event.date}
+                      <div className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-brand shadow-lg">
+                        <CalendarDays size={13} aria-hidden="true" />{event.date}
                       </div>
-                      <div className="absolute bottom-5 left-5 rounded-full bg-gold px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand">
+                      <div className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-brand">
                         {content.calendar.volunteerBadge}
                       </div>
                     </div>
-                    <div className="p-6 md:p-8">
-                      <h3 className="font-serif text-3xl text-brand mb-3">{event.title}</h3>
-                      <p className="text-dark/65 font-light leading-relaxed mb-7">{event.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-serif text-2xl leading-tight text-brand mb-2">{event.title}</h3>
+                      <p className="text-sm text-dark/65 font-light leading-relaxed mb-5">{event.desc}</p>
                       <div className="flex flex-col items-stretch gap-3 sm:items-start">
-                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex items-center gap-2 justify-center">
-                          <MessageCircle size={18} aria-hidden="true" />{content.calendar.applyCta}
+                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex !px-5 !py-3 items-center gap-2 justify-center text-[11px]">
+                          <MessageCircle size={16} aria-hidden="true" />{content.calendar.applyCta}
                         </a>
                         {event.link && (
-                          <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-6 py-3 text-xs font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
-                            {content.calendar.eventCta}<ArrowRight size={16} aria-hidden="true" />
+                          <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
+                            {content.calendar.eventCta}<ArrowRight size={15} aria-hidden="true" />
                           </a>
                         )}
                       </div>

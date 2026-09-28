@@ -176,7 +176,13 @@ const FamilionContent: React.FC = () => {
                   <span className="serif-title text-4xl font-light block leading-none" style={{ color: 'rgba(0,83,51,0.15)' }}>{item.num}</span>
                   <h4 className="font-bold brand-green text-sm uppercase tracking-widest mt-2">{item.title}</h4>
                 </div>
-                <p className="text-gray-600 text-base leading-relaxed">{item.text}</p>
+                {item.href ? (
+                  <a href={item.href} className="text-gray-600 text-base leading-relaxed underline decoration-gold/50 underline-offset-4 transition-colors hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                    {item.text}
+                  </a>
+                ) : (
+                  <p className="text-gray-600 text-base leading-relaxed">{item.text}</p>
+                )}
               </div>
             ))}
           </div>

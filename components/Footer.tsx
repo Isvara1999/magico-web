@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-white text-gray-800 py-16 md:py-24 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           
           {/* Brand Column */}
           <div className="space-y-6">
@@ -92,6 +92,24 @@ export const Footer: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Project & Impact Column */}
+          <div>
+            <h3 className="text-brand-green font-serif text-xl mb-8 relative inline-block">
+              {t.footer.titles.project}
+              <span className="absolute -bottom-2 left-0 w-8 h-px bg-brand-gold"></span>
+            </h3>
+            <ul className="space-y-4">
+              {t.footer.projectLinks.map((link: any, index: number) => (
+                <li key={index}>
+                  <a href={link.href.startsWith('#') && !isHomePage ? ROUTES.HOME + link.href : link.href} className="text-gray-500 hover:text-brand-gold transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors"></span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact Column */}

@@ -46,7 +46,7 @@ export const SectionNichos: React.FC = () => {
       image: t.volunteer.image as string,
       href:  t.volunteer.link as string,
       cta:   t.volunteer.btn as string,
-      external: true,
+      external: false,
     },
   ];
 

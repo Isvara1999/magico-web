@@ -89,7 +89,7 @@
         "stats": [
           { "value": "+25.000", "label": "árboles nativos plantados", "description": "El recorrido acumulado que impulsa esta nueva etapa.", "href": "#mapas", "action": "Ver áreas reforestadas" },
           { "value": "+10.000", "label": "nuevos árboles", "description": "La meta de plantación de esta campaña.", "href": "#mapas", "action": "Conocer áreas previstas" },
-          { "value": "Comunidad", "label": "en acción", "description": "Organizaciones, voluntariado y personas unidas por la montaña.", "href": "#voluntariado", "action": "Sumarme como voluntario" }
+          { "value": "Comunidad", "label": "en acción", "description": "Organizaciones, voluntariado y personas unidas por la montaña.", "href": "/voluntariado#convocatorias", "action": "Sumarme como voluntario" }
         ]
       },
       "funding": {
@@ -386,8 +386,8 @@
       "title": "Un refugio <span class='italic text-green'>internacional</span>",
       "description": "Recibimos voluntarios y viajeros de todo el mundo. La energía de Pueblo Mágico se nutre de esta comunidad global: sentarte en el fogón o compartir una comida acá es como viajar por Europa o estar en un hostel internacional, pero con la paz inmensa de las Sierras de Córdoba. Es un espacio de intercambio cultural, colaboración y servicio a la Tierra.",
       "btn": "POSTULARME",
-      "image": "/uploads/voluntarios.webp",
-      "link": "https://wa.me/5493512272919?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
+      "image": "/uploads/reforestacion/comunidad-atardecer.webp",
+      "link": "/voluntariado",
       "testimonials": [
         {
           "name": "Ainhoa",
@@ -933,6 +933,7 @@
       "titles": {
         "explore": "Explorar",
         "experiences": "Experiencias",
+        "project": "Proyecto e impacto",
         "contact": "Contacto",
         "legal": "Legal"
       },
@@ -945,6 +946,11 @@
       "exploreLinks": [
         { "label": "Estadías & Glamping", "href": "/estadia" },
         { "label": "Coliving", "href": "/coliving" }
+      ],
+      "projectLinks": [
+        { "label": "Nuestros pilares", "href": "#pilares" },
+        { "label": "Reforestación", "href": "/reforestacion" },
+        { "label": "Voluntariado", "href": "/voluntariado" }
       ],
       "experienceGroups": [
         {
@@ -961,12 +967,6 @@
             { "label": "Retiros Grupales", "href": "#retiros" },
             { "label": "Aulas Verdes", "href": "/escuelas" },
             { "label": "Empresas", "href": "/empresas" }
-          ]
-        },
-        {
-          "title": "Comunidad",
-          "links": [
-            { "label": "Voluntariado · Programa Semilla", "href": "/voluntariado" }
           ]
         }
       ],
@@ -1110,7 +1110,8 @@
           {
             "num": "03",
             "title": "+15.000 Árboles Plantados",
-            "text": "Somos parte activa de la restauración del monte nativo. El 10% de cada experiencia va directo a reforestar tabaquillos en las Sierras Grandes."
+            "text": "Somos parte activa de la restauración del monte nativo. El 10% de cada experiencia va directo a reforestar tabaquillos en las Sierras Grandes.",
+            "href": "/reforestacion"
           },
           {
             "num": "04",
@@ -2170,7 +2171,7 @@
     "donations": {
       "text": "Apoyá la restauración de las Sierras Grandes de Córdoba con la plantación de tabaquillos nativos. Cada árbol es un paso hacia el monte nativo que alguna vez fue.",
       "btn": "SUMARME A RESTAURAR",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
+      "link": "/reforestacion"
     },
     "inclusiones": {
       "eyebrow": "PRECIO CLARO",
@@ -2380,7 +2381,7 @@
         "stats": [
           { "value": "+25,000", "label": "native trees planted", "description": "The accumulated work behind this new stage.", "href": "#maps", "action": "View restored areas" },
           { "value": "+10,000", "label": "new trees", "description": "The planting goal supported by this campaign.", "href": "#maps", "action": "Explore planned areas" },
-          { "value": "Community", "label": "in action", "description": "Organizations, volunteers and people united for the mountains.", "href": "#volunteering", "action": "Join as a volunteer" }
+          { "value": "Community", "label": "in action", "description": "Organizations, volunteers and people united for the mountains.", "href": "/voluntariado#convocatorias", "action": "Join as a volunteer" }
         ]
       },
       "funding": {
@@ -2677,8 +2678,8 @@
       "title": "An <span class='italic text-green'>international</span> haven",
       "description": "We receive volunteers and travelers from all over the world. The energy of Pueblo Mágico is fueled by this global community: sitting by the fire or sharing a meal here feels like traveling through Europe or staying in an international hostel, but with the immense peace of the Córdoba mountains. It's a space for cultural exchange, collaboration, and service to the Earth.",
       "btn": "Apply",
-      "image": "/uploads/voluntarios.webp",
-      "link": "https://wa.me/5493512272919?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20postularme%20al%20voluntariado.%20%F0%9F%91%90",
+      "image": "/uploads/reforestacion/comunidad-atardecer.webp",
+      "link": "/voluntariado",
       "testimonials": [
         {
           "name": "Ainhoa",
@@ -3224,6 +3225,7 @@
       "titles": {
         "explore": "Explore",
         "experiences": "Experiences",
+        "project": "Project & impact",
         "contact": "Contact",
         "legal": "Legal"
       },
@@ -3236,6 +3238,11 @@
       "exploreLinks": [
         { "label": "Stays & Glamping", "href": "/estadia" },
         { "label": "Coliving", "href": "/coliving" }
+      ],
+      "projectLinks": [
+        { "label": "Our pillars", "href": "#pilares" },
+        { "label": "Reforestation", "href": "/reforestacion" },
+        { "label": "Volunteering", "href": "/voluntariado" }
       ],
       "experienceGroups": [
         {
@@ -3252,12 +3259,6 @@
             { "label": "Group Retreats", "href": "#retiros" },
             { "label": "Green Classrooms", "href": "/escuelas" },
             { "label": "Companies", "href": "/empresas" }
-          ]
-        },
-        {
-          "title": "Community",
-          "links": [
-            { "label": "Volunteering · Programa Semilla", "href": "/voluntariado" }
           ]
         }
       ],
@@ -3401,7 +3402,8 @@
           {
             "num": "03",
             "title": "+15,000 Trees Planted",
-            "text": "We are an active part of native forest restoration. 10% of every experience goes directly to replanting native tabaquillo trees."
+            "text": "We are an active part of native forest restoration. 10% of every experience goes directly to replanting native tabaquillo trees.",
+            "href": "/reforestacion"
           },
           {
             "num": "04",
@@ -4463,7 +4465,7 @@
     "donations": {
       "text": "Support the restoration of the Sierras Grandes de Córdoba through native tabaquillo tree planting. Every tree is a step toward the forest it once was.",
       "btn": "JOIN THE RESTORATION",
-      "link": "https://wa.me/5493516765820?text=Hola!%20Me%20gustar%C3%ADa%20apoyar%20la%20restauraci%C3%B3n%20de%20las%20Sierras%20Grandes%20con%20la%20plantaci%C3%B3n%20de%20tabaquillos.%20%F0%9F%8C%B3"
+      "link": "/reforestacion"
     },
     "inclusiones": {
       "eyebrow": "CLEAR PRICING",
