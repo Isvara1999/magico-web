@@ -17,7 +17,7 @@ const VueloDelCondorHero: React.FC = () => {
           <img
             src={img('/uploads/vuelo-del-condor-hero.webp', 1920)}
             alt="El Vuelo del Cóndor — Valle Sagrado, Perú"
-            fetchPriority="high"
+            {...{ fetchpriority: 'high' }}
             loading="eager"
             decoding="async"
             className="w-full h-full object-cover object-center"

@@ -36,14 +36,14 @@ const Hero: React.FC = () => (
       src="/uploads/coliving-hero-mobile.webp"
       alt="Coliving Mágico — espacio de trabajo y descanso en la naturaleza"
       className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
-      fetchPriority="high"
+      {...{ fetchpriority: 'high' }}
       decoding="async"
     />
     <img
       src="/uploads/coliving-hero-desktop.webp"
       alt="Coliving Mágico — espacio de trabajo y descanso en la naturaleza"
       className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
-      fetchPriority="high"
+      {...{ fetchpriority: 'high' }}
       decoding="async"
     />
     <div className="absolute inset-0 bg-[#002d1a]/45" />

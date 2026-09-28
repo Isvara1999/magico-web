@@ -28,7 +28,7 @@ const Hero: React.FC = () => (
       src="/uploads/hero-estadia.webp"
       alt="Pueblo Mágico — vista del campo"
       className="absolute inset-0 w-full h-full object-cover object-center"
-      fetchPriority="high"
+      {...{ fetchpriority: 'high' }}
       decoding="async"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-[#002d1a]/90 via-[#002d1a]/30 to-transparent" />

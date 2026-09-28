@@ -1,19 +1,62 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import {
+  ArrowRight,
+  BedDouble,
+  ChevronDown,
+  Home,
+  Leaf,
+  Menu,
+  Snowflake,
+  Sprout,
+  TreePine,
+  UsersRound,
+  X,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useLocation } from 'react-router-dom';
 import { ROUTES } from '../src/routes';
+import { PageSectionNav } from './PageSectionNav';
 
-export const Header: React.FC = () => {
+const submenuIcons: Record<string, LucideIcon> = {
+  leaf: Leaf,
+  community: UsersRound,
+  sprout: Sprout,
+  trees: TreePine,
+  stay: BedDouble,
+  home: Home,
+  snow: Snowflake,
+  spark: Zap,
+};
+
+type HeaderProps = {
+  subNavigation?: React.ReactNode;
+};
+
+export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('');
   const [isMobile, setIsMobile] = useState(false);
+  const [hasAutoSubNavigation, setHasAutoSubNavigation] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
 
   const isHomePage = location.pathname === ROUTES.HOME;
+  const useAutoSubNavigation = !isHomePage && !subNavigation && location.pathname !== ROUTES.ADMIN_RESERVAS;
+  const hasSubNavigation = Boolean(subNavigation || (useAutoSubNavigation && hasAutoSubNavigation));
+  const useSolidHeader = isScrolled || isMobileMenuOpen;
+  const showSubNavigation = Boolean(hasSubNavigation && isScrolled && !isMobileMenuOpen);
+
+  const scrollSectionBelowHeader = (element: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+    const mainHeaderBottom = document.querySelector<HTMLElement>('[data-header-main-row]')?.getBoundingClientRect().bottom
+      || document.querySelector('header')?.getBoundingClientRect().bottom
+      || 0;
+    const targetTop = window.scrollY + element.getBoundingClientRect().top - mainHeaderBottom;
+    window.scrollTo({ top: Math.max(0, targetTop), behavior });
+  };
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 1023px)');
@@ -29,49 +72,86 @@ export const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Intersection Observer for Active Section Highlighting
+  // Keep active navigation deterministic across clicks, manual scrolling and hash loads.
   useEffect(() => {
     if (!isHomePage) {
       setActiveSection('');
       return;
     }
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
-    };
+    const sectionIds = new Set<string>();
+    t.menu.items.forEach((item: any) => {
+      if (item.href.startsWith('#')) sectionIds.add(item.href.substring(1));
+      item.submenu?.forEach((sub: any) => {
+        if (sub.href.startsWith('#')) sectionIds.add(sub.href.substring(1));
+      });
+    });
+    sectionIds.add('contacto');
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+    const updateActiveSection = () => {
+      const headerBottom = document.querySelector('header')?.getBoundingClientRect().bottom || 0;
+      const activationLine = Math.max(headerBottom + 24, window.innerHeight * 0.3);
+      const sections = Array.from(sectionIds)
+        .map(id => document.getElementById(id))
+        .filter((element): element is HTMLElement => Boolean(element))
+        .map(element => ({ element, top: element.getBoundingClientRect().top }))
+        .sort((a, b) => a.top - b.top);
+
+      let nextSection = '';
+      sections.forEach(({ element, top }) => {
+        if (top <= activationLine) {
+          nextSection = element.id;
         }
       });
+
+      setActiveSection(current => current === nextSection ? current : nextSection);
+
+      const nextHash = nextSection ? `#${nextSection}` : '';
+      if (window.location.hash !== nextHash) {
+        const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`;
+        window.history.replaceState(window.history.state, '', nextUrl);
+      }
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    updateActiveSection();
+    const firstFrame = window.requestAnimationFrame(updateActiveSection);
+    const settledLayout = window.setTimeout(updateActiveSection, 500);
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
 
-    const idsToObserve = new Set<string>();
-    t.menu.items.forEach((item: any) => {
-      if (item.href.startsWith('#')) idsToObserve.add(item.href.substring(1));
-      item.submenu?.forEach((sub: any) => {
-        if (sub.href.startsWith('#')) idsToObserve.add(sub.href.substring(1));
-      });
-    });
-    idsToObserve.add('contacto');
-
-    idsToObserve.forEach(id => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.clearTimeout(settledLayout);
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
   }, [t.menu.items, isHomePage]);
+
+  useEffect(() => {
+    if (!isHomePage || !location.hash) return;
+
+    const targetId = location.hash.substring(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    setActiveSection(targetId);
+    const firstFrame = window.requestAnimationFrame(() => {
+      scrollSectionBelowHeader(target);
+    });
+    const settledLayout = window.setTimeout(() => {
+      scrollSectionBelowHeader(target);
+    }, 700);
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.clearTimeout(settledLayout);
+    };
+  }, [isHomePage, location.hash]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -93,19 +173,10 @@ export const Header: React.FC = () => {
         const element = document.getElementById(targetId);
         
         if (element) {
+          setActiveSection(targetId);
           setIsMobileMenuOpen(false);
-          // scrollIntoView (rather than a manual getBoundingClientRect + scrollTo)
-          // is what makes browsers correctly resolve content-visibility:auto
-          // sections along the way — several sections between here and the
-          // target use it for perf. behavior:'smooth' is unreliable here: as
-          // the animation passes each not-yet-rendered section, it expands
-          // from its placeholder size to its real one and shifts the page
-          // height mid-scroll, throwing off the already-committed animation
-          // target. An instant jump lets layout resolve first, then we
-          // animate the last little bit for a soft landing.
-          const headerOffset = 80;
-          element.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' });
-          window.scrollBy({ top: -headerOffset, left: 0, behavior: 'instant' as ScrollBehavior });
+          scrollSectionBelowHeader(element);
+          window.setTimeout(() => scrollSectionBelowHeader(element), 700);
           window.history.pushState(null, '', href);
         }
       } else {
@@ -123,31 +194,33 @@ export const Header: React.FC = () => {
     return isHomePage && activeSection === href.substring(1);
   };
 
+  const isMenuItemActive = (item: any) => (
+    isLinkActive(item.href)
+    || item.submenu?.some((sub: any) => isLinkActive(sub.href))
+  );
+
   // Dynamic Classes
-  // iOS Safari bug: transform on position:fixed makes the element scroll with the page.
-  // Fix: center with left-0/right-0/mx-auto instead of left-1/2/-translate-x-1/2.
-  // Also scope transition properties explicitly — transition-all includes transform,
-  // which can trigger the same WebKit compositing bug.
+  // Keep the header pinned to the viewport without transforms so it remains
+  // stable on iOS Safari while changing between transparent and solid states.
   const pillClasses = `
-    fixed left-0 right-0 mx-auto z-[1000]
+    fixed left-0 right-0 top-0 z-[1000] w-full max-w-none
     transition-[background-color,box-shadow,border-radius,top,width,max-width,padding] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
-    flex items-center justify-between
+    flex min-w-0 ${hasSubNavigation ? 'flex-col' : 'items-center justify-between'}
     ${
-      isScrolled || isMobileMenuOpen
-        ? 'top-[10px] w-[96%] max-w-[98%] bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] rounded-[12px] py-2 px-5'
-        : 'top-[30px] w-[94%] max-w-[1400px] bg-transparent text-white border-none rounded-[50px] py-2.5'
+      useSolidHeader
+        ? `bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-b border-brand/10 px-5 ${showSubNavigation ? 'pt-2 pb-0 lg:pt-2.5 lg:pb-0' : 'py-2 lg:py-2.5'}`
+        : 'bg-transparent text-white border-none px-5 py-2.5'
     }
-    lg:py-2.5
   `;
 
   const logoClasses = `
     block w-auto transition-all duration-300
-    ${isScrolled || isMobileMenuOpen ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
+    ${useSolidHeader ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
   `;
 
   return (
     <header className={pillClasses}>
-      <div className="flex justify-between items-center w-full lg:px-4 px-2">
+      <div data-header-main-row className="flex w-full items-center justify-between px-2 lg:px-4">
         {/* Logo - Left */}
         <div className="flex-1 lg:flex-none">
           <a href={ROUTES.HOME} className="relative z-[1200] inline-block" onClick={(e) => { 
@@ -175,7 +248,7 @@ export const Header: React.FC = () => {
           {isMobileMenuOpen ? (
             <X className="w-6 h-6 text-dark" />
           ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? 'text-dark' : 'text-white'}`} />
+            <Menu className={`w-6 h-6 ${useSolidHeader ? 'text-dark' : 'text-white'}`} />
           )}
         </button>
 
@@ -195,58 +268,73 @@ export const Header: React.FC = () => {
                   href={item.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.href : item.href}
                   onClick={(e) => handleNavClick(e, item.href, !!item.submenu, index)}
                   className={`
-                    flex items-center justify-center lg:justify-start gap-1.5 py-3.5 lg:py-2.5 
+                    relative flex items-center justify-center lg:justify-start gap-1.5 py-3.5 lg:py-2.5
                     text-[16px] lg:text-[13px] font-serif lg:font-sans font-normal lg:font-medium
                     border-b border-black/5 lg:border-none w-full lg:w-auto
                     transition-colors duration-300
-                    ${isScrolled || isMobileMenuOpen 
-                      ? (isLinkActive(item.href) ? 'text-gold font-bold' : 'text-dark hover:text-brand') 
-                      : (isLinkActive(item.href) ? 'text-gold' : 'text-white hover:text-gold')}
-                    ${isMobile && !isLinkActive(item.href) ? 'text-[#444]' : ''}
+                    ${useSolidHeader
+                      ? (isMenuItemActive(item) ? 'text-brand font-semibold' : 'text-dark hover:text-brand')
+                      : (isMenuItemActive(item) ? 'text-gold' : 'text-white hover:text-gold')}
+                    ${isMobile && !isMenuItemActive(item) ? 'text-[#444]' : ''}
                   `}
                 >
                   {item.label}
                   {item.submenu && (
                     <ChevronDown 
-                      className={`w-3 h-3 transition-transform duration-300 ${activeSubmenu === index ? 'rotate-180' : ''}`} 
+                      className={`w-3 h-3 transition-transform duration-300 lg:group-hover:rotate-180 ${activeSubmenu === index ? 'rotate-180' : ''}`}
                     />
                   )}
+                  <span className={`pointer-events-none absolute inset-x-0 -bottom-px hidden h-0.5 origin-center rounded-full bg-gold transition-transform duration-300 lg:block ${isMenuItemActive(item) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} aria-hidden="true" />
                 </a>
 
                 {/* Submenu */}
                 {item.submenu && (
                   <ul
                     className={`
-                      lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[10px]
-                      bg-[#FAFAFA] lg:bg-white lg:min-w-[220px] lg:rounded-sm lg:shadow-[0_10px_30px_rgba(0,0,0,0.06)]
+                      lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[12px]
+                      bg-[#FAFAFA] lg:bg-white lg:min-w-[360px] lg:rounded-[22px] lg:border lg:border-brand/10 lg:shadow-[0_18px_50px_rgba(23,49,39,0.14)]
                       lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible lg:group-hover:translate-y-0
                       transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
-                      w-full lg:w-auto py-1 lg:py-2
+                      w-full lg:w-auto py-1 lg:p-3
                       ${activeSubmenu === index ? 'block animate-fadeIn' : 'hidden lg:block'}
                     `}
                   >
-                    {item.submenu.map((sub: any, subIndex: number) => (
-                      <li key={subIndex}>
-                        <a
-                          href={sub.href.startsWith('#') && !isHomePage ? ROUTES.HOME + sub.href : sub.href}
-                          onClick={(e) => handleNavClick(e, sub.href, false, index)}
-                          className={`
-                            block py-2.5 px-5 text-[14px] lg:text-[12px] transition-all text-center lg:text-left
-                            ${isLinkActive(sub.href) ? 'text-gold font-bold bg-[#F9F9F9]' : 'text-[#777] lg:text-[#666] hover:text-brand hover:bg-[#F9F9F9] lg:hover:pl-6'}
-                          `}
-                        >
-                          {sub.label}
-                        </a>
+                    {item.submenuEyebrow && (
+                      <li className="hidden px-4 pb-2 pt-1 text-[9px] font-bold uppercase tracking-[0.2em] text-dark/45 lg:block">
+                        {item.submenuEyebrow}
                       </li>
-                    ))}
+                    )}
+                    {item.submenu.map((sub: any, subIndex: number) => {
+                      const SubmenuIcon = submenuIcons[sub.icon] || Leaf;
+                      const isSubmenuItemActive = isLinkActive(sub.href);
+
+                      return (
+                        <li key={subIndex}>
+                          <a
+                            href={sub.href.startsWith('#') && !isHomePage ? ROUTES.HOME + sub.href : sub.href}
+                            onClick={(e) => handleNavClick(e, sub.href, false, index)}
+                            className={`group/sub relative flex items-center gap-3 overflow-hidden rounded-xl px-4 py-2.5 text-left transition-[background-color,color] duration-200 lg:min-h-[62px] ${isSubmenuItemActive ? 'bg-[#F5F0E4] text-brand before:absolute before:inset-y-0 before:left-0 before:w-1 before:rounded-r-full before:bg-gold' : 'text-[#666] hover:bg-[#F8F5EE] hover:text-brand'}`}
+                          >
+                            <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F7F3EB] text-dark/55 transition-colors group-hover/sub:text-brand lg:flex">
+                              <SubmenuIcon size={19} strokeWidth={1.6} aria-hidden="true" />
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className={`block text-[14px] leading-tight ${isSubmenuItemActive ? 'font-semibold' : 'font-medium'}`}>{sub.label}</span>
+                              {sub.description && <span className="mt-1 hidden text-[11px] font-light leading-tight text-dark/50 lg:block">{sub.description}</span>}
+                            </span>
+                            <ArrowRight className={`hidden shrink-0 text-gold transition-[opacity,transform] duration-200 lg:block ${isSubmenuItemActive ? 'opacity-100' : 'translate-x-1 opacity-0 group-hover/sub:translate-x-0 group-hover/sub:opacity-100'}`} size={18} aria-hidden="true" />
+                          </a>
+                        </li>
+                      );
+                    })}
                     {item.viewAllLink && (
-                      <li className="border-t border-black/5 mt-1 pt-1">
+                      <li className="mt-2 border-t border-brand/10 pt-2">
                         <a
                           href={item.viewAllLink.href.startsWith('#') && !isHomePage ? ROUTES.HOME + item.viewAllLink.href : item.viewAllLink.href}
                           onClick={(e) => handleNavClick(e, item.viewAllLink.href, false, index)}
-                          className="block py-2.5 px-5 text-[14px] lg:text-[12px] font-bold text-gold hover:text-brand transition-all text-center lg:text-left"
+                          className="flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[12px] font-semibold text-gold transition-colors hover:bg-gold/10 hover:text-brand lg:justify-between"
                         >
-                          {item.viewAllLink.label} →
+                          {item.viewAllLink.label}<ArrowRight size={16} aria-hidden="true" />
                         </a>
                       </li>
                     )}
@@ -262,7 +350,7 @@ export const Header: React.FC = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={(e) => handleNavClick(e, t.menu.bookLink, false, -1)}
-                 className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${isScrolled ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}
+                 className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${useSolidHeader ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}
                >
                   {t.menu.book}
                </a>
@@ -287,7 +375,7 @@ export const Header: React.FC = () => {
             className={`
               text-[11px] font-medium uppercase border rounded-[20px] py-[5px] px-[18px] transition-all duration-300
               ${
-                isScrolled
+                useSolidHeader
                   ? 'border-black/15 text-dark hover:bg-brand hover:border-brand hover:text-white'
                   : 'border-white/40 text-white hover:bg-white hover:border-white hover:text-brand'
               }
@@ -297,6 +385,23 @@ export const Header: React.FC = () => {
           </button>
         </div>
       </div>
+      {(subNavigation || useAutoSubNavigation) && (
+        <div
+          className={`grid w-full min-w-0 max-w-full overflow-visible transition-[grid-template-rows,opacity,border-color] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${showSubNavigation ? 'grid-rows-[1fr] border-t border-brand/10 opacity-100' : 'pointer-events-none grid-rows-[0fr] border-t border-transparent opacity-0'}`}
+          aria-hidden={!showSubNavigation}
+        >
+          <div className="min-h-0 min-w-0 max-w-full overflow-visible">
+            {subNavigation || (
+              <PageSectionNav
+                autoDiscover
+                locale={language}
+                minimumSections={5}
+                onAvailabilityChange={setHasAutoSubNavigation}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </header>
 
   );

@@ -60,7 +60,7 @@ const AchalaVivaMagico: React.FC = () => {
               </li>
               <li className="flex items-start gap-4">
                 <Leaf weight="light" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
-                <span>El <strong>10% de tu inversión</strong> va directo a reforestar tabaquillos y restaurar nuestras sierras.</span>
+                <a href="/reforestacion" className="underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">El <strong>10% de tu inversión</strong> va directo a reforestar tabaquillos y restaurar nuestras sierras.</a>
               </li>
             </ul>
             <p className="text-white font-serif text-lg md:text-xl italic">

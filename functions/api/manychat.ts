@@ -12,7 +12,11 @@
 //                         crear la Preferencia de pago.
 
 import { calcularPrecio, chequearDisponibilidad, mensajePrivacidad, nochesEntre } from '../_lib/cotizador';
-import { SITE_URL } from '../../src/data/config';
+
+// Keep the Pages Function independent from the Vite client configuration.
+// Importing src/data/config here makes Wrangler evaluate import.meta.env while
+// bundling the server-side Function, where Vite's import.meta.env is unavailable.
+const SITE_URL = 'https://experienciamagico.com';
 
 function json(body: unknown, status: number) {
   return new Response(JSON.stringify(body, null, 2), {

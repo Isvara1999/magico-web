@@ -8,6 +8,8 @@ import { createServer } from 'http';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
+const CONTENT = JSON.parse(readFileSync(join(__dirname, '..', 'data.json'), 'utf8'));
+const VOLUNTEER_IMAGE = `https://experienciamagico.com${CONTENT.es.volunteer.image}`;
 
 export const ROUTES = [
   {
@@ -116,11 +118,25 @@ export const ROUTES = [
     canonical: 'https://experienciamagico.com/empresas',
   },
   {
+    path: '/reforestacion',
+    title: 'Reforestación de las Sierras de Córdoba | Pueblo Mágico',
+    description: 'Sumate a la campaña de Pueblo Mágico para plantar 10.000 árboles nativos más y acompañar la regeneración de las Sierras de Córdoba.',
+    image: 'https://experienciamagico.com/uploads/reforestacion/montana-hero.webp',
+    canonical: 'https://experienciamagico.com/reforestacion',
+  },
+  {
     path: '/cordoba-fly-fishing',
     title: 'Córdoba Fly Fishing Adventure — Guided Trout Fishing in the Sierras | Pueblo Mágico',
     description: 'Guided fly fishing for wild Rainbow and Brook trout in the crystal-clear mountain streams of Las Sierras de Córdoba. Full-day outings or a 2-night stay in geodesic domes.',
     image: 'https://experienciamagico.com/uploads/flyfishing-hero.jpg',
     canonical: 'https://experienciamagico.com/cordoba-fly-fishing',
+  },
+  {
+    path: '/voluntariado',
+    title: 'Programa Semilla — Voluntariado en Pueblo Mágico',
+    description: 'Viví una experiencia de intercambio consciente en las Sierras de Córdoba. Comunidad, huerta, reforestación, hospitalidad, eventos y regeneración en Pueblo Mágico.',
+    image: VOLUNTEER_IMAGE,
+    canonical: 'https://experienciamagico.com/voluntariado',
   },
   {
     path: '/organizamos-tu-experiencia',

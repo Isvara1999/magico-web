@@ -27,5 +27,7 @@ export const ROUTES = {
   ALMA_DE_LOBO: '/alma-de-lobo',
   EMPRESAS: '/empresas',
   FLY_FISHING: '/cordoba-fly-fishing',
+  VOLUNTARIADO: '/voluntariado',
+  REFORESTACION: '/reforestacion',
   ADMIN_RESERVAS: '/admin/reservas',
 };

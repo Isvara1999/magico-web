@@ -19,7 +19,7 @@ const AchalaVivaHero: React.FC = () => {
         <img
           src="/uploads/img_6948.webp"
           alt="Achala Viva — Los Gigantes, Córdoba"
-          fetchPriority="high"
+          {...{ fetchpriority: 'high' }}
           loading="eager"
           decoding="async"
           className="w-full h-full object-cover hero-img-zoom"

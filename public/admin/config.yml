@@ -135,6 +135,7 @@ collections:
                       - {label: "Descripción", name: "desc", widget: "text"}
                       - {label: "Texto Botón", name: "btn", widget: "string"}
                       - {label: "Imagen", name: "image", widget: "image"}
+                      - {label: "Mostrar en eventos principales", name: "showInMainEvents", widget: "boolean", default: true, required: false}
               - name: "location"
                 label: "Ubicación"
                 widget: "object"
@@ -254,6 +255,7 @@ collections:
                       - {label: "Description", name: "desc", widget: "text"}
                       - {label: "Button Text", name: "btn", widget: "string"}
                       - {label: "Image", name: "image", widget: "image"}
+                      - {label: "Show in main events", name: "showInMainEvents", widget: "boolean", default: true, required: false}
               - name: "location"
                 label: "Location"
                 widget: "object"

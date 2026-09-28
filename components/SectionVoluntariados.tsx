@@ -32,9 +32,7 @@ export const SectionVoluntariados: React.FC = () => {
               dangerouslySetInnerHTML={{ __html: marked.parse(t.volunteer.description as string) as string }}
             />
             <a
-              href={t.volunteer.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/voluntariado"
               className="inline-block bg-gold text-white px-8 py-3 rounded-full hover:bg-brand transition-colors text-xs font-bold uppercase tracking-widest shadow-lg"
             >
               {t.volunteer.btn}

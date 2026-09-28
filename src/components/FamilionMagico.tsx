@@ -52,7 +52,7 @@ const FamilionMagico: React.FC = () => {
             </ul>
           </div>
           
-          <div className="bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30">
+          <a href="/reforestacion" className="block bg-brand-gold/10 rounded-2xl p-6 md:p-8 border border-brand-gold/30 transition-colors hover:bg-brand-gold/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
             <h4 className="text-brand-gold font-bold text-lg mb-4">{t.familion.magico.investment_title}</h4>
             <p className="text-white/90 text-sm leading-relaxed mb-4">
               {t.familion.magico.investment_text}
@@ -60,7 +60,7 @@ const FamilionMagico: React.FC = () => {
             <p className="text-white/90 italic text-sm leading-relaxed">
               {t.familion.magico.investment_quote}
             </p>
-          </div>
+          </a>
         </div>
         
         <div className="bg-white/10 rounded-2xl p-8 md:p-10 border border-white/20 backdrop-blur-sm text-center">

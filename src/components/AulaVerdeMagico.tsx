@@ -84,14 +84,14 @@ const AulaVerdeMagico: React.FC = () => {
                 {t.aula_verde.magico.strengthen_text}
               </p>
             </div>
-            <div className="bg-[#005333]/50 border border-gold/20 rounded-xl p-4 mt-2">
+            <a href="/reforestacion" className="block bg-[#005333]/50 border border-gold/20 rounded-xl p-4 mt-2 transition-colors hover:border-gold/50 hover:bg-[#005333]/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
               <h5 className="text-gold font-bold text-sm mb-2 flex items-center gap-2">
                 <span>🌱</span> {t.aula_verde.magico.reforest_title}
               </h5>
               <p className="text-white/90 text-sm leading-relaxed">
                 {t.aula_verde.magico.reforest_text}
               </p>
-            </div>
+            </a>
           </div>
         </div>
         
