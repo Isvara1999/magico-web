@@ -200,18 +200,16 @@ export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
   );
 
   // Dynamic Classes
-  // iOS Safari bug: transform on position:fixed makes the element scroll with the page.
-  // Fix: center with left-0/right-0/mx-auto instead of left-1/2/-translate-x-1/2.
-  // Also scope transition properties explicitly — transition-all includes transform,
-  // which can trigger the same WebKit compositing bug.
+  // Keep the header pinned to the viewport without transforms so it remains
+  // stable on iOS Safari while changing between transparent and solid states.
   const pillClasses = `
-    fixed left-0 right-0 mx-auto z-[1000]
+    fixed left-0 right-0 top-0 z-[1000] w-full max-w-none
     transition-[background-color,box-shadow,border-radius,top,width,max-width,padding] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
     flex min-w-0 ${hasSubNavigation ? 'flex-col' : 'items-center justify-between'}
     ${
       useSolidHeader
-        ? `top-[10px] w-[96%] max-w-[98%] bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] rounded-[12px] px-5 ${showSubNavigation ? 'pt-2 pb-0 lg:pt-2.5 lg:pb-0' : 'py-2 lg:py-2.5'}`
-        : 'top-[30px] w-[94%] max-w-[1400px] bg-transparent text-white border-none rounded-[50px] py-2.5'
+        ? `bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-b border-brand/10 px-5 ${showSubNavigation ? 'pt-2 pb-0 lg:pt-2.5 lg:pb-0' : 'py-2 lg:py-2.5'}`
+        : 'bg-transparent text-white border-none px-5 py-2.5'
     }
   `;
 
