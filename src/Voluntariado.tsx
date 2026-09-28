@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { HorizontalCardRail } from '../components/HorizontalCardRail';
 import { PageSectionNav } from '../components/PageSectionNav';
 import { useLanguage } from '../contexts/LanguageContext';
 import { SITE_URL } from './data/config';
@@ -233,11 +234,11 @@ const Voluntariado: React.FC = () => {
               <h2 className="font-serif text-4xl md:text-6xl text-brand mb-6">{content.areas.title}</h2>
               <p className="text-dark/65 text-lg font-light">{content.areas.description}</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <HorizontalCardRail previousLabel={t.ui.prev} nextLabel={t.ui.next} desktopGridClassName="md:grid-cols-2 lg:grid-cols-3" gapClassName="gap-5">
               {content.areas.items.map((item: any, index: number) => {
                 const Icon = areaIcons[index] || Leaf;
                 return (
-                  <div data-reveal key={item.title}>
+                  <div data-reveal key={item.title} className="h-full">
                     <article className="group h-full p-7 rounded-2xl bg-bone border border-brand/5 hover:border-gold/40 hover:-translate-y-1 transition-all duration-300">
                       <div className="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
                         <Icon size={23} aria-hidden="true" />
@@ -251,7 +252,7 @@ const Voluntariado: React.FC = () => {
                   </div>
                 );
               })}
-            </div>
+            </HorizontalCardRail>
             <div data-reveal>
               <div className="mt-8 rounded-2xl border border-gold/25 bg-gold/5 p-6 flex gap-4 items-start max-w-4xl mx-auto">
                 <ShieldCheck className="text-gold flex-none" aria-hidden="true" />
@@ -338,7 +339,7 @@ const Voluntariado: React.FC = () => {
               <p className="text-white/70 text-lg font-light leading-relaxed">{content.reviews.description}</p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <HorizontalCardRail previousLabel={t.ui.prev} nextLabel={t.ui.next} desktopGridClassName="md:grid-cols-2 lg:grid-cols-4" gapClassName="gap-5">
               {volunteerReviews.map((review: any, index: number) => (
                 <article key={`${review.name}-${index}`} data-reveal className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-sm">
                   {review.video ? (
@@ -360,7 +361,7 @@ const Voluntariado: React.FC = () => {
                   </div>
                 </article>
               ))}
-            </div>
+            </HorizontalCardRail>
           </div>
         </section>
 
@@ -397,7 +398,7 @@ const Voluntariado: React.FC = () => {
             </div>
 
             {volunteerEvents.length > 0 ? (
-              <div className={`grid gap-5 ${volunteerEvents.length === 1 ? 'max-w-md mx-auto' : 'sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'}`}>
+              <HorizontalCardRail previousLabel={t.ui.prev} nextLabel={t.ui.next} desktopGridClassName={volunteerEvents.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'} gapClassName="gap-5" className={volunteerEvents.length === 1 ? 'mx-auto max-w-md' : ''}>
                 {volunteerEvents.map((event: any) => (
                   <article key={`${event.date}-${event.title}`} data-reveal className="overflow-hidden rounded-2xl border border-white/15 bg-white text-dark shadow-xl">
                     <div className="relative aspect-[4/3] overflow-hidden bg-brand/10">
@@ -413,9 +414,9 @@ const Voluntariado: React.FC = () => {
                     <div className="p-5">
                       <h3 className="font-serif text-2xl leading-tight text-brand mb-2">{event.title}</h3>
                       <p className="text-sm text-dark/65 font-light leading-relaxed mb-5">{event.desc}</p>
-                      <div className="flex flex-col items-stretch gap-3 sm:items-start">
-                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex !px-5 !py-3 items-center gap-2 justify-center text-[11px]">
-                          <MessageCircle size={16} aria-hidden="true" />{content.calendar.applyCta}
+                      <div className="flex min-w-0 flex-col items-stretch gap-3 sm:items-start">
+                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex !w-full !max-w-full !whitespace-normal !px-5 !py-3 items-center gap-2 justify-center text-center !text-[11px] !leading-snug sm:!w-auto">
+                          <MessageCircle size={16} className="shrink-0" aria-hidden="true" />{content.calendar.applyCta}
                         </a>
                         {event.link && (
                           <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
@@ -426,7 +427,7 @@ const Voluntariado: React.FC = () => {
                     </div>
                   </article>
                 ))}
-              </div>
+              </HorizontalCardRail>
             ) : (
               <div data-reveal className="max-w-3xl mx-auto rounded-2xl border border-white/15 bg-white/5 p-8 text-center">
                 <p className="text-white/70 mb-6">{content.calendar.empty}</p>
