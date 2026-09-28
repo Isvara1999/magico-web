@@ -413,9 +413,9 @@ const Voluntariado: React.FC = () => {
                     <div className="p-5">
                       <h3 className="font-serif text-2xl leading-tight text-brand mb-2">{event.title}</h3>
                       <p className="text-sm text-dark/65 font-light leading-relaxed mb-5">{event.desc}</p>
-                      <div className="flex flex-col items-stretch gap-3 sm:items-start">
-                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex !px-5 !py-3 items-center gap-2 justify-center text-[11px]">
-                          <MessageCircle size={16} aria-hidden="true" />{content.calendar.applyCta}
+                      <div className="flex min-w-0 flex-col items-stretch gap-3 sm:items-start">
+                        <a href={getEventApplicationLink(event.title)} target="_blank" rel="noopener noreferrer" className="btn-gold !inline-flex !w-full !max-w-full !whitespace-normal !px-5 !py-3 items-center gap-2 justify-center text-center !text-[11px] !leading-snug sm:!w-auto">
+                          <MessageCircle size={16} className="shrink-0" aria-hidden="true" />{content.calendar.applyCta}
                         </a>
                         {event.link && (
                           <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
