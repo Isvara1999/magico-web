@@ -4,7 +4,11 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useLocation } from 'react-router-dom';
 import { ROUTES } from '../src/routes';
 
-export const Header: React.FC = () => {
+type HeaderProps = {
+  subNavigation?: React.ReactNode;
+};
+
+export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
@@ -14,6 +18,8 @@ export const Header: React.FC = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname === ROUTES.HOME;
+  const useSolidHeader = isScrolled || isMobileMenuOpen;
+  const showSubNavigation = Boolean(subNavigation && isScrolled && !isMobileMenuOpen);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 1023px)');
@@ -131,23 +137,22 @@ export const Header: React.FC = () => {
   const pillClasses = `
     fixed left-0 right-0 mx-auto z-[1000]
     transition-[background-color,box-shadow,border-radius,top,width,max-width,padding] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
-    flex items-center justify-between
+    flex min-w-0 ${subNavigation ? 'flex-col' : 'items-center justify-between'}
     ${
-      isScrolled || isMobileMenuOpen
-        ? 'top-[10px] w-[96%] max-w-[98%] bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] rounded-[12px] py-2 px-5'
+      useSolidHeader
+        ? `top-[10px] w-[96%] max-w-[98%] bg-white text-dark shadow-[0_8px_30px_rgba(0,0,0,0.08)] rounded-[12px] px-5 ${showSubNavigation ? 'pt-2 pb-0 lg:pt-2.5 lg:pb-0' : 'py-2 lg:py-2.5'}`
         : 'top-[30px] w-[94%] max-w-[1400px] bg-transparent text-white border-none rounded-[50px] py-2.5'
     }
-    lg:py-2.5
   `;
 
   const logoClasses = `
     block w-auto transition-all duration-300
-    ${isScrolled || isMobileMenuOpen ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
+    ${useSolidHeader ? 'h-[40px] md:h-[48px] filter-none' : 'h-[52px] md:h-[65px] brightness-0 invert'}
   `;
 
   return (
     <header className={pillClasses}>
-      <div className="flex justify-between items-center w-full lg:px-4 px-2">
+      <div className="flex w-full items-center justify-between px-2 lg:px-4">
         {/* Logo - Left */}
         <div className="flex-1 lg:flex-none">
           <a href={ROUTES.HOME} className="relative z-[1200] inline-block" onClick={(e) => { 
@@ -175,7 +180,7 @@ export const Header: React.FC = () => {
           {isMobileMenuOpen ? (
             <X className="w-6 h-6 text-dark" />
           ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? 'text-dark' : 'text-white'}`} />
+            <Menu className={`w-6 h-6 ${useSolidHeader ? 'text-dark' : 'text-white'}`} />
           )}
         </button>
 
@@ -199,7 +204,7 @@ export const Header: React.FC = () => {
                     text-[16px] lg:text-[13px] font-serif lg:font-sans font-normal lg:font-medium
                     border-b border-black/5 lg:border-none w-full lg:w-auto
                     transition-colors duration-300
-                    ${isScrolled || isMobileMenuOpen 
+                    ${useSolidHeader
                       ? (isLinkActive(item.href) ? 'text-gold font-bold' : 'text-dark hover:text-brand') 
                       : (isLinkActive(item.href) ? 'text-gold' : 'text-white hover:text-gold')}
                     ${isMobile && !isLinkActive(item.href) ? 'text-[#444]' : ''}
@@ -262,7 +267,7 @@ export const Header: React.FC = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={(e) => handleNavClick(e, t.menu.bookLink, false, -1)}
-                 className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${isScrolled ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}
+                 className={`text-xs font-bold px-5 py-2 rounded-full transition-all shadow-lg ${useSolidHeader ? 'bg-brand text-white hover:bg-gold' : 'bg-white text-brand hover:bg-gold hover:text-white'}`}
                >
                   {t.menu.book}
                </a>
@@ -287,7 +292,7 @@ export const Header: React.FC = () => {
             className={`
               text-[11px] font-medium uppercase border rounded-[20px] py-[5px] px-[18px] transition-all duration-300
               ${
-                isScrolled
+                useSolidHeader
                   ? 'border-black/15 text-dark hover:bg-brand hover:border-brand hover:text-white'
                   : 'border-white/40 text-white hover:bg-white hover:border-white hover:text-brand'
               }
@@ -297,6 +302,16 @@ export const Header: React.FC = () => {
           </button>
         </div>
       </div>
+      {subNavigation && (
+        <div
+          className={`grid w-full min-w-0 max-w-full overflow-visible transition-[grid-template-rows,opacity,border-color] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${showSubNavigation ? 'grid-rows-[1fr] border-t border-brand/10 opacity-100' : 'pointer-events-none grid-rows-[0fr] border-t border-transparent opacity-0'}`}
+          aria-hidden={!showSubNavigation}
+        >
+          <div className="min-h-0 min-w-0 max-w-full overflow-visible">
+            {subNavigation}
+          </div>
+        </div>
+      )}
     </header>
 
   );

@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { VolunteerPageNav } from '../components/VolunteerPageNav';
 import { useLanguage } from '../contexts/LanguageContext';
 import { SITE_URL } from './data/config';
 import { ROUTES } from './routes';
@@ -120,7 +121,7 @@ const Voluntariado: React.FC = () => {
 
   return (
     <div className="bg-bone text-dark overflow-x-hidden">
-      <Header />
+      <Header subNavigation={<VolunteerPageNav navigation={content.navigation} />} />
       <main>
         <section className="relative min-h-[760px] h-[96vh] flex items-end overflow-hidden">
           <img src={volunteerImage} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover object-[center_70%] md:object-center" />
@@ -142,7 +143,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section id="programa" className="py-20 md:py-28 bg-white scroll-mt-24">
+        <section id="programa" className="py-20 md:py-28 bg-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-24 items-center">
             <div data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.intro.eyebrow}</p>
@@ -162,7 +163,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section id="modalidades" className="py-20 md:py-28 bg-bone scroll-mt-24">
+        <section id="modalidades" className="py-20 md:py-28 bg-bone scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mb-14" data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.modalities.eyebrow}</p>
@@ -193,7 +194,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-brand text-white">
+        <section id="intercambio" className="py-20 md:py-28 bg-brand text-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-start">
               <div data-reveal>
@@ -225,7 +226,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-white">
+        <section id="areas" className="py-20 md:py-28 bg-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center max-w-3xl mx-auto mb-14" data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.areas.eyebrow}</p>
@@ -260,7 +261,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-bone">
+        <section id="un-dia" className="py-20 md:py-28 bg-bone scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 lg:gap-20">
               <div data-reveal>
@@ -285,7 +286,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-white">
+        <section id="organizacion" className="py-20 md:py-28 bg-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
             <div className="grid grid-cols-2 gap-4" data-reveal>
               <img src="/uploads/comida.jpg" alt={content.organization.imageAltOne} className="w-full h-72 object-cover rounded-2xl mt-10" loading="lazy" />
@@ -307,7 +308,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-[#EEE8DC]">
+        <section id="convivencia" className="py-20 md:py-28 bg-[#EEE8DC] scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center max-w-3xl mx-auto mb-14" data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.culture.eyebrow}</p>
@@ -329,7 +330,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-brand text-white">
+        <section id="testimonios-voluntarios" className="py-20 md:py-28 bg-brand text-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mb-14" data-reveal>
               <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.reviews.eyebrow}</p>
@@ -363,7 +364,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-white">
+        <section id="como-sumarte" className="py-20 md:py-28 bg-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 lg:gap-20">
               <div data-reveal>
@@ -386,7 +387,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section id="convocatorias" className="py-20 md:py-28 bg-brand text-white scroll-mt-24">
+        <section id="convocatorias" className="py-20 md:py-28 bg-brand text-white scroll-mt-48">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center mb-12" data-reveal>
               <CalendarDays className="text-gold mx-auto mb-6" size={38} aria-hidden="true" />
@@ -438,7 +439,7 @@ const Voluntariado: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 md:py-28 bg-bone">
+        <section id="preguntas" className="py-20 md:py-28 bg-bone scroll-mt-48">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="mb-12" data-reveal>
               <p className="text-brand/80 font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.faq.eyebrow}</p>
