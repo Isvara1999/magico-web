@@ -150,7 +150,7 @@
             "title": "Activación y primeros cuidados",
             "status": "En curso",
             "description": "La mayoría de los árboles ya se encuentra en el proyecto. Mientras continúa la recaudación de la seña, avanzamos con su selección y conteo antes de iniciar los primeros cuidados.",
-            "plannedDate": "Fecha prevista de cierre: 30 de septiembre de 2026",
+            "plannedDate": "Hasta 30/10/2026",
             "steps": [
               { "title": "Pago de la seña", "status": "En recaudación", "state": "active" },
               { "title": "Recepción de los arbolitos", "status": "Mayoría recibida", "state": "completed" },
@@ -173,7 +173,7 @@
             "title": "Construcción del vivero",
             "status": "Próxima etapa",
             "description": "Estamos evaluando dos configuraciones posibles para resguardar y acompañar los árboles. Compartiremos aquí el diseño elegido, la preparación del terreno y el proceso de construcción.",
-            "plannedDate": "Fecha prevista: antes de la temporada de lluvias",
+            "plannedDate": "Temporada de lluvias",
             "note": "Estas imágenes son alternativas conceptuales, no planos constructivos definitivos. La solución final se definirá según el terreno, la capacidad necesaria, los costos, el mantenimiento y la validación técnica.",
             "steps": [
               { "title": "Identificar la ubicación", "status": "Pendiente", "state": "upcoming" },
@@ -2442,7 +2442,7 @@
             "title": "Activation and initial care",
             "status": "In progress",
             "description": "Most of the trees are already at the project. While down-payment fundraising continues, selection and counting are under way before initial care begins.",
-            "plannedDate": "Planned completion: September 30, 2026",
+            "plannedDate": "September 30, 2026",
             "steps": [
               { "title": "Fund the down payment", "status": "Fundraising in progress", "state": "active" },
               { "title": "Receive the baby trees", "status": "Most received", "state": "completed" },
@@ -2465,7 +2465,7 @@
             "title": "Nursery construction",
             "status": "Next stage",
             "description": "We are evaluating two possible configurations to shelter and care for the trees. We will share the selected design, site preparation and construction process here.",
-            "plannedDate": "Planned date: before the rainy season",
+            "plannedDate": "Before Rain Season",
             "note": "These images are conceptual alternatives, not final construction drawings. The final solution will be determined by the site, required capacity, costs, maintenance and technical validation.",
             "steps": [
               { "title": "Identify the location", "status": "Pending", "state": "upcoming" },

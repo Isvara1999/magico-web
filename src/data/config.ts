@@ -16,7 +16,7 @@ export const REFORESTATION_CONTRIBUTION = {
   alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() || 'pueblo-magico',
   accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() || 'Diego Epelman',
   cbu: import.meta.env.VITE_REFORESTATION_CBU?.trim() ?? '',
-  raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 75_000),
+  raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 230000),
 };
 
 // Reemplaza los envíos de Netlify Forms (no disponible en Cloudflare Pages).
