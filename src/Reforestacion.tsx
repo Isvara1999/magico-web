@@ -639,8 +639,8 @@ const Reforestacion: React.FC = () => {
         </section>
 
         <section className="bg-brand px-6 py-20 text-white md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
-            <div data-reveal>
+          <div className="mx-auto grid min-w-0 max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+            <div data-reveal className="min-w-0">
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-brand">
                 <Building2 size={28} strokeWidth={1.5} aria-hidden="true" />
               </div>
@@ -649,30 +649,30 @@ const Reforestacion: React.FC = () => {
               <p className="max-w-xl text-lg font-light leading-relaxed text-white/75">{content.corporate.description}</p>
             </div>
 
-            <div data-reveal data-delay="1">
+            <div data-reveal data-delay="1" className="min-w-0">
               <div className="space-y-3">
                 {content.corporate.items.map((item: { title: string; description: string }, index: number) => {
                   const Icon = [TreePine, Users, ShieldCheck][index] ?? TreePine;
                   return (
-                    <article key={item.title} className="flex gap-4 rounded-2xl border border-white/15 bg-white/[0.06] p-5 backdrop-blur-sm">
+                    <article key={item.title} className="flex min-w-0 gap-4 rounded-2xl border border-white/15 bg-white/[0.06] p-5 backdrop-blur-sm">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
                         <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
                       </div>
-                      <div>
-                        <h3 className="mb-1 font-serif text-xl">{item.title}</h3>
-                        <p className="text-sm font-light leading-relaxed text-white/65">{item.description}</p>
+                      <div className="min-w-0">
+                        <h3 className="mb-1 break-words font-serif text-xl">{item.title}</h3>
+                        <p className="break-words text-sm font-light leading-relaxed text-white/65">{item.description}</p>
                       </div>
                     </article>
                   );
                 })}
               </div>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a href={ROUTES.EMPRESAS} className="btn-gold btn-icon-inline">
+              <div className="mt-7 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a href={ROUTES.EMPRESAS} className="btn-gold btn-icon-inline !w-full !max-w-full !whitespace-normal text-center !leading-snug sm:!w-auto">
                   {content.corporate.cta}
-                  <ArrowRight size={18} aria-hidden="true" />
+                  <ArrowRight size={18} className="shrink-0" aria-hidden="true" />
                 </a>
-                <a href={corporateWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-glass btn-icon-inline">
-                  <MessageCircle size={18} aria-hidden="true" />
+                <a href={corporateWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-glass btn-icon-inline !w-full !max-w-full !whitespace-normal text-center !leading-snug sm:!w-auto">
+                  <MessageCircle size={18} className="shrink-0" aria-hidden="true" />
                   {content.corporate.contactCta}
                 </a>
               </div>
