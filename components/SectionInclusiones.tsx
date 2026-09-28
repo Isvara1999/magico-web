@@ -24,6 +24,10 @@ const ICONS = [
 export const SectionInclusiones: React.FC = () => {
   const { t } = useLanguage();
   const i = t.inclusiones;
+  const carpaDesde = ESTADIA_PRICES?.carpaDesde;
+  const domoPrivadoDesde = ESTADIA_PRICES?.domoPrivadoDesde;
+  const hasCarpaPrice = typeof carpaDesde === 'number' && Number.isFinite(carpaDesde);
+  const hasDomoPrice = typeof domoPrivadoDesde === 'number' && Number.isFinite(domoPrivadoDesde);
 
   return (
     <>
@@ -53,22 +57,28 @@ export const SectionInclusiones: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4" data-reveal>
-            <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
-              <p className="text-white/70 font-bold tracking-widest uppercase text-xs mb-1">{i.price_solo_label}</p>
-              <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.carpaDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
-              </p>
-              <p className="text-white/50 text-xs mt-1">{i.price_solo_sub}</p>
+          {(hasCarpaPrice || hasDomoPrice) && (
+            <div className="flex flex-col sm:flex-row justify-center gap-4" data-reveal>
+              {hasCarpaPrice && (
+                <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
+                  <p className="text-white/70 font-bold tracking-widest uppercase text-xs mb-1">{i.price_solo_label}</p>
+                  <p className="text-white text-2xl font-serif">
+                    ${carpaDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_unit}</span>
+                  </p>
+                  <p className="text-white/50 text-xs mt-1">{i.price_solo_sub}</p>
+                </div>
+              )}
+              {hasDomoPrice && (
+                <div className="bg-gold/20 border border-gold/40 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
+                  <p className="text-gold font-bold tracking-widest uppercase text-xs mb-1">{i.price_pension_label}</p>
+                  <p className="text-white text-2xl font-serif">
+                    ${domoPrivadoDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_pension_unit}</span>
+                  </p>
+                  <p className="text-white/50 text-xs mt-1">{i.price_pension_sub}</p>
+                </div>
+              )}
             </div>
-            <div className="bg-gold/20 border border-gold/40 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
-              <p className="text-gold font-bold tracking-widest uppercase text-xs mb-1">{i.price_pension_label}</p>
-              <p className="text-white text-2xl font-serif">
-                ${ESTADIA_PRICES.domoPrivadoDesde.toLocaleString('es-AR')} <span className="text-base font-sans font-light">{i.price_pension_unit}</span>
-              </p>
-              <p className="text-white/50 text-xs mt-1">{i.price_pension_sub}</p>
-            </div>
-          </div>
+          )}
 
         </div>
       </section>
