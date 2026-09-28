@@ -514,6 +514,12 @@
         ],
         "note": "Los círculos de palabra son una práctica comunitaria para escuchar y ajustar acuerdos. No sustituyen apoyo profesional, protocolos de emergencia ni un canal confidencial para situaciones de violencia, acoso o inseguridad."
       },
+      "reviews": {
+        "eyebrow": "Voces de la comunidad",
+        "title": "Lo que queda después de vivirlo",
+        "description": "Experiencias compartidas por personas que participaron del voluntariado y habitaron el ritmo cotidiano de Pueblo Mágico.",
+        "videoLabel": "Testimonio en video de"
+      },
       "process": {
         "eyebrow": "Cómo sumarte",
         "title": "De la intención al encuentro",
@@ -2798,6 +2804,12 @@
           { "title": "Interdependence", "description": "We share responsibilities, ask for help and care for collective wellbeing." }
         ],
         "note": "Talking circles are a community practice for listening and adjusting agreements. They do not replace professional support, emergency protocols or a confidential channel for situations involving violence, harassment or safety."
+      },
+      "reviews": {
+        "eyebrow": "Community voices",
+        "title": "What stays with you after living it",
+        "description": "Experiences shared by people who joined the volunteer program and lived the everyday rhythm of Pueblo Mágico.",
+        "videoLabel": "Video testimonial from"
       },
       "process": {
         "eyebrow": "How to join",

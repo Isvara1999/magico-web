@@ -14,6 +14,8 @@ import {
   MessageCircle,
   Mountain,
   Palette,
+  Play,
+  Quote,
   Recycle,
   ShieldCheck,
   Sparkles,
@@ -40,6 +42,7 @@ const Voluntariado: React.FC = () => {
   const { t, language } = useLanguage();
   const content = (t as any).volunteerPage;
   const volunteerEvents = ((t as any).events?.cards || []).filter((event: any) => event.isVolunariado === true);
+  const volunteerReviews = (t as any).volunteer?.testimonials || [];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const getEventApplicationLink = (eventTitle: string) => {
@@ -324,6 +327,40 @@ const Voluntariado: React.FC = () => {
               ))}
             </div>
             <p className="text-center max-w-4xl mx-auto mt-9 text-dark/55 text-sm leading-relaxed">{content.culture.note}</p>
+          </div>
+        </section>
+
+        <section className="py-20 md:py-28 bg-brand text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl mb-14" data-reveal>
+              <p className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-4">{content.reviews.eyebrow}</p>
+              <h2 className="font-serif text-4xl md:text-6xl mb-6">{content.reviews.title}</h2>
+              <p className="text-white/70 text-lg font-light leading-relaxed">{content.reviews.description}</p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {volunteerReviews.map((review: any, index: number) => (
+                <article key={`${review.name}-${index}`} data-reveal className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-sm">
+                  {review.video ? (
+                    <div className="relative aspect-[4/3] overflow-hidden bg-black/30">
+                      <video controls playsInline preload="metadata" poster={review.image} className="h-full w-full object-cover" aria-label={`${content.reviews.videoLabel}: ${review.name}`}>
+                        <source src={review.video} />
+                      </video>
+                      <span className="pointer-events-none absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold text-brand shadow-lg" aria-hidden="true"><Play size={17} fill="currentColor" /></span>
+                    </div>
+                  ) : (
+                    <div className="aspect-[4/3] overflow-hidden bg-white/5">
+                      <img src={review.image} alt={review.name} className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]" loading="lazy" />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <Quote className="mb-5 text-gold/50" size={30} aria-hidden="true" />
+                    <blockquote className="flex-1 text-white/75 font-light italic leading-relaxed">“{review.text}”</blockquote>
+                    <p className="mt-6 border-t border-white/10 pt-4 font-serif text-xl text-gold">{review.name}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
