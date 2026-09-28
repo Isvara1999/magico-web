@@ -50,8 +50,11 @@ export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
   const useSolidHeader = isScrolled || isMobileMenuOpen;
   const showSubNavigation = Boolean(hasSubNavigation && isScrolled && !isMobileMenuOpen);
 
-  const scrollSectionToViewportTop = (element: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
-    const targetTop = window.scrollY + element.getBoundingClientRect().top;
+  const scrollSectionBelowHeader = (element: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+    const mainHeaderBottom = document.querySelector<HTMLElement>('[data-header-main-row]')?.getBoundingClientRect().bottom
+      || document.querySelector('header')?.getBoundingClientRect().bottom
+      || 0;
+    const targetTop = window.scrollY + element.getBoundingClientRect().top - mainHeaderBottom;
     window.scrollTo({ top: Math.max(0, targetTop), behavior });
   };
 
@@ -138,10 +141,10 @@ export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
 
     setActiveSection(targetId);
     const firstFrame = window.requestAnimationFrame(() => {
-      scrollSectionToViewportTop(target);
+      scrollSectionBelowHeader(target);
     });
     const settledLayout = window.setTimeout(() => {
-      scrollSectionToViewportTop(target);
+      scrollSectionBelowHeader(target);
     }, 700);
 
     return () => {
@@ -172,8 +175,8 @@ export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
         if (element) {
           setActiveSection(targetId);
           setIsMobileMenuOpen(false);
-          scrollSectionToViewportTop(element);
-          window.setTimeout(() => scrollSectionToViewportTop(element), 700);
+          scrollSectionBelowHeader(element);
+          window.setTimeout(() => scrollSectionBelowHeader(element), 700);
           window.history.pushState(null, '', href);
         }
       } else {
@@ -219,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({ subNavigation }) => {
 
   return (
     <header className={pillClasses}>
-      <div className="flex w-full items-center justify-between px-2 lg:px-4">
+      <div data-header-main-row className="flex w-full items-center justify-between px-2 lg:px-4">
         {/* Logo - Left */}
         <div className="flex-1 lg:flex-none">
           <a href={ROUTES.HOME} className="relative z-[1200] inline-block" onClick={(e) => { 

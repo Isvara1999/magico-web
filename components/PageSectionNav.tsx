@@ -66,8 +66,11 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
   const pendingInitialHashRef = useRef(window.location.hash.substring(1));
   const resolvedNavigation = navigation || discoveredNavigation;
 
-  const scrollSectionToViewportTop = (section: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
-    const targetTop = window.scrollY + section.getBoundingClientRect().top;
+  const scrollSectionBelowHeader = (section: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+    const mainHeaderBottom = document.querySelector<HTMLElement>('[data-header-main-row]')?.getBoundingClientRect().bottom
+      || document.querySelector('header')?.getBoundingClientRect().bottom
+      || 0;
+    const targetTop = window.scrollY + section.getBoundingClientRect().top - mainHeaderBottom;
     window.scrollTo({ top: Math.max(0, targetTop), behavior });
   };
 
@@ -179,9 +182,9 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
 
     programmaticTargetRef.current = targetIndex;
     setActiveIndex(targetIndex);
-    const firstFrame = window.requestAnimationFrame(() => scrollSectionToViewportTop(section));
+    const firstFrame = window.requestAnimationFrame(() => scrollSectionBelowHeader(section));
     const settledLayout = window.setTimeout(() => {
-      scrollSectionToViewportTop(section);
+      scrollSectionBelowHeader(section);
       programmaticTargetRef.current = null;
       pendingInitialHashRef.current = '';
     }, 700);
@@ -213,11 +216,11 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
     programmaticTargetRef.current = itemIndex;
     pendingInitialHashRef.current = '';
     setActiveIndex(itemIndex);
-    scrollSectionToViewportTop(section);
+    scrollSectionBelowHeader(section);
 
     if (scrollEndTimeoutRef.current !== null) window.clearTimeout(scrollEndTimeoutRef.current);
     scrollEndTimeoutRef.current = window.setTimeout(() => {
-      scrollSectionToViewportTop(section);
+      scrollSectionBelowHeader(section);
       programmaticTargetRef.current = null;
       scrollEndTimeoutRef.current = null;
     }, 700);
