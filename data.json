@@ -706,7 +706,8 @@
           "link": "/reforestacion#voluntariado",
           "pdfLink": "",
           "isVolunariado": true,
-          "isReforestacion": true
+          "isReforestacion": true,
+          "showInMainEvents": false
         },
         {
           "date": "5-6 DICIEMBRE 2026",
@@ -719,7 +720,8 @@
           "link": "/reforestacion#voluntariado",
           "pdfLink": "",
           "isVolunariado": true,
-          "isReforestacion": true
+          "isReforestacion": true,
+          "showInMainEvents": false
         },
         {
           "date": "PRÓXIMA FECHA",
@@ -2998,7 +3000,8 @@
           "link": "/reforestacion#volunteering",
           "pdfLink": "",
           "isVolunariado": true,
-          "isReforestacion": true
+          "isReforestacion": true,
+          "showInMainEvents": false
         },
         {
           "date": "DEC 5-6, 2026",
@@ -3011,7 +3014,8 @@
           "link": "/reforestacion#volunteering",
           "pdfLink": "",
           "isVolunariado": true,
-          "isReforestacion": true
+          "isReforestacion": true,
+          "showInMainEvents": false
         },
         {
           "date": "NEXT DATE",

@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Calendar, ArrowRight, Tag } from 'lucide-rea
 export const SectionEventos: React.FC = () => {
   const { t } = useLanguage();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const mainEvents = t.events.cards.filter((card: any) => card.showInMainEvents !== false);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -47,7 +48,7 @@ export const SectionEventos: React.FC = () => {
             ref={scrollContainerRef}
             className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-8 pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0"
           >
-          {t.events.cards.map((card: any, index: number) => (
+          {mainEvents.map((card: any, index: number) => (
             <div
               key={index}
               className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand/5 flex flex-col h-full group"
