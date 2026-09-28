@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { VolunteerPageNav } from '../components/VolunteerPageNav';
+import { PageSectionNav } from '../components/PageSectionNav';
 import { useLanguage } from '../contexts/LanguageContext';
 import { SITE_URL } from './data/config';
 import { ROUTES } from './routes';
@@ -121,7 +121,7 @@ const Voluntariado: React.FC = () => {
 
   return (
     <div className="bg-bone text-dark overflow-x-hidden">
-      <Header subNavigation={<VolunteerPageNav navigation={content.navigation} />} />
+      <Header subNavigation={<PageSectionNav navigation={content.navigation} />} />
       <main>
         <section className="relative min-h-[760px] h-[96vh] flex items-end overflow-hidden">
           <img src={volunteerImage} alt={content.hero.imageAlt} className="absolute inset-0 h-full w-full object-cover object-[center_70%] md:object-center" />

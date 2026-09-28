@@ -823,44 +823,62 @@
         {
           "label": "Nosotros",
           "href": "#nosotros",
+          "submenuEyebrow": "Conocé Pueblo Mágico",
           "submenu": [
             {
               "label": "Filosofía",
-              "href": "#nosotros"
+              "href": "#nosotros",
+              "description": "Nuestra mirada y propósito",
+              "icon": "leaf"
             },
             {
               "label": "Nuestros Pilares",
-              "href": "#pilares"
+              "href": "#pilares",
+              "description": "Los valores que nos guían",
+              "icon": "community"
             },
             {
               "label": "Voluntariados",
-              "href": "/voluntariado"
+              "href": "/voluntariado",
+              "description": "Sumate a la comunidad",
+              "icon": "sprout"
             },
             {
               "label": "Reforestación",
-              "href": "/reforestacion"
+              "href": "/reforestacion",
+              "description": "Regenerar el bosque nativo",
+              "icon": "trees"
             }
           ]
         }, 
         {
           "label": "Experiencias",
           "href": "#experiencias",
+          "submenuEyebrow": "Viví Pueblo Mágico",
           "submenu": [
             {
               "label": "Estadías & Glamping",
-              "href": "/estadia"
+              "href": "/estadia",
+              "description": "Hospedaje consciente en la montaña",
+              "icon": "stay"
             },
             {
               "label": "Coliving",
-              "href": "/coliving"
+              "href": "/coliving",
+              "description": "Viví y trabajá en comunidad",
+              "icon": "home"
             },
             {
-              "label": "❄ Winter Camp",
-              "href": "/winter-camp"
+              "label": "Winter Camp",
+              "href": "/winter-camp",
+              "description": "Naturaleza, comunidad y aventura",
+              "icon": "snow"
             },
             {
-              "label": "⚡ Winter Redirection",
-              "href": "/winter-redirection"
+              "label": "Winter Redirection",
+              "href": "/winter-redirection",
+              "description": "Una pausa para reorientarte",
+              "icon": "spark"
             }
           ],
           "viewAllLink": {
@@ -3136,44 +3154,62 @@
         {
           "label": "About Us",
           "href": "#nosotros",
+          "submenuEyebrow": "Discover Pueblo Mágico",
           "submenu": [
             {
               "label": "Philosophy",
-              "href": "#nosotros"
+              "href": "#nosotros",
+              "description": "Our perspective and purpose",
+              "icon": "leaf"
             },
             {
               "label": "Our Pillars",
-              "href": "#pilares"
+              "href": "#pilares",
+              "description": "The values that guide us",
+              "icon": "community"
             },
             {
               "label": "Volunteering",
-              "href": "/voluntariado"
+              "href": "/voluntariado",
+              "description": "Join the community",
+              "icon": "sprout"
             },
             {
               "label": "Reforestation",
-              "href": "/reforestacion"
+              "href": "/reforestacion",
+              "description": "Regenerating the native forest",
+              "icon": "trees"
             }
           ]
         },
         {
           "label": "Experiencias",
           "href": "#experiencias",
+          "submenuEyebrow": "Experience Pueblo Mágico",
           "submenu": [
             {
               "label": "Stays & Glamping",
-              "href": "/estadia"
+              "href": "/estadia",
+              "description": "Conscious mountain accommodation",
+              "icon": "stay"
             },
             {
               "label": "Coliving",
-              "href": "/coliving"
+              "href": "/coliving",
+              "description": "Live and work in community",
+              "icon": "home"
             },
             {
-              "label": "❄ Winter Camp",
-              "href": "/winter-camp"
+              "label": "Winter Camp",
+              "href": "/winter-camp",
+              "description": "Nature, community and adventure",
+              "icon": "snow"
             },
             {
-              "label": "⚡ Winter Redirection",
-              "href": "/winter-redirection"
+              "label": "Winter Redirection",
+              "href": "/winter-redirection",
+              "description": "A pause to find your direction",
+              "icon": "spark"
             }
           ],
           "viewAllLink": {
