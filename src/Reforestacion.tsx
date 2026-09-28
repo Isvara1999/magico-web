@@ -25,7 +25,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { REFORESTATION_CONTRIBUTION, SITE_URL, WA_MAGICO, WA_VOLUNTEERS } from './data/config';
 import { ROUTES } from './routes';
 
-const HERO_IMAGE = '/uploads/reforestacion/montana-hero.webp';
+const HERO_IMAGE = '/uploads/reforestacion/jornada-comunidad.jpeg';
+const IMPACT_BACKGROUND_IMAGE = '/uploads/reforestacion/territorio-restauracion.jpeg';
+const FUNDING_BACKGROUND_IMAGE = '/uploads/reforestacion/jornada-plantacion.jpeg';
 
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
@@ -195,8 +197,17 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
-        <section id="impacto" className="bg-white py-20 md:py-28 px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="impacto" className="relative overflow-hidden bg-white px-6 py-20 md:py-28">
+          <img
+            src={IMPACT_BACKGROUND_IMAGE}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.38]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/82 via-white/76 to-white/90" aria-hidden="true" />
+          <div className="relative max-w-6xl mx-auto">
             <div data-reveal>
               <div className="max-w-3xl mx-auto text-center mb-14">
                 <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.impact.eyebrow}</p>
@@ -226,8 +237,17 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
-        <section id="metas" className="py-20 md:py-28 px-6 bg-bone">
-          <div className="max-w-6xl mx-auto">
+        <section id="metas" className="relative overflow-hidden bg-bone px-6 py-20 md:py-28">
+          <img
+            src={FUNDING_BACKGROUND_IMAGE}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.28]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-bone/82" aria-hidden="true" />
+          <div className="relative max-w-6xl mx-auto">
             <div data-reveal className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.funding.eyebrow}</p>
               <h2 className="font-serif text-4xl md:text-5xl text-brand leading-tight mb-6">{content.funding.title}</h2>
