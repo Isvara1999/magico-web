@@ -423,7 +423,7 @@ const Reforestacion: React.FC = () => {
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div data-reveal>
               <img
-                src="/uploads/reforestacion/comunidad-atardecer.webp"
+                src="/uploads/reforestacion/jornada-plantines.jpeg"
                 alt={content.story.imageAlt}
                 className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
                 loading="lazy"
@@ -470,7 +470,7 @@ const Reforestacion: React.FC = () => {
           <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
             <div data-reveal className="lg:order-2">
               <img
-                src="/uploads/reforestacion/comunidad-interior.webp"
+                src="/uploads/reforestacion/vivero-plantines.jpeg"
                 alt={content.community.imageAlt}
                 className="w-full max-h-[680px] object-cover rounded-2xl shadow-xl"
                 loading="lazy"
@@ -712,7 +712,7 @@ const Reforestacion: React.FC = () => {
 
         <section className="relative py-24 md:py-32 px-6 overflow-hidden">
           <img
-            src="/uploads/reforestacion/salon-experiencias.webp"
+            src="/uploads/reforestacion/plantacion-detalle.jpeg"
             alt={content.closing.imageAlt}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
