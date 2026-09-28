@@ -119,7 +119,7 @@ const CordobaFlyFishing: React.FC = () => {
               src={img('/uploads/flyfishing-hero.jpg', 1400)}
               alt="Releasing a wild trout in a Córdoba mountain stream"
               className="absolute inset-0 w-full h-full object-cover object-center"
-              fetchPriority="high"
+              {...{ fetchpriority: 'high' }}
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c1410]/92 via-[#0c1410]/35 to-transparent" />
