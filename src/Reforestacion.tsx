@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowRight,
@@ -6,12 +6,15 @@ import {
   CalendarDays,
   Camera,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Copy,
   Heart,
   HandHeart,
   Leaf,
   MessageCircle,
   MapPinned,
+  Play,
   ShieldCheck,
   Sprout,
   Target,
@@ -30,6 +33,18 @@ const HERO_IMAGE = '/uploads/reforestacion/jornada-comunidad.jpeg';
 const IMPACT_BACKGROUND_IMAGE = '/uploads/reforestacion/territorio-restauracion.jpeg';
 const FUNDING_BACKGROUND_IMAGE = '/uploads/reforestacion/jornada-plantacion.jpeg';
 
+type PhaseMedia = {
+  src: string;
+  alt: string;
+  caption: string;
+  type?: 'image' | 'video';
+};
+
+type ExpandedGallery = {
+  items: PhaseMedia[];
+  index: number;
+};
+
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
   const content = t.reforestation;
@@ -38,7 +53,8 @@ const Reforestacion: React.FC = () => {
     .sort((first: any, second: any) => (first.startDate || '').localeCompare(second.startDate || ''));
   const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
-  const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string; caption: string } | null>(null);
+  const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
+  const galleryTouchStartX = useRef<number | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -153,6 +169,36 @@ const Reforestacion: React.FC = () => {
     };
   }, [donationModalOpen]);
 
+  const moveExpandedGallery = (direction: -1 | 1) => {
+    setExpandedGallery(current => {
+      if (!current || current.items.length < 2) return current;
+      return {
+        ...current,
+        index: (current.index + direction + current.items.length) % current.items.length,
+      };
+    });
+  };
+
+  useEffect(() => {
+    if (!expandedGallery) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setExpandedGallery(null);
+      if (event.key === 'ArrowLeft') moveExpandedGallery(-1);
+      if (event.key === 'ArrowRight') moveExpandedGallery(1);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [expandedGallery]);
+
+  const expandedMedia = expandedGallery?.items[expandedGallery.index] ?? null;
+
   const copyValue = async (field: 'alias' | 'cbu', value: string) => {
     await navigator.clipboard.writeText(value);
     setCopiedField(field);
@@ -175,9 +221,9 @@ const Reforestacion: React.FC = () => {
             className="absolute inset-0 h-full w-full object-cover object-center"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071d14]/95 via-[#071d14]/45 to-[#071d14]/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071d14]/95 via-[#071d14]/65 to-[#071d14]/25" />
           <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-16 md:pb-24">
-            <p className="text-gold text-[11px] uppercase tracking-[0.28em] font-bold mb-5">
+            <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-gold drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
               {content.hero.eyebrow}
             </p>
             <h1 className="max-w-4xl text-white font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] font-light mb-6">
@@ -340,7 +386,7 @@ const Reforestacion: React.FC = () => {
                 plannedDate?: string;
                 note?: string;
                 steps: Array<{ title: string; status: string; state: 'active' | 'completed' | 'upcoming' }>;
-                photos: Array<{ src: string; alt: string; caption: string; type?: 'image' | 'video' }>;
+                photos: PhaseMedia[];
               }, phaseIndex: number) => {
                 const Icon = phaseIcons[phaseIndex] ?? Sprout;
                 return (
@@ -383,20 +429,29 @@ const Reforestacion: React.FC = () => {
 
                     {phase.photos.length > 0 ? (
                       <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" aria-label={content.updates.carouselLabel}>
-                        {phase.photos.map(photo => (
+                        {phase.photos.map((photo, mediaIndex) => (
                           <figure key={photo.src} className="flex w-[68vw] max-w-72 shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-lg sm:w-72">
-                            {photo.type === 'video' ? (
-                              <div className="flex aspect-square items-center justify-center overflow-hidden bg-bone">
-                                <video controls playsInline preload="metadata" className="h-full w-full object-cover" aria-label={photo.alt}>
-                                  <source src={photo.src} />
-                                  <a href={photo.src}>{content.updates.videoFallback}</a>
-                                </video>
-                              </div>
-                            ) : (
-                              <button type="button" onClick={() => setExpandedImage(photo)} className="group block aspect-square w-full overflow-hidden bg-bone focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${photo.alt}`}>
-                                <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
-                              </button>
-                            )}
+                            <button
+                              type="button"
+                              onClick={() => setExpandedGallery({ items: phase.photos, index: mediaIndex })}
+                              className="group relative block aspect-square w-full overflow-hidden bg-bone focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold"
+                              aria-label={`${content.updates.goTo}: ${photo.alt}`}
+                            >
+                              {photo.type === 'video' ? (
+                                <>
+                                  <video muted playsInline preload="metadata" className="pointer-events-none h-full w-full object-cover" aria-hidden="true">
+                                    <source src={photo.src} />
+                                  </video>
+                                  <span className="absolute inset-0 flex items-center justify-center bg-black/15 transition-colors group-hover:bg-black/25" aria-hidden="true">
+                                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-brand shadow-xl">
+                                      <Play size={24} className="ml-1" fill="currentColor" />
+                                    </span>
+                                  </span>
+                                </>
+                              ) : (
+                                <img src={photo.src} alt="" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
+                              )}
+                            </button>
                             <figcaption className="min-h-20 flex-1 p-4 text-sm leading-relaxed text-gray-600">{photo.caption}</figcaption>
                           </figure>
                         ))}
@@ -568,7 +623,7 @@ const Reforestacion: React.FC = () => {
             <div className="grid gap-5 md:grid-cols-2">
               {content.maps.areas.map((area: { status: string; title: string; description: string; image: string; imageAlt: string }, index: number) => (
                 <article key={area.title} data-reveal data-delay={String(index + 1)} className="overflow-hidden rounded-2xl border border-brand/10 bg-bone shadow-[0_12px_35px_rgba(0,83,51,0.07)]">
-                  <button type="button" onClick={() => setExpandedImage({ src: area.image, alt: area.imageAlt, caption: area.title })} className="group block aspect-[16/10] w-full overflow-hidden bg-brand/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${area.imageAlt}`}>
+                  <button type="button" onClick={() => setExpandedGallery({ items: [{ src: area.image, alt: area.imageAlt, caption: area.title }], index: 0 })} className="group block aspect-[16/10] w-full overflow-hidden bg-brand/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-gold" aria-label={`${content.updates.goTo}: ${area.imageAlt}`}>
                     <img src={area.image} alt={area.imageAlt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy" decoding="async" />
                   </button>
                   <div className="p-7 md:p-8">
@@ -731,25 +786,80 @@ const Reforestacion: React.FC = () => {
         </section>
       </main>
 
-      {expandedImage && (
+      {expandedGallery && expandedMedia && (
         <div
           className="fixed inset-0 z-[6000] flex items-center justify-center bg-[#071d14]/90 p-4 backdrop-blur-sm md:p-8"
           role="presentation"
           onMouseDown={event => {
-            if (event.target === event.currentTarget) setExpandedImage(null);
+            if (event.target === event.currentTarget) setExpandedGallery(null);
           }}
         >
-          <section role="dialog" aria-modal="true" aria-label={expandedImage.alt} className="relative flex max-h-full w-full max-w-6xl flex-col items-center">
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-label={expandedMedia.alt}
+            className="relative flex max-h-full w-full max-w-6xl touch-pan-y flex-col items-center"
+            onTouchStart={event => {
+              galleryTouchStartX.current = event.touches[0]?.clientX ?? null;
+            }}
+            onTouchEnd={event => {
+              const startX = galleryTouchStartX.current;
+              const endX = event.changedTouches[0]?.clientX;
+              galleryTouchStartX.current = null;
+              if (startX === null || endX === undefined) return;
+              const distance = endX - startX;
+              if (Math.abs(distance) < 50) return;
+              moveExpandedGallery(distance > 0 ? -1 : 1);
+            }}
+          >
             <button
               type="button"
-              onClick={() => setExpandedImage(null)}
+              onClick={() => setExpandedGallery(null)}
               aria-label={content.contribution.closeModal}
               className="absolute right-2 top-2 z-10 rounded-full bg-white/95 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:right-4 md:top-4"
             >
               <X size={24} aria-hidden="true" />
             </button>
-            <img src={expandedImage.src} alt={expandedImage.alt} className="max-h-[82vh] max-w-full rounded-2xl object-contain shadow-2xl" />
-            <p className="mt-3 max-w-3xl rounded-full bg-white/95 px-5 py-2 text-center text-sm text-gray-700 shadow-lg">{expandedImage.caption}</p>
+
+            {expandedGallery.items.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => moveExpandedGallery(-1)}
+                  aria-label={t.ui.prev}
+                  className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/95 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:left-4 md:p-3"
+                >
+                  <ChevronLeft size={26} aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => moveExpandedGallery(1)}
+                  aria-label={t.ui.next}
+                  className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/95 p-2.5 text-brand shadow-lg transition-colors hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:right-4 md:p-3"
+                >
+                  <ChevronRight size={26} aria-hidden="true" />
+                </button>
+              </>
+            )}
+
+            <div className="flex min-h-0 w-full flex-1 items-center justify-center px-8 md:px-20">
+              {expandedMedia.type === 'video' ? (
+                <video key={expandedMedia.src} controls autoPlay playsInline className="max-h-[78vh] max-w-full rounded-2xl bg-black object-contain shadow-2xl" aria-label={expandedMedia.alt}>
+                  <source src={expandedMedia.src} />
+                  <a href={expandedMedia.src}>{content.updates.videoFallback}</a>
+                </video>
+              ) : (
+                <img key={expandedMedia.src} src={expandedMedia.src} alt={expandedMedia.alt} className="max-h-[78vh] max-w-full rounded-2xl object-contain shadow-2xl" />
+              )}
+            </div>
+            <div className="mt-3 flex max-w-3xl flex-col items-center gap-2">
+              <p className="rounded-full bg-white/95 px-5 py-2 text-center text-sm text-gray-700 shadow-lg">{expandedMedia.caption}</p>
+              {expandedGallery.items.length > 1 && (
+                <span className="rounded-full bg-black/35 px-3 py-1 text-xs font-semibold tracking-widest text-white/80">
+                  {expandedGallery.index + 1} / {expandedGallery.items.length}
+                </span>
+              )}
+            </div>
           </section>
         </div>
       )}
