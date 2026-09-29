@@ -39,15 +39,35 @@ const readElementLabel = (element: HTMLElement | null) => {
   return lines[0] || '';
 };
 
-const createSectionId = (label: string, index: number) => {
+const createSemanticSlug = (label: string) => {
   const slug = label
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 42);
-  return `seccion-${slug || 'contenido'}-${index + 1}`;
+    .replace(/^-|-$/g, '');
+
+  if (slug.length <= 64) return slug;
+
+  const truncated = slug.slice(0, 64);
+  const lastCompleteWord = truncated.lastIndexOf('-');
+  return (lastCompleteWord >= 32 ? truncated.slice(0, lastCompleteWord) : truncated)
+    .replace(/-+$/g, '');
+};
+
+const createSectionId = (label: string, section: HTMLElement, claimedIds: Set<string>) => {
+  const baseId = createSemanticSlug(label) || 'contenido';
+  let candidate = baseId;
+
+  while (
+    claimedIds.has(candidate)
+    || (document.getElementById(candidate) && document.getElementById(candidate) !== section)
+  ) {
+    candidate = `${candidate}-detalle`;
+  }
+
+  claimedIds.add(candidate);
+  return candidate;
 };
 
 export const PageSectionNav: React.FC<PageSectionNavProps> = ({
@@ -66,12 +86,26 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
   const pendingInitialHashRef = useRef(window.location.hash.substring(1));
   const resolvedNavigation = navigation || discoveredNavigation;
 
-  const scrollSectionBelowHeader = (section: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+  const scrollSectionBelowHeader = (section: HTMLElement, behavior: ScrollBehavior | 'instant' = 'smooth') => {
     const mainHeaderBottom = document.querySelector<HTMLElement>('[data-header-main-row]')?.getBoundingClientRect().bottom
       || document.querySelector('header')?.getBoundingClientRect().bottom
       || 0;
     const targetTop = window.scrollY + section.getBoundingClientRect().top - mainHeaderBottom;
-    window.scrollTo({ top: Math.max(0, targetTop), behavior });
+    const scrollTop = Math.max(0, targetTop);
+
+    if (behavior === 'instant') {
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      root.getBoundingClientRect();
+      window.scrollTo({ top: scrollTop, behavior: 'auto' });
+      window.requestAnimationFrame(() => {
+        root.style.scrollBehavior = previousScrollBehavior;
+      });
+      return;
+    }
+
+    window.scrollTo({ top: scrollTop, behavior });
   };
 
   useEffect(() => {
@@ -95,13 +129,20 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
         ? topLevelSections.slice(1)
         : topLevelSections;
 
-      const sections = contentSections.map((section, index) => {
+      const claimedIds = new Set<string>();
+      const sections = contentSections.flatMap(section => {
         const heading = section.querySelector<HTMLElement>('[data-nav-label], h2, h3');
-        const fallback = locale === 'es' ? `Sección ${index + 1}` : `Section ${index + 1}`;
-        const fullLabel = section.dataset.navLabel || readElementLabel(heading) || fallback;
+        const fullLabel = section.dataset.navLabel || readElementLabel(heading);
+        if (!fullLabel) return [];
+
         const label = shortenLabel(fullLabel);
-        if (!section.id) section.id = createSectionId(fullLabel, index);
-        return { id: section.id, label };
+        if (!section.id) {
+          section.id = createSectionId(fullLabel, section, claimedIds);
+        } else {
+          claimedIds.add(section.id);
+        }
+
+        return [{ id: section.id, label }];
       });
 
       if (sections.length < minimumSections) {
@@ -184,10 +225,15 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
     setActiveIndex(targetIndex);
     const firstFrame = window.requestAnimationFrame(() => scrollSectionBelowHeader(section));
     const settledLayout = window.setTimeout(() => {
-      scrollSectionBelowHeader(section);
+      scrollSectionBelowHeader(section, 'instant');
+      setActiveIndex(targetIndex);
+      const targetHash = `#${targetId}`;
+      if (window.location.hash !== targetHash) {
+        window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}${targetHash}`);
+      }
       programmaticTargetRef.current = null;
       pendingInitialHashRef.current = '';
-    }, 700);
+    }, 1100);
 
     return () => {
       window.cancelAnimationFrame(firstFrame);
@@ -197,8 +243,54 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
   }, [resolvedNavigation]);
 
   useEffect(() => {
+    if (!resolvedNavigation) return;
+
+    const handleHistoryNavigation = () => {
+      const targetId = window.location.hash.substring(1);
+      if (scrollEndTimeoutRef.current !== null) window.clearTimeout(scrollEndTimeoutRef.current);
+
+      if (!targetId) {
+        programmaticTargetRef.current = -1;
+        setActiveIndex(-1);
+        scrollEndTimeoutRef.current = window.setTimeout(() => {
+          programmaticTargetRef.current = null;
+          scrollEndTimeoutRef.current = null;
+        }, 500);
+        return;
+      }
+
+      const targetIndex = resolvedNavigation.sections.findIndex(item => item.id === targetId);
+      const section = document.getElementById(targetId);
+      if (targetIndex < 0 || !section) return;
+
+      programmaticTargetRef.current = targetIndex;
+      pendingInitialHashRef.current = '';
+      setActiveIndex(targetIndex);
+      window.requestAnimationFrame(() => scrollSectionBelowHeader(section));
+      scrollEndTimeoutRef.current = window.setTimeout(() => {
+        scrollSectionBelowHeader(section, 'instant');
+        setActiveIndex(targetIndex);
+        programmaticTargetRef.current = null;
+        scrollEndTimeoutRef.current = null;
+      }, 1100);
+    };
+
+    window.addEventListener('popstate', handleHistoryNavigation);
+    return () => window.removeEventListener('popstate', handleHistoryNavigation);
+  }, [resolvedNavigation]);
+
+  useEffect(() => {
     if (activeIndex < 0) return;
-    tabRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const container = scrollContainerRef.current;
+    const tab = tabRefs.current[activeIndex];
+    if (!container || !tab) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    const centeredLeft = container.scrollLeft
+      + (tabRect.left - containerRect.left)
+      - ((container.clientWidth - tabRect.width) / 2);
+    container.scrollTo({ left: Math.max(0, centeredLeft), behavior: 'smooth' });
   }, [activeIndex]);
 
   if (!resolvedNavigation) return null;
@@ -220,10 +312,15 @@ export const PageSectionNav: React.FC<PageSectionNavProps> = ({
 
     if (scrollEndTimeoutRef.current !== null) window.clearTimeout(scrollEndTimeoutRef.current);
     scrollEndTimeoutRef.current = window.setTimeout(() => {
-      scrollSectionBelowHeader(section);
+      scrollSectionBelowHeader(section, 'instant');
+      setActiveIndex(itemIndex);
+      const targetHash = `#${item.id}`;
+      if (window.location.hash !== targetHash) {
+        window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}${targetHash}`);
+      }
       programmaticTargetRef.current = null;
       scrollEndTimeoutRef.current = null;
-    }, 700);
+    }, 1100);
     window.history.pushState(window.history.state, '', `#${item.id}`);
   };
 
