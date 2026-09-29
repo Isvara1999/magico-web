@@ -1,5 +1,5 @@
 import React from 'react';
-import { Recycle, Sun, Leaf } from '@phosphor-icons/react';
+import { SectionRegeneracion } from '../../components/SectionRegeneracion';
 import { WA_MAGICO } from '../data/config';
 
 const AchalaVivaMagico: React.FC = () => {
@@ -43,31 +43,7 @@ const AchalaVivaMagico: React.FC = () => {
           </div>
         </div>
         
-        {/* Benefits Grid */}
-        <div className="max-w-4xl mx-auto mb-10">
-          <div className="bg-gold/10 rounded-2xl p-8 md:p-12 border border-gold/30 text-center">
-            <h2 className="text-2xl md:text-4xl serif-title brand-gold mb-8 uppercase tracking-wide">
-              Tu Inversión Genera Regeneración
-            </h2>
-            <ul className="text-white/90 text-base md:text-lg leading-relaxed space-y-6 text-left max-w-2xl mx-auto mb-8">
-              <li className="flex items-start gap-4">
-                <Recycle weight="light" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
-                <span><strong>+15.000 árboles plantados</strong> en nuestra reserva.</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <Sun weight="light" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
-                <span><strong>100% Energía Solar</strong> (Cero huella de carbono).</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <Leaf weight="light" className="w-7 h-7 text-gold flex-shrink-0 mt-0.5" />
-                <a href="/reforestacion" className="underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">El <strong>10% de tu inversión</strong> va directo a reforestar tabaquillos y restaurar nuestras sierras.</a>
-              </li>
-            </ul>
-            <p className="text-white font-serif text-lg md:text-xl italic">
-              Venir al Mágico no solo te regenera a vos, regenera a la montaña.
-            </p>
-          </div>
-        </div>
+        <SectionRegeneracion embedded />
       </div>
       {/* Mapa del Lugar */}
       <div className="mt-8 max-w-4xl mx-auto text-center">

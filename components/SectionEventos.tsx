@@ -60,10 +60,9 @@ export const SectionEventos: React.FC = () => {
                 </p>
                 
                 <div className="flex flex-wrap items-center justify-start pt-4 border-t border-brand/5 mt-auto gap-3">
-                <a 
+                <a
                   href={card.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(/^https?:/.test(card.link) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="px-4 py-2 bg-brand text-white text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gold transition-colors shadow-sm whitespace-nowrap flex-grow text-center sm:flex-grow-0"
                 >
                   {card.btn}

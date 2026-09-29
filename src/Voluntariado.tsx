@@ -419,7 +419,7 @@ const Voluntariado: React.FC = () => {
                           <MessageCircle size={16} className="shrink-0" aria-hidden="true" />{content.calendar.applyCta}
                         </a>
                         {event.link && (
-                          <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
+                          <a href={event.link} {...(/^https?:/.test(event.link) ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white">
                             {content.calendar.eventCta}<ArrowRight size={15} aria-hidden="true" />
                           </a>
                         )}
