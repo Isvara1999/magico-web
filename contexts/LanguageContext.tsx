@@ -1,6 +1,6 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../src/i18n';
+import { LANGUAGE_STORAGE_KEY } from '../src/i18n';
 
 type Language = 'es' | 'en';
 
@@ -19,7 +19,34 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { i18n } = useTranslation();
 
-  const language = (i18n.language || 'es') as Language;
+  const language: Language = i18n.language?.startsWith('en') ? 'en' : 'es';
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch {
+      // Language switching still works when storage is unavailable.
+    }
+
+    // Translated lists often use their copy as React keys. Changing language
+    // remounts those nodes after a page-level reveal observer was initialized,
+    // leaving the new elements permanently transparent. Observe only the new
+    // hidden elements whenever the active language changes.
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -32px 0px' },
+    );
+
+    document.querySelectorAll('[data-reveal]:not(.visible)').forEach(element => observer.observe(element));
+    return () => observer.disconnect();
+  }, [language]);
 
   const toggleLanguage = () => {
     i18n.changeLanguage(language === 'es' ? 'en' : 'es');
