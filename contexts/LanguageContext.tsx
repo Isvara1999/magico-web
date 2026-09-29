@@ -1,6 +1,6 @@
 import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../src/i18n';
+import { LANGUAGE_STORAGE_KEY } from '../src/i18n';
 
 type Language = 'es' | 'en';
 
@@ -23,6 +23,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   useEffect(() => {
     document.documentElement.lang = language;
+
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch {
+      // Language switching still works when storage is unavailable.
+    }
 
     // Translated lists often use their copy as React keys. Changing language
     // remounts those nodes after a page-level reveal observer was initialized,
