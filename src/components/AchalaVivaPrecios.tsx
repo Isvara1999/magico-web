@@ -7,9 +7,6 @@ const AchalaVivaPrecios: React.FC = () => {
   const waLinkMain = "https://wa.me/" + WA_MAGICO + "?text=" +
     encodeURIComponent(RETREATS_DATA.achalaViva.message);
 
-  const waLinkFechas = "https://wa.me/" + WA_MAGICO + "?text=" +
-    encodeURIComponent("¡Hola! Me encantó la propuesta de Achala Viva pero no puedo asistir en esta fecha. ¿Me podrías avisar cuando lancen nuevas fechas disponibles? 🗓️✨");
-
   return (
     <>
       <section id="precios" className="py-16 md:py-24 px-4 md:px-6 bg-[#005333] text-white rounded-2xl md:rounded-3xl relative mx-2 md:mx-0 mt-16 md:mt-24 overflow-hidden shadow-2xl">
@@ -90,11 +87,7 @@ const AchalaVivaPrecios: React.FC = () => {
             <a href={waLinkMain}
               style={{ backgroundColor: '#E5B84A', color: '#005333' }}
               className="inline-flex justify-center items-center transition-all hover:bg-yellow-400 py-3 md:py-4 px-10 md:px-14 w-fit mx-auto rounded-full font-bold text-sm md:text-base tracking-[0.12em] uppercase shadow-lg shadow-black/20 hover:shadow-xl hover:-translate-y-1 duration-300 text-center">
-              Asegurar mi lugar
-            </a>
-
-            <a href={waLinkFechas} className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm underline underline-offset-4 mt-6 font-medium">
-              ¿No podés en esta fecha? Consultá otras fechas.
+              Consultar próximas fechas
             </a>
           </div>
 

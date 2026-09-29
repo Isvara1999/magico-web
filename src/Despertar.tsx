@@ -7,6 +7,7 @@ import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SectionRegeneracion } from '../components/SectionRegeneracion';
 
 const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa el retiro DESPERTAR (9 al 12 de octubre). ¿Me pueden dar más info?')}`;
 const WA_RESERVA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Quiero reservar mi lugar para el retiro DESPERTAR (9 al 12 de octubre). ¿Cómo procedo?')}`;
@@ -631,6 +632,8 @@ const Despertar: React.FC = () => {
           </a>
         </div>
       </section>
+
+      <SectionRegeneracion />
 
       {/* ── CTA FINAL ── */}
       <section

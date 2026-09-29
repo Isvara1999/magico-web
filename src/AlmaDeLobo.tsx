@@ -4,6 +4,7 @@ import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SectionRegeneracion } from '../components/SectionRegeneracion';
 
 const WA_INFO    = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Me interesa Alma de Lobo del 2, 3 y 4 de octubre. ¿Me pueden dar más info?')}`;
 const WA_RESERVA = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent('¡Hola! Siento el llamado de Alma de Lobo. Quiero reservar mi lugar.')}`;
@@ -319,6 +320,8 @@ const AlmaDeLobo: React.FC = () => {
           </p>
         </div>
       </section>
+
+      <SectionRegeneracion />
 
       {/* ── QUIENES SOMOS ── */}
       <section className="py-20 md:py-28 px-6" style={{ backgroundColor: '#F7F5F0' }}>

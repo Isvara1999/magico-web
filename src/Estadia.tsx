@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SectionRegeneracion } from '../components/SectionRegeneracion';
 import { BookingWidget } from '../components/BookingWidget';
 import {
   Bed, ForkKnife, Leaf, WifiHigh, Tree, UsersThree,
@@ -955,6 +956,7 @@ const Estadia: React.FC = () => {
           <Hero />
           <Inclusiones />
           <Alojamientos />
+          <SectionRegeneracion />
           <EscaleraDeValor />
           <HorariosPension />
           <Galeria />

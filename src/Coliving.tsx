@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SectionRegeneracion } from '../components/SectionRegeneracion';
 import {
   House, ForkKnife, Laptop, HeartStraight, Campfire, Drop, Sun,
   WifiHigh, CheckCircle, ArrowRight, Star, WhatsappLogo, Tree, UsersThree,
@@ -990,6 +991,7 @@ const Coliving: React.FC = () => {
           <Testimonios />
           <GuiaFoco />
           <Formatos />
+          <SectionRegeneracion />
           <FAQ />
           <PermisoDescanso />
           <CTAFinal />

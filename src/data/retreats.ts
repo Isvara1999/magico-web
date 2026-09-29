@@ -22,8 +22,8 @@ export const RETREATS_DATA = {
   achalaViva: {
     price: 180000,
     currency: 'ARS',
-    dates: '9 y 10 de Mayo',
-    message: '¡Hola! Terminé de leer todo sobre la inmersión Achala Viva y no me lo quiero perder. Me comunico para coordinar la seña y asegurar mi lugar. ✨',
+    dates: 'Próximas fechas a confirmar',
+    message: '¡Hola! Me interesa Achala Viva y quiero saber cuándo es la próxima fecha. 🗓️✨',
   },
   gondorbows: {
     price: 640000,

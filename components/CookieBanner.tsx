@@ -16,13 +16,20 @@ export const CookieBanner: React.FC = () => {
     }
   }, []);
 
+  // Avisa la decisión a Microsoft Clarity (Consent API v2). El stub se define en index.html.
+  const sendClarityConsent = (analytics: 'granted' | 'denied') => {
+    (window as any).clarity?.('consentv2', { ad_Storage: 'denied', analytics_Storage: analytics });
+  };
+
   const accept = () => {
     localStorage.setItem(STORAGE_KEY, 'accepted');
+    sendClarityConsent('granted');
     setVisible(false);
   };
 
   const dismiss = () => {
     localStorage.setItem(STORAGE_KEY, 'dismissed');
+    sendClarityConsent('denied');
     setVisible(false);
   };
 

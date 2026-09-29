@@ -1,7 +1,9 @@
 import React from 'react';
-import { HelpCircle, Users2, CheckCircle2 } from 'lucide-react';
+import { HelpCircle, Users2, CheckCircle2, Video, MapPin, Mountain } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { WA_MAGICO } from '../data/config';
+
+const MODALIDAD_ICONS = [Video, MapPin, Mountain];
 
 const EmpresasPreview: React.FC = () => {
   const { t } = useLanguage();
@@ -20,6 +22,26 @@ const EmpresasPreview: React.FC = () => {
           <p data-reveal data-delay="1" className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 font-light max-w-2xl">
             {p.intro}
           </p>
+
+          {p.modalidades && (
+            <div data-reveal data-delay="1" className="mb-10">
+              <p className="font-bold brand-green text-sm uppercase tracking-widest mb-4">{p.modalidades_title}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {p.modalidades.map((m: any, i: number) => {
+                  const Icon = MODALIDAD_ICONS[i];
+                  return (
+                    <div key={i} className="bg-white rounded-2xl border border-[#E8E4D9] p-5">
+                      <div className="w-9 h-9 rounded-lg bg-[#005333]/8 flex items-center justify-center mb-3">
+                        <Icon className="w-4 h-4 text-[#005333]" aria-hidden="true" />
+                      </div>
+                      <h4 className="font-bold brand-green text-sm mb-2">{m.title}</h4>
+                      <p className="text-gray-500 text-sm font-light leading-relaxed">{m.text}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           <div data-reveal data-delay="1" className="grid grid-cols-3 gap-3 md:gap-4 mb-10">
             {['/uploads/img_6948.webp', '/uploads/domos_2.jpg', '/uploads/469280911_444096748740233_2818770490495002077_n.webp'].map((src, i) => (

@@ -29,7 +29,7 @@ export const ROUTES = [
   {
     path: '/achala-viva',
     title: 'Achala Viva — Retiro de Naturaleza · Los Gigantes, Córdoba | Pueblo Mágico',
-    description: 'Retiro de inmersión total en Los Gigantes, Córdoba. 9 y 10 de Mayo. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas.',
+    description: 'Retiro de inmersión total en Los Gigantes, Córdoba. Próximas fechas a confirmar. Astroturismo, avistaje de aves y naturaleza guiada por biólogo. Solo 15 plazas.',
     image: 'https://experienciamagico.com/uploads/img_6948.webp',
     canonical: 'https://experienciamagico.com/achala-viva',
   },

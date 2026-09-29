@@ -79,28 +79,6 @@ const AchalaViva: React.FC = () => {
     setMeta('meta[property="og:locale"]',       'property', 'og:locale');
     setMeta('meta[property="og:locale"]',       'content',  'es_AR');
 
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Achala Viva — Retiro de Naturaleza en Los Gigantes",
-      "description": "Retiro de inmersión total de 2 días en la Sierra de Achala. Astroturismo, avistaje de aves con guía biológica, fotografía en la naturaleza y descanso en eco-refugio.",
-      "startDate": "2026-05-09",
-      "endDate": "2026-05-10",
-      "location": { "@type": "Place", "name": "Pueblo Mágico", "address": { "@type": "PostalAddress", "addressLocality": "Los Gigantes", "addressRegion": "Córdoba", "addressCountry": "AR" } },
-      "organizer": { "@type": "Organization", "name": "Pueblo Mágico", "url": "https://www.experienciamagico.com" },
-      "performer": { "@type": "Person", "name": "Walter Eugenio Cejas", "jobTitle": "Biólogo e investigador de vida silvestre", "description": "Guía experto en biodiversidad de la Sierra de Achala, astroturismo y avistaje de aves." },
-      "offers": { "@type": "Offer", "price": "150000", "priceCurrency": "ARS", "availability": "https://schema.org/LimitedAvailability", "url": URL },
-      "image": IMG,
-      "maximumAttendeeCapacity": 15,
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-    };
-    const ldScript = document.createElement('script');
-    ldScript.type = 'application/ld+json';
-    ldScript.id   = 'ld-achala-viva';
-    ldScript.textContent = JSON.stringify(schema);
-    if (!document.getElementById('ld-achala-viva')) document.head.appendChild(ldScript);
-
     const breadcrumb = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -307,7 +285,7 @@ const AchalaViva: React.FC = () => {
               <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>1</span>
                 <div className="pb-2">
-                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado · 9 de Mayo</p>
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Sábado</p>
                   <h3 className="text-2xl md:text-3xl serif-title brand-green">Tierra y Cielo</h3>
                 </div>
               </div>
@@ -334,7 +312,7 @@ const AchalaViva: React.FC = () => {
               <div className="flex items-end gap-5 md:gap-8 pb-5 mb-6 border-b border-[#E8E4D9]">
                 <span className="serif-title text-[88px] md:text-[120px] font-light leading-none select-none" style={{ color: '#005333', opacity: 0.08 }}>2</span>
                 <div className="pb-2">
-                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo · 10 de Mayo</p>
+                  <p className="font-medium uppercase tracking-[0.22em] text-[11px] brand-green mb-1">Domingo</p>
                   <h3 className="text-2xl md:text-3xl serif-title brand-green">Vida Silvestre</h3>
                 </div>
               </div>
@@ -442,8 +420,8 @@ const AchalaViva: React.FC = () => {
           <p data-reveal data-delay="1" className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
             Achala Viva es la pausa que tu instinto busca. Unimos ciencia, contemplación y descanso para ofrecerte una inmersión inolvidable.
           </p>
-          <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Termin%C3%A9%20de%20leer%20todo%20sobre%20la%20inmersi%C3%B3n%20Achala%20Viva%20y%20no%20me%20lo%20quiero%20perder.%20Me%20comunico%20para%20coordinar%20la%20se%C3%B1a%20y%20asegurar%20mi%20lugar.%20%E2%9C%A8"} className="btn-gold inline-block">
-            Asegurar mi lugar
+          <a data-reveal data-delay="2" href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Me%20interesa%20Achala%20Viva%20y%20quiero%20saber%20cu%C3%A1ndo%20es%20la%20pr%C3%B3xima%20fecha.%20%F0%9F%97%93%EF%B8%8F%E2%9C%A8"} className="btn-gold inline-block">
+            Consultar próximas fechas
           </a>
         </div>
       </section>
@@ -460,15 +438,15 @@ const AchalaViva: React.FC = () => {
       {/* ====== STICKY CTA MÓVIL ====== */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3">
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-bold text-[#005333] uppercase tracking-widest truncate">Achala Viva · 9–10 Mayo</p>
-          <p className="text-[11px] text-gray-400 truncate">15 plazas · Cierra el 30 de Abril</p>
+          <p className="text-xs font-bold text-[#005333] uppercase tracking-widest truncate">Achala Viva · Próximas fechas</p>
+          <p className="text-[11px] text-gray-400 truncate">15 plazas · Consultá disponibilidad</p>
         </div>
         <a
-          href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Quiero%20reservar%20mi%20lugar%20en%20Achala%20Viva.%20%E2%9C%A8"}
+          href={"https://wa.me/" + WA_MAGICO + "?text=%C2%A1Hola!%20Me%20interesa%20Achala%20Viva%20y%20quiero%20saber%20cu%C3%A1ndo%20es%20la%20pr%C3%B3xima%20fecha.%20%F0%9F%97%93%EF%B8%8F%E2%9C%A8"}
           className="btn-gold flex-shrink-0 whitespace-nowrap"
           style={{ padding: '0.5rem 1.1rem', fontSize: '0.78rem', borderRadius: '40px' }}
         >
-          Reservar
+          Consultar
         </a>
       </div>
 

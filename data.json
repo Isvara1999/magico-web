@@ -52,6 +52,25 @@
       "waTemplateWithDates": "¡Hola! Quiero reservar en Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Llegada: {start}\n📅 Salida: {end}\n🌙 {nights} · 👥 {personas}\n\n¿Está disponible?",
       "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico — invierno 2026. ¿Me pueden dar más info?"
     },
+    "regeneration": {
+      "title": "Tu Inversión Genera Regeneración",
+      "items": [
+        {
+          "lead": "+15.000 árboles plantados",
+          "text": " en nuestra reserva."
+        },
+        {
+          "lead": "100% Energía Solar",
+          "text": " (cero huella de carbono)."
+        },
+        {
+          "lead": "El 10% de tu inversión",
+          "text": " va directo a reforestar tabaquillos y restaurar nuestras sierras."
+        }
+      ],
+      "closing": "Venir al Mágico no solo te regenera a vos, regenera a la montaña.",
+      "cta": "Conocé la campaña de reforestación"
+    },
     "ui": {
       "prev": "Anterior",
       "next": "Siguiente",
@@ -742,10 +761,10 @@
           "date": "PRÓXIMA FECHA",
           "title": "Achala Viva",
           "desc": "Una exploración guiada que incluye astroturismo, avistaje de aves y fotografía de naturaleza.",
-          "btn": "Anotarme",
+          "btn": "Ver más",
           "tag": "PRONTO",
           "image": "/uploads/img_6948.webp",
-          "link": "https://wa.me/5493516765820?text=Hola!%20Quiero%20anotarme%20para%20la%20pr%C3%B3xima%20fecha%20de%20Achala%20Viva.%20%F0%9F%93%85",
+          "link": "/achala-viva",
           "pdfLink": ""
         },
         {
@@ -863,18 +882,6 @@
               "href": "/coliving",
               "description": "Viví y trabajá en comunidad",
               "icon": "home"
-            },
-            {
-              "label": "Winter Camp",
-              "href": "/winter-camp",
-              "description": "Naturaleza, comunidad y aventura",
-              "icon": "snow"
-            },
-            {
-              "label": "Winter Redirection",
-              "href": "/winter-redirection",
-              "description": "Una pausa para reorientarte",
-              "icon": "spark"
             }
           ],
           "viewAllLink": {
@@ -991,7 +998,6 @@
         {
           "title": "Experiencias con fecha",
           "links": [
-            { "label": "❄ Winter Camp", "href": "/winter-camp" },
             { "label": "Killa Raymi", "href": "/killa-raymi" },
             { "label": "Achala Viva", "href": "/achala-viva" }
           ]
@@ -1820,7 +1826,7 @@
         "cta_primary": "Diseñar un programa para mi organización",
         "cta_secondary": "Conocer Pueblo Mágico antes de traer a mi equipo",
         "wa_query_programa": "¡Hola! Quiero diseñar un programa de voluntariado corporativo / RSE con Pueblo Mágico para mi organización.",
-        "wa_query_jornada": "¡Hola! Quiero recibir la invitación a la próxima Jornada de Presentación para responsables de organizaciones.",
+        "wa_query_jornada": "¡Hola! Quiero coordinar un primer encuentro (llamada virtual, en Córdoba Capital o en Pueblo Mágico) para conocer la propuesta para organizaciones.",
         "stats": [
           { "value": "+15.000", "label": "árboles plantados" },
           { "value": "+200", "label": "hectáreas cuidadas" },
@@ -1895,15 +1901,21 @@
       "preview": {
         "tag": "Antes de traer a todo tu equipo",
         "title": "Vení a conocerlo primero",
-        "intro": "Sabemos que antes de presentar una iniciativa internamente aparecen muchas preguntas.",
+        "intro": "Sabemos que antes de presentar una iniciativa internamente aparecen muchas preguntas. Y no hace falta viajar hasta la montaña para empezar a resolverlas.",
+        "modalidades_title": "Tres formas de dar el primer paso",
+        "modalidades": [
+          { "title": "Llamada virtual", "text": "Una videollamada para presentarte la propuesta, mostrarte cómo funciona y responder tus preguntas, sin salir de la oficina." },
+          { "title": "Encuentro en Córdoba Capital", "text": "Nos juntamos en Vida Coworking. Ahí también organizamos jornadas informativas para contarte más sobre la experiencia y despejar dudas antes de pensar en una visita a Pueblo Mágico." },
+          { "title": "Visita a Pueblo Mágico", "text": "El siguiente paso, cuando ya tengas una idea clara: venís a conocer el territorio y vivir una muestra de la experiencia en Los Gigantes." }
+        ],
         "questions_label": "Antes de presentar la propuesta",
         "questions": ["¿Cómo es el lugar y cómo se llega?", "¿Qué van a hacer los colaboradores?", "¿Qué nivel de exigencia física tiene?", "¿Cómo se organiza la plantación?", "¿Qué pasa si cambia el clima?", "¿Cómo se adapta a nuestros objetivos?"],
         "audience_title": "Jornadas de Presentación en Pueblo Mágico, dirigidas a:",
         "audience_items": ["Responsables de Sustentabilidad y RSE", "Directores y responsables de RRHH", "Cultura y Personas", "Líderes de programas de voluntariado", "Mandos medios y decisores de organizaciones"],
         "group_note": "Encuentros con cupos reducidos: al menos 8 referentes de distintas organizaciones por jornada.",
         "includes": ["Recorrer Pueblo Mágico y sus instalaciones", "Visitar las zonas de intervención", "Vivir una pequeña experiencia de muestra", "Conocer al equipo y almorzar en el espacio", "Conversar sobre posibles programas", "Despejar dudas operativas y estratégicas"],
-        "closing": "Antes de invitar a todo tu equipo, podés venir vos. Tenemos fechas destinadas especialmente a este tipo de encuentros.",
-        "cta": "Quiero recibir invitación a la próxima jornada"
+        "closing": "Antes de invitar a todo tu equipo, elegí la forma que te resulte más simple para dar el primer paso: videollamada, en Córdoba Capital, o viniendo a conocer Pueblo Mágico.",
+        "cta": "Quiero coordinar un primer encuentro"
       },
       "proceso": {
         "title": "Programas a medida",
@@ -2378,6 +2390,25 @@
       "checkAvailability": "Check availability",
       "waTemplateWithDates": "Hi! I'd like to book at Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Arrival: {start}\n📅 Departure: {end}\n🌙 {nights} · 👥 {personas}\n\nIs it available?",
       "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico — winter 2026. Could you give me more info?"
+    },
+    "regeneration": {
+      "title": "Your Investment Drives Regeneration",
+      "items": [
+        {
+          "lead": "+15,000 trees planted",
+          "text": " in our reserve."
+        },
+        {
+          "lead": "100% Solar Energy",
+          "text": " (zero carbon footprint)."
+        },
+        {
+          "lead": "10% of your investment",
+          "text": " goes directly to reforesting tabaquillo trees and restoring our mountains."
+        }
+      ],
+      "closing": "Coming to Mágico doesn’t just regenerate you — it regenerates the mountain.",
+      "cta": "Discover the reforestation campaign"
     },
     "ui": {
       "prev": "Previous",
@@ -3069,10 +3100,10 @@
           "date": "NEXT DATE",
           "title": "Achala Viva",
           "desc": "A guided exploration including stargazing, birdwatching and nature photography.",
-          "btn": "Sign me up",
+          "btn": "See more",
           "tag": "SOON",
           "image": "/uploads/img_6948.webp",
-          "link": "https://wa.me/5493516765820?text=Hi!%20I%20want%20to%20sign%20up%20for%20the%20next%20Achala%20Viva%20date.%20%F0%9F%93%85",
+          "link": "/achala-viva",
           "pdfLink": ""
         },
         {
@@ -3190,18 +3221,6 @@
               "href": "/coliving",
               "description": "Live and work in community",
               "icon": "home"
-            },
-            {
-              "label": "Winter Camp",
-              "href": "/winter-camp",
-              "description": "Nature, community and adventure",
-              "icon": "snow"
-            },
-            {
-              "label": "Winter Redirection",
-              "href": "/winter-redirection",
-              "description": "A pause to find your direction",
-              "icon": "spark"
             }
           ],
           "viewAllLink": {
@@ -3318,7 +3337,6 @@
         {
           "title": "Dated experiences",
           "links": [
-            { "label": "❄ Winter Camp", "href": "/winter-camp" },
             { "label": "Killa Raymi", "href": "/killa-raymi" },
             { "label": "Achala Viva", "href": "/achala-viva" }
           ]
@@ -4147,7 +4165,7 @@
         "cta_primary": "Design a program for my organization",
         "cta_secondary": "Get to know Pueblo Mágico before bringing my team",
         "wa_query_programa": "Hi! I'd like to design a corporate volunteering / CSR program with Pueblo Mágico for my organization.",
-        "wa_query_jornada": "Hi! I'd like to be invited to the next Preview Day for organization decision-makers.",
+        "wa_query_jornada": "Hi! I'd like to set up a first meeting (virtual call, in Córdoba Capital, or at Pueblo Mágico) to learn about the proposal for organizations.",
         "stats": [
           { "value": "+15,000", "label": "trees planted" },
           { "value": "+200", "label": "hectares cared for" },
@@ -4222,15 +4240,21 @@
       "preview": {
         "tag": "Before bringing your whole team",
         "title": "Come see it for yourself first",
-        "intro": "We know that before presenting an initiative internally, plenty of questions come up.",
+        "intro": "We know that before presenting an initiative internally, plenty of questions come up. And you don't need to travel to the mountains to start answering them.",
+        "modalidades_title": "Three ways to take the first step",
+        "modalidades": [
+          { "title": "Virtual call", "text": "A video call to walk you through the proposal, show you how it works, and answer your questions, without leaving the office." },
+          { "title": "Meeting in Córdoba Capital", "text": "We meet at Vida Coworking. We also run info sessions there to tell you more about the experience and clear up doubts before thinking about a visit to Pueblo Mágico." },
+          { "title": "Visit to Pueblo Mágico", "text": "The next step, once you already have a clear picture: come see the land and live a sample of the experience in Los Gigantes." }
+        ],
         "questions_label": "Before you pitch it internally",
         "questions": ["What's the place like, and how do you get there?", "What will employees actually do?", "How physically demanding is it?", "How is the planting organized?", "What happens if the weather changes?", "How does it adapt to our goals?"],
         "audience_title": "Preview Days at Pueblo Mágico, for:",
         "audience_items": ["Sustainability and CSR managers", "HR directors and managers", "Culture and People teams", "Volunteering program leaders", "Mid-level managers and decision-makers"],
         "group_note": "Small-group sessions: at least 8 representatives from different organizations per day.",
         "includes": ["Touring Pueblo Mágico and its facilities", "Visiting the intervention areas", "Living a small sample of the experience", "Meeting the team and having lunch on site", "Talking through possible programs", "Clearing up operational and strategic doubts"],
-        "closing": "Before inviting your whole team, you can come yourself. We have dates set aside specifically for this kind of gathering.",
-        "cta": "I want to be invited to the next Preview Day"
+        "closing": "Before inviting your whole team, pick whichever feels simplest for a first step: a video call, meeting in Córdoba Capital, or coming to see Pueblo Mágico.",
+        "cta": "I want to set up a first meeting"
       },
       "proceso": {
         "title": "Tailor-made programs",
