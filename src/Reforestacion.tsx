@@ -8,6 +8,7 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  Coins,
   Copy,
   Globe2,
   Heart,
@@ -46,18 +47,25 @@ type ExpandedGallery = {
   index: number;
 };
 
+type CopyField = 'alias' | 'cbu' | 'iban' | 'bic' | 'usdc' | 'btc' | 'eth';
+
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
   const content = t.reforestation;
   const reforestationEvents = [...(t.events?.cards || [])]
     .filter((event: any) => event.isReforestacion === true)
     .sort((first: any, second: any) => (first.startDate || '').localeCompare(second.startDate || ''));
-  const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | 'iban' | 'bic' | null>(null);
+  const [copiedField, setCopiedField] = useState<CopyField | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
   const galleryTouchStartX = useRef<number | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
   const hasSepa = Boolean(REFORESTATION_CONTRIBUTION.sepa.iban);
+  const hasCrypto = Boolean(
+    REFORESTATION_CONTRIBUTION.crypto.usdc.address
+    || REFORESTATION_CONTRIBUTION.crypto.btc.address
+    || REFORESTATION_CONTRIBUTION.crypto.eth.address,
+  );
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
     ? Math.max(0, REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -201,7 +209,7 @@ const Reforestacion: React.FC = () => {
 
   const expandedMedia = expandedGallery?.items[expandedGallery.index] ?? null;
 
-  const copyValue = async (field: 'alias' | 'cbu' | 'iban' | 'bic', value: string) => {
+  const copyValue = async (field: CopyField, value: string) => {
     await navigator.clipboard.writeText(value);
     setCopiedField(field);
     window.setTimeout(() => setCopiedField(current => current === field ? null : current), 2200);
@@ -210,7 +218,7 @@ const Reforestacion: React.FC = () => {
   const renderCopyField = (
     label: string,
     value: string,
-    field: 'alias' | 'cbu' | 'iban' | 'bic',
+    field: CopyField,
     copyLabel: string,
   ) => (
     <div className="rounded-xl bg-bone/70 p-4">
@@ -275,6 +283,47 @@ const Reforestacion: React.FC = () => {
             <dl className="rounded-xl bg-bone/70 p-4 text-sm text-gray-500">
               <div><dt className="inline font-semibold text-gray-700">{content.contribution.holderLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.accountHolder}</dd></div>
             </dl>
+          </div>
+        </section>
+      )}
+
+      {hasCrypto && (
+        <section className="rounded-2xl border border-brand/15 bg-white p-5 md:p-6" aria-label={content.contribution.cryptoTransferTitle}>
+          <div className="mb-5 flex flex-wrap items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+              <Coins size={19} aria-hidden="true" />
+            </div>
+            <h3 className="min-w-0 flex-1 font-serif text-2xl text-brand">{content.contribution.cryptoTransferTitle}</h3>
+            {REFORESTATION_CONTRIBUTION.crypto.isSample && <span className="rounded-full bg-[#fff1c2] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#76570d]">{content.contribution.cryptoSampleBadge}</span>}
+          </div>
+          {REFORESTATION_CONTRIBUTION.crypto.isSample && <p className="mb-5 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">{content.contribution.cryptoWarning}</p>}
+          <div className="space-y-3">
+            {([
+              ['USDC', 'usdc', REFORESTATION_CONTRIBUTION.crypto.usdc],
+              ['BTC', 'btc', REFORESTATION_CONTRIBUTION.crypto.btc],
+              ['ETH', 'eth', REFORESTATION_CONTRIBUTION.crypto.eth],
+            ] as const).map(([asset, field, wallet]) => (
+              <div key={asset} className="rounded-xl bg-bone/70 p-4">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <span className="font-serif text-xl text-brand">{asset}</span>
+                  <span className="rounded-full border border-brand/10 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">
+                    {content.contribution.networkLabel}: {wallet.network}
+                  </span>
+                </div>
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.walletLabel}</p>
+                <div className="flex min-w-0 items-center justify-between gap-3">
+                  <code className="min-w-0 break-all text-sm font-semibold text-brand">{wallet.address}</code>
+                  <button
+                    type="button"
+                    onClick={() => copyValue(field, wallet.address)}
+                    aria-label={content.contribution.copyWallet.replace('{asset}', asset)}
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand/15 bg-white text-brand transition-colors hover:border-gold hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  >
+                    {copiedField === field ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -785,7 +834,7 @@ const Reforestacion: React.FC = () => {
                   </div>
 
                   <div className="p-8 md:p-10">
-                    {hasAlias || hasSepa ? (
+                    {hasAlias || hasSepa || hasCrypto ? (
                       <>
                         {renderTransferOptions()}
                         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
@@ -937,7 +986,7 @@ const Reforestacion: React.FC = () => {
             <h2 id="donation-modal-title" className="font-serif text-3xl md:text-4xl text-brand leading-tight mb-4">{content.contribution.modalTitle}</h2>
             <p className="text-gray-600 font-light leading-relaxed mb-7">{content.contribution.modalDescription}</p>
 
-            {hasAlias || hasSepa ? (
+            {hasAlias || hasSepa || hasCrypto ? (
               renderTransferOptions()
             ) : (
               <div className="rounded-2xl bg-bone p-5 mb-6">
@@ -947,7 +996,7 @@ const Reforestacion: React.FC = () => {
 
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
               <MessageCircle size={18} aria-hidden="true" />
-              {hasAlias || hasSepa ? content.contribution.confirmCta : content.contribution.fallbackCta}
+              {hasAlias || hasSepa || hasCrypto ? content.contribution.confirmCta : content.contribution.fallbackCta}
             </a>
           </section>
         </div>

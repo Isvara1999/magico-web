@@ -24,6 +24,23 @@ export const REFORESTATION_CONTRIBUTION = {
     currency: import.meta.env.VITE_REFORESTATION_SEPA_CURRENCY?.trim() || 'EUR',
     isSample: !import.meta.env.VITE_REFORESTATION_SEPA_IBAN?.trim(),
   },
+  crypto: {
+    usdc: {
+      address: import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim() || 'USDC_WALLET_ADDRESS_EXAMPLE',
+      network: import.meta.env.VITE_REFORESTATION_USDC_NETWORK?.trim() || 'Ethereum (ERC-20)',
+    },
+    btc: {
+      address: import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim() || 'BTC_WALLET_ADDRESS_EXAMPLE',
+      network: import.meta.env.VITE_REFORESTATION_BTC_NETWORK?.trim() || 'Bitcoin',
+    },
+    eth: {
+      address: import.meta.env.VITE_REFORESTATION_ETH_ADDRESS?.trim() || 'ETH_WALLET_ADDRESS_EXAMPLE',
+      network: import.meta.env.VITE_REFORESTATION_ETH_NETWORK?.trim() || 'Ethereum',
+    },
+    isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim()
+      || !import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim()
+      || !import.meta.env.VITE_REFORESTATION_ETH_ADDRESS?.trim(),
+  },
   raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 230000),
 };
 
