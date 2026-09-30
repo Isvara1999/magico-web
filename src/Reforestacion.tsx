@@ -48,6 +48,7 @@ type ExpandedGallery = {
 };
 
 type CopyField = 'alias' | 'cbu' | 'iban' | 'bic' | 'usdc' | 'btc' | 'eth';
+type ContributionMethod = 'argentina' | 'sepa' | 'crypto';
 
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
@@ -56,6 +57,7 @@ const Reforestacion: React.FC = () => {
     .filter((event: any) => event.isReforestacion === true)
     .sort((first: any, second: any) => (first.startDate || '').localeCompare(second.startDate || ''));
   const [copiedField, setCopiedField] = useState<CopyField | null>(null);
+  const [selectedContributionMethod, setSelectedContributionMethod] = useState<ContributionMethod>('argentina');
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
   const galleryTouchStartX = useRef<number | null>(null);
@@ -237,9 +239,9 @@ const Reforestacion: React.FC = () => {
     </div>
   );
 
-  const renderTransferOptions = () => (
+  const renderTransferOptions = (method?: ContributionMethod) => (
     <div className="space-y-4 md:space-y-5">
-      {hasAlias && (
+      {hasAlias && (!method || method === 'argentina') && (
         <section className="rounded-2xl border border-brand/15 bg-white p-5 md:p-6" aria-label={content.contribution.localTransferTitle}>
           <div className="mb-5 flex items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
@@ -261,7 +263,7 @@ const Reforestacion: React.FC = () => {
         </section>
       )}
 
-      {hasSepa && (
+      {hasSepa && (!method || method === 'sepa') && (
         <section className="rounded-2xl border border-brand/15 bg-white p-5 md:p-6" aria-label={content.contribution.internationalTransferTitle}>
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
@@ -287,7 +289,7 @@ const Reforestacion: React.FC = () => {
         </section>
       )}
 
-      {hasCrypto && (
+      {hasCrypto && (!method || method === 'crypto') && (
         <section className="rounded-2xl border border-brand/15 bg-white p-5 md:p-6" aria-label={content.contribution.cryptoTransferTitle}>
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
@@ -808,58 +810,129 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
-        <section id="aportar" className="py-20 md:py-28 px-6 bg-bone">
-          <div className="max-w-5xl mx-auto">
-            <div data-reveal>
-              <div className="max-w-3xl mx-auto text-center mb-12">
-                <p className="text-brand text-[11px] uppercase tracking-[0.25em] font-bold mb-4">{content.contribution.eyebrow}</p>
-                <h2 className="font-serif text-4xl md:text-5xl text-brand leading-tight mb-6">{content.contribution.title}</h2>
-                <p className="text-gray-600 text-lg font-light leading-relaxed">{content.contribution.description}</p>
+        <section id="aportar" className="relative overflow-hidden bg-[#fbfaf6] px-6 py-20 md:py-28">
+          <Leaf className="pointer-events-none absolute -left-8 top-10 h-36 w-36 -rotate-12 text-brand/[0.08] md:h-52 md:w-52" strokeWidth={0.7} aria-hidden="true" />
+          <Leaf className="pointer-events-none absolute -right-10 top-16 h-32 w-32 rotate-[28deg] text-brand/[0.08] md:h-48 md:w-48" strokeWidth={0.7} aria-hidden="true" />
+          <div className="relative mx-auto max-w-7xl">
+            <div data-reveal className="mx-auto mb-10 max-w-4xl text-center">
+              <div className="mb-4 flex items-center justify-center gap-4">
+                <span className="h-px w-12 bg-brand/35" aria-hidden="true" />
+                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand">{content.contribution.eyebrow}</p>
+                <span className="h-px w-12 bg-brand/35" aria-hidden="true" />
+              </div>
+              <h2 className="mb-4 font-serif text-4xl leading-tight text-brand md:text-6xl">{content.contribution.title}</h2>
+              <p className="text-lg font-light leading-relaxed text-gray-600 md:text-xl">{content.contribution.description}</p>
+            </div>
+
+            <div data-reveal data-delay="1" className="mb-6 rounded-2xl border border-brand/10 bg-white/90 p-6 shadow-[0_14px_45px_rgba(0,83,51,0.07)] md:p-7">
+              <div className="grid items-center gap-6 lg:grid-cols-[0.85fr_1.35fr_auto]">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                    <Sprout size={27} strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-brand/60">{content.contribution.activeGoalLabel}</p>
+                    <h3 className="font-serif text-3xl text-brand">{content.funding.phases[0].title}</h3>
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2 text-brand">
+                    <p><span className="font-serif text-3xl md:text-4xl">{currencyFormatter.format(raisedAmount)}</span> <span className="text-sm text-gray-500">{content.funding.currentLabel.toLowerCase()}</span></p>
+                    <p className="text-sm font-semibold">{displayedPercentage}% · {currencyFormatter.format(phaseOneGoal)}</p>
+                  </div>
+                  <div className="h-4 overflow-hidden rounded-full bg-brand/10" role="progressbar" aria-label={content.funding.progressLabel} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.min(100, displayedPercentage)}>
+                    <div className="flex h-full min-w-[2.5rem] items-center justify-center rounded-full bg-gradient-to-r from-[#d6a91e] to-gold text-[10px] font-bold text-white transition-[width] duration-700" style={{ width: `${Math.max(4, progressPercentage)}%` }}>
+                      {displayedPercentage}%
+                    </div>
+                  </div>
+                </div>
+                <a href="#metas" className="inline-flex items-center justify-center gap-2 border-b border-gold pb-1 text-sm font-semibold text-brand transition-colors hover:text-gold">
+                  {content.contribution.progressCta}
+                  <ArrowRight size={16} aria-hidden="true" />
+                </a>
               </div>
             </div>
 
-            <div data-reveal data-delay="1">
-              <div className="rounded-3xl bg-white border border-brand/10 shadow-[0_24px_80px_rgba(0,83,51,0.10)] overflow-hidden">
-                <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
-                  <div className="bg-brand p-8 md:p-10 text-white">
-                    <Sprout size={36} strokeWidth={1.5} className="text-gold mb-6" aria-hidden="true" />
-                    <h3 className="font-serif text-3xl mb-4">{content.contribution.cardTitle}</h3>
-                    <p className="text-white/70 font-light leading-relaxed mb-8">{content.contribution.cardDescription}</p>
-                    <div className="space-y-3 text-sm text-white/75">
-                      {content.contribution.notes.map((note: string) => (
-                        <p key={note} className="flex gap-3">
-                          <Check size={17} className="text-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
-                          <span>{note}</span>
-                        </p>
-                      ))}
-                    </div>
+            <div data-reveal data-delay="2" className="overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-[0_20px_65px_rgba(0,83,51,0.08)]">
+              <div className="grid min-w-0 lg:grid-cols-[0.72fr_1.55fr]">
+                <aside className="relative min-w-0 overflow-hidden border-b border-brand/10 bg-gradient-to-br from-brand/[0.07] to-gold/[0.08] p-7 md:p-10 lg:border-b-0 lg:border-r">
+                  <h3 className="mb-5 font-serif text-4xl text-brand">{content.contribution.cardTitle}</h3>
+                  <div className="mb-6 h-0.5 w-16 bg-gold" aria-hidden="true" />
+                  <p className="mb-8 text-lg font-light leading-relaxed text-gray-600">{content.contribution.cardDescription}</p>
+                  <div className="space-y-5 text-gray-600">
+                    {content.contribution.notes.map((note: string) => (
+                      <p key={note} className="flex gap-3 leading-relaxed">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand"><Check size={16} aria-hidden="true" /></span>
+                        <span className="pt-1">{note}</span>
+                      </p>
+                    ))}
                   </div>
+                  <Leaf className="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rotate-12 text-brand/[0.10]" strokeWidth={0.8} aria-hidden="true" />
+                </aside>
 
-                  <div className="p-8 md:p-10">
-                    {hasAlias || hasSepa || hasCrypto ? (
-                      <>
-                        {renderTransferOptions()}
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
-                          <MessageCircle size={18} aria-hidden="true" />
-                          {content.contribution.confirmCta}
-                        </a>
-                      </>
-                    ) : (
-                      <div className="text-center py-4">
-                        <MessageCircle size={36} strokeWidth={1.5} className="text-gold mx-auto mb-5" aria-hidden="true" />
-                        <h3 className="font-serif text-3xl text-brand mb-4">{content.contribution.fallbackTitle}</h3>
-                        <p className="text-gray-500 font-light leading-relaxed mb-7">{content.contribution.fallbackDescription}</p>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
-                          <MessageCircle size={18} aria-hidden="true" />
-                          {content.contribution.fallbackCta}
-                        </a>
+                <div className="min-w-0 p-6 md:p-8 lg:p-10">
+                  {hasAlias || hasSepa || hasCrypto ? (
+                    <>
+                      <div className="mb-5 flex items-center gap-3">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-sm font-bold text-white ring-4 ring-brand/10">1</span>
+                        <h3 className="font-serif text-3xl text-brand">{content.contribution.chooseMethodTitle}</h3>
                       </div>
-                    )}
-                  </div>
+                      <div className="scrollbar-hide mb-5 flex w-full min-w-0 snap-x gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0" role="tablist" aria-label={content.contribution.chooseMethodTitle}>
+                        {([
+                          { id: 'argentina', label: content.contribution.argentinaMethod, status: content.contribution.availableLabel, Icon: Building2, disabled: !hasAlias },
+                          { id: 'sepa', label: content.contribution.sepaMethod, status: REFORESTATION_CONTRIBUTION.sepa.isSample ? content.contribution.comingSoonLabel : content.contribution.availableLabel, Icon: Globe2, disabled: REFORESTATION_CONTRIBUTION.sepa.isSample || !hasSepa },
+                          { id: 'crypto', label: content.contribution.cryptoMethod, status: content.contribution.partialLabel, Icon: Coins, disabled: !hasCrypto },
+                        ] as const).map(({ id, label, status, Icon, disabled }) => {
+                          const selected = selectedContributionMethod === id;
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              role="tab"
+                              aria-selected={selected}
+                              disabled={disabled}
+                              onClick={() => setSelectedContributionMethod(id)}
+                              className={`min-w-[9.5rem] flex-1 snap-start rounded-xl border p-4 text-left transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:min-w-0 ${selected ? 'border-brand bg-brand/[0.04] shadow-sm' : 'border-brand/10 bg-bone/40 hover:border-brand/30'} disabled:cursor-not-allowed disabled:opacity-50`}
+                            >
+                              <div className="mb-3 flex items-center justify-between gap-2">
+                                <Icon size={21} className={selected ? 'text-brand' : 'text-gray-400'} aria-hidden="true" />
+                                <span className={`h-5 w-5 rounded-full border-2 ${selected ? 'border-brand bg-brand shadow-[inset_0_0_0_4px_white]' : 'border-gray-300'}`} aria-hidden="true" />
+                              </div>
+                              <p className="font-serif text-lg text-brand">{label}</p>
+                              <span className="mt-2 inline-flex rounded-full bg-brand/[0.07] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-brand/65">{status}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <div role="tabpanel">{renderTransferOptions(selectedContributionMethod)}</div>
+                      <div className="mt-5 flex gap-4 rounded-xl border border-gold/60 bg-gold/[0.08] p-4">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold text-sm font-bold text-brand">2</span>
+                        <div>
+                          <p className="font-serif text-xl text-brand">{content.contribution.afterTransferTitle}</p>
+                          <p className="mt-1 text-sm leading-relaxed text-gray-600">{content.contribution.afterTransferDescription}</p>
+                        </div>
+                      </div>
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-5 w-full">
+                        <MessageCircle size={18} aria-hidden="true" />
+                        {content.contribution.confirmCta}
+                      </a>
+                    </>
+                  ) : (
+                    <div className="py-4 text-center">
+                      <MessageCircle size={36} strokeWidth={1.5} className="mx-auto mb-5 text-gold" aria-hidden="true" />
+                      <h3 className="mb-4 font-serif text-3xl text-brand">{content.contribution.fallbackTitle}</h3>
+                      <p className="mb-7 font-light leading-relaxed text-gray-500">{content.contribution.fallbackDescription}</p>
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
+                        <MessageCircle size={18} aria-hidden="true" />
+                        {content.contribution.fallbackCta}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <p className="max-w-3xl mx-auto text-center text-xs text-gray-400 font-light leading-relaxed mt-6">{content.contribution.legalNote}</p>
+            <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-light leading-relaxed text-gray-400">{content.contribution.legalNote}</p>
           </div>
         </section>
 
