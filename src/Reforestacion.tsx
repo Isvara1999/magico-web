@@ -380,7 +380,6 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
       )}
-      <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
     </div>
   );
 
@@ -1001,6 +1000,19 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {copiedField && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-6 left-1/2 z-[8000] flex w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-brand px-5 py-3.5 text-sm font-semibold text-white shadow-[0_16px_45px_rgba(0,45,28,0.35)]"
+        >
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold text-brand">
+            <Check size={16} strokeWidth={2.5} aria-hidden="true" />
+          </span>
+          <span>{content.contribution.copyConfirmation}</span>
+        </div>
+      )}
 
       {expandedGallery && expandedMedia && (
         <div
