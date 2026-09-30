@@ -351,6 +351,8 @@
         "fallbackDescription": "La cuenta pública de la campaña todavía no está configurada en esta versión del sitio. Escribinos y te compartimos los datos vigentes.",
         "fallbackCta": "Pedir datos por WhatsApp",
         "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
+        "confirmationWhatsappMessage": "¡Hola! Ya realicé un aporte a la campaña de reforestación de 10.000 árboles nativos.\n\nNombre: [completar]\nMonto y moneda: [completar]\nMedio utilizado: {method}\nReferencia o hash de la operación: [completar]\n\nAdjunto el comprobante para que puedan conciliar mi aporte. ¡Gracias!",
+        "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
         "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo."
       },
       "closing": {
@@ -2717,6 +2719,8 @@
         "fallbackDescription": "The campaign's public account is not configured in this site version yet. Message us and we will share the current details.",
         "fallbackCta": "Request details on WhatsApp",
         "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
+        "confirmationWhatsappMessage": "Hi! I have made a contribution to the campaign to plant 10,000 native trees.\n\nName: [complete]\nAmount and currency: [complete]\nMethod used: {method}\nTransaction reference or hash: [complete]\n\nI am attaching the receipt so you can reconcile my contribution. Thank you!",
+        "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
         "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt. Do not send funds to any detail marked as a sample."
       },
       "closing": {

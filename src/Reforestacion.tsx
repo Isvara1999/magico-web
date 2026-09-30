@@ -118,7 +118,18 @@ const Reforestacion: React.FC = () => {
     currency: 'ARS',
     maximumFractionDigits: 0,
   });
-  const whatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
+  const contributionMethodLabels: Record<ContributionMethod, string> = {
+    argentina: content.contribution.argentinaMethod,
+    sepa: content.contribution.sepaMethod,
+    crypto: `${content.contribution.cryptoMethod} (USDC / BTC / ETH)`,
+  };
+  const requestContributionDataWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.contribution.whatsappMessage)}`;
+  const contributionConfirmationWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(
+    content.contribution.confirmationWhatsappMessage.replace('{method}', contributionMethodLabels[selectedContributionMethod]),
+  )}`;
+  const genericContributionConfirmationWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(
+    content.contribution.confirmationWhatsappMessage.replace('{method}', content.contribution.methodPlaceholder),
+  )}`;
   const corporateWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.corporate.whatsappMessage)}`;
   const getVolunteerWhatsappUrl = (event: { title: string; date: string }) => {
     const message = content.volunteering.applyMessage
@@ -958,7 +969,7 @@ const Reforestacion: React.FC = () => {
                           <p className="mt-1 text-sm leading-relaxed text-gray-600">{content.contribution.afterTransferDescription}</p>
                         </div>
                       </div>
-                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-5 w-full">
+                      <a href={contributionConfirmationWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-5 w-full">
                         <MessageCircle size={18} aria-hidden="true" />
                         {content.contribution.confirmCta}
                       </a>
@@ -968,7 +979,7 @@ const Reforestacion: React.FC = () => {
                       <MessageCircle size={36} strokeWidth={1.5} className="mx-auto mb-5 text-gold" aria-hidden="true" />
                       <h3 className="mb-4 font-serif text-3xl text-brand">{content.contribution.fallbackTitle}</h3>
                       <p className="mb-7 font-light leading-relaxed text-gray-500">{content.contribution.fallbackDescription}</p>
-                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
+                      <a href={requestContributionDataWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline">
                         <MessageCircle size={18} aria-hidden="true" />
                         {content.contribution.fallbackCta}
                       </a>
@@ -1127,7 +1138,7 @@ const Reforestacion: React.FC = () => {
               </div>
             )}
 
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
+            <a href={hasAlias || hasSepa || hasCrypto ? genericContributionConfirmationWhatsappUrl : requestContributionDataWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
               <MessageCircle size={18} aria-hidden="true" />
               {hasAlias || hasSepa || hasCrypto ? content.contribution.confirmCta : content.contribution.fallbackCta}
             </a>
