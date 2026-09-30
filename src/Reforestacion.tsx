@@ -810,10 +810,8 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
-        <section id="aportar" className="relative overflow-hidden bg-[#fbfaf6] px-6 py-20 md:py-28">
-          <Leaf className="pointer-events-none absolute -left-8 top-10 h-36 w-36 -rotate-12 text-brand/[0.08] md:h-52 md:w-52" strokeWidth={0.7} aria-hidden="true" />
-          <Leaf className="pointer-events-none absolute -right-10 top-16 h-32 w-32 rotate-[28deg] text-brand/[0.08] md:h-48 md:w-48" strokeWidth={0.7} aria-hidden="true" />
-          <div className="relative mx-auto max-w-7xl">
+        <section id="aportar" className="bg-bone px-6 py-20 md:py-28">
+          <div className="mx-auto max-w-6xl">
             <div data-reveal className="mx-auto mb-10 max-w-4xl text-center">
               <div className="mb-4 flex items-center justify-center gap-4">
                 <span className="h-px w-12 bg-brand/35" aria-hidden="true" />
@@ -855,19 +853,18 @@ const Reforestacion: React.FC = () => {
 
             <div data-reveal data-delay="2" className="overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-[0_20px_65px_rgba(0,83,51,0.08)]">
               <div className="grid min-w-0 lg:grid-cols-[0.72fr_1.55fr]">
-                <aside className="relative min-w-0 overflow-hidden border-b border-brand/10 bg-gradient-to-br from-brand/[0.07] to-gold/[0.08] p-7 md:p-10 lg:border-b-0 lg:border-r">
-                  <h3 className="mb-5 font-serif text-4xl text-brand">{content.contribution.cardTitle}</h3>
+                <aside className="min-w-0 border-b border-white/10 bg-brand p-7 text-white md:p-10 lg:border-b-0 lg:border-r">
+                  <h3 className="mb-5 font-serif text-4xl text-white">{content.contribution.cardTitle}</h3>
                   <div className="mb-6 h-0.5 w-16 bg-gold" aria-hidden="true" />
-                  <p className="mb-8 text-lg font-light leading-relaxed text-gray-600">{content.contribution.cardDescription}</p>
-                  <div className="space-y-5 text-gray-600">
+                  <p className="mb-8 text-lg font-light leading-relaxed text-white/70">{content.contribution.cardDescription}</p>
+                  <div className="space-y-5 text-white/75">
                     {content.contribution.notes.map((note: string) => (
                       <p key={note} className="flex gap-3 leading-relaxed">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand"><Check size={16} aria-hidden="true" /></span>
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold"><Check size={16} aria-hidden="true" /></span>
                         <span className="pt-1">{note}</span>
                       </p>
                     ))}
                   </div>
-                  <Leaf className="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rotate-12 text-brand/[0.10]" strokeWidth={0.8} aria-hidden="true" />
                 </aside>
 
                 <div className="min-w-0 p-6 md:p-8 lg:p-10">
