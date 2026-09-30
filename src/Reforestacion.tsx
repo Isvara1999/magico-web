@@ -49,6 +49,45 @@ type ExpandedGallery = {
 
 type CopyField = 'alias' | 'cbu' | 'iban' | 'bic' | 'usdc' | 'btc' | 'eth';
 type ContributionMethod = 'argentina' | 'sepa' | 'crypto';
+type CryptoAsset = 'USDC' | 'BTC' | 'ETH';
+
+const CryptoAssetIcon = ({ asset, size = 44 }: { asset: CryptoAsset; size?: number }) => {
+  if (asset === 'ETH') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" className="shrink-0">
+        <circle cx="24" cy="24" r="24" fill="#627EEA" />
+        <path d="M24 7.5 23.6 8.9v20.8l.4.4 9.7-5.7L24 7.5Z" fill="#fff" fillOpacity=".62" />
+        <path d="m24 7.5-9.7 16.9 9.7 5.7V7.5Z" fill="#fff" />
+        <path d="m24 32-0.2.3v7.4l.2.8 9.7-13.7L24 32Z" fill="#fff" fillOpacity=".62" />
+        <path d="M24 40.5V32l-9.7-5.2L24 40.5Z" fill="#fff" />
+      </svg>
+    );
+  }
+
+  if (asset === 'BTC') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" className="shrink-0">
+        <circle cx="24" cy="24" r="24" fill="#F7931A" />
+        <text x="24" y="32" textAnchor="middle" fill="#fff" fontSize="25" fontWeight="700" fontFamily="Arial, sans-serif">₿</text>
+      </svg>
+    );
+  }
+
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" className="shrink-0">
+      <circle cx="24" cy="24" r="24" fill="#2775CA" />
+      <circle cx="24" cy="24" r="15" fill="none" stroke="#fff" strokeWidth="2.5" />
+      <path d="M27.8 19.5c-.5-1.4-1.7-2.1-3.6-2.1-2.2 0-3.5.9-3.5 2.3 0 3.7 7.4 1.7 7.4 6.4 0 2.2-1.7 3.8-4.2 4.1M24 14.5v3m0 12.8v3.2" fill="none" stroke="#fff" strokeWidth="2.3" strokeLinecap="round" />
+      <path d="M13.5 17a13 13 0 0 0 0 14M34.5 17a13 13 0 0 1 0 14" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+};
+
+const CryptoNetworkIcon = ({ asset }: { asset: CryptoAsset }) => (
+  <span className="flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full">
+    <CryptoAssetIcon asset={asset === 'USDC' ? 'ETH' : asset} size={20} />
+  </span>
+);
 
 const Reforestacion: React.FC = () => {
   const { t, language } = useLanguage();
@@ -298,35 +337,45 @@ const Reforestacion: React.FC = () => {
             <h3 className="min-w-0 flex-1 font-serif text-2xl text-brand">{content.contribution.cryptoTransferTitle}</h3>
           </div>
           {REFORESTATION_CONTRIBUTION.crypto.isSample && <p className="mb-5 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">{content.contribution.cryptoWarning}</p>}
-          <div className="space-y-3">
+          <div className="scrollbar-hide flex snap-x gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible md:pb-0">
             {([
               ['USDC', 'usdc', REFORESTATION_CONTRIBUTION.crypto.usdc],
               ['BTC', 'btc', REFORESTATION_CONTRIBUTION.crypto.btc],
               ['ETH', 'eth', REFORESTATION_CONTRIBUTION.crypto.eth],
             ] as const).map(([asset, field, wallet]) => (
-              <div key={asset} className="rounded-xl bg-bone/70 p-4">
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="font-serif text-xl text-brand">{asset}</span>
-                  <div className="flex flex-wrap justify-end gap-2">
-                    {wallet.isSample && <span className="rounded-full bg-[#fff1c2] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#76570d]">{content.contribution.cryptoSampleBadge}</span>}
-                    <span className="rounded-full border border-brand/10 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">
-                      {content.contribution.networkLabel}: {wallet.network}
-                    </span>
+              <article key={asset} className="flex min-w-[17rem] flex-1 snap-start flex-col rounded-xl border border-brand/10 bg-bone/70 p-4 md:min-w-0">
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <CryptoAssetIcon asset={asset} />
+                    <div>
+                      <h4 className="font-serif text-2xl leading-none text-brand">{asset}</h4>
+                      <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">{content.contribution.cryptoMethod}</p>
+                    </div>
+                  </div>
+                  {wallet.isSample && <span className="rounded-full bg-[#fff1c2] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-[#76570d]">{content.contribution.cryptoSampleBadge}</span>}
+                </div>
+                <div className="mb-4 flex items-center gap-2 rounded-lg border border-brand/10 bg-white/80 px-3 py-2 text-gray-600">
+                  <CryptoNetworkIcon asset={asset} />
+                  <div className="min-w-0">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-gray-400">{content.contribution.networkLabel}</p>
+                    <p className="truncate text-xs font-semibold text-brand">{wallet.network}</p>
                   </div>
                 </div>
-                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.walletLabel}</p>
-                <div className="flex min-w-0 items-center justify-between gap-3">
-                  <code className="min-w-0 break-all text-sm font-semibold text-brand">{wallet.address}</code>
-                  <button
-                    type="button"
-                    onClick={() => copyValue(field, wallet.address)}
-                    aria-label={content.contribution.copyWallet.replace('{asset}', asset)}
-                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand/15 bg-white text-brand transition-colors hover:border-gold hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                  >
-                    {copiedField === field ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-                  </button>
+                <div className="mt-auto">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.walletLabel}</p>
+                  <div className="flex min-w-0 items-end justify-between gap-3">
+                    <code className="min-w-0 break-all text-xs font-semibold leading-relaxed text-brand">{wallet.address}</code>
+                    <button
+                      type="button"
+                      onClick={() => copyValue(field, wallet.address)}
+                      aria-label={content.contribution.copyWallet.replace('{asset}', asset)}
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand/15 bg-white text-brand transition-colors hover:border-gold hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    >
+                      {copiedField === field ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </section>
