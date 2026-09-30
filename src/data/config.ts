@@ -28,18 +28,19 @@ export const REFORESTATION_CONTRIBUTION = {
     usdc: {
       address: import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim() || 'USDC_WALLET_ADDRESS_EXAMPLE',
       network: import.meta.env.VITE_REFORESTATION_USDC_NETWORK?.trim() || 'Ethereum (ERC-20)',
+      isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim(),
     },
     btc: {
-      address: import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim() || 'BTC_WALLET_ADDRESS_EXAMPLE',
+      address: import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim() || 'bc1qlpydcscttrqqasszlh80cu9cv2qjhn4puj5cfc',
       network: import.meta.env.VITE_REFORESTATION_BTC_NETWORK?.trim() || 'Bitcoin',
+      isSample: false,
     },
     eth: {
-      address: import.meta.env.VITE_REFORESTATION_ETH_ADDRESS?.trim() || 'ETH_WALLET_ADDRESS_EXAMPLE',
+      address: import.meta.env.VITE_REFORESTATION_ETH_ADDRESS?.trim() || '0xc774732d6b98afcc3d26c84f8542c95408ab59d7',
       network: import.meta.env.VITE_REFORESTATION_ETH_NETWORK?.trim() || 'Ethereum',
+      isSample: false,
     },
-    isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim()
-      || !import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim()
-      || !import.meta.env.VITE_REFORESTATION_ETH_ADDRESS?.trim(),
+    isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim(),
   },
   raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 230000),
 };

@@ -294,7 +294,6 @@ const Reforestacion: React.FC = () => {
               <Coins size={19} aria-hidden="true" />
             </div>
             <h3 className="min-w-0 flex-1 font-serif text-2xl text-brand">{content.contribution.cryptoTransferTitle}</h3>
-            {REFORESTATION_CONTRIBUTION.crypto.isSample && <span className="rounded-full bg-[#fff1c2] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#76570d]">{content.contribution.cryptoSampleBadge}</span>}
           </div>
           {REFORESTATION_CONTRIBUTION.crypto.isSample && <p className="mb-5 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">{content.contribution.cryptoWarning}</p>}
           <div className="space-y-3">
@@ -306,9 +305,12 @@ const Reforestacion: React.FC = () => {
               <div key={asset} className="rounded-xl bg-bone/70 p-4">
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <span className="font-serif text-xl text-brand">{asset}</span>
-                  <span className="rounded-full border border-brand/10 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">
-                    {content.contribution.networkLabel}: {wallet.network}
-                  </span>
+                  <div className="flex flex-wrap justify-end gap-2">
+                    {wallet.isSample && <span className="rounded-full bg-[#fff1c2] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#76570d]">{content.contribution.cryptoSampleBadge}</span>}
+                    <span className="rounded-full border border-brand/10 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">
+                      {content.contribution.networkLabel}: {wallet.network}
+                    </span>
+                  </div>
                 </div>
                 <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.walletLabel}</p>
                 <div className="flex min-w-0 items-center justify-between gap-3">

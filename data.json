@@ -317,8 +317,8 @@
         "sepaSampleBadge": "Datos de ejemplo",
         "sepaWarning": "Estos datos SEPA son de muestra y no reciben transferencias. Serán reemplazados por la cuenta real antes de habilitar aportes internacionales.",
         "cryptoTransferTitle": "Aporte con criptomonedas",
-        "cryptoSampleBadge": "Datos de ejemplo",
-        "cryptoWarning": "Estas direcciones son de muestra y no reciben fondos. Verificá siempre el activo y la red antes de transferir; una red incorrecta puede provocar la pérdida irreversible del aporte.",
+        "cryptoSampleBadge": "Dato de ejemplo",
+        "cryptoWarning": "Las direcciones marcadas como ejemplo no reciben fondos. Verificá siempre el activo y la red antes de transferir; una red incorrecta puede provocar la pérdida irreversible del aporte.",
         "networkLabel": "Red",
         "walletLabel": "Dirección",
         "aliasLabel": "Alias para transferir",
@@ -340,7 +340,7 @@
         "fallbackDescription": "La cuenta pública de la campaña todavía no está configurada en esta versión del sitio. Escribinos y te compartimos los datos vigentes.",
         "fallbackCta": "Pedir datos por WhatsApp",
         "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
-        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia. Las cuentas SEPA y cripto permanecen inactivas mientras muestren datos de ejemplo."
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo."
       },
       "closing": {
         "title": "Lo que plantamos hoy puede cuidar la montaña durante generaciones",
@@ -2672,8 +2672,8 @@
         "sepaSampleBadge": "Sample details",
         "sepaWarning": "These SEPA details are placeholders and cannot receive transfers. They will be replaced with the real account before international contributions are enabled.",
         "cryptoTransferTitle": "Cryptocurrency contribution",
-        "cryptoSampleBadge": "Sample details",
-        "cryptoWarning": "These addresses are placeholders and cannot receive funds. Always verify the asset and network before transferring; using the wrong network can cause the irreversible loss of the contribution.",
+        "cryptoSampleBadge": "Sample detail",
+        "cryptoWarning": "Addresses marked as samples cannot receive funds. Always verify the asset and network before transferring; using the wrong network can cause the irreversible loss of the contribution.",
         "networkLabel": "Network",
         "walletLabel": "Address",
         "aliasLabel": "Transfer alias",
@@ -2695,7 +2695,7 @@
         "fallbackDescription": "The campaign's public account is not configured in this site version yet. Message us and we will share the current details.",
         "fallbackCta": "Request details on WhatsApp",
         "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
-        "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt. SEPA and crypto accounts remain inactive while sample details are displayed."
+        "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt. Do not send funds to any detail marked as a sample."
       },
       "closing": {
         "title": "What we plant today can protect the mountains for generations",
