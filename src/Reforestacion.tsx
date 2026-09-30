@@ -17,6 +17,7 @@ import {
   MessageCircle,
   MapPinned,
   Play,
+  QrCode,
   ShieldCheck,
   Sprout,
   Target,
@@ -24,6 +25,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 import { Header } from '../components/Header';
 import { HorizontalCardRail } from '../components/HorizontalCardRail';
 import { Footer } from '../components/Footer';
@@ -50,6 +52,7 @@ type ExpandedGallery = {
 type CopyField = 'alias' | 'cbu' | 'iban' | 'bic' | 'usdc' | 'btc' | 'eth';
 type ContributionMethod = 'argentina' | 'sepa' | 'crypto';
 type CryptoAsset = 'USDC' | 'BTC' | 'ETH';
+type CryptoQrDetails = { asset: CryptoAsset; address: string; network: string };
 
 const CryptoAssetIcon = ({ asset, size = 44 }: { asset: CryptoAsset; size?: number }) => {
   if (asset === 'ETH') {
@@ -98,6 +101,7 @@ const Reforestacion: React.FC = () => {
   const [copiedField, setCopiedField] = useState<CopyField | null>(null);
   const [selectedContributionMethod, setSelectedContributionMethod] = useState<ContributionMethod>('argentina');
   const [donationModalOpen, setDonationModalOpen] = useState(false);
+  const [cryptoQr, setCryptoQr] = useState<CryptoQrDetails | null>(null);
   const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
   const galleryTouchStartX = useRef<number | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
@@ -216,10 +220,12 @@ const Reforestacion: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!donationModalOpen) return;
+    if (!donationModalOpen && !cryptoQr) return;
 
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setDonationModalOpen(false);
+      if (event.key !== 'Escape') return;
+      if (cryptoQr) setCryptoQr(null);
+      else setDonationModalOpen(false);
     };
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -229,7 +235,7 @@ const Reforestacion: React.FC = () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', closeOnEscape);
     };
-  }, [donationModalOpen]);
+  }, [donationModalOpen, cryptoQr]);
 
   const moveExpandedGallery = (direction: -1 | 1) => {
     setExpandedGallery(current => {
@@ -266,6 +272,10 @@ const Reforestacion: React.FC = () => {
     setCopiedField(field);
     window.setTimeout(() => setCopiedField(current => current === field ? null : current), 2200);
   };
+
+  const trimWalletAddress = (address: string) => address.length > 20
+    ? `${address.slice(0, 8)}…${address.slice(-6)}`
+    : address;
 
   const renderCopyField = (
     label: string,
@@ -348,6 +358,7 @@ const Reforestacion: React.FC = () => {
             <h3 className="min-w-0 flex-1 font-serif text-2xl text-brand">{content.contribution.cryptoTransferTitle}</h3>
           </div>
           {REFORESTATION_CONTRIBUTION.crypto.isSample && <p className="mb-5 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">{content.contribution.cryptoWarning}</p>}
+          <p className="mb-5 rounded-xl border border-brand/10 bg-brand/[0.04] px-4 py-3 text-sm leading-relaxed text-gray-600">{content.contribution.cryptoNetworkNote}</p>
           <div className="scrollbar-hide flex snap-x gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible md:pb-0">
             {([
               ['USDC', 'usdc', REFORESTATION_CONTRIBUTION.crypto.usdc],
@@ -374,8 +385,16 @@ const Reforestacion: React.FC = () => {
                 </div>
                 <div className="mt-auto">
                   <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.walletLabel}</p>
-                  <div className="flex min-w-0 items-end justify-between gap-3">
-                    <code className="min-w-0 break-all text-xs font-semibold leading-relaxed text-brand">{wallet.address}</code>
+                  <code className="block truncate text-sm font-semibold text-brand" title={wallet.address}>{trimWalletAddress(wallet.address)}</code>
+                  <div className="mt-4 flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setCryptoQr({ asset, address: wallet.address, network: wallet.network })}
+                      className="inline-flex min-h-9 flex-1 items-center justify-center gap-2 rounded-full border border-brand/15 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.1em] text-brand transition-colors hover:border-gold hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    >
+                      <QrCode size={16} aria-hidden="true" />
+                      {content.contribution.scanQr}
+                    </button>
                     <button
                       type="button"
                       onClick={() => copyValue(field, wallet.address)}
@@ -1022,6 +1041,48 @@ const Reforestacion: React.FC = () => {
             <Check size={16} strokeWidth={2.5} aria-hidden="true" />
           </span>
           <span>{content.contribution.copyConfirmation}</span>
+        </div>
+      )}
+
+      {cryptoQr && (
+        <div
+          className="fixed inset-0 z-[9000] flex items-center justify-center bg-[#071d14]/85 px-4 py-8 backdrop-blur-sm"
+          role="presentation"
+          onMouseDown={event => {
+            if (event.target === event.currentTarget) setCryptoQr(null);
+          }}
+        >
+          <section role="dialog" aria-modal="true" aria-labelledby="crypto-qr-title" className="relative w-full max-w-md rounded-3xl bg-white p-7 text-center shadow-2xl md:p-9">
+            <button
+              type="button"
+              onClick={() => setCryptoQr(null)}
+              aria-label={content.contribution.closeQr}
+              className="absolute right-4 top-4 rounded-full p-2 text-gray-400 transition-colors hover:bg-bone hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <X size={21} aria-hidden="true" />
+            </button>
+            <div className="mx-auto mb-4 flex w-fit items-center gap-3">
+              <CryptoAssetIcon asset={cryptoQr.asset} />
+              <div className="text-left">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400">{content.contribution.networkLabel}</p>
+                <p className="font-semibold text-brand">{cryptoQr.network}</p>
+              </div>
+            </div>
+            <h2 id="crypto-qr-title" className="mb-2 font-serif text-3xl text-brand">{content.contribution.qrTitle.replace('{asset}', cryptoQr.asset)}</h2>
+            <p className="mx-auto mb-6 max-w-sm text-sm leading-relaxed text-gray-500">{content.contribution.qrDescription}</p>
+            <div className="mx-auto mb-5 w-fit rounded-2xl border border-brand/10 bg-white p-4 shadow-[0_10px_35px_rgba(0,83,51,0.10)]">
+              <QRCodeSVG value={cryptoQr.address} size={240} level="M" bgColor="#ffffff" fgColor="#005333" marginSize={1} />
+            </div>
+            <code className="block break-all rounded-xl bg-bone px-4 py-3 text-xs font-semibold leading-relaxed text-brand">{cryptoQr.address}</code>
+            <button
+              type="button"
+              onClick={() => copyValue(cryptoQr.asset.toLowerCase() as 'usdc' | 'btc' | 'eth', cryptoQr.address)}
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <Copy size={16} aria-hidden="true" />
+              {content.contribution.copyWallet.replace('{asset}', cryptoQr.asset)}
+            </button>
+          </section>
         </div>
       )}
 

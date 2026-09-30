@@ -26,9 +26,9 @@ export const REFORESTATION_CONTRIBUTION = {
   },
   crypto: {
     usdc: {
-      address: import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim() || 'USDC_WALLET_ADDRESS_EXAMPLE',
-      network: import.meta.env.VITE_REFORESTATION_USDC_NETWORK?.trim() || 'Ethereum (ERC-20)',
-      isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim(),
+      address: import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim() || '0xc774732d6b98afcc3d26c84f8542c95408ab59d7',
+      network: import.meta.env.VITE_REFORESTATION_USDC_NETWORK?.trim() || 'Ethereum / Polygon',
+      isSample: false,
     },
     btc: {
       address: import.meta.env.VITE_REFORESTATION_BTC_ADDRESS?.trim() || 'bc1qlpydcscttrqqasszlh80cu9cv2qjhn4puj5cfc',
@@ -40,7 +40,7 @@ export const REFORESTATION_CONTRIBUTION = {
       network: import.meta.env.VITE_REFORESTATION_ETH_NETWORK?.trim() || 'Ethereum',
       isSample: false,
     },
-    isSample: !import.meta.env.VITE_REFORESTATION_USDC_ADDRESS?.trim(),
+    isSample: false,
   },
   raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 230000),
 };
