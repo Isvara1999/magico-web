@@ -16,6 +16,14 @@ export const REFORESTATION_CONTRIBUTION = {
   alias: import.meta.env.VITE_REFORESTATION_ALIAS?.trim() || 'pueblo-magico',
   accountHolder: import.meta.env.VITE_REFORESTATION_ACCOUNT_HOLDER?.trim() || 'Diego Epelman',
   cbu: import.meta.env.VITE_REFORESTATION_CBU?.trim() ?? '',
+  sepa: {
+    accountHolder: import.meta.env.VITE_REFORESTATION_SEPA_ACCOUNT_HOLDER?.trim() || 'Pueblo Mágico - Ejemplo',
+    iban: import.meta.env.VITE_REFORESTATION_SEPA_IBAN?.trim() || 'DE00 0000 0000 0000 0000 00',
+    bic: import.meta.env.VITE_REFORESTATION_SEPA_BIC?.trim() || 'EXAMPLEXXX',
+    bankName: import.meta.env.VITE_REFORESTATION_SEPA_BANK?.trim() || 'Banco de ejemplo',
+    currency: import.meta.env.VITE_REFORESTATION_SEPA_CURRENCY?.trim() || 'EUR',
+    isSample: !import.meta.env.VITE_REFORESTATION_SEPA_IBAN?.trim(),
+  },
   raisedAmount: Number(import.meta.env.VITE_REFORESTATION_RAISED_AMOUNT ?? 230000),
 };
 

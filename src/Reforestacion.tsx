@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Copy,
+  Globe2,
   Heart,
   HandHeart,
   Leaf,
@@ -51,11 +52,12 @@ const Reforestacion: React.FC = () => {
   const reforestationEvents = [...(t.events?.cards || [])]
     .filter((event: any) => event.isReforestacion === true)
     .sort((first: any, second: any) => (first.startDate || '').localeCompare(second.startDate || ''));
-  const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | null>(null);
+  const [copiedField, setCopiedField] = useState<'alias' | 'cbu' | 'iban' | 'bic' | null>(null);
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
   const galleryTouchStartX = useRef<number | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
+  const hasSepa = Boolean(REFORESTATION_CONTRIBUTION.sepa.iban);
   const phaseOneGoal = 1_500_000;
   const raisedAmount = Number.isFinite(REFORESTATION_CONTRIBUTION.raisedAmount)
     ? Math.max(0, REFORESTATION_CONTRIBUTION.raisedAmount)
@@ -199,11 +201,84 @@ const Reforestacion: React.FC = () => {
 
   const expandedMedia = expandedGallery?.items[expandedGallery.index] ?? null;
 
-  const copyValue = async (field: 'alias' | 'cbu', value: string) => {
+  const copyValue = async (field: 'alias' | 'cbu' | 'iban' | 'bic', value: string) => {
     await navigator.clipboard.writeText(value);
     setCopiedField(field);
     window.setTimeout(() => setCopiedField(current => current === field ? null : current), 2200);
   };
+
+  const renderTransferOptions = () => (
+    <div className="space-y-5">
+      {hasAlias && (
+        <section className="rounded-2xl border border-brand/15 bg-white p-5 md:p-6" aria-label={content.contribution.localTransferTitle}>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+              <Building2 size={19} aria-hidden="true" />
+            </div>
+            <h3 className="font-serif text-2xl text-brand">{content.contribution.localTransferTitle}</h3>
+          </div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">{content.contribution.aliasLabel}</p>
+          <div className="mb-5 flex flex-col gap-4 rounded-xl bg-bone p-5 sm:flex-row sm:items-center">
+            <code className="flex-1 break-all text-xl font-semibold text-brand md:text-2xl">{REFORESTATION_CONTRIBUTION.alias}</code>
+            <button type="button" onClick={() => copyValue('alias', REFORESTATION_CONTRIBUTION.alias)} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+              {copiedField === 'alias' ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+              {copiedField === 'alias' ? content.contribution.copied : content.contribution.copy}
+            </button>
+          </div>
+          {REFORESTATION_CONTRIBUTION.accountHolder && <p className="mb-3 text-sm text-gray-500"><span className="font-semibold text-gray-700">{content.contribution.holderLabel}:</span> {REFORESTATION_CONTRIBUTION.accountHolder}</p>}
+          {REFORESTATION_CONTRIBUTION.cbu && (
+            <div className="flex items-center justify-between gap-4 border-t border-gray-100 pt-4">
+              <p className="break-all text-sm text-gray-500"><span className="font-semibold text-gray-700">{content.contribution.cbuLabel}:</span> {REFORESTATION_CONTRIBUTION.cbu}</p>
+              <button type="button" onClick={() => copyValue('cbu', REFORESTATION_CONTRIBUTION.cbu)} aria-label={content.contribution.copyCbu} className="rounded-full p-2 text-brand transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                {copiedField === 'cbu' ? <Check size={18} aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+
+      {hasSepa && (
+        <section className="rounded-2xl border border-gold/40 bg-gold/[0.08] p-5 md:p-6" aria-label={content.contribution.internationalTransferTitle}>
+          <div className="mb-4 flex flex-wrap items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-gold">
+              <Globe2 size={19} aria-hidden="true" />
+            </div>
+            <h3 className="font-serif text-2xl text-brand">{content.contribution.internationalTransferTitle}</h3>
+            {REFORESTATION_CONTRIBUTION.sepa.isSample && <span className="rounded-full bg-[#fff1c2] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#76570d]">{content.contribution.sepaSampleBadge}</span>}
+          </div>
+          {REFORESTATION_CONTRIBUTION.sepa.isSample && <p className="mb-5 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">{content.contribution.sepaWarning}</p>}
+          <div className="space-y-4">
+            <div className="rounded-xl bg-white p-4">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.ibanLabel}</p>
+              <div className="flex items-center justify-between gap-3">
+                <code className="break-all text-sm font-semibold text-brand sm:text-base">{REFORESTATION_CONTRIBUTION.sepa.iban}</code>
+                <button type="button" onClick={() => copyValue('iban', REFORESTATION_CONTRIBUTION.sepa.iban)} aria-label={content.contribution.copyIban} className="shrink-0 rounded-full p-2 text-brand transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                  {copiedField === 'iban' ? <Check size={18} aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
+                </button>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl bg-white p-4">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{content.contribution.bicLabel}</p>
+                <div className="flex items-center justify-between gap-3">
+                  <code className="break-all text-sm font-semibold text-brand">{REFORESTATION_CONTRIBUTION.sepa.bic}</code>
+                  <button type="button" onClick={() => copyValue('bic', REFORESTATION_CONTRIBUTION.sepa.bic)} aria-label={content.contribution.copyBic} className="shrink-0 rounded-full p-2 text-brand transition-colors hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                    {copiedField === 'bic' ? <Check size={18} aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
+                  </button>
+                </div>
+              </div>
+              <dl className="rounded-xl bg-white p-4 text-sm text-gray-500">
+                <div><dt className="inline font-semibold text-gray-700">{content.contribution.bankLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.bankName}</dd></div>
+                <div className="mt-2"><dt className="inline font-semibold text-gray-700">{content.contribution.currencyLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.currency}</dd></div>
+              </dl>
+            </div>
+            <p className="text-sm text-gray-500"><span className="font-semibold text-gray-700">{content.contribution.holderLabel}:</span> {REFORESTATION_CONTRIBUTION.sepa.accountHolder}</p>
+          </div>
+        </section>
+      )}
+      <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
+    </div>
+  );
 
   const impactIcons = [TreePine, Sprout, Users];
   const useIcons = [Sprout, ShieldCheck, Heart, Leaf];
@@ -708,41 +783,10 @@ const Reforestacion: React.FC = () => {
                   </div>
 
                   <div className="p-8 md:p-10">
-                    {hasAlias ? (
+                    {hasAlias || hasSepa ? (
                       <>
-                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-3">{content.contribution.aliasLabel}</p>
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-brand/15 bg-bone p-5 mb-5">
-                          <code className="text-brand text-xl md:text-2xl font-semibold break-all flex-1">{REFORESTATION_CONTRIBUTION.alias}</code>
-                          <button
-                            type="button"
-                            onClick={() => copyValue('alias', REFORESTATION_CONTRIBUTION.alias)}
-                            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white px-5 py-3 text-xs font-bold uppercase tracking-wider hover:bg-gold hover:text-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                          >
-                            {copiedField === 'alias' ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-                            {copiedField === 'alias' ? content.contribution.copied : content.contribution.copy}
-                          </button>
-                        </div>
-                        {REFORESTATION_CONTRIBUTION.accountHolder && (
-                          <p className="text-sm text-gray-500 mb-4">
-                            <span className="font-semibold text-gray-700">{content.contribution.holderLabel}:</span>{' '}
-                            {REFORESTATION_CONTRIBUTION.accountHolder}
-                          </p>
-                        )}
-                        {REFORESTATION_CONTRIBUTION.cbu && (
-                          <div className="flex items-center justify-between gap-4 border-t border-gray-100 pt-4 mb-6">
-                            <p className="text-sm text-gray-500 break-all"><span className="font-semibold text-gray-700">{content.contribution.cbuLabel}:</span> {REFORESTATION_CONTRIBUTION.cbu}</p>
-                            <button
-                              type="button"
-                              onClick={() => copyValue('cbu', REFORESTATION_CONTRIBUTION.cbu)}
-                              aria-label={content.contribution.copyCbu}
-                              className="p-2 text-brand hover:text-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full"
-                            >
-                              {copiedField === 'cbu' ? <Check size={18} aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
-                            </button>
-                          </div>
-                        )}
-                        <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
+                        {renderTransferOptions()}
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline mt-6 w-full">
                           <MessageCircle size={18} aria-hidden="true" />
                           {content.contribution.confirmCta}
                         </a>
@@ -876,7 +920,7 @@ const Reforestacion: React.FC = () => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="donation-modal-title"
-            className="relative w-full max-w-xl max-h-full overflow-y-auto rounded-3xl bg-white p-7 md:p-10 shadow-2xl"
+            className="relative max-h-full w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-7 shadow-2xl md:p-10"
           >
             <button
               type="button"
@@ -891,20 +935,8 @@ const Reforestacion: React.FC = () => {
             <h2 id="donation-modal-title" className="font-serif text-3xl md:text-4xl text-brand leading-tight mb-4">{content.contribution.modalTitle}</h2>
             <p className="text-gray-600 font-light leading-relaxed mb-7">{content.contribution.modalDescription}</p>
 
-            {hasAlias ? (
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-3">{content.contribution.aliasLabel}</p>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-brand/15 bg-bone p-5 mb-5">
-                  <code className="text-brand text-xl md:text-2xl font-semibold break-all flex-1">{REFORESTATION_CONTRIBUTION.alias}</code>
-                  <button type="button" onClick={() => copyValue('alias', REFORESTATION_CONTRIBUTION.alias)} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-gold hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
-                    {copiedField === 'alias' ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-                    {copiedField === 'alias' ? content.contribution.copied : content.contribution.copy}
-                  </button>
-                </div>
-                {REFORESTATION_CONTRIBUTION.accountHolder && <p className="text-sm text-gray-500 mb-3"><span className="font-semibold text-gray-700">{content.contribution.holderLabel}:</span> {REFORESTATION_CONTRIBUTION.accountHolder}</p>}
-                {REFORESTATION_CONTRIBUTION.cbu && <p className="text-sm text-gray-500 break-all mb-6"><span className="font-semibold text-gray-700">{content.contribution.cbuLabel}:</span> {REFORESTATION_CONTRIBUTION.cbu}</p>}
-                <p className="sr-only" aria-live="polite">{copiedField ? content.contribution.copyConfirmation : ''}</p>
-              </div>
+            {hasAlias || hasSepa ? (
+              renderTransferOptions()
             ) : (
               <div className="rounded-2xl bg-bone p-5 mb-6">
                 <p className="text-gray-600 font-light leading-relaxed">{content.contribution.fallbackDescription}</p>
@@ -913,7 +945,7 @@ const Reforestacion: React.FC = () => {
 
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
               <MessageCircle size={18} aria-hidden="true" />
-              {hasAlias ? content.contribution.confirmCta : content.contribution.fallbackCta}
+              {hasAlias || hasSepa ? content.contribution.confirmCta : content.contribution.fallbackCta}
             </a>
           </section>
         </div>
