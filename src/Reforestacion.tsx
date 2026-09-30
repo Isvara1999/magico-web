@@ -105,7 +105,11 @@ const Reforestacion: React.FC = () => {
   const [expandedGallery, setExpandedGallery] = useState<ExpandedGallery | null>(null);
   const galleryTouchStartX = useRef<number | null>(null);
   const hasAlias = Boolean(REFORESTATION_CONTRIBUTION.alias);
-  const hasSepa = Boolean(REFORESTATION_CONTRIBUTION.sepa.iban);
+  const hasSepa = Boolean(
+    REFORESTATION_CONTRIBUTION.sepa.accountHolder
+    && REFORESTATION_CONTRIBUTION.sepa.iban
+    && REFORESTATION_CONTRIBUTION.sepa.bic,
+  );
   const hasCrypto = Boolean(
     REFORESTATION_CONTRIBUTION.crypto.usdc.address
     || REFORESTATION_CONTRIBUTION.crypto.btc.address
@@ -338,8 +342,8 @@ const Reforestacion: React.FC = () => {
             <div className="grid gap-3 sm:grid-cols-2">
               {renderCopyField(content.contribution.bicLabel, REFORESTATION_CONTRIBUTION.sepa.bic, 'bic', content.contribution.copyBic)}
               <dl className="rounded-xl bg-bone/70 p-4 text-sm text-gray-500">
-                <div><dt className="inline font-semibold text-gray-700">{content.contribution.bankLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.bankName}</dd></div>
-                <div className="mt-2"><dt className="inline font-semibold text-gray-700">{content.contribution.currencyLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.currency}</dd></div>
+                {REFORESTATION_CONTRIBUTION.sepa.bankName && <div><dt className="inline font-semibold text-gray-700">{content.contribution.bankLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.bankName}</dd></div>}
+                <div className={REFORESTATION_CONTRIBUTION.sepa.bankName ? 'mt-2' : ''}><dt className="inline font-semibold text-gray-700">{content.contribution.currencyLabel}:</dt> <dd className="inline">{REFORESTATION_CONTRIBUTION.sepa.currency}</dd></div>
               </dl>
             </div>
             <dl className="rounded-xl bg-bone/70 p-4 text-sm text-gray-500">
