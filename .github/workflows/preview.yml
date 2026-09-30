@@ -38,6 +38,12 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_REFORESTATION_SEPA_ACCOUNT_HOLDER: ${{ vars.VITE_REFORESTATION_SEPA_ACCOUNT_HOLDER }}
+          VITE_REFORESTATION_SEPA_IBAN: ${{ vars.VITE_REFORESTATION_SEPA_IBAN }}
+          VITE_REFORESTATION_SEPA_BIC: ${{ vars.VITE_REFORESTATION_SEPA_BIC }}
+          VITE_REFORESTATION_SEPA_BANK: ${{ vars.VITE_REFORESTATION_SEPA_BANK }}
+          VITE_REFORESTATION_SEPA_CURRENCY: ${{ vars.VITE_REFORESTATION_SEPA_CURRENCY }}
 
       # GitHub intentionally withholds repository secrets from forked pull
       # requests. Those PRs still run the complete build above, but cannot deploy.
