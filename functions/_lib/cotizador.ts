@@ -48,11 +48,8 @@ export function calcularPrecio(tipo: TipoAlojamiento, personas: number, noches: 
 
   // domo
   if (personas < 1 || personas > 7) return { error: 'El Domo admite entre 1 y 7 personas.' };
-  let precioPorNoche: number;
-  if (personas === 1) precioPorNoche = 150000;
-  else if (personas === 2) precioPorNoche = 75000;
-  else if (personas <= 5) precioPorNoche = 65000 * personas;
-  else precioPorNoche = 50000 * personas; // 6-7 personas
+  // Domo privado: $50.000 por persona/noche con desayuno; 1 persona sola $100.000.
+  const precioPorNoche = personas === 1 ? 100000 : 50000 * personas;
 
   return {
     tipo_alojamiento: tipo,

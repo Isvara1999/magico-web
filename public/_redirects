@@ -5,6 +5,11 @@
 # redirect por si hay links viejos (ManyChat, WhatsApp compartido, etc.)
 /reservas    /estadia    301
 
+# Campañas de invierno 2026 (Winter Camp / Winter Redirection) terminadas — se
+# eliminaron las páginas; los links viejos van a la estadía actual.
+/winter-camp    /estadia    301
+/winter-redirection    /estadia    301
+
 # URL limpia para el Recetario Familión (ManyChat / automatizaciones)
 /recetario-familion    /uploads/Recetarios/recetario-familion.pdf    302
 

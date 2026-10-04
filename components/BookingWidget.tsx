@@ -2,13 +2,17 @@ import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
-import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, PROMO_PAREJAS_RESERVA_HASTA, MONTHLY_URGENCY } from '../src/data/availability';
+import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, DOMO_DISPONIBLE_DESDE, DOMO_FINDES_A_CONSULTAR, MONTHLY_URGENCY } from '../src/data/availability';
+import { ESTADIA_PRICES } from '../src/data/retreats';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
+// Las etiquetas salen de booking.months en data.json (mismo orden y largo).
 const MONTH_DATES = [
-  { year: 2026, month: 7 },
-  { year: 2026, month: 8 },
-  { year: 2026, month: 9 },
+  { year: 2026, month: 10 },
+  { year: 2026, month: 11 },
+  { year: 2026, month: 12 },
+  { year: 2027, month: 1 },
+  { year: 2027, month: 2 },
 ];
 const TODAY = new Date().toISOString().slice(0, 10);
 // Rango que cubre el calendario del widget (1° del primer mes hasta el 1°
@@ -19,6 +23,19 @@ const DISPONIBILIDAD_HASTA = (() => {
   const ultimo = MONTH_DATES[MONTH_DATES.length - 1];
   return new Date(ultimo.year, ultimo.month, 1).toISOString().slice(0, 10); // mes 1° del mes siguiente
 })();
+// Días del calendario anteriores a DOMO_DISPONIBLE_DESDE (domos todavía no
+// habilitados) y noches de finde a consultar (ver DOMO_FINDES_A_CONSULTAR).
+const DIAS_CALENDARIO = (() => {
+  const dias: string[] = [];
+  for (let d = new Date(`${DISPONIBILIDAD_DESDE}T00:00:00Z`); d.toISOString().slice(0, 10) < DISPONIBILIDAD_HASTA; d.setUTCDate(d.getUTCDate() + 1)) {
+    dias.push(d.toISOString().slice(0, 10));
+  }
+  return dias;
+})();
+const DOMO_NO_HABILITADO = DIAS_CALENDARIO.filter(iso => iso < DOMO_DISPONIBLE_DESDE);
+const DOMO_FINDES = DOMO_FINDES_A_CONSULTAR
+  ? DIAS_CALENDARIO.filter(iso => iso >= DOMO_DISPONIBLE_DESDE && [5, 6].includes(new Date(`${iso}T00:00:00Z`).getUTCDay()))
+  : [];
 export const G = { green: '#005333', gold: '#D4AF37', muted: '#4A6070' };
 
 export function toISO(y: number, m: number, d: number) {
@@ -70,6 +87,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // que la persona elija algo. Que elija ella misma tipo y habitación.
   const [tipo, setTipo]         = useState<'domo' | 'refugio' | 'carpa' | null>(null);
   const [habitacion, setHabitacion] = useState<'compartida' | 'privada' | null>(null);
+  const [comidas, setComidas]   = useState<'desayuno' | 'pension'>('desayuno');
   const tipoEfectivo: 'domo' | 'refugio' | 'carpa' = tipo ?? 'domo';
   const esCarpa = tipoEfectivo === 'carpa';
 
@@ -83,7 +101,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // queda siempre "disponible" y toda la coordinación se resuelve por
   // WhatsApp con los datos que la persona completó acá.
   const CARPA_SIN_BLOQUEOS: string[] = [];
-  const retiroByTipo = useMemo(() => ({ domo: RETIRO_DATES_DOMO, refugio: RETIRO_DATES_REFUGIO, carpa: CARPA_SIN_BLOQUEOS }), []);
+  const retiroByTipo = useMemo(() => ({ domo: [...RETIRO_DATES_DOMO, ...DOMO_FINDES], refugio: RETIRO_DATES_REFUGIO, carpa: CARPA_SIN_BLOQUEOS }), []);
 
   useEffect(() => {
     let cancelado = false;
@@ -98,7 +116,7 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     return () => { cancelado = true; };
   }, []);
 
-  const blockedByTipo = useMemo(() => ({ domo: blockedDomo, refugio: blockedRefugio, carpa: CARPA_SIN_BLOQUEOS }), [blockedDomo, blockedRefugio]);
+  const blockedByTipo = useMemo(() => ({ domo: [...DOMO_NO_HABILITADO, ...blockedDomo], refugio: blockedRefugio, carpa: CARPA_SIN_BLOQUEOS }), [blockedDomo, blockedRefugio]);
 
   // En vez de borrar las fechas elegidas cuando no aplican al otro tipo de
   // alojamiento, directamente deshabilitamos ese botón — así la persona ve
@@ -122,7 +140,9 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
       setStart(iso); setEnd(null); setPickEnd(true);
     } else {
       if (iso <= start) { setStart(iso); setEnd(null); }
-      else { setEnd(iso); setPickEnd(false); }
+      // Al elegir la salida se cierra el calendario: las fechas quedan a la
+      // vista arriba y el widget no crece de más (ver sticky en Estadía).
+      else { setEnd(iso); setPickEnd(false); setCalOpen(false); }
     }
   }, [pickEnd, start, tipoEfectivo, blockedByTipo, retiroByTipo]);
 
@@ -150,12 +170,8 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   // todavía) — cualquier grupo se coordina por WhatsApp, nunca la bloqueamos acá.
   const excedeCapacidad = !esCarpa && personas > capacidadMax;
 
-  // Privada en domo: 1 persona sola paga tarifa fija de $150.000 (única
-  // disponibilidad son domos sueltos). La pareja (2 personas) tiene la
-  // misma tarifa fija de $150.000 fuera de promo; reservando antes del
-  // 31/07 accede a la Promo Parejas ($75.000). De 3 a 7 personas el precio
-  // se calcula por persona (ver precioPorPersona).
-  const promoParejasVigente = TODAY <= PROMO_PAREJAS_RESERVA_HASTA;
+  // Privada en domo: $50.000 por persona/noche con desayuno ($75.000 con
+  // pensión completa). 1 persona sola: $100.000 (+ comidas si suma pensión).
   const domoPrivadaDisponible = personas >= 1 && personas <= CAPACIDAD_DOMO;
   // Privada en refugio: de 3 personas hasta el tope real (15) no tiene costo
   // extra (misma tarifa que compartida) — a esa escala ya estás usando la
@@ -168,27 +184,33 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     ? personas >= 3 && personas <= CAPACIDAD_DOMO
     : personas >= 3 && personas <= CAPACIDAD_REFUGIO;
 
+  // Pensión completa = tarifa con desayuno + almuerzo y cena a precio cerrado
+  // (mismo extra en todas las tarifas de ESTADIA_PRICES).
+  const conPension = comidas === 'pension';
+  const P = ESTADIA_PRICES;
+  const EXTRA_PENSION = P.pensionCompletaEcoRefugio - P.ecoRefugioDesde;
   function precioPorPersona(): number {
-    if (esCarpa) return 20_000; // Carpa — alojamiento + desayuno, tarifa única por persona (ver ESTADIA_PRICES.carpaDesde)
-    if (habitacionEfectiva !== 'privada') return 35_000;
+    if (esCarpa) return conPension ? P.pensionCompletaCarpa : P.carpaDesde;
+    const compartida = conPension ? P.pensionCompletaEcoRefugio : P.ecoRefugioDesde;
+    if (habitacionEfectiva !== 'privada') return compartida;
     if (tipoEfectivo === 'domo') {
-      if (personas === 1) return 150_000; // tarifa fija, domo entero
-      if (personas === 2) return promoParejasVigente ? 37_500 : 75_000; // $75.000 total en promo, $150.000 total fuera de promo
-      if (personas >= 3 && personas <= 5) return 65_000;
-      if (personas >= 6 && personas <= CAPACIDAD_DOMO) return 50_000;
-      return 50_000; // fallback, no debería alcanzarse con privadaDisponible en false
+      if (personas === 1) return P.domoPrivadoSolo + (conPension ? P.pensionCompletaDomoPrivado - P.domoPrivado : 0);
+      return conPension ? P.pensionCompletaDomoPrivado : P.domoPrivado;
     }
     // Refugio privado: sin costo extra de 3 hasta el tope real (15); recargo solo para 1-2.
-    return (personas >= 3 && personas <= CAPACIDAD_REFUGIO) ? 35_000 : 75_000;
+    return (personas >= 3 && personas <= CAPACIDAD_REFUGIO) ? compartida : 75_000 + (conPension ? EXTRA_PENSION : 0);
   }
 
   // Si la estadía elegida cae en fechas de retiro/evento (ver RETIRO_DATES_*),
   // no la bloqueamos, pero avisamos que hay que confirmar por WhatsApp: puede
   // que el evento no use este alojamiento, o lo use solo parcialmente.
-  const enRetiro = (start != null && getStatus(start, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro')
-    || (end != null && getStatus(end, blockedByTipo[tipoEfectivo], retiroByTipo[tipoEfectivo]) === 'retiro');
+  // Se revisan todas las noches de la estadía (no solo llegada/salida): una
+  // estadía jueves → lunes también pasa por el finde.
+  const enRetiro = start != null && (end
+    ? DIAS_CALENDARIO.some(iso => iso >= start && iso < end && retiroByTipo[tipoEfectivo].includes(iso))
+    : retiroByTipo[tipoEfectivo].includes(start));
 
-  const PRECIO_BASE_COMPARTIDA = 35_000;
+  const PRECIO_BASE_COMPARTIDA = conPension ? P.pensionCompletaEcoRefugio : P.ecoRefugioDesde;
   const nights       = start && end ? nightsBetween(start, end) : 0;
   const pxNoche      = precioPorPersona();
   const diferenciaPorPersona = pxNoche - PRECIO_BASE_COMPARTIDA;
@@ -197,7 +219,10 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
   const senaPct      = total > 0 && total <= 100_000 ? 50 : 30;
   const senaMonto    = Math.round(total * senaPct / 100);
   const tipoLabel    = tipoEfectivo === 'domo' ? b.domoFull : tipoEfectivo === 'refugio' ? b.refugioFull : b.carpaFull;
-  const habitacionLabel = esCarpa ? b.carpaRegimen : habitacionEfectiva === 'privada' ? b.privateRoom : b.sharedRoom;
+  // Camping no tiene compartida/privada: solo se indica el régimen de comidas
+  // (antes decía "alojamiento + desayuno · pensión completa", contradictorio).
+  const comidasLabel = conPension ? b.mealFullBoard : b.mealBreakfast;
+  const habitacionLabel = esCarpa ? comidasLabel : `${habitacionEfectiva === 'privada' ? b.privateRoom : b.sharedRoom} · ${comidasLabel}`;
   const waMsg        = start && end
     ? fillTemplate(b.waTemplateWithDates, {
         tipo: tipoLabel,
@@ -248,9 +273,9 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
             <span style={{ fontWeight: 700, fontSize: 13, color: '#1A2B3C' }}>{mo.label} {mo.year}</span>
             <div style={{ display: 'flex', gap: 3 }}>
               {[{ Icon: ChevronLeft, dir: -1 }, { Icon: ChevronRight, dir: 1 }].map(({ Icon, dir }) => {
-                const disabled = dir < 0 ? monthIdx === 0 : monthIdx === 2;
+                const disabled = dir < 0 ? monthIdx === 0 : monthIdx === MONTHS.length - 1;
                 return (
-                  <button key={dir} onClick={() => setMonthIdx(i => Math.max(0, Math.min(2, i + dir)))} disabled={disabled}
+                  <button key={dir} onClick={() => setMonthIdx(i => Math.max(0, Math.min(MONTHS.length - 1, i + dir)))} disabled={disabled}
                     style={{ width: 24, height: 24, borderRadius: 6, border: 'none', background: 'rgba(0,83,51,0.06)', cursor: disabled ? 'default' : 'pointer', opacity: disabled ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={12} color={G.muted} />
                   </button>
@@ -375,6 +400,27 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
           )}
         </>
       )}
+
+      {/* Comidas — dejar claro el precio solo con desayuno vs. pensión completa */}
+      <p style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: G.muted, marginBottom: 6 }}>{b.mealPlan}</p>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 4 }}>
+        {(['desayuno', 'pension'] as const).map(op => {
+          const active = comidas === op;
+          return (
+            <button key={op} onClick={() => setComidas(op)}
+              style={{
+                padding: '9px 8px', borderRadius: 9,
+                border: `1.5px solid ${active ? G.green : 'rgba(0,83,51,0.18)'}`,
+                background: active ? G.green : 'white',
+                color: active ? 'white' : G.muted,
+                fontSize: 11, fontWeight: 700, cursor: 'pointer',
+              }}>
+              {op === 'pension' ? b.mealFullBoard : b.mealBreakfast}
+            </button>
+          );
+        })}
+      </div>
+      <p style={{ fontSize: 10, color: '#94a3b8', marginBottom: 12 }}>{conPension ? b.mealFullBoardNote : b.mealBreakfastNote}</p>
 
       {/* Resumen — sin precio si el grupo excede la capacidad real: esas
           tarifas por persona no aplican a un grupo que no entra en el

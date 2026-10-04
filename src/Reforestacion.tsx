@@ -25,6 +25,7 @@ import {
 import { Header } from '../components/Header';
 import { HorizontalCardRail } from '../components/HorizontalCardRail';
 import { Footer } from '../components/Footer';
+import { SectionHojaDeRuta } from '../components/SectionHojaDeRuta';
 import { useLanguage } from '../contexts/LanguageContext';
 import { REFORESTATION_CONTRIBUTION, SITE_URL, WA_MAGICO, WA_VOLUNTEERS } from './data/config';
 import { ROUTES } from './routes';
@@ -637,6 +638,8 @@ const Reforestacion: React.FC = () => {
             <p className="mt-6 rounded-xl border border-gold/25 bg-gold/10 px-5 py-4 text-center text-sm leading-relaxed text-gray-600">{content.maps.note}</p>
           </div>
         </section>
+
+        <SectionHojaDeRuta />
 
         <section className="bg-brand px-6 py-20 text-white md:py-24">
           <div className="mx-auto grid min-w-0 max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
