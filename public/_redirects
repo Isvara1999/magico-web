@@ -14,7 +14,7 @@
 /recetario-familion    /uploads/Recetarios/recetario-familion.pdf    302
 
 # SPA fallback SOLO para las rutas client-only que no están prerenderizadas
-# (todo lo demás ya tiene su propio dist/<ruta>/index.html real — ver
+# (todo lo demás ya tiene su propio dist/<ruta>.html real — ver
 # scripts/prerender.mjs ROUTES). Un catch-all "/* -> /index.html 200" acá
 # rompía /estadia y compañía (ver scripts/check-routes.mjs) y además Cloudflare
 # lo detecta como loop infinito porque /* también matchea /index.html.

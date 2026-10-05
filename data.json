@@ -48,14 +48,14 @@
       "confirmWhatsapp": "Confirmar por WhatsApp",
       "checkAvailability": "Consultar disponibilidad",
       "waTemplateWithDates": "¡Hola! Quiero reservar en Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Llegada: {start}\n📅 Salida: {end}\n🌙 {nights} · 👥 {personas}\n\n¿Está disponible?",
-      "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico — invierno 2026. ¿Me pueden dar más info?"
+      "waTemplateDefault": "¡Hola! Me interesa reservar en Pueblo Mágico. ¿Me pueden dar más info?"
     },
     "roadmap": {
       "tag": "Transparencia · En proceso",
       "title": "En qué estamos trabajando ahora",
       "intro": "Lo que ya hacemos está a la vista: +25.000 árboles nativos plantados, 200 hectáreas cuidadas, energía solar casi al 100% y baños secos. Ahora estamos construyendo las herramientas para que ese impacto pueda verificarse desde afuera.",
       "items": [
-        { "status": "En implementación", "title": "Registro georreferenciado de cada árbol", "text": "Cada plantación quedará registrada con punto GPS, especie, cantidad, fecha, foto, zona y quién plantó (empresa, escuela o voluntarios). Estará operativo para la plantación de los 10.000 árboles de este verano, y estamos mapeando las zonas ya reforestadas." },
+        { "status": "En implementación", "title": "Registro georreferenciado de cada árbol", "text": "Cada plantación quedará registrada con punto GPS, especie, cantidad, fecha, foto, zona y quién plantó (empresa, escuela o voluntarios). Lo estamos implementando para la temporada de plantación 2026–2027, que arranca con las jornadas de noviembre, y estamos mapeando las zonas ya reforestadas." },
         { "status": "En proceso", "title": "Monitoreo satelital público", "text": "Estamos registrando nuestras áreas de restauración en Restor, una plataforma científica abierta con imágenes satelitales, para que empresas y donantes puedan seguir la evolución del territorio." },
         { "status": "En gestión", "title": "Validación universitaria", "text": "Estamos gestionando convenios con la Universidad Nacional de Córdoba y la Universidad Empresarial Siglo 21 para medir cada año la supervivencia de los árboles plantados." },
         { "status": "En postulación", "title": "Conservación voluntaria de las 200 ha", "text": "Estamos tramitando nuestra incorporación a la Red Argentina de Reservas Naturales Privadas y al programa Refugios de Vida Silvestre de Fundación Vida Silvestre." },
@@ -682,21 +682,21 @@
           "name": "Julieta Castoldi",
           "role": "Facilitadora",
           "text": "Lo más importante: El amor, la entrega de todo el equipo y la capacidad de sentirte uno con la naturaleza.",
-          "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
+          "image": ""
         },
         {
           "id": 2,
           "name": "Sofía R.",
           "role": "Viajera",
           "text": "Me sentí parte de la vida de la montaña, como en casa. Un refugio de paz inigualable.",
-          "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+          "image": ""
         },
         {
           "id": 3,
           "name": "Marcos D.",
           "role": "Huésped",
           "text": "Una experiencia transformadora. La comida consciente y los espacios son de otro mundo.",
-          "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "image": ""
         }
       ]
     },
@@ -1530,7 +1530,7 @@
             "text": "Entregamos objetivos de aprendizaje, documentación institucional y todo lo que necesitás para presentar y aprobar la salida ante la dirección."
           },
           {
-            "title": "Seguridad certificada para grupos escolares.",
+            "title": "Seguridad pensada para grupos escolares.",
             "text": "Protocolos de emergencia en montaña, primeros auxilios, seguro de responsabilidad civil y acceso para micros escolares hasta la entrada del lugar."
           }
         ],
@@ -2094,7 +2094,7 @@
         ],
         "care": {
           "title": "Los árboles no quedan solos",
-          "text": "Lo que tu equipo planta queda en un territorio que cuidamos hace más de 25 años: protección y cuidado inicial después de cada plantación, y un vivero propio para criar los próximos ejemplares."
+          "text": "Lo que tu equipo planta queda en un territorio que cuidamos hace más de 25 años: protección y cuidado inicial después de cada plantación, y un vivero propio, que estamos construyendo, para criar los próximos ejemplares."
         },
         "ods_title": "Alineado con los Objetivos de Desarrollo Sostenible",
         "ods": [
@@ -2607,14 +2607,14 @@
       "confirmWhatsapp": "Confirm via WhatsApp",
       "checkAvailability": "Check availability",
       "waTemplateWithDates": "Hi! I'd like to book at Pueblo Mágico.\n\n🏕 {tipo} · {regimen}\n📅 Arrival: {start}\n📅 Departure: {end}\n🌙 {nights} · 👥 {personas}\n\nIs it available?",
-      "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico — winter 2026. Could you give me more info?"
+      "waTemplateDefault": "Hi! I'm interested in booking at Pueblo Mágico. Could you give me more info?"
     },
     "roadmap": {
       "tag": "Transparency · In progress",
       "title": "What we are working on now",
       "intro": "What we already do is visible: 25,000+ native trees planted, 200 hectares cared for, nearly 100% solar energy and dry toilets. Now we are building the tools so that this impact can be verified from the outside.",
       "items": [
-        { "status": "Being implemented", "title": "Geo-referenced record of every tree", "text": "Every planting will be recorded with GPS point, species, quantity, date, photo, zone and who planted it (company, school or volunteers). It will be running for this summer's planting of 10,000 trees, and we are mapping the areas already reforested." },
+        { "status": "Being implemented", "title": "Geo-referenced record of every tree", "text": "Every planting will be recorded with GPS point, species, quantity, date, photo, zone and who planted it (company, school or volunteers). We are implementing it for the 2026–2027 planting season, which starts with the November workdays, and we are mapping the areas already reforested." },
         { "status": "In progress", "title": "Public satellite monitoring", "text": "We are registering our restoration areas on Restor, an open scientific platform with satellite imagery, so companies and donors can follow how the land evolves." },
         { "status": "In talks", "title": "University validation", "text": "We are working on agreements with the National University of Córdoba (UNC) and Universidad Empresarial Siglo 21 to measure the survival of planted trees every year." },
         { "status": "Applying", "title": "Voluntary conservation of the 200 ha", "text": "We are applying to join the Argentine Network of Private Nature Reserves and Fundación Vida Silvestre's Wildlife Refuges program." },
@@ -3241,21 +3241,21 @@
           "name": "Julieta Castoldi",
           "role": "Facilitator",
           "text": "The most important thing: Love, the dedication of the entire team and the ability to feel one with nature.",
-          "image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg"
+          "image": ""
         },
         {
           "id": 2,
           "name": "Sofía R.",
           "role": "Traveler",
           "text": "I felt part of the mountain life, like at home. A unique refuge of peace.",
-          "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+          "image": ""
         },
         {
           "id": 3,
           "name": "Marcos D.",
           "role": "Guest",
           "text": "A transformative experience. The conscious food and spaces are out of this world.",
-          "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "image": ""
         }
       ]
     },
@@ -4094,7 +4094,7 @@
             "text": "We provide learning objectives, institutional documentation and everything you need to present and get the trip approved by management."
           },
           {
-            "title": "Certified safety for school groups.",
+            "title": "Safety designed for school groups.",
             "text": "Mountain emergency protocols, first aid, civil liability insurance and bus access to the entrance of the property."
           }
         ],
@@ -4653,7 +4653,7 @@
         ],
         "care": {
           "title": "The trees aren’t left on their own",
-          "text": "What your team plants stays in a territory we have cared for over 25 years: protection and initial care after every planting, and our own nursery to grow the next seedlings."
+          "text": "What your team plants stays in a territory we have cared for over 25 years: protection and initial care after every planting, and our own nursery, now under construction, to grow the next seedlings."
         },
         "ods_title": "Aligned with the Sustainable Development Goals",
         "ods": [

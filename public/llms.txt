@@ -47,7 +47,7 @@ El ecolodge se encuentra en un entorno de bosque nativo de altura, con más de 2
 ## Campaña de reforestación: 10.000 árboles nativos más
 - Los 10.000 árboles (tabaquillos y otras especies nativas) ya están disponibles para el proyecto. La campaña avanza por fases:
   1. **Financiar la seña** (meta activa): $1.500.000 ARS para confirmar los árboles e iniciar el proyecto.
-  2. **Construir el vivero** (próxima etapa): infraestructura para cuidar y aclimatar los árboles.
+  2. **Construir el vivero** (próxima etapa, todavía no construido): infraestructura para cuidar y aclimatar los árboles.
   3. **Completar el financiamiento**: monto total del proyecto $15.000.000 ARS.
   4. **Plantar los 10.000 árboles**: jornadas de plantación en el verano 2026–2027.
 - **Cómo sumarse:** aporte voluntario por transferencia (sin monto mínimo; es independiente de la rifa y no incluye premios ni servicios), voluntariado en las jornadas con campamento (cada postulación se revisa antes de confirmar), o como empresa (financiar una etapa, voluntariado corporativo, apadrinar árboles).
@@ -70,7 +70,7 @@ Programas de restauración ambiental, voluntariado corporativo, bienestar e inte
 
 ## En qué estamos trabajando (hoja de ruta, todavía en proceso)
 Estas iniciativas están en curso y todavía no están completas:
-- **Registro georreferenciado de cada árbol** (en implementación): punto GPS, especie, fecha, foto, zona y quién plantó; operativo para la plantación de este verano.
+- **Registro georreferenciado de cada árbol** (en implementación): punto GPS, especie, fecha, foto, zona y quién plantó; en implementación para la temporada de plantación 2026–2027, que arranca con las jornadas de noviembre.
 - **Monitoreo satelital público** (en proceso): registro de las áreas de restauración en Restor.
 - **Validación universitaria** (en gestión): convenios con la Universidad Nacional de Córdoba y la Universidad Empresarial Siglo 21 para medir la supervivencia de los árboles.
 - **Conservación voluntaria de las 200 ha** (en postulación): Red Argentina de Reservas Naturales Privadas y programa Refugios de Vida Silvestre de Fundación Vida Silvestre.

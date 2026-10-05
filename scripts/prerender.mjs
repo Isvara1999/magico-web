@@ -166,6 +166,15 @@ if (!existsSync(DIST)) {
   process.exit(1);
 }
 
+// Cada ruta se escribe como archivo plano "<ruta>.html" (no "<ruta>/index.html"):
+// Cloudflare Pages sirve /empresas.html en /empresas con 200, y /empresas/
+// redirige a /empresas. Con carpeta + index.html pasaba al revés (/empresas →
+// 308 → /empresas/), y el canonical, el sitemap y los links del menú (todos
+// sin barra) apuntaban a una URL que redirige.
+function htmlFileFor(route) {
+  return route.path === '/' ? join(DIST, 'index.html') : join(DIST, `${route.path.slice(1)}.html`);
+}
+
 // ─── Phase 1: Meta tag injection (fast, no browser needed) ───────────────────
 console.log('\nPhase 1: Meta tag injection...');
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
@@ -259,23 +268,16 @@ for (const route of ROUTES) {
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${route.description}" />`)
     .replace('</head>', `${seoBlock}\n  ${jsonLD}\n</head>`);
 
-  if (route.path === '/') {
-    writeFileSync(join(DIST, 'index.html'), html);
-  } else {
-    const dir = join(DIST, route.path.slice(1));
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'index.html'), html);
-  }
+  const file = htmlFileFor(route);
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, html);
 
   console.log(`  ✓ meta: ${route.path}`);
 }
 
 // ─── Phase 1b: Make Vite CSS non-render-blocking ─────────────────────────────
 const CSS_BLOCKING = /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g;
-const allHtmlFiles = [
-  join(DIST, 'index.html'),
-  ...ROUTES.filter(r => r.path !== '/').map(r => join(DIST, r.path.slice(1), 'index.html')),
-];
+const allHtmlFiles = ROUTES.map(htmlFileFor);
 
 console.log('\nMaking CSS non-blocking...');
 for (const file of allHtmlFiles) {
@@ -318,9 +320,10 @@ async function startStaticServer(port) {
     let urlPath = req.url.split('?')[0].split('#')[0];
     if (urlPath === '' || urlPath === '/') urlPath = '/index.html';
 
-    // Try exact file, then /path/index.html, then SPA fallback
+    // Try exact file, then /path.html (rutas prerenderizadas), then /path/index.html, then SPA fallback
     const candidates = [
       join(DIST, urlPath),
+      join(DIST, `${urlPath}.html`),
       join(DIST, urlPath, 'index.html'),
       join(DIST, 'index.html'),
     ];
@@ -393,11 +396,7 @@ async function runPlaywrightSnapshots() {
 
       const html = await page.content();
 
-      const destPath = route.path === '/'
-        ? join(DIST, 'index.html')
-        : join(DIST, route.path.slice(1), 'index.html');
-
-      writeFileSync(destPath, html);
+      writeFileSync(htmlFileFor(route), html);
       console.log(`  ✓ snapshot: ${route.path}`);
     } catch (e) {
       console.warn(`  ⚠ snapshot failed for ${route.path}: ${e.message.split('\n')[0]}`);
