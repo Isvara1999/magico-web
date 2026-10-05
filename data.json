@@ -1,5 +1,23 @@
 {
   "es": {
+    "aliados": {
+      "title": "Organizaciones ambientales aliadas",
+      "note": "Con Acción Ambiental ya cerramos un acuerdo de trabajo conjunto. Bosques de Agua y Acción Serrana aportan conocimiento técnico y experiencia territorial según cada intervención.",
+      "items": [
+        {"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Conservación del ambiente: difusión, educación y acción ambiental en la provincia de Córdoba."},
+        {"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restauran el bosque nativo de altura y las cuencas hídricas de las Sierras Grandes."},
+        {"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regeneran los bosques de altura y sus nacientes de agua junto a las comunidades locales."},
+        {"name":"Consciencia Nativa","text":"Provee los árboles nativos de la campaña de reforestación."}
+      ]
+    },
+    "practicas": {
+      "title": "La regeneración también está en la operación diaria",
+      "items": [
+        {"title":"Energía solar casi al 100%","text":"El generador solo se usa en emergencias o en días muy nublados."},
+        {"title":"Baños secos","text":"No usan ni contaminan agua: cuidamos las nacientes de los arroyos serranos."},
+        {"title":"Compost","text":"Los residuos orgánicos y de los baños secos vuelven al suelo como abono."}
+      ]
+    },
     "booking": {
       "months": [
         { "label": "Octubre", "short": "Oct" }, { "label": "Noviembre", "short": "Nov" }, { "label": "Diciembre", "short": "Dic" }, { "label": "Enero", "short": "Ene" }, { "label": "Febrero", "short": "Feb" }
@@ -122,7 +140,7 @@
       "impact": {
         "eyebrow": "Una historia que ya empezó",
         "title": "Raíces para el futuro de la montaña",
-        "description": "La nueva meta continúa un trabajo sostenido de restauración junto a Consciencia Nativa y otras organizaciones ambientales.",
+        "description": "La nueva meta continúa un trabajo sostenido de restauración junto a organizaciones ambientales de la región. Los árboles nativos de esta campaña se compran a Consciencia Nativa.",
         "stats": [
           { "value": "+25.000", "label": "árboles nativos plantados", "description": "El recorrido acumulado que impulsa esta nueva etapa.", "href": "#mapas", "action": "Ver áreas reforestadas" },
           { "value": "+10.000", "label": "nuevos árboles", "description": "La meta de plantación de esta campaña.", "href": "#mapas", "action": "Conocer áreas previstas" },
@@ -1938,12 +1956,6 @@
           { "value": "+25.000", "label": "árboles plantados y cuidados" },
           { "value": "+200", "label": "hectáreas cuidadas" },
           { "value": "+25", "label": "años de trayectoria en Los Gigantes" }
-        ],
-        "practices_title": "La regeneración también está en la operación diaria",
-        "practices": [
-          { "title": "Energía solar casi al 100%", "text": "El generador solo se usa en emergencias o en días muy nublados." },
-          { "title": "Baños secos", "text": "No usan ni contaminan agua: cuidamos las nacientes de los arroyos serranos." },
-          { "title": "Compost", "text": "Los residuos orgánicos y de los baños secos vuelven al suelo como abono." }
         ]
       },
       "bienestar": {
@@ -2125,7 +2137,7 @@
         ],
         "care": {
           "title": "Los árboles no quedan solos",
-          "text": "Lo que tu equipo planta queda en un territorio que cuidamos hace más de 25 años: protección y cuidado inicial después de cada plantación, y un vivero propio, que estamos construyendo, para criar los próximos ejemplares."
+          "text": "Lo que tu equipo planta queda en un territorio que cuidamos hace más de 25 años: protección y cuidado inicial después de cada plantación, y un vivero propio, próxima etapa de la campaña de reforestación, para criar los próximos ejemplares."
         },
         "ods_title": "Alineado con los Objetivos de Desarrollo Sostenible",
         "ods": [
@@ -2169,9 +2181,6 @@
           { "name": "Fundación para el Desarrollo Sostenible", "text": "Marco institucional y administrativo para programas de voluntariado: planificación, administración de fondos de patrocinadores, facturación y rendición de cuentas." },
           { "name": "Apoidea", "text": "Vinculación con empresas, reuniones de diagnóstico, desarrollo de propuestas particulares y otros aspectos de asesoría y comercialización." }
         ],
-        "allies_title": "Organizaciones ambientales aliadas",
-        "allies_note": "Con Acción Ambiental ya cerramos un acuerdo de trabajo conjunto. Bosques de Agua y Acción Serrana aportan conocimiento técnico, ejemplares y experiencia territorial según cada intervención.",
-      "allies": [{"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Conservación del ambiente: difusión, educación y acción ambiental en la provincia de Córdoba."},{"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restauran el bosque nativo de altura y las cuencas hídricas de las Sierras Grandes."},{"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regeneran los bosques de altura y sus nacientes de agua junto a las comunidades locales."}],
       "benchmark": "La lógica coincide con cómo las empresas más grandes estructuran sus programas de impacto: colaboración con organizaciones, involucramiento de empleados y proyectos ambientales conectados con una estrategia más amplia."
       },
       "faq": {
@@ -2592,6 +2601,24 @@
     }
   },
   "en": {
+    "aliados": {
+      "title": "Allied environmental organizations",
+      "note": "We've signed a partnership agreement with Acción Ambiental. Bosques de Agua and Acción Serrana bring technical knowledge and local expertise depending on each intervention.",
+      "items": [
+        {"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Environmental conservation: outreach, education and environmental action in the province of Córdoba."},
+        {"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restoring the high-altitude native forest and the watersheds of the Sierras Grandes."},
+        {"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regenerating high-altitude forests and their water sources together with local communities."},
+        {"name":"Consciencia Nativa","text":"Supplies the native trees for the reforestation campaign."}
+      ]
+    },
+    "practicas": {
+      "title": "Regeneration is also part of daily operations",
+      "items": [
+        {"title":"Nearly 100% solar energy","text":"The generator only runs in emergencies or on very cloudy days."},
+        {"title":"Dry toilets","text":"They neither use nor pollute water: we protect the headwaters of the mountain streams."},
+        {"title":"Compost","text":"Organic and dry-toilet waste returns to the soil as fertilizer."}
+      ]
+    },
     "booking": {
       "months": [
         { "label": "October", "short": "Oct" }, { "label": "November", "short": "Nov" }, { "label": "December", "short": "Dec" }, { "label": "January", "short": "Jan" }, { "label": "February", "short": "Feb" }
@@ -2714,7 +2741,7 @@
       "impact": {
         "eyebrow": "A story already in motion",
         "title": "Roots for the mountain's future",
-        "description": "This new goal continues sustained restoration work alongside Consciencia Nativa and other environmental organizations.",
+        "description": "This new goal continues sustained restoration work alongside environmental organizations in the region. The native trees for this campaign are purchased from Consciencia Nativa.",
         "stats": [
           { "value": "+25,000", "label": "native trees planted", "description": "The accumulated work behind this new stage.", "href": "#maps", "action": "View restored areas" },
           { "value": "+10,000", "label": "new trees", "description": "The planting goal supported by this campaign.", "href": "#maps", "action": "Explore planned areas" },
@@ -4530,12 +4557,6 @@
           { "value": "+25,000", "label": "trees planted and cared for" },
           { "value": "+200", "label": "hectares cared for" },
           { "value": "+25", "label": "years of track record in Los Gigantes" }
-        ],
-        "practices_title": "Regeneration is also part of daily operations",
-        "practices": [
-          { "title": "Nearly 100% solar energy", "text": "The generator only runs in emergencies or on very cloudy days." },
-          { "title": "Dry toilets", "text": "They neither use nor pollute water: we protect the headwaters of the mountain streams." },
-          { "title": "Compost", "text": "Organic and dry-toilet waste returns to the soil as fertilizer." }
         ]
       },
       "bienestar": {
@@ -4761,9 +4782,6 @@
           { "name": "Fundación para el Desarrollo Sostenible", "text": "Institutional and administrative framework for volunteering programs: planning, sponsor fund management, invoicing and accountability." },
           { "name": "Apoidea", "text": "Business outreach, diagnostic meetings, development of tailored proposals and other advisory and sales aspects." }
         ],
-        "allies_title": "Allied environmental organizations",
-        "allies_note": "We've signed a partnership agreement with Acción Ambiental. Bosques de Agua and Acción Serrana bring technical knowledge, plant stock and local expertise depending on each intervention.",
-      "allies": [{"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Environmental conservation: outreach, education and environmental action in the province of Córdoba."},{"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restoring the high-altitude native forest and the watersheds of the Sierras Grandes."},{"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regenerating high-altitude forests and their water sources together with local communities."}],
       "benchmark": "This mirrors how the largest companies structure their impact programs: collaborating with organizations, engaging employees, and connecting environmental projects to a broader strategy."
       },
       "faq": {

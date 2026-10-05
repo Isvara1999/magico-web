@@ -30,6 +30,8 @@ import { Header } from '../components/Header';
 import { HorizontalCardRail } from '../components/HorizontalCardRail';
 import { Footer } from '../components/Footer';
 import { SectionHojaDeRuta } from '../components/SectionHojaDeRuta';
+import { AliadosAmbientales } from '../components/AliadosAmbientales';
+import { PracticasRegenerativas } from '../components/PracticasRegenerativas';
 import { useLanguage } from '../contexts/LanguageContext';
 import { REFORESTATION_CONTRIBUTION, SITE_URL, WA_MAGICO, WA_VOLUNTEERS } from './data/config';
 import { ROUTES } from './routes';
@@ -493,6 +495,16 @@ const Reforestacion: React.FC = () => {
                   </div>
                 );
               })}
+            </div>
+            <div data-reveal>
+              <div className="mt-16">
+                <PracticasRegenerativas variant="light" />
+              </div>
+            </div>
+            <div data-reveal>
+              <div className="mt-16">
+                <AliadosAmbientales />
+              </div>
             </div>
           </div>
         </section>
