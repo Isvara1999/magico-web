@@ -88,6 +88,42 @@ const EmpresasRespaldo: React.FC = () => {
             {red.subtitle}
           </p>
 
+          {/* ONG aliadas: logos en blanco sobre verde (public/uploads/aliados).
+              Acción Ambiental no publica versión blanca: la suya es una versión
+              de dos tonos generada a partir del isologo, con el árbol
+              translúcido para que la "A" (inicial de Acción y Ambiental) se
+              siga leyendo — no aplicar brightness/invert, la aplanaría. */}
+          {red.allies && (
+            <div data-reveal>
+              <div className="rounded-3xl bg-[#005333] px-6 py-10 md:px-12 md:py-12 mb-12">
+                <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-[0.25em] text-center mb-8">
+                  {red.allies_title}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 items-start">
+                  {red.allies.map((ally: any) => (
+                    <a
+                      key={ally.name}
+                      href={ally.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col items-center text-center"
+                    >
+                      <span className="h-16 md:h-20 w-full flex items-center justify-center mb-4">
+                        <img
+                          src={ally.logo}
+                          alt={ally.name}
+                          loading="lazy"
+                          className="max-h-full max-w-[200px] w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                        />
+                      </span>
+                      <span className="text-white/70 text-sm leading-relaxed font-light max-w-[260px]">{ally.text}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
           <div data-reveal>
             <div id="empresas-red" className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {(showAllPartners ? red.partners : red.partners.slice(0, VISIBLE_PARTNERS)).map((partner: any) => (

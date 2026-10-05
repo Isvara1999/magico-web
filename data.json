@@ -2137,9 +2137,11 @@
           { "name": "Pueblo Mágico", "text": "Territorio, infraestructura, hospitalidad, experiencia, regeneración y operación de las jornadas." },
           { "name": "Fundación para el Desarrollo Sostenible", "text": "Marco institucional y administrativo para programas de voluntariado: planificación, administración de fondos de patrocinadores, facturación y rendición de cuentas." },
           { "name": "Apoidea", "text": "Vinculación con empresas, reuniones de diagnóstico, desarrollo de propuestas particulares y otros aspectos de asesoría y comercialización." },
-          { "name": "Organizaciones ambientales", "text": "Conocimiento técnico, ejemplares, experiencia territorial y acompañamiento ambiental, según cada intervención." }
+          { "name": "Organizaciones ambientales", "text": "Acción Ambiental, Bosques de Agua y Acción Serrana aportan conocimiento técnico, ejemplares, experiencia territorial y acompañamiento ambiental, según cada intervención." }
         ],
-        "benchmark": "La lógica coincide con cómo las empresas más grandes estructuran sus programas de impacto: colaboración con organizaciones, involucramiento de empleados y proyectos ambientales conectados con una estrategia más amplia."
+        "allies_title": "Organizaciones ambientales aliadas",
+      "allies": [{"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Conservación del ambiente: difusión, educación y acción ambiental en la provincia de Córdoba."},{"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restauran el bosque nativo de altura y las cuencas hídricas de las Sierras Grandes."},{"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regeneran los bosques de altura y sus nacientes de agua junto a las comunidades locales."}],
+      "benchmark": "La lógica coincide con cómo las empresas más grandes estructuran sus programas de impacto: colaboración con organizaciones, involucramiento de empleados y proyectos ambientales conectados con una estrategia más amplia."
       },
       "faq": {
         "title": "Preguntas frecuentes",
@@ -4696,9 +4698,11 @@
           { "name": "Pueblo Mágico", "text": "Territory, infrastructure, hospitality, experience, regeneration and day-to-day operations." },
           { "name": "Fundación para el Desarrollo Sostenible", "text": "Institutional and administrative framework for volunteering programs: planning, sponsor fund management, invoicing and accountability." },
           { "name": "Apoidea", "text": "Business outreach, diagnostic meetings, development of tailored proposals and other advisory and sales aspects." },
-          { "name": "Environmental organizations", "text": "Technical knowledge, plant stock, local expertise and environmental support, depending on each intervention." }
+          { "name": "Environmental organizations", "text": "Acción Ambiental, Bosques de Agua and Acción Serrana bring technical knowledge, plant stock, local expertise and environmental support, depending on each intervention." }
         ],
-        "benchmark": "This mirrors how the largest companies structure their impact programs: collaborating with organizations, engaging employees, and connecting environmental projects to a broader strategy."
+        "allies_title": "Allied environmental organizations",
+      "allies": [{"name":"Acción Ambiental","url":"https://accionambiental.org.ar/","logo":"/uploads/aliados/accion-ambiental.png","text":"Environmental conservation: outreach, education and environmental action in the province of Córdoba."},{"name":"Bosques de Agua","url":"https://bosquesdeagua.ar/","logo":"/uploads/aliados/bosques-de-agua.webp","text":"Restoring the high-altitude native forest and the watersheds of the Sierras Grandes."},{"name":"Acción Serrana","url":"https://www.accionserrana.com/","logo":"/uploads/aliados/accion-serrana.png","text":"Regenerating high-altitude forests and their water sources together with local communities."}],
+      "benchmark": "This mirrors how the largest companies structure their impact programs: collaborating with organizations, engaging employees, and connecting environmental projects to a broader strategy."
       },
       "faq": {
         "title": "Frequently asked questions",
