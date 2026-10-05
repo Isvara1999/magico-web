@@ -4,7 +4,7 @@ import { ShowMoreButton } from '../../components/ShowMoreButton';
 import { ROUTES } from '../routes';
 
 // Organizaciones de la red visibles antes de "Ver más"
-const VISIBLE_PARTNERS = 2;
+const VISIBLE_PARTNERS = 3;
 
 const ITEM_PHOTOS = [
   '/uploads/habitaciones.webp',
@@ -120,12 +120,17 @@ const EmpresasRespaldo: React.FC = () => {
                     </a>
                   ))}
                 </div>
+                {red.allies_note && (
+                  <p className="text-white/60 text-sm leading-relaxed font-light italic text-center max-w-2xl mx-auto mt-10 pt-6 border-t border-white/10">
+                    {red.allies_note}
+                  </p>
+                )}
               </div>
             </div>
           )}
 
           <div data-reveal>
-            <div id="empresas-red" className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div id="empresas-red" className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {(showAllPartners ? red.partners : red.partners.slice(0, VISIBLE_PARTNERS)).map((partner: any) => (
                 <div key={partner.name} className="bg-[#005333]/[0.04] rounded-2xl p-6 border border-[#005333]/10">
                   <h4 className="font-bold brand-green text-sm uppercase tracking-widest mb-2">{partner.name}</h4>
