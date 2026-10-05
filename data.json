@@ -1946,8 +1946,8 @@
           { "title": "Compost", "text": "Los residuos orgánicos y de los baños secos vuelven al suelo como abono." }
         ],
         "partners_intro": "A lo largo de este camino trabajamos y generamos vínculos con organizaciones ambientales como:",
-        "partners": ["Bosques de Agua", "Acciones Serranas"],
-        "partners_note": "Actualmente estamos desarrollando nuevas articulaciones con Acción Ambiental y otros actores del ecosistema ambiental."
+        "partners": ["Acción Ambiental", "Bosques de Agua", "Acción Serrana"],
+        "partners_note": "Con Acción Ambiental ya cerramos un acuerdo de trabajo conjunto, y seguimos sumando nuevas articulaciones con otros actores del ecosistema ambiental."
       },
       "bienestar": {
         "tag": "Bienestar para equipos",
@@ -4541,8 +4541,8 @@
           { "title": "Compost", "text": "Organic and dry-toilet waste returns to the soil as fertilizer." }
         ],
         "partners_intro": "Along the way we've worked and built ties with environmental organizations such as:",
-        "partners": ["Bosques de Agua", "Acciones Serranas"],
-        "partners_note": "We're currently building new partnerships with Acción Ambiental and other players in the environmental ecosystem."
+        "partners": ["Acción Ambiental", "Bosques de Agua", "Acción Serrana"],
+        "partners_note": "We've signed a partnership agreement with Acción Ambiental, and we keep building new partnerships with other players in the environmental ecosystem."
       },
       "bienestar": {
         "tag": "Team wellbeing",
