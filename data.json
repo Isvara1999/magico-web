@@ -334,10 +334,55 @@
         "contactCta": "Contactar directamente",
         "whatsappMessage": "Hola, formo parte de una empresa y quiero conocer cómo podemos colaborar con la campaña de reforestación de 10.000 árboles nativos. Me gustaría conversar sobre opciones de financiamiento, voluntariado corporativo o una alianza de impacto."
       },
+      "raffle": {
+        "eyebrow": "Rifa a beneficio de la reforestación",
+        "title": "Participá y tu aporte vuelve como voucher",
+        "description": "La rifa es otra forma de sumar a la misma meta: lo recaudado financia los 10.000 árboles nativos.",
+        "priceOptions": [
+          {
+            "label": "1 número",
+            "price": "$30.000"
+          },
+          {
+            "label": "2 números",
+            "price": "$50.000"
+          }
+        ],
+        "benefits": [
+          "El valor de tu aporte te vuelve como voucher para cualquier experiencia o estadía en Pueblo Mágico.",
+          "Voucher válido por 6 meses.",
+          "Sorteo: 15 de noviembre de 2026."
+        ],
+        "prizesTitle": "Además participás por",
+        "prizes": [
+          {
+            "place": "1°",
+            "text": "Retiro All Inclusive para 2 · 3 días / 2 noches"
+          },
+          {
+            "place": "2°",
+            "text": "Estadía para 2 · 2 noches"
+          },
+          {
+            "place": "3°",
+            "text": "Estadía para 2 · 1 noche"
+          }
+        ],
+        "stepsTitle": "Cómo participar",
+        "steps": [
+          "Transferí $30.000 o $50.000 al alias de la campaña.",
+          "Mandanos el comprobante por WhatsApp.",
+          "Te enviamos tus números y tu voucher."
+        ],
+        "cta": "Participar por WhatsApp",
+        "whatsappMessage": "RIFA",
+        "orLabel": "¿Preferís aportar sin participar de la rifa?",
+        "modalLink": "¿Querés participar de la rifa? Ver la rifa"
+      },
       "contribution": {
         "eyebrow": "Aporte directo",
         "title": "Tu aporte se convierte en bosque",
-        "description": "Elegí el medio que te resulte más simple. No hay un aporte mínimo.",
+        "description": "Dos formas de sumar a la misma meta: participá de la rifa o hacé un aporte libre. Todo lo recaudado va a los 10.000 árboles nativos.",
         "cardTitle": "Aporte voluntario",
         "cardDescription": "Tu contribución financia directamente el proyecto de reforestación.",
         "modalTitle": "Hacé tu aporte a la reforestación",
@@ -394,7 +439,7 @@
         "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
         "confirmationWhatsappMessage": "¡Hola! Ya realicé un aporte a la campaña de reforestación de 10.000 árboles nativos.\n\nNombre: [completar]\nMonto y moneda: [completar]\nMedio utilizado: {method}\nReferencia o hash de la operación: [completar]\n\nAdjunto el comprobante para que puedan conciliar mi aporte. ¡Gracias!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. Esta página no comercializa ni promociona participaciones en sorteos. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo."
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. La rifa y el aporte libre financian la misma campaña. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo."
       },
       "closing": {
         "title": "Lo que plantamos hoy puede cuidar la montaña durante generaciones",
@@ -2935,10 +2980,55 @@
         "contactCta": "Contact us directly",
         "whatsappMessage": "Hi, I represent a company and would like to learn how we can support the campaign to plant 10,000 native trees. I would like to discuss funding, corporate volunteering or a longer-term impact partnership."
       },
+      "raffle": {
+        "eyebrow": "Raffle supporting the reforestation",
+        "title": "Join in and get your contribution back as a voucher",
+        "description": "The raffle is another way to support the same goal: the funds raised go to the 10,000 native trees.",
+        "priceOptions": [
+          {
+            "label": "1 ticket",
+            "price": "ARS 30,000"
+          },
+          {
+            "label": "2 tickets",
+            "price": "ARS 50,000"
+          }
+        ],
+        "benefits": [
+          "You get the full amount back as a voucher for any experience or stay at Pueblo Mágico.",
+          "Voucher valid for 6 months.",
+          "Draw: November 15, 2026."
+        ],
+        "prizesTitle": "You also enter to win",
+        "prizes": [
+          {
+            "place": "1st",
+            "text": "All-inclusive retreat for 2 · 3 days / 2 nights"
+          },
+          {
+            "place": "2nd",
+            "text": "Stay for 2 · 2 nights"
+          },
+          {
+            "place": "3rd",
+            "text": "Stay for 2 · 1 night"
+          }
+        ],
+        "stepsTitle": "How to join",
+        "steps": [
+          "Transfer ARS 30,000 or ARS 50,000 to the campaign alias.",
+          "Send us the receipt on WhatsApp.",
+          "We send you your ticket numbers and your voucher."
+        ],
+        "cta": "Join via WhatsApp",
+        "whatsappMessage": "RIFA",
+        "orLabel": "Prefer to contribute without joining the raffle?",
+        "modalLink": "Want to join the raffle? See the raffle"
+      },
       "contribution": {
         "eyebrow": "Direct contribution",
         "title": "Your contribution becomes forest",
-        "description": "Choose the method that works best for you. There is no minimum contribution.",
+        "description": "Two ways to support the same goal: join the raffle or make a free contribution. Everything raised goes to the 10,000 native trees.",
         "cardTitle": "Voluntary contribution",
         "cardDescription": "Your contribution directly funds the reforestation project.",
         "modalTitle": "Support the reforestation campaign",
@@ -2995,7 +3085,7 @@
         "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
         "confirmationWhatsappMessage": "Hi! I have made a contribution to the campaign to plant 10,000 native trees.\n\nName: [complete]\nAmount and currency: [complete]\nMethod used: {method}\nTransaction reference or hash: [complete]\n\nI am attaching the receipt so you can reconcile my contribution. Thank you!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Voluntary contribution to the reforestation campaign. This page does not sell or promote entries in any prize draw. Keep your transfer receipt. Do not send funds to any detail marked as a sample."
+        "legalNote": "Voluntary contribution to the reforestation campaign. The raffle and free contributions fund the same campaign. Keep your transfer receipt. Do not send funds to any detail marked as a sample."
       },
       "closing": {
         "title": "What we plant today can protect the mountains for generations",
