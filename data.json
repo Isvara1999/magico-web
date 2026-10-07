@@ -135,7 +135,13 @@
         "description": "Una campaña para seguir regenerando la montaña con bosque nativo, trabajo territorial y una comunidad que cuida lo que ama.",
         "primaryCta": "Quiero aportar",
         "secondaryCta": "Conocer el proyecto",
-        "imageAlt": "Grupo de voluntariado con plantines nativos durante una jornada de reforestación en las sierras"
+        "imageAlt": "Grupo de voluntariado con plantines nativos durante una jornada de reforestación en las sierras",
+        "raisedLabel": "recaudado para la seña",
+        "ofGoal": "de",
+        "daysLeft": "Faltan {days} días para completar la seña",
+        "lastDay": "¡Hoy es el último día para completar la seña!",
+        "donors": "{count} personas ya aportaron",
+        "raffleBadge": "Rifa · sorteo 15/11"
       },
       "impact": {
         "eyebrow": "Una historia que ya empezó",
@@ -261,7 +267,9 @@
             "steps": [],
             "photos": []
           }
-        ]
+        ],
+        "toggleOpen": "Ver bitácora: avances y fotos",
+        "toggleClose": "Ocultar bitácora"
       },
       "story": {
         "eyebrow": "Montañas vivas, comunidades fuertes",
@@ -334,6 +342,51 @@
         "contactCta": "Contactar directamente",
         "whatsappMessage": "Hola, formo parte de una empresa y quiero conocer cómo podemos colaborar con la campaña de reforestación de 10.000 árboles nativos. Me gustaría conversar sobre opciones de financiamiento, voluntariado corporativo o una alianza de impacto."
       },
+      "gift": {
+        "eyebrow": "Un regalo que crece",
+        "title": "Regalá árboles nativos",
+        "description": "Para un cumpleaños, las fiestas o alguien que ama la montaña. Cada árbol cuesta $1.500 y vos elegís cuántos regalar.",
+        "certificate": "Quien lo recibe obtiene un certificado con la ubicación donde se plantan sus árboles, una vez plantados (temporada 2026–2027).",
+        "cta": "Regalar por WhatsApp",
+        "whatsappMessage": "¡Hola! Quiero regalar árboles nativos 🌳\n\nCantidad de árboles: [completar]\nPara: [nombre]\nDe parte de: [nombre]\n\n¿Cómo sigo?"
+      },
+      "faq": {
+        "eyebrow": "Preguntas frecuentes",
+        "title": "Antes de aportar",
+        "items": [
+          {
+            "q": "¿Cuándo es el sorteo de la rifa?",
+            "a": "El sorteo es el 15 de noviembre de 2026. Cuando nos mandás el comprobante por WhatsApp, te enviamos tus números."
+          },
+          {
+            "q": "¿Cómo uso el voucher?",
+            "a": "El valor de tu número vuelve como voucher para cualquier experiencia o estadía en Pueblo Mágico, válido por 6 meses. Para usarlo, reservá por WhatsApp y mencioná tu voucher."
+          },
+          {
+            "q": "¿A qué cuenta transfiero?",
+            "a": "Rifa, aporte libre y regalo usan la misma cuenta: alias pueblo-magico, titular Diego Epelman. Todo suma a la misma meta."
+          },
+          {
+            "q": "¿Cómo sé que mi aporte se usa para los árboles?",
+            "a": "La barra de recaudación se actualiza con los aportes confirmados, y en la bitácora publicamos cada avance con fechas y fotos. También estamos implementando el registro con punto GPS de cada plantación."
+          },
+          {
+            "q": "¿Cómo funciona el regalo de árboles?",
+            "a": "Nos escribís por WhatsApp con la cantidad y el nombre de quien lo recibe. Esa persona obtiene un certificado con la ubicación donde se plantan sus árboles, una vez plantados."
+          },
+          {
+            "q": "¿Puedo aportar desde el exterior?",
+            "a": "Sí, con criptomonedas (BTC y ETH). La transferencia internacional SEPA estará disponible próximamente."
+          }
+        ]
+      },
+      "share": {
+        "cta": "Compartí la campaña",
+        "message": "🌱 Estoy apoyando la campaña para plantar 10.000 árboles nativos en las Sierras de Córdoba. Hay una rifa con voucher y premios. Sumate: {url}"
+      },
+      "sticky": {
+        "cta": "Aportar"
+      },
       "raffle": {
         "eyebrow": "Rifa a beneficio de la reforestación",
         "title": "Participá y tu aporte vuelve como voucher",
@@ -377,7 +430,8 @@
         "cta": "Participar por WhatsApp",
         "whatsappMessage": "RIFA",
         "orLabel": "¿Preferís aportar sin participar de la rifa?",
-        "modalLink": "¿Querés participar de la rifa? Ver la rifa"
+        "modalLink": "¿Querés participar de la rifa? Ver la rifa",
+        "treesEquivalent": "= {trees} árboles nativos"
       },
       "contribution": {
         "eyebrow": "Aporte directo",
@@ -439,7 +493,12 @@
         "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
         "confirmationWhatsappMessage": "¡Hola! Ya realicé un aporte a la campaña de reforestación de 10.000 árboles nativos.\n\nNombre: [completar]\nMonto y moneda: [completar]\nMedio utilizado: {method}\nReferencia o hash de la operación: [completar]\n\nAdjunto el comprobante para que puedan conciliar mi aporte. ¡Gracias!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. La rifa y el aporte libre financian la misma campaña. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo."
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. La rifa y el aporte libre financian la misma campaña. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo.",
+        "treePrice": "Cada árbol nativo cuesta $1.500.",
+        "amountsTitle": "Elegí un monto",
+        "amounts": [15000,30000,75000],
+        "treesLabel": "{trees} árboles",
+        "otherAmount": "Otro monto"
       },
       "closing": {
         "title": "Lo que plantamos hoy puede cuidar la montaña durante generaciones",
@@ -2781,7 +2840,13 @@
         "description": "A campaign to keep regenerating the mountains through native forest, field work and a community that cares for what it loves.",
         "primaryCta": "Contribute",
         "secondaryCta": "Discover the project",
-        "imageAlt": "Volunteer group holding native seedlings during a reforestation day in the mountains"
+        "imageAlt": "Volunteer group holding native seedlings during a reforestation day in the mountains",
+        "raisedLabel": "raised for the deposit",
+        "ofGoal": "of",
+        "daysLeft": "{days} days left to complete the deposit",
+        "lastDay": "Today is the last day to complete the deposit!",
+        "donors": "{count} people have already contributed",
+        "raffleBadge": "Raffle · draw on Nov 15"
       },
       "impact": {
         "eyebrow": "A story already in motion",
@@ -2907,7 +2972,9 @@
             "steps": [],
             "photos": []
           }
-        ]
+        ],
+        "toggleOpen": "See the project log: progress and photos",
+        "toggleClose": "Hide project log"
       },
       "story": {
         "eyebrow": "Living mountains, strong communities",
@@ -2980,6 +3047,51 @@
         "contactCta": "Contact us directly",
         "whatsappMessage": "Hi, I represent a company and would like to learn how we can support the campaign to plant 10,000 native trees. I would like to discuss funding, corporate volunteering or a longer-term impact partnership."
       },
+      "gift": {
+        "eyebrow": "A gift that grows",
+        "title": "Gift native trees",
+        "description": "For a birthday, the holidays or someone who loves the mountains. Each tree costs ARS 1,500 and you choose how many to give.",
+        "certificate": "The recipient gets a certificate with the location where their trees are planted, once planted (2026–2027 season).",
+        "cta": "Gift via WhatsApp",
+        "whatsappMessage": "Hi! I want to gift native trees 🌳\n\nNumber of trees: [fill in]\nFor: [name]\nFrom: [name]\n\nWhat are the next steps?"
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Before you contribute",
+        "items": [
+          {
+            "q": "When is the raffle draw?",
+            "a": "The draw is on November 15, 2026. When you send us your receipt on WhatsApp, we send you your ticket numbers."
+          },
+          {
+            "q": "How do I use the voucher?",
+            "a": "The value of your ticket comes back as a voucher for any experience or stay at Pueblo Mágico, valid for 6 months. To use it, book via WhatsApp and mention your voucher."
+          },
+          {
+            "q": "Which account do I transfer to?",
+            "a": "The raffle, free contributions and gifts all use the same account: alias pueblo-magico, account holder Diego Epelman. Everything goes to the same goal."
+          },
+          {
+            "q": "How do I know my contribution goes to the trees?",
+            "a": "The progress bar is updated with confirmed contributions, and the project log shows each milestone with dates and photos. We are also implementing GPS records for every planting."
+          },
+          {
+            "q": "How does gifting trees work?",
+            "a": "Message us on WhatsApp with the number of trees and the recipient’s name. They get a certificate with the location where their trees are planted, once planted."
+          },
+          {
+            "q": "Can I contribute from abroad?",
+            "a": "Yes, with cryptocurrency (BTC and ETH). International SEPA transfers will be available soon."
+          }
+        ]
+      },
+      "share": {
+        "cta": "Share the campaign",
+        "message": "🌱 I’m supporting the campaign to plant 10,000 native trees in the Sierras de Córdoba. There’s a raffle with a voucher and prizes. Join in: {url}"
+      },
+      "sticky": {
+        "cta": "Contribute"
+      },
       "raffle": {
         "eyebrow": "Raffle supporting the reforestation",
         "title": "Join in and get your contribution back as a voucher",
@@ -3023,7 +3135,8 @@
         "cta": "Join via WhatsApp",
         "whatsappMessage": "RIFA",
         "orLabel": "Prefer to contribute without joining the raffle?",
-        "modalLink": "Want to join the raffle? See the raffle"
+        "modalLink": "Want to join the raffle? See the raffle",
+        "treesEquivalent": "= {trees} native trees"
       },
       "contribution": {
         "eyebrow": "Direct contribution",
@@ -3085,7 +3198,12 @@
         "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
         "confirmationWhatsappMessage": "Hi! I have made a contribution to the campaign to plant 10,000 native trees.\n\nName: [complete]\nAmount and currency: [complete]\nMethod used: {method}\nTransaction reference or hash: [complete]\n\nI am attaching the receipt so you can reconcile my contribution. Thank you!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Voluntary contribution to the reforestation campaign. The raffle and free contributions fund the same campaign. Keep your transfer receipt. Do not send funds to any detail marked as a sample."
+        "legalNote": "Voluntary contribution to the reforestation campaign. The raffle and free contributions fund the same campaign. Keep your transfer receipt. Do not send funds to any detail marked as a sample.",
+        "treePrice": "Each native tree costs ARS 1,500.",
+        "amountsTitle": "Choose an amount",
+        "amounts": [15000,30000,75000],
+        "treesLabel": "{trees} trees",
+        "otherAmount": "Other amount"
       },
       "closing": {
         "title": "What we plant today can protect the mountains for generations",
