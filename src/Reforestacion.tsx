@@ -33,7 +33,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import { Header } from '../components/Header';
 import { HorizontalCardRail } from '../components/HorizontalCardRail';
 import { Footer } from '../components/Footer';
-import { SectionHojaDeRuta } from '../components/SectionHojaDeRuta';
+import ReforestacionTransparencia from './components/ReforestacionTransparencia';
 import { AliadosAmbientales } from '../components/AliadosAmbientales';
 import { PracticasRegenerativas } from '../components/PracticasRegenerativas';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -1124,7 +1124,7 @@ const Reforestacion: React.FC = () => {
           </div>
         </section>
 
-        <SectionHojaDeRuta visibleCount={3} />
+        <ReforestacionTransparencia raised={currencyFormatter.format(raisedAmount)} />
 
         <section className="bg-brand px-6 py-12 text-white md:py-14">
           <div data-reveal>

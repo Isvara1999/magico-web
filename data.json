@@ -387,6 +387,81 @@
       "sticky": {
         "cta": "Aportar"
       },
+      "transparency": {
+        "eyebrow": "Transparencia",
+        "title": "Cuentas claras y compromisos medibles",
+        "description": "Qué se hace con cada aporte, en qué estamos trabajando y cómo vamos a validar el impacto desde afuera.",
+        "tabs": {
+          "accounts": "Rendición de cuentas",
+          "working": "En qué trabajamos",
+          "next": "Compromisos y próximos pasos"
+        },
+        "accounts": {
+          "rows": [
+            {
+              "label": "Costo total de los árboles",
+              "value": "$15.000.000",
+              "detail": "10.000 tabaquillos × $1.500 cada uno."
+            },
+            {
+              "label": "Aportes de la comunidad",
+              "value": "{raised}",
+              "detail": "Rifa y aporte libre confirmados. Se actualiza periódicamente."
+            },
+            {
+              "label": "Pueblo Mágico",
+              "value": "Fondos propios",
+              "detail": "Está adelantando el pago de los árboles para no frenar el proyecto. Los aportes de la comunidad lo cofinancian."
+            }
+          ],
+          "expenses": "Al cerrar cada fase publicamos acá el detalle de gastos: árboles, vivero, materiales y logística.",
+          "tax": "Por ahora los aportes no son deducibles de impuestos. Cuando los canalicemos a través de una fundación, vamos a poder emitir recibos deducibles."
+        },
+        "commitmentsTitle": "Nuestros compromisos",
+        "commitments": [
+          {
+            "title": "Una sola especie: tabaquillo",
+            "text": "Esta campaña planta tabaquillo (Polylepis australis), árbol nativo de las Sierras Grandes de Córdoba que protege el suelo y las nacientes de agua."
+          },
+          {
+            "title": "Supervivencia pública",
+            "text": "Vamos a publicar qué porcentaje de los árboles plantados sigue vivo al año 1, al año 3 y al año 5."
+          }
+        ],
+        "nextTitle": "Hoja de ruta de validación",
+        "next": [
+          {
+            "when": "2026",
+            "title": "Rendición de cuentas por fase",
+            "text": "Ingresos y gastos publicados al cierre de cada fase."
+          },
+          {
+            "when": "2026–2027",
+            "title": "Aportes a través de una fundación",
+            "text": "Para emitir recibos deducibles de impuestos."
+          },
+          {
+            "when": "2027",
+            "title": "Estándares internacionales de restauración",
+            "text": "Alinear el proyecto con los estándares de la Society for Ecological Restoration (SER) y los principios de la Década de la ONU sobre la Restauración de los Ecosistemas."
+          },
+          {
+            "when": "2027–2028",
+            "title": "Informe de supervivencia · año 1",
+            "text": "Con medición validada por universidades."
+          },
+          {
+            "when": "2029–2032",
+            "title": "Informes de supervivencia · años 3 y 5",
+            "text": "Seguimiento de largo plazo del bosque plantado."
+          },
+          {
+            "when": "A evaluar",
+            "title": "Certificación comunitaria de carbono",
+            "text": "Plan Vivo u otro estándar, solo cuando haya mediciones suficientes. Hasta entonces no hacemos afirmaciones de CO₂."
+          }
+        ]
+      },
       "raffle": {
         "eyebrow": "Rifa a beneficio de la reforestación",
         "title": "Participá y tu aporte vuelve como voucher",
@@ -3091,6 +3166,81 @@
       },
       "sticky": {
         "cta": "Contribute"
+      },
+      "transparency": {
+        "eyebrow": "Transparency",
+        "title": "Clear accounts and measurable commitments",
+        "description": "What happens with each contribution, what we are working on and how we will have the impact validated externally.",
+        "tabs": {
+          "accounts": "Accountability",
+          "working": "What we are working on",
+          "next": "Commitments and next steps"
+        },
+        "accounts": {
+          "rows": [
+            {
+              "label": "Total cost of the trees",
+              "value": "ARS 15,000,000",
+              "detail": "10,000 tabaquillo trees × ARS 1,500 each."
+            },
+            {
+              "label": "Community contributions",
+              "value": "{raised}",
+              "detail": "Confirmed raffle and free contributions. Updated periodically."
+            },
+            {
+              "label": "Pueblo Mágico",
+              "value": "Own funds",
+              "detail": "Pueblo Mágico is advancing the payment for the trees so the project does not stall. Community contributions co-finance it."
+            }
+          ],
+          "expenses": "When each phase closes, we publish the detailed expenses here: trees, nursery, materials and logistics.",
+          "tax": "For now, contributions are not tax-deductible. Once we channel them through a foundation, we will be able to issue deductible receipts."
+        },
+        "commitmentsTitle": "Our commitments",
+        "commitments": [
+          {
+            "title": "A single species: tabaquillo",
+            "text": "This campaign plants tabaquillo (Polylepis australis), a tree native to the Sierras Grandes of Córdoba that protects the soil and water sources."
+          },
+          {
+            "title": "Public survival rates",
+            "text": "We will publish what percentage of the planted trees is still alive after year 1, year 3 and year 5."
+          }
+        ],
+        "nextTitle": "Validation roadmap",
+        "next": [
+          {
+            "when": "2026",
+            "title": "Accountability per phase",
+            "text": "Income and expenses published when each phase closes."
+          },
+          {
+            "when": "2026–2027",
+            "title": "Contributions through a foundation",
+            "text": "To issue tax-deductible receipts."
+          },
+          {
+            "when": "2027",
+            "title": "International restoration standards",
+            "text": "Align the project with the Society for Ecological Restoration (SER) standards and the principles of the UN Decade on Ecosystem Restoration."
+          },
+          {
+            "when": "2027–2028",
+            "title": "Survival report · year 1",
+            "text": "With measurements validated by universities."
+          },
+          {
+            "when": "2029–2032",
+            "title": "Survival reports · years 3 and 5",
+            "text": "Long-term monitoring of the planted forest."
+          },
+          {
+            "when": "To be assessed",
+            "title": "Community carbon certification",
+            "text": "Plan Vivo or another standard, only once there are enough measurements. Until then we make no CO₂ claims."
+          }
+        ]
       },
       "raffle": {
         "eyebrow": "Raffle supporting the reforestation",
