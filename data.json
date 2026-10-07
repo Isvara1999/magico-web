@@ -2256,7 +2256,8 @@
         ]
       },
       "formatos": {
-        "title": "Distintos formatos según el objetivo",
+        "tag": "Jornadas privadas y exclusivas",
+        "title": "Una experiencia solo para tu organización",
         "items": [
           { "title": "Jornada corporativa", "text": "Una experiencia de un día. Ideal para voluntariado, restauración, integración y primeras experiencias institucionales.",
             "price": "Desde $35.000 por persona" },
@@ -2265,14 +2266,14 @@
           { "title": "Programa de varios días", "text": "Para equipos que buscan profundizar en liderazgo, cultura, coordinación y estrategia.",
             "price": "A consultar" }
         ],
-        "note": "Todos los formatos se diseñan según la necesidad de cada organización.",
+        "note": "Cada jornada es exclusiva para tu equipo y se diseña según los objetivos de tu organización.",
         "more_title": "Otras formas de sumarse",
         "open_days": {
-          "badge": "Sin costo",
-          "title": "Jornadas abiertas de reforestación",
-          "text": "Pueden sumarse empresas de cualquier tamaño, sin mínimo de participantes. La movilidad corre por cuenta de la empresa (podemos ayudarte a coordinarla) y las comidas o el alojamiento se contratan aparte si los necesitan.",
-          "cta": "Sumar a mi equipo",
-          "wa_query": "¡Hola! Quiero sumar a mi equipo a una jornada abierta de reforestación. ¿Qué fechas hay disponibles y cómo nos organizamos?"
+          "badge": "Por postulación",
+          "title": "Jornadas abiertas a organizaciones",
+          "text": "Algunas jornadas de reforestación reúnen a equipos de distintas organizaciones, con cupos limitados. La parte técnica está a cargo de Acción Ambiental, nuestra ONG aliada: árboles, know-how y organización de los equipos en la plantación. Tu empresa puede postularse y evaluamos cada solicitud. Las condiciones de participación, incluidos el traslado y los seguros, se acuerdan con cada organización.",
+          "cta": "Postular a mi organización",
+          "wa_query": "¡Hola! Quiero postular a mi organización para una jornada abierta de reforestación.\n\nEmpresa:\nRubro y cantidad de colaboradores:\nPersonas que participarían:\nÁrea que impulsa la iniciativa (RSE, RRHH, otra):\n¿Evalúan también una jornada privada para el equipo?:"
         },
         "gifts": {
           "badge": "Fin de año",
@@ -2367,11 +2368,11 @@
         "items": [
           {
             "q": "¿Cuántas personas pueden participar?",
-            "a": "Para una acción organizada para tu empresa, desde 5 personas y sin límite máximo: ya recibimos grupos de más de 200 participantes. En los formatos con noche combinamos camas y espacios de campamento. En las jornadas abiertas de reforestación no hay mínimo: pueden sumarse equipos de cualquier tamaño."
+            "a": "Para una acción organizada para tu empresa, desde 5 personas y sin límite máximo: ya recibimos grupos de más de 200 participantes. En los formatos con noche combinamos camas y espacios de campamento. Las jornadas abiertas a organizaciones tienen cupos limitados y se asignan por postulación."
           },
           {
             "q": "¿Cuánto cuesta?",
-            "a": "Jornada de un día: desde $35.000 por persona. Jornada con una noche: desde $75.000 por persona. Programas de varios días: a consultar. Las jornadas abiertas de reforestación no tienen costo."
+            "a": "Jornada de un día: desde $35.000 por persona. Jornada con una noche: desde $75.000 por persona. Programas de varios días: a consultar. Las jornadas abiertas a organizaciones son por postulación: si tu empresa es seleccionada, acordamos juntos las condiciones de participación, incluidos el traslado y los seguros."
           },
           {
             "q": "¿Cómo se llega desde Córdoba? ¿Hay traslado?",
@@ -5036,7 +5037,8 @@
         ]
       },
       "formatos": {
-        "title": "Different formats depending on the goal",
+        "tag": "Private, exclusive days",
+        "title": "An experience just for your organization",
         "items": [
           { "title": "Corporate day", "text": "A one-day experience. Ideal for volunteering, restoration, integration and first institutional experiences.",
             "price": "From ARS 35,000 per person" },
@@ -5045,14 +5047,14 @@
           { "title": "Multi-day program", "text": "For teams looking to go deeper on leadership, culture, coordination and strategy.",
             "price": "On request" }
         ],
-        "note": "All formats are designed around each organization's needs.",
+        "note": "Each day is exclusive to your team and designed around your organization's goals.",
         "more_title": "Other ways to join",
         "open_days": {
-          "badge": "Free",
-          "title": "Open reforestation days",
-          "text": "Companies of any size can join, with no minimum number of participants. Transport is arranged by the company (we can help you coordinate it), and meals or accommodation are booked separately if needed.",
-          "cta": "Add my team",
-          "wa_query": "Hi! I’d like my team to join an open reforestation day. Which dates are available and how do we organize it?"
+          "badge": "By application",
+          "title": "Days open to organizations",
+          "text": "Some reforestation days bring together teams from different organizations, with limited spots. The technical side is led by Acción Ambiental, our partner NGO: trees, know-how and organizing the teams during planting. Your company can apply and we review each request. Participation terms, including transport and insurance, are agreed with each organization.",
+          "cta": "Apply with my organization",
+          "wa_query": "Hi! I’d like to apply with my organization for an open reforestation day.\n\nCompany:\nIndustry and number of employees:\nPeople who would take part:\nTeam driving the initiative (CSR, HR, other):\nAre you also considering a private day for your team?:"
         },
         "gifts": {
           "badge": "Year-end",
@@ -5147,11 +5149,11 @@
         "items": [
           {
             "q": "How many people can take part?",
-            "a": "For an action organized for your company, from 5 people with no maximum: we have already hosted groups of more than 200 participants. In overnight formats we combine beds and camping areas. Open reforestation days have no minimum: teams of any size can join."
+            "a": "For an action organized for your company, from 5 people with no maximum: we have already hosted groups of more than 200 participants. In overnight formats we combine beds and camping areas. Days open to organizations have limited spots, assigned by application."
           },
           {
             "q": "How much does it cost?",
-            "a": "One-day program: from ARS 35,000 per person. Day + one night: from ARS 75,000 per person. Multi-day programs: on request. Open reforestation days are free."
+            "a": "One-day program: from ARS 35,000 per person. Day + one night: from ARS 75,000 per person. Multi-day programs: on request. Days open to organizations are by application: if your company is selected, we agree on the participation terms together, including transport and insurance."
           },
           {
             "q": "How do we get there from Córdoba? Is transport available?",
