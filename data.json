@@ -40,11 +40,11 @@
       "refugioFull": "Refugio de Piedra",
       "carpaFull": "Camping",
       "carpaRegimen": "Alojamiento + desayuno",
-      "carpaNote": "Camping — te confirmamos disponibilidad y coordinamos todo por WhatsApp.",
+      "carpaNote": "Camping — te confirmamos disponibilidad y coordinamos todo por WhatsApp. ¿Querés venir sin comidas? Consultanos por esa opción.",
       "roomType": "Tipo de habitación",
       "sharedRoom": "Compartida",
       "privateRoom": "Privada",
-      "mealPlan": "Comidas", "mealBreakfast": "Con desayuno", "mealFullBoard": "Pensión completa", "mealBreakfastNote": "Alojamiento + desayuno. Almuerzo o cena se suman aparte (+$20.000 c/u).", "mealFullBoardNote": "Desayuno, almuerzo y cena incluidos — precio total cerrado por persona/noche.", "privateDomoNote": "Domo privado: hasta 7 personas ($50.000 por persona/noche con desayuno; 1 persona sola $100.000)",
+      "mealPlan": "Comidas", "mealBreakfast": "Con desayuno", "mealFullBoard": "Pensión completa", "mealBreakfastNote": "Alojamiento + desayuno. Almuerzo o cena se suman aparte (+$20.000 c/u).", "mealFullBoardNote": "Desayuno, almuerzo y cena incluidos — precio total cerrado por persona/noche.", "weekendNote": "🌙 Viernes y sábado se reservan solo con pensión completa: esas noches ya incluyen desayuno, almuerzo y cena.", "weekendRegimenSuffix": " (viernes y sábado con pensión completa)", "nightsAt": "{nights} a ${precio}", "privateDomoNote": "Domo privado: de 2 a 7 personas ($50.000 por persona/noche con desayuno)",
       "retiroNote": "🗓️ Los fines de semana puede haber retiros o eventos en los domos — consultanos disponibilidad: te confirmamos por WhatsApp si hay lugar antes de cerrar la reserva.",
       "unavailableForDates": "Esa opción no tiene lugar en las fechas que elegiste — probá con otras fechas.",
       "capacityExceeded": "El {tipo} tiene capacidad para hasta {max} personas — para grupos más grandes, escribinos por WhatsApp.",
@@ -141,7 +141,7 @@
         "daysLeft": "Faltan {days} días para completar la seña",
         "lastDay": "¡Hoy es el último día para completar la seña!",
         "donors": "{count} personas ya aportaron",
-        "raffleBadge": "Rifa · sorteo 15/11"
+        "voucherBadge": "Voucher solidario"
       },
       "impact": {
         "eyebrow": "Una historia que ya empezó",
@@ -355,16 +355,16 @@
         "title": "Antes de aportar",
         "items": [
           {
-            "q": "¿Cuándo es el sorteo de la rifa?",
-            "a": "El sorteo es el 15 de noviembre de 2026. Cuando nos mandás el comprobante por WhatsApp, te enviamos tus números."
+            "q": "¿Qué es el voucher solidario?",
+            "a": "Comprás un voucher de $30.000 o $50.000: ese dinero financia los tabaquillos de la campaña y el mismo valor vuelve a vos para usar en Pueblo Mágico. Cuando nos mandás el comprobante por WhatsApp, te enviamos tu voucher."
           },
           {
             "q": "¿Cómo uso el voucher?",
-            "a": "El valor de tu número vuelve como voucher para cualquier experiencia o estadía en Pueblo Mágico, válido por 6 meses. Para usarlo, reservá por WhatsApp y mencioná tu voucher."
+            "a": "Sirve para cualquier experiencia o estadía en Pueblo Mágico y es válido por 6 meses. Para usarlo, reservá por WhatsApp y mencioná tu voucher."
           },
           {
             "q": "¿A qué cuenta transfiero?",
-            "a": "Rifa, aporte libre y regalo usan la misma cuenta: alias pueblo-magico, titular Diego Epelman. Todo suma a la misma meta."
+            "a": "Voucher, aporte libre y regalo usan la misma cuenta: alias pueblo-magico, titular Diego Epelman. Todo suma a la misma meta."
           },
           {
             "q": "¿Cómo sé que mi aporte se usa para los árboles?",
@@ -382,7 +382,7 @@
       },
       "share": {
         "cta": "Compartí la campaña",
-        "message": "🌱 Estoy apoyando la campaña para plantar 10.000 árboles nativos en las Sierras de Córdoba. Hay una rifa con voucher y premios. Sumate: {url}"
+        "message": "🌱 Estoy apoyando la campaña para plantar 10.000 árboles nativos en las Sierras de Córdoba. Con el voucher solidario, lo que aportás vuelve como voucher para Pueblo Mágico. Sumate: {url}"
       },
       "sticky": {
         "cta": "Aportar"
@@ -406,7 +406,7 @@
             {
               "label": "Aportes de la comunidad",
               "value": "{raised}",
-              "detail": "Rifa y aporte libre confirmados. Se actualiza periódicamente."
+              "detail": "Vouchers solidarios y aportes libres confirmados. Se actualiza periódicamente."
             },
             {
               "label": "Pueblo Mágico",
@@ -462,56 +462,39 @@
           }
         ]
       },
-      "raffle": {
-        "eyebrow": "Rifa a beneficio de la reforestación",
-        "title": "Participá y tu aporte vuelve como voucher",
-        "description": "La rifa es otra forma de sumar a la misma meta: lo recaudado financia los 10.000 árboles nativos.",
+      "voucher": {
+        "eyebrow": "Voucher solidario",
+        "title": "Tu aporte vuelve como voucher",
+        "description": "Comprá un voucher de Pueblo Mágico: lo que pagás financia los tabaquillos de la campaña y vos lo usás en una experiencia o estadía.",
         "priceOptions": [
           {
-            "label": "1 número",
+            "label": "Voucher",
             "price": "$30.000"
           },
           {
-            "label": "2 números",
+            "label": "Voucher",
             "price": "$50.000"
           }
         ],
         "benefits": [
-          "El valor de tu aporte te vuelve como voucher para cualquier experiencia o estadía en Pueblo Mágico.",
-          "Voucher válido por 6 meses.",
-          "Sorteo: 15 de noviembre de 2026."
+          "El 100% de lo que pagás vuelve como voucher para cualquier experiencia o estadía en Pueblo Mágico.",
+          "Voucher válido por 6 meses."
         ],
-        "prizesTitle": "Además participás por",
-        "prizes": [
-          {
-            "place": "1°",
-            "text": "Retiro All Inclusive para 2 · 3 días / 2 noches"
-          },
-          {
-            "place": "2°",
-            "text": "Estadía para 2 · 2 noches"
-          },
-          {
-            "place": "3°",
-            "text": "Estadía para 2 · 1 noche"
-          }
-        ],
-        "stepsTitle": "Cómo participar",
+                "stepsTitle": "Cómo obtenerlo",
         "steps": [
           "Transferí $30.000 o $50.000 al alias de la campaña.",
           "Mandanos el comprobante por WhatsApp.",
-          "Te enviamos tus números y tu voucher."
+          "Te enviamos tu voucher."
         ],
-        "cta": "Participar por WhatsApp",
-        "whatsappMessage": "RIFA",
-        "orLabel": "¿Preferís aportar sin participar de la rifa?",
-        "modalLink": "¿Querés participar de la rifa? Ver la rifa",
+        "cta": "Quiero mi voucher",
+        "whatsappMessage": "VOUCHER",
+        "orLabel": "¿Preferís hacer un aporte libre, sin voucher?",
         "treesEquivalent": "= {trees} árboles nativos"
       },
       "contribution": {
         "eyebrow": "Aporte directo",
         "title": "Tu aporte se convierte en bosque",
-        "description": "Dos formas de sumar a la misma meta: participá de la rifa o hacé un aporte libre. Todo lo recaudado va a los 10.000 árboles nativos.",
+        "description": "Dos formas de sumar a la misma meta: comprá un voucher solidario o hacé un aporte libre. Todo lo recaudado va a los 10.000 árboles nativos.",
         "cardTitle": "Aporte voluntario",
         "cardDescription": "Tu contribución financia directamente el proyecto de reforestación.",
         "modalTitle": "Hacé tu aporte a la reforestación",
@@ -519,7 +502,7 @@
         "closeModal": "Cerrar opciones de aporte",
         "notes": [
           "Elegís libremente el monto.",
-          "No incluye números, premios, vouchers ni servicios.",
+          "No incluye vouchers ni servicios.",
           "Conservá el comprobante."
         ],
         "activeGoalLabel": "Meta activa",
@@ -568,7 +551,7 @@
         "whatsappMessage": "¡Hola! Quiero hacer un aporte a la campaña de reforestación de árboles nativos. ¿Me comparten los datos vigentes?",
         "confirmationWhatsappMessage": "¡Hola! Ya realicé un aporte a la campaña de reforestación de 10.000 árboles nativos.\n\nNombre: [completar]\nMonto y moneda: [completar]\nMedio utilizado: {method}\nReferencia o hash de la operación: [completar]\n\nAdjunto el comprobante para que puedan conciliar mi aporte. ¡Gracias!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. La rifa y el aporte libre financian la misma campaña. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo.",
+        "legalNote": "Aporte voluntario destinado a la campaña de reforestación. El voucher solidario y el aporte libre financian la misma campaña. Conservá tu comprobante de transferencia. No envíes fondos a ningún dato marcado como ejemplo.",
         "treePrice": "Cada árbol nativo cuesta $1.500.",
         "amountsTitle": "Elegí un monto",
         "amounts": [15000,30000,75000],
@@ -948,26 +931,6 @@
       "btnPdf": "+ Info",
       "link": "",
       "cards": [
-        {
-          "date": "25-27 SEPTIEMBRE",
-          "title": "Killa Raymi · Primavera & Luna Llena",
-          "desc": "Un fin de semana en la montaña para celebrar la llegada de la primavera bajo la luz de la Luna llena. Temazcal, ceremonia de Luna llena, trekking al Macizo Los Gigantes y música en comunidad.",
-          "price": "Desde $96.000",
-          "btn": "Ver más",
-          "image": "/uploads/killa-raymi-hero-mobile.webp",
-          "link": "/killa-raymi",
-          "pdfLink": ""
-        },
-        {
-          "date": "2, 3 y 4 DE OCTUBRE",
-          "title": "Alma de Lobo · Encuentro de Hombres",
-          "desc": "Retiro para hombres en la montaña bajo la luna llena: círculos de palabra, temazcal, fuego y naturaleza para habitar lo masculino desde un lugar consciente y verdadero. Desde $465.000.",
-          "btn": "Ver más",
-          "image": "/uploads/alma-de-lobo.webp",
-          "link": "/alma-de-lobo",
-          "pdfLink": "",
-          "isVolunariado": true
-        },
         {
           "date": "17-18 OCTUBRE",
           "title": "Retiro Pueblo Mágico · Los Gigantes",
@@ -2685,7 +2648,7 @@
         },
         {
           "label": "Energía solar",
-          "sub": "100% renovable"
+          "sub": "Casi al 100%"
         },
         {
           "label": "Reset Vital",
@@ -2697,9 +2660,12 @@
         }
       ],
       "price_solo_label": "Camping",
-      "price_solo_sub": "Alojamiento + desayuno, precio por persona",
+      "price_solo_sub": "Alojamiento + desayuno · ¿sin comidas? consultanos",
+      "price_refugio_label": "Refugio de Piedra",
+      "price_refugio_sub": "O domo compartido · con desayuno",
       "price_pension_label": "Domo Privado",
-      "price_pension_sub": "Con desayuno · 1 persona sola $100.000",
+      "price_pension_sub": "Con desayuno · desde 2 personas",
+      "price_finde_note": "Precios de domingo a jueves. Viernes y sábado, solo con pensión completa: camping ${carpa} · Refugio de Piedra ${refugio} · domo privado desde ${domo}, por persona/noche.",
       "price_unit": "/ persona / noche",
       "price_pension_unit": "/ persona / noche",
       "cta": "Ver todos los alojamientos"
@@ -2720,19 +2686,19 @@
           "wa": "Hola! Busco un retiro de descanso en Pueblo Mágico. ¿Cuándo tienen disponibilidad?"
         },
         {
-          "title": "La pareja",
-          "desc": "Buscan una escapada romántica diferente. Domo geodésico, cielo estrellado, fogón y cocina de autor en la montaña.",
-          "wa": "Hola! Queremos ir en pareja a Pueblo Mágico. ¿Tienen domos disponibles y cuál es el precio?"
+          "title": "Parejas y familias",
+          "desc": "Una escapada distinta para reconectar: domo privado solo para ustedes, cielo estrellado, fogón y cocina de autor en la montaña. Para parejas, o familias con abuelos, padres e hijos que quieren desconectar de las pantallas juntos.",
+          "wa": "Hola! Queremos ir en pareja o en familia a Pueblo Mágico. ¿Tienen domos disponibles y cuál es el precio?"
         },
         {
-          "title": "El buscador en tránsito",
-          "desc": "Estás en un momento de transformación y buscás comunidad, propósito y un espacio que acompañe el proceso.",
-          "wa": "Hola! Me interesa conocer más sobre los retiros y el co-living en Pueblo Mágico. ¿Podemos hablar?"
+          "title": "Exploradores y aventureros",
+          "desc": "Te mueve la montaña: caminatas al río, trekking al Macizo Los Gigantes y noches de cielo estrellado sin contaminación lumínica. Volvés con las piernas cansadas y la cabeza liviana.",
+          "wa": "Hola! Me interesa ir a Pueblo Mágico a caminar y explorar la montaña. ¿Qué opciones de estadía tienen?"
         },
         {
-          "title": "Grupos y Familias",
-          "desc": "Para tu grupo de amigos y amigas, o grupos familiares que incluyen a tu tío, abuelos, padres e hijos. Buscan desconectar de las pantallas y reconectar en la montaña.",
-          "wa": "Hola! Queremos ir en grupo o familia a Pueblo Mágico. ¿Qué opciones de alojamiento tienen?"
+          "title": "Grupos de amigos",
+          "desc": "Para tu grupo de amigos y amigas: un domo entero o habitaciones del Refugio de Piedra solo para ustedes, fogón, río y montaña para desconectar de las pantallas.",
+          "wa": "Hola! Queremos ir en grupo a Pueblo Mágico. ¿Qué opciones de alojamiento tienen?"
         },
         {
           "title": "El ciudadano del mundo",
@@ -2821,11 +2787,11 @@
       "refugioFull": "Stone Refuge (Refugio de Piedra)",
       "carpaFull": "Camping",
       "carpaRegimen": "Accommodation + breakfast",
-      "carpaNote": "Camping — we'll confirm availability and sort everything out over WhatsApp.",
+      "carpaNote": "Camping — we'll confirm availability and sort everything out over WhatsApp. Want to come without meals? Ask us about that option.",
       "roomType": "Room type",
       "sharedRoom": "Shared",
       "privateRoom": "Private",
-      "mealPlan": "Meals", "mealBreakfast": "With breakfast", "mealFullBoard": "Full board", "mealBreakfastNote": "Accommodation + breakfast. Lunch or dinner can be added (+$20,000 each).", "mealFullBoardNote": "Breakfast, lunch and dinner included — fixed total price per person/night.", "privateDomoNote": "Private dome: up to 7 people ($50,000 per person/night with breakfast; solo traveler $100,000)",
+      "mealPlan": "Meals", "mealBreakfast": "With breakfast", "mealFullBoard": "Full board", "mealBreakfastNote": "Accommodation + breakfast. Lunch or dinner can be added (+$20,000 each).", "mealFullBoardNote": "Breakfast, lunch and dinner included — fixed total price per person/night.", "weekendNote": "🌙 Friday and Saturday nights are booked on full board only: those nights include breakfast, lunch and dinner.", "weekendRegimenSuffix": " (Friday and Saturday nights on full board)", "nightsAt": "{nights} at ${precio}", "privateDomoNote": "Private dome: 2 to 7 people ($50,000 per person/night with breakfast)",
       "retiroNote": "🗓️ On weekends the domes may host retreats or events — ask us about availability: we'll confirm on WhatsApp before finalizing the booking.",
       "unavailableForDates": "That option has no availability for the dates you picked — try different dates.",
       "capacityExceeded": "The {tipo} has room for up to {max} people — for bigger groups, message us on WhatsApp.",
@@ -2922,7 +2888,7 @@
         "daysLeft": "{days} days left to complete the deposit",
         "lastDay": "Today is the last day to complete the deposit!",
         "donors": "{count} people have already contributed",
-        "raffleBadge": "Raffle · draw on Nov 15"
+        "voucherBadge": "Solidarity voucher"
       },
       "impact": {
         "eyebrow": "A story already in motion",
@@ -3136,16 +3102,16 @@
         "title": "Before you contribute",
         "items": [
           {
-            "q": "When is the raffle draw?",
-            "a": "The draw is on November 15, 2026. When you send us your receipt on WhatsApp, we send you your ticket numbers."
+            "q": "What is the solidarity voucher?",
+            "a": "You buy a voucher of ARS 30,000 or ARS 50,000: that money funds the campaign’s tabaquillo trees and the same value comes back to you to use at Pueblo Mágico. When you send us your receipt on WhatsApp, we send you your voucher."
           },
           {
             "q": "How do I use the voucher?",
-            "a": "The value of your ticket comes back as a voucher for any experience or stay at Pueblo Mágico, valid for 6 months. To use it, book via WhatsApp and mention your voucher."
+            "a": "It is valid for any experience or stay at Pueblo Mágico for 6 months. To use it, book via WhatsApp and mention your voucher."
           },
           {
             "q": "Which account do I transfer to?",
-            "a": "The raffle, free contributions and gifts all use the same account: alias pueblo-magico, account holder Diego Epelman. Everything goes to the same goal."
+            "a": "Vouchers, free contributions and gifts all use the same account: alias pueblo-magico, account holder Diego Epelman. Everything goes to the same goal."
           },
           {
             "q": "How do I know my contribution goes to the trees?",
@@ -3163,7 +3129,7 @@
       },
       "share": {
         "cta": "Share the campaign",
-        "message": "🌱 I’m supporting the campaign to plant 10,000 native trees in the Sierras de Córdoba. There’s a raffle with a voucher and prizes. Join in: {url}"
+        "message": "🌱 I’m supporting the campaign to plant 10,000 native trees in the Sierras de Córdoba. With the solidarity voucher, your contribution comes back as a voucher for Pueblo Mágico. Join in: {url}"
       },
       "sticky": {
         "cta": "Contribute"
@@ -3187,7 +3153,7 @@
             {
               "label": "Community contributions",
               "value": "{raised}",
-              "detail": "Confirmed raffle and free contributions. Updated periodically."
+              "detail": "Confirmed solidarity vouchers and free contributions. Updated periodically."
             },
             {
               "label": "Pueblo Mágico",
@@ -3243,56 +3209,39 @@
           }
         ]
       },
-      "raffle": {
-        "eyebrow": "Raffle supporting the reforestation",
-        "title": "Join in and get your contribution back as a voucher",
-        "description": "The raffle is another way to support the same goal: the funds raised go to the 10,000 native trees.",
+      "voucher": {
+        "eyebrow": "Solidarity voucher",
+        "title": "Your contribution comes back as a voucher",
+        "description": "Buy a Pueblo Mágico voucher: what you pay funds the campaign’s tabaquillo trees and you use it for an experience or stay.",
         "priceOptions": [
           {
-            "label": "1 ticket",
+            "label": "Voucher",
             "price": "ARS 30,000"
           },
           {
-            "label": "2 tickets",
+            "label": "Voucher",
             "price": "ARS 50,000"
           }
         ],
         "benefits": [
-          "You get the full amount back as a voucher for any experience or stay at Pueblo Mágico.",
-          "Voucher valid for 6 months.",
-          "Draw: November 15, 2026."
+          "100% of what you pay comes back as a voucher for any experience or stay at Pueblo Mágico.",
+          "Voucher valid for 6 months."
         ],
-        "prizesTitle": "You also enter to win",
-        "prizes": [
-          {
-            "place": "1st",
-            "text": "All-inclusive retreat for 2 · 3 days / 2 nights"
-          },
-          {
-            "place": "2nd",
-            "text": "Stay for 2 · 2 nights"
-          },
-          {
-            "place": "3rd",
-            "text": "Stay for 2 · 1 night"
-          }
-        ],
-        "stepsTitle": "How to join",
+                "stepsTitle": "How to get it",
         "steps": [
           "Transfer ARS 30,000 or ARS 50,000 to the campaign alias.",
           "Send us the receipt on WhatsApp.",
-          "We send you your ticket numbers and your voucher."
+          "We send you your voucher."
         ],
-        "cta": "Join via WhatsApp",
-        "whatsappMessage": "RIFA",
-        "orLabel": "Prefer to contribute without joining the raffle?",
-        "modalLink": "Want to join the raffle? See the raffle",
+        "cta": "Get my voucher",
+        "whatsappMessage": "VOUCHER",
+        "orLabel": "Prefer a free contribution, without a voucher?",
         "treesEquivalent": "= {trees} native trees"
       },
       "contribution": {
         "eyebrow": "Direct contribution",
         "title": "Your contribution becomes forest",
-        "description": "Two ways to support the same goal: join the raffle or make a free contribution. Everything raised goes to the 10,000 native trees.",
+        "description": "Two ways to support the same goal: buy a solidarity voucher or make a free contribution. Everything raised goes to the 10,000 native trees.",
         "cardTitle": "Voluntary contribution",
         "cardDescription": "Your contribution directly funds the reforestation project.",
         "modalTitle": "Support the reforestation campaign",
@@ -3300,7 +3249,7 @@
         "closeModal": "Close contribution options",
         "notes": [
           "You choose the amount freely.",
-          "It does not include raffle entries, prizes, vouchers or services.",
+          "It does not include vouchers or services.",
           "Keep your transfer receipt."
         ],
         "activeGoalLabel": "Active goal",
@@ -3349,7 +3298,7 @@
         "whatsappMessage": "Hi! I'd like to contribute to the native-tree reforestation campaign. Could you share the current transfer details?",
         "confirmationWhatsappMessage": "Hi! I have made a contribution to the campaign to plant 10,000 native trees.\n\nName: [complete]\nAmount and currency: [complete]\nMethod used: {method}\nTransaction reference or hash: [complete]\n\nI am attaching the receipt so you can reconcile my contribution. Thank you!",
         "methodPlaceholder": "[Argentina / SEPA / USDC / BTC / ETH]",
-        "legalNote": "Voluntary contribution to the reforestation campaign. The raffle and free contributions fund the same campaign. Keep your transfer receipt. Do not send funds to any detail marked as a sample.",
+        "legalNote": "Voluntary contribution to the reforestation campaign. The solidarity voucher and free contributions fund the same campaign. Keep your transfer receipt. Do not send funds to any detail marked as a sample.",
         "treePrice": "Each native tree costs ARS 1,500.",
         "amountsTitle": "Choose an amount",
         "amounts": [15000,30000,75000],
@@ -3729,26 +3678,6 @@
       "btnPdf": "+ Info",
       "link": "",
       "cards": [
-        {
-          "date": "SEP 25-27",
-          "title": "Killa Raymi · Spring & Full Moon",
-          "desc": "A weekend in the mountains to welcome spring under the light of the full moon. Temazcal, full moon ceremony, trekking to the Los Gigantes massif and music in community.",
-          "price": "From $96,000",
-          "btn": "See More",
-          "image": "/uploads/killa-raymi-hero-mobile.webp",
-          "link": "/killa-raymi",
-          "pdfLink": ""
-        },
-        {
-          "date": "OCT 2-4",
-          "title": "Alma de Lobo · Men's Gathering",
-          "desc": "A men's mountain retreat under the full moon: talking circles, temazcal, fire and nature to inhabit the masculine from a conscious, true place. From $465,000.",
-          "btn": "See More",
-          "image": "/uploads/alma-de-lobo.webp",
-          "link": "/alma-de-lobo",
-          "pdfLink": "",
-          "isVolunariado": true
-        },
         {
           "date": "OCT 17-18",
           "title": "Pueblo Mágico Retreat · Los Gigantes",
@@ -5468,7 +5397,7 @@
         },
         {
           "label": "Solar energy",
-          "sub": "100% renewable"
+          "sub": "Almost 100%"
         },
         {
           "label": "Reset Vital",
@@ -5480,9 +5409,12 @@
         }
       ],
       "price_solo_label": "Camping",
-      "price_solo_sub": "Accommodation + breakfast, price per person",
+      "price_solo_sub": "Accommodation + breakfast · no meals? ask us",
+      "price_refugio_label": "Stone Refuge",
+      "price_refugio_sub": "Or shared dome · with breakfast",
       "price_pension_label": "Private Dome",
-      "price_pension_sub": "With breakfast · solo traveler $100,000",
+      "price_pension_sub": "With breakfast · from 2 people",
+      "price_finde_note": "Sunday to Thursday rates. Friday and Saturday nights are full board only: camping ${carpa} · Stone Refuge ${refugio} · private dome from ${domo}, per person/night.",
       "price_unit": "/ person / night",
       "price_pension_unit": "/ person / night",
       "cta": "View all accommodations"
@@ -5503,19 +5435,19 @@
           "wa": "Hi! I am looking for a rest retreat at Pueblo Mágico. When do you have availability?"
         },
         {
-          "title": "The couple",
-          "desc": "Looking for a different romantic getaway. Geodesic dome, starry sky, firepit and gourmet cooking in the mountains.",
-          "wa": "Hi! We want to go as a couple to Pueblo Mágico. Do you have domes available and what is the price?"
+          "title": "Couples and families",
+          "desc": "A different getaway to reconnect: a private dome just for you, starry skies, firepit and gourmet cooking in the mountains. For couples, or families with grandparents, parents and kids who want to unplug together.",
+          "wa": "Hi! We want to come to Pueblo Mágico as a couple or family. Do you have domes available and what is the price?"
         },
         {
-          "title": "The seeker in transition",
-          "desc": "You are in a moment of transformation and looking for community, purpose and a space that supports the process.",
-          "wa": "Hi! I am interested in learning more about retreats and co-living at Pueblo Mágico. Can we talk?"
+          "title": "Explorers and adventurers",
+          "desc": "The mountains move you: walks to the river, trekking to the Los Gigantes massif and nights under skies with no light pollution. You go home with tired legs and a light head.",
+          "wa": "Hi! I want to come to Pueblo Mágico to hike and explore the mountains. What stay options do you have?"
         },
         {
-          "title": "Groups & Families",
-          "desc": "For your group of friends or extended family (grandparents, parents, children, uncles). Looking to disconnect from screens and reconnect in the mountains.",
-          "wa": "Hi! We want to go as a group or family to Pueblo Mágico. What accommodation options do you have?"
+          "title": "Groups of friends",
+          "desc": "For your group of friends: a whole dome or rooms in the Stone Refuge just for you, firepit, river and mountains to disconnect from screens.",
+          "wa": "Hi! We want to come to Pueblo Mágico as a group. What accommodation options do you have?"
         },
         {
           "title": "The world citizen",

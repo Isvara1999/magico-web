@@ -51,8 +51,7 @@ export const ESTADIA_PRICES = {
   // Alojamiento + desayuno — por persona/noche. Comidas y Reset Vital presencial se suman aparte.
   carpaDesde: 20000,        // Camping
   ecoRefugioDesde: 35000,   // Habitación compartida o Domo geodésico compartido
-  domoPrivado: 50000,       // Domo privado — por persona, de 2 a 7 personas
-  domoPrivadoSolo: 100000,  // Domo privado para 1 persona sola — precio por noche, con desayuno
+  domoPrivado: 50000,       // Domo privado — por persona, de 2 a 7 personas (no se ofrece para 1 persona sola)
 
   // Gastronomía — menú del día, por persona/día
   almuerzo: 20000,
@@ -63,7 +62,17 @@ export const ESTADIA_PRICES = {
   pensionCompletaEcoRefugio: 60000,
   pensionCompletaDomoPrivado: 75000,
 
-  // Reset Vital presencial — upgrade sobre el programa digital (incluido) · tarifa única por persona (no por día)
+  // Fin de semana (noches de viernes y sábado) — solo se vende con pensión
+  // completa. Precio por persona/noche. El resto de la semana usa los valores
+  // de arriba. Cálculo noche por noche en ./pricing.ts.
+  pensionFinde: {
+    carpa: 45000,
+    ecoRefugio: 75000,              // Refugio de Piedra o domo compartido
+    domoPrivadoUnaNoche: 120000,    // una sola noche de finde
+    domoPrivadoDosNoches: 95000,    // viernes + sábado del mismo finde, c/u
+  },
+
+  // Reset Vital presencial — upgrade sobre el programa digital (incluido) · por persona por día de estadía
   resetVitalPresencial: 5000,
 };
 

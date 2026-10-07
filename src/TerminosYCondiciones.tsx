@@ -151,7 +151,7 @@ export const TerminosYCondiciones: React.FC = () => {
             Dentro de las 24 horas hábiles de recibida la solicitud, confirmaremos la cancelación por escrito (WhatsApp o email) con un número de referencia para que quede constancia. No se cobrarán costos adicionales, salvo gastos vinculados a servicios ya prestados.
           </p>
           <p>
-            Una vez iniciado el servicio (check-in realizado), el derecho de arrepentimiento no se aplica en su totalidad; solo podrá solicitarse la devolución proporcional a la parte del servicio no utilizada, conforme a la política de cancelación vigente.
+            Una vez iniciado el servicio (check-in realizado), el derecho de arrepentimiento ya no se aplica y rige la política de salida anticipada de la Sección 6: no corresponde devolución por la parte del servicio no utilizada.
           </p>
         </Section>
 
@@ -160,15 +160,21 @@ export const TerminosYCondiciones: React.FC = () => {
             <strong>Cancelación por parte del cliente:</strong>
           </p>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Con más de 10 días corridos de anticipación: cancelación sin cargo o reprogramación sin costo.</li>
-            <li>Entre 5 y 10 días corridos de anticipación: se retiene el 50% del anticipo abonado.</li>
-            <li>Con menos de 5 días corridos de anticipación: se retiene el 100% del anticipo abonado.</li>
+            <li>Con más de 10 días corridos de anticipación: cancelación con devolución del anticipo, o reprogramación sin costo.</li>
+            <li>Entre 5 y 10 días corridos de anticipación: se retiene el 50% del anticipo abonado, o se puede reprogramar sin costo según el punto "Modificación de fechas".</li>
+            <li>Con menos de 5 días corridos de anticipación: se retiene el 100% del anticipo abonado y la reserva no puede reprogramarse.</li>
           </ul>
           <p>
             <strong>Ausencia sin aviso previo:</strong> Si el/la huésped no se presenta en la fecha pactada sin haber comunicado cancelación o demora, se perderá el anticipo abonado y la reserva quedará cancelada automáticamente.
           </p>
           <p>
-            <strong>Modificación de fechas:</strong> sujeta a disponibilidad y sin costo adicional si se solicita con más de 10 días de anticipación. En todos los casos, las reprogramaciones de fecha o ajustes en las comidas deben solicitarse con un mínimo de 24 horas de anticipación; vencido ese plazo, la reserva no podrá modificarse.
+            <strong>Modificación de fechas:</strong> sujeta a disponibilidad y sin costo adicional si se solicita con un mínimo de 5 días corridos de anticipación. La nueva fecha debe quedar dentro de la misma temporada (hasta 3 meses desde la fecha original). Vencido ese plazo, la reserva no podrá modificarse.
+          </p>
+          <p>
+            <strong>Comidas:</strong> pueden sumarse hasta 4 horas antes y darse de baja hasta 48 horas antes. Vencido ese plazo, se abonan según lo reservado.
+          </p>
+          <p>
+            <strong>Saldo y salida anticipada:</strong> el saldo pendiente de la reserva se abona al momento del check-in. Una vez realizado el check-in, si el/la huésped decide retirarse antes de la fecha de salida pactada, por cualquier motivo, deberá abonar el total de la reserva original. Las noches, comidas y servicios no utilizados no son reembolsables ni acumulables.
           </p>
           <p>
             Las políticas anteriores no afectan el derecho de arrepentimiento regulado en la Sección 5, que prevalece en su plazo legal.

@@ -63,7 +63,7 @@ export async function onRequestPost({ request, env }: any) {
     return json({ error: 'Fechas inválidas: fecha_salida debe ser posterior a fecha_entrada.' }, 400, headers);
   }
 
-  const precio = calcularPrecio(tipo_alojamiento, personas, noches);
+  const precio = calcularPrecio(tipo_alojamiento, personas, fecha_entrada, fecha_salida);
   if ('error' in precio) {
     return json({ error: precio.error }, 400, headers);
   }

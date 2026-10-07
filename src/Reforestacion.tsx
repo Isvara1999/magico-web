@@ -146,9 +146,9 @@ const Reforestacion: React.FC = () => {
     content.contribution.confirmationWhatsappMessage.replace('{method}', contributionMethodLabels[selectedContributionMethod]),
   )}`;
   const corporateWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.corporate.whatsappMessage)}`;
-  // La rifa usa la misma cuenta y suma a la misma meta que el aporte libre.
-  // "RIFA" dispara la respuesta automática de WhatsApp con los datos.
-  const raffleWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.raffle.whatsappMessage)}`;
+  // El voucher solidario usa la misma cuenta y suma a la misma meta que el aporte libre.
+  // "VOUCHER" es la palabra clave para la respuesta automática de WhatsApp.
+  const voucherWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.voucher.whatsappMessage)}`;
   const giftWhatsappUrl = `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(content.gift.whatsappMessage)}`;
   const shareWhatsappUrl = `https://wa.me/?text=${encodeURIComponent(content.share.message.replace('{url}', SITE_URL + ROUTES.REFORESTACION))}`;
   const { treePrice, donorsCount } = REFORESTATION_CONTRIBUTION;
@@ -505,9 +505,9 @@ const Reforestacion: React.FC = () => {
                     {daysLeft === 0 ? content.hero.lastDay : content.hero.daysLeft.replace('{days}', String(daysLeft))}
                   </span>
                 )}
-                <a href="#rifa" className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-brand transition-opacity hover:opacity-90">
+                <a href="#voucher" className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-brand transition-opacity hover:opacity-90">
                   <Ticket size={14} aria-hidden="true" />
-                  {content.hero.raffleBadge}
+                  {content.hero.voucherBadge}
                 </a>
                 {donorsCount > 0 && (
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5">
@@ -801,28 +801,28 @@ const Reforestacion: React.FC = () => {
             </div>
 
             <div data-reveal data-delay="2">
-              <div id="rifa" className="mb-10 scroll-mt-28 overflow-hidden rounded-2xl border-2 border-gold/70 bg-white shadow-[0_20px_65px_rgba(212,175,55,0.16)]">
+              <div id="voucher" className="mb-10 scroll-mt-28 overflow-hidden rounded-2xl border-2 border-gold/70 bg-white shadow-[0_20px_65px_rgba(212,175,55,0.16)]">
                 <div className="grid min-w-0 lg:grid-cols-[1fr_1fr]">
                   <div className="min-w-0 bg-brand p-7 text-white md:p-10">
                     <p className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-gold">
                       <Ticket size={16} aria-hidden="true" />
-                      {content.raffle.eyebrow}
+                      {content.voucher.eyebrow}
                     </p>
-                    <h3 className="mb-4 font-serif text-3xl leading-tight md:text-4xl">{content.raffle.title}</h3>
-                    <p className="mb-7 font-light leading-relaxed text-white/70">{content.raffle.description}</p>
+                    <h3 className="mb-4 font-serif text-3xl leading-tight md:text-4xl">{content.voucher.title}</h3>
+                    <p className="mb-7 font-light leading-relaxed text-white/70">{content.voucher.description}</p>
                     <div className="mb-7 grid grid-cols-2 gap-3">
-                      {content.raffle.priceOptions.map((option: { label: string; price: string }) => (
-                        <div key={option.label} className="rounded-xl border border-gold/40 bg-white/[0.06] p-4 text-center">
+                      {content.voucher.priceOptions.map((option: { label: string; price: string }) => (
+                        <div key={option.price} className="rounded-xl border border-gold/40 bg-white/[0.06] p-4 text-center">
                           <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">{option.label}</p>
                           <p className="mt-1 font-serif text-2xl text-gold md:text-3xl">{option.price}</p>
                           <p className="mt-1 text-xs font-semibold text-white/75">
-                            {content.raffle.treesEquivalent.replace('{trees}', formatTrees(Number(option.price.replace(/\D/g, ''))))}
+                            {content.voucher.treesEquivalent.replace('{trees}', formatTrees(Number(option.price.replace(/\D/g, ''))))}
                           </p>
                         </div>
                       ))}
                     </div>
                     <div className="space-y-3 text-white/80">
-                      {content.raffle.benefits.map((benefit: string) => (
+                      {content.voucher.benefits.map((benefit: string) => (
                         <p key={benefit} className="flex gap-3 leading-relaxed">
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold"><Check size={15} aria-hidden="true" /></span>
                           <span className="pt-0.5">{benefit}</span>
@@ -832,18 +832,9 @@ const Reforestacion: React.FC = () => {
                   </div>
 
                   <div className="min-w-0 p-7 md:p-10">
-                    <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand/60">{content.raffle.prizesTitle}</p>
-                    <ul className="mb-8 space-y-3">
-                      {content.raffle.prizes.map((prize: { place: string; text: string }) => (
-                        <li key={prize.place} className="flex items-center gap-4 rounded-xl border border-brand/10 bg-bone/50 p-4">
-                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold font-serif text-base font-semibold text-brand">{prize.place}</span>
-                          <span className="font-medium leading-snug text-dark">{prize.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand/60">{content.raffle.stepsTitle}</p>
+                    <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand/60">{content.voucher.stepsTitle}</p>
                     <ol className="mb-5 space-y-3">
-                      {content.raffle.steps.map((step: string, index: number) => (
+                      {content.voucher.steps.map((step: string, index: number) => (
                         <li key={step} className="flex gap-3 leading-relaxed text-gray-600">
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">{index + 1}</span>
                           <span className="pt-0.5">{step}</span>
@@ -869,14 +860,14 @@ const Reforestacion: React.FC = () => {
                         </button>
                       </div>
                     )}
-                    <a href={raffleWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
+                    <a href={voucherWhatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold btn-icon-inline w-full">
                       <MessageCircle size={18} aria-hidden="true" />
-                      {content.raffle.cta}
+                      {content.voucher.cta}
                     </a>
                   </div>
                 </div>
               </div>
-              <p className="mb-5 text-center font-serif text-2xl text-brand">{content.raffle.orLabel}</p>
+              <p className="mb-5 text-center font-serif text-2xl text-brand">{content.voucher.orLabel}</p>
             </div>
 
             <div data-reveal data-delay="2" className="overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-[0_20px_65px_rgba(0,83,51,0.08)]">
