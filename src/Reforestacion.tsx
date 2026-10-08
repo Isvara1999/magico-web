@@ -789,7 +789,7 @@ const Reforestacion: React.FC = () => {
                 </div>
                 <div>
                   <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2 text-brand">
-                    <p><span className="font-serif text-3xl md:text-4xl">{currencyFormatter.format(raisedAmount)}</span> <span className="text-sm text-gray-500">{content.funding.currentLabel.toLowerCase()}</span></p>
+                    <p><span className="font-serif text-3xl md:text-4xl">{currencyFormatter.format(displayedRaisedAmount)}</span> <span className="text-sm text-gray-500">{content.funding.currentLabel.toLowerCase()}</span></p>
                     <p className="text-sm font-semibold">{displayedPercentage}% · {currencyFormatter.format(displayedPhaseOneGoal)}</p>
                   </div>
                   <div className="h-4 overflow-hidden rounded-full bg-brand/10" role="progressbar" aria-label={content.funding.progressLabel} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.min(100, displayedPercentage)}>

@@ -77,3 +77,12 @@ test('English content does not expose Argentine-peso price copy', async () => {
   assert.match(content.hero.reservationPricing, /USD 15/);
   assert.match(content.reforestation.funding.phases[2].goal, /USD 10,000/);
 });
+
+test('Reforestation progress surfaces use language-specific monetary values', async () => {
+  const source = await readFile(new URL('../src/Reforestacion.tsx', import.meta.url), 'utf8');
+
+  assert.doesNotMatch(source, /currencyFormatter\.format\(raisedAmount\)/);
+  assert.doesNotMatch(source, /currencyFormatter\.format\(phaseOneGoal\)/);
+  assert.match(source, /currencyFormatter\.format\(displayedRaisedAmount\)/);
+  assert.match(source, /currencyFormatter\.format\(displayedPhaseOneGoal\)/);
+});
