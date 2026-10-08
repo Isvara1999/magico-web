@@ -217,8 +217,8 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     if (g) g.n++; else acc.push({ precio: n.precio, n: 1 });
     return acc;
   }, []);
-  // Seña para congelar tarifa: 50% si el total es ≤ $100.000, 30% si es mayor.
-  const senaPct      = total > 0 && total <= 100_000 ? 50 : 30;
+  // Seña del 50% para congelar la tarifa; el otro 50% se abona a más tardar al llegar.
+  const senaPct      = 50;
   const senaMonto    = Math.round(total * senaPct / 100);
   const tipoLabel    = tipoEfectivo === 'domo' ? b.domoFull : tipoEfectivo === 'refugio' ? b.refugioFull : b.carpaFull;
   // Camping no tiene compartida/privada: solo se indica el régimen de comidas

@@ -122,16 +122,16 @@ export const TerminosYCondiciones: React.FC = () => {
             <li>Datos de contacto.</li>
           </ul>
           <p>
-            El prestador responderá dentro de las 24 a 48 horas hábiles con disponibilidad y propuesta de precio. La reserva quedará confirmada una vez abonado el anticipo requerido (cuando corresponda) dentro del plazo indicado en la propuesta.
+            El prestador responderá dentro de las 24 a 48 horas hábiles con disponibilidad y propuesta de precio. La reserva quedará confirmada una vez abonada la seña del 50% del total dentro del plazo indicado en la propuesta.
           </p>
           <p>
             El check-in se realiza a partir de las 13:00 hs y el check-out hasta las 11:00 hs, salvo acuerdo previo.
           </p>
           <p>
-            <strong>Horarios de comidas:</strong> desayuno de 09:00 a 10:00 hs, almuerzo de 14:00 a 15:00 hs y cena de 20:00 a 21:00 hs. Fuera de esos horarios no se presta servicio de cocina; quienes ingresen a partir de las 19:00 hs cuentan con el servicio de cena en su horario habitual. Las comidas no consumidas por llegadas tardías sin aviso previo no son acumulables ni reembolsables.
+            <strong>Horarios de comidas:</strong> desayuno de 09:00 a 10:00 hs, almuerzo de 13:00 a 14:00 hs y cena de 20:00 a 21:00 hs. Fuera de esos horarios no se presta servicio de cocina; quienes ingresen a partir de las 19:00 hs cuentan con el servicio de cena en su horario habitual. Las comidas no consumidas por llegadas tardías sin aviso previo no son acumulables ni reembolsables.
           </p>
           <p>
-            En caso de haber abonado un anticipo, el saldo pendiente deberá cancelarse a más tardar al momento del check-out.
+            El 50% restante deberá abonarse a más tardar al momento del check-in.
           </p>
         </Section>
 
@@ -174,7 +174,7 @@ export const TerminosYCondiciones: React.FC = () => {
             <strong>Comidas:</strong> pueden sumarse hasta 4 horas antes y darse de baja hasta 48 horas antes. Vencido ese plazo, se abonan según lo reservado.
           </p>
           <p>
-            <strong>Saldo y salida anticipada:</strong> el saldo pendiente de la reserva se abona al momento del check-in. Una vez realizado el check-in, si el/la huésped decide retirarse antes de la fecha de salida pactada, por cualquier motivo, deberá abonar el total de la reserva original. Las noches, comidas y servicios no utilizados no son reembolsables ni acumulables.
+            <strong>Saldo y salida anticipada:</strong> la reserva se confirma con una seña del 50% y el 50% restante se abona a más tardar al momento del check-in. Una vez realizado el check-in, si el/la huésped decide retirarse antes de la fecha de salida pactada, por cualquier motivo, deberá abonar el total de la reserva original. Las noches, comidas y servicios no utilizados no son reembolsables ni acumulables.
           </p>
           <p>
             Las políticas anteriores no afectan el derecho de arrepentimiento regulado en la Sección 5, que prevalece en su plazo legal.

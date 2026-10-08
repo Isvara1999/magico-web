@@ -61,7 +61,7 @@
         "pocosLugares": "⚡ Pocos lugares para {month}",
         "ultimosLugares": "🔥 Últimos lugares para {month}"
       },
-      "senaNote": "Seña para congelar la tarifa: ${monto} ({pct}% del total) · el resto se abona al llegar",
+      "senaNote": "Seña para congelar la tarifa: ${monto} ({pct}% del total) · el otro 50% se abona a más tardar al llegar",
       "clear": "limpiar",
       "confirmWhatsapp": "Confirmar por WhatsApp",
       "checkAvailability": "Consultar disponibilidad",
@@ -2808,7 +2808,7 @@
         "pocosLugares": "⚡ Limited spots left for {month}",
         "ultimosLugares": "🔥 Last spots left for {month}"
       },
-      "senaNote": "Deposit to lock in the rate: ${monto} ({pct}% of the total) · balance due on arrival",
+      "senaNote": "Deposit to lock in the rate: ${monto} ({pct}% of the total) · the other 50% is due on arrival at the latest",
       "clear": "clear",
       "confirmWhatsapp": "Confirm via WhatsApp",
       "checkAvailability": "Check availability",

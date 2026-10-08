@@ -453,7 +453,7 @@ const HorariosPension: React.FC = () => (
         <div className="bg-gold/5 border border-gold/20 rounded-xl px-5 py-4 mt-3">
           <p className="text-brand font-semibold text-sm mb-1">Saldo y cambios de fecha</p>
           <p className="text-dark/60 text-xs leading-relaxed">
-            Si confirmaste tu reserva, el saldo pendiente se abona al momento del check-in. Comidas: podés sumarlas hasta 4 hs antes y darlas de baja hasta 48 hs antes. Cambios de fecha: hasta 5 días antes, para otra fecha dentro de la misma temporada (3 meses). Si te vas antes de terminar tu estadía, se abona el total de la reserva original. Política completa de cancelación en{' '}
+            Reservás con una seña del 50% y el otro 50% se abona a más tardar al llegar (check-in). Comidas: podés sumarlas hasta 4 hs antes y darlas de baja hasta 48 hs antes. Cambios de fecha: hasta 5 días antes, para otra fecha dentro de la misma temporada (3 meses). Si te vas antes de terminar tu estadía, se abona el total de la reserva original. Política completa de cancelación en{' '}
             <a href="/terminos-y-condiciones" className="text-brand underline">Términos y Condiciones</a>.
           </p>
         </div>

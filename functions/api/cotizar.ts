@@ -70,7 +70,8 @@ export async function onRequestPost({ request, env }: any) {
 
   const { estado } = await chequearDisponibilidad(env.DB, tipo_alojamiento, personas, fecha_entrada, fecha_salida);
 
-  const senaPorcentaje = precio.subtotal <= 100000 ? 0.5 : 0.3;
+  // Seña del 50%; el otro 50% se abona a más tardar al llegar.
+  const senaPorcentaje = 0.5;
   const montoSena = Math.round(precio.subtotal * senaPorcentaje);
   const saldoCheckin = precio.subtotal - montoSena;
 
