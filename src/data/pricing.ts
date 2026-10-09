@@ -6,16 +6,13 @@
  * Días de semana: con desayuno o pensión completa, según elija la persona.
  * Fin de semana (noches de viernes y sábado): siempre pensión completa.
  */
-import { ESTADIA_PRICES as P } from './retreats';
+import { getEstadiaPrices, type PricingLanguage } from './retreats';
 
 export type AlojamientoTarifa = 'carpa' | 'compartida' | 'domoPrivado' | 'refugioPrivado';
 
 export type NochePrecio = { iso: string; finde: boolean; precio: number };
 
 // Refugio privado para 1-2 personas (de 3 en adelante es tarifa compartida).
-const REFUGIO_PRIVADO = 75_000;
-const EXTRA_PENSION = P.pensionCompletaEcoRefugio - P.ecoRefugioDesde;
-
 function sumarDias(iso: string, n: number): string {
   const d = new Date(`${iso}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + n);
@@ -35,37 +32,43 @@ export function nochesDeEstadia(llegada: string, salida: string): string[] {
   return noches;
 }
 
-function precioSemana(aloj: AlojamientoTarifa, conPension: boolean): number {
+function precioSemana(aloj: AlojamientoTarifa, conPension: boolean, language: PricingLanguage): number {
+  const prices = getEstadiaPrices(language);
+  const refugioPrivado = language === 'en' ? 50 : 75_000;
+  const extraPension = prices.pensionCompletaEcoRefugio - prices.ecoRefugioDesde;
   switch (aloj) {
-    case 'carpa':          return conPension ? P.pensionCompletaCarpa : P.carpaDesde;
-    case 'compartida':     return conPension ? P.pensionCompletaEcoRefugio : P.ecoRefugioDesde;
-    case 'domoPrivado':    return conPension ? P.pensionCompletaDomoPrivado : P.domoPrivado;
-    case 'refugioPrivado': return REFUGIO_PRIVADO + (conPension ? EXTRA_PENSION : 0);
+    case 'carpa':          return conPension ? prices.pensionCompletaCarpa : prices.carpaDesde;
+    case 'compartida':     return conPension ? prices.pensionCompletaEcoRefugio : prices.ecoRefugioDesde;
+    case 'domoPrivado':    return conPension ? prices.pensionCompletaDomoPrivado : prices.domoPrivado;
+    case 'refugioPrivado': return refugioPrivado + (conPension ? extraPension : 0);
   }
 }
 
 // Domo privado el finde: $120.000 si es una sola noche, $95.000 c/u si la
 // estadía incluye viernes y sábado del mismo finde.
-function precioFinde(aloj: AlojamientoTarifa, iso: string, noches: Set<string>): number {
+function precioFinde(aloj: AlojamientoTarifa, iso: string, noches: Set<string>, language: PricingLanguage): number {
+  const prices = getEstadiaPrices(language);
+  const refugioPrivado = language === 'en' ? 50 : 75_000;
+  const extraPension = prices.pensionCompletaEcoRefugio - prices.ecoRefugioDesde;
   switch (aloj) {
-    case 'carpa':      return P.pensionFinde.carpa;
-    case 'compartida': return P.pensionFinde.ecoRefugio;
+    case 'carpa':      return prices.pensionFinde.carpa;
+    case 'compartida': return prices.pensionFinde.ecoRefugio;
     case 'domoPrivado': {
       const pareja = new Date(`${iso}T00:00:00Z`).getUTCDay() === 5 ? sumarDias(iso, 1) : sumarDias(iso, -1);
-      return noches.has(pareja) ? P.pensionFinde.domoPrivadoDosNoches : P.pensionFinde.domoPrivadoUnaNoche;
+      return noches.has(pareja) ? prices.pensionFinde.domoPrivadoDosNoches : prices.pensionFinde.domoPrivadoUnaNoche;
     }
     // Sin tarifa de finde propia: se mantiene la de pensión completa de semana
     // (ya está por encima de la compartida de finde).
-    case 'refugioPrivado': return REFUGIO_PRIVADO + EXTRA_PENSION;
+    case 'refugioPrivado': return refugioPrivado + extraPension;
   }
 }
 
 /** Precio por persona de cada noche de la estadía. */
-export function preciosPorNoche(aloj: AlojamientoTarifa, llegada: string, salida: string, conPension: boolean): NochePrecio[] {
+export function preciosPorNoche(aloj: AlojamientoTarifa, llegada: string, salida: string, conPension: boolean, language: PricingLanguage = 'es'): NochePrecio[] {
   const noches = nochesDeEstadia(llegada, salida);
   const set = new Set(noches);
   return noches.map(iso => {
     const finde = esNocheFinde(iso);
-    return { iso, finde, precio: finde ? precioFinde(aloj, iso, set) : precioSemana(aloj, conPension) };
+    return { iso, finde, precio: finde ? precioFinde(aloj, iso, set, language) : precioSemana(aloj, conPension, language) };
   });
 }

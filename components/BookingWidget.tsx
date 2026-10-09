@@ -4,6 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { WA_MAGICO } from '../src/data/config';
 import { BLOCKED_DATES_DOMO, BLOCKED_DATES_REFUGIO, RETIRO_DATES_DOMO, RETIRO_DATES_REFUGIO, DOMO_DISPONIBLE_DESDE, DOMO_FINDES_A_CONSULTAR, MONTHLY_URGENCY } from '../src/data/availability';
 import { preciosPorNoche, type AlojamientoTarifa } from '../src/data/pricing';
+import { formatPrice } from '../src/data/retreats';
 
 // ── Constantes ────────────────────────────────────────────────────────────────
 // Las etiquetas salen de booking.months en data.json (mismo orden y largo).
@@ -72,7 +73,7 @@ function fillTemplate(tpl: string, vars: Record<string, string>) {
 
 // ── Widget ────────────────────────────────────────────────────────────────────
 export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const b = (t as any).booking;
   const MONTHS = MONTH_DATES.map((d, i) => ({ ...d, label: b.months[i].label, short: b.months[i].short }));
 
@@ -203,8 +204,8 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
     : retiroByTipo[tipoEfectivo].includes(start));
 
   const nights       = start && end ? nightsBetween(start, end) : 0;
-  const noches       = start && end ? preciosPorNoche(alojTarifa, start, end, conPension) : [];
-  const nochesBase   = start && end ? preciosPorNoche(esCarpa ? 'carpa' : 'compartida', start, end, conPension) : [];
+  const noches       = start && end ? preciosPorNoche(alojTarifa, start, end, conPension, language) : [];
+  const nochesBase   = start && end ? preciosPorNoche(esCarpa ? 'carpa' : 'compartida', start, end, conPension, language) : [];
   const sumar        = (ns: { precio: number }[]) => ns.reduce((acc, n) => acc + n.precio, 0);
   const totalPorPersona = sumar(noches);
   // Diferencia promedio por noche contra la tarifa compartida de las mismas noches.
@@ -448,18 +449,18 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
               </p>
               <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>
                 {gruposPrecio.length === 1
-                  ? `$${gruposPrecio[0].precio.toLocaleString('es-AR')}/${b.perPersonPerNight}`
-                  : `${gruposPrecio.map(g => fillTemplate(b.nightsAt, { nights: plural(g.n, b.nightWord), precio: g.precio.toLocaleString('es-AR') })).join(' + ')} (${b.perPersonPerNight})`}
+                  ? `${formatPrice(gruposPrecio[0].precio, language)}/${b.perPersonPerNight}`
+                  : `${gruposPrecio.map(g => fillTemplate(b.nightsAt, { nights: plural(g.n, b.nightWord), precio: formatPrice(g.precio, language) })).join(' + ')} (${b.perPersonPerNight})`}
               </p>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <p style={{ fontWeight: 700, fontSize: 17, color: G.green, margin: 0 }}>${total.toLocaleString('es-AR')}</p>
+              <p style={{ fontWeight: 700, fontSize: 17, color: G.green, margin: 0 }}>{formatPrice(total, language)}</p>
               <button onClick={clear} style={{ fontSize: 11, color: '#94a3b8', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>{b.clear}</button>
             </div>
           </div>
           {!esCarpa && diferenciaPorPersona < 0 && (
             <p style={{ fontSize: 10, fontWeight: 700, color: G.green, margin: '6px 0 0' }}>
-              {fillTemplate(b.discountApplied, { ahorro: Math.abs(diferenciaPorPersona).toLocaleString('es-AR') })}
+              {fillTemplate(b.discountApplied, { ahorro: formatPrice(Math.abs(diferenciaPorPersona), language) })}
             </p>
           )}
           {!esCarpa && diferenciaPorPersona === 0 && habitacionEfectiva === 'privada' && (
@@ -467,11 +468,11 @@ export const BookingWidget: React.FC<{ compact?: boolean }> = ({ compact = false
           )}
           {!esCarpa && diferenciaPorPersona > 0 && (
             <p style={{ fontSize: 10, fontWeight: 600, color: G.muted, margin: '6px 0 0' }}>
-              {fillTemplate(b.privacySurcharge, { extra: diferenciaPorPersona.toLocaleString('es-AR') })}
+              {fillTemplate(b.privacySurcharge, { extra: formatPrice(diferenciaPorPersona, language) })}
             </p>
           )}
           <p style={{ fontSize: 10, color: '#94a3b8', margin: '6px 0 0', paddingTop: 6, borderTop: '1px solid rgba(0,83,51,0.08)' }}>
-            {fillTemplate(b.senaNote, { monto: senaMonto.toLocaleString('es-AR'), pct: String(senaPct) })}
+            {fillTemplate(b.senaNote, { monto: formatPrice(senaMonto, language), pct: String(senaPct) })}
           </p>
         </div>
       )}
