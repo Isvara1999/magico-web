@@ -55,22 +55,27 @@ const C = {
   faint:   '#8B6347',
 };
 
-const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string }[] = [
+// Primera edición: las fotos con personas de la portada y del río son
+// ilustrativas (IA sobre paisajes reales del lugar) y lo decimos en la foto.
+const NOTA_IA = 'Imagen ilustrativa creada con IA sobre paisajes reales de Pueblo Mágico · es la primera edición';
+
+const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string; ilustrativa?: boolean; inset?: { src: string; alt: string } }[] = [
   {
     Icon: Car, color: C.faint, hora: 'Desde las 10', title: 'Llegada',
     text: 'Llegás y te acomodás.',
-    photo: '/uploads/campoentero.webp', alt: 'Vista aérea de Pueblo Mágico entre las sierras',
+    photo: '/uploads/sunset-rio-refugio-jardin.webp', alt: 'Visitantes en el jardín del refugio de piedra de Pueblo Mágico',
   },
   {
-    // FOTO PROVISORIA: reemplazar por una de gente en el agua apenas la tengamos.
     Icon: Waves, color: C.river, hora: 'Mediodía y tarde', title: 'Río',
     text: 'Caminata tranqui de unos 20 minutos, almuerzo en el río y la tarde en el agua, con sombra armada.',
-    photo: '/uploads/sunset-rio-pozon.webp', alt: 'Pozón de río en las sierras de Los Gigantes',
+    photo: '/uploads/sunset-rio-amigos-rio.webp', alt: 'Amigos con los pies en el agua sobre las piedras del río',
+    ilustrativa: true,
+    inset: { src: '/uploads/sunset-rio-pozon.webp', alt: 'El pozón real del río, entre piedras y pastizal' },
   },
   {
     Icon: Coffee, color: C.green, hora: 'A la vuelta', title: 'Merienda',
-    text: 'Mate o tereré mientras se arma el atardecer.',
-    photo: '/uploads/sunset-rio-mate.webp', alt: 'Mate y termo al aire libre junto al agua',
+    text: 'Mate o tereré mientras se arma el atardecer. Y para refrescar, agua con cítricos y limonada.',
+    photo: '/uploads/sunset-rio-jarras.webp', alt: 'Jarras de agua con naranja y menta sobre la mesa de madera',
   },
   {
     Icon: Sunset, color: C.sunset, hora: 'Cae el sol', title: 'Atardecer',
@@ -80,7 +85,7 @@ const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; te
   {
     Icon: Flame, color: C.ember, hora: 'A la noche', title: 'Fogón',
     text: 'Cena casera y guitarreada.',
-    photo: '/uploads/fogon_nocturno.webp', alt: 'Fogón nocturno en Pueblo Mágico',
+    photo: '/uploads/sunset-rio-fogon-real.webp', alt: 'Ronda alrededor del fogón con tambor en Pueblo Mágico',
   },
 ];
 
@@ -331,7 +336,7 @@ const SunsetRio: React.FC = () => {
           <div className="grid grid-cols-3 gap-2 md:gap-3">
             {[
               { src: '/uploads/hero-estadia.webp', alt: 'Refugio de piedra al atardecer', label: 'Habitación' },
-              { src: '/uploads/domos_2.jpg', alt: 'Domos geodésicos', label: 'Domo' },
+              { src: '/uploads/sunset-rio-domo.webp', alt: 'Huéspedes charlando en el deck del domo', label: 'Domo' },
               { src: '/uploads/exterior.webp', alt: 'Zona de camping entre árboles', label: 'Carpa' },
             ].map(p => (
               <figure key={p.label} className="relative rounded-xl overflow-hidden">
@@ -340,6 +345,10 @@ const SunsetRio: React.FC = () => {
               </figure>
             ))}
           </div>
+          <figure className="relative mt-3 rounded-xl overflow-hidden">
+            <img src={img('/uploads/sunset-rio-mate-domo.webp', 800)} alt="Ronda de mate y charla en el domo" className="w-full aspect-[5/2] object-cover object-[center_35%]" loading="lazy" />
+            <figcaption className="absolute bottom-0 inset-x-0 px-3 py-2 text-xs font-semibold text-white" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }}>Mate y charla en el domo</figcaption>
+          </figure>
         </>
       ),
     },
@@ -384,15 +393,19 @@ const SunsetRio: React.FC = () => {
 
       {/* ── HERO ── */}
       <section className="relative h-[100svh] min-h-[640px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden">
-        <div className="absolute inset-0 md:hidden" style={{ backgroundImage: `url(${img('/uploads/img_8475.webp', 1200)})`, backgroundSize: 'cover', backgroundPosition: '70% center' }} />
-        <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero-amigos.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: '72% center' }} />
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none md:hidden"
           style={{ background: 'linear-gradient(to top, rgba(26,18,12,0.97) 0%, rgba(26,18,12,0.7) 40%, rgba(90,35,10,0.25) 75%, rgba(90,35,10,0.1) 100%)' }}
         />
+        <div
+          className="absolute inset-0 pointer-events-none hidden md:block"
+          style={{ background: 'linear-gradient(to right, rgba(26,18,12,0.92) 0%, rgba(26,18,12,0.7) 35%, rgba(90,35,10,0.15) 65%, rgba(90,35,10,0) 100%)' }}
+        />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col md:items-center md:text-center">
-          <div className="flex flex-row flex-wrap items-center md:justify-center gap-2 mb-5">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col">
+          <div className="md:max-w-xl flex flex-col">
+          <div className="flex flex-row flex-wrap items-center gap-2 mb-5">
             {['Fin de octubre', 'Los Gigantes, Córdoba', 'Río + atardecer', 'Con amigos o solo/a', 'Caminatas de 20 min', 'Cupo: 30 personas'].map((chip, i) => (
               <span
                 key={chip}
@@ -410,15 +423,19 @@ const SunsetRio: React.FC = () => {
             Sunset <span style={{ color: '#F4A261' }}>y</span> Río
           </h1>
           <p className="text-white/70 text-lg md:text-2xl serif-title italic mt-2 mb-5">en la montaña</p>
-          <p className="text-white/75 text-sm md:text-lg leading-relaxed max-w-lg md:max-w-2xl mb-7 md:mb-10">
+          <p className="text-white/75 text-sm md:text-lg leading-relaxed max-w-lg mb-7 md:mb-10">
             Un sábado de río, el sol cayendo con música y un fogón con guitarreada a la noche. A 90 km de Córdoba. Vení con tus amigos o venite solo o sola: a la noche van a estar todos alrededor del mismo fuego.
           </p>
 
-          <a href="#fecha" className="btn-gold text-sm py-4 px-8 inline-block self-start md:self-auto">
+          <a href="#fecha" className="btn-gold text-sm py-4 px-8 inline-block self-start">
             Quiero ir · elegí tu fecha
           </a>
           <p className="text-white/50 text-xs mt-3 italic">Estamos eligiendo entre dos findes. Hacemos el que más gente elija.</p>
+          </div>
         </div>
+        <p className="absolute z-10 bottom-2 right-3 md:right-5 max-w-[16rem] md:max-w-none text-right text-[9px] md:text-[10px] text-white/55 leading-tight">
+          {NOTA_IA}
+        </p>
       </section>
 
       {/* ── PRUEBA SOCIAL ── */}
@@ -453,13 +470,25 @@ const SunsetRio: React.FC = () => {
               mobileItemClassName="w-[78vw] sm:w-[55vw]"
               gapClassName="gap-4"
             >
-              {SABADO.map(({ Icon, color, hora, title, text, photo, alt }, i) => (
+              {SABADO.map(({ Icon, color, hora, title, text, photo, alt, ilustrativa, inset }, i) => (
                 <article key={title} className="group h-full rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: `${color}22`, backgroundColor: `${color}06` }}>
                   <div className="relative overflow-hidden">
                     <img src={img(photo, 700)} alt={alt} className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                     <span className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: color }}>
                       {i + 1}
                     </span>
+                    {/* Toma real del lugar junto a la foto ilustrativa */}
+                    {inset && (
+                      <figure className="absolute top-3 right-3 w-[38%] rounded-lg overflow-hidden border-2 border-white shadow-lg">
+                        <img src={img(inset.src, 300)} alt={inset.alt} className="w-full aspect-square object-cover" loading="lazy" />
+                        <figcaption className="absolute bottom-0 inset-x-0 text-center text-[9px] font-bold uppercase tracking-wider text-white py-0.5" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }}>El río real</figcaption>
+                      </figure>
+                    )}
+                    {ilustrativa && (
+                      <p className="absolute bottom-0 inset-x-0 px-2.5 py-1 text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
+                        {NOTA_IA}
+                      </p>
+                    )}
                   </div>
                   <div className="p-5 flex-1">
                     <p className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase font-bold mb-1.5" style={{ color }}>
@@ -484,13 +513,19 @@ const SunsetRio: React.FC = () => {
                   <h3 className="text-xl serif-title" style={{ color: C.dark }}>Domingo</h3>
                 </div>
               </div>
-              <ul className="space-y-2 max-w-3xl">
-                {DOMINGO.map(item => (
-                  <li key={item} className="flex items-start gap-2 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-                    <span className="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />{item}
-                  </li>
-                ))}
-              </ul>
+              <div className="grid md:grid-cols-[1fr_22rem] lg:grid-cols-[1fr_26rem] gap-6 md:gap-8 items-start">
+                <ul className="space-y-2">
+                  {DOMINGO.map(item => (
+                    <li key={item} className="flex items-start gap-2 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+                      <span className="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.green }} />{item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="grid grid-cols-2 gap-3">
+                  <img src={img('/uploads/sunset-rio-rio-real.webp', 500)} alt="Descanso en el agua del río, sobre la piedra" className="w-full aspect-[3/4] object-cover rounded-xl" loading="lazy" />
+                  <img src={img('/uploads/sunset-rio-ventanal.webp', 500)} alt="Pausa tranquila junto al ventanal del refugio" className="w-full aspect-[3/4] object-cover rounded-xl" loading="lazy" />
+                </div>
+              </div>
             </div>
             <p className="text-center text-sm md:text-base mt-8 max-w-xl mx-auto" style={{ color: C.muted }}>
               <strong style={{ color: C.dark }}>Nada es obligatorio:</strong> si te querés tirar una siesta o quedarte con un mate, también es plan.
@@ -711,7 +746,7 @@ const SunsetRio: React.FC = () => {
 
       {/* ── CIERRE ── */}
       <section className="relative py-20 md:py-28 px-6 overflow-hidden"
-        style={{ backgroundImage: `url(${img('/uploads/fogon_nocturno.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        style={{ backgroundImage: `url(${img('/uploads/sunset-rio-fogon-real.webp', 1600)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26,18,12,0.85)' }} />
         <div className="max-w-2xl mx-auto relative z-10 text-center">
           <div data-reveal>
