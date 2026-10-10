@@ -59,7 +59,9 @@ const C = {
 // ilustrativas (IA sobre paisajes reales del lugar) y lo decimos en la foto.
 const NOTA_IA = 'Imagen ilustrativa creada con IA sobre paisajes reales de Pueblo Mágico · es la primera edición';
 
-const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string; ilustrativa?: boolean; inset?: { src: string; alt: string } }[] = [
+// photoMobile: en celular la foto ilustrativa del río ya es la portada, así
+// que la tarjeta muestra directamente la toma real (sin recuadro ni aviso).
+const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string; ilustrativa?: boolean; inset?: { src: string; alt: string }; photoMobile?: { src: string; alt: string } }[] = [
   {
     Icon: Car, color: C.faint, hora: 'Desde las 10', title: 'Llegada',
     text: 'Llegás y te acomodás.',
@@ -71,6 +73,7 @@ const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; te
     photo: '/uploads/sunset-rio-amigos-rio.webp', alt: 'Amigos con los pies en el agua sobre las piedras del río',
     ilustrativa: true,
     inset: { src: '/uploads/sunset-rio-pozon.webp', alt: 'El pozón real del río, entre piedras y pastizal' },
+    photoMobile: { src: '/uploads/sunset-rio-pozon.webp', alt: 'El pozón real del río, entre piedras y pastizal' },
   },
   {
     Icon: Coffee, color: C.green, hora: 'A la vuelta', title: 'Merienda',
@@ -393,7 +396,9 @@ const SunsetRio: React.FC = () => {
 
       {/* ── HERO ── */}
       <section className="relative h-[100svh] min-h-[640px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero-amigos.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: '72% center' }} />
+        {/* Celular: amigos en el río (vertical). Escritorio: amigos al atardecer. */}
+        <div className="absolute inset-0 md:hidden" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-amigos-rio.webp', 900)})`, backgroundSize: 'cover', backgroundPosition: 'center 18%' }} />
+        <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero-amigos.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: '72% center' }} />
         <div
           className="absolute inset-0 pointer-events-none md:hidden"
           style={{ background: 'linear-gradient(to top, rgba(26,18,12,0.97) 0%, rgba(26,18,12,0.7) 40%, rgba(90,35,10,0.25) 75%, rgba(90,35,10,0.1) 100%)' }}
@@ -470,22 +475,25 @@ const SunsetRio: React.FC = () => {
               mobileItemClassName="w-[78vw] sm:w-[55vw]"
               gapClassName="gap-4"
             >
-              {SABADO.map(({ Icon, color, hora, title, text, photo, alt, ilustrativa, inset }, i) => (
+              {SABADO.map(({ Icon, color, hora, title, text, photo, alt, ilustrativa, inset, photoMobile }, i) => (
                 <article key={title} className="group h-full rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: `${color}22`, backgroundColor: `${color}06` }}>
                   <div className="relative overflow-hidden">
-                    <img src={img(photo, 700)} alt={alt} className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    {photoMobile && (
+                      <img src={img(photoMobile.src, 700)} alt={photoMobile.alt} className="md:hidden w-full aspect-[4/3] object-cover" loading="lazy" />
+                    )}
+                    <img src={img(photo, 700)} alt={alt} className={`${photoMobile ? 'hidden md:block ' : ''}w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105`} loading="lazy" />
                     <span className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: color }}>
                       {i + 1}
                     </span>
                     {/* Toma real del lugar junto a la foto ilustrativa */}
                     {inset && (
-                      <figure className="absolute top-3 right-3 w-[38%] rounded-lg overflow-hidden border-2 border-white shadow-lg">
+                      <figure className="absolute top-3 right-3 w-[38%] hidden md:block rounded-lg overflow-hidden border-2 border-white shadow-lg">
                         <img src={img(inset.src, 300)} alt={inset.alt} className="w-full aspect-square object-cover" loading="lazy" />
                         <figcaption className="absolute bottom-0 inset-x-0 text-center text-[9px] font-bold uppercase tracking-wider text-white py-0.5" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }}>El río real</figcaption>
                       </figure>
                     )}
                     {ilustrativa && (
-                      <p className="absolute bottom-0 inset-x-0 px-2.5 py-1 text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
+                      <p className="absolute bottom-0 inset-x-0 px-2.5 py-1 hidden md:block text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
                         {NOTA_IA}
                       </p>
                     )}
