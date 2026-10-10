@@ -1010,6 +1010,7 @@ const Estadia: React.FC = () => {
         'Starlink',
       ].map(name => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
       // Precios por persona por noche — misma fuente que la tabla de tarifas.
+      // El schema siempre va en ARS (priceCurrency), así que usa ESTADIA_PRICES.
       'makesOffer': [
         ['Camping · con desayuno', ESTADIA_PRICES.carpaDesde],
         ['Camping · pensión completa', ESTADIA_PRICES.pensionCompletaCarpa],
@@ -1017,10 +1018,10 @@ const Estadia: React.FC = () => {
         ['Refugio de Piedra o domo compartido · pensión completa', ESTADIA_PRICES.pensionCompletaEcoRefugio],
         ['Domo privado · con desayuno', ESTADIA_PRICES.domoPrivado],
         ['Domo privado · pensión completa', ESTADIA_PRICES.pensionCompletaDomoPrivado],
-        ['Camping · viernes y sábado · pensión completa', FINDE.carpa],
-        ['Refugio de Piedra o domo compartido · viernes y sábado · pensión completa', FINDE.ecoRefugio],
-        ['Domo privado · viernes y sábado (las 2 noches) · pensión completa', FINDE.domoPrivadoDosNoches],
-        ['Domo privado · 1 noche de fin de semana · pensión completa', FINDE.domoPrivadoUnaNoche],
+        ['Camping · viernes y sábado · pensión completa', ESTADIA_PRICES.pensionFinde.carpa],
+        ['Refugio de Piedra o domo compartido · viernes y sábado · pensión completa', ESTADIA_PRICES.pensionFinde.ecoRefugio],
+        ['Domo privado · viernes y sábado (las 2 noches) · pensión completa', ESTADIA_PRICES.pensionFinde.domoPrivadoDosNoches],
+        ['Domo privado · 1 noche de fin de semana · pensión completa', ESTADIA_PRICES.pensionFinde.domoPrivadoUnaNoche],
       ].map(([name, price]) => ({
         '@type': 'Offer', name, price: String(price), priceCurrency: 'ARS',
         priceSpecification: { '@type': 'UnitPriceSpecification', price: String(price), priceCurrency: 'ARS', unitText: 'por persona por noche' },
