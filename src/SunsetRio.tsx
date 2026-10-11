@@ -84,7 +84,7 @@ const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; te
   },
   {
     Icon: Snowflake, color: C.river, hora: 'A la vuelta del río', title: 'Ice bath',
-    text: 'Unos minutos en agua con hielo, guiados y a tu ritmo. Salís despierto/a y con el cuerpo nuevo.',
+    text: 'Una experiencia de inmersión en frío, guiada y a tu ritmo. Unos minutos en agua con hielo y después, a la merienda.',
     photo: '/uploads/sunset-rio-ice-bath.webp', alt: 'Chica relajada en una tina con agua y hielo en el jardín del refugio de piedra',
     ilustrativa: true, opcional: true,
   },
@@ -647,7 +647,7 @@ const SunsetRio: React.FC = () => {
                     : { backgroundColor: 'white', border: '1px solid rgba(42,23,8,0.12)' }}>
                   {m.destacado && (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white whitespace-nowrap" style={{ backgroundColor: C.sunset }}>
-                      Más elegida
+                      Nuestra recomendación
                     </span>
                   )}
 
