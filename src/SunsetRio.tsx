@@ -415,7 +415,7 @@ const SunsetRio: React.FC = () => {
         <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero-amigos.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: '72% center' }} />
         <div
           className="absolute inset-0 pointer-events-none md:hidden"
-          style={{ background: 'linear-gradient(to top, rgba(26,18,12,0.97) 0%, rgba(26,18,12,0.7) 40%, rgba(90,35,10,0.25) 75%, rgba(90,35,10,0.1) 100%)' }}
+          style={{ background: 'linear-gradient(to top, rgba(26,18,12,0.95) 0%, rgba(26,18,12,0.6) 32%, rgba(90,35,10,0.1) 60%, rgba(90,35,10,0) 100%)' }}
         />
         <div
           className="absolute inset-0 pointer-events-none hidden md:block"
@@ -423,33 +423,24 @@ const SunsetRio: React.FC = () => {
         />
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col">
+          {/* Portada mínima: cuándo/dónde, nombre, una línea de propuesta y un
+              solo botón. El resto (actividades, cupo, con amigos o solo/a)
+              está más abajo en la página. */}
           <div className="md:max-w-xl flex flex-col">
-          <div className="flex flex-row flex-wrap items-center gap-2 mb-5">
-            {['Fin de octubre', 'Los Gigantes, Córdoba', 'Río + atardecer', 'Con amigos o solo/a', 'Breathwork + ice bath', 'Caminatas de 20 min', 'Cupo: 30 personas'].map((chip, i) => (
-              <span
-                key={chip}
-                className="inline-block px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
-                style={i === 2
-                  ? { backgroundColor: 'rgba(217,98,43,0.25)', color: '#FFC9A3', border: '1px solid rgba(217,98,43,0.5)' }
-                  : { backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.2)' }}
-              >
-                {chip}
-              </span>
-            ))}
-          </div>
-
+          <p className="text-[11px] md:text-xs tracking-[0.12em] md:tracking-[0.25em] uppercase font-semibold mb-4 whitespace-nowrap" style={{ color: '#FFC9A3' }}>
+            Fin de octubre · Los Gigantes, Córdoba
+          </p>
           <h1 className="text-6xl md:text-8xl serif-title leading-[0.95] text-white">
             Sunset <span style={{ color: '#F4A261' }}>y</span> Río
           </h1>
-          <p className="text-white/70 text-lg md:text-2xl serif-title italic mt-2 mb-5">en la montaña</p>
-          <p className="text-white/75 text-sm md:text-lg leading-relaxed max-w-lg mb-7 md:mb-10">
-            Un sábado de río, el sol cayendo con música y un fogón con guitarreada a la noche. A 90 km de Córdoba. Vení con tus amigos o venite solo o sola: a la noche van a estar todos alrededor del mismo fuego.
+          <p className="text-white/80 text-base md:text-xl leading-relaxed max-w-md mt-4 mb-7 md:mb-9">
+            Río de día, atardecer con música y fogón a la noche. A 90 km de Córdoba.
           </p>
 
           <a href="#fecha" className="btn-gold text-sm py-4 px-8 inline-block self-start">
             Quiero ir · elegí tu fecha
           </a>
-          <p className="text-white/50 text-xs mt-3 italic">Estamos eligiendo entre dos findes. Hacemos el que más gente elija.</p>
+          <p className="text-white/55 text-xs mt-3">Cupo: 30 personas · elegís entre dos findes</p>
           </div>
         </div>
         <p className="absolute z-10 bottom-2 right-3 md:right-5 max-w-[16rem] md:max-w-none text-right text-[9px] md:text-[10px] text-white/55 leading-tight">
