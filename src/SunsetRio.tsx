@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Waves, Coffee, Sunset, Flame, Mountain, ChevronDown, Users, User, Backpack, Home, Music, HelpCircle, Car, Tent, X, Check, Percent, Utensils, type LucideIcon } from 'lucide-react';
+import { Waves, Coffee, Sunset, Flame, Mountain, Wind, Snowflake, AlertTriangle, ChevronDown, Users, User, Backpack, Home, Music, HelpCircle, Car, Tent, X, Check, Percent, Utensils, type LucideIcon } from 'lucide-react';
 import { img } from './lib/img';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
@@ -61,11 +61,18 @@ const NOTA_IA = 'Imagen ilustrativa creada con IA sobre paisajes reales de Puebl
 
 // photoMobile: en celular la foto ilustrativa del río ya es la portada, así
 // que la tarjeta muestra directamente la toma real (sin recuadro ni aviso).
-const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string; ilustrativa?: boolean; inset?: { src: string; alt: string }; photoMobile?: { src: string; alt: string } }[] = [
+// opcional: actividades guiadas con contraindicaciones (ver AVISO_SALUD).
+const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; text: React.ReactNode; photo: string; alt: string; ilustrativa?: boolean; opcional?: boolean; inset?: { src: string; alt: string }; photoMobile?: { src: string; alt: string } }[] = [
   {
     Icon: Car, color: C.faint, hora: 'Desde las 10', title: 'Llegada',
     text: 'Llegás y te acomodás.',
     photo: '/uploads/sunset-rio-refugio-jardin.webp', alt: 'Visitantes en el jardín del refugio de piedra de Pueblo Mágico',
+  },
+  {
+    Icon: Wind, color: C.green, hora: 'Media mañana', title: 'Breathwork',
+    text: 'Una sesión de respiración guiada con música, acostados en el pasto del jardín. Se siente como soltar todo lo que traés de la semana.',
+    photo: '/uploads/sunset-rio-breathwork.webp', alt: 'Grupo de amigos acostados en el pasto, con las cabezas juntas, riéndose',
+    ilustrativa: true, opcional: true,
   },
   {
     Icon: Waves, color: C.river, hora: 'Mediodía y tarde', title: 'Río',
@@ -76,7 +83,13 @@ const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; te
     photoMobile: { src: '/uploads/sunset-rio-pozon.webp', alt: 'El pozón real del río, entre piedras y pastizal' },
   },
   {
-    Icon: Coffee, color: C.green, hora: 'A la vuelta', title: 'Merienda',
+    Icon: Snowflake, color: C.river, hora: 'A la vuelta del río', title: 'Ice bath',
+    text: 'Unos minutos en agua con hielo, guiados y a tu ritmo. Salís despierto/a y con el cuerpo nuevo.',
+    photo: '/uploads/sunset-rio-ice-bath.webp', alt: 'Chica relajada en una tina con agua y hielo en el jardín del refugio de piedra',
+    ilustrativa: true, opcional: true,
+  },
+  {
+    Icon: Coffee, color: C.green, hora: 'Después', title: 'Merienda',
     text: 'Mate o tereré mientras se arma el atardecer. Y para refrescar, agua con cítricos y limonada.',
     photo: '/uploads/sunset-rio-jarras.webp', alt: 'Jarras de agua con naranja y menta sobre la mesa de madera',
   },
@@ -376,6 +389,7 @@ const SunsetRio: React.FC = () => {
             { q: '¿Puedo llegar el viernes o quedarme hasta el lunes?', a: 'Sí. Con el finde completo elegís tus dos noches: viernes y sábado, o sábado y domingo.' },
             { q: '¿A qué hora llego y a qué hora me voy?', a: 'Llegás el sábado desde las 10. El domingo la salida es libre: recomendamos desde las 18 para volver con luz.' },
             { q: '¿Puedo volver el sábado a la noche?', a: 'Sí, pero son 90 km de ruta de montaña de noche. Si te quedás, dormís acá y el domingo hay otro río.' },
+            { q: '¿Tengo que hacer el breathwork y el ice bath?', a: 'No, son opcionales. Si querés, mientras tanto te quedás con un mate o descansando. Si tenés alguna condición de salud (corazón, presión alta, epilepsia, embarazo), avisanos antes.' },
             { q: '¿Hay baño?', a: 'Sí, en el refugio.' },
             { q: '¿Cómo llego?', a: 'En auto. Si no tenés, avisanos y te conectamos con alguien que va.' },
             { q: '¿Podemos dormir juntos en grupo?', a: 'Sí, pueden compartir domo o refugio.' },
@@ -411,7 +425,7 @@ const SunsetRio: React.FC = () => {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col">
           <div className="md:max-w-xl flex flex-col">
           <div className="flex flex-row flex-wrap items-center gap-2 mb-5">
-            {['Fin de octubre', 'Los Gigantes, Córdoba', 'Río + atardecer', 'Con amigos o solo/a', 'Caminatas de 20 min', 'Cupo: 30 personas'].map((chip, i) => (
+            {['Fin de octubre', 'Los Gigantes, Córdoba', 'Río + atardecer', 'Con amigos o solo/a', 'Breathwork + ice bath', 'Caminatas de 20 min', 'Cupo: 30 personas'].map((chip, i) => (
               <span
                 key={chip}
                 className="inline-block px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] tracking-wide sm:tracking-widest uppercase font-bold whitespace-nowrap"
@@ -471,11 +485,11 @@ const SunsetRio: React.FC = () => {
             <HorizontalCardRail
               previousLabel="Momento anterior"
               nextLabel="Momento siguiente"
-              desktopGridClassName="md:grid-cols-3 lg:grid-cols-5"
+              desktopGridClassName="md:grid-cols-3 lg:grid-cols-4"
               mobileItemClassName="w-[78vw] sm:w-[55vw]"
               gapClassName="gap-4"
             >
-              {SABADO.map(({ Icon, color, hora, title, text, photo, alt, ilustrativa, inset, photoMobile }, i) => (
+              {SABADO.map(({ Icon, color, hora, title, text, photo, alt, ilustrativa, opcional, inset, photoMobile }, i) => (
                 <article key={title} className="group h-full rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: `${color}22`, backgroundColor: `${color}06` }}>
                   <div className="relative overflow-hidden">
                     {photoMobile && (
@@ -493,7 +507,7 @@ const SunsetRio: React.FC = () => {
                       </figure>
                     )}
                     {ilustrativa && (
-                      <p className="absolute bottom-0 inset-x-0 px-2.5 py-1 hidden md:block text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
+                      <p className={`absolute bottom-0 inset-x-0 px-2.5 py-1 ${photoMobile ? 'hidden md:block ' : ''}text-[9px] leading-tight text-white/85`} style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
                         {NOTA_IA}
                       </p>
                     )}
@@ -502,12 +516,26 @@ const SunsetRio: React.FC = () => {
                     <p className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase font-bold mb-1.5" style={{ color }}>
                       <Icon size={13} color={color} /> {hora}
                     </p>
-                    <h3 className="text-xl serif-title mb-2" style={{ color: C.dark }}>{title}</h3>
+                    <h3 className="text-xl serif-title mb-2 flex items-center gap-2 flex-wrap" style={{ color: C.dark }}>
+                      {title}
+                      {opcional && (
+                        <span className="text-[9px] font-sans font-bold uppercase tracking-widest px-2 py-0.5 rounded-full" style={{ backgroundColor: `${color}14`, color }}>Opcional</span>
+                      )}
+                    </h3>
                     <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{text}</p>
                   </div>
                 </article>
               ))}
             </HorizontalCardRail>
+          </div>
+
+          <div data-reveal data-delay="2">
+            <div className="mt-6 rounded-2xl px-5 py-4 md:px-6 border flex gap-3 items-start" style={{ borderColor: 'rgba(47,111,126,0.25)', backgroundColor: 'rgba(47,111,126,0.06)' }}>
+              <AlertTriangle size={18} color={C.river} className="flex-shrink-0 mt-0.5" />
+              <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                <strong style={{ color: C.dark }}>Breathwork e ice bath son opcionales y guiados.</strong> Si tenés problemas cardíacos, presión alta, epilepsia, estás embarazada o tenés alguna condición de salud, avisanos antes de anotarte. La respiración nunca se hace dentro del agua ni justo antes de entrar al hielo: por eso van en momentos separados del día.
+              </p>
+            </div>
           </div>
 
           <div data-reveal data-delay="2">
