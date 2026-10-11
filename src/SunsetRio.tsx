@@ -94,9 +94,10 @@ const SABADO: { Icon: LucideIcon; color: string; hora: string; title: string; te
     photo: '/uploads/sunset-rio-jarras.webp', alt: 'Jarras de agua con naranja y menta sobre la mesa de madera',
   },
   {
-    Icon: Sunset, color: C.sunset, hora: 'Cae el sol', title: 'Atardecer',
-    text: 'Un DJ que revelamos más cerca de la fecha, el trago de la casa (con y sin alcohol) y cosas para picar.',
-    photo: '/uploads/img_8475.webp', alt: 'Grupo mirando el atardecer en la montaña',
+    Icon: Sunset, color: C.sunset, hora: 'Cae el sol', title: 'Sunset con música',
+    text: 'El sol baja con música, brindis con el trago de la casa (con y sin alcohol) y algo para picar. Si se confirma DJ, lo anunciamos cerca de la fecha.',
+    photo: '/uploads/sunset-rio-brindis.webp', alt: 'Grupo de amigos brindando al atardecer en el jardín del refugio de piedra',
+    ilustrativa: true,
   },
   {
     Icon: Flame, color: C.ember, hora: 'A la noche', title: 'Fogón',
@@ -372,11 +373,12 @@ const SunsetRio: React.FC = () => {
       key: 'musica', Icon: Music, title: 'Música y bebidas',
       body: (
         <>
-          <p className="inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#8B6A00' }}>
-            DJ · lo revelamos más cerca de la fecha
-          </p>
-          <p className="mb-3">Un set para que el sol baje con buena música.</p>
-          <p>En el río hay agua fresca y limonada; al atardecer, el trago de la casa con y sin alcohol. A la noche, guitarreada en el fogón.</p>
+          <p className="mb-3">El sol baja con buena música y se arma baile. Si se confirma DJ, lo anunciamos cerca de la fecha.</p>
+          <p className="mb-5">En el río hay agua fresca y limonada; al atardecer, el trago de la casa con y sin alcohol. A la noche, guitarreada en el fogón.</p>
+          <figure className="relative rounded-xl overflow-hidden">
+            <img src={img('/uploads/sunset-rio-baile.webp', 900)} alt="Grupo de amigos bailando en el jardín del refugio de piedra" className="w-full aspect-[16/9] object-cover" loading="lazy" />
+            <figcaption className="absolute bottom-0 inset-x-0 px-2.5 py-1 text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>{NOTA_IA}</figcaption>
+          </figure>
         </>
       ),
     },
