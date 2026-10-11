@@ -374,11 +374,7 @@ const SunsetRio: React.FC = () => {
       body: (
         <>
           <p className="mb-3">El sol baja con buena música y se arma baile. Si se confirma DJ, lo anunciamos cerca de la fecha.</p>
-          <p className="mb-5">En el río hay agua fresca y limonada; al atardecer, el trago de la casa con y sin alcohol. A la noche, guitarreada en el fogón.</p>
-          <figure className="relative rounded-xl overflow-hidden">
-            <img src={img('/uploads/sunset-rio-baile.webp', 900)} alt="Grupo de amigos bailando en el jardín del refugio de piedra" className="w-full aspect-[16/9] object-cover" loading="lazy" />
-            <figcaption className="absolute bottom-0 inset-x-0 px-2.5 py-1 text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>{NOTA_IA}</figcaption>
-          </figure>
+          <p>En el río hay agua fresca y limonada; al atardecer, el trago de la casa con y sin alcohol. A la noche, guitarreada en el fogón.</p>
         </>
       ),
     },
@@ -411,10 +407,13 @@ const SunsetRio: React.FC = () => {
       <Header />
 
       {/* ── HERO ── */}
-      <section className="relative h-[100svh] min-h-[640px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden">
-        {/* Celular: amigos en el río (vertical). Escritorio: amigos al atardecer. */}
+      <section className="relative h-[100svh] min-h-[640px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden" style={{ backgroundColor: C.night }}>
+        {/* Celular: amigos en el río (vertical). Escritorio: amigos bailando,
+            con el lado izquierdo libre para el texto. */}
         <div className="absolute inset-0 md:hidden" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-amigos-rio.webp', 900)})`, backgroundSize: 'cover', backgroundPosition: 'center 18%' }} />
-        <div className="absolute inset-0 hidden md:block" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-hero-amigos.webp', 1800)})`, backgroundSize: 'cover', backgroundPosition: '72% center' }} />
+        {/* La foto deja libre el ~40% izquierdo (el refugio): ahí va el texto,
+            alineado al borde izquierdo de la pantalla y no centrado. */}
+        <div className="absolute inset-0 hidden md:block bg-cover bg-[position:25%_40%]" style={{ backgroundImage: `url(${img('/uploads/sunset-rio-baile.webp', 1800)})` }} />
         <div
           className="absolute inset-0 pointer-events-none md:hidden"
           style={{ background: 'linear-gradient(to top, rgba(26,18,12,0.95) 0%, rgba(26,18,12,0.6) 32%, rgba(90,35,10,0.1) 60%, rgba(90,35,10,0) 100%)' }}
@@ -424,15 +423,15 @@ const SunsetRio: React.FC = () => {
           style={{ background: 'linear-gradient(to right, rgba(26,18,12,0.92) 0%, rgba(26,18,12,0.7) 35%, rgba(90,35,10,0.15) 65%, rgba(90,35,10,0) 100%)' }}
         />
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col">
+        <div className="relative z-10 w-full px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-12 md:pb-0 flex flex-col">
           {/* Portada mínima: cuándo/dónde, nombre, una línea de propuesta y un
               solo botón. El resto (actividades, cupo, con amigos o solo/a)
               está más abajo en la página. */}
-          <div className="md:max-w-xl flex flex-col">
+          <div className="md:max-w-[38%] flex flex-col">
           <p className="text-[11px] md:text-xs tracking-[0.12em] md:tracking-[0.25em] uppercase font-semibold mb-4 whitespace-nowrap" style={{ color: '#FFC9A3' }}>
             Fin de octubre · Los Gigantes, Córdoba
           </p>
-          <h1 className="text-6xl md:text-8xl serif-title leading-[0.95] text-white">
+          <h1 className="text-6xl md:text-6xl lg:text-7xl xl:text-8xl serif-title leading-[0.95] text-white md:whitespace-nowrap">
             Sunset <span style={{ color: '#F4A261' }}>y</span> Río
           </h1>
           <p className="text-white/80 text-base md:text-xl leading-relaxed max-w-md mt-4 mb-7 md:mb-9">
@@ -581,20 +580,25 @@ const SunsetRio: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-5">
               {[
                 {
-                  Icon: Users, photo: '/uploads/sunset-rio-amigos.webp', alt: 'Grupo abrazado en el salón de Pueblo Mágico',
+                  Icon: Users, photo: '/uploads/sunset-rio-amigos.webp', alt: 'Grupo abrazado en el salón de Pueblo Mágico', ilustrativa: false,
                   q: '¿Con tus amigos hace meses que dicen "tenemos que hacer algo"?',
                   a: 'Acá está el plan, ya armado. Ustedes llegan; la comida, la música, la sombra y el fuego los ponemos nosotros.',
                   badge: 'Desde 4 personas: 30% de descuento',
                 },
                 {
-                  Icon: User, photo: '/uploads/sunset-rio-guitarreada.webp', alt: 'Guitarra junto al fuego',
+                  Icon: User, photo: '/uploads/sunset-rio-guitarreada.webp', alt: 'Guitarra junto al fuego', ilustrativa: false,
                   q: '¿Y si no conozco a nadie?',
                   a: 'Mejor. Caminás al río con gente que recién conocés, compartís el mate a la vuelta y a la noche estás cantando en el fogón con un grupo nuevo.',
                   badge: null,
                 },
-              ].map(({ Icon, photo, alt, q, a, badge }) => (
+              ].map(({ Icon, photo, alt, ilustrativa, q, a, badge }) => (
                 <article key={q} className="rounded-3xl overflow-hidden bg-white shadow-sm flex flex-col">
-                  <img src={img(photo, 800)} alt={alt} className="w-full aspect-[16/9] object-cover" loading="lazy" />
+                  <div className="relative">
+                    <img src={img(photo, 800)} alt={alt} className="w-full aspect-[16/9] object-cover" loading="lazy" />
+                    {ilustrativa && (
+                      <p className="absolute bottom-0 inset-x-0 px-2.5 py-1 text-[9px] leading-tight text-white/85" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>{NOTA_IA}</p>
+                    )}
+                  </div>
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
                     <Icon size={20} color={C.sunset} className="mb-3" />
                     <h3 className="text-xl md:text-2xl serif-title leading-snug mb-3" style={{ color: C.dark }}>{q}</h3>
