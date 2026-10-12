@@ -3,6 +3,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { marked } from 'marked';
 import { submitForm } from '../src/lib/submitForm';
+import { useAntiBot } from '../src/lib/useAntiBot';
+import { validarEmail } from '../src/lib/validarContacto';
 
 export const SectionContacto = () => {
   const { t } = useLanguage();
@@ -13,7 +15,8 @@ export const SectionContacto = () => {
     message: '',
     consent: false,
   });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'invalidEmail' | 'invalidPhone'>('idle');
+  const { trampa, esBot } = useAntiBot();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -25,7 +28,18 @@ export const SectionContacto = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // WhatsApp es opcional; si lo ponen, que tenga pinta de número real
+    // (acá escriben también desde el exterior, así que no se fuerza formato AR).
+    const digitos = formData.whatsapp.replace(/[^0-9]/g, '');
+    if (validarEmail(formData.email)) return setStatus('invalidEmail');
+    if (digitos && (digitos.length < 8 || digitos.length > 15 || new Set(digitos).size === 1)) return setStatus('invalidPhone');
     setStatus('submitting');
+
+    if (esBot()) {
+      // Bot: se simula el envío sin mandar nada.
+      setStatus('success');
+      return;
+    }
 
     try {
       await submitForm('Formulario de Contacto', formData);
@@ -59,6 +73,7 @@ export const SectionContacto = () => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="consent" value={formData.consent ? 'si' : 'no'} />
+            {trampa}
 
             <div className="grid md:grid-cols-2 gap-6">
               <input
@@ -146,9 +161,9 @@ export const SectionContacto = () => {
                   {t.contact.status.successMsg}
                 </p>
               )}
-              {status === 'error' && (
-                <p className="text-red-500 text-sm animate-fadeIn flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4" /> {t.contact.status.errorMsg}
+              {(status === 'error' || status === 'invalidEmail' || status === 'invalidPhone') && (
+                <p className="text-red-500 text-sm animate-fadeIn flex items-center gap-2" role="alert">
+                  <AlertCircle className="w-4 h-4" /> {status === 'error' ? t.contact.status.errorMsg : t.contact.status[status]}
                 </p>
               )}
             </div>

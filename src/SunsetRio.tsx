@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Waves, Coffee, Sunset, Flame, Mountain, Wind, Snowflake, AlertTriangle, ChevronDown, Users, User, Backpack, Home, Music, HelpCircle, Car, Tent, X, Check, Percent, Utensils, type LucideIcon } from 'lucide-react';
 import { img } from './lib/img';
+import { validarNombre, validarTelefono, validarEmail, validarEdad } from './lib/validarContacto';
+import { useAntiBot } from './lib/useAntiBot';
 import { WA_MAGICO } from './data/config';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -17,10 +19,9 @@ type Valor = typeof FECHA | 'grupo';
 
 const wa = (msg: string) => `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
 
-const waMensaje = (modalidad: 'solo' | 'grupo', cantidad: number) =>
-  modalidad === 'grupo'
-    ? wa(`¡Hola! Queremos ir a Sunset y Río (30 de octubre al 1 de noviembre) en grupo. Seríamos ${cantidad}. ¿Cómo es el descuento?`)
-    : wa('¡Hola! Quiero ir a Sunset y Río, el finde del 30 de octubre al 1 de noviembre.');
+// Lo manda la persona desde su WhatsApp (gratis) y confirma que el número es suyo.
+const waConfirmacion = (nombre: string, codigo: string, modalidad: 'solo' | 'grupo', cantidad: number) =>
+  wa(`¡Hola! Soy ${nombre}. Me anoté a Sunset y Río (30 de octubre al 1 de noviembre) con el código ${codigo}${modalidad === 'grupo' ? `, vamos en grupo de ${cantidad}` : ''}. Confirmo mis datos ✅`);
 
 const WA_INFO = wa('¡Hola! Quiero saber más de Sunset y Río.');
 
@@ -181,7 +182,9 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
   const [modalidad, setModalidad] = useState<'solo' | 'grupo' | null>(inicial.modalidad);
   const [cantidad, setCantidad] = useState('');
   const [enviando, setEnviando] = useState(false);
-  const [listo, setListo] = useState(false);
+  const [codigo, setCodigo] = useState<string | null>(null);
+  const [mailEnviado, setMailEnviado] = useState(false);
+  const { trampa, trampaValor, msLlenado } = useAntiBot();
   const [error, setError] = useState('');
   const nombreRef = useRef<HTMLInputElement>(null);
 
@@ -198,10 +201,8 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
     e.preventDefault();
     const n = Number(cantidad);
     const ed = Number(edad);
-    if (nombre.trim().length < 3) return setError('Contanos tu nombre y apellido.');
-    if (telefono.replace(/\D/g, '').length < 8) return setError('Revisá el teléfono (con código de área).');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return setError('Revisá el mail.');
-    if (!Number.isInteger(ed) || ed < 14 || ed > 99) return setError('Revisá la edad.');
+    const invalido = validarNombre(nombre) || validarTelefono(telefono) || validarEmail(email) || validarEdad(ed);
+    if (invalido) return setError(invalido);
     if (!genero) return setError('Elegí una opción de género.');
     if (!fuente) return setError('Contanos cómo te enteraste del evento.');
     if (!modalidad) return setError('Contanos si venís solo/a o en grupo.');
@@ -218,15 +219,19 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
           genero, fuente, fuenteOtro: fuente === 'otro' ? fuenteOtro.trim() : undefined,
           modalidad, cantidad: modalidad === 'grupo' ? n : undefined,
           pagina: window.location.pathname + window.location.search,
+          sitio_web: trampaValor(), ms: msLlenado(),
         }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
         throw new Error(data?.error || 'No se pudo guardar.');
       }
-      setListo(true);
+      const data = await res.json();
+      setMailEnviado(Boolean(data.mailConfirmacion));
+      setMailEnviado(Boolean(data.mailConfirmacion));
+      setCodigo(data.codigo || '');
     } catch (err: any) {
-      setError(`${err?.message || 'No se pudo guardar.'} Probá de nuevo o escribinos por WhatsApp.`);
+      setError(err?.message || 'No se pudo guardar. Probá de nuevo o escribinos por WhatsApp.');
     } finally {
       setEnviando(false);
     }
@@ -242,22 +247,36 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
       <form onSubmit={submit} noValidate
         className="relative w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl p-6 md:p-8 max-h-[92svh] overflow-y-auto"
         style={{ paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}>
+        {trampa}
         <button type="button" onClick={onClose} aria-label="Cerrar" className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5">
           <X size={18} color={C.faint} />
         </button>
         <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-2" style={{ color: C.sunset }}>Sunset y Río · 30/10 al 1/11</p>
 
-        {listo ? (
+        {codigo !== null ? (
           <div role="status">
             <h2 id="interes-titulo" className="text-2xl serif-title mb-3" style={{ color: C.dark }}>¡Listo, {nombre.trim().split(' ')[0]}!</h2>
-            <p className="text-sm mb-6" style={{ color: C.muted }}>
+            <p className="text-sm mb-4" style={{ color: C.muted }}>
               Ya estás en la lista. Te escribimos apenas abramos las reservas, con precios y todos los detalles.
             </p>
-            <a href={waMensaje(modalidad || 'solo', Number(cantidad))} target="_blank" rel="noopener noreferrer"
-              className="block text-center text-sm font-semibold py-3.5 rounded-full border mb-3" style={{ borderColor: C.dark, color: C.dark }}>
-              ¿Tenés preguntas? Escribinos por WhatsApp
+            {codigo && (
+              <p className="text-center rounded-2xl py-3 mb-4" style={{ backgroundColor: C.sand }}>
+                <span className="block text-[10px] font-bold uppercase tracking-widest" style={{ color: C.faint }}>Tu código</span>
+                <span className="text-2xl font-bold tabular-nums" style={{ color: C.ember }}>{codigo}</span>
+              </p>
+            )}
+            <p className="text-sm mb-4" style={{ color: C.muted }}>
+              {mailEnviado
+                ? <>Te mandamos un mail a <strong style={{ color: C.dark }}>{email.trim()}</strong> para confirmarlo (mirá también en spam). Y si querés, confirmá también por WhatsApp:</>
+                : <>Si querés, confirmá tus datos por WhatsApp con tu código:</>}
+            </p>
+            <a href={waConfirmacion(nombre.trim(), codigo, modalidad || 'solo', Number(cantidad))} target="_blank" rel="noopener noreferrer"
+              className="block text-center text-sm font-bold py-3.5 rounded-full mb-3 text-white" style={{ backgroundColor: '#25D366' }}>
+              Confirmar por WhatsApp
             </a>
-            <button type="button" onClick={onClose} className="btn-gold text-sm py-4 w-full">Volver a la página</button>
+            <button type="button" onClick={onClose} className="block w-full text-center text-sm font-semibold py-3.5 rounded-full border" style={{ borderColor: C.dark, color: C.dark }}>
+              Volver a la página
+            </button>
           </div>
         ) : (
           <>
@@ -358,6 +377,12 @@ const SunsetRio: React.FC = () => {
   const [comidasOpen, setComidasOpen] = useState(false);
   const [form, setForm] = useState<FormInicial | null>(null);
   const cerrarForm = useCallback(() => setForm(null), []);
+  // Vuelta del link "Confirmar mi mail" (functions/api/confirmar.ts).
+  const [confirmado, setConfirmado] = useState<'1' | '0' | null>(null);
+  useEffect(() => {
+    const v = new URLSearchParams(window.location.search).get('confirmado');
+    if (v === '1' || v === '0') setConfirmado(v);
+  }, []);
 
   const elegir = (valor: Valor) => {
     trackFechaElegida(valor);
@@ -470,6 +495,19 @@ const SunsetRio: React.FC = () => {
   return (
     <div style={{ backgroundColor: C.cream, color: C.dark }} className="overflow-x-hidden">
       <Header />
+
+      {confirmado && (
+        <div role="status" className="fixed top-24 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-2rem)] max-w-md rounded-2xl px-5 py-4 shadow-2xl flex items-start gap-3"
+          style={{ backgroundColor: confirmado === '1' ? C.green : C.ember, color: 'white' }}>
+          <Check size={20} className="flex-shrink-0 mt-0.5" />
+          <p className="text-sm flex-1">
+            {confirmado === '1'
+              ? <><strong>¡Mail confirmado!</strong> Te avisamos apenas abramos las reservas de Sunset y Río.</>
+              : <>Ese link de confirmación no es válido. Si tenés dudas, escribinos por WhatsApp.</>}
+          </p>
+          <button type="button" onClick={() => setConfirmado(null)} aria-label="Cerrar" className="flex-shrink-0"><X size={18} /></button>
+        </div>
+      )}
 
       {/* ── HERO ── */}
       <section className="relative h-[100svh] min-h-[640px] md:h-[100vh] w-full flex flex-col justify-end md:justify-center overflow-hidden" style={{ backgroundColor: C.night }}>

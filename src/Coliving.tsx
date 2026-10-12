@@ -14,6 +14,8 @@ import { WA_MAGICO, SITE_URL } from './data/config';
 import { COLIVING_PRICES, formatPrice, getColivingPrices } from './data/retreats';
 import { ROUTES } from './routes';
 import { submitForm } from './lib/submitForm';
+import { useAntiBot } from './lib/useAntiBot';
+import { validarEmail } from './lib/validarContacto';
 
 const WA = (msg: string) =>
   `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
@@ -628,6 +630,9 @@ const PDF_FILENAME = 'Guia-Foco-en-la-Montana-Pueblo-Magico.pdf';
 const GuiaFoco: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const { trampa, esBot } = useAntiBot();
+  const [errorEmail, setErrorEmail] = useState(false);
+  const errorEmailMsg = 'Revisá tu mail: no parece válido.';
 
   const triggerDownload = () => {
     const link = document.createElement('a');
@@ -642,6 +647,10 @@ const GuiaFoco: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.target as HTMLFormElement);
+    if (validarEmail(String(data.get('email') || ''))) { setErrorEmail(true); return; }
+    setErrorEmail(false);
+    // Bot (campo trampa o envío instantáneo): se entrega igual sin mandar nada.
+    if (esBot()) { triggerDownload(); setSubmitted(true); return; }
     setSending(true);
     submitForm('Guía de Foco — Coliving', data).finally(() => {
       triggerDownload();
@@ -680,6 +689,7 @@ const GuiaFoco: React.FC = () => {
             <div className="bg-white rounded-2xl p-6 shadow-xl">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-3">
+                  {trampa}
                   <div>
                     <label className="block text-[11px] font-bold text-dark/50 mb-1 uppercase tracking-wider" htmlFor="cg-nombre">Nombre</label>
                     <input required type="text" id="cg-nombre" name="nombre" placeholder="Tu nombre"
@@ -697,6 +707,9 @@ const GuiaFoco: React.FC = () => {
                     <input type="tel" id="cg-wa" name="whatsapp" placeholder="+54 9 ..."
                       className="w-full px-4 py-2.5 bg-bone border border-brand/10 rounded-xl text-dark text-sm focus:ring-2 focus:ring-brand focus:border-brand transition-colors" />
                   </div>
+                  {errorEmail && (
+                    <p role="alert" className="text-sm font-semibold text-red-600">{errorEmailMsg}</p>
+                  )}
                   <button type="submit" disabled={sending}
                     className="w-full bg-gold hover:bg-brand text-white font-bold uppercase tracking-widest text-xs py-3.5 rounded-xl shadow-lg transition-colors mt-1 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-wait">
                     {sending ? (

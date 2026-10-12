@@ -15,6 +15,10 @@ export async function submitForm(formName: string, data: FormData | Record<strin
     Object.entries(data).forEach(([key, value]) => formData.append(key, String(value)));
   }
 
+  // Campo trampa de useAntiBot: no se manda (si venía lleno, el formulario ya
+  // descartó el envío antes de llegar acá).
+  formData.delete('sitio_web');
+
   formData.append('access_key', WEB3FORMS_ACCESS_KEY);
   formData.append('subject', `Pueblo Mágico — ${formName}`);
   formData.append('from_name', 'Pueblo Mágico Web');

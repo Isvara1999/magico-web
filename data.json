@@ -1161,7 +1161,9 @@
         "sending": "Enviando...",
         "sent": "¡Enviado!",
         "successMsg": "Gracias por escribirnos. Te responderemos a la brevedad.",
-        "errorMsg": "Hubo un error al enviar. Por favor intenta de nuevo."
+        "errorMsg": "Hubo un error al enviar. Por favor intenta de nuevo.",
+        "invalidEmail": "Revisá tu mail: no parece válido.",
+        "invalidPhone": "Revisá tu WhatsApp: incluí el código de área."
       },
       "labels": {
         "email": "Email",
@@ -3908,7 +3910,9 @@
         "sending": "Sending...",
         "sent": "Sent!",
         "successMsg": "Thanks for writing to us. We'll get back to you shortly.",
-        "errorMsg": "There was an error sending your message. Please try again."
+        "errorMsg": "There was an error sending your message. Please try again.",
+        "invalidEmail": "Please check your email: it doesn't look valid.",
+        "invalidPhone": "Please check your WhatsApp number, including the country/area code."
       },
       "labels": {
         "email": "Email",

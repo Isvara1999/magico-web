@@ -14,8 +14,8 @@ function json(body: unknown, status = 200) {
   });
 }
 
-const COLUMNAS = ['created_at', 'evento', 'valor', 'nombre', 'telefono', 'email', 'edad', 'genero', 'fuente', 'modalidad', 'cantidad', 'pagina'];
-const ENCABEZADOS = ['Fecha de registro (UTC)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad', 'Landing'];
+const COLUMNAS = ['codigo', 'created_at', 'evento', 'valor', 'nombre', 'telefono', 'email', 'edad', 'genero', 'fuente', 'modalidad', 'cantidad', 'pagina', 'email_confirmado_at'];
+const ENCABEZADOS = ['Código', 'Fecha de registro (UTC)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad', 'Landing', 'Mail confirmado (UTC)'];
 
 function csvEscape(v: unknown): string {
   const s = v === null || v === undefined ? '' : String(v);
@@ -30,7 +30,7 @@ export async function onRequestGet({ request, env }: any) {
   const formato = new URL(request.url).searchParams.get('formato');
 
   const { results } = await env.DB
-    .prepare(`SELECT ${COLUMNAS.join(', ')}, id FROM registros_eventos WHERE evento = ? AND tipo = 'form' ORDER BY created_at DESC`)
+    .prepare(`SELECT 'SR-' || id AS codigo, ${COLUMNAS.slice(1).join(', ')}, id FROM registros_eventos WHERE evento = ? AND tipo = 'form' ORDER BY created_at DESC`)
     .bind(evento)
     .all();
 

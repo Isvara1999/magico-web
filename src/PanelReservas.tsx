@@ -1288,6 +1288,7 @@ const SeccionActividad: React.FC = () => {
 type Interesado = {
   id: number; created_at: string; nombre: string; telefono: string; email: string;
   edad: number; genero: string; fuente: string; modalidad: 'solo' | 'grupo'; cantidad: number | null;
+  codigo: string; email_confirmado_at: string | null;
 };
 
 const GENERO_LABEL: Record<string, string> = { mujer: 'Mujer', hombre: 'Hombre', no_binario: 'No binario', prefiero_no_decir: 'Prefiere no decir' };
@@ -1307,6 +1308,7 @@ const SeccionInteresados: React.FC = () => {
   const lista = interesados || [];
   const personas = lista.reduce((n, i) => n + (i.cantidad || 1), 0);
   const totalClics = clics.reduce((n, c) => n + c.total, 0);
+  const confirmados = lista.filter(i => i.email_confirmado_at).length;
 
   return (
     <>
@@ -1314,7 +1316,7 @@ const SeccionInteresados: React.FC = () => {
         <div>
           <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500">Interesados · Sunset y Río</h2>
           <p className="text-xs text-gray-400 mt-1">
-            {lista.length} formularios · {personas} personas · {totalClics} clics en los botones
+            {lista.length} formularios · {personas} personas · {confirmados} confirmaron el mail · {totalClics} clics en los botones
           </p>
         </div>
         <a href="/api/admin/interesados?evento=sunset-y-rio&formato=csv"
@@ -1335,12 +1337,20 @@ const SeccionInteresados: React.FC = () => {
           <tbody>
             {lista.map(i => (
               <tr key={i.id} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="px-3 py-2.5 font-semibold text-gray-800 whitespace-nowrap">{i.nombre}</td>
+                <td className="px-3 py-2.5 whitespace-nowrap">
+                  <p className="font-semibold text-gray-800">{i.nombre}</p>
+                  <p className="text-[11px] text-gray-400 tabular-nums">{i.codigo}</p>
+                </td>
                 <td className="px-3 py-2.5 text-xs text-gray-500">
                   <a href={waLink(i.telefono)} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-brand font-semibold hover:underline rounded ${FOCUS_RING}`}>
                     <MessageCircle size={11} aria-hidden="true" /> {i.telefono}
                   </a>
-                  <p>{i.email}</p>
+                  <p>
+                    {i.email}{' '}
+                    {i.email_confirmado_at
+                      ? <span className="text-green-700 font-semibold" title={`Confirmó el ${fmtFechaHora(i.email_confirmado_at)}`}>✓ confirmado</span>
+                      : <span className="text-gray-400">· sin confirmar</span>}
+                  </p>
                 </td>
                 <td className="px-3 py-2.5 text-gray-600 tabular-nums">{i.edad}</td>
                 <td className="px-3 py-2.5 text-gray-600">{GENERO_LABEL[i.genero] || i.genero}</td>
