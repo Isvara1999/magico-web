@@ -15,8 +15,14 @@ const LOCALHOST_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
 
 const EVENTOS: Record<string, string> = { 'sunset-y-rio': 'Sunset y Río (30/10 al 1/11)' };
 const VALORES = ['30-1', 'grupo'];
-const GENEROS = ['mujer', 'hombre', 'no_binario', 'prefiero_no_decir'];
-const FUENTES = ['instagram', 'facebook', 'tiktok', 'whatsapp', 'amigos', 'google', 'runclub_cordoba', 'ya_vine', 'otro'];
+// Etiquetas = las mismas que ve la persona en el formulario (src/SunsetRio.tsx).
+const GENERO_LABEL: Record<string, string> = { mujer: 'Mujer', hombre: 'Hombre', no_binario: 'No binario', prefiero_no_decir: 'Prefiere no decir' };
+const FUENTE_LABEL: Record<string, string> = {
+  instagram: 'Instagram', facebook: 'Facebook', tiktok: 'TikTok', whatsapp: 'Por WhatsApp', amigos: 'Se lo contó alguien',
+  google: 'Google', runclub_cordoba: 'RunclubCordoba', ya_vine: 'Ya vino a Pueblo Mágico', otro: 'Otro',
+};
+const GENEROS = Object.keys(GENERO_LABEL);
+const FUENTES = Object.keys(FUENTE_LABEL);
 
 function corsHeaders(request: Request): Record<string, string> {
   const origin = request.headers.get('Origin') || '';
@@ -131,8 +137,8 @@ export async function onRequestPost({ request, env, waitUntil }: any) {
     Teléfono: telefono,
     Email: email,
     Edad: edad,
-    Género: genero,
-    'Cómo se enteró': fuenteFinal,
+    Género: GENERO_LABEL[genero],
+    'Cómo se enteró': fuente === 'otro' && fuenteOtro ? `Otro: ${fuenteOtro}` : FUENTE_LABEL[fuente],
     Viene: modalidad === 'grupo' ? `En grupo (${cantidad})` : 'Solo/a',
     Landing: pagina ? `experienciamagico.com${pagina}` : '—',
   }));
