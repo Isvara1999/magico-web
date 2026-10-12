@@ -23,7 +23,7 @@ import { X, ChevronLeft, ChevronRight, RefreshCw, CheckCircle2, MessageCircle, D
 // más específicos, sin tocar el CSS global del sitio.
 
 type TipoAlojamiento = 'domo' | 'refugio';
-type VistaActiva = 'operativa' | 'metricas' | 'historial' | 'consultas' | 'usuarios' | 'actividad';
+type VistaActiva = 'operativa' | 'metricas' | 'historial' | 'consultas' | 'interesados' | 'usuarios' | 'actividad';
 type EstadoReserva = 'pendiente' | 'confirmada' | 'cancelada';
 
 type Alojamiento = {
@@ -1284,6 +1284,81 @@ const SeccionActividad: React.FC = () => {
   );
 };
 
+// ─── Interesados (landings de eventos) — ver functions/api/admin/interesados.ts ───
+type Interesado = {
+  id: number; created_at: string; nombre: string; telefono: string; email: string;
+  edad: number; genero: string; fuente: string; modalidad: 'solo' | 'grupo'; cantidad: number | null;
+};
+
+const GENERO_LABEL: Record<string, string> = { mujer: 'Mujer', hombre: 'Hombre', no_binario: 'No binario', prefiero_no_decir: 'Prefiere no decir' };
+
+const SeccionInteresados: React.FC = () => {
+  const [interesados, setInteresados] = useState<Interesado[] | null>(null);
+  const [clics, setClics] = useState<{ valor: string; total: number }[]>([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetch('/api/admin/interesados?evento=sunset-y-rio')
+      .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+      .then(data => { setInteresados(data.interesados || []); setClics(data.clics || []); })
+      .catch(err => setError(err.message || 'Error al cargar los interesados'));
+  }, []);
+
+  const lista = interesados || [];
+  const personas = lista.reduce((n, i) => n + (i.cantidad || 1), 0);
+  const totalClics = clics.reduce((n, c) => n + c.total, 0);
+
+  return (
+    <>
+      <div className="flex flex-wrap items-end justify-between gap-3 mb-4">
+        <div>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500">Interesados · Sunset y Río</h2>
+          <p className="text-xs text-gray-400 mt-1">
+            {lista.length} formularios · {personas} personas · {totalClics} clics en los botones
+          </p>
+        </div>
+        <a href="/api/admin/interesados?evento=sunset-y-rio&formato=csv"
+          className={`inline-flex items-center gap-1.5 text-sm font-semibold px-3.5 py-2 rounded-lg bg-brand-green text-white hover:opacity-90 ${FOCUS_RING}`}>
+          <Download size={14} aria-hidden="true" /> Descargar CSV
+        </a>
+      </div>
+      {error && <p className="text-xs text-red-600 mb-3" role="alert">{error}</p>}
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-x-auto">
+        <table className="text-sm border-collapse w-full">
+          <thead>
+            <tr className="text-left text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-50">
+              {['Nombre', 'Contacto', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Registro'].map(h => (
+                <th key={h} scope="col" className="border-b border-gray-200 px-3 py-2.5 whitespace-nowrap">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {lista.map(i => (
+              <tr key={i.id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="px-3 py-2.5 font-semibold text-gray-800 whitespace-nowrap">{i.nombre}</td>
+                <td className="px-3 py-2.5 text-xs text-gray-500">
+                  <a href={waLink(i.telefono)} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-brand font-semibold hover:underline rounded ${FOCUS_RING}`}>
+                    <MessageCircle size={11} aria-hidden="true" /> {i.telefono}
+                  </a>
+                  <p>{i.email}</p>
+                </td>
+                <td className="px-3 py-2.5 text-gray-600 tabular-nums">{i.edad}</td>
+                <td className="px-3 py-2.5 text-gray-600">{GENERO_LABEL[i.genero] || i.genero}</td>
+                <td className="px-3 py-2.5 text-gray-600">{i.fuente}</td>
+                <td className="px-3 py-2.5 text-gray-600 whitespace-nowrap">{i.modalidad === 'grupo' ? `Grupo (${i.cantidad})` : 'Solo/a'}</td>
+                <td className="px-3 py-2.5 text-gray-500 tabular-nums whitespace-nowrap">{fmtFechaHora(i.created_at)}</td>
+              </tr>
+            ))}
+            {interesados !== null && lista.length === 0 && (
+              <tr><td colSpan={7} className="px-3 py-8 text-center text-sm text-gray-400">Todavía no hay interesados.</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
+
 const PanelReservas: React.FC = () => {
   const [auth, setAuth] = useState<{ email: string; rol: Rol } | null | 'cargando'>('cargando');
   const [sesionExpirada, setSesionExpirada] = useState(false);
@@ -1490,6 +1565,7 @@ const PanelReservas: React.FC = () => {
     { key: 'metricas', label: 'Métricas' },
     { key: 'historial', label: 'Historial' },
     { key: 'consultas', label: 'Consultas' },
+    { key: 'interesados', label: 'Interesados' },
     ...(esSuperAdmin ? [{ key: 'usuarios' as VistaActiva, label: 'Usuarios' }, { key: 'actividad' as VistaActiva, label: 'Actividad' }] : []),
   ];
 
@@ -1778,6 +1854,7 @@ const PanelReservas: React.FC = () => {
         )}
 
         {vistaActiva === 'usuarios' && esSuperAdmin && <SeccionUsuarios emailActual={auth.email} />}
+        {vistaActiva === 'interesados' && <SeccionInteresados />}
         {vistaActiva === 'actividad' && esSuperAdmin && <SeccionActividad />}
       </main>
 

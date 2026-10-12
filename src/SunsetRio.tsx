@@ -105,20 +105,21 @@ const DOMINGO = [
 
 // Cada tarjeta lleva solo 3 puntos cortos y del mismo largo para que las tres
 // queden parejas; el detalle de comidas va una sola vez en COMIDAS (desplegable).
-const MODALIDADES: { key: string; label: string; cuando: string; precio: string; cuotaValor: string; destacado: boolean; incluye: string[] }[] = [
+// Sin precios por ahora: se publican cuando se abran las reservas.
+const MODALIDADES: { key: string; label: string; cuando: string; destacado: boolean; incluye: string[] }[] = [
   {
     key: 'sabado', label: 'Sábado', cuando: 'Sábado · sin alojamiento',
-    precio: '$96.000', cuotaValor: '$40.000', destacado: false,
+    destacado: false,
     incluye: ['Río, atardecer y fogón', 'Almuerzo, merienda, picada y cena', 'Volvés el sábado a la noche'],
   },
   {
     key: '1noche', label: '1 noche', cuando: 'Sábado y domingo',
-    precio: '$172.000', cuotaValor: '$72.000', destacado: true,
+    destacado: true,
     incluye: ['Todo lo del sábado', 'Dormís acá: no manejás de noche', 'Domingo: desayuno, río y almuerzo'],
   },
   {
     key: 'finde', label: 'Finde completo', cuando: '2 noches · vie a dom o sáb a lun',
-    precio: '$236.000', cuotaValor: '$98.000', destacado: false,
+    destacado: false,
     incluye: ['Todo lo de 1 noche', 'Sumás el viernes o el domingo', 'Elegís tus dos noches'],
   },
 ];
@@ -135,14 +136,6 @@ const BOTONES_FECHA: { label: string; valor: Valor; primary: boolean }[] = [
   { label: 'Vamos en grupo', valor: 'grupo', primary: false },
 ];
 
-const CardIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-5 w-5 flex-shrink-0">
-    <rect x="2.75" y="5.25" width="18.5" height="13.5" rx="2.25" stroke={color} strokeWidth="1.5" />
-    <path d="M3.5 9.25h17" stroke={color} strokeWidth="1.5" />
-    <path d="M6.5 14.75h3.25" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
-
 // ─── Formulario de interés ──────────────────────────────────────────────────────
 type FormInicial = { modalidad: 'solo' | 'grupo' | null };
 
@@ -158,11 +151,36 @@ const Opcion: React.FC<{ selected: boolean; onClick: () => void; children: React
   </button>
 );
 
+const GENEROS: { valor: string; label: string }[] = [
+  { valor: 'mujer', label: 'Mujer' },
+  { valor: 'hombre', label: 'Hombre' },
+  { valor: 'no_binario', label: 'No binario' },
+  { valor: 'prefiero_no_decir', label: 'Prefiero no decir' },
+];
+
+const FUENTES: { valor: string; label: string }[] = [
+  { valor: 'instagram', label: 'Instagram' },
+  { valor: 'facebook', label: 'Facebook' },
+  { valor: 'tiktok', label: 'TikTok' },
+  { valor: 'whatsapp', label: 'Por WhatsApp' },
+  { valor: 'amigos', label: 'Me lo contó alguien' },
+  { valor: 'google', label: 'Google' },
+  { valor: 'ya_vine', label: 'Ya vine a Pueblo Mágico' },
+  { valor: 'otro', label: 'Otro' },
+];
+
 const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({ inicial, onClose }) => {
   const [nombre, setNombre] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [email, setEmail] = useState('');
+  const [edad, setEdad] = useState('');
+  const [genero, setGenero] = useState('');
+  const [fuente, setFuente] = useState('');
+  const [fuenteOtro, setFuenteOtro] = useState('');
   const [modalidad, setModalidad] = useState<'solo' | 'grupo' | null>(inicial.modalidad);
   const [cantidad, setCantidad] = useState('');
   const [enviando, setEnviando] = useState(false);
+  const [listo, setListo] = useState(false);
   const [error, setError] = useState('');
   const nombreRef = useRef<HTMLInputElement>(null);
 
@@ -178,26 +196,43 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const n = Number(cantidad);
-    if (!nombre.trim()) return setError('Contanos tu nombre.');
+    const ed = Number(edad);
+    if (nombre.trim().length < 3) return setError('Contanos tu nombre y apellido.');
+    if (telefono.replace(/\D/g, '').length < 8) return setError('Revisá el teléfono (con código de área).');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return setError('Revisá el mail.');
+    if (!Number.isInteger(ed) || ed < 14 || ed > 99) return setError('Revisá la edad.');
+    if (!genero) return setError('Elegí una opción de género.');
+    if (!fuente) return setError('Contanos cómo te enteraste del evento.');
     if (!modalidad) return setError('Contanos si venís solo/a o en grupo.');
     if (modalidad === 'grupo' && (!Number.isInteger(n) || n < 2 || n > 30)) return setError('¿Cuántos son? (entre 2 y 30)');
     setError('');
     setEnviando(true);
     try {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 4000);
-      await fetch('/api/interes', {
+      const res = await fetch('/api/interes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tipo: 'form', evento: EVENTO, valor: FECHA, nombre: nombre.trim(), modalidad, cantidad: modalidad === 'grupo' ? n : undefined }),
-        signal: ctrl.signal,
+        body: JSON.stringify({
+          tipo: 'form', evento: EVENTO, valor: FECHA,
+          nombre: nombre.trim(), telefono: telefono.trim(), email: email.trim(), edad: ed,
+          genero, fuente, fuenteOtro: fuente === 'otro' ? fuenteOtro.trim() : undefined,
+          modalidad, cantidad: modalidad === 'grupo' ? n : undefined,
+        }),
       });
-      clearTimeout(timer);
-    } catch { /* si falla el guardado, igual seguimos a WhatsApp: no perder el contacto */ }
-    window.location.href = waMensaje(modalidad, n);
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || 'No se pudo guardar.');
+      }
+      setListo(true);
+    } catch (err: any) {
+      setError(`${err?.message || 'No se pudo guardar.'} Probá de nuevo o escribinos por WhatsApp.`);
+    } finally {
+      setEnviando(false);
+    }
   };
 
   const labelCls = 'block text-[11px] font-bold uppercase tracking-widest mb-2';
+  const inputCls = 'w-full rounded-xl border px-4 py-3 text-base mb-5 outline-none focus:ring-2 bg-white';
+  const inputStyle = { borderColor: 'rgba(42,23,8,0.15)', color: C.dark };
 
   return (
     <div className="fixed inset-0 z-[1000] flex items-end sm:items-center justify-center p-0 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="interes-titulo">
@@ -208,38 +243,87 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
         <button type="button" onClick={onClose} aria-label="Cerrar" className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5">
           <X size={18} color={C.faint} />
         </button>
-        <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-2" style={{ color: C.sunset }}>Sunset y Río</p>
-        <h2 id="interes-titulo" className="text-2xl serif-title mb-1" style={{ color: C.dark }}>Antes de abrir WhatsApp</h2>
-        <p className="text-sm mb-6" style={{ color: C.muted }}>Viernes 30 de octubre al domingo 1 de noviembre. Dos datos y seguimos por chat.</p>
+        <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-2" style={{ color: C.sunset }}>Sunset y Río · 30/10 al 1/11</p>
 
-        <label htmlFor="interes-nombre" className={labelCls} style={{ color: C.faint }}>Nombre</label>
-        <input id="interes-nombre" ref={nombreRef} type="text" autoComplete="given-name" maxLength={80}
-          value={nombre} onChange={e => setNombre(e.target.value)}
-          className="w-full rounded-xl border px-4 py-3 text-base mb-5 outline-none focus:ring-2"
-          style={{ borderColor: 'rgba(42,23,8,0.15)', color: C.dark }} />
-
-        <p className={labelCls} style={{ color: C.faint }} id="interes-modalidad">¿Venís solo/a o en grupo?</p>
-        <div role="radiogroup" aria-labelledby="interes-modalidad" className="flex gap-2 mb-5">
-          <Opcion selected={modalidad === 'solo'} onClick={() => setModalidad('solo')}>Solo/a</Opcion>
-          <Opcion selected={modalidad === 'grupo'} onClick={() => setModalidad('grupo')}>En grupo</Opcion>
-        </div>
-
-        {modalidad === 'grupo' && (
+        {listo ? (
+          <div role="status">
+            <h2 id="interes-titulo" className="text-2xl serif-title mb-3" style={{ color: C.dark }}>¡Listo, {nombre.trim().split(' ')[0]}!</h2>
+            <p className="text-sm mb-6" style={{ color: C.muted }}>
+              Ya estás en la lista. Te escribimos apenas abramos las reservas, con precios y todos los detalles.
+            </p>
+            <a href={waMensaje(modalidad || 'solo', Number(cantidad))} target="_blank" rel="noopener noreferrer"
+              className="block text-center text-sm font-semibold py-3.5 rounded-full border mb-3" style={{ borderColor: C.dark, color: C.dark }}>
+              ¿Tenés preguntas? Escribinos por WhatsApp
+            </a>
+            <button type="button" onClick={onClose} className="btn-gold text-sm py-4 w-full">Volver a la página</button>
+          </div>
+        ) : (
           <>
-            <label htmlFor="interes-cantidad" className={labelCls} style={{ color: C.faint }}>¿Cuántos son?</label>
-            <input id="interes-cantidad" type="number" inputMode="numeric" min={2} max={30}
-              value={cantidad} onChange={e => setCantidad(e.target.value)}
-              className="w-32 rounded-xl border px-4 py-3 text-base mb-5 outline-none focus:ring-2"
-              style={{ borderColor: 'rgba(42,23,8,0.15)', color: C.dark }} />
+            <h2 id="interes-titulo" className="text-2xl serif-title mb-1" style={{ color: C.dark }}>Anotate</h2>
+            <p className="text-sm mb-6" style={{ color: C.muted }}>Viernes 30 de octubre al domingo 1 de noviembre. Te avisamos cuando abramos las reservas.</p>
+
+            <label htmlFor="interes-nombre" className={labelCls} style={{ color: C.faint }}>Nombre y apellido</label>
+            <input id="interes-nombre" ref={nombreRef} type="text" autoComplete="name" maxLength={100}
+              value={nombre} onChange={e => setNombre(e.target.value)} className={inputCls} style={inputStyle} />
+
+            <label htmlFor="interes-telefono" className={labelCls} style={{ color: C.faint }}>Teléfono (WhatsApp)</label>
+            <input id="interes-telefono" type="tel" autoComplete="tel" inputMode="tel" maxLength={30} placeholder="351 123 4567"
+              value={telefono} onChange={e => setTelefono(e.target.value)} className={inputCls} style={inputStyle} />
+
+            <label htmlFor="interes-email" className={labelCls} style={{ color: C.faint }}>Mail</label>
+            <input id="interes-email" type="email" autoComplete="email" maxLength={120}
+              value={email} onChange={e => setEmail(e.target.value)} className={inputCls} style={inputStyle} />
+
+            <div className="grid grid-cols-[6rem_1fr] gap-3">
+              <div>
+                <label htmlFor="interes-edad" className={labelCls} style={{ color: C.faint }}>Edad</label>
+                <input id="interes-edad" type="number" inputMode="numeric" min={14} max={99}
+                  value={edad} onChange={e => setEdad(e.target.value)} className={inputCls} style={inputStyle} />
+              </div>
+              <div>
+                <label htmlFor="interes-genero" className={labelCls} style={{ color: C.faint }}>Género</label>
+                <select id="interes-genero" value={genero} onChange={e => setGenero(e.target.value)} className={inputCls} style={inputStyle}>
+                  <option value="" disabled>Elegí</option>
+                  {GENEROS.map(g => <option key={g.valor} value={g.valor}>{g.label}</option>)}
+                </select>
+              </div>
+            </div>
+
+            <label htmlFor="interes-fuente" className={labelCls} style={{ color: C.faint }}>¿Cómo te enteraste del evento?</label>
+            <select id="interes-fuente" value={fuente} onChange={e => setFuente(e.target.value)} className={inputCls} style={inputStyle}>
+              <option value="" disabled>Elegí</option>
+              {FUENTES.map(f => <option key={f.valor} value={f.valor}>{f.label}</option>)}
+            </select>
+            {fuente === 'otro' && (
+              <input aria-label="¿Dónde?" type="text" maxLength={80} placeholder="¿Dónde?"
+                value={fuenteOtro} onChange={e => setFuenteOtro(e.target.value)} className={`${inputCls} -mt-2`} style={inputStyle} />
+            )}
+
+            <p className={labelCls} style={{ color: C.faint }} id="interes-modalidad">¿Venís solo/a o en grupo?</p>
+            <div role="radiogroup" aria-labelledby="interes-modalidad" className="flex gap-2 mb-5">
+              <Opcion selected={modalidad === 'solo'} onClick={() => setModalidad('solo')}>Solo/a</Opcion>
+              <Opcion selected={modalidad === 'grupo'} onClick={() => setModalidad('grupo')}>En grupo</Opcion>
+            </div>
+
+            {modalidad === 'grupo' && (
+              <>
+                <label htmlFor="interes-cantidad" className={labelCls} style={{ color: C.faint }}>¿Cuántos son?</label>
+                <input id="interes-cantidad" type="number" inputMode="numeric" min={2} max={30}
+                  value={cantidad} onChange={e => setCantidad(e.target.value)}
+                  className="w-32 rounded-xl border px-4 py-3 text-base mb-5 outline-none focus:ring-2" style={inputStyle} />
+              </>
+            )}
+
+            {error && <p role="alert" className="text-sm font-semibold mb-4" style={{ color: C.ember }}>{error}</p>}
+
+            <button type="submit" disabled={enviando} className="btn-gold text-sm py-4 w-full disabled:opacity-60">
+              {enviando ? 'Enviando…' : 'Anotarme'}
+            </button>
+            <p className="text-xs text-center mt-3" style={{ color: C.faint }}>
+              Todavía no tomamos reservas ni pagos. Usamos tus datos solo para contactarte por este evento.
+            </p>
           </>
         )}
-
-        {error && <p role="alert" className="text-sm font-semibold mb-4" style={{ color: C.ember }}>{error}</p>}
-
-        <button type="submit" disabled={enviando} className="btn-gold text-sm py-4 w-full disabled:opacity-60">
-          {enviando ? 'Abriendo WhatsApp…' : 'Seguir en WhatsApp'}
-        </button>
-        <p className="text-xs text-center mt-3" style={{ color: C.faint }}>Todavía no tomamos reservas ni pagos.</p>
       </form>
     </div>
   );
@@ -611,13 +695,13 @@ const SunsetRio: React.FC = () => {
           <div data-reveal>
             <div className="text-center mb-12 md:mb-14">
               <p className="inline-block text-white px-4 py-2 rounded-full text-[10px] tracking-[0.4em] uppercase mb-5 font-semibold" style={{ backgroundColor: C.sunset }}>
-                Precios
+                Opciones
               </p>
               <h2 className="text-3xl md:text-4xl serif-title mb-4" style={{ color: C.dark }}>
                 Elegís cuánto te quedás
               </h2>
               <p className="text-sm md:text-base max-w-xl mx-auto" style={{ color: C.muted }}>
-                Las tres incluyen comidas y actividades. Mismo precio en refugio o domo: lo que cambia es cuántos días te quedás.
+                Las tres incluyen comidas y actividades. Los precios los publicamos cuando abramos las reservas: anotate y te avisamos primero.
               </p>
             </div>
           </div>
@@ -639,14 +723,6 @@ const SunsetRio: React.FC = () => {
                   <h3 className="text-[11px] tracking-[0.2em] uppercase font-bold" style={{ color: m.destacado ? C.ember : C.dark }}>{m.label}</h3>
                   <p className="text-sm mt-1" style={{ color: C.faint }}>{m.cuando}</p>
 
-                  <p className="text-4xl font-bold serif-title leading-none mt-6" style={{ color: m.destacado ? C.ember : C.dark }}>{m.precio}</p>
-                  <p className="text-xs mt-2" style={{ color: C.faint }}>por persona · efectivo o transferencia</p>
-
-                  <p className="flex items-center gap-2 text-xs font-semibold mt-4 px-3 py-2.5 rounded-xl" style={{ backgroundColor: C.sand, color: C.muted }}>
-                    <CardIcon color={C.faint} />
-                    <span>3 cuotas sin interés de <strong style={{ color: C.dark }}>{m.cuotaValor}</strong></span>
-                  </p>
-
                   <ul className="space-y-2.5 mt-6 pt-6 border-t mb-7" style={{ borderColor: 'rgba(42,23,8,0.08)' }}>
                     {m.incluye.map(i => (
                       <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: C.dark }}>
@@ -667,7 +743,7 @@ const SunsetRio: React.FC = () => {
             </div>
 
             <p className="text-center text-xs md:text-sm mt-6" style={{ color: C.faint }}>
-              Reservá con una seña y pagá el saldo después.
+              Precios y formas de pago: los anunciamos al abrir las reservas.
             </p>
 
             <div className="max-w-3xl mx-auto mt-8 rounded-2xl border" style={{ borderColor: 'rgba(42,23,8,0.1)' }}>
