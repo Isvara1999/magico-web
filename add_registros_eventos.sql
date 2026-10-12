@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS registros_eventos (
   fuente      TEXT,                                             -- cómo se enteró del evento
   modalidad   TEXT CHECK (modalidad IN ('solo', 'grupo')),
   cantidad    INTEGER,                                          -- solo form + grupo
+  pagina      TEXT,                                             -- landing desde la que se anotó, con sus ?utm_
   created_at  TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 

@@ -98,6 +98,7 @@ export async function onRequestPost({ request, env, waitUntil }: any) {
   const fuente = texto(body.fuente, 30);
   const fuenteOtro = texto(body.fuenteOtro, 80);
   const modalidad = body.modalidad;
+  const pagina = texto(body.pagina, 300) || null;
 
   if (nombre.length < 3) return json({ error: 'Falta el nombre y apellido.' }, 400, headers);
   if (telefono.replace(/\D/g, '').length < 8) return json({ error: 'Teléfono inválido.' }, 400, headers);
@@ -119,10 +120,10 @@ export async function onRequestPost({ request, env, waitUntil }: any) {
 
   await env.DB
     .prepare(
-      `INSERT INTO registros_eventos (evento, tipo, valor, nombre, telefono, email, edad, genero, fuente, modalidad, cantidad)
-       VALUES (?, 'form', ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO registros_eventos (evento, tipo, valor, nombre, telefono, email, edad, genero, fuente, modalidad, cantidad, pagina)
+       VALUES (?, 'form', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
-    .bind(evento, valor, nombre, telefono, email, edad, genero, fuenteFinal, modalidad, cantidad)
+    .bind(evento, valor, nombre, telefono, email, edad, genero, fuenteFinal, modalidad, cantidad, pagina)
     .run();
 
   waitUntil(avisarPorMail(env, evento, {
@@ -133,6 +134,7 @@ export async function onRequestPost({ request, env, waitUntil }: any) {
     Género: genero,
     'Cómo se enteró': fuenteFinal,
     Viene: modalidad === 'grupo' ? `En grupo (${cantidad})` : 'Solo/a',
+    Landing: pagina ? `experienciamagico.com${pagina}` : '—',
   }));
 
   return json({ ok: true }, 200, headers);

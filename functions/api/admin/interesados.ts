@@ -14,8 +14,8 @@ function json(body: unknown, status = 200) {
   });
 }
 
-const COLUMNAS = ['created_at', 'evento', 'valor', 'nombre', 'telefono', 'email', 'edad', 'genero', 'fuente', 'modalidad', 'cantidad'];
-const ENCABEZADOS = ['Fecha de registro (UTC)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad'];
+const COLUMNAS = ['created_at', 'evento', 'valor', 'nombre', 'telefono', 'email', 'edad', 'genero', 'fuente', 'modalidad', 'cantidad', 'pagina'];
+const ENCABEZADOS = ['Fecha de registro (UTC)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad', 'Landing'];
 
 function csvEscape(v: unknown): string {
   const s = v === null || v === undefined ? '' : String(v);

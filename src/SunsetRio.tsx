@@ -217,6 +217,7 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
           nombre: nombre.trim(), telefono: telefono.trim(), email: email.trim(), edad: ed,
           genero, fuente, fuenteOtro: fuente === 'otro' ? fuenteOtro.trim() : undefined,
           modalidad, cantidad: modalidad === 'grupo' ? n : undefined,
+          pagina: window.location.pathname + window.location.search,
         }),
       });
       if (!res.ok) {
