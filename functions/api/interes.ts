@@ -16,7 +16,7 @@ const LOCALHOST_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
 const EVENTOS: Record<string, string> = { 'sunset-y-rio': 'Sunset y Río (30/10 al 1/11)' };
 const VALORES = ['30-1', 'grupo'];
 const GENEROS = ['mujer', 'hombre', 'no_binario', 'prefiero_no_decir'];
-const FUENTES = ['instagram', 'facebook', 'tiktok', 'whatsapp', 'amigos', 'google', 'ya_vine', 'otro'];
+const FUENTES = ['instagram', 'facebook', 'tiktok', 'whatsapp', 'amigos', 'google', 'runclub_cordoba', 'ya_vine', 'otro'];
 
 function corsHeaders(request: Request): Record<string, string> {
   const origin = request.headers.get('Origin') || '';

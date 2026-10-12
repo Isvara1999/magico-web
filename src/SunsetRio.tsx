@@ -165,6 +165,7 @@ const FUENTES: { valor: string; label: string }[] = [
   { valor: 'whatsapp', label: 'Por WhatsApp' },
   { valor: 'amigos', label: 'Me lo contó alguien' },
   { valor: 'google', label: 'Google' },
+  { valor: 'runclub_cordoba', label: 'RunclubCordoba' },
   { valor: 'ya_vine', label: 'Ya vine a Pueblo Mágico' },
   { valor: 'otro', label: 'Otro' },
 ];
