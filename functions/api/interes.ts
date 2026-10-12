@@ -11,7 +11,8 @@ const ALLOWED_ORIGINS = [
 const LOCALHOST_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
 
 const EVENTOS = ['sunset-y-rio'];
-const VALORES = ['24', '31', 'ambas', 'grupo'];
+// '24', '31' y 'ambas' quedan aceptados por filas viejas; la fecha final es '30-1'.
+const VALORES = ['30-1', '24', '31', 'ambas', 'grupo'];
 
 function corsHeaders(request: Request): Record<string, string> {
   const origin = request.headers.get('Origin') || '';
@@ -48,7 +49,7 @@ export async function onRequestPost({ request, env }: any) {
 
   const { tipo, evento, valor } = body || {};
   if (!EVENTOS.includes(evento)) return json({ error: 'evento desconocido.' }, 400, headers);
-  if (!VALORES.includes(valor)) return json({ error: "valor debe ser '24', '31', 'ambas' o 'grupo'." }, 400, headers);
+  if (!VALORES.includes(valor)) return json({ error: "valor debe ser '30-1' o 'grupo'." }, 400, headers);
 
   if (tipo === 'click') {
     await env.DB
@@ -62,7 +63,7 @@ export async function onRequestPost({ request, env }: any) {
 
   const nombre = typeof body.nombre === 'string' ? body.nombre.trim().slice(0, 80) : '';
   if (!nombre) return json({ error: 'Falta el nombre.' }, 400, headers);
-  if (valor === 'grupo') return json({ error: 'En el formulario la fecha es 24, 31 o ambas.' }, 400, headers);
+  if (valor === 'grupo') return json({ error: "En el formulario la fecha es '30-1'." }, 400, headers);
 
   const modalidad = body.modalidad;
   if (modalidad !== 'solo' && modalidad !== 'grupo') {

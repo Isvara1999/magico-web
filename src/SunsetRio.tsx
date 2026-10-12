@@ -6,31 +6,21 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { HorizontalCardRail } from '../components/HorizontalCardRail';
 
-// Landing de VALIDACIÓN: todavía no toma señas. Mide qué fecha elige la gente:
-// cada clic en un botón de fecha se guarda como evento fecha_elegida, y el
-// formulario corto (nombre, fecha, solo/a o grupo) se guarda en D1 antes de
-// abrir WhatsApp — ver functions/api/interes.ts y add_interes_eventos.sql.
+// Landing de VALIDACIÓN: todavía no toma señas. La fecha quedó definida
+// (finde del 30/10 al 1/11): cada clic en un botón se guarda como evento
+// fecha_elegida, y el formulario corto (nombre, solo/a o grupo) se guarda en D1
+// antes de abrir WhatsApp — ver functions/api/interes.ts y add_interes_eventos.sql.
 
 const EVENTO = 'sunset-y-rio';
-type Fecha = '24' | '31' | 'ambas';
-type Valor = Fecha | 'grupo';
+const FECHA = '30-1';
+type Valor = typeof FECHA | 'grupo';
 
 const wa = (msg: string) => `https://wa.me/${WA_MAGICO}?text=${encodeURIComponent(msg)}`;
 
-const WA_FECHA: Record<Fecha, string> = {
-  '24':    '¡Hola! Quiero ir a Sunset y Río. Me sirve el sábado 24 de octubre.',
-  '31':    '¡Hola! Quiero ir a Sunset y Río. Me sirve el sábado 31 de octubre.',
-  'ambas': '¡Hola! Quiero ir a Sunset y Río. Me sirven los dos findes.',
-};
-const FECHA_GRUPO: Record<Fecha, string> = {
-  '24':    'Nos sirve el sábado 24 de octubre.',
-  '31':    'Nos sirve el sábado 31 de octubre.',
-  'ambas': 'Nos sirven los dos findes.',
-};
-const waMensaje = (fecha: Fecha, modalidad: 'solo' | 'grupo', cantidad: number) =>
+const waMensaje = (modalidad: 'solo' | 'grupo', cantidad: number) =>
   modalidad === 'grupo'
-    ? wa(`¡Hola! Queremos ir a Sunset y Río en grupo. Seríamos ${cantidad}. ${FECHA_GRUPO[fecha]} ¿Cómo es el descuento?`)
-    : wa(WA_FECHA[fecha]);
+    ? wa(`¡Hola! Queremos ir a Sunset y Río (30 de octubre al 1 de noviembre) en grupo. Seríamos ${cantidad}. ¿Cómo es el descuento?`)
+    : wa('¡Hola! Quiero ir a Sunset y Río, el finde del 30 de octubre al 1 de noviembre.');
 
 const WA_INFO = wa('¡Hola! Quiero saber más de Sunset y Río.');
 
@@ -141,10 +131,8 @@ const COMIDAS: { opcion: string; texto: string }[] = [
 ];
 
 const BOTONES_FECHA: { label: string; valor: Valor; primary: boolean }[] = [
-  { label: 'Sábado 24 de octubre', valor: '24', primary: true },
-  { label: 'Sábado 31 de octubre', valor: '31', primary: true },
-  { label: 'Me sirven los dos',    valor: 'ambas', primary: false },
-  { label: 'Vamos en grupo',       valor: 'grupo', primary: false },
+  { label: 'Quiero ir',      valor: FECHA,   primary: true },
+  { label: 'Vamos en grupo', valor: 'grupo', primary: false },
 ];
 
 const CardIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
@@ -156,7 +144,7 @@ const CardIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
 );
 
 // ─── Formulario de interés ──────────────────────────────────────────────────────
-type FormInicial = { fecha: Fecha | null; modalidad: 'solo' | 'grupo' | null };
+type FormInicial = { modalidad: 'solo' | 'grupo' | null };
 
 const Opcion: React.FC<{ selected: boolean; onClick: () => void; children: React.ReactNode }> = ({ selected, onClick, children }) => (
   <button
@@ -172,7 +160,6 @@ const Opcion: React.FC<{ selected: boolean; onClick: () => void; children: React
 
 const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({ inicial, onClose }) => {
   const [nombre, setNombre] = useState('');
-  const [fecha, setFecha] = useState<Fecha | null>(inicial.fecha);
   const [modalidad, setModalidad] = useState<'solo' | 'grupo' | null>(inicial.modalidad);
   const [cantidad, setCantidad] = useState('');
   const [enviando, setEnviando] = useState(false);
@@ -192,7 +179,6 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
     e.preventDefault();
     const n = Number(cantidad);
     if (!nombre.trim()) return setError('Contanos tu nombre.');
-    if (!fecha) return setError('Elegí una fecha.');
     if (!modalidad) return setError('Contanos si venís solo/a o en grupo.');
     if (modalidad === 'grupo' && (!Number.isInteger(n) || n < 2 || n > 30)) return setError('¿Cuántos son? (entre 2 y 30)');
     setError('');
@@ -203,12 +189,12 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
       await fetch('/api/interes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tipo: 'form', evento: EVENTO, valor: fecha, nombre: nombre.trim(), modalidad, cantidad: modalidad === 'grupo' ? n : undefined }),
+        body: JSON.stringify({ tipo: 'form', evento: EVENTO, valor: FECHA, nombre: nombre.trim(), modalidad, cantidad: modalidad === 'grupo' ? n : undefined }),
         signal: ctrl.signal,
       });
       clearTimeout(timer);
     } catch { /* si falla el guardado, igual seguimos a WhatsApp: no perder el contacto */ }
-    window.location.href = waMensaje(fecha, modalidad, n);
+    window.location.href = waMensaje(modalidad, n);
   };
 
   const labelCls = 'block text-[11px] font-bold uppercase tracking-widest mb-2';
@@ -224,20 +210,13 @@ const InteresModal: React.FC<{ inicial: FormInicial; onClose: () => void }> = ({
         </button>
         <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-2" style={{ color: C.sunset }}>Sunset y Río</p>
         <h2 id="interes-titulo" className="text-2xl serif-title mb-1" style={{ color: C.dark }}>Antes de abrir WhatsApp</h2>
-        <p className="text-sm mb-6" style={{ color: C.muted }}>Tres datos para elegir la fecha. Después seguimos por chat.</p>
+        <p className="text-sm mb-6" style={{ color: C.muted }}>Viernes 30 de octubre al domingo 1 de noviembre. Dos datos y seguimos por chat.</p>
 
         <label htmlFor="interes-nombre" className={labelCls} style={{ color: C.faint }}>Nombre</label>
         <input id="interes-nombre" ref={nombreRef} type="text" autoComplete="given-name" maxLength={80}
           value={nombre} onChange={e => setNombre(e.target.value)}
           className="w-full rounded-xl border px-4 py-3 text-base mb-5 outline-none focus:ring-2"
           style={{ borderColor: 'rgba(42,23,8,0.15)', color: C.dark }} />
-
-        <p className={labelCls} style={{ color: C.faint }} id="interes-fecha">Fecha</p>
-        <div role="radiogroup" aria-labelledby="interes-fecha" className="flex flex-wrap gap-2 mb-5">
-          <Opcion selected={fecha === '24'} onClick={() => setFecha('24')}>Sáb 24</Opcion>
-          <Opcion selected={fecha === '31'} onClick={() => setFecha('31')}>Sáb 31</Opcion>
-          <Opcion selected={fecha === 'ambas'} onClick={() => setFecha('ambas')}>Me sirven las dos</Opcion>
-        </div>
 
         <p className={labelCls} style={{ color: C.faint }} id="interes-modalidad">¿Venís solo/a o en grupo?</p>
         <div role="radiogroup" aria-labelledby="interes-modalidad" className="flex gap-2 mb-5">
@@ -296,11 +275,11 @@ const SunsetRio: React.FC = () => {
 
   const elegir = (valor: Valor) => {
     trackFechaElegida(valor);
-    setForm(valor === 'grupo' ? { fecha: null, modalidad: 'grupo' } : { fecha: valor, modalidad: null });
+    setForm({ modalidad: valor === 'grupo' ? 'grupo' : null });
   };
 
   useEffect(() => {
-    document.title = 'Sunset y Río · en la montaña · Fin de octubre · Pueblo Mágico';
+    document.title = 'Sunset y Río · en la montaña · 30 oct al 1 nov · Pueblo Mágico';
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -429,7 +408,7 @@ const SunsetRio: React.FC = () => {
               está más abajo en la página. */}
           <div className="md:max-w-[38%] flex flex-col">
           <p className="text-[11px] md:text-xs tracking-[0.12em] md:tracking-[0.25em] uppercase font-semibold mb-4 whitespace-nowrap" style={{ color: '#FFC9A3' }}>
-            Fin de octubre · Los Gigantes, Córdoba
+            30 oct al 1 nov · Los Gigantes, Córdoba
           </p>
           <h1 className="text-6xl md:text-6xl lg:text-7xl xl:text-8xl serif-title leading-[0.95] text-white md:whitespace-nowrap">
             Sunset <span style={{ color: '#F4A261' }}>y</span> Río
@@ -439,9 +418,9 @@ const SunsetRio: React.FC = () => {
           </p>
 
           <a href="#fecha" className="btn-gold text-sm py-4 px-8 inline-block self-start">
-            Quiero ir · elegí tu fecha
+            Quiero ir · 30 oct al 1 nov
           </a>
-          <p className="text-white/55 text-xs mt-3">Cupo: 30 personas · elegís entre dos findes</p>
+          <p className="text-white/55 text-xs mt-3">Cupo: 30 personas · viernes 30 de octubre al domingo 1 de noviembre</p>
           </div>
         </div>
         <p className="absolute z-10 bottom-2 right-3 md:right-5 max-w-[16rem] md:max-w-none text-right text-[9px] md:text-[10px] text-white/55 leading-tight">
@@ -681,7 +660,7 @@ const SunsetRio: React.FC = () => {
                     style={m.destacado
                       ? { backgroundColor: C.sunset, color: 'white' }
                       : { border: `1.5px solid ${C.dark}`, color: C.dark }}>
-                    Elegí tu fecha
+                    Quiero ir
                   </a>
                 </article>
               ))}
@@ -739,8 +718,8 @@ const SunsetRio: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div data-reveal>
             <div className="rounded-3xl p-6 md:p-10 text-center" style={{ backgroundColor: C.night, backgroundImage: 'radial-gradient(ellipse at top, rgba(217,98,43,0.35), transparent 65%)' }}>
-              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-3" style={{ color: C.gold }}>Elegí tu finde</p>
-              <h2 className="text-2xl md:text-3xl serif-title text-white mb-7">¿Cuál te sirve?</h2>
+              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold mb-3" style={{ color: C.gold }}>La fecha</p>
+              <h2 className="text-2xl md:text-3xl serif-title text-white mb-7">Viernes 30 de octubre al domingo 1 de noviembre</h2>
               <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
                 {BOTONES_FECHA.map(b => (
                   <button key={b.valor} type="button" onClick={() => elegir(b.valor)}
@@ -752,7 +731,7 @@ const SunsetRio: React.FC = () => {
                 ))}
               </div>
               <p className="text-white/50 text-xs md:text-sm mt-6 max-w-md mx-auto italic">
-                Todavía no tomamos reservas. Cuando una fecha se llene, avisamos y abrimos las reservas.
+                Todavía no tomamos reservas. Dejanos tus datos y te avisamos cuando abramos las reservas.
               </p>
             </div>
           </div>
@@ -788,7 +767,7 @@ const SunsetRio: React.FC = () => {
               Río de día, sol que baja con música, fuego a la noche.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#fecha" className="btn-gold text-sm py-5 px-10 inline-block">Quiero ir · elegí tu fecha</a>
+              <a href="#fecha" className="btn-gold text-sm py-5 px-10 inline-block">Quiero ir · 30 oct al 1 nov</a>
               <a href={WA_INFO} target="_blank" rel="noopener noreferrer"
                 className="inline-block border border-white/30 text-white/80 font-semibold text-sm py-5 px-10 rounded-full hover:bg-white/10 transition-colors">
                 Tengo preguntas
@@ -809,7 +788,7 @@ const SunsetRio: React.FC = () => {
         }}
       >
         <a href="#fecha" className="btn-gold text-sm py-3 w-full text-center block">
-          Quiero ir · elegí tu fecha
+          Quiero ir · 30 oct al 1 nov
         </a>
       </div>
 
