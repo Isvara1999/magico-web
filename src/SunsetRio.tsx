@@ -580,7 +580,7 @@ const SunsetRio: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-5">
               {[
                 {
-                  Icon: Users, photo: '/uploads/sunset-rio-amigos.webp', alt: 'Grupo abrazado en el salón de Pueblo Mágico', ilustrativa: false,
+                  Icon: Users, photo: '/uploads/sunset-rio-amigos-mate.webp', alt: 'Cuatro amigos tomando mate y picando algo en una mesa bajo los árboles', ilustrativa: true,
                   q: '¿Con tus amigos hace meses que dicen "tenemos que hacer algo"?',
                   a: 'Acá está el plan, ya armado. Ustedes llegan; la comida, la música, la sombra y el fuego los ponemos nosotros.',
                   badge: 'Desde 4 personas: 30% de descuento',
