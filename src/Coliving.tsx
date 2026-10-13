@@ -652,7 +652,7 @@ const GuiaFoco: React.FC = () => {
     // Bot (campo trampa o envío instantáneo): se entrega igual sin mandar nada.
     if (esBot()) { triggerDownload(); setSubmitted(true); return; }
     setSending(true);
-    submitForm('Guía de Foco — Coliving', data).finally(() => {
+    submitForm('guia-coliving', data).finally(() => {
       triggerDownload();
       setSending(false);
       setSubmitted(true);

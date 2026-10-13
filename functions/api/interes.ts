@@ -21,11 +21,7 @@
 //   - el mismo mail en el mismo evento no se duplica ni dispara mails de nuevo
 
 import { validarNombre, validarTelefono, normalizarTelefono, validarEmail, validarEdad } from '../../src/lib/validarContacto';
-
-const ALLOWED_ORIGINS = [
-  'https://experienciamagico.com',
-];
-const LOCALHOST_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
+import { corsHeaders, json, texto, escapeHtml, hashIp, dominioRecibeMail, enviarMail, origenPermitido, tablaHtml } from '../_lib/formularios';
 
 // Mismo número que WA_MAGICO en src/data/config.ts (ese archivo usa
 // import.meta.env y no se puede importar desde una Function).
@@ -53,54 +49,6 @@ const MAX_CLICS_POR_HORA = 60;
 const MS_MINIMO = 3000;
 const FUENTES = Object.keys(FUENTE_LABEL);
 
-function corsHeaders(request: Request): Record<string, string> {
-  const origin = request.headers.get('Origin') || '';
-  const allowed = ALLOWED_ORIGINS.includes(origin) || LOCALHOST_ORIGIN.test(origin);
-  return {
-    'Access-Control-Allow-Origin': allowed ? origin : ALLOWED_ORIGINS[0],
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    Vary: 'Origin',
-  };
-}
-
-function json(body: unknown, status: number, headers: Record<string, string>) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json', ...headers },
-  });
-}
-
-const texto = (v: unknown, max: number) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
-
-const escapeHtml = (s: string) =>
-  s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
-
-// ¿El dominio del mail recibe correo? DNS-over-HTTPS de Cloudflare (gratis).
-// Si la consulta falla por red, no frenamos a nadie: solo rechaza un "no existe".
-async function dominioRecibeMail(email: string): Promise<boolean> {
-  const dominio = email.split('@')[1];
-  try {
-    const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(dominio)}&type=MX`, {
-      headers: { accept: 'application/dns-json' },
-    });
-    if (!res.ok) return true;
-    const data: any = await res.json();
-    if (data.Status === 3) return false;                                       // NXDOMAIN: el dominio no existe
-    return Array.isArray(data.Answer) && data.Answer.some((a: any) => a.type === 15);
-  } catch {
-    return true;
-  }
-}
-
-async function hashIp(request: Request, env: any): Promise<string | null> {
-  const ip = request.headers.get('CF-Connecting-IP');
-  if (!ip) return null;
-  const datos = new TextEncoder().encode(`${env.SESSION_SECRET || 'pueblo-magico'}:${ip}`);
-  const hash = await crypto.subtle.digest('SHA-256', datos);
-  return [...new Uint8Array(hash)].slice(0, 16).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 async function enviosRecientes(env: any, ipHash: string, tipo: 'click' | 'form'): Promise<number> {
   const row: any = await env.DB
     .prepare(`SELECT COUNT(*) AS n FROM registros_eventos WHERE ip_hash = ? AND tipo = ? AND created_at > strftime('%Y-%m-%dT%H:%M:%fZ', 'now', '-1 hour')`)
@@ -109,21 +57,8 @@ async function enviosRecientes(env: any, ipHash: string, tipo: 'click' | 'form')
   return row?.n || 0;
 }
 
-async function enviarMail(env: any, to: string[], subject: string, html: string) {
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: env.RESEND_FROM || 'Pueblo Mágico <onboarding@resend.dev>', to, subject, html }),
-    });
-  } catch { /* best-effort: el registro ya quedó en D1 */ }
-}
-
 function mailAviso(ev: Evento, datos: Record<string, string | number | null>) {
-  const filas = Object.entries(datos)
-    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#666">${k}</td><td style="padding:4px 0"><strong>${escapeHtml(String(v ?? '—'))}</strong></td></tr>`)
-    .join('');
-  return `<p>Alguien completó el formulario de <strong>${ev.nombre}</strong> (${ev.fecha}).</p><table>${filas}</table><p style="color:#888;font-size:12px">Todos los registros se descargan en CSV desde el Dashboard → Interesados.</p>`;
+  return `<p>Alguien completó el formulario de <strong>${ev.nombre}</strong> (${ev.fecha}).</p>${tablaHtml(datos)}<p style="color:#888;font-size:12px">Todos los registros se descargan en CSV desde el Dashboard → Interesados.</p>`;
 }
 
 function mailConfirmacion(ev: Evento, nombre: string, codigo: string, linkConfirmar: string, linkWa: string, linkLanding: string) {
@@ -153,7 +88,7 @@ export async function onRequestPost({ request, env, waitUntil }: any) {
   const headers = corsHeaders(request);
 
   const origin = request.headers.get('Origin');
-  if (origin && !ALLOWED_ORIGINS.includes(origin) && !LOCALHOST_ORIGIN.test(origin)) {
+  if (origin && !origenPermitido(origin)) {
     return json({ error: 'Origen no permitido.' }, 403, headers);
   }
 

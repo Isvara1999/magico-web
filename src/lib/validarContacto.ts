@@ -6,10 +6,11 @@
 const NOMBRES_FALSOS = /^(test|prueba|asd|asdf|qwe|qwerty|aaa|xxx|nn|no|nombre|apellido|fake|null|undefined)$/i;
 const TECLADO = /(asdf|qwer|zxcv|hjkl|sdfg|jkl)/i;
 
-export function validarNombre(raw: string): string | null {
+export function validarNombre(raw: string, { requiereApellido = true } = {}): string | null {
   const nombre = raw.trim().replace(/\s+/g, ' ');
   const partes = nombre.split(' ');
-  if (partes.length < 2) return 'Poné tu nombre y apellido.';
+  if (!nombre) return 'Contanos tu nombre.';
+  if (requiereApellido && partes.length < 2) return 'Poné tu nombre y apellido.';
   if (!/^[\p{L}' .-]+$/u.test(nombre)) return 'El nombre solo puede tener letras.';
   if (partes.some(p => p.replace(/[.'-]/g, '').length < 2)) return 'Poné tu nombre y apellido completos.';
   if (partes.some(p => NOMBRES_FALSOS.test(p)) || TECLADO.test(nombre)) return 'Ese nombre no parece real.';

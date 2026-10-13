@@ -42,7 +42,7 @@ const AulaVerdeLeadMagnet: React.FC = () => {
     setIsGenerating(true);
 
     // La captura del lead (email) no debe bloquear la entrega del PDF prometido.
-    (enviar ? submitForm('Dossier PDF — Aula Verde', formData) : Promise.resolve())
+    (enviar ? submitForm('dossier-aula-verde', formData) : Promise.resolve())
       .catch((error) => console.error("Error al enviar el formulario", error))
       .finally(async () => {
         try {

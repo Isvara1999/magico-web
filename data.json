@@ -1163,6 +1163,7 @@
         "successMsg": "Gracias por escribirnos. Te responderemos a la brevedad.",
         "errorMsg": "Hubo un error al enviar. Por favor intenta de nuevo.",
         "invalidEmail": "Revisá tu mail: no parece válido.",
+        "invalidName": "Revisá tu nombre: no parece real.",
         "invalidPhone": "Revisá tu WhatsApp: incluí el código de área."
       },
       "labels": {
@@ -3912,6 +3913,7 @@
         "successMsg": "Thanks for writing to us. We'll get back to you shortly.",
         "errorMsg": "There was an error sending your message. Please try again.",
         "invalidEmail": "Please check your email: it doesn't look valid.",
+        "invalidName": "Please check your name: it doesn't look real.",
         "invalidPhone": "Please check your WhatsApp number, including the country/area code."
       },
       "labels": {

@@ -4,7 +4,7 @@ import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { marked } from 'marked';
 import { submitForm } from '../src/lib/submitForm';
 import { useAntiBot } from '../src/lib/useAntiBot';
-import { validarEmail } from '../src/lib/validarContacto';
+import { validarEmail, validarNombre } from '../src/lib/validarContacto';
 
 export const SectionContacto = () => {
   const { t } = useLanguage();
@@ -15,7 +15,7 @@ export const SectionContacto = () => {
     message: '',
     consent: false,
   });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'invalidEmail' | 'invalidPhone'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'invalidEmail' | 'invalidPhone' | 'invalidName'>('idle');
   const { trampa, esBot } = useAntiBot();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,6 +31,7 @@ export const SectionContacto = () => {
     // WhatsApp es opcional; si lo ponen, que tenga pinta de número real
     // (acá escriben también desde el exterior, así que no se fuerza formato AR).
     const digitos = formData.whatsapp.replace(/[^0-9]/g, '');
+    if (validarNombre(formData.name, { requiereApellido: false })) return setStatus('invalidName');
     if (validarEmail(formData.email)) return setStatus('invalidEmail');
     if (digitos && (digitos.length < 8 || digitos.length > 15 || new Set(digitos).size === 1)) return setStatus('invalidPhone');
     setStatus('submitting');
@@ -42,7 +43,7 @@ export const SectionContacto = () => {
     }
 
     try {
-      await submitForm('Formulario de Contacto', formData);
+      await submitForm('contacto', formData);
 
       setStatus('success');
       setFormData({ name: '', email: '', whatsapp: '', message: '', consent: false });
@@ -52,7 +53,9 @@ export const SectionContacto = () => {
 
     } catch (error) {
       console.error('Error submitting form:', error);
-      setStatus('error');
+      // El servidor también chequea que el dominio del mail exista.
+      const msg = error instanceof Error ? error.message : '';
+      setStatus(/mail/i.test(msg) ? 'invalidEmail' : /nombre/i.test(msg) ? 'invalidName' : /whatsapp/i.test(msg) ? 'invalidPhone' : 'error');
     }
   };
 
@@ -161,7 +164,7 @@ export const SectionContacto = () => {
                   {t.contact.status.successMsg}
                 </p>
               )}
-              {(status === 'error' || status === 'invalidEmail' || status === 'invalidPhone') && (
+              {(status === 'error' || status === 'invalidEmail' || status === 'invalidPhone' || status === 'invalidName') && (
                 <p className="text-red-500 text-sm animate-fadeIn flex items-center gap-2" role="alert">
                   <AlertCircle className="w-4 h-4" /> {status === 'error' ? t.contact.status.errorMsg : t.contact.status[status]}
                 </p>
