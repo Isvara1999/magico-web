@@ -376,7 +376,7 @@
           },
           {
             "q": "¿Puedo aportar desde el exterior?",
-            "a": "Sí, con criptomonedas (BTC y ETH). La transferencia internacional SEPA estará disponible próximamente."
+            "a": "Sí. Podés aportar por transferencia internacional SEPA (en euros) o con criptomonedas (BTC y ETH). Elegí el método en «Elegí cómo aportar» y ahí vas a ver los datos para transferir."
           }
         ]
       },
@@ -3126,7 +3126,7 @@
           },
           {
             "q": "Can I contribute from abroad?",
-            "a": "Yes, with cryptocurrency (BTC and ETH). International SEPA transfers will be available soon."
+            "a": "Yes. You can contribute via international SEPA transfer (in euros) or with cryptocurrency (BTC and ETH). Pick the method under «Choose how to contribute» to see the transfer details."
           }
         ]
       },
