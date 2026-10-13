@@ -15,7 +15,13 @@ function json(body: unknown, status = 200) {
 }
 
 const COLUMNAS = ['codigo', 'created_at', 'evento', 'valor', 'nombre', 'telefono', 'email', 'edad', 'genero', 'fuente', 'modalidad', 'cantidad', 'pagina', 'email_confirmado_at'];
-const ENCABEZADOS = ['Código', 'Fecha de registro (UTC)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad', 'Landing', 'Mail confirmado (UTC)'];
+const ENCABEZADOS = ['Código', 'Fecha de registro (hora Argentina)', 'Evento', 'Fecha del evento', 'Nombre y apellido', 'Teléfono', 'Email', 'Edad', 'Género', 'Cómo se enteró', 'Viene', 'Cantidad', 'Landing', 'Mail confirmado (hora Argentina)'];
+
+// Las fechas se guardan en UTC; en el CSV van en hora argentina (UTC-3, sin horario de verano).
+const FECHAS = ['created_at', 'email_confirmado_at'];
+const horaAR = (iso: string) => new Date(iso.replace(' ', 'T') + (iso.endsWith('Z') ? '' : 'Z'))
+  .toLocaleString('sv-SE', { timeZone: 'America/Argentina/Buenos_Aires', hour12: false }).slice(0, 16);
+const celda = (r: any, c: string) => csvEscape(FECHAS.includes(c) && r[c] ? horaAR(r[c]) : r[c]);
 
 function csvEscape(v: unknown): string {
   const s = v === null || v === undefined ? '' : String(v);
@@ -35,7 +41,7 @@ export async function onRequestGet({ request, env }: any) {
     .all();
 
   if (formato === 'csv') {
-    const lineas = [ENCABEZADOS.map(csvEscape).join(','), ...(results || []).map((r: any) => COLUMNAS.map(c => csvEscape(r[c])).join(','))];
+    const lineas = [ENCABEZADOS.map(csvEscape).join(','), ...(results || []).map((r: any) => COLUMNAS.map(c => celda(r, c)).join(','))];
     return new Response('﻿' + lineas.join('\r\n'), {
       headers: {
         'Content-Type': 'text/csv; charset=utf-8',
